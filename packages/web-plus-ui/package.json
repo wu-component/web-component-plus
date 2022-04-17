@@ -1,6 +1,6 @@
 {
   "name": "@canyuegongzi/web-ui-plus",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "> TODO: description",
   "author": "Marvin <yongfeide123@gmail.com>",
   "homepage": "",
@@ -22,7 +22,10 @@
     "build:rollup:package:dev": "cross-env NODE_ENV=production rollup -c ./build/build-dev.js",
     "package:start:dev": "nodemon",
     "start:debug": "nodemon --config nodemon-debug.json",
-    "build:tsc": "cross-env NODE_ENV=production tsc -p tsconfig.build.json"
+    "build:tsc": "cross-env NODE_ENV=production tsc -p tsconfig.build.json",
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
   },
   "publishConfig": {
     "access": "public"
@@ -84,7 +87,11 @@
     "ts-node": "^7.0.1",
     "tsconfig-paths": "^3.7.0",
     "tslib": "^2.3.1",
-    "typescript": "4.5.4"
+    "typescript": "4.5.4",
+    "@vitejs/plugin-vue": "^2.3.1",
+    "vite": "^2.9.2",
+    "vue-tsc": "^0.29.8",
+    "vue": "^3.2.25"
   },
   "dependencies": {
     "@canyuegongzi/web-core-plus": "latest",

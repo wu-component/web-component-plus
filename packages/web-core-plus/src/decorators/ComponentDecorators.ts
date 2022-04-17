@@ -256,7 +256,6 @@ export function Component(options: CustomTagOptions): ClassDecorator {
                     this.rootNode && shadowRoot.appendChild(this.rootNode);
                 }
                 this._shadowRootDom = shadowRoot;
-                this._shadowRoot = shadowRoot;
                 this.isInstalled = true;
                 this.rendered();
                 this.connected(shadowRoot);
@@ -338,7 +337,10 @@ export function Component(options: CustomTagOptions): ClassDecorator {
                 const ele: any = this;
                 if (!keysList) return;
                 keys.forEach((key: PropOptions) => {
-                    const val = ele.getAttribute(hyphenate(key.attr));
+                    let val = ele.getAttribute(hyphenate(key.attr));
+                    if (!val) {
+                        val = ele.getAttribute(key.attr);
+                    }
                     this[key.attr] = formatValue(val, key.type, key.default);
                 });
             }

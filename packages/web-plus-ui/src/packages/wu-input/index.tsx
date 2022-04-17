@@ -190,9 +190,12 @@ export class WuInput extends HTMLElement implements OnInstall{
     /**
      * 清除
      */
+    @Emit('clear')
     public clearInput() {
         this.value = '';
         this.$value = '';
+        this.valueLength = 0;
+        return this.value;
     }
 
     public render() {
@@ -250,14 +253,14 @@ export class WuInput extends HTMLElement implements OnInstall{
                     </div>
                 }
                 {
-                    this.maxLength && this.type === 'textarea'  && <div class="wu-input_count">
+                    this.maxLength && this.tempInputTagName === 'textarea'  && <div class="wu-input_count">
                         <span class="wu-input_count-inner">
                             {this.valueLength}/{this.maxLength}
                         </span>
                     </div>
                 }
                 {
-                    this.maxLength && this.type === 'input'  && (
+                    this.maxLength && this.tempInputTagName === 'input'  && (
                         <div class="wu-input_suffix">
                             <div class="wu-input_count">
                                 <span class="wu-input_count-inner">

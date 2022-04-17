@@ -4,7 +4,7 @@
 
 @include b(textarea) {
     position: relative;
-    display: inline-block;
+    // display: inline-block;
     // width: 100%;
     vertical-align: bottom;
     font-size: $--font-size-base;
@@ -35,6 +35,30 @@
         &:focus {
             outline: none;
             border-color: $--input-focus-border;
+        }
+    }
+
+    & .wu-input_suffix {
+        position: absolute;
+        height: 100%;
+        right: 5px;
+        top: 0;
+        text-align: center;
+        color: $--input-icon-color;
+        transition: all .3s;
+        // pointer-events: none;
+        display: flex;
+        align-items: center;
+    }
+
+    & .wu-input_clear {
+        color: $--input-icon-color;
+        font-size: $--input-font-size;
+        cursor: pointer;
+        transition: $--color-transition-base;
+
+        &:hover {
+            color: $--input-clear-hover-color;
         }
     }
 
@@ -74,7 +98,7 @@
 @include b(input) {
     position: relative;
     font-size: $--font-size-base;
-    display: inline-block;
+    // display: inline-block;
     // width: 100%;
     @include scroll-bar;
 

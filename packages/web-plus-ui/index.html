@@ -6,25 +6,47 @@
 </head>
 <body>
 <div id="app">
-    <wu-plus-button id="testDom2" type="primary">按钮</wu-plus-button>
-    <wu-plus-button id="testDom3" type="success">按钮</wu-plus-button>
-    <wu-plus-button id="testDom4" type="info">按钮</wu-plus-button>
-    <wu-plus-icon name="ice-cream-square">按钮</wu-plus-icon>
-    <wu-plus-icon name="loading">按钮</wu-plus-icon>
-    <wu-plus-radio label="small" value="small" size="small" name="small"  checked="true"></wu-plus-radio>
-    <wu-plus-input style="width: 140px" disabled="false" placeholder="请输入" clearable="true" type="input"></wu-plus-input>
-    <wu-plus-row>
-        <div>内容</div>
-        <div>内容</div>
-        <div>内容</div>
-    </wu-plus-row>
-
+    <div style="display: flex;flex-direction: column">
+        <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+            <wu-plus-button size="mini" type="primary">primary</wu-plus-button>
+            <wu-plus-button size="mini" type="success">success</wu-plus-button>
+            <wu-plus-button size="mini" type="warning">warning</wu-plus-button>
+            <wu-plus-button size="mini" type="danger">danger</wu-plus-button>
+            <wu-plus-button size="mini" type="info">info</wu-plus-button>
+            <wu-plus-button size="mini" type="text">text</wu-plus-button>
+        </div>
+        <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+            <wu-plus-icon style="font-size: 24px" name="ice-cream-square"></wu-plus-icon>
+            <wu-plus-icon style="font-size: 24px" name="loading"></wu-plus-icon>
+            <wu-plus-icon style="font-size: 24px" name="star-off"></wu-plus-icon>
+            <wu-plus-icon style="font-size: 24px" name="user-solid"></wu-plus-icon>
+            <wu-plus-icon style="font-size: 24px" name="setting"></wu-plus-icon>
+            <wu-plus-icon style="font-size: 24px" name="warning-outline"></wu-plus-icon>
+        </div>
+        <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+            <wu-plus-radio label="男" value="medium" size="medium" name="medium" checked="true"></wu-plus-radio>
+            <wu-plus-radio label="女" value="small" size="small" name="small" checked="true"></wu-plus-radio>
+            <wu-plus-radio label="未知" value="mini" size="mini" name="mini" id="miniEvent1"></wu-plus-radio>
+        </div>
+        <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+            <wu-plus-input style="width: 280px" placeholder="请输入" clearable="true" type="input"></wu-plus-input>
+        </div>
+        <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+            <wu-plus-input style="width: 280px" disabled="true" clearable="true" type="textarea"></wu-plus-input>
+        </div>
+        <wu-plus-row>
+            <div>内容</div>
+            <div>内容</div>
+            <div>内容</div>
+        </wu-plus-row>
+    </div>
 </div>
 
 </body>
-<script type="module" src="./dist/web-plus.esm.js"></script>
+<script type="module" src="./dist/web-plus.umd.js"></script>
+<script type="module" src="./dev-server/main.ts"></script>
 <script type="module">
-    const testDom = document.getElementById('testDom2');
+    /*const testDom = document.getElementById('testDom2');
     console.log(testDom);
     let indexNum = 0;
     let indexNum1 = 0;
@@ -38,7 +60,7 @@
         const setArrValue = types[indexNum];
         testDom.setAttribute('type', setArrValue);
     }
-    testDom.addEventListener('click', testTap);
+    testDom.addEventListener('click', testTap);*/
     /*const testDom = document.getElementById('testDom2');
     const testDom3 = document.getElementById('testDom3');
     const disDom = document.getElementById('dis');

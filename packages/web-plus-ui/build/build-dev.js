@@ -37,13 +37,13 @@ const tsPlugin = typescript({
 
 
 // 单独打包
-const config = readdirSync(input)
+/*const config = readdirSync(input)
     .filter(name => ![].includes(name))
     .map(name => ({
         input: `${input}/${name}/index.tsx`,
         plugins: [
             url({
-                include: ['**/*.svg', '**/*.png', '**/*.jp(e)?g', '**/*.gif', '**/*.webp', '**/*.ttf', '**/*.woff']
+                include: ['**!/!*.svg', '**!/!*.png', '**!/!*.jp(e)?g', '**!/!*.gif', '**!/!*.webp', '**!/!*.ttf', '**!/!*.woff']
             }),
             nodeResolve(),
             commonjs(),
@@ -64,15 +64,15 @@ const config = readdirSync(input)
             })
         ],
         output: [
-            // { name: name, file: `${output}/${name}/lib/web-plus.umd.js`, format: 'umd' },
+            { name: name, file: `${output}/${name}/lib/web-plus.umd.js`, format: 'umd' },
             // { file: `${output}/${name}/lib/web-plus.cjs.js`, format: 'cjs' },
-            { file: `${output}/${name}/lib/web-plus.esm.js`, format: 'es' }
+            // { file: `${output}/${name}/lib/web-plus.esm.js`, format: 'es' }
 
         ]
-    }));
+    }));*/
 
-
-// 整合打包
+const config = []
+// 整合打;包
 config.push({
     input: resolve(__dirname, "../src/index.ts"),
     plugins: [
@@ -105,9 +105,9 @@ config.push({
         })
     ],
     output: [
-        // { name: 'WebUIPlus', file: `${output}/web-plus.umd.js`, format: 'umd' },
+        { name: 'WebUIPlus', file: `${output}/web-plus.umd.js`, format: 'umd' },
         // { file: `${output}/web-plus.cjs.js`, format: 'cjs' },
-        { file: `${output}/web-plus.esm.js`, format: 'es' }
+        // { file: `${output}/web-plus.esm.js`, format: 'es' }
 
     ]
 })
