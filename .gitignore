@@ -1,0 +1,10 @@
+# node.js
+#
+node_modules/
+**/node_modules/
+**/lib/*
+**/dist/
+.idea/*
+npm-debug.log
+.idea
+
