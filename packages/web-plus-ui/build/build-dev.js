@@ -42,7 +42,6 @@ const config = readdirSync(input)
     .map(name => ({
         input: `${input}/${name}/index.tsx`,
         plugins: [
-            terser(),
             url({
                 include: ['**/*.svg', '**/*.png', '**/*.jp(e)?g', '**/*.gif', '**/*.webp', '**/*.ttf', '**/*.woff']
             }),
@@ -65,8 +64,8 @@ const config = readdirSync(input)
             })
         ],
         output: [
-            { name: name, file: `${output}/${name}/lib/web-plus.umd.js`, format: 'umd' },
-            { file: `${output}/${name}/lib/web-plus.cjs.js`, format: 'cjs' },
+            // { name: name, file: `${output}/${name}/lib/web-plus.umd.js`, format: 'umd' },
+            // { file: `${output}/${name}/lib/web-plus.cjs.js`, format: 'cjs' },
             { file: `${output}/${name}/lib/web-plus.esm.js`, format: 'es' }
 
         ]
@@ -77,7 +76,6 @@ const config = readdirSync(input)
 config.push({
     input: resolve(__dirname, "../src/index.ts"),
     plugins: [
-        terser(),
         url(),
         nodeResolve(),
         commonjs(),
@@ -107,8 +105,8 @@ config.push({
         })
     ],
     output: [
-        { name: 'WebUIPlus', file: `${output}/web-plus.umd.js`, format: 'umd' },
-        { file: `${output}/web-plus.cjs.js`, format: 'cjs' },
+        // { name: 'WebUIPlus', file: `${output}/web-plus.umd.js`, format: 'umd' },
+        // { file: `${output}/web-plus.cjs.js`, format: 'cjs' },
         { file: `${output}/web-plus.esm.js`, format: 'es' }
 
     ]
