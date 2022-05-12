@@ -2,8 +2,6 @@
 import css from './index.scss';
 import { extractClass } from "@/common";
 
-type JustifyEnums = 'start' | 'end' | 'center' | 'space-around' | 'space-between';
-type AlignEnums = 'top' | 'middle' | 'bottom';
 @Component({
     name: 'wu-plus-col',
     css: css
@@ -13,49 +11,46 @@ export class WuCol extends HTMLElement {
         super();
     }
 
-    @Prop({ default: '', type: String })
-    public name: string;
-
-    @Prop({ default: 0, type: Number })
-    public gutter: number;
-
-    @Prop({ default: '', type: String })
-    public type: string;
-
-    @Prop({ default: 'start', type: String })
-    public justify: JustifyEnums;
-
-    @Prop({ default: '', type: String })
-    public align: AlignEnums;
-
     @Prop({ default: 'div', type: String })
     public tag: string
 
-    public tempInputTagName = '';
+    @Prop({ default: 24, type: Number })
+    public span: number;
 
-    get currentStyle() {
-        const ret: any = {};
-        if (this.gutter) {
-            ret.marginLeft = `-${this.gutter / 2}px`;
-            ret.marginRight = ret.marginLeft;
-        }
-        return ret;
-    }
+    @Prop({ default: '', type: Number })
+    public offset: number
+
+    @Prop({ default: '', type: Number })
+    public pull: number
+
+    @Prop({ default: '', type: Number })
+    public push: number
 
     public render(_renderProps= {}, _store = {}) {
+        const classList: string[] = [];
+        const classListMap: Record<string, boolean> = {};
+        let style: Record<string, string> = {};
+        ['span', 'offset', 'pull', 'push'].forEach(prop => {
+            if (this[prop] || this[prop] === 0) {
+                const  name = prop !== 'span'
+                    ? `wu-col-${prop}-${this[prop]}`
+                    : `wu-col-${this[prop]}`
+                classList.push(name);
+                classListMap[name] = true;
+            }
+        });
         return (
             <this.tag
+                style={{...style}}
                 {
-                    ...extractClass({}, `wu-row`,
+                    ...extractClass({}, `wu-col`,
                         {
-                            [`is-justify-${this.justify}`]: this.justify !== 'start',
-                            [`is-align-${this.align}`]: this.align,
-                            ['el-row--flex']:  this.type === 'flex',
+                            ...classListMap
                         }
                     )
                 }
             >
-                <solt />
+                <slot />
             </this.tag>
         );
     }

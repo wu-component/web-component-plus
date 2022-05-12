@@ -3,6 +3,7 @@ import css from './index.scss';
 import { extractClass } from "@/common";
 
 type JustifyEnums = 'start' | 'end' | 'center' | 'space-around' | 'space-between';
+type TypeEnums = 'flex' | '' | undefined;
 type AlignEnums = 'top' | 'middle' | 'bottom';
 @Component({
     name: 'wu-plus-row',
@@ -20,7 +21,7 @@ export class WuRow extends HTMLElement {
     public gutter: number;
 
     @Prop({ default: '', type: String })
-    public type: string;
+    public type: TypeEnums;
 
     @Prop({ default: 'start', type: String })
     public justify: JustifyEnums;
@@ -50,12 +51,12 @@ export class WuRow extends HTMLElement {
                         {
                             [`is-justify-${this.justify}`]: this.justify !== 'start',
                             [`is-align-${this.align}`]: this.align,
-                            ['el-row--flex']:  this.type === 'flex',
+                            ['wu-row-flex']:  this.type === 'flex',
                         }
                     )
                 }
             >
-                <solt />
+                <slot />
             </this.tag>
         );
     }

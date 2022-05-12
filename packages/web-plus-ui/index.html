@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
 <div id="app">
@@ -34,11 +39,81 @@
         <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
             <wu-plus-input style="width: 280px" disabled="true" clearable="true" type="textarea"></wu-plus-input>
         </div>
-        <wu-plus-row>
-            <div>内容</div>
-            <div>内容</div>
-            <div>内容</div>
-        </wu-plus-row>
+        <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+            <wu-plus-input style="width: 280px" disabled="false" clearable="true" maxLength="10" type="textarea"></wu-plus-input>
+        </div>
+        <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+            <wu-plus-input style="width: 280px" disabled="false" clearable="true" type="input" maxLength="10"></wu-plus-input>
+        </div>
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%">
+            <wu-plus-row>
+                <wu-plus-col span="12">
+                    <div style="height: 40px;background:red">12</div>
+                </wu-plus-col>
+                <wu-plus-col span="12">
+                    <div style="height: 40px;background:green">12</div>
+                </wu-plus-col>
+            </wu-plus-row>
+        </div>
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px">
+            <wu-plus-row>
+                <wu-plus-col span="4">
+                    <div style="height: 40px;background:red">4</div>
+                </wu-plus-col>
+                <wu-plus-col span="20">
+                    <div style="height: 40px;background:green">20</div>
+                </wu-plus-col>
+            </wu-plus-row>
+        </div>
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px">
+            <wu-plus-row>
+                <wu-plus-col span="20">
+                    <div style="height: 40px;background:red">4</div>
+                </wu-plus-col>
+                <wu-plus-col span="4">
+                    <div style="height: 40px;background:green">20</div>
+                </wu-plus-col>
+            </wu-plus-row>
+        </div>
+
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px">
+            <wu-plus-row>
+                <wu-plus-col span="20" style="background:red">
+                    <div style="height: 40px;background:red;display: flex;align-items: center">
+                        <span style="width: 48px">4</span>
+                        <wu-plus-button size="mini" type="primary">primary</wu-plus-button>
+                    </div>
+                </wu-plus-col>
+                <wu-plus-col span="4">
+                    <div style="height: 40px;background:green">20</div>
+                </wu-plus-col>
+            </wu-plus-row>
+        </div>
+
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px">
+            <wu-plus-row type="flex" justify="space-around">
+                <wu-plus-col span="10">
+                    <div style="height: 40px;background:red">10</div>
+                </wu-plus-col>
+                <wu-plus-col span="10">
+                    <div style="height: 40px;background:green">10</div>
+                </wu-plus-col>
+            </wu-plus-row>
+        </div>
+
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px">
+            <wu-plus-link>测试链接</wu-plus-link>
+            <wu-plus-link underline="true">测试链接</wu-plus-link>
+            <wu-plus-link type="danger">测试链接</wu-plus-link>
+            <wu-plus-link type="info">测试链接</wu-plus-link>
+            <wu-plus-link type="info" underline="true" href="https://www.baidu.com/" target="_blank">测试链接</wu-plus-link>
+            <wu-plus-link type="info" disabled="true" underline="true" href="www.baidu.com">测试链接</wu-plus-link>
+        </div>
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px">
+            <wu-plus-switch value="true" id="switchId"></wu-plus-switch>
+            <wu-plus-switch value="true" id="switchId1" activeColor="yellow" inactiveColor="red"></wu-plus-switch>
+            <wu-plus-switch value="false" disabled="true" id="switchId1"></wu-plus-switch>
+        </div>
     </div>
 </div>
 
@@ -100,6 +175,11 @@
 
         testDom.setAttribute('type', 'success')
     }, 3000)*/
+
+    const switchId = document.getElementById('switchId');
+    switchId.addEventListener('change', (e) => {
+        console.log(e)
+    })
 
 
 </script>

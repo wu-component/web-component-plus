@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import { COMPONENT_CUSTOM_EVENT, COMPONENT_WATCH, PROP_META_KEY, STATE_META_KEY } from "../app-data";
 import { PropOptions } from "./PropDecorators";
-import { formatValue } from "../utils/format-type";
+import {formatValue, isEqual} from "../utils/format-type";
 import { diff } from "../runtime";
 import { cssToDom, hyphenate, isObject, toDotCase } from "../utils";
 import { EventOptions } from "./EmitDecorators";
@@ -34,10 +34,10 @@ function injectKeys(keys: PropOptions[], functions: WatchMetaOptions[], customEl
         const attr = `__${props.attr}__props__`;
         Object.defineProperty(customElement.prototype, props.attr, {
             get: function() {
-                if (this[attr] || typeof this[attr] === "boolean" || this[attr] === null) {
+                if (this[attr] !== undefined) {
                     return this[attr];
                 }
-                return props.default || undefined;
+                return props.default;
 
             },
             set: function (val: any){
@@ -46,7 +46,7 @@ function injectKeys(keys: PropOptions[], functions: WatchMetaOptions[], customEl
                 customElement.prototype?.update.call(this);
                 const watch: WatchMetaOptions = functions.find(item => item.path === props.attr);
                 if (watch) {
-                    if (this[attr] !== oldValue) {
+                    if (!isEqual(this[attr], oldValue)) {
                         customElement.prototype[watch.callbackName].call(this, this[attr], oldValue);
                     }
 
@@ -73,7 +73,7 @@ function injectWatch( functions: WatchMetaOptions[], customElement: any) {
             set: function (val: any){
                 const oldValue = isObject(this[attr]) || Array.isArray(this[attr])? JSON.parse(JSON.stringify(this[attr])): this[attr];
                 this[attr] = val;
-                if (val !== oldValue) {
+                if (!isEqual(val, oldValue)) {
                     customElement.prototype[props.callbackName].call(this, this[attr], oldValue);
                 }
                 return true;
@@ -93,10 +93,8 @@ function injectEmit(functions: EventOptions[], customElement: any) {
             get: function() {
                 return function(...args:any) {
                     const result: any = event.methodFun.call(this, args);
-                    if (result) {
-                        const evtName = (event.eventName) ? event.eventName: toDotCase(event.methodName);
-                        customElement.prototype._dispatchEvent.call(this, evtName, result);
-                    }
+                    const evtName = (event.eventName) ? event.eventName: toDotCase(event.methodName);
+                    customElement.prototype._dispatchEvent.call(this, evtName, result);
                 };
             }
         });

@@ -1,6 +1,10 @@
 @use "sass:map";
 @import '../../theme/common/var.scss';
 @import '../../theme/common/mixin.scss';
+:host{
+    display: block;
+    width: 100%;
+}
 @include b(row) {
     position: relative;
     box-sizing: border-box;

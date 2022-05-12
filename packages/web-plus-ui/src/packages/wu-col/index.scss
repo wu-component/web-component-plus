@@ -2,54 +2,59 @@
 @use "sass:math";
 @import '../../theme/common/var.scss';
 @import '../../theme/common/mixin.scss';
-[class*="el-col-"] {
+[class*="wu-col-"] {
     float: left;
     box-sizing: border-box;
 }
-
-.el-col-0 {
+:host{
+    display: contents;
+}
+::slotted {
+    width: 100%;
+}
+.wu-col-0 {
     display: none;
 }
 
 @for $i from 0 through 24 {
-    .el-col-#{$i} {
+    .wu-col-#{$i} {
         width: (math.div(1, 24) * $i * 100) * 1%;
     }
 
-    .el-col-offset-#{$i} {
+    .wu-col-offset-#{$i} {
         margin-left: (math.div(1, 24) * $i * 100) * 1%;
     }
 
-    .el-col-pull-#{$i} {
+    .wu-col-pull-#{$i} {
         position: relative;
         right: (math.div(1, 24) * $i * 100) * 1%;
     }
 
-    .el-col-push-#{$i} {
+    .wu-col-push-#{$i} {
         position: relative;
         left: (math.div(1, 24) * $i * 100) * 1%;
     }
 }
 
 @include res(xs) {
-    .el-col-xs-0 {
+    .wu-col-xs-0 {
         display: none;
     }
     @for $i from 0 through 24 {
-        .el-col-xs-#{$i} {
+        .wu-col-xs-#{$i} {
             width: (math.div(1, 24) * $i * 100) * 1%;
         }
 
-        .el-col-xs-offset-#{$i} {
+        .wu-col-xs-offset-#{$i} {
             margin-left: (math.div(1, 24) * $i * 100) * 1%;
         }
 
-        .el-col-xs-pull-#{$i} {
+        .wu-col-xs-pull-#{$i} {
             position: relative;
             right: (math.div(1, 24) * $i * 100) * 1%;
         }
 
-        .el-col-xs-push-#{$i} {
+        .wu-col-xs-push-#{$i} {
             position: relative;
             left: (math.div(1, 24) * $i * 100) * 1%;
         }
@@ -57,24 +62,24 @@
 }
 
 @include res(sm) {
-    .el-col-sm-0 {
+    .wu-col-sm-0 {
         display: none;
     }
     @for $i from 0 through 24 {
-        .el-col-sm-#{$i} {
+        .wu-col-sm-#{$i} {
             width: (math.div(1, 24) * $i * 100) * 1%;
         }
 
-        .el-col-sm-offset-#{$i} {
+        .wu-col-sm-offset-#{$i} {
             margin-left: (math.div(1, 24) * $i * 100) * 1%;
         }
 
-        .el-col-sm-pull-#{$i} {
+        .wu-col-sm-pull-#{$i} {
             position: relative;
             right: (math.div(1, 24) * $i * 100) * 1%;
         }
 
-        .el-col-sm-push-#{$i} {
+        .wu-col-sm-push-#{$i} {
             position: relative;
             left: (math.div(1, 24) * $i * 100) * 1%;
         }
@@ -82,24 +87,24 @@
 }
 
 @include res(md) {
-    .el-col-md-0 {
+    .wu-col-md-0 {
         display: none;
     }
     @for $i from 0 through 24 {
-        .el-col-md-#{$i} {
+        .wu-col-md-#{$i} {
             width: (math.div(1, 24) * $i * 100) * 1%;
         }
 
-        .el-col-md-offset-#{$i} {
+        .wu-col-md-offset-#{$i} {
             margin-left: (math.div(1, 24) * $i * 100) * 1%;
         }
 
-        .el-col-md-pull-#{$i} {
+        .wu-col-md-pull-#{$i} {
             position: relative;
             right: (math.div(1, 24) * $i * 100) * 1%;
         }
 
-        .el-col-md-push-#{$i} {
+        .wu-col-md-push-#{$i} {
             position: relative;
             left: (math.div(1, 24) * $i * 100) * 1%;
         }
@@ -107,24 +112,24 @@
 }
 
 @include res(lg) {
-    .el-col-lg-0 {
+    .wu-col-lg-0 {
         display: none;
     }
     @for $i from 0 through 24 {
-        .el-col-lg-#{$i} {
+        .wu-col-lg-#{$i} {
             width: (math.div(1, 24) * $i * 100) * 1%;
         }
 
-        .el-col-lg-offset-#{$i} {
+        .wu-col-lg-offset-#{$i} {
             margin-left: (math.div(1, 24) * $i * 100) * 1%;
         }
 
-        .el-col-lg-pull-#{$i} {
+        .wu-col-lg-pull-#{$i} {
             position: relative;
             right: (math.div(1, 24) * $i * 100) * 1%;
         }
 
-        .el-col-lg-push-#{$i} {
+        .wu-col-lg-push-#{$i} {
             position: relative;
             left: (math.div(1, 24) * $i * 100) * 1%;
         }
@@ -132,24 +137,24 @@
 }
 
 @include res(xl) {
-    .el-col-xl-0 {
+    .wu-col-xl-0 {
         display: none;
     }
     @for $i from 0 through 24 {
-        .el-col-xl-#{$i} {
+        .wu-col-xl-#{$i} {
             width: (math.div(1, 24) * $i * 100) * 1%;
         }
 
-        .el-col-xl-offset-#{$i} {
+        .wu-col-xl-offset-#{$i} {
             margin-left: (math.div(1, 24) * $i * 100) * 1%;
         }
 
-        .el-col-xl-pull-#{$i} {
+        .wu-col-xl-pull-#{$i} {
             position: relative;
             right: (math.div(1, 24) * $i * 100) * 1%;
         }
 
-        .el-col-xl-push-#{$i} {
+        .wu-col-xl-push-#{$i} {
             position: relative;
             left: (math.div(1, 24) * $i * 100) * 1%;
         }

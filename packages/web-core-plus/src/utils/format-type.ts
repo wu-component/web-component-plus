@@ -30,7 +30,19 @@ export function formatValue(val: any, type?: PropTyp, defaultValue?: any) {
                 break;
         }
     } else {
-        newValue = defaultValue || null;
+        newValue = defaultValue;
     }
     return newValue;
+}
+
+export function isEqual(a: any, b: any) {
+    if (a === b) {
+        return true;
+    }
+    if (a == b) {
+        return true;
+    }
+    if (Object.prototype.toString.call(a) === '[object Object]' && Object.prototype.toString.call(b) === '[object Object]') {}
+    if (Object.prototype.toString.call(a) === '[object Array]' && Object.prototype.toString.call(b) === '[object Array]') {}
+    return false;
 }

@@ -158,7 +158,7 @@ export class WuInput extends HTMLElement implements OnInstall{
         this.$value = evt.target.value;
         let value = evt.target.value;
 
-        if (this.maxLength) {
+        if (this.maxLength && this.maxLength > 0) {
             this.valueLength = evt.target.value.length;
             if (this.valueLength > this.maxLength) {
                 value = value.splice(0, this.maxLength - 1);
@@ -201,6 +201,13 @@ export class WuInput extends HTMLElement implements OnInstall{
     public render() {
         this.tempTagName = 'wu-icon-' + (this.suffixIcon || this.prefixIcon);
         this.tempInputTagName = this.type === 'textarea' ? 'textarea' : 'input';
+        const attrMap = {};
+        if (this.maxLength) {
+            attrMap['max-length'] = this.maxLength
+        }
+        if (this.minLength) {
+            attrMap['min-length'] = this.minLength
+        }
         return (
             <div {
                      ...extractClass({}, `wu-${this.tempInputTagName}`,
@@ -236,7 +243,7 @@ export class WuInput extends HTMLElement implements OnInstall{
                                         rows={this.rows}
                                         className={`wu-${this.tempInputTagName}_inner`}
                                         autocomplete={this.autoComplete}
-                                        maxLength={this.maxLength}
+                                        {...attrMap}
                                         block={this.block}
                                         onchange={this.handleChange.bind(this)}
                                         onfocus={this.handleFocus.bind(this)}
@@ -253,22 +260,26 @@ export class WuInput extends HTMLElement implements OnInstall{
                     </div>
                 }
                 {
-                    this.maxLength && this.tempInputTagName === 'textarea'  && <div class="wu-input_count">
-                        <span class="wu-input_count-inner">
+                    this.maxLength && this.tempInputTagName === 'textarea'? (
+                        <div class="wu-input_count">
                             {this.valueLength}/{this.maxLength}
-                        </span>
-                    </div>
+                        </div>
+                    ): null
+
                 }
                 {
-                    this.maxLength && this.tempInputTagName === 'input'  && (
-                        <div class="wu-input_suffix">
-                            <div class="wu-input_count">
-                                <span class="wu-input_count-inner">
-                                    {this.valueLength}/{this.maxLength}
+                    this.maxLength && this.tempInputTagName === 'input'? (
+                        <span class="wu-input_suffix">
+                            <span class="el-input_suffix-inner">
+                                <span class="wu-input_count">
+                                    <span class="wu-input_count-inner">
+                                        {this.valueLength}/{this.maxLength}
+                                    </span>
                                 </span>
-                            </div>
-                        </div>
-                    )
+                            </span>
+
+                        </span>
+                    ): null
                 }
             </div>
         );
