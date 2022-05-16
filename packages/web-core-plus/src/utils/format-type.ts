@@ -19,11 +19,21 @@ export function formatValue(val: any, type?: PropTyp, defaultValue?: any) {
                 break;
             case Array:
             case Object:
-                newValue = JSON.parse(
-                    val.replace(/(['"])?([a-zA-Z0-9_-]+)(['"])?:([^\/])/g, '"$2":$4')
-                        .replace(/'([\s\S]*?)'/g, '"$1"')
-                        .replace(/,(\s*})/g, '$1')
-                );
+                if (typeof val === "string") {
+                    newValue = JSON.parse(val.replace(/'/g, '"'))
+                }
+                else if (Object.prototype.toString.call(val) === '[object Array]' ||
+                    Object.prototype.toString.call(val) === '[object Object]'
+                ) {
+                    newValue = val;
+                }
+                else {
+                    newValue = JSON.parse(
+                        val.replace(/(['"])?([a-zA-Z0-9_-]+)(['"])?:([^\/])/g, '"$2":$4')
+                            .replace(/'([\s\S]*?)'/g, '"$1"')
+                            .replace(/,(\s*})/g, '$1')
+                    );
+                }
                 break;
             default:
                 newValue = val;

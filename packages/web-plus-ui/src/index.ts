@@ -11,8 +11,10 @@ export * from './packages/wu-header';
 export * from './packages/wu-footer';
 export * from './packages/wu-checkbox';
 export * from './packages/wu-checkbox-group';
+export * from './packages/wu-checkbox-button';
 export * from './packages/wu-switch';
 export * from './packages/wu-tree';
 export * from './packages/wu-link';
+export * from './packages/wu-table';
 
 

@@ -1,1 +1,2 @@
-export type UISize = 'medium' | 'small' | 'mini';
+export * from './common';
+export * from './table';
