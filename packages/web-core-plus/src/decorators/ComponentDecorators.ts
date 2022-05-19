@@ -3,7 +3,7 @@ import { COMPONENT_CUSTOM_EVENT, COMPONENT_WATCH, PROP_META_KEY, STATE_META_KEY 
 import { PropOptions } from "./PropDecorators";
 import {formatValue, isEqual} from "../utils/format-type";
 import { diff } from "../runtime";
-import { cssToDom, hyphenate, isObject, toDotCase } from "../utils";
+import { cssToDom, hyphenateReverse, isObject, toDotCase, getAttrMap } from "../utils";
 import { EventOptions } from "./EmitDecorators";
 import { WatchMetaOptions } from "./WatchDecorators";
 import { StateOptions } from "./StateDecorators";
@@ -31,23 +31,29 @@ function injectKeys(keys: PropOptions[], functions: WatchMetaOptions[], customEl
         }
     }
     keys.forEach((props: PropOptions) => {
-        const attr = `__${props.attr}__props__`;
+        // const attr = `__${props.attr}__props__`;
+        const attr = props.attr;
         Object.defineProperty(customElement.prototype, props.attr, {
             get: function() {
-                if (this[attr] !== undefined) {
-                    return this[attr];
+                if (this.props === undefined) {
+                    this.props = {};
+                }
+                if (this.props[attr] !== undefined) {
+                    return this.props[attr];
                 }
                 return props.default;
 
             },
             set: function (val: any){
-                const oldValue = isObject(this[attr]) || Array.isArray(this[attr])? JSON.parse(JSON.stringify(this[attr])): this[attr];
-                this[attr] = formatValue(val, props.type, props.default);
+                const oldValue = isObject(this.props[attr]) || Array.isArray(this.props[attr])? JSON.parse(JSON.stringify(this.props[attr])): this.props[attr];
+                const newValue = formatValue(val, props.type, props.default);
+                this.props[attr] = newValue;
+                val = newValue;
                 customElement.prototype?.update.call(this);
                 const watch: WatchMetaOptions = functions.find(item => item.path === props.attr);
                 if (watch) {
-                    if (!isEqual(this[attr], oldValue)) {
-                        customElement.prototype[watch.callbackName].call(this, this[attr], oldValue);
+                    if (!isEqual(this.props[attr], oldValue)) {
+                        customElement.prototype[watch.callbackName].call(this, this.props[attr], oldValue);
                     }
 
                 }
@@ -134,8 +140,12 @@ export function Component(options: CustomTagOptions): ClassDecorator {
             public prevProps = {};
             public _customStyleElement = null;
             public _shadowRoot = null;
-            public store = {};
+            public store;
             public __keyList__ = keys;
+
+            public inject!: any; // 提取注入的数据
+
+            public injection!: any;
 
             constructor() {
                 super();
@@ -168,7 +178,24 @@ export function Component(options: CustomTagOptions): ClassDecorator {
                 }
                 if (this.isInstalled) {
                     this[key] = val;
+                    this.props[key] = val;
                 }
+            }
+
+            public getAttribute(key: string) {
+                let value = this[key];
+                if (!value) {
+                    value = super.getAttribute(key)
+                }
+                return value;
+            }
+
+            public pureRemoveAttribute(key: string) {
+                super.removeAttribute(key)
+            }
+
+            public pureSetAttribute(key: string, val: string) {
+                super.setAttribute(key, val)
             }
 
             /**
@@ -211,6 +238,15 @@ export function Component(options: CustomTagOptions): ClassDecorator {
                 );
                 this.willUpdate = false;
                 this.updated();
+            }
+
+            /**
+             * 收集props
+             */
+            public collectProps() {
+                console.log(this.__keyList__);
+                console.log(this.props);
+                return {};
             }
 
             /**
@@ -317,10 +353,8 @@ export function Component(options: CustomTagOptions): ClassDecorator {
              */
             public updateProps(obj: any) {
                 Object.keys(obj).forEach((key: string) => {
-                    // @ts-ignore
                     this.props[key] = obj[key];
                     if (this.prevProps) {
-                        // @ts-ignore
                         this.prevProps[key] = obj[key];
                     }
                 });
@@ -334,12 +368,18 @@ export function Component(options: CustomTagOptions): ClassDecorator {
             public attrsToProps(ignoreAttrs?: any[]) {
                 const ele: any = this;
                 if (!keysList) return;
+                // 拿到dom绑定的属性
+                const attrMap = getAttrMap(this.shadowRoot.host);
                 keys.forEach((key: PropOptions) => {
-                    let val = ele.getAttribute(hyphenate(key.attr));
-                    if (!val) {
-                        val = ele.getAttribute(key.attr);
+                    const attr = hyphenateReverse(key.attr)
+                    let val = attrMap[attr];
+                    if(!val) {
+                        val = ele.getAttribute(attr);
                     }
-                    this[key.attr] = formatValue(val, key.type, key.default);
+                    const newValue = formatValue(val, key.type, key.default);
+                    this[attr] = newValue
+                    this.props[attr] = newValue
+                    this.setAttribute(attr, newValue);
                 });
             }
 

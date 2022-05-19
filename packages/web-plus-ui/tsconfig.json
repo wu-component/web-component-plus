@@ -13,7 +13,7 @@
         "module": "esnext",
         "moduleResolution": "node",
         "noImplicitAny": false,
-        "noImplicitOverride": true,
+        "noImplicitOverride": false,
         "emitDecoratorMetadata": true,
         "noImplicitReturns": true,
         "noUnusedLocals": true,

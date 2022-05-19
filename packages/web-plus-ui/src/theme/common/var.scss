@@ -508,3 +508,20 @@ $--checkbox-button-checked-background-color: $--color-primary !default;
 $--checkbox-button-checked-font-color: $--color-white !default;
 /// color||Color|0
 $--checkbox-button-checked-border-color: $--color-primary !default;
+
+/* Tag
+-------------------------- */
+/// color||Color|0
+$--tag-info-color: $--color-info !default;
+/// color||Color|0
+$--tag-primary-color: $--color-primary !default;
+/// color||Color|0
+$--tag-success-color: $--color-success !default;
+/// color||Color|0
+$--tag-warning-color: $--color-warning !default;
+/// color||Color|0
+$--tag-danger-color: $--color-danger !default;
+/// fontSize||Font|1
+$--tag-font-size: 12px !default;
+$--tag-border-radius: 4px !default;
+$--tag-padding: 0 10px !default;

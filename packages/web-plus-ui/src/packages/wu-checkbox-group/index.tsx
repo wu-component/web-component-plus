@@ -1,15 +1,19 @@
-import {h, Component, Prop, OnConnected, OnBeforeRender} from "@canyuegongzi/web-core-plus";
+import { h, Component, Prop, Emit, OnConnected, OnBeforeRender, OnBeforeUpdate } from "@canyuegongzi/web-core-plus";
+// @ts-ignore
+// import { Component, h, Emit, OnBeforeRender, OnConnected, OnBeforeUpdate, Prop } from ".././../../../web-core-plus/dist/index.esm";
 import css from './index.scss';
-import { UISize } from "../../interface";
+import { UISize } from "@/interface";
 
 @Component({
-    name: 'wu-checkbox-group',
+    name: 'wu-plus-checkbox-group',
     css: css
 })
-export class WuCheckboxGroup extends HTMLElement implements OnConnected, OnBeforeRender {
+export class WuCheckboxGroup extends HTMLElement implements OnConnected, OnBeforeRender, OnBeforeUpdate {
     constructor() {
         super();
     }
+
+    public slotRef!: HTMLSlotElement
 
     @Prop({ default: 'mini', type: String })
     public size: UISize;
@@ -20,24 +24,55 @@ export class WuCheckboxGroup extends HTMLElement implements OnConnected, OnBefor
     @Prop({ default: "[]", type: Array })
     public value: string[];
 
-    public beforeRender() {
-    }
+    public beforeRender() {}
 
-    public getProps() {
+    @Emit('change')
+    private change() {
         return {
-            size: this.size,
-            disabled: this.disabled,
             value: this.value,
-
-        }
+        };
     }
 
-    public connected(shadowRoot: ShadowRoot) {}
+    public provide = {
+        // @ts-ignore
+        name: this.value
+    }
+
+    /**
+     * 值修改
+     * @param vale
+     */
+    public handleChange(vale: CustomEvent) {
+        let valueList = [...this.value];
+        const index = valueList.findIndex(item => item === vale.detail.label);
+        if (index >=0 ) {
+            valueList.splice(index, 1);
+        } else {
+            valueList.push(vale.detail.label);
+            valueList =  Array.from(new Set(valueList));
+        }
+        this.value = valueList;
+        this.change();
+    }
+
+    public connected(shadowRoot: ShadowRoot) {
+        setTimeout(() => {
+            this.slotRef = this.shadowRoot.getElementById("slot") as HTMLSlotElement;
+        }, 0)
+    }
+
+    public beforeUpdate(): any {
+        const nodeList = this.slotRef.assignedElements();
+        nodeList.forEach(item => {
+            (item as any).update();
+        })
+
+    }
 
     public render(_renderProps= {}, _store = {}) {
         return (
             <div class="wu-checkbox-group" role="group" aria-label="checkbox-group">
-                <slot disabled={this.disabled} value={this.value} size={this.size} />
+                <slot id="slot" />
             </div>
         );
     }

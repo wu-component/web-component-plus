@@ -16,5 +16,7 @@ export * from './packages/wu-switch';
 export * from './packages/wu-tree';
 export * from './packages/wu-link';
 export * from './packages/wu-table';
+export * from './packages/wu-tag';
+export * from './packages/wu-progress';
 
 

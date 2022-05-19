@@ -1,6 +1,8 @@
 /**
  * 渲染前
  */
+import { PropOptions } from "@/decorators";
+
 export interface OnBeforeRender<T = any> {
     beforeRender(): any;
 }
@@ -60,6 +62,79 @@ export interface OnUpdate<T = any> {
     preBeforeUpdate?(): boolean
     beforeUpdate?(): any
     updated?(): any
+}
+
+export interface BaseCustomComponent {
+    /**
+     * 组件中props
+     */
+    props: Record<string, any>;
+
+    /**
+     * 数据仓库
+     */
+    store: Record<string, any>;
+
+    /**
+     * 上一次的props
+     */
+    prevProps: Record<string, any>;
+
+    /**
+     * 当前的 dom 结构
+     */
+    rootNode: HTMLElement;
+
+    /**
+     * 组件是否初始化完成
+     */
+    isInstalled: boolean;
+
+    /**
+     * 组件是否将要更新
+     */
+    willUpdate: boolean;
+
+    /**
+     * 组件自定义样式
+     */
+    _customStyleContent: string;
+
+    /**
+     * 组件自定义属性集合，组件内部会对这类属性做响应式的处理
+     */
+    __keyList__: PropOptions[];
+
+    /**
+     * 移除属性
+     * @param key
+     */
+    removeAttribute(key: string): void;
+
+    /**
+     * 设置属性
+     * @param key
+     * @param val
+     */
+    setAttribute(key: string, val: any): void
+
+    /**
+     * 更新组件
+     * @param ignoreAttrs
+     * @param updateSelf
+     */
+    update(ignoreAttrs?: string[], updateSelf?: boolean): void;
+
+    /**
+     * 初始化dom
+     */
+    initShadowRoot(): ShadowRoot;
+
+    /**
+     * 组件 connected
+     */
+    connectedCallback(): void;
+
 }
 
 

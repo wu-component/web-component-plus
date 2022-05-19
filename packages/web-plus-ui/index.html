@@ -111,7 +111,7 @@
         </div>
         <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px">
             <wu-plus-switch value="true" id="switchId"></wu-plus-switch>
-            <wu-plus-switch value="true" id="switchId1" activeColor="yellow" inactiveColor="red"></wu-plus-switch>
+            <wu-plus-switch value="true" id="switchId1" active-color="yellow" inactive-color="red"></wu-plus-switch>
             <wu-plus-switch value="false" disabled="true" id="switchId1"></wu-plus-switch>
         </div>
 
@@ -123,9 +123,41 @@
             <wu-checkbox id="checkbox1" checked="true" disabled="true" label="测试"></wu-checkbox>-->
         </div>
         <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px; margin-bottom: 16px">
-            <wu-checkbox-group disabled="true" value="['测试']">
-                <wu-checkbox id="checkbox2" label="测试"></wu-checkbox>
-            </wu-checkbox-group>
+            <wu-plus-checkbox label="测试4" style="margin-right: 8px" indeterminate="true" checked="false" id="indeterminate"></wu-plus-checkbox>
+            <wu-plus-checkbox label="测试4" style="margin-right: 8px"></wu-plus-checkbox>
+            <wu-plus-checkbox-group value="['测试1']" id="checkoutBoxGroup">
+                <wu-plus-checkbox label="测试1" style="margin-right: 8px"></wu-plus-checkbox>
+                <wu-plus-checkbox label="测试2" style="margin-right: 8px"></wu-plus-checkbox>
+                <wu-plus-checkbox label="测试3"></wu-plus-checkbox>
+            </wu-plus-checkbox-group>
+            <wu-plus-button size="mini" type="primary" id="checkbox-button-id">primary</wu-plus-button>
+        </div>
+
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px; margin-bottom: 16px">
+            <wu-plus-tag type="primary" effect="light" id="tag-id1">标签一</wu-plus-tag>
+            <wu-plus-tag type="primary" effect="dark" id="tag-id3">标签一</wu-plus-tag>
+            <wu-plus-tag type="primary" closable="true" effect="light" id="tag-id2">标签一</wu-plus-tag>
+        </div>
+
+        <div style="display: flex; align-items: center; flex-direction: column; width: 100%; margin-top: 8px; margin-bottom: 16px">
+            <wu-plus-progress style="width: 350px" percentage="70"></wu-plus-progress>
+            <span style="height:8px"></span>
+            <wu-plus-progress style="width: 350px" text-inside="true" stroke-width="26" percentage="70"></wu-plus-progress>
+            <span style="height:8px"></span>
+            <wu-plus-progress style="width: 350px" text-inside="true" stroke-width="26" percentage="40" color="red"></wu-plus-progress>
+            <span style="height:8px"></span>
+            <wu-plus-progress style="width: 350px" text-inside="false" status="success" text-inside="false" show-text="false" stroke-width="26" percentage="90" color="yellow"></wu-plus-progress>
+            <span style="height:8px"></span>
+            <wu-plus-progress style="width: 350px" type="circle" id="progressCircleId1" percentage="25"></wu-plus-progress>
+            <span style="height:8px"></span>
+            <div style="display: flex;flex-direction: row;">
+                <wu-plus-button size="mini" type="primary" id="progressButton1">+</wu-plus-button>
+                <wu-plus-button size="mini" type="success" id="progressButton2" style="margin-left: 16px;">-</wu-plus-button>
+            </div>
+
+            <span style="height:8px"></span>
+            <wu-plus-progress style="width: 350px" type="dashboard" id="progressCircleId19" percentage="25"></wu-plus-progress>
+
         </div>
 
     </div>
@@ -191,9 +223,59 @@
     }, 3000)*/
 
     const switchId = document.getElementById('switchId');
+    const checkoutBoxGroup = document.getElementById('checkoutBoxGroup');
+    const checkboxButtonId = document.getElementById('checkbox-button-id');
     switchId.addEventListener('change', (e) => {
         console.log(e)
     })
+
+    checkoutBoxGroup.addEventListener('change', (e) => {
+        console.log(e)
+    })
+    let _groupIndex = 0
+    const _groupValueList = [["测试1", "测试2"], ["测试1", "测试3"], ["测试1"], ["测试3"], []]
+    checkboxButtonId.addEventListener('click', () => {
+        if (_groupIndex >= 4) {
+            _groupIndex = 0
+        }
+        _groupIndex ++
+        const checkoutBoxGroup = document.getElementById('checkoutBoxGroup');
+        console.log(checkoutBoxGroup);
+        checkoutBoxGroup.setAttribute("value", _groupValueList[_groupIndex])
+    })
+
+    const tag2 = document.getElementById("tag-id2");
+    tag2.addEventListener("close", (e) => {
+        console.log("关闭")
+        console.log(e);
+    })
+
+    tag2.addEventListener("click", (e) => {
+        console.log("点击")
+        console.log(e);
+    })
+
+    const progressButton1 = document.getElementById("progressButton1");
+    const progressButton2 = document.getElementById("progressButton2");
+    const progressCircleId1 = document.getElementById("progressCircleId1");
+    let num = 25
+    progressButton1.addEventListener("click", () => {
+        num = num + 5
+        if (num >= 100) {
+            num = 100
+        }
+        progressCircleId1.setAttribute("percentage", num)
+    })
+
+    progressButton2.addEventListener("click", () => {
+        num = num - 5
+        if (num <= 0) {
+            num = 0
+        }
+        progressCircleId1.setAttribute("percentage", num)
+    })
+
+
 
 
 </script>

@@ -56,3 +56,4 @@ export function isEqual(a: any, b: any) {
     if (Object.prototype.toString.call(a) === '[object Array]' && Object.prototype.toString.call(b) === '[object Array]') {}
     return false;
 }
+

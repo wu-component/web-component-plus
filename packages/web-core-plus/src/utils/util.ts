@@ -94,8 +94,20 @@ export function pathToArr(path: string) {
 }
 
 const hyphenateRE = /\B([A-Z])/g;
+// 驼峰转划线
 export function hyphenate(str: string) {
     return str.replace(hyphenateRE, '-$1').toLowerCase();
+}
+// 划线转驼峰
+export function hyphenateReverse(str: string) {
+    if (str.indexOf("-") > -1) {
+        return str.replace(/(\-([a-z]))/g, (match: any, p1: any, p2: any, offset: any, string: any) => {
+            // 这里有两个捕获组，第一个捕获组捕获全部并包含了第二个捕获组，所以match等于p1
+            return p2.toUpperCase();
+        });
+    }
+    return str;
+
 }
 
 export function capitalize(name: string) {

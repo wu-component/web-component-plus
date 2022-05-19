@@ -1,42 +1,48 @@
-import { Component, Emit, h, OnBeforeRender, OnConnected, OnBeforeUpdate, Prop } from "@canyuegongzi/web-core-plus";
+import { Component, Emit, h, OnConnected, OnBeforeUpdate, Prop } from "@canyuegongzi/web-core-plus";
+// import { Component, Emit, h, OnBeforeRender, OnConnected, OnBeforeUpdate, Prop } from ".././../../../web-core-plus/dist/index.esm";
 import css from './index.scss';
 import { UISize } from "@/interface";
 import { extractClass } from "@/common";
 
 @Component({
-    name: 'wu-checkbox',
+    name: 'wu-plus-checkbox',
     css: css
 })
-export class WuCheckbox extends HTMLElement implements OnConnected, OnBeforeRender, OnBeforeUpdate {
+export class WuCheckbox extends HTMLElement implements OnConnected, OnBeforeUpdate {
+
+    public isGroup = false;
+
+    public props!: any;
+
     constructor() {
         super();
     }
 
+    public inject = ['value']
+
     public beforeUpdate() {
+        if (this.isGroup) {
+            this.initProps();
+        }
     }
 
-    public beforeRender() {
+    public initProps() {
+        const { disabled, size, value } = (this.parentNode as any).props
+        this.disabled = disabled === 'true' || disabled === true;
+        this.size = size || "mini";
+        this.checked = Array.isArray(value) && value.includes(this.label);
     }
 
     public connected(shadowRoot: ShadowRoot) {
         if (this.indeterminate) {
             this.setAttribute('aria-controls', this.controls);
         }
-        if (this.parentNode?.nodeName === "WU-CHECKBOX-GROUP") {
-            this.init()
-        }
-
-    }
-
-    /**
-     * 同步数据
-     */
-    public init() {
-        const attrDisabled = (this.parentNode as any).getAttribute("disabled");
-        const attrValue = (this.parentNode as any).getAttribute("value").replace(/'/g, '"');
-        this.disabled = attrDisabled === 'true' || attrDisabled === true;
-        if (Array.isArray(attrValue) && attrValue.includes(this.label)) {
-            this.checked = true;
+        // group 时，根据父级组件初始化值
+        if (this.parentNode?.nodeName === "WU-PLUS-CHECKBOX-GROUP") {
+            this.isGroup = true;
+            setTimeout(() => {
+                this.initProps();
+            }, 0)
         }
     }
 
@@ -76,12 +82,32 @@ export class WuCheckbox extends HTMLElement implements OnConnected, OnBeforeRend
 
 
     public handleChange(ev: any) {
-        this.checked = !this.checked;
-        this.change();
+        if (!this.isGroup) {
+            this.checked = !this.checked;
+            this.change();
+        } else {
+            this.checkChange()
+        }
     }
 
     @Emit('change')
     private change() {
+        return {
+            value: this.checked,
+            name: this.name,
+            label: this.label
+        };
+    }
+
+    @Emit('check')
+    private checkChange() {
+        (this.parentNode as any).handleChange({
+            detail: {
+                value: this.checked,
+                name: this.name,
+                label: this.label
+            }
+        })
         return {
             value: this.checked,
             name: this.name,
