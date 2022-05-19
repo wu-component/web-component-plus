@@ -18,5 +18,7 @@ export * from './packages/wu-link';
 export * from './packages/wu-table';
 export * from './packages/wu-tag';
 export * from './packages/wu-progress';
+export * from './packages/wu-breadcrumb';
+export * from './packages/wu-breadcrumb-item';
 
 
