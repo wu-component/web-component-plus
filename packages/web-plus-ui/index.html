@@ -160,6 +160,27 @@
 
         </div>
 
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px; margin-bottom: 16px">
+            <wu-plus-provide>
+                <wu-plus-inject></wu-plus-inject>
+            </wu-plus-provide>
+        </div>
+
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px; margin-bottom: 16px">
+            <wu-plus-breadcrumb>
+                <wu-plus-breadcrumb-item to="/hom">活动管理</wu-plus-breadcrumb-item>
+                <wu-plus-breadcrumb-item>活动列表</wu-plus-breadcrumb-item>
+                <wu-plus-breadcrumb-item>活动详情</wu-plus-breadcrumb-item>
+            </wu-plus-breadcrumb>
+        </div>
+
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px; margin-bottom: 16px">
+            <wu-plus-page-header id="backHeader">
+                <span slot="header">sssss</span>
+                <span slot="content">sssss</span>
+            </wu-plus-page-header>
+        </div>
+
     </div>
 </div>
 
@@ -258,6 +279,7 @@
     const progressButton1 = document.getElementById("progressButton1");
     const progressButton2 = document.getElementById("progressButton2");
     const progressCircleId1 = document.getElementById("progressCircleId1");
+
     let num = 25
     progressButton1.addEventListener("click", () => {
         num = num + 5
@@ -273,6 +295,10 @@
             num = 0
         }
         progressCircleId1.setAttribute("percentage", num)
+    })
+    const backHeader = document.getElementById("backHeader");
+    backHeader.addEventListener("back",(e) => {
+        console.log("返回")
     })
 
 

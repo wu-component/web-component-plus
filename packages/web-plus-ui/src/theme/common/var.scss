@@ -525,3 +525,25 @@ $--tag-danger-color: $--color-danger !default;
 $--tag-font-size: 12px !default;
 $--tag-border-radius: 4px !default;
 $--tag-padding: 0 10px !default;
+
+/* Message
+-------------------------- */
+$--message-shadow: $--box-shadow-base !default;
+$--message-min-width: 380px !default;
+$--message-background-color: #edf2fc !default;
+$--message-padding: 15px 15px 15px 20px !default;
+/// color||Color|0
+$--message-close-icon-color: $--color-text-placeholder !default;
+/// height||Other|4
+$--message-close-size: 16px !default;
+/// color||Color|0
+$--message-close-hover-color: $--color-text-secondary !default;
+
+/// color||Color|0
+$--message-success-font-color: $--color-success !default;
+/// color||Color|0
+$--message-info-font-color: $--color-info !default;
+/// color||Color|0
+$--message-warning-font-color: $--color-warning !default;
+/// color||Color|0
+$--message-danger-font-color: $--color-danger !default;

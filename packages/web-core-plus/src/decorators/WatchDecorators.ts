@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import { COMPONENT_WATCH } from '../app-data';
+import { COMPONENT_WATCH } from '@/app-data';
 
 interface WatchOptions {
     deep?: boolean;

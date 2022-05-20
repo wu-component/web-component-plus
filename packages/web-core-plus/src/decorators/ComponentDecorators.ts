@@ -15,6 +15,7 @@ import { WatchMetaOptions } from './WatchDecorators';
 import { StateOptions } from './StateDecorators';
 import { MethodOptions } from "@/decorators/MethodDecorators";
 import { InjectOptions } from "@/decorators/InjectDecorators";
+import { ProvideConfig } from "@/decorators/ProvideDecorators";
 
 type ComponentEnums = 'CustomWebComponent';
 export interface CustomTagOptions {
@@ -147,7 +148,7 @@ export function Component(options: CustomTagOptions): ClassDecorator {
     return (target: any) => {
         const keys: PropOptions[] = Reflect.getMetadata(PROP_META_KEY, target.prototype) ?? [];
         const injects: InjectOptions[] = Reflect.getMetadata(COMPONENT_CUSTOM_INJECT, target.prototype) ?? [];
-        const provides: InjectOptions[] = Reflect.getMetadata(COMPONENT_CUSTOM_PROVIDE, target.prototype) ?? [];
+        const provides: ProvideConfig[] = Reflect.getMetadata(COMPONENT_CUSTOM_PROVIDE, target.prototype) ?? [];
         const functions: EventOptions[] = Reflect.getMetadata(COMPONENT_CUSTOM_EVENT, target.prototype) ?? [];
         const methodsFunctions: EventOptions[] = Reflect.getMetadata(COMPONENT_CUSTOM_METHOD, target.prototype) ?? [];
         const watchs: WatchMetaOptions[] = Reflect.getMetadata(COMPONENT_WATCH, target.prototype) ?? [];
@@ -171,6 +172,12 @@ export function Component(options: CustomTagOptions): ClassDecorator {
 
             public injection!: any;
 
+            public provideWeekMap = new WeakMap()
+
+            public providesMap: Record<string, ProvideConfig>;
+
+            public injectsList: InjectOptions[];
+
             constructor() {
                 super();
                 this.injection = null;
@@ -186,8 +193,8 @@ export function Component(options: CustomTagOptions): ClassDecorator {
                 this.store = null;
                 this.__keyList__ = keys;
                 this.injection = {};
-                console.log(injects);
-                console.log(provides);
+                this.providesMap = this.getProvides();
+                this.injectsList = this.getInjects();
             }
             static is = 'CustomWebComponent';
 
@@ -196,10 +203,36 @@ export function Component(options: CustomTagOptions): ClassDecorator {
             }
 
             /**
+             * 获取当前组件注入的数据
+             */
+            public getProvides() {
+                return provides.reduce((previousValue: Record<string, ProvideConfig>, currentValue: ProvideConfig) => {
+                    previousValue[currentValue.key] = currentValue;
+                    return previousValue;
+                }, {} as Record<string, ProvideConfig> )
+
+            }
+
+            /**
+             * 获取当前组件注入的数据
+             */
+            public getInjects() {
+                return injects;
+
+            }
+
+            /**
              * 判断是否需要读取注入的数据
              */
             get isInject() {
-                return this.inject && Array.isArray(this.inject) && this.inject.length > 0;
+                return Array.isArray(this.injectsList) && this.injectsList.length > 0;
+            }
+
+            /**
+             * 是否注入
+             */
+            get isProvide() {
+                return Object.keys(this.providesMap).length > 0;
             }
 
             /**
@@ -281,15 +314,6 @@ export function Component(options: CustomTagOptions): ClassDecorator {
             }
 
             /**
-             * 收集props
-             */
-            public collectProps() {
-                console.log(this.__keyList__);
-                console.log(this.props);
-                return {};
-            }
-
-            /**
              * 初始化影子dom
              * @private
              */
@@ -320,16 +344,21 @@ export function Component(options: CustomTagOptions): ClassDecorator {
                     return;
                 }
                 Promise.resolve().then(() => {
-                    this.injection = {};
                     let p = this.parentNode;
+                    let currentParent;
                     let provide;
                     while (p && !provide) {
-                        provide = p.provide;
+                        provide = p.isProvide ? p.providesMap: undefined;
+                        if (provide) {
+                            currentParent = p;
+                        }
                         p = p.parentNode || p.host;
                     }
-                    console.log(provide);
                     if (provide) {
-                        this.inject.forEach(injectKey => this.injection[injectKey] = provide[injectKey]);
+                        this.injectsList.forEach((inject: InjectOptions) =>  {
+                            const callName = provide[inject.key].functionName;
+                            this[inject.attr] = currentParent[callName]();
+                        });
                         typeof callBack === "function" && callBack();
                         return;
                     }

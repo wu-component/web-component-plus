@@ -1,77 +1,63 @@
-import { Component, Emit, h, Prop } from '@canyuegongzi/web-core-plus';
+import { Component, Emit, h, OnConnected, Prop, Provide } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
-import { UISize } from '@/interface';
-import { extractClass } from '@/common';
-type EffectEnums = 'dark' | 'light' | 'plain';
-type TypeEnums = 'success' | 'info' | 'warning' | 'danger';
 
 @Component({
     name: 'wu-plus-breadcrumb',
     css: css,
 })
-export class WuBreadcrumb extends HTMLElement {
+export class WuBreadcrumb extends HTMLElement implements OnConnected {
     constructor() {
         super();
     }
 
-    @Prop({ default: '', type: String })
-    public text: string;
+    @Prop({ default: '/', type: String })
+    public separator: string;
 
     @Prop({ default: '', type: String })
-    public color: string;
+    public separatorClass: string;
 
-    @Prop({ default: false, type: Boolean })
-    public closable: boolean;
-
-    @Prop({ default: '', type: String })
-    public type: TypeEnums;
-
-    @Prop({ default: false, type: Boolean })
-    public hit: boolean;
-
-    @Prop({ default: false, type: Boolean })
-    public disableTransitions: boolean;
-
-    @Prop({ default: '', type: String })
-    public size: UISize;
-
-    @Prop({ default: 'light', type: String })
-    public effect: EffectEnums;
-
-    @Emit('close')
-    public handleClose(event: Event) {
-        event = Array.isArray(event) && event.length ? event[0] : event;
-        event.stopPropagation();
-        return {
-            event,
-        };
+    @Provide("wuBreadcrumbRef")
+    public provideWuBreadcrumb() {
+        return this;
     }
 
-    @Emit('click')
-    public handleClick(event) {
-        event = Array.isArray(event) && event.length ? event[0] : event;
-        return {
-            event,
-        };
+    /**
+     * 面包屑点击
+     * @param args
+     */
+    public breadcrumbClick(...args) {
+        this.change(...args);
+    }
+
+    @Emit('change')
+    public change(...args) {
+        console.log("面包屑点击");
+        console.log(...args);
+        return { ...args };
+    }
+
+    public connected(shadowRoot: ShadowRoot): any {
+        const slotDom = this.shadowRoot.getElementById("defaultSlot") as HTMLSlotElement;
+        const items: Node[] = slotDom.assignedNodes().filter(item => (item as any).tagName === "WU-PLUS-BREADCRUMB-ITEM");
+        if (items.length) {
+            const dom = items[items.length - 1] as HTMLSlotElement;
+            dom.setAttribute('aria-current', 'page');
+            setTimeout(() => {
+                const htmlDom = dom.shadowRoot.querySelector(".wu-breadcrumb_separator") as HTMLElement;
+                htmlDom.style.display = "none";
+                htmlDom.style.fontWeight = "400";
+                htmlDom.style.color = "#606266";
+                htmlDom.style.cursor = "text";
+            }, 0)
+        }
+
     }
 
     public render(_renderProps = {}, _store = {}) {
         return (
-            <span
-                {...extractClass({}, 'wu-tag', {
-                    ['wu-tag-' + this.type]: this.type,
-                    ['wu-tag-' + this.size]: this.size,
-                    ['wu-tag-' + this.effect]: this.effect,
-                    'is-hit': this.hit,
-                })}
-            >
-                <slot />
-                {this.closable ? (
-                    <svg onClick={this.handleClose.bind(this)} class="wu-tag_close wu-icon-close" fill="currentColor" width="1em" height="1em" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                    </svg>
-                ) : null}
-            </span>
-        );
+            <div class="wu-breadcrumb" aria-label="Breadcrumb" role="navigation">
+                <slot id="defaultSlot" style={{ width: "100%" }} />
+            </div>
+        )
     }
 }

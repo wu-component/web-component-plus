@@ -5,14 +5,16 @@ import { h, Component, Inject, OnConnected } from "@canyuegongzi/web-core-plus";
 })
 export class WuInject extends HTMLElement implements OnConnected {
 
-    @Inject({ key: "name" })
-    public injection
+    @Inject("parentDescTitle")
+    public injectionName
 
-    public connected(shadowRoot: ShadowRoot) {}
+    public connected(shadowRoot: ShadowRoot) {
+        console.log(this.injectionName)
+    }
 
     public render(_renderProps = {}, _store = {}) {
         return (
-            <div style={{ width: '100px', height: '16px' }}>数据注入{(this as any).injection.name}</div>
+            <div style={{ width: '100vw', height: '48px', textAlign: "center" }}>数据注入{this.injectionName?.parentDescTitle}</div>
         );
     }
 }

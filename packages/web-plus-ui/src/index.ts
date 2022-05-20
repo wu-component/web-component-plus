@@ -20,6 +20,11 @@ export * from './packages/wu-tag';
 export * from './packages/wu-progress';
 export * from './packages/wu-breadcrumb';
 export * from './packages/wu-breadcrumb-item';
+export * from './packages/wu-page-header';
+export * from './packages/wu-rate';
+
+/***************************全局股那里*********************************/
+export * from './packages/wu-message';
 
 /************************测试数据注入***************************/
 export * from './packages/wu-inject';

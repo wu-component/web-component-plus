@@ -1,0 +1,59 @@
+@use "sass:map";
+@use "sass:math";
+@import '../../theme/common/var.scss';
+@import '../../theme/common/mixin.scss';
+:host {}
+@include b(page-header) {
+    display: flex;
+    line-height: 24px;
+    .wu-icon-back {
+        font-size: 18px;
+        margin-right: 6px;
+        align-self: center;
+        speak: none;
+        font-style: normal;
+        font-weight: 400;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        vertical-align: baseline;
+        display: inline-block;
+        -webkit-font-smoothing: antialiased;
+        width: 18px;
+        height: 18px;
+    }
+
+    @include e(left) {
+        display: flex;
+        cursor: pointer;
+        margin-right: 40px;
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: 1px;
+            height: 16px;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: $--border-color-base;
+        }
+
+        .el-icon-back {
+            font-size: 18px;
+            margin-right: 6px;
+            align-self: center;
+        }
+
+        @include e(title) {
+            font-size: 14px;
+            font-weight: 500;
+        }
+    }
+
+    @include e(content) {
+        font-size: 18px;
+        color: $--color-text-primary;
+    }
+}

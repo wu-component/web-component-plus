@@ -5,12 +5,12 @@ import { Component, h, Method, OnConnected, Provide } from "@canyuegongzi/web-co
 })
 export class WuProvide extends HTMLElement implements OnConnected {
 
-    public provide = { name: "测试" }
+    public provide = "这是来自父级注入的数据";
 
-    @Provide({ key: "name" })
-    public provideName() {
+    @Provide("parentDescTitle")
+    public provideParentDescTitle() {
         return {
-            name: "2222"
+            parentDescTitle: this.provide
         };
     }
 
@@ -27,9 +27,5 @@ export class WuProvide extends HTMLElement implements OnConnected {
         return <slot />;
     }
 
-    public connected(shadowRoot: ShadowRoot): any {
-        setTimeout(() => {
-            this.provide = { name: "测试xxxxxx" };
-        }, 10000);
-    }
+    public connected(shadowRoot: ShadowRoot): any {}
 }
