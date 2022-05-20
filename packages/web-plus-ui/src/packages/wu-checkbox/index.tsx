@@ -1,5 +1,4 @@
 import { Component, Emit, h, OnConnected, OnBeforeUpdate, Prop } from "@canyuegongzi/web-core-plus";
-// import { Component, Emit, h, OnBeforeRender, OnConnected, OnBeforeUpdate, Prop } from ".././../../../web-core-plus/dist/index.esm";
 import css from './index.scss';
 import { UISize } from "@/interface";
 import { extractClass } from "@/common";
@@ -18,7 +17,7 @@ export class WuCheckbox extends HTMLElement implements OnConnected, OnBeforeUpda
         super();
     }
 
-    public inject = ['value']
+    public inject = [ 'value' ]
 
     public beforeUpdate() {
         if (this.isGroup) {
@@ -27,7 +26,7 @@ export class WuCheckbox extends HTMLElement implements OnConnected, OnBeforeUpda
     }
 
     public initProps() {
-        const { disabled, size, value } = (this.parentNode as any).props
+        const { disabled, size, value } = (this.parentNode as any).props;
         this.disabled = disabled === 'true' || disabled === true;
         this.size = size || "mini";
         this.checked = Array.isArray(value) && value.includes(this.label);
@@ -42,7 +41,7 @@ export class WuCheckbox extends HTMLElement implements OnConnected, OnBeforeUpda
             this.isGroup = true;
             setTimeout(() => {
                 this.initProps();
-            }, 0)
+            }, 0);
         }
     }
 
@@ -86,7 +85,7 @@ export class WuCheckbox extends HTMLElement implements OnConnected, OnBeforeUpda
             this.checked = !this.checked;
             this.change();
         } else {
-            this.checkChange()
+            this.checkChange();
         }
     }
 
@@ -107,7 +106,7 @@ export class WuCheckbox extends HTMLElement implements OnConnected, OnBeforeUpda
                 name: this.name,
                 label: this.label
             }
-        })
+        });
         return {
             value: this.checked,
             name: this.name,

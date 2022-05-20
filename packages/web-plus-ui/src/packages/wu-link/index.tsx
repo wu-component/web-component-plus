@@ -1,7 +1,7 @@
-import {h, Component, Prop, Emit, OnConnected, OnBeforeRender} from "@canyuegongzi/web-core-plus";
+import { h, Component, Prop, Emit, OnConnected, OnBeforeRender } from "@canyuegongzi/web-core-plus";
 import css from './index.scss';
-import {extractClass} from "../../common";
-import {getAttrMap} from "../../common";
+import { extractClass } from "../../common";
+import { getAttrMap } from "../../common";
 
 type WuLinkType = 'primary' | 'success' | 'warning' | 'danger' | 'info'
 @Component({

@@ -43,7 +43,7 @@ export class WuCheckboxGroup extends HTMLElement implements OnConnected, OnBefor
      * @param vale
      */
     public handleChange(vale: CustomEvent) {
-        let valueList = [...this.value];
+        let valueList = [ ...this.value ];
         const index = valueList.findIndex(item => item === vale.detail.label);
         if (index >=0 ) {
             valueList.splice(index, 1);
@@ -58,14 +58,14 @@ export class WuCheckboxGroup extends HTMLElement implements OnConnected, OnBefor
     public connected(shadowRoot: ShadowRoot) {
         setTimeout(() => {
             this.slotRef = this.shadowRoot.getElementById("slot") as HTMLSlotElement;
-        }, 0)
+        }, 0);
     }
 
     public beforeUpdate(): any {
         const nodeList = this.slotRef.assignedElements();
         nodeList.forEach(item => {
             (item as any).update();
-        })
+        });
 
     }
 

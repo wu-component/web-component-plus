@@ -37,7 +37,7 @@ function classNames() {
 }
 
 function extractClass(a: any, b: any, c: any) {
-    const [ props, ...args ] = Array.prototype.slice.call(arguments, 0);
+    const [props, ...args] = Array.prototype.slice.call(arguments, 0);
     if (props.class) {
         args.unshift(props.class);
         delete props.class;

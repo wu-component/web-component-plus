@@ -29,19 +29,19 @@ export class WuCol extends HTMLElement {
     public render(_renderProps= {}, _store = {}) {
         const classList: string[] = [];
         const classListMap: Record<string, boolean> = {};
-        let style: Record<string, string> = {};
-        ['span', 'offset', 'pull', 'push'].forEach(prop => {
+        const style: Record<string, string> = {};
+        [ 'span', 'offset', 'pull', 'push' ].forEach(prop => {
             if (this[prop] || this[prop] === 0) {
                 const  name = prop !== 'span'
                     ? `wu-col-${prop}-${this[prop]}`
-                    : `wu-col-${this[prop]}`
+                    : `wu-col-${this[prop]}`;
                 classList.push(name);
                 classListMap[name] = true;
             }
         });
         return (
             <this.tag
-                style={{...style}}
+                style={{ ...style }}
                 {
                     ...extractClass({}, `wu-col`,
                         {

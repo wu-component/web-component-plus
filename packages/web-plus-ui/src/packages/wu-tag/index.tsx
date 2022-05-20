@@ -44,7 +44,7 @@ export class WuTag extends HTMLElement {
         event.stopPropagation();
         return {
             event
-        }
+        };
     }
 
     @Emit("click")
@@ -52,7 +52,7 @@ export class WuTag extends HTMLElement {
         event = Array.isArray(event) &&event.length? event[0]: event;
         return {
             event
-        }
+        };
     }
 
     public render(_renderProps= {}, _store = {}) {
@@ -75,7 +75,7 @@ export class WuTag extends HTMLElement {
                     ): null
                 }
             </span>
-        )
+        );
     }
 
 }

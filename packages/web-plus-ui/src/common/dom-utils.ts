@@ -4,7 +4,7 @@ export function getAttrMap(dom: any) {
         const name = dom.attributes[i].nodeName;
         const value = dom.attributes[i].nodeValue;
         if (dom.attributes[i].specified) {
-            pairs[name] = value
+            pairs[name] = value;
         }
     }
     return pairs;

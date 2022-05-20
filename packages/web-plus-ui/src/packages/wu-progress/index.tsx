@@ -1,6 +1,6 @@
 import { Component, Emit, h, Prop } from "@canyuegongzi/web-core-plus";
 import css from './index.scss';
-import { extractClass } from "../../common";
+import { extractClass } from "@/common";
 type TypeEnums = "line" | "circle" | "dashboard";  // line
 type StatusEnums = "success" | "exception" | "warning";  //
 type StrokeLinecapEnums = "butt" | "round" | "square";  // round
@@ -49,7 +49,7 @@ export class WuProgress extends HTMLElement {
         event.stopPropagation();
         return {
             event
-        }
+        };
     }
 
     @Emit("click")
@@ -57,7 +57,7 @@ export class WuProgress extends HTMLElement {
         event = Array.isArray(event) && event.length ? event[0] : event;
         return {
             event
-        }
+        };
     }
 
     /**
@@ -130,7 +130,7 @@ export class WuProgress extends HTMLElement {
     }
 
     get barStyle() {
-        const { percentage } = this.props
+        const { percentage } = this.props;
         const style: Record<any, any> = {};
         style.width = percentage + '%';
         style.backgroundColor = this.getCurrentColor(percentage);
@@ -254,7 +254,7 @@ export class WuProgress extends HTMLElement {
                 }
                 {
                     this.showText && !this.textInside? (
-                        <div class="wu-progress_text" style={{fontSize: this.progressTextSize + 'px'}}>
+                        <div class="wu-progress_text" style={{ fontSize: this.progressTextSize + 'px' }}>
                             {
                                 !this.status? this.content: <i class={this.iconClass}/>
                             }
@@ -262,7 +262,7 @@ export class WuProgress extends HTMLElement {
                     ): null
                 }
             </div>
-        )
+        );
     }
 
 }

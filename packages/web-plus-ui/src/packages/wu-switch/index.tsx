@@ -1,6 +1,6 @@
-import {h, Component, Prop, Watch, OnConnected, Emit} from "@canyuegongzi/web-core-plus";
+import { h, Component, Prop, Watch, OnConnected, Emit } from "@canyuegongzi/web-core-plus";
 import css from './index.scss';
-import {extractClass} from "../../common";
+import { extractClass } from "../../common";
 @Component({
     name: 'wu-plus-switch',
     css: css
@@ -60,8 +60,8 @@ export class WuSwitch extends HTMLElement implements OnConnected {
         this.changeEmit();
         this.inputEmit();
         setTimeout(() => {
-            this.inputRef.checked = this.checked()
-        }, 0)
+            this.inputRef.checked = this.checked();
+        }, 0);
     }
 
     public switchValue() {

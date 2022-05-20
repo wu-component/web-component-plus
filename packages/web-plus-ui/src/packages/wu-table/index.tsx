@@ -1,4 +1,4 @@
-import {h, Component, Prop, OnConnected, OnBeforeRender} from "@canyuegongzi/web-core-plus";
+import { h, Component, Prop, OnConnected, OnBeforeRender } from "@canyuegongzi/web-core-plus";
 import "../wu-table-header";
 import "../wu-table-body";
 import "../wu-table-footer";

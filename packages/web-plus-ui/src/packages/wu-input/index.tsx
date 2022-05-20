@@ -203,10 +203,10 @@ export class WuInput extends HTMLElement implements OnInstall{
         this.tempInputTagName = this.type === 'textarea' ? 'textarea' : 'input';
         const attrMap = {};
         if (this.maxLength) {
-            attrMap['max-length'] = this.maxLength
+            attrMap['max-length'] = this.maxLength;
         }
         if (this.minLength) {
-            attrMap['min-length'] = this.minLength
+            attrMap['min-length'] = this.minLength;
         }
         return (
             <div {

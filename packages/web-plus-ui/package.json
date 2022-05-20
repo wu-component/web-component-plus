@@ -14,8 +14,8 @@
   "module": "dist/index.esm.js",
   "browser": "dist/index.umd.js",
   "scripts": {
-    "format": "prettier --write \"./src/**/*.ts\"",
-    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "format": "prettier --write \"./src/packages/**.tsx\"",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.tsx\" --fix",
     "test": "jest -c packages/web-ui/jest.config.js",
     "build:rollup": "cross-env NODE_ENV=production rollup -c ./rollup.config.js",
     "build:rollup:package": "cross-env NODE_ENV=production rollup -c ./build/build.js",
