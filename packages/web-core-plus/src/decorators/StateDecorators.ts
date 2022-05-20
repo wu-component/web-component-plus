@@ -1,11 +1,11 @@
-import "reflect-metadata";
-import { PropTyp } from "../declarations";
-import { STATE_META_KEY } from "../app-data";
+import 'reflect-metadata';
+import { PropTyp } from '../declarations';
+import { STATE_META_KEY } from '../app-data';
 
 export interface StateOptions {
-    default?: any,
-    attr?: string,
-    type?: PropTyp
+    default?: any;
+    attr?: string;
+    type?: PropTyp;
 }
 
 /**
@@ -14,11 +14,10 @@ export interface StateOptions {
  * @constructor
  */
 export function State(options: StateOptions = { default: undefined }): PropertyDecorator {
-    return function (target: any, attr: any){
+    return function(target: any, attr: any) {
         const value = options.default || options.default || undefined;
         const keys: StateOptions[] = Reflect.getMetadata(STATE_META_KEY, target) ?? [];
         keys.push({ default: value, type: options.type, attr });
         Reflect.defineMetadata(STATE_META_KEY, keys, target);
     };
 }
-

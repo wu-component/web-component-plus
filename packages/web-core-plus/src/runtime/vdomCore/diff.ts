@@ -122,12 +122,7 @@ function idiff(dom: any, vnode: any, component: any, updateSelf: any) {
         }
     }
     // Tracks entering and exiting SVG namespace when descending through the tree.
-    isSvgMode =
-        vnodeName === 'svg'
-            ? true
-            : vnodeName === 'foreignObject'
-            ? false
-            : isSvgMode;
+    isSvgMode = vnodeName === 'svg' ? true : vnodeName === 'foreignObject' ? false : isSvgMode;
 
     // If there's no existing element or it's the wrong type, create a new one:
     vnodeName = String(vnodeName);
@@ -152,20 +147,11 @@ function idiff(dom: any, vnode: any, component: any, updateSelf: any) {
 
     if (props == null) {
         props = out[ATTR_KEY] = {};
-        for (let a = out.attributes, i = a.length; i--; )
-            props[a[i].name] = a[i].value;
+        for (let a = out.attributes, i = a.length; i--; ) props[a[i].name] = a[i].value;
     }
 
     // Optimization: fast-path for elements containing a single TextNode:
-    if (
-        !hydrating &&
-        vchildren &&
-        vchildren.length === 1 &&
-        typeof vchildren[0] === 'string' &&
-        fc != null &&
-        fc.splitText !== undefined &&
-        fc.nextSibling == null
-    ) {
+    if (!hydrating && vchildren && vchildren.length === 1 && typeof vchildren[0] === 'string' && fc != null && fc.splitText !== undefined && fc.nextSibling == null) {
         if (fc.nodeValue != vchildren[0]) {
             fc.nodeValue = vchildren[0];
         }
@@ -173,13 +159,7 @@ function idiff(dom: any, vnode: any, component: any, updateSelf: any) {
     // otherwise, if there are existing or new children, diff them:
     else if ((vchildren && vchildren.length) || fc != null) {
         if (!(out.constructor.is == 'CustomWebComponent' && out.constructor.noSlot)) {
-            innerDiffNode(
-                out,
-                vchildren,
-                hydrating || props.dangerouslySetInnerHTML != null,
-                component,
-                updateSelf
-            );
+            innerDiffNode(out, vchildren, hydrating || props.dangerouslySetInnerHTML != null, component, updateSelf);
         }
     }
 
@@ -201,7 +181,7 @@ function idiff(dom: any, vnode: any, component: any, updateSelf: any) {
  * @param component
  * @param updateSelf
  */
-function innerDiffNode(dom:any, vchildren: any, isHydrating: any, component: any, updateSelf: any) {
+function innerDiffNode(dom: any, vchildren: any, isHydrating: any, component: any, updateSelf: any) {
     const originalChildren: any = dom.childNodes;
     const children: any = [];
     const keyed: any = {};
@@ -221,23 +201,11 @@ function innerDiffNode(dom:any, vchildren: any, isHydrating: any, component: any
         for (let i = 0; i < len; i++) {
             const child = originalChildren[i],
                 props = child[ATTR_KEY],
-                key =
-                    vlen && props
-                        ? child._component
-                        ? child._component.__key
-                        : props.key
-                        : null;
+                key = vlen && props ? (child._component ? child._component.__key : props.key) : null;
             if (key != null) {
                 keyedLen++;
                 keyed[key] = child;
-            } else if (
-                props ||
-                (child.splitText !== undefined
-                    ? isHydrating
-                        ? child.nodeValue.trim()
-                        : true
-                    : isHydrating)
-            ) {
+            } else if (props || (child.splitText !== undefined ? (isHydrating ? child.nodeValue.trim() : true) : isHydrating)) {
                 children[childrenLen++] = child;
             }
         }
@@ -261,10 +229,7 @@ function innerDiffNode(dom:any, vchildren: any, isHydrating: any, component: any
                 // attempt to pluck a node of the same type from the existing children
                 else if (!child && min < childrenLen) {
                     for (j = min; j < childrenLen; j++) {
-                        if (
-                            children[j] !== undefined &&
-                            isSameNodeType((c = children[j]), vchild, isHydrating)
-                        ) {
+                        if (children[j] !== undefined && isSameNodeType((c = children[j]), vchild, isHydrating)) {
                             child = c;
                             children[j] = undefined;
                             if (j === childrenLen - 1) childrenLen--;
@@ -293,14 +258,12 @@ function innerDiffNode(dom:any, vchildren: any, isHydrating: any, component: any
 
     // remove unused keyed children:
     if (keyedLen) {
-        for (const i in keyed)
-            if (keyed[i] !== undefined) recollectNodeTree(keyed[i], false);
+        for (const i in keyed) if (keyed[i] !== undefined) recollectNodeTree(keyed[i], false);
     }
 
     // remove orphaned unkeyed children:
     while (min <= childrenLen) {
-        if ((child = children[childrenLen--]) !== undefined)
-            recollectNodeTree(child, false);
+        if ((child = children[childrenLen--]) !== undefined) recollectNodeTree(child, false);
     }
 }
 
@@ -357,14 +320,7 @@ function diffAttributes(dom: any, attrs: any, old: any, component: any, updateSe
     // remove attributes no longer present on the vnode by setting them to undefined
     for (name in old) {
         if (!(attrs && attrs[name] != null) && old[name] != null) {
-            setAccessor(
-                dom,
-                name,
-                old[name],
-                (old[name] = undefined),
-                isSvgMode,
-                component
-            );
+            setAccessor(dom, name, old[name], (old[name] = undefined), isSvgMode, component);
             if (isWeElement) {
                 delete dom.props[name];
                 //update = true
@@ -376,24 +332,12 @@ function diffAttributes(dom: any, attrs: any, old: any, component: any, updateSe
     for (name in attrs) {
         if (isWeElement && typeof attrs[name] === 'object' && name !== 'ref') {
             if (name === 'style') {
-                setAccessor(
-                    dom,
-                    name,
-                    old[name],
-                    (old[name] = attrs[name]),
-                    isSvgMode,
-                    component
-                );
+                setAccessor(dom, name, old[name], (old[name] = attrs[name]), isSvgMode, component);
             }
             const ccName = camelCase(name);
             dom.props[ccName] = old[ccName] = attrs[name];
             //update = true
-        } else if (
-            name !== 'children' &&
-            (!(name in old) ||
-                attrs[name] !==
-                (name === 'value' || name === 'checked' ? dom[name] : old[name]))
-        ) {
+        } else if (name !== 'children' && (!(name in old) || attrs[name] !== (name === 'value' || name === 'checked' ? dom[name] : old[name]))) {
             setAccessor(dom, name, old[name], attrs[name], isSvgMode, component);
             //fix lazy load props missing
             if (dom.nodeName.indexOf('-') !== -1) {

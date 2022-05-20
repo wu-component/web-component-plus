@@ -1,7 +1,7 @@
-import { h, Component, Prop, Emit, OnConnected } from "@canyuegongzi/web-core-plus";
+import { h, Component, Prop, Emit, OnConnected } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
-import { UISize } from "@/interface";
-import { extractClass, extract, debounce } from "@/common";
+import { UISize } from '@/interface';
+import { extractClass, extract, debounce } from '@/common';
 
 @Component({
     name: 'wu-plus-radio',
@@ -43,7 +43,7 @@ export class WuRadio extends HTMLElement implements OnConnected {
     private change() {
         return {
             checked: this.checked,
-            value: this.value
+            value: this.value,
         };
     }
 
@@ -51,7 +51,7 @@ export class WuRadio extends HTMLElement implements OnConnected {
     private mounted() {
         return {
             checked: this.checked,
-            value: this.value
+            value: this.value,
         };
     }
 
@@ -59,22 +59,33 @@ export class WuRadio extends HTMLElement implements OnConnected {
         this.mounted();
     }
 
-    public render(_renderProps= {}, _store = {}) {
+    public render(_renderProps = {}, _store = {}) {
         return (
-            <label role="radio" tabindex="0" onclick={debounce(this.clickHandler.bind(this), 0)} {...extractClass({ }, 'wu-radio', {
-                ['wu-radio-' + this.size]: this.size,
-                'is-disabled': this.disabled,
-                'is-border': this.border,
-                'is-checked': this.checked
-            })} aria-checked={this.checked}>
-                <span {...extractClass({}, 'wu-radio_input', {
+            <label
+                role="radio"
+                tabindex="0"
+                onclick={debounce(this.clickHandler.bind(this), 0)}
+                {...extractClass({}, 'wu-radio', {
+                    ['wu-radio-' + this.size]: this.size,
                     'is-disabled': this.disabled,
-                    'is-checked': this.checked
-                })}>
+                    'is-border': this.border,
+                    'is-checked': this.checked,
+                })}
+                aria-checked={this.checked}
+            >
+                <span
+                    {...extractClass({}, 'wu-radio_input', {
+                        'is-disabled': this.disabled,
+                        'is-checked': this.checked,
+                    })}
+                >
                     <span class="wu-radio_inner" />
                     <input type="radio" aria-hidden="true" {...extract({}, [ 'checked', 'value', 'disabled' ])} tabindex="-1" class="wu-radio_original" />
                 </span>
-                <span class="wu-radio_label">{this.label}<slot/></span>
+                <span class="wu-radio_label">
+                    {this.label}
+                    <slot />
+                </span>
             </label>
         );
     }

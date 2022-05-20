@@ -1,7 +1,7 @@
 /**
  * 渲染前
  */
-import { PropOptions } from "@/decorators";
+import { PropOptions } from '@/decorators';
 
 export interface OnBeforeRender<T = any> {
     beforeRender(): any;
@@ -49,9 +49,9 @@ export interface OnDisConnected<T = any> {
  * 组件挂载过程中的生命周期
  */
 export interface OnInstall<T = any> {
-    beforeInstall?(): any
-    install?(): any
-    afterInstall?(): any
+    beforeInstall?(): any;
+    install?(): any;
+    afterInstall?(): any;
     connected?(shadowRoot: ShadowRoot): any;
 }
 
@@ -59,9 +59,9 @@ export interface OnInstall<T = any> {
  * 组件挂载过程中的生命周期
  */
 export interface OnUpdate<T = any> {
-    preBeforeUpdate?(): boolean
-    beforeUpdate?(): any
-    updated?(): any
+    preBeforeUpdate?(): boolean;
+    beforeUpdate?(): any;
+    updated?(): any;
 }
 
 export interface BaseCustomComponent {
@@ -116,7 +116,7 @@ export interface BaseCustomComponent {
      * @param key
      * @param val
      */
-    setAttribute(key: string, val: any): void
+    setAttribute(key: string, val: any): void;
 
     /**
      * 更新组件
@@ -134,7 +134,4 @@ export interface BaseCustomComponent {
      * 组件 connected
      */
     connectedCallback(): void;
-
 }
-
-

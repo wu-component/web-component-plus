@@ -1,7 +1,7 @@
-import { h, Component, Prop, OnInstall, Emit } from "@canyuegongzi/web-core-plus";
+import { h, Component, Prop, OnInstall, Emit } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
-import { UISize } from "@/interface";
-import { extractClass } from "@/common";
+import { UISize } from '@/interface';
+import { extractClass } from '@/common';
 
 type TypeEnums = 'textarea' | 'input';
 
@@ -9,8 +9,7 @@ type TypeEnums = 'textarea' | 'input';
     name: 'wu-plus-input',
     css: css,
 })
-export class WuInput extends HTMLElement implements OnInstall{
-
+export class WuInput extends HTMLElement implements OnInstall {
     @Prop({ default: 'mini', type: String })
     public size: UISize;
 
@@ -104,8 +103,8 @@ export class WuInput extends HTMLElement implements OnInstall{
      * @param e
      */
     @Emit('blur')
-    public handleBlur(e){
-        const evt = Array.isArray(e) && e.length? e[0]: e;
+    public handleBlur(e) {
+        const evt = Array.isArray(e) && e.length ? e[0] : e;
         if (this.onBlur) {
             return this.onBlur(evt, this.value);
         }
@@ -118,7 +117,7 @@ export class WuInput extends HTMLElement implements OnInstall{
      */
     @Emit('focus')
     public handleFocus(e) {
-        const evt = Array.isArray(e) && e.length? e[0]: e;
+        const evt = Array.isArray(e) && e.length ? e[0] : e;
         if (this.onFocus) {
             return this.onFocus(evt, this.value);
         }
@@ -130,16 +129,16 @@ export class WuInput extends HTMLElement implements OnInstall{
      * @param e
      */
     @Emit('change')
-    public handleChange(e){
+    public handleChange(e) {
         if (this.disabled) {
             return;
         }
-        const evt = Array.isArray(e) && e.length? e[0]: e;
+        const evt = Array.isArray(e) && e.length ? e[0] : e;
         this.$value = evt.target.value;
         this.value = evt.target.value;
 
         if (this.onChange) {
-            return this.onChange(evt. this.value);
+            return this.onChange(evt.this.value);
         }
         return this.value;
     }
@@ -153,7 +152,7 @@ export class WuInput extends HTMLElement implements OnInstall{
         if (this.disabled) {
             return;
         }
-        const evt = Array.isArray(e) && e.length? e[0]: e;
+        const evt = Array.isArray(e) && e.length ? e[0] : e;
         evt.stopPropagation();
         this.$value = evt.target.value;
         let value = evt.target.value;
@@ -209,81 +208,71 @@ export class WuInput extends HTMLElement implements OnInstall{
             attrMap['min-length'] = this.minLength;
         }
         return (
-            <div {
-                     ...extractClass({}, `wu-${this.tempInputTagName}`,
-                         {
-                             [`wu-${this.tempInputTagName}-${this.size}`]: this.size,
-                             'is-disabled': this.disabled,
-                             'wu-input-suffix':this.suffixIcon,
-                             'wu-input-prefix':this.prefixIcon,
-                             'is-block': this.block
-                         }
-                     )
-                 } onMouseEnter={this.onMouseEnter?.bind(this)} onMouseLeave={this?.onMouseLeave?.bind(this)}>
-
-
-                {
-                    (this.prefixIcon || this.suffixIcon) && <this.tempTagName css={`svg{width: 1em }`}
-                                                                    {
-                                                                        ...extractClass({}, 'o-input_icon',
-                                                                            {
-                                                                                'is-prefix': this.prefixIcon,
-                                                                                'is-suffix': this.suffixIcon
-                                                                            }
-                                                                        )
-                                                                    }
+            <div
+                {...extractClass({}, `wu-${this.tempInputTagName}`, {
+                    [`wu-${this.tempInputTagName}-${this.size}`]: this.size,
+                    'is-disabled': this.disabled,
+                    'wu-input-suffix': this.suffixIcon,
+                    'wu-input-prefix': this.prefixIcon,
+                    'is-block': this.block,
+                })}
+                onMouseEnter={this.onMouseEnter?.bind(this)}
+                onMouseLeave={this?.onMouseLeave?.bind(this)}
+            >
+                {(this.prefixIcon || this.suffixIcon) && (
+                    <this.tempTagName
+                        css={`
+                            svg {
+                                width: 1em;
+                            }
+                        `}
+                        {...extractClass({}, 'o-input_icon', {
+                            'is-prefix': this.prefixIcon,
+                            'is-suffix': this.suffixIcon,
+                        })}
                     />
-                }
+                )}
 
-                <this.tempInputTagName  type={this.type}
-                                        name={this.name}
-                                        disabled={this.disabled}
-                                        form={this.form}
-                                        value={this.value}
-                                        rows={this.rows}
-                                        className={`wu-${this.tempInputTagName}_inner`}
-                                        autocomplete={this.autoComplete}
-                                        {...attrMap}
-                                        block={this.block}
-                                        onchange={this.handleChange.bind(this)}
-                                        onfocus={this.handleFocus.bind(this)}
-                                        onblur={this.handleBlur.bind(this)}
-                                        oninput={this.handleInput.bind(this)}
+                <this.tempInputTagName
+                    type={this.type}
+                    name={this.name}
+                    disabled={this.disabled}
+                    form={this.form}
+                    value={this.value}
+                    rows={this.rows}
+                    className={`wu-${this.tempInputTagName}_inner`}
+                    autocomplete={this.autoComplete}
+                    {...attrMap}
+                    block={this.block}
+                    onchange={this.handleChange.bind(this)}
+                    onfocus={this.handleFocus.bind(this)}
+                    onblur={this.handleBlur.bind(this)}
+                    oninput={this.handleInput.bind(this)}
                 />
-                {
-                    (this.clearable && !this.disabled) &&
+                {this.clearable && !this.disabled && (
                     <div class="wu-input_suffix">
-                        <svg onClick={this.clearInput.bind(this)} class="wu-input_clear" fill="currentColor" width="1em" height="1em"
-                             focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                        <svg onClick={this.clearInput.bind(this)} class="wu-input_clear" fill="currentColor" width="1em" height="1em" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
                         </svg>
                     </div>
-                }
-                {
-                    this.maxLength && this.tempInputTagName === 'textarea'? (
-                        <div class="wu-input_count">
-                            {this.valueLength}/{this.maxLength}
-                        </div>
-                    ): null
-
-                }
-                {
-                    this.maxLength && this.tempInputTagName === 'input'? (
-                        <span class="wu-input_suffix">
-                            <span class="el-input_suffix-inner">
-                                <span class="wu-input_count">
-                                    <span class="wu-input_count-inner">
-                                        {this.valueLength}/{this.maxLength}
-                                    </span>
+                )}
+                {this.maxLength && this.tempInputTagName === 'textarea' ? (
+                    <div class="wu-input_count">
+                        {this.valueLength}/{this.maxLength}
+                    </div>
+                ) : null}
+                {this.maxLength && this.tempInputTagName === 'input' ? (
+                    <span class="wu-input_suffix">
+                        <span class="el-input_suffix-inner">
+                            <span class="wu-input_count">
+                                <span class="wu-input_count-inner">
+                                    {this.valueLength}/{this.maxLength}
                                 </span>
                             </span>
-
                         </span>
-                    ): null
-                }
+                    </span>
+                ) : null}
             </div>
         );
     }
-
 }
-

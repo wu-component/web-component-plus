@@ -1,3 +1,1 @@
-export class WuAside {
-
-}
+export class WuAside {}

@@ -1,4 +1,3 @@
-
 /**
  * @license
  * Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
@@ -15,7 +14,7 @@
  * this.constructor so that the native HTMLElement constructor can access the
  * current under-construction element's definition.
  */
-;(function() {
+(function() {
     if (
         // No Reflect, no classes, no need for shim because native custom elements
         // require ES2015 classes or Reflect.
@@ -75,10 +74,7 @@ export function applyRef(ref: any, value: any) {
  * otherwise falling back to `setTimeout` (mainly for IE<11).
  * @type {(callback: function) => void}
  */
-export const defer =
-    typeof Promise == 'function'
-        ? Promise.resolve().then.bind(Promise.resolve())
-        : setTimeout;
+export const defer = typeof Promise == 'function' ? Promise.resolve().then.bind(Promise.resolve()) : setTimeout;
 
 export function isArray(obj: any) {
     return Object.prototype.toString.call(obj) === '[object Array]';
@@ -100,14 +96,13 @@ export function hyphenate(str: string) {
 }
 // 划线转驼峰
 export function hyphenateReverse(str: string) {
-    if (str.indexOf("-") > -1) {
+    if (str.indexOf('-') > -1) {
         return str.replace(/(\-([a-z]))/g, (match: any, p1: any, p2: any, offset: any, string: any) => {
             // 这里有两个捕获组，第一个捕获组捕获全部并包含了第二个捕获组，所以match等于p1
             return p2.toUpperCase();
         });
     }
     return str;
-
 }
 
 export function capitalize(name: string) {

@@ -14,5 +14,5 @@ export interface DispatchEmitter {
     emit(options?: CustomEventOptions): void;
 }
 export interface KeyValue {
-    [key: string ]: any;
+    [key: string]: any;
 }

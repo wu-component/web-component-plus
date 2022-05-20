@@ -9,9 +9,7 @@ import { webOptions as options } from '../../app-data';
  */
 export function createNode(nodeName: string, isSvg: boolean) {
     /** @type {Element} */
-    const node: any = isSvg
-        ? document.createElementNS('http://www.w3.org/2000/svg', nodeName)
-        : document.createElement(nodeName);
+    const node: any = isSvg ? document.createElementNS('http://www.w3.org/2000/svg', nodeName) : document.createElement(nodeName);
     node.normalizedNodeName = nodeName;
     return node;
 }

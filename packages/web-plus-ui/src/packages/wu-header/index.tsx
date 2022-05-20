@@ -1,3 +1,1 @@
-export class WuHeader {
-
-}
+export class WuHeader {}

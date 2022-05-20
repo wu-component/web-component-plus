@@ -1,6 +1,6 @@
 import { pathToArr } from './util';
 
-export const extension:any = {};
+export const extension: any = {};
 
 export function extend(name: string, handler: any) {
     extension['o-' + name] = handler;
@@ -33,7 +33,7 @@ function eventProxy(e: any) {
     return this._listeners[e.type](e);
 }
 
-export function bind(el: any, type: string, handler:any) {
+export function bind(el: any, type: string, handler: any) {
     el._listeners = el._listeners || {};
     el._listeners[type] = handler;
     el.addEventListener(type, eventProxy);

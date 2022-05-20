@@ -1,3 +1,1 @@
-export class WuContainer {
-
-}
+export class WuContainer {}

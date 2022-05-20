@@ -1,9 +1,9 @@
-﻿import { h, Component, Prop } from "@canyuegongzi/web-core-plus";
+﻿import { h, Component, Prop } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 
 @Component({
     name: 'wu-plus-icon',
-    css: css
+    css: css,
 })
 export class WuIcon extends HTMLElement {
     constructor() {
@@ -13,9 +13,7 @@ export class WuIcon extends HTMLElement {
     @Prop({ default: '', type: String })
     public name: string;
 
-    public render(_renderProps= {}, _store = {}) {
-        return (
-            <i class={`wu-icon-${this.name}`} />
-        );
+    public render(_renderProps = {}, _store = {}) {
+        return <i class={`wu-icon-${this.name}`} />;
     }
 }

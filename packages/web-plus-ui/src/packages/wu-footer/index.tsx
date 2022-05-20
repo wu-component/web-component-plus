@@ -1,3 +1,1 @@
-export class WuFooter {
-
-}
+export class WuFooter {}

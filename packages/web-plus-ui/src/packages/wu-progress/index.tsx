@@ -1,13 +1,13 @@
-import { Component, Emit, h, Prop } from "@canyuegongzi/web-core-plus";
+import { Component, Emit, h, Prop } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
-import { extractClass } from "@/common";
-type TypeEnums = "line" | "circle" | "dashboard";  // line
-type StatusEnums = "success" | "exception" | "warning";  //
-type StrokeLinecapEnums = "butt" | "round" | "square";  // round
+import { extractClass } from '@/common';
+type TypeEnums = 'line' | 'circle' | 'dashboard'; // line
+type StatusEnums = 'success' | 'exception' | 'warning'; //
+type StrokeLinecapEnums = 'butt' | 'round' | 'square'; // round
 
 @Component({
     name: 'wu-plus-progress',
-    css: css
+    css: css,
 })
 export class WuProgress extends HTMLElement {
     constructor() {
@@ -16,13 +16,13 @@ export class WuProgress extends HTMLElement {
 
     public props!: any;
 
-    @Prop({ type: String, default: "line" })
+    @Prop({ type: String, default: 'line' })
     public type: TypeEnums;
 
     @Prop({ type: Number, default: 0 })
     public percentage: number;
 
-    @Prop({ type: String, default: "" })
+    @Prop({ type: String, default: '' })
     public status: StatusEnums;
 
     @Prop({ type: Number, default: 6 })
@@ -43,20 +43,20 @@ export class WuProgress extends HTMLElement {
     @Prop({ type: String, default: '' })
     public color: string;
 
-    @Emit("close")
+    @Emit('close')
     public handleClose(event: Event) {
         event = Array.isArray(event) && event.length ? event[0] : event;
         event.stopPropagation();
         return {
-            event
+            event,
         };
     }
 
-    @Emit("click")
+    @Emit('click')
     public handleClick(event) {
         event = Array.isArray(event) && event.length ? event[0] : event;
         return {
-            event
+            event,
         };
     }
 
@@ -83,9 +83,7 @@ export class WuProgress extends HTMLElement {
      */
     get progressTextSize() {
         const { type, strokeWidth, width } = this.props;
-        return type === 'line'
-            ? 12 + strokeWidth * 0.4
-            : width * 0.111111 + 2;
+        return type === 'line' ? 12 + strokeWidth * 0.4 : width * 0.111111 + 2;
     }
 
     /**
@@ -139,7 +137,7 @@ export class WuProgress extends HTMLElement {
 
     get relativeStrokeWidth() {
         const { strokeWidth, width } = this.props;
-        return (strokeWidth / width * 100).toFixed(1);
+        return ((strokeWidth / width) * 100).toFixed(1);
     }
 
     get radius() {
@@ -173,14 +171,14 @@ export class WuProgress extends HTMLElement {
     }
 
     get strokeDashoffset() {
-        const offset = -1 * this.perimeter * (1 - this.rate) / 2;
+        const offset = (-1 * this.perimeter * (1 - this.rate)) / 2;
         return `${offset}px`;
     }
 
     get trailPathStyle() {
         return {
-            strokeDasharray: `${(this.perimeter * this.rate)}px, ${this.perimeter}px`,
-            strokeDashoffset: this.strokeDashoffset
+            strokeDasharray: `${this.perimeter * this.rate}px, ${this.perimeter}px`,
+            strokeDashoffset: this.strokeDashoffset,
         };
     }
 
@@ -188,14 +186,14 @@ export class WuProgress extends HTMLElement {
         return {
             strokeDasharray: `${this.perimeter * this.rate * (this.percentage / 100)}px, ${this.perimeter}px`,
             strokeDashoffset: this.strokeDashoffset,
-            transition: 'stroke-dasharray 0.6s ease 0s, stroke 0.6s ease'
+            transition: 'stroke-dasharray 0.6s ease 0s, stroke 0.6s ease',
         };
     }
 
     public render(_renderProps = {}, _store = {}) {
-        console.log("props", this.props);
-        console.log("showText", this.showText);
-        console.log("textInside", this.textInside);
+        console.log('props', this.props);
+        console.log('showText', this.showText);
+        console.log('textInside', this.textInside);
         return (
             <div
                 class="wu-progress"
@@ -203,7 +201,6 @@ export class WuProgress extends HTMLElement {
                 aria-valuenow={this.percentage}
                 aria-valuemin="0"
                 aria-valuemax="100"
-
                 {...extractClass({}, 'wu-progress', {
                     ['wu-progress-' + this.type]: this.type,
                     ['wu-progress-' + this.status]: this.status,
@@ -211,58 +208,34 @@ export class WuProgress extends HTMLElement {
                     'wu-progress-text-inside': this.textInside,
                 })}
             >
-                {
-                    this.type === "line" ? (
-                            <div class="wu-progress-bar">
-                                <div class="wu-progress-bar_outer" style={{ height: this.strokeWidth + 'px' }}>
-                                    <div class="wu-progress-bar_inner" style={this.barStyle}>
-                                        {
-                                            this.showText && this.textInside ? (
-                                                <div class="wu-progress-bar_innerText">
-                                                    {this.content}
-                                                </div>
-                                            ) : null
-                                        }
-                                    </div>
-                                </div>
+                {this.type === 'line' ? (
+                    <div class="wu-progress-bar">
+                        <div class="wu-progress-bar_outer" style={{ height: this.strokeWidth + 'px' }}>
+                            <div class="wu-progress-bar_inner" style={this.barStyle}>
+                                {this.showText && this.textInside ? <div class="wu-progress-bar_innerText">{this.content}</div> : null}
                             </div>
-                        ) :
-                        (
-                            <div class="wu-progress-circle"
-                                 style={{ height: this.width + 'px', width: this.width + 'px' }}>
-                                <svg viewBox="0 0 100 100">
-                                    <path
-                                        class="wu-progress-circle_track"
-                                        stroke="#e5e9f2"
-                                        fill="none"
-                                        d={this.trackPath}
-                                        stroke-width={this.relativeStrokeWidth}
-                                        style={this.trailPathStyle}
-                                    />
-                                    <path
-                                        class="wu-progress-circle_path"
-                                        fill="none"
-                                        d={this.trackPath}
-                                        stroke={this.stroke}
-                                        stroke-linecap={this.strokeLinecap}
-                                        stroke-width={this.percentage ? this.relativeStrokeWidth : 0}
-                                        style={this.circlePathStyle}
-                                    />
-                                </svg>
-                            </div>
-                        )
-                }
-                {
-                    this.showText && !this.textInside? (
-                        <div class="wu-progress_text" style={{ fontSize: this.progressTextSize + 'px' }}>
-                            {
-                                !this.status? this.content: <i class={this.iconClass}/>
-                            }
                         </div>
-                    ): null
-                }
+                    </div>
+                ) : (
+                    <div
+                        class="wu-progress-circle"
+                        style={{
+                            height: this.width + 'px',
+                            width: this.width + 'px',
+                        }}
+                    >
+                        <svg viewBox="0 0 100 100">
+                            <path class="wu-progress-circle_track" stroke="#e5e9f2" fill="none" d={this.trackPath} stroke-width={this.relativeStrokeWidth} style={this.trailPathStyle} />
+                            <path class="wu-progress-circle_path" fill="none" d={this.trackPath} stroke={this.stroke} stroke-linecap={this.strokeLinecap} stroke-width={this.percentage ? this.relativeStrokeWidth : 0} style={this.circlePathStyle} />
+                        </svg>
+                    </div>
+                )}
+                {this.showText && !this.textInside ? (
+                    <div class="wu-progress_text" style={{ fontSize: this.progressTextSize + 'px' }}>
+                        {!this.status ? this.content : <i class={this.iconClass} />}
+                    </div>
+                ) : null}
             </div>
         );
     }
-
 }

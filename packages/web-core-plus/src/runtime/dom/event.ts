@@ -1,4 +1,4 @@
-import { webOptions as options } from "../../app-data";
+import { webOptions as options } from '../../app-data';
 
 /**
  * Proxy an event to hooked event handlers
@@ -21,5 +21,5 @@ export function bindEvent(node: any, name: any, value: any, old: any) {
     } else {
         node.removeEventListener(name, eventProxy, useCapture);
     }
-    ;(node._listeners || (node._listeners = {}))[name] = value;
+    (node._listeners || (node._listeners = {}))[name] = value;
 }

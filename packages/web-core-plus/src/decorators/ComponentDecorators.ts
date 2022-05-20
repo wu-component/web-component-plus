@@ -1,19 +1,19 @@
-import "reflect-metadata";
-import { COMPONENT_CUSTOM_EVENT, COMPONENT_WATCH, PROP_META_KEY, STATE_META_KEY } from "../app-data";
-import { PropOptions } from "./PropDecorators";
-import {formatValue, isEqual} from "../utils/format-type";
-import { diff } from "../runtime";
-import { cssToDom, hyphenateReverse, isObject, toDotCase, getAttrMap } from "../utils";
-import { EventOptions } from "./EmitDecorators";
-import { WatchMetaOptions } from "./WatchDecorators";
-import { StateOptions } from "./StateDecorators";
+import 'reflect-metadata';
+import { COMPONENT_CUSTOM_EVENT, COMPONENT_WATCH, PROP_META_KEY, STATE_META_KEY } from '../app-data';
+import { PropOptions } from './PropDecorators';
+import { formatValue, isEqual } from '@/utils/format-type';
+import { diff } from '@runtime';
+import { cssToDom, hyphenateReverse, isObject, toDotCase, getAttrMap } from '../utils';
+import { EventOptions } from './EmitDecorators';
+import { WatchMetaOptions } from './WatchDecorators';
+import { StateOptions } from './StateDecorators';
 
-type ComponentEnums = 'CustomWebComponent'
+type ComponentEnums = 'CustomWebComponent';
 export interface CustomTagOptions {
     name: string;
     is?: ComponentEnums;
     css?: string;
-    options?: ElementDefinitionOptions
+    options?: ElementDefinitionOptions;
 }
 
 /**
@@ -24,7 +24,7 @@ export interface CustomTagOptions {
  */
 function injectKeys(keys: PropOptions[], functions: WatchMetaOptions[], customElement: any) {
     const onlyFunctions: WatchMetaOptions[] = [];
-    for (let i = 0; i < functions.length; i ++) {
+    for (let i = 0; i < functions.length; i++) {
         const current = keys.find(item => item.attr === functions[i].path);
         if (!current) {
             onlyFunctions.push(functions[i]);
@@ -42,10 +42,9 @@ function injectKeys(keys: PropOptions[], functions: WatchMetaOptions[], customEl
                     return this.props[attr];
                 }
                 return props.default;
-
             },
-            set: function (val: any){
-                const oldValue = isObject(this.props[attr]) || Array.isArray(this.props[attr])? JSON.parse(JSON.stringify(this.props[attr])): this.props[attr];
+            set: function(val: any) {
+                const oldValue = isObject(this.props[attr]) || Array.isArray(this.props[attr]) ? JSON.parse(JSON.stringify(this.props[attr])) : this.props[attr];
                 const newValue = formatValue(val, props.type, props.default);
                 this.props[attr] = newValue;
                 val = newValue;
@@ -55,10 +54,9 @@ function injectKeys(keys: PropOptions[], functions: WatchMetaOptions[], customEl
                     if (!isEqual(this.props[attr], oldValue)) {
                         customElement.prototype[watch.callbackName].call(this, this.props[attr], oldValue);
                     }
-
                 }
                 return true;
-            }
+            },
         });
     });
     injectWatch(onlyFunctions, customElement);
@@ -69,21 +67,21 @@ function injectKeys(keys: PropOptions[], functions: WatchMetaOptions[], customEl
  * @param functions
  * @param customElement
  */
-function injectWatch( functions: WatchMetaOptions[], customElement: any) {
+function injectWatch(functions: WatchMetaOptions[], customElement: any) {
     functions.forEach((props: WatchMetaOptions) => {
         const attr = `__${props.path}__watch__`;
         Object.defineProperty(customElement.prototype, props.path, {
             get: function() {
                 return this[attr];
             },
-            set: function (val: any){
-                const oldValue = isObject(this[attr]) || Array.isArray(this[attr])? JSON.parse(JSON.stringify(this[attr])): this[attr];
+            set: function(val: any) {
+                const oldValue = isObject(this[attr]) || Array.isArray(this[attr]) ? JSON.parse(JSON.stringify(this[attr])) : this[attr];
                 this[attr] = val;
                 if (!isEqual(val, oldValue)) {
                     customElement.prototype[props.callbackName].call(this, this[attr], oldValue);
                 }
                 return true;
-            }
+            },
         });
     });
 }
@@ -97,25 +95,23 @@ function injectEmit(functions: EventOptions[], customElement: any) {
     functions.forEach((event: EventOptions) => {
         Object.defineProperty(customElement.prototype, event.methodName, {
             get: function() {
-                return function(...args:any) {
+                return function(...args: any) {
                     const result: any = event.methodFun.call(this, args);
-                    const evtName = (event.eventName) ? event.eventName: toDotCase(event.methodName);
+                    const evtName = event.eventName ? event.eventName : toDotCase(event.methodName);
                     customElement.prototype._dispatchEvent.call(this, evtName, result);
                 };
-            }
+            },
         });
     });
 }
-
 
 /**
  * 数据响应式处理逻辑
  * @param stateList
  * @param customElement
  */
-function injectState( stateList: StateOptions[], customElement: any) {
-    stateList.forEach((props: StateOptions) => {
-    });
+function injectState(stateList: StateOptions[], customElement: any) {
+    stateList.forEach((props: StateOptions) => {});
 }
 /**
  * 组件装饰器
@@ -185,17 +181,17 @@ export function Component(options: CustomTagOptions): ClassDecorator {
             public getAttribute(key: string) {
                 let value = this[key];
                 if (!value) {
-                    value = super.getAttribute(key)
+                    value = super.getAttribute(key);
                 }
                 return value;
             }
 
             public pureRemoveAttribute(key: string) {
-                super.removeAttribute(key)
+                super.removeAttribute(key);
             }
 
             public pureSetAttribute(key: string, val: string) {
-                super.setAttribute(key, val)
+                super.setAttribute(key, val);
             }
 
             /**
@@ -229,13 +225,7 @@ export function Component(options: CustomTagOptions): ClassDecorator {
                 // 属性变化，重新执行render 渲染， 走diff，生成新的dom
                 const rendered = this.render(this.props, this.store);
                 this.rendered();
-                this.rootNode = diff(
-                    this.rootNode,
-                    rendered,
-                    this?.shadowRoot || this?._shadowRootDom || this,
-                    this,
-                    updateSelf
-                );
+                this.rootNode = diff(this.rootNode, rendered, this?.shadowRoot || this?._shadowRootDom || this, this, updateSelf);
                 this.willUpdate = false;
                 this.updated();
             }
@@ -256,7 +246,7 @@ export function Component(options: CustomTagOptions): ClassDecorator {
             public initShadowRoot() {
                 let shadowRoot: ShadowRoot;
                 if ((this.constructor as any).isLightDom) {
-                    shadowRoot = this as unknown as ShadowRoot;
+                    shadowRoot = (this as unknown) as ShadowRoot;
                 } else {
                     shadowRoot = this.shadowRoot || this.attachShadow({ mode: 'open' });
                     let fc;
@@ -371,14 +361,14 @@ export function Component(options: CustomTagOptions): ClassDecorator {
                 // 拿到dom绑定的属性
                 const attrMap = getAttrMap(this.shadowRoot.host);
                 keys.forEach((key: PropOptions) => {
-                    const attr = hyphenateReverse(key.attr)
+                    const attr = hyphenateReverse(key.attr);
                     let val = attrMap[attr];
-                    if(!val) {
+                    if (!val) {
                         val = ele.getAttribute(attr);
                     }
                     const newValue = formatValue(val, key.type, key.default);
-                    this[attr] = newValue
-                    this.props[attr] = newValue
+                    this[attr] = newValue;
+                    this.props[attr] = newValue;
                     this.setAttribute(attr, newValue);
                 });
             }
@@ -390,28 +380,33 @@ export function Component(options: CustomTagOptions): ClassDecorator {
              */
             public _dispatchEvent(evtName: string, result: any) {
                 if (this?.shadowRoot) {
-                    this?.shadowRoot.dispatchEvent(new CustomEvent(evtName, {
-                        detail: result || null,
-                        bubbles: true,  // 设置为冒泡
-                        composed: true  // 设置为可穿透组件
-                    }));
+                    this?.shadowRoot.dispatchEvent(
+                        new CustomEvent(evtName, {
+                            detail: result || null,
+                            bubbles: true, // 设置为冒泡
+                            composed: true, // 设置为可穿透组件
+                        }),
+                    );
                     return;
                 }
                 if (this?._shadowRootDom) {
-                    this?._shadowRootDom.dispatchEvent(new CustomEvent(evtName, {
-                        detail: result || null,
-                        bubbles: true,  // 设置为冒泡
-                        composed: true  // 设置为可穿透组件
-                    }));
+                    this?._shadowRootDom.dispatchEvent(
+                        new CustomEvent(evtName, {
+                            detail: result || null,
+                            bubbles: true, // 设置为冒泡
+                            composed: true, // 设置为可穿透组件
+                        }),
+                    );
                     return;
                 }
-                this.dispatchEvent(new CustomEvent(evtName, {
-                    detail: result || null,
-                    bubbles: true,  // 设置为冒泡
-                    composed: true  // 设置为可穿透组件
-                }));
+                this.dispatchEvent(
+                    new CustomEvent(evtName, {
+                        detail: result || null,
+                        bubbles: true, // 设置为冒泡
+                        composed: true, // 设置为可穿透组件
+                    }),
+                );
             }
-
 
             public beforeInstall() {
                 super.beforeInstall?.();
@@ -438,7 +433,6 @@ export function Component(options: CustomTagOptions): ClassDecorator {
             public rendered() {
                 super.rendered?.();
             }
-
         };
         Reflect.defineMetadata(COMPONENT_CUSTOM_EVENT, target, customElement);
         // 数据响应式处理

@@ -1,7 +1,7 @@
 import { IS_NON_DIMENSIONAL } from '../../app-data';
 import { applyRef } from '../../utils';
 import { extension } from '../../utils/extend';
-import { bindEvent } from "./event";
+import { bindEvent } from './event';
 
 /**
  * Set a named attribute on the given Node, with special behavior for some names
@@ -39,10 +39,7 @@ export function setAccessor(node: any, name: string, old: HTMLElement, value: an
                 for (const i in old) if (!(i in value)) node.style[i] = '';
             }
             for (const i in value) {
-                node.style[i] =
-                    typeof value[i] === 'number' && IS_NON_DIMENSIONAL.test(i) === false
-                        ? value[i] + 'px'
-                        : value[i];
+                node.style[i] = typeof value[i] === 'number' && IS_NON_DIMENSIONAL.test(i) === false ? value[i] + 'px' : value[i];
             }
         }
     } else if (name === 'dangerouslySetInnerHTML') {
@@ -51,50 +48,27 @@ export function setAccessor(node: any, name: string, old: HTMLElement, value: an
         bindEvent(node, name, value, old);
     } else if (node.nodeName === 'INPUT' && name === 'value') {
         node[name] = value == null ? '' : value;
-    } else if (
-        name !== 'list' &&
-        name !== 'type' &&
-        name !== 'css' &&
-        !isSvg &&
-        name in node &&
-        value !== ''
-    ) {
+    } else if (name !== 'list' && name !== 'type' && name !== 'css' && !isSvg && name in node && value !== '') {
         //value !== '' fix for selected, disabled, checked with pure element
         // Attempt to set a DOM property to the given value.
         // IE & FF throw for certain property-value combinations.
         try {
             node[name] = value == null ? '' : value;
         } catch (e) {}
-        if ((value == null || value === false) && name != 'spellcheck')
-            node.pureRemoveAttribute
-                ? node.pureRemoveAttribute(name)
-                : node.removeAttribute(name);
+        if ((value == null || value === false) && name != 'spellcheck') node.pureRemoveAttribute ? node.pureRemoveAttribute(name) : node.removeAttribute(name);
     } else {
         const ns = isSvg && name !== (name = name.replace(/^xlink:?/, ''));
         // spellcheck is treated differently than all other boolean values and
         // should not be removed when the value is `false`. See:
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-spellcheck
         if (value == null || value === false) {
-            if (ns)
-                node.removeAttributeNS(
-                    'http://www.w3.org/1999/xlink',
-                    name.toLowerCase()
-                );
-            else
-                node.pureRemoveAttribute
-                    ? node.pureRemoveAttribute(name)
-                    : node.removeAttribute(name);
+            if (ns) node.removeAttributeNS('http://www.w3.org/1999/xlink', name.toLowerCase());
+            else node.pureRemoveAttribute ? node.pureRemoveAttribute(name) : node.removeAttribute(name);
         } else if (typeof value !== 'function') {
             if (ns) {
-                node.setAttributeNS(
-                    'http://www.w3.org/1999/xlink',
-                    name.toLowerCase(),
-                    value
-                );
+                node.setAttributeNS('http://www.w3.org/1999/xlink', name.toLowerCase(), value);
             } else {
-                node.pureSetAttribute
-                    ? node.pureSetAttribute(name, value)
-                    : node.setAttribute(name, value);
+                node.pureSetAttribute ? node.pureSetAttribute(name, value) : node.setAttribute(name, value);
             }
         }
     }

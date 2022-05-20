@@ -1,3 +1,1 @@
-export class WuMain {
-
-}
+export class WuMain {}

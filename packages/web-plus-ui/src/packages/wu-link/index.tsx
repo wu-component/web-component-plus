@@ -1,12 +1,12 @@
-import { h, Component, Prop, Emit, OnConnected, OnBeforeRender } from "@canyuegongzi/web-core-plus";
+import { h, Component, Prop, Emit, OnConnected, OnBeforeRender } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
-import { extractClass } from "../../common";
-import { getAttrMap } from "../../common";
+import { extractClass } from '@/common';
+import { getAttrMap } from '@/common';
 
-type WuLinkType = 'primary' | 'success' | 'warning' | 'danger' | 'info'
+type WuLinkType = 'primary' | 'success' | 'warning' | 'danger' | 'info';
 @Component({
     name: 'wu-plus-link',
-    css: css
+    css: css,
 })
 export class WuLink extends HTMLElement implements OnConnected, OnBeforeRender {
     constructor() {
@@ -43,23 +43,21 @@ export class WuLink extends HTMLElement implements OnConnected, OnBeforeRender {
         return e;
     }
 
-    public render(_renderProps= {}, _store = {}) {
+    public render(_renderProps = {}, _store = {}) {
         return (
             <a
                 {...extractClass({}, 'wu-link', {
                     ['wu-link-' + this.type]: this.type,
                     'is-disabled': this.disabled,
-                    'is-underline': !this.disabled && this.underline
+                    'is-underline': !this.disabled && this.underline,
                 })}
-                {
-                    ...this.eleAttrsMap
-                }
-                href={this.disabled? null: this.href}
+                {...this.eleAttrsMap}
+                href={this.disabled ? null : this.href}
                 onClick={this.handleClick.bind(this)}
             >
-                    <slot name="prefix" />
-                    <slot />
-                    <slot name="suffix" />
+                <slot name="prefix" />
+                <slot />
+                <slot name="suffix" />
             </a>
         );
     }

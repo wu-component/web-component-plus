@@ -1,4 +1,4 @@
-import {PropTyp} from "../declarations";
+import { PropTyp } from '../declarations';
 
 /**
  * 格式化数据类型
@@ -19,19 +19,16 @@ export function formatValue(val: any, type?: PropTyp, defaultValue?: any) {
                 break;
             case Array:
             case Object:
-                if (typeof val === "string") {
-                    newValue = JSON.parse(val.replace(/'/g, '"'))
-                }
-                else if (Object.prototype.toString.call(val) === '[object Array]' ||
-                    Object.prototype.toString.call(val) === '[object Object]'
-                ) {
+                if (typeof val === 'string') {
+                    newValue = JSON.parse(val.replace(/'/g, '"'));
+                } else if (Object.prototype.toString.call(val) === '[object Array]' || Object.prototype.toString.call(val) === '[object Object]') {
                     newValue = val;
-                }
-                else {
+                } else {
                     newValue = JSON.parse(
-                        val.replace(/(['"])?([a-zA-Z0-9_-]+)(['"])?:([^\/])/g, '"$2":$4')
+                        val
+                            .replace(/(['"])?([a-zA-Z0-9_-]+)(['"])?:([^\/])/g, '"$2":$4')
                             .replace(/'([\s\S]*?)'/g, '"$1"')
-                            .replace(/,(\s*})/g, '$1')
+                            .replace(/,(\s*})/g, '$1'),
                     );
                 }
                 break;
@@ -52,8 +49,9 @@ export function isEqual(a: any, b: any) {
     if (a == b) {
         return true;
     }
-    if (Object.prototype.toString.call(a) === '[object Object]' && Object.prototype.toString.call(b) === '[object Object]') {}
-    if (Object.prototype.toString.call(a) === '[object Array]' && Object.prototype.toString.call(b) === '[object Array]') {}
+    if (Object.prototype.toString.call(a) === '[object Object]' && Object.prototype.toString.call(b) === '[object Object]') {
+    }
+    if (Object.prototype.toString.call(a) === '[object Array]' && Object.prototype.toString.call(b) === '[object Array]') {
+    }
     return false;
 }
-

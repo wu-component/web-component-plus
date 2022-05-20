@@ -1,9 +1,9 @@
-import { h, Component, Prop, Watch, OnConnected, Emit } from "@canyuegongzi/web-core-plus";
+import { h, Component, Prop, Watch, OnConnected, Emit } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
-import { extractClass } from "../../common";
+import { extractClass } from '../../common';
 @Component({
     name: 'wu-plus-switch',
-    css: css
+    css: css,
 })
 export class WuSwitch extends HTMLElement implements OnConnected {
     constructor() {
@@ -50,7 +50,7 @@ export class WuSwitch extends HTMLElement implements OnConnected {
 
     public checked = () => {
         return this.value === this.activeValue;
-    }
+    };
 
     @Watch('checked')
     public checkedChange(val: any, oldVal: any) {}
@@ -78,7 +78,7 @@ export class WuSwitch extends HTMLElement implements OnConnected {
         return this.checked();
     }
 
-    public render(_renderProps= {}, _store = {}) {
+    public render(_renderProps = {}, _store = {}) {
         return (
             <div
                 {...extractClass({}, 'wu-switch', {
@@ -90,22 +90,15 @@ export class WuSwitch extends HTMLElement implements OnConnected {
                 aria-disabled={this.disabled}
                 onClick={this.switchValue.bind(this)}
             >
-                <input
-                    class="wu-switch_input"
-                    type="checkbox"
-                    onChange={this.handleChange.bind(this)}
-                    id={this.id}
-                    name={this.name}
-                    true-value={this.activeValue}
-                    false-value={this.inactiveValue}
-                    disabled={this.disabled}
-                    onkeydown={this.switchValue.bind(this)}
-            />
-                <span class="wu-switch_core" style={{
-                    width: this.width + 'px',
-                    borderColor: this.checked() ? this.activeColor : this.inactiveColor,
-                    backgroundColor: this.checked() ? this.activeColor : this.inactiveColor,
-                }} />
+                <input class="wu-switch_input" type="checkbox" onChange={this.handleChange.bind(this)} id={this.id} name={this.name} true-value={this.activeValue} false-value={this.inactiveValue} disabled={this.disabled} onkeydown={this.switchValue.bind(this)} />
+                <span
+                    class="wu-switch_core"
+                    style={{
+                        width: this.width + 'px',
+                        borderColor: this.checked() ? this.activeColor : this.inactiveColor,
+                        backgroundColor: this.checked() ? this.activeColor : this.inactiveColor,
+                    }}
+                />
                 <span></span>
             </div>
         );

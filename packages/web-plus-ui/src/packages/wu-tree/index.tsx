@@ -1,3 +1,1 @@
-export class WuTree {
-
-}
+export class WuTree {}
