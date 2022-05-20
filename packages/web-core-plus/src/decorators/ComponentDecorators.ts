@@ -1,5 +1,11 @@
 import 'reflect-metadata';
-import { COMPONENT_CUSTOM_EVENT, COMPONENT_WATCH, PROP_META_KEY, STATE_META_KEY } from '../app-data';
+import {
+    COMPONENT_CUSTOM_EVENT, COMPONENT_CUSTOM_INJECT,
+    COMPONENT_CUSTOM_METHOD, COMPONENT_CUSTOM_PROVIDE,
+    COMPONENT_WATCH,
+    PROP_META_KEY,
+    STATE_META_KEY
+} from '../app-data';
 import { PropOptions } from './PropDecorators';
 import { formatValue, isEqual } from '@/utils/format-type';
 import { diff } from '@runtime';
@@ -7,6 +13,8 @@ import { cssToDom, hyphenateReverse, isObject, toDotCase, getAttrMap } from '../
 import { EventOptions } from './EmitDecorators';
 import { WatchMetaOptions } from './WatchDecorators';
 import { StateOptions } from './StateDecorators';
+import { MethodOptions } from "@/decorators/MethodDecorators";
+import { InjectOptions } from "@/decorators/InjectDecorators";
 
 type ComponentEnums = 'CustomWebComponent';
 export interface CustomTagOptions {
@@ -106,6 +114,23 @@ function injectEmit(functions: EventOptions[], customElement: any) {
 }
 
 /**
+ * 注入方法
+ * @param functions
+ * @param customElement
+ */
+function injectMethod(functions: MethodOptions[], customElement: any) {
+    functions.forEach((event: EventOptions) => {
+        Object.defineProperty(customElement.prototype, event.methodName, {
+            get: function() {
+                return function(...args: any) {
+                    return event.methodFun.call(this, args);
+                };
+            },
+        });
+    });
+}
+
+/**
  * 数据响应式处理逻辑
  * @param stateList
  * @param customElement
@@ -121,7 +146,10 @@ function injectState(stateList: StateOptions[], customElement: any) {
 export function Component(options: CustomTagOptions): ClassDecorator {
     return (target: any) => {
         const keys: PropOptions[] = Reflect.getMetadata(PROP_META_KEY, target.prototype) ?? [];
+        const injects: InjectOptions[] = Reflect.getMetadata(COMPONENT_CUSTOM_INJECT, target.prototype) ?? [];
+        const provides: InjectOptions[] = Reflect.getMetadata(COMPONENT_CUSTOM_PROVIDE, target.prototype) ?? [];
         const functions: EventOptions[] = Reflect.getMetadata(COMPONENT_CUSTOM_EVENT, target.prototype) ?? [];
+        const methodsFunctions: EventOptions[] = Reflect.getMetadata(COMPONENT_CUSTOM_METHOD, target.prototype) ?? [];
         const watchs: WatchMetaOptions[] = Reflect.getMetadata(COMPONENT_WATCH, target.prototype) ?? [];
         const statesList: StateOptions[] = Reflect.getMetadata(STATE_META_KEY, target.prototype) ?? [];
         const keysList = keys.map(item => item.attr);
@@ -145,11 +173,33 @@ export function Component(options: CustomTagOptions): ClassDecorator {
 
             constructor() {
                 super();
+                this.injection = null;
+                this._shadowRootDom = null;
+                this.rootNode = null;
+                this.isInstalled = false;
+                this.willUpdate = false;
+                this._customStyleContent = '';
+                this.props = {};
+                this.prevProps = {};
+                this._customStyleElement = null;
+                this._shadowRoot = null;
+                this.store = null;
+                this.__keyList__ = keys;
+                this.injection = {};
+                console.log(injects);
+                console.log(provides);
             }
             static is = 'CustomWebComponent';
 
             static get observedAttributes() {
                 return [];
+            }
+
+            /**
+             * 判断是否需要读取注入的数据
+             */
+            get isInject() {
+                return this.inject && Array.isArray(this.inject) && this.inject.length > 0;
             }
 
             /**
@@ -262,10 +312,38 @@ export function Component(options: CustomTagOptions): ClassDecorator {
                 return shadowRoot;
             }
 
+            /**
+             * 更新数据注入
+             */
+            public updateInject(callBack: () => void): any {
+                if (!this.isInject) {
+                    return;
+                }
+                Promise.resolve().then(() => {
+                    this.injection = {};
+                    let p = this.parentNode;
+                    let provide;
+                    while (p && !provide) {
+                        provide = p.provide;
+                        p = p.parentNode || p.host;
+                    }
+                    console.log(provide);
+                    if (provide) {
+                        this.inject.forEach(injectKey => this.injection[injectKey] = provide[injectKey]);
+                        typeof callBack === "function" && callBack();
+                        return;
+                    }
+                    else {
+                        console.warn("The provide prop was not found on the parent node or the provide type is incorrect.");
+                    }
+                });
+            }
+
             /***
              * 挂载自定义组件
              */
             public connectedCallback() {
+                this.updateInject(this.update.bind(this));
                 const shadowRoot: ShadowRoot = this.initShadowRoot();
                 this.attrsToProps();
                 this.beforeInstall();
@@ -282,7 +360,12 @@ export function Component(options: CustomTagOptions): ClassDecorator {
                 this._shadowRootDom = shadowRoot;
                 this.isInstalled = true;
                 this.rendered();
-                this.connected(shadowRoot);
+                if (this.isInject) {
+                    Promise.resolve().then(() => this.connected(shadowRoot));
+                } else {
+                    this.connected(shadowRoot);
+                }
+
             }
 
             /**
@@ -439,6 +522,8 @@ export function Component(options: CustomTagOptions): ClassDecorator {
         injectKeys(keys, watchs, customElement);
         // 事件代理处理
         injectEmit(functions, customElement);
+        // 方法注入
+        injectMethod(methodsFunctions, customElement);
         injectState(statesList, customElement);
         if (!customElements.get(options.name)) {
             customElements.define(options.name, customElement, options.options || {});

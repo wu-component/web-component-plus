@@ -1,6 +1,6 @@
 import 'reflect-metadata';
-import { PropTyp } from '../declarations';
-import { PROP_META_KEY } from '../app-data';
+import { PropTyp } from '@/declarations';
+import { PROP_META_KEY } from '@/app-data';
 
 export interface PropOptions {
     default?: any;
