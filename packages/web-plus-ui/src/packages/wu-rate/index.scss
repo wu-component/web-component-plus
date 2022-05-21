@@ -5,163 +5,58 @@
 :host{
     display: inline-block;
 }
-@mixin genTheme($backgroundColorWeight, $borderColorWeight, $fontColorWeight, $hoverColorWeight) {
-    background-color: mix($--tag-primary-color, $--color-white, $backgroundColorWeight);
-    border-color: mix($--tag-primary-color, $--color-white, $borderColorWeight);
-    color: mix($--tag-primary-color, $--color-white, $fontColorWeight);
+@include b(rate) {
+    height: $--rate-height;
+    line-height: 1;
 
-    @include when(hit) {
-        border-color: $--tag-primary-color;
+    &:focus, &:active {
+        outline-width: 0;
     }
 
-    .wu-tag_close {
-        color: mix($--tag-primary-color, $--color-white, $fontColorWeight);
-        &:hover {
-            color: $--color-white;
-            background-color: mix($--tag-primary-color, $--color-white, $hoverColorWeight);
-        }
-    }
-
-    &.wu-tag-info {
-        background-color: mix($--tag-info-color, $--color-white, $backgroundColorWeight);
-        border-color: mix($--tag-info-color, $--color-white, $borderColorWeight);
-        color: mix($--tag-info-color, $--color-white, $fontColorWeight);
-
-        @include when(hit) {
-            border-color: $--tag-info-color;
-        }
-
-        .wu-tag_close {
-            color: mix($--tag-info-color, $--color-white, $fontColorWeight);
-            &:hover {
-                color: $--color-white;
-                background-color: mix($--tag-info-color, $--color-white, $hoverColorWeight);
-            }
-        }
-    }
-
-    &.wu-tag-success {
-        background-color: mix($--tag-success-color, $--color-white, $backgroundColorWeight);
-        border-color: mix($--tag-success-color, $--color-white, $borderColorWeight);
-        color: mix($--tag-success-color, $--color-white, $fontColorWeight);
-
-        @include when(hit) {
-            border-color: $--tag-success-color;
-        }
-
-        .wu-tag_close {
-            color: mix($--tag-success-color, $--color-white, $fontColorWeight);
-            &:hover {
-                color: $--color-white;
-                background-color: mix($--tag-success-color, $--color-white, $hoverColorWeight);
-            }
-        }
-    }
-
-    &.wu-tag-warning {
-        background-color: mix($--tag-warning-color, $--color-white, $backgroundColorWeight);
-        border-color: mix($--tag-warning-color, $--color-white, $borderColorWeight);
-        color: mix($--tag-warning-color, $--color-white, $fontColorWeight);
-
-        @include when(hit) {
-            border-color: $--tag-warning-color;
-        }
-
-        .wu-tag_close {
-            color: mix($--tag-warning-color, $--color-white, $fontColorWeight);
-            &:hover {
-                color: $--color-white;
-                background-color: mix($--tag-warning-color, $--color-white, $hoverColorWeight);
-            }
-        }
-    }
-
-    &.wu-tag-danger {
-        background-color: mix($--tag-danger-color, $--color-white, $backgroundColorWeight);
-        border-color: mix($--tag-danger-color, $--color-white, $borderColorWeight);
-        color: mix($--tag-danger-color, $--color-white, $fontColorWeight);
-
-        @include when(hit) {
-            border-color: $--tag-danger-color;
-        }
-
-        .wu-tag_close {
-            color: mix($--tag-danger-color, $--color-white, $fontColorWeight);
-            &:hover {
-                color: $--color-white;
-                background-color: mix($--tag-danger-color, $--color-white, $hoverColorWeight);
-            }
-        }
-    }
-}
-
-@include b(tag) {
-    @include genTheme(10%, 20%, 100%, 100%);
-    display: inline-block;
-    height: 32px;
-    padding: $--tag-padding;
-    line-height: 30px;
-    font-size: $--tag-font-size;
-    color: $--tag-primary-color;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: $--tag-border-radius;
-    box-sizing: border-box;
-    white-space: nowrap;
-
-    .wu-icon-close {
-        border-radius: 50%;
-        text-align: center;
+    @include e(item) {
+        display: inline-block;
         position: relative;
-        cursor: pointer;
-        font-size: 12px;
-        height: 16px;
-        width: 16px;
-        line-height: 16px;
+        font-size: 0;
         vertical-align: middle;
-        top: -1px;
-        right: -5px;
+    }
 
-        &::before {
-            display: block;
+    @include e(icon) {
+        position: relative;
+        display: inline-block;
+        font-size: $--rate-icon-size;
+        margin-right: $--rate-icon-margin;
+        color: $--rate-icon-color;
+        transition: .3s;
+
+        speak: none;
+        font-style: normal;
+        font-weight: 400;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        vertical-align: baseline;
+        -webkit-font-smoothing: antialiased;
+        &.hover {
+            transform: scale(1.15);
+        }
+
+        .path2 {
+            position: absolute;
+            left: 0;
+            top: 0;
         }
     }
 
-    @include m(dark) {
-        @include genTheme(100%, 100%, 0, 80%);
+    @include e(decimal) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: inline-block;
+        overflow: hidden;
     }
 
-    @include m(plain) {
-        @include genTheme(0, 40%, 100%, 100%);
-    }
-
-    @include m(medium) {
-        height: 28px;
-        line-height: 26px;
-
-        .wu-icon-close {
-            transform: scale(.8);
-        }
-    }
-
-    @include m(small) {
-        height: 24px;
-        padding: 0 8px;
-        line-height: 22px;
-
-        .wu-icon-close {
-            transform: scale(.8);
-        }
-    }
-
-    @include m(mini) {
-        height: 20px;
-        padding: 0 5px;
-        line-height: 19px;
-
-        .wu-icon-close {
-            margin-left: -3px;
-            transform: scale(.7);
-        }
+    @include e(text) {
+        font-size: $--rate-font-size;
+        vertical-align: middle;
     }
 }

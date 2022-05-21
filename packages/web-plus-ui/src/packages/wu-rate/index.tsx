@@ -1,77 +1,278 @@
-import { Component, Emit, h, Prop } from '@canyuegongzi/web-core-plus';
+import { Component, Emit, h, Inject, OnBeforeRender, OnConnected, OnInstall, Prop } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
-import { UISize } from '@/interface';
-import { extractClass } from '@/common';
-type EffectEnums = 'dark' | 'light' | 'plain';
-type TypeEnums = 'success' | 'info' | 'warning' | 'danger';
 
 @Component({
     name: 'wu-plus-rate',
     css: css,
 })
-export class WuRate extends HTMLElement {
+export class WuRate extends HTMLElement implements OnConnected, OnBeforeRender, OnInstall {
     constructor() {
         super();
     }
 
-    @Prop({ default: '', type: String })
-    public text: string;
+    public beforeInstall(): any {
+        this.checkoutProps();
+        const list = [];
+        const max = this.max;
+        for (let i = 0; i < max; i ++) {
+            list.push(i +1);
+        }
+        this.valueList = list;
+    }
 
-    @Prop({ default: '', type: String })
-    public color: string;
+    public beforeRender() {}
+
+    public checkoutProps() {
+        if (this.max !== this.rateList.length) {
+            console.warn(`web-plus-ui::max:${this.max} !== rateList.length:${this.rateList.length}`);
+        }
+        if ((this.showText || this.showScore) && (this.max !== this.texts.length)) {
+            console.warn(`web-plus-ui::max:${this.max} !== texts.length:${this.texts.length}`);
+        }
+    }
+
+    public connected(shadowRoot: ShadowRoot) {}
+
+    public pointerAtLeftHalf = true;
+
+    public currentValue = -1;
+
+    public hoverIndex = -1;
+
+    public valueList = [ 1, 2, 3, 4, 5 ]
+
+    public allowUpdate = false;
+
+    public timeout = null;
+
+    @Inject("wuFormRef")
+    public wuForm;
+
+    @Prop({ default: -1, type: Number })
+    public value: number;
+
+    @Prop({ default: 2, type: Number })
+    public lowThreshold: number;
+
+    @Prop({ default: 4, type: Number })
+    public highThreshold: number;
+
+    @Prop({ default: 5, type: Number })
+    public max: number;
+
+    @Prop({ default: [ '#F7BA2A', '#F7BA2A', '#F7BA2A', '#F7BA2A', '#F7BA2A' ], type: Array })
+    public colors: string[];
+
+    @Prop({ default: "#C6D1DE", type: String })
+    public voidColor: number;
+
+    @Prop({ default: "#EFF2F7", type: String })
+    public disabledVoidColor: number;
 
     @Prop({ default: false, type: Boolean })
-    public closable: boolean;
-
-    @Prop({ default: '', type: String })
-    public type: TypeEnums;
+    public disabled: boolean;
 
     @Prop({ default: false, type: Boolean })
-    public hit: boolean;
+    public allowHalf: boolean;
 
     @Prop({ default: false, type: Boolean })
-    public disableTransitions: boolean;
+    public showText: boolean;
 
-    @Prop({ default: '', type: String })
-    public size: UISize;
+    @Prop({ default: false, type: Boolean })
+    public showScore: boolean;
 
-    @Prop({ default: 'light', type: String })
-    public effect: EffectEnums;
+    @Prop({ default: "#1f2d3d", type: String })
+    public textColor: boolean;
 
-    @Emit('close')
-    public handleClose(event: Event) {
-        event = Array.isArray(event) && event.length ? event[0] : event;
-        event.stopPropagation();
+    @Prop({ default: [ '极差', '失望', '一般', '满意', '惊喜' ], type: Array })
+    public texts: string[];
+
+    @Prop({ default: [ "★", "★", "★", "★", "★" ], type: Array })
+    public rateList: string[];
+
+    get text() {
+        return this.texts[this.value] || null;
+    }
+
+    get rateDisabled() {
+        return this.disabled || (this.wuForm || {}).disabled;
+    }
+
+    public getIconStyle(index: number) {
+        const voidColor = this.rateDisabled ? this.disabledVoidColor : this.voidColor;
         return {
-            event,
+            color: index <= this.value ? this.colors[index] : voidColor
         };
     }
 
-    @Emit('click')
-    public handleClick(event) {
-        event = Array.isArray(event) && event.length ? event[0] : event;
+    /**
+     * 获取图标渲染
+     * @param index
+     */
+    public getRateRender(index: number) {
+        return this.rateList[index] || null;
+    }
+
+    /**
+     * 设置值
+     * @param item
+     * @param event
+     */
+    public setCurrentValue(item: number, event: MouseEvent) {
+        if (this.rateDisabled) {
+            return;
+        }
+        const target: HTMLElement = event.target as HTMLElement;
+        const value = Number(target.dataset['rate']);
+        if (this.allowHalf) {
+            this.pointerAtLeftHalf = event.offsetX * 2 <= target.clientWidth;
+            this.value = this.pointerAtLeftHalf ? value - 0.5 : value;
+        }
+        this.setRateValue(value);
+        this.currentValue = value;
+        this.hoverIndex = value;
+    }
+
+    /**
+     * 重置
+     */
+    public resetCurrentValue() {
+        if (this.rateDisabled) {
+            return;
+        }
+        if (this.allowHalf) {
+            this.pointerAtLeftHalf = this.value !== Math.floor(this.value);
+        }
+        this.currentValue = this.value;
+        this.hoverIndex = -1;
+    }
+
+    @Emit("input")
+    public input(value: number) {
         return {
-            event,
+            value: this.value
         };
+    }
+    @Emit("change")
+    public change(value: number) {
+        return {
+            value: this.value
+        };
+    }
+
+    /**
+     * 选择
+     * @param item
+     * @param event
+     */
+    public selectValue(item: number, event: Event) {
+        if (this.rateDisabled) {
+            return;
+        }
+        if (this.allowHalf && this.pointerAtLeftHalf) {
+            this.input(this.currentValue);
+            this.change(this.currentValue);
+        } else {
+            this.input(this.value);
+            this.change(this.value);
+        }
+    }
+
+    /**
+     * 设置值
+     * @param value
+     */
+    public setRateValue(value: number) {
+        if (this.timeout) {
+            clearTimeout(this.timeout);
+        }
+        this.timeout = setTimeout(() => {
+            this.value = value;
+        }, 100);
+
+    }
+
+    /**
+     * 键盘操作
+     * @param e
+     */
+    public handleKey(e: MouseEvent) {
+        console.log(e);
+        if (this.rateDisabled) {
+            return;
+        }
+        let currentValue = this.currentValue;
+        const keyCode = (e as any).keyCode;
+        console.log(currentValue);
+        console.log(keyCode);
+
+        if (keyCode === 38 || keyCode === 39) { // left / down
+            if (this.allowHalf) {
+                currentValue += 0.5;
+            } else {
+                currentValue += 1;
+            }
+            e.stopPropagation();
+            e.preventDefault();
+        } else if (keyCode === 37 || keyCode === 40) {
+            if (this.allowHalf) {
+                currentValue -= 0.5;
+            } else {
+                currentValue -= 1;
+            }
+            e.stopPropagation();
+            e.preventDefault();
+        }
+        currentValue = currentValue < 0 ? 0 : currentValue;
+        currentValue = currentValue > this.max ? this.max : currentValue;
+        console.log(currentValue);
+        this.input(currentValue);
+        this.change(currentValue);
     }
 
     public render(_renderProps = {}, _store = {}) {
         return (
-            <span
-                {...extractClass({}, 'wu-tag', {
-                    ['wu-tag-' + this.type]: this.type,
-                    ['wu-tag-' + this.size]: this.size,
-                    ['wu-tag-' + this.effect]: this.effect,
-                    'is-hit': this.hit,
-                })}
+            <div
+                class="wu-rate"
+                onKeydown={(event) => this.handleKey(event)}
+                role="slider"
+                aria-valuenow={this.currentValue}
+                aria-valuetext={this.text}
+                aria-valuemin="0"
+                aria-valuemax={this.max}
+                tabindex="0"
+                id="rate"
             >
-                <slot />
-                {this.closable ? (
-                    <svg onClick={this.handleClose.bind(this)} class="wu-tag_close wu-icon-close" fill="currentColor" width="1em" height="1em" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                    </svg>
-                ) : null}
-            </span>
+                {
+                    this.valueList.map((itemValue, item) => {
+                        return (
+                            <span
+                                data-rate={item}
+                                class="wu-rate_item"
+                                onMousemove={(event) => this.setCurrentValue(item, event)}
+                                onMouseleave={(event) => this.resetCurrentValue()}
+                                onClick={(event) => this.selectValue(item, event)}
+                                style={{ cursor: this.rateDisabled ? 'auto' : 'pointer' }}
+                                key={item}
+                            >
+                                <i
+                                data-rate={item}
+                                class={`wu-rate_icon ${this.hoverIndex === item? "hover": ""}`}
+                                style={this.getIconStyle(item)}>
+                                    {/*直接传入html集合*/}
+                                    {this.getRateRender(item)}
+                                </i>
+
+                            </span>
+                        );
+                    })
+                }
+                {
+                    this.showText || this.showScore ? (
+                        <span class="wu-rate_text" style={{ color: this.textColor }}>{this.text}</span>
+                    ) : null
+                }
+            </div>
         );
     }
 }

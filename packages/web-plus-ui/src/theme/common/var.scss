@@ -547,3 +547,14 @@ $--message-info-font-color: $--color-info !default;
 $--message-warning-font-color: $--color-warning !default;
 /// color||Color|0
 $--message-danger-font-color: $--color-danger !default;
+
+/* Rate
+--------------------------*/
+$--rate-height: 20px !default;
+/// fontSize||Font|1
+$--rate-font-size: $--font-size-base !default;
+/// height||Other|3
+$--rate-icon-size: 18px !default;
+/// margin||Spacing|2
+$--rate-icon-margin: 6px !default;
+$--rate-icon-color: $--color-text-placeholder !default;

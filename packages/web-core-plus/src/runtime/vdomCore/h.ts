@@ -1,9 +1,9 @@
 import { webOptions as options } from '../../app-data';
-import { Fragment } from '../../utils';
+import { Fragment } from '@/utils';
 
 const stack: any = [];
 
-export function h(nodeName: any, attributes: any) {
+export function h(nodeName?: any, attributes?: any) {
     let children = [],
         lastSimple: any,
         child,

@@ -1,7 +1,7 @@
 /**
  * 渲染前
  */
-import { PropOptions } from '@/decorators';
+import { InjectOptions, PropOptions, ProvideConfig } from '@/decorators';
 
 export interface OnBeforeRender<T = any> {
     beforeRender(): any;
@@ -65,6 +65,10 @@ export interface OnUpdate<T = any> {
 }
 
 export interface BaseCustomComponent {
+
+    provides: ProvideConfig[];
+
+    injects: InjectOptions[];
     /**
      * 组件中props
      */
@@ -134,4 +138,6 @@ export interface BaseCustomComponent {
      * 组件 connected
      */
     connectedCallback(): void;
+
+    render(...args): any;
 }

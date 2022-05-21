@@ -8,7 +8,7 @@
 
 const hasOwn = {}.hasOwnProperty;
 
-function classNames() {
+function classNames(...args) {
     const classes = [];
     for (let i = 0; i < arguments.length; i++) {
         const arg: any[] = arguments[i];

@@ -6,8 +6,8 @@ import css from './index.scss';
     css: css,
 })
 export class WuBreadcrumbItem extends HTMLElement implements OnConnected {
-    private separator: string = '';
-    private separatorClass: string = '';
+    private separator = '';
+    private separatorClass = '';
 
     public update!: () => void;
 
@@ -41,7 +41,7 @@ export class WuBreadcrumbItem extends HTMLElement implements OnConnected {
         const link: HTMLElement = this.shadowRoot.querySelector("#link");
         link.addEventListener("click", (e: Event) => {
             this.wuBreadcrumb.breadcrumbClick(this.to, e);
-        })
+        });
         this.update();
     }
 }

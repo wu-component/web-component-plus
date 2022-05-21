@@ -4,14 +4,166 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
+        html {
+
+            color: #000;
+            overflow-y: scroll;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            overflow-x: hidden;
+        }
+
+        html * {
+            outline: none;
+            -webkit-text-size-adjust: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            box-sizing: border-box;
+        }
+
+        html,
         body {
+            font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+            width: 100%;
+        }
+
+        body,
+        div,
+        dl,
+        dt,
+        dd,
+        ul,
+        ol,
+        li,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        pre,
+        code,
+        form,
+        fieldset,
+        legend,
+        input,
+        textarea,
+        p,
+        blockquote,
+        th,
+        td,
+        hr,
+        button,
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        section {
             margin: 0;
+            padding: 0;
+        }
+
+        input,
+        select,
+        textarea {
+            font-size: 100%;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        fieldset,
+        img {
+            border: 0;
+        }
+
+        abbr,
+        acronym {
+            border: 0;
+            font-variant: normal;
+        }
+
+        del {
+            text-decoration: line-through;
+        }
+
+        address,
+        caption,
+        cite,
+        code,
+        dfn,
+        em,
+        th,
+        i,
+        var {
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        ol,
+        ul {
+            list-style: none;
+        }
+
+        caption,
+        th {
+            text-align: left;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-size: 100%;
+            font-weight: 500;
+        }
+
+        q:before,
+        q:after {
+            content: '';
+        }
+
+        sub,
+        sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline;
+        }
+
+        sup {
+            top: -0.5em;
+        }
+
+        sub {
+            bottom: -0.25em;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        ins,
+        a,
+        a:active,
+        a:visited,
+        a:link {
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
 <div id="app">
-    <div style="display: flex;flex-direction: column">
+    <div >
         <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
             <wu-plus-button size="mini" type="primary">primary</wu-plus-button>
             <wu-plus-button size="mini" type="success">success</wu-plus-button>
@@ -181,12 +333,48 @@
             </wu-plus-page-header>
         </div>
 
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px; margin-bottom: 16px">
+            <wu-plus-rate id="rateTest"></wu-plus-rate>
+            <wu-plus-rate id="rateTest3" colors="['blue', 'blue', 'blue', 'blue','blue']"></wu-plus-rate>
+            <wu-plus-rate id="rateTest1" show-text="true"></wu-plus-rate>
+            <wu-plus-rate id="rateTest2" show-text="false" show-score="true"></wu-plus-rate>
+        </div>
+
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px; margin-bottom: 16px">
+            <wu-plus-table
+                checkbox="true"
+                stripe="false"
+                border="true"
+                compact="false"
+                width="500px"
+                height="200px"
+                data='[{"id":1,"name":"xwang","age":18,"address":"Tencent"}]'
+                columns='[{"title":"ID","key":"id","width":"80px", "align": "center"},{"title":"Name", "align": "center", "key":"name","width":"120px"},{"title":"age","key":"age","width":"120px"},{"title":"address","key":"address","width":"120px"}]'
+            ></wu-plus-table>
+
+        </div>
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px; margin-bottom: 16px">
+            <wu-plus-table
+                id="tableRef2"
+                checkbox="true"
+                stripe="false"
+                border="true"
+                compact="false"
+                width="100%"
+                height="300px"
+                columns='[{"width":"20px", "align": "center", "type": "selection"},{"title":"ID","key":"id","width":"80px", "align": "center"},{"title":"Name", "align": "center", "key":"name","width":"120px"},{"title":"age","key":"age","width":"120px"},{"title":"address","key":"address","width":"120px"}]'
+            ></wu-plus-table>
+
+        </div>
+
     </div>
 </div>
 
 </body>
-<script type="module" src="./dist/web-plus.umd.js"></script>
-<script type="module" src="./dev-server/main.ts"></script>
+<script type="module" src="./core.umd.js"></script>
+<!--<script type="module" src="./dist/web-plus.umd.js"></script>-->
+<script type="module" src="./dist/web-plus.esm.js"></script>
+<!--<script type="module" src="./dev-server/main.ts"></script>-->
 <script type="module">
     /*const testDom = document.getElementById('testDom2');
     console.log(testDom);
@@ -301,6 +489,59 @@
         console.log("返回")
     })
 
+
+    const editFun = (item, item1) => {
+        console.log(item)
+        console.log(item1)
+    }
+    const deleteFun = (item, item1) => {
+        console.log(item)
+        console.log(item1)
+    }
+
+    const tableRef2 = document.getElementById("tableRef2");
+    const columns = [
+        { "width":"20px", "type": "selection" },
+        { "title":"ID","key":"id","width":"80px", "align": "center" },
+        { "title":"Name", "align": "center", "key":"name","width":"120px" },
+        { "title":"age","key":"age","width":"120px" },
+        { "title":"address","key":"address","width":"120px" },
+        { "title": "操作", "width":"120px", "align": "center",
+            render: (item) => {
+                return WebCorePlus.h('div', null, [
+                    WebCorePlus.h(
+                        'wu-plus-button', { size: "mini", type: "primary", style: { color: "blue", cursor: "pointer"}, onclick: (item1) => editFun(item, item1)}, '编辑'
+                    ),
+                    WebCorePlus.h(
+                        'wu-plus-button', { size: "mini", type: "danger", style: { color: "blue", marginLeft: "8px", cursor: "pointer"}, onclick: (item1) => deleteFun(item, item1)}, '删除'
+                    )
+                ])
+            }
+         }
+        ]
+    const list = [
+        {
+            "id":1,
+            "name":"xwang",
+            "age":18,
+            "address":"Tencent"
+        },
+        {
+            "id":2,
+            "name":"xwawwng",
+            "age":182,
+            "address":"Teneeeecent"
+        },
+        {
+            "id":3,
+            "name":"xwawwng",
+            "age":182,
+            "address":"Teneeeecent"
+        }
+    ]
+    console.log(tableRef2);
+    tableRef2.setAttribute('data', list)
+    tableRef2.setAttribute('columns', columns)
 
 
 

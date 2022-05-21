@@ -1,0 +1,37 @@
+{
+    // https://blog.csdn.net/oBoLuoMi1/article/details/121697267
+    "compilerOptions": {
+        "alwaysStrict": true,
+        "allowSyntheticDefaultImports": true,
+        "allowUnreachableCode": false,
+        "declaration": true,
+        "experimentalDecorators": true,
+        "forceConsistentCasingInFileNames": true,
+        "jsx": "react",
+        "jsxFactory": "h",
+        "jsxFragmentFactory": "Fragment",
+        "lib": ["dom", "es2018", "esnext.array"],
+        "module": "esnext",
+        "moduleResolution": "node",
+        "noImplicitAny": false,
+        "noImplicitOverride": true,
+        "emitDecoratorMetadata": true,
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": false,
+        "outDir": "build",
+        "pretty": true,
+        "resolveJsonModule": true,
+        "sourceMap": true,
+        "target": "ES6",
+        "useUnknownInCatchVariables": true,
+        "baseUrl": ".",
+        "paths": {
+            "@/*":["./src/*"],
+            "@/app-data": ["./src/app-data/index.ts"],
+            "@app-data":["./src/app-data"],
+            "@runtime":["./src/runtime"]
+        }
+    },
+    "include": ["src/index.tsx", "typings/*.d.ts", "src/index.scss"]
+}

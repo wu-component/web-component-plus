@@ -209,7 +209,7 @@ export function Component(options: CustomTagOptions): ClassDecorator {
                 return provides.reduce((previousValue: Record<string, ProvideConfig>, currentValue: ProvideConfig) => {
                     previousValue[currentValue.key] = currentValue;
                     return previousValue;
-                }, {} as Record<string, ProvideConfig> )
+                }, {} as Record<string, ProvideConfig> );
 
             }
 
@@ -363,7 +363,7 @@ export function Component(options: CustomTagOptions): ClassDecorator {
                         return;
                     }
                     else {
-                        console.warn("The provide prop was not found on the parent node or the provide type is incorrect.");
+                        console.warn(`The provide prop was not found on the parent node or the provide type is incorrect. please check ${this.tagName}`);
                     }
                 });
             }
@@ -545,6 +545,8 @@ export function Component(options: CustomTagOptions): ClassDecorator {
             public rendered() {
                 super.rendered?.();
             }
+
+            public receiveProps() {}
         };
         Reflect.defineMetadata(COMPONENT_CUSTOM_EVENT, target, customElement);
         // 数据响应式处理
