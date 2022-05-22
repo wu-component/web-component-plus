@@ -29,3 +29,4 @@ export * from './packages/wu-message';
 /************************测试数据注入***************************/
 export * from './packages/wu-inject';
 export * from './packages/wu-provide';
+export * from './packages/wu-example';

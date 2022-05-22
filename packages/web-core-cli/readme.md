@@ -1,80 +1,27 @@
-## 自定义 WebComponent 核心包
+# t-cli脚手架
 
-该工具包是 @canyuegongzi/web-core 包的升级，可以通过装饰器的方式定义组件。
+## 概述
 
+t-cli 是一个前后端通用的快速构建开发环境的脚手架工具。
 
-[@canyuegongzi/web-core](https://www.npmjs.com/package/@canyuegongzi/web-core "@canyuegongzi/web-core")
-## 示例如下：
+web端提供 webpack 基础版工程模板（js / ts）、vue2 + webpack(4 / 5)、react + webpack(4 / 5)；node 端默认提供 基础版模板、nest工程级模板等。
 
-```
-import { h, Component, Emit, Prop, Watch } from "@canyuegongzi/web-core-plus";
-import css from './index.css';
-import {OnBeforeRender, OnBeforeUpdate, OnConnected, OnDisConnected, OnRendered, OnUpdated} from "@canyuegongzi/web-core-plus/declarations";
-type WuButtonType = 'primary' | 'success' | 'warning' | 'danger' | 'info'
-@Component({
-    name: 'wu-button',
-    css: css
-})
-export class WuButton extends HTMLElement implements OnConnected, OnDisConnected, OnBeforeRender, OnRendered, OnBeforeUpdate, OnUpdated {
-    constructor() {
-        super();
-    }
+欢迎开发者提供优秀的模板。
 
-    public updated() {
-        console.log('updated')
-    }
+[npm](https://www.npmjs.com/package/@canyuegongzi/t-cli)
 
-    public beforeUpdate() {
-        console.log('beforeUpdate')
-    }
+[github](https://github.com/canyuegongzi/t-cli/issues)
 
-    public rendered() {
-        console.log('rendered')
-    }
+## 模板列表
 
-    public beforeRender() {
-        console.log('beforeRender')
-    }
+* node-nest
+* node-simple-typescript
+* web-webpack4-typescript
+* web-webpack4-vue2-javascript
+* web-webpack4-vue2-typescript
+* web-webpack4-react-javascript
+* web-webpack4-react-typescript
 
-    public connected(shadowRoot: ShadowRoot) {
-        console.log('connected', shadowRoot)
-    }
+## 模板说明
 
-    public disConnected() {
-        console.log('disConnected');
-    }
-    @Prop({ default: 'primary'})
-    public type: WuButtonType;
-
-    public testValue = 1;
-
-    @Emit('valueChange')
-    public testTap() {
-        this.testValue = 2;
-        return {
-            type: this.type
-        }
-    }
-
-    @Watch('type')
-    public typeChange(newValue: string, oldValue: string) {
-        console.log('类型修改回调函数', this.type);
-        console.log(newValue);
-        console.log(oldValue);
-    }
-
-    @Watch('testValue')
-    public testValueChange(newValue: string, oldValue: string) {
-        console.log('testValue', newValue, oldValue);
-    }
-
-    public render(_renderProps= {}, _store = {}) {
-        return(
-            <div class={`_wu-button _wu-button__${this.type}`} onclick={this.testTap.bind(this)} >
-                <slot />
-            </div>
-        );
-    }
-}
-
-```
+[t-cli](https://canyuegongzi.github.io/t-cli/)

@@ -1,5 +1,6 @@
 export * from '../declarations/core-component';
-export * from './ComponentDecorators';
+// export * from './ComponentDecorators';
+export * from './ComponentDecorators1';
 export * from './EventDecorators';
 export * from './EmitDecorators';
 export * from './WatchDecorators';

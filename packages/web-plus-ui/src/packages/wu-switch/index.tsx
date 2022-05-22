@@ -1,6 +1,6 @@
 import { h, Component, Prop, Watch, OnConnected, Emit } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
-import { extractClass } from '../../common';
+import { extractClass } from '@/common';
 @Component({
     name: 'wu-plus-switch',
     css: css,
@@ -15,10 +15,12 @@ export class WuSwitch extends HTMLElement implements OnConnected {
     public coreRef: HTMLElement;
 
     public connected(shadowRoot: ShadowRoot) {
+        console.log(this);
+        console.log(this.value === this.activeValue);
         this.inputRef = shadowRoot.querySelector('.wu-switch_input');
         this.coreRef = shadowRoot.querySelector('.wu-switch_core');
         this.width = this.width || 40;
-        this.inputRef.checked = this.checked();
+        this.inputRef.checked = this.value === this.activeValue;
     }
 
     @Prop({ default: false, type: Boolean })
@@ -48,19 +50,15 @@ export class WuSwitch extends HTMLElement implements OnConnected {
     @Prop({ default: true, type: Boolean })
     public validateEvent: boolean;
 
-    public checked = () => {
-        return this.value === this.activeValue;
-    };
-
     @Watch('checked')
     public checkedChange(val: any, oldVal: any) {}
 
     public handleChange() {
-        this.value = this.checked() ? this.inactiveValue : this.activeValue;
+        this.value = this.value === this.activeValue ? this.inactiveValue : this.activeValue;
         this.changeEmit();
         this.inputEmit();
         setTimeout(() => {
-            this.inputRef.checked = this.checked();
+            this.inputRef.checked = this.value === this.activeValue;
         }, 0);
     }
 
@@ -70,23 +68,24 @@ export class WuSwitch extends HTMLElement implements OnConnected {
 
     @Emit('input')
     public inputEmit() {
-        return this.checked();
+        return this.value === this.activeValue;
     }
 
     @Emit('change')
     public changeEmit() {
-        return this.checked();
+        return this.value === this.activeValue;
     }
 
     public render(_renderProps = {}, _store = {}) {
+        const checked = this.value === this.activeValue;
         return (
             <div
                 {...extractClass({}, 'wu-switch', {
                     'is-disabled': this.disabled,
-                    'is-checked': this.checked(),
+                    'is-checked': checked,
                 })}
                 role="switch"
-                aria-checked={this.checked()}
+                aria-checked={checked}
                 aria-disabled={this.disabled}
                 onClick={this.switchValue.bind(this)}
             >
@@ -95,8 +94,8 @@ export class WuSwitch extends HTMLElement implements OnConnected {
                     class="wu-switch_core"
                     style={{
                         width: this.width + 'px',
-                        borderColor: this.checked() ? this.activeColor : this.inactiveColor,
-                        backgroundColor: this.checked() ? this.activeColor : this.inactiveColor,
+                        borderColor: checked ? this.activeColor : this.inactiveColor,
+                        backgroundColor: checked ? this.activeColor : this.inactiveColor,
                     }}
                 />
                 <span></span>

@@ -1,0 +1,85 @@
+{
+    "templateList": [
+        {
+            "name": "node-nest",
+            "type": "server",
+            "url": [
+                "direct:https://gitee.com/canyuegongzi/t-cli-templatt-cli-templatee.git#node-nest",
+                "direct:https://github.com/canyuegongzi/t-cli-template.git#node-nest"
+            ],
+            "description": "nest模板"
+        },
+        {
+            "name": "node-simple-typescript",
+            "type": "server",
+            "url": [
+                "direct:https://gitee.com/canyuegongzi/t-cli-templatt-cli-templatee.git#node-simple-typescript",
+                "direct:https://github.com/canyuegongzi/t-cli-template.git#node-simple-typescript"
+            ],
+            "description": "node + typescript开发、调试环境"
+        },
+        {
+            "name": "web-webpack4-typescript",
+            "type": "web",
+            "url": [
+                "direct:https://gitee.com/canyuegongzi/t-cli-templatt-cli-templatee.git#web-webpack4-typescript",
+                "direct:https://github.com/canyuegongzi/t-cli.git#web-webpack4-typescript"
+            ],
+            "description": "web端typescript + webpack4 模板"
+        },
+        {
+            "name": "web-webpack4-vue2-javascript",
+            "type": "web",
+            "url": [
+                "direct:https://gitee.com/canyuegongzi/t-cli-templatt-cli-templatee.git#web-webpack4-vue2-javascript",
+                "direct:https://github.com/canyuegongzi/t-cli.git#web-webpack4-typescript"
+            ],
+            "description": "web端 webpack4 + vue2 + javaScript 模板"
+        },
+        {
+            "name": "web-webpack4-vue2-typescript",
+            "type": "web",
+            "url": [
+                "direct:https://gitee.com/canyuegongzi/t-cli-templatt-cli-templatee.git#web-webpack4-vue2-typescript",
+                "direct:https://github.com/canyuegongzi/t-cli.git#web-webpack4-vue2-typescript"
+            ],
+            "description": "web端 webpack4 + vue2 + typeScript 模板"
+        },
+        {
+            "name": "web-webpack4-react-javascript",
+            "type": "web",
+            "url": [
+                "direct:https://gitee.com/canyuegongzi/t-cli-templatt-cli-templatee.git#web-webpack4-react-javascript",
+                "direct:https://github.com/canyuegongzi/t-cli.git#web-webpack4-react-javascript"
+            ],
+            "description": "web端 webpack4 + react + javascript 模板"
+        },
+        {
+            "name": "web-webpack4-react-typescript",
+            "type": "web",
+            "url": [
+                "direct:https://gitee.com/canyuegongzi/t-cli-templatt-cli-templatee.git#web-webpack4-react-typescript",
+                "direct:https://github.com/canyuegongzi/t-cli.git#web-webpack4-react-typescript"
+            ],
+            "description": "web端 webpack4 + react + typescript 模板"
+        },
+        {
+            "name": "web-webpack5-vue2-javascript",
+            "type": "web",
+            "url": [
+                "direct:https://gitee.com/canyuegongzi/t-cli-templatt-cli-templatee.git#web-webpack5-vue2-javascript",
+                "direct:https://github.com/canyuegongzi/t-cli.git#web-webpack5-vue2-javascript"
+            ],
+            "description": "web端 webpack5 + vue2 + javascript 模板"
+        },
+        {
+            "name": "web-webpack5-vue2-typescript",
+            "type": "web",
+            "url": [
+                "direct:https://gitee.com/canyuegongzi/t-cli-templatt-cli-templatee.git#web-webpack5-vue2-typescript",
+                "direct:https://github.com/canyuegongzi/t-cli.git#web-webpack5-vue2-typescript"
+            ],
+            "description": "web端 webpack5 + vue2 + typescript 模板"
+        }
+    ]
+}

@@ -285,6 +285,15 @@
             <wu-plus-button size="mini" type="primary" id="checkbox-button-id">primary</wu-plus-button>
         </div>
 
+        <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+            <wu-plus-checkbox label="测试4" style="margin-right: 8px" indeterminate="true" id="indeterminate2"></wu-plus-checkbox>
+            <wu-plus-checkbox-group value="['测试1']" id="checkoutBoxGroup2">
+                <wu-plus-checkbox label="测试1" style="margin-right: 8px"></wu-plus-checkbox>
+                <wu-plus-checkbox label="测试2" style="margin-right: 8px"></wu-plus-checkbox>
+                <wu-plus-checkbox label="测试3"></wu-plus-checkbox>
+            </wu-plus-checkbox-group>
+        </div>
+
         <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px; margin-bottom: 16px">
             <wu-plus-tag type="primary" effect="light" id="tag-id1">标签一</wu-plus-tag>
             <wu-plus-tag type="primary" effect="dark" id="tag-id3">标签一</wu-plus-tag>
@@ -364,7 +373,7 @@
                 height="300px"
                 columns='[{"width":"20px", "align": "center", "type": "selection"},{"title":"ID","key":"id","width":"80px", "align": "center"},{"title":"Name", "align": "center", "key":"name","width":"120px"},{"title":"age","key":"age","width":"120px"},{"title":"address","key":"address","width":"120px"}]'
             ></wu-plus-table>
-
+<!--            <wu-plus-example name="ceshiddfdfgf" id="dffsdfgdfgdfhdfh" />-->
         </div>
 
     </div>
@@ -372,10 +381,45 @@
 
 </body>
 <script type="module" src="./core.umd.js"></script>
-<!--<script type="module" src="./dist/web-plus.umd.js"></script>-->
-<script type="module" src="./dist/web-plus.esm.js"></script>
+<script type="module" src="./dist/web-plus.umd.js"></script>
+<!--<script type="module" src="./dist/web-plus.esm.js"></script>-->
 <!--<script type="module" src="./dev-server/main.ts"></script>-->
 <script type="module">
+
+
+    // 代码有些啰嗦，简单实现关联多选框选择
+    const indeterminate = document.getElementById("indeterminate2");
+    const checkoutBoxGroup2 = document.getElementById("checkoutBoxGroup2");
+    indeterminate.addEventListener('change', (e) => {
+        console.log(e.detail);
+        if (e.detail.value) {
+            checkoutBoxGroup2.setAttribute("value", ['测试1', '测试2', '测试3'])
+            indeterminate.setAttribute("indeterminate", "")
+            indeterminate.setAttribute("checked", true)
+        } else {
+            indeterminate.setAttribute("indeterminate", "")
+            checkoutBoxGroup2.setAttribute("value", [])
+            indeterminate.setAttribute("checked", false)
+        }
+    })
+    checkoutBoxGroup2.addEventListener("change", (e) => {
+        const value = checkoutBoxGroup2.getAttribute("value");
+        if (value.length === 0) {
+            indeterminate.setAttribute("indeterminate", false)
+            indeterminate.setAttribute("checked", false);
+            return
+        }
+        if (value.length < 3) {
+            indeterminate.setAttribute("indeterminate", true)
+            return;
+        }
+        if (value.length === 3) {
+            indeterminate.setAttribute("indeterminate", false)
+            indeterminate.setAttribute("checked", true)
+        }
+
+    })
+
     /*const testDom = document.getElementById('testDom2');
     console.log(testDom);
     let indexNum = 0;
@@ -500,6 +544,10 @@
     }
 
     const tableRef2 = document.getElementById("tableRef2");
+   /* const test = document.getElementById("dffsdfgdfgdfhdfh");
+    setTimeout(() => {
+        test.setAttribute("name", "fcsdvfsdvbdfnhfgjmfghmkfghm,gf")
+    }, 8000)*/
     const columns = [
         { "width":"20px", "type": "selection" },
         { "title":"ID","key":"id","width":"80px", "align": "center" },

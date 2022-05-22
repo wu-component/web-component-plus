@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import { COMPONENT_CUSTOM_INJECT } from '@/app-data';
+import { COMPONENT_CUSTOM_INJECT } from '../app-data';
 export interface InjectOptions {
     key?: string; // 需要接受的字段集合
     attr?: string; // 需要接受的字段集合

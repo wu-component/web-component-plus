@@ -94,7 +94,7 @@
     "vue": "^3.2.25"
   },
   "dependencies": {
-    "@canyuegongzi/web-core-plus": "0.0.28",
+    "@canyuegongzi/web-core-plus": "0.0.29",
     "reflect-metadata": "^0.1.13"
   }
 }

@@ -1,5 +1,5 @@
 import { webOptions as options } from '../../app-data';
-import { Fragment } from '@/utils';
+import { Fragment } from '../../utils';
 
 const stack: any = [];
 

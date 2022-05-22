@@ -7,15 +7,15 @@ import {
     STATE_META_KEY
 } from '../app-data';
 import { PropOptions } from './PropDecorators';
-import { formatValue, isEqual } from '@/utils/format-type';
-import { diff } from '@runtime';
 import { cssToDom, hyphenateReverse, isObject, toDotCase, getAttrMap } from '../utils';
 import { EventOptions } from './EmitDecorators';
 import { WatchMetaOptions } from './WatchDecorators';
 import { StateOptions } from './StateDecorators';
-import { MethodOptions } from "@/decorators/MethodDecorators";
-import { InjectOptions } from "@/decorators/InjectDecorators";
-import { ProvideConfig } from "@/decorators/ProvideDecorators";
+import { ProvideConfig } from "./ProvideDecorators";
+import { InjectOptions } from "./InjectDecorators";
+import { MethodOptions } from "./MethodDecorators";
+import { diff } from "../runtime";
+import { formatValue, isEqual } from "../utils/format-type";
 
 type ComponentEnums = 'CustomWebComponent';
 export interface CustomTagOptions {

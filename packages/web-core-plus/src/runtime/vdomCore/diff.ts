@@ -1,4 +1,4 @@
-import { ATTR_KEY } from '@/app-data';
+import { ATTR_KEY } from '../../app-data';
 import { createNode, setAccessor } from '../dom';
 import { camelCase, isArray, Fragment } from '../../utils';
 import { removeNode, isSameNodeType, isNamedNode } from '../dom';

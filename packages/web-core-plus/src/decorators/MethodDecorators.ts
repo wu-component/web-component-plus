@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import { COMPONENT_CUSTOM_METHOD } from '@/app-data';
+import { COMPONENT_CUSTOM_METHOD } from '../app-data';
 export interface MethodOptions {
     methodName?: any;
     methodFun?: any;
