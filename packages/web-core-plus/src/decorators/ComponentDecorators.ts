@@ -1,21 +1,15 @@
 import 'reflect-metadata';
-import {
-    COMPONENT_CUSTOM_EVENT, COMPONENT_CUSTOM_INJECT,
-    COMPONENT_CUSTOM_METHOD, COMPONENT_CUSTOM_PROVIDE,
-    COMPONENT_WATCH,
-    PROP_META_KEY,
-    STATE_META_KEY
-} from '../app-data';
+import { COMPONENT_CUSTOM_EVENT, COMPONENT_CUSTOM_INJECT, COMPONENT_CUSTOM_METHOD, COMPONENT_CUSTOM_PROVIDE, COMPONENT_WATCH, PROP_META_KEY, STATE_META_KEY } from '../app-data';
 import { PropOptions } from './PropDecorators';
 import { cssToDom, hyphenateReverse, isObject, toDotCase, getAttrMap } from '../utils';
 import { EventOptions } from './EmitDecorators';
 import { WatchMetaOptions } from './WatchDecorators';
 import { StateOptions } from './StateDecorators';
-import { ProvideConfig } from "./ProvideDecorators";
-import { InjectOptions } from "./InjectDecorators";
-import { MethodOptions } from "./MethodDecorators";
-import { diff } from "../runtime";
-import { formatValue, isEqual } from "../utils/format-type";
+import { ProvideConfig } from './ProvideDecorators';
+import { InjectOptions } from './InjectDecorators';
+import { MethodOptions } from './MethodDecorators';
+import { diff } from '../runtime';
+import { formatValue, isEqual } from '../utils/format-type';
 
 type ComponentEnums = 'CustomWebComponent';
 export interface CustomTagOptions {
@@ -172,7 +166,7 @@ export function Component(options: CustomTagOptions): ClassDecorator {
 
             public injection!: any;
 
-            public provideWeekMap = new WeakMap()
+            public provideWeekMap = new WeakMap();
 
             public providesMap: Record<string, ProvideConfig>;
 
@@ -209,8 +203,7 @@ export function Component(options: CustomTagOptions): ClassDecorator {
                 return provides.reduce((previousValue: Record<string, ProvideConfig>, currentValue: ProvideConfig) => {
                     previousValue[currentValue.key] = currentValue;
                     return previousValue;
-                }, {} as Record<string, ProvideConfig> );
-
+                }, {} as Record<string, ProvideConfig>);
             }
 
             /**
@@ -218,7 +211,6 @@ export function Component(options: CustomTagOptions): ClassDecorator {
              */
             public getInjects() {
                 return injects;
-
             }
 
             /**
@@ -348,21 +340,20 @@ export function Component(options: CustomTagOptions): ClassDecorator {
                     let currentParent;
                     let provide;
                     while (p && !provide) {
-                        provide = p.isProvide ? p.providesMap: undefined;
+                        provide = p.isProvide ? p.providesMap : undefined;
                         if (provide) {
                             currentParent = p;
                         }
                         p = p.parentNode || p.host;
                     }
                     if (provide) {
-                        this.injectsList.forEach((inject: InjectOptions) =>  {
+                        this.injectsList.forEach((inject: InjectOptions) => {
                             const callName = provide[inject.key].functionName;
                             this[inject.attr] = currentParent[callName]();
                         });
-                        typeof callBack === "function" && callBack();
+                        typeof callBack === 'function' && callBack();
                         return;
-                    }
-                    else {
+                    } else {
                         console.warn(`The provide prop was not found on the parent node or the provide type is incorrect. please check ${this.tagName}`);
                     }
                 });
@@ -394,7 +385,6 @@ export function Component(options: CustomTagOptions): ClassDecorator {
                 } else {
                     this.connected(shadowRoot);
                 }
-
             }
 
             /**

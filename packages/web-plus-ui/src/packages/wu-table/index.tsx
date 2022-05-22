@@ -2,10 +2,10 @@ import { Component, Emit, h, OnBeforeRender, OnConnected, Prop } from '@canyuego
 import '../wu-table-header';
 import '../wu-table-body';
 import '../wu-table-footer';
-import "../wu-checkbox";
-import "../wu-input";
+import '../wu-checkbox';
+import '../wu-input';
 import css from './index.scss';
-import { classNames, extractClass } from "@/common";
+import { classNames, extractClass } from '@/common';
 
 @Component({
     name: 'wu-plus-table',
@@ -42,10 +42,9 @@ export class WuTable extends HTMLElement implements OnConnected, OnBeforeRender 
             const boxRect = this.rootNode.getBoundingClientRect();
             fixedLeftEls.forEach((fixedLeftEl: HTMLElement, index: number) => {
                 const rect = fixedLeftEl.getBoundingClientRect();
-                fixedLeftEl.style.left = (rect.left - boxRect.left - 1) + 'px';
+                fixedLeftEl.style.left = rect.left - boxRect.left - 1 + 'px';
             });
         }
-
     }
 
     /**
@@ -68,35 +67,35 @@ export class WuTable extends HTMLElement implements OnConnected, OnBeforeRender 
     public columns: any[];
 
     @Prop({ default: false, type: Boolean })
-    public border: boolean
+    public border: boolean;
 
     @Prop({ default: false, type: Boolean })
-    public stripe: boolean
+    public stripe: boolean;
 
     @Prop({ default: false, type: Boolean })
-    public compact: boolean
+    public compact: boolean;
 
-    @Prop({ default: "auto", type: String })
-    public width: string
+    @Prop({ default: 'auto', type: String })
+    public width: string;
 
-    @Prop({ default: "auto", type: String })
-    public height: string
-
-    @Prop({ default: false, type: Boolean })
-    public fixedTop: boolean
+    @Prop({ default: 'auto', type: String })
+    public height: string;
 
     @Prop({ default: false, type: Boolean })
-    public fixedRight: boolean
+    public fixedTop: boolean;
+
+    @Prop({ default: false, type: Boolean })
+    public fixedRight: boolean;
 
     @Prop({ default: 0, type: Number })
-    public fixedLeftCount: number
+    public fixedLeftCount: number;
 
     get checkbox() {
-        return Boolean(this.columns.find(item => item.type === "selection"));
+        return Boolean(this.columns.find(item => item.type === 'selection'));
     }
 
     get currentCheckList() {
-        return this.data.filter(item =>item.checked) || [];
+        return this.data.filter(item => item.checked) || [];
     }
 
     /**
@@ -105,10 +104,10 @@ export class WuTable extends HTMLElement implements OnConnected, OnBeforeRender 
     public getCheckedState = () => {
         const checkedNum: number = this.currentCheckList.length;
         return {
-            checked: (checkedNum === this.data.length) && this.data.length > 0, // 全部勾选时显示全选
-            indeterminate: checkedNum > 0 && checkedNum !== this.data.length  // 数据有勾选但未全部勾选
+            checked: checkedNum === this.data.length && this.data.length > 0, // 全部勾选时显示全选
+            indeterminate: checkedNum > 0 && checkedNum !== this.data.length, // 数据有勾选但未全部勾选
         };
-    }
+    };
 
     /**
      * 复选选中
@@ -116,9 +115,9 @@ export class WuTable extends HTMLElement implements OnConnected, OnBeforeRender 
      * @param columns
      * @param options
      */
-    public changeHandlerTh(event: any, columns: any,  options: { isAllSelect: boolean }) {
+    public changeHandlerTh(event: any, columns: any, options: { isAllSelect: boolean }) {
         // 勾选全选时强制勾选全部数据
-        if (columns.type === "selection" && options.isAllSelect) {
+        if (columns.type === 'selection' && options.isAllSelect) {
             this.data.forEach(item => {
                 item.checked = event.detail.value;
             });
@@ -127,8 +126,6 @@ export class WuTable extends HTMLElement implements OnConnected, OnBeforeRender 
             this.selectionAllChange({ selection: this.data });
             this.selectionChange({ selection: this.data, currentRow: null });
         }
-
-
     }
 
     /**
@@ -153,9 +150,8 @@ export class WuTable extends HTMLElement implements OnConnected, OnBeforeRender 
     public onTdClick(item: any, column: any, index: number, event: MouseEvent) {
         event = Array.isArray(event) && event.length ? event[0] : event;
         event.stopPropagation();
-        this.cellClick(item, column,index);
+        this.cellClick(item, column, index);
     }
-
 
     /**
      * 输入框数据修改
@@ -167,10 +163,9 @@ export class WuTable extends HTMLElement implements OnConnected, OnBeforeRender 
         const oldValue = item[column.key];
         item[column.key] = evt.detail;
         console.log(oldValue);
+    };
 
-    }
-
-    @Emit("selection-change")
+    @Emit('selection-change')
     public selectionChange(value: any) {
         return value;
     }
@@ -179,7 +174,7 @@ export class WuTable extends HTMLElement implements OnConnected, OnBeforeRender 
      * 当用户手动勾选全选 Checkbox 时触发的事件
      * @param selection
      */
-    @Emit("selection-all")
+    @Emit('selection-all')
     public selectionAllChange(selection: any) {
         return selection;
     }
@@ -190,15 +185,14 @@ export class WuTable extends HTMLElement implements OnConnected, OnBeforeRender 
      * @param column
      * @param index
      */
-    @Emit("cell-click")
+    @Emit('cell-click')
     public cellClick(row: any, column, index: number) {
         return {
             row,
             column,
-            index
+            index,
         };
     }
-
 
     public render(_renderProps = {}, _store = {}) {
         if (!this.columns.length) return;
@@ -208,60 +202,52 @@ export class WuTable extends HTMLElement implements OnConnected, OnBeforeRender 
         console.log(this.props);
         const { width, height } = this;
         return (
-            <div style={{ width: width, height: height && height }} {...extractClass({}, 'wu-table', {
-                'wu-table-checkbox': this.checkbox,
-                'wu-table-border': this.border,
-                'wu-table-stripe': this.stripe
-            })}>
+            <div
+                style={{ width: width, height: height && height }}
+                {...extractClass({}, 'wu-table', {
+                    'wu-table-checkbox': this.checkbox,
+                    'wu-table-border': this.border,
+                    'wu-table-stripe': this.stripe,
+                })}
+            >
                 <table {...extractClass({}, 'wu-table-table', {})}>
                     <thead>
-                    <tr>
-                        {this.columns.map((column, index) => {
-                            const obj: any = {};
-                            const { width } = column;
-                            if (width !== undefined) {
-                                obj.style = { width: typeof width === 'number' ? width + 'px' : width };
-                            }
-                            return (
-                                    <th {...obj} class={classNames({
-                                        [`wu-table-align-${column.align}`]: column.align,
-                                        'compact': this.compact,
-                                        'wu-table_cell': true,
-                                        'fixed-top': this.fixedTop,
-                                        'fixed-left': index < this.fixedLeftCount,
-                                        'fixed-right': column.fixed,
-                                        "is-sortable": column.sortable,
-                                        'wu-table-column-selection': column.type && column.selection === "selection"
-                                    })}>
-                                        <div class="cell">
-                                            {
-                                                (column.type && column.type === "selection") ? (
-                                                        <wu-plus-checkbox
-                                                            checked={false}
-                                                            {...this.getCheckedState()}
-                                                            onChange={_ => this.changeHandlerTh(_, column, { isAllSelect: true })}
-                                                        />
-                                                    )
-                                                    :
-                                                    (
-                                                        <div class="cell">
-                                                            {column.title}
-                                                        </div>
-                                                    )
-                                            }
-                                        </div>
-
-
-                                </th>
-                            );
-                        })}
-                    </tr>
+                        <tr>
+                            {this.columns.map((column, index) => {
+                                const obj: any = {};
+                                const { width } = column;
+                                if (width !== undefined) {
+                                    obj.style = { width: typeof width === 'number' ? width + 'px' : width };
+                                }
+                                return (
+                                    <th
+                                        {...obj}
+                                        class={classNames({
+                                            [`wu-table-align-${column.align}`]: column.align,
+                                            compact: this.compact,
+                                            'wu-table_cell': true,
+                                            'fixed-top': this.fixedTop,
+                                            'fixed-left': index < this.fixedLeftCount,
+                                            'fixed-right': column.fixed,
+                                            'is-sortable': column.sortable,
+                                            'wu-table-column-selection': column.type && column.selection === 'selection',
+                                        })}
+                                    >
+                                        <div class="cell">{column.type && column.type === 'selection' ? <wu-plus-checkbox checked={false} {...this.getCheckedState()} onChange={_ => this.changeHandlerTh(_, column, { isAllSelect: true })} /> : <div class="cell">{column.title}</div>}</div>
+                                    </th>
+                                );
+                            })}
+                        </tr>
                     </thead>
                     <tbody class="wu-table-tbody">
-                        { this.data.map((item, index) => (
-                            <tr key={item.id} ref={e => this['row' + item.id] = e} style={{
-                                background: item.$config && item.$config.bgColor
-                            }}>
+                        {this.data.map((item, index) => (
+                            <tr
+                                key={item.id}
+                                ref={e => (this['row' + item.id] = e)}
+                                style={{
+                                    background: item.$config && item.$config.bgColor,
+                                }}
+                            >
                                 {this.columns.map((column, subIndex) => {
                                     const obj: any = {};
                                     const { width } = column;
@@ -269,41 +255,30 @@ export class WuTable extends HTMLElement implements OnConnected, OnBeforeRender 
                                         obj.style = { width: typeof width === 'number' ? width + 'px' : width };
                                     }
                                     return (
-                                        <td onclick={evt => this.onTdClick(item, column, index, evt)} {...obj} class={classNames({
-                                            [`wu-table-align-${column.align}`]: column.align,
-                                            'compact': this.compact,
-                                            'wu-table_cell': true,
-                                            'fixed-left': subIndex < this.fixedLeftCount,
-                                            'fixed-right': column.fixed,
-                                            'wu-table-column-selection': column.type && column.selection === "selection"
-                                        })}>
-                                            {
-                                                (column.type && column.type === "selection") ? (
-                                                    <div class="cell">
-                                                        <wu-plus-checkbox
-                                                            checked={item.checked}
-                                                            onChange={_ => this.changeHandlerTd(_, item,  { isAllSelect: false })} />
-                                                    </div>
-                                                ):
-                                                (column.editable && item.editingKey === column.key) ?
-                                                    (
-                                                        <div class="cell">
-                                                            <wu-plus-input
-                                                                ref={_ => this.editingInput = _}
-                                                                size="mini"
-                                                                onChange={evt => this.onChange(evt, item, column)}
-                                                                value={item[column.key]}
-                                                            />
-                                                        </div>
-                                                    ) :
-                                                    (
-                                                        <div class="cell">
-                                                            {column.render ? column.render(item) : item[column.key]}
-                                                        </div>
-                                                    )
-                                            }
+                                        <td
+                                            onclick={evt => this.onTdClick(item, column, index, evt)}
+                                            {...obj}
+                                            class={classNames({
+                                                [`wu-table-align-${column.align}`]: column.align,
+                                                compact: this.compact,
+                                                'wu-table_cell': true,
+                                                'fixed-left': subIndex < this.fixedLeftCount,
+                                                'fixed-right': column.fixed,
+                                                'wu-table-column-selection': column.type && column.selection === 'selection',
+                                            })}
+                                        >
+                                            {column.type && column.type === 'selection' ? (
+                                                <div class="cell">
+                                                    <wu-plus-checkbox checked={item.checked} onChange={_ => this.changeHandlerTd(_, item, { isAllSelect: false })} />
+                                                </div>
+                                            ) : column.editable && item.editingKey === column.key ? (
+                                                <div class="cell">
+                                                    <wu-plus-input ref={_ => (this.editingInput = _)} size="mini" onChange={evt => this.onChange(evt, item, column)} value={item[column.key]} />
+                                                </div>
+                                            ) : (
+                                                <div class="cell">{column.render ? column.render(item) : item[column.key]}</div>
+                                            )}
                                         </td>
-
                                     );
                                 })}
                             </tr>

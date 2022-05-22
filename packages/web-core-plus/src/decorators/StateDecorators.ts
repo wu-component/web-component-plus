@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import { PropTyp } from '../declarations';
-import { STATE_META_KEY } from  '../app-data';
+import { STATE_META_KEY } from '../app-data';
 
 export interface StateOptions {
     default?: any;

@@ -14,8 +14,8 @@ export class WuRate extends HTMLElement implements OnConnected, OnBeforeRender, 
         this.checkoutProps();
         const list = [];
         const max = this.max;
-        for (let i = 0; i < max; i ++) {
-            list.push(i +1);
+        for (let i = 0; i < max; i++) {
+            list.push(i + 1);
         }
         this.valueList = list;
     }
@@ -26,7 +26,7 @@ export class WuRate extends HTMLElement implements OnConnected, OnBeforeRender, 
         if (this.max !== this.rateList.length) {
             console.warn(`web-plus-ui::max:${this.max} !== rateList.length:${this.rateList.length}`);
         }
-        if ((this.showText || this.showScore) && (this.max !== this.texts.length)) {
+        if ((this.showText || this.showScore) && this.max !== this.texts.length) {
             console.warn(`web-plus-ui::max:${this.max} !== texts.length:${this.texts.length}`);
         }
     }
@@ -39,13 +39,13 @@ export class WuRate extends HTMLElement implements OnConnected, OnBeforeRender, 
 
     public hoverIndex = -1;
 
-    public valueList = [ 1, 2, 3, 4, 5 ]
+    public valueList = [ 1, 2, 3, 4, 5 ];
 
     public allowUpdate = false;
 
     public timeout = null;
 
-    @Inject("wuFormRef")
+    @Inject('wuFormRef')
     public wuForm;
 
     @Prop({ default: -1, type: Number })
@@ -63,10 +63,10 @@ export class WuRate extends HTMLElement implements OnConnected, OnBeforeRender, 
     @Prop({ default: [ '#F7BA2A', '#F7BA2A', '#F7BA2A', '#F7BA2A', '#F7BA2A' ], type: Array })
     public colors: string[];
 
-    @Prop({ default: "#C6D1DE", type: String })
+    @Prop({ default: '#C6D1DE', type: String })
     public voidColor: number;
 
-    @Prop({ default: "#EFF2F7", type: String })
+    @Prop({ default: '#EFF2F7', type: String })
     public disabledVoidColor: number;
 
     @Prop({ default: false, type: Boolean })
@@ -81,13 +81,13 @@ export class WuRate extends HTMLElement implements OnConnected, OnBeforeRender, 
     @Prop({ default: false, type: Boolean })
     public showScore: boolean;
 
-    @Prop({ default: "#1f2d3d", type: String })
+    @Prop({ default: '#1f2d3d', type: String })
     public textColor: boolean;
 
     @Prop({ default: [ '极差', '失望', '一般', '满意', '惊喜' ], type: Array })
     public texts: string[];
 
-    @Prop({ default: [ "★", "★", "★", "★", "★" ], type: Array })
+    @Prop({ default: [ '★', '★', '★', '★', '★' ], type: Array })
     public rateList: string[];
 
     get text() {
@@ -101,7 +101,7 @@ export class WuRate extends HTMLElement implements OnConnected, OnBeforeRender, 
     public getIconStyle(index: number) {
         const voidColor = this.rateDisabled ? this.disabledVoidColor : this.voidColor;
         return {
-            color: index <= this.value ? this.colors[index] : voidColor
+            color: index <= this.value ? this.colors[index] : voidColor,
         };
     }
 
@@ -147,16 +147,16 @@ export class WuRate extends HTMLElement implements OnConnected, OnBeforeRender, 
         this.hoverIndex = -1;
     }
 
-    @Emit("input")
+    @Emit('input')
     public input(value: number) {
         return {
-            value: this.value
+            value: this.value,
         };
     }
-    @Emit("change")
+    @Emit('change')
     public change(value: number) {
         return {
-            value: this.value
+            value: this.value,
         };
     }
 
@@ -189,7 +189,6 @@ export class WuRate extends HTMLElement implements OnConnected, OnBeforeRender, 
         this.timeout = setTimeout(() => {
             this.value = value;
         }, 100);
-
     }
 
     /**
@@ -206,7 +205,8 @@ export class WuRate extends HTMLElement implements OnConnected, OnBeforeRender, 
         console.log(currentValue);
         console.log(keyCode);
 
-        if (keyCode === 38 || keyCode === 39) { // left / down
+        if (keyCode === 38 || keyCode === 39) {
+            // left / down
             if (this.allowHalf) {
                 currentValue += 0.5;
             } else {
@@ -232,46 +232,22 @@ export class WuRate extends HTMLElement implements OnConnected, OnBeforeRender, 
 
     public render(_renderProps = {}, _store = {}) {
         return (
-            <div
-                class="wu-rate"
-                onKeydown={(event) => this.handleKey(event)}
-                role="slider"
-                aria-valuenow={this.currentValue}
-                aria-valuetext={this.text}
-                aria-valuemin="0"
-                aria-valuemax={this.max}
-                tabindex="0"
-                id="rate"
-            >
-                {
-                    this.valueList.map((itemValue, item) => {
-                        return (
-                            <span
-                                data-rate={item}
-                                class="wu-rate_item"
-                                onMousemove={(event) => this.setCurrentValue(item, event)}
-                                onMouseleave={(event) => this.resetCurrentValue()}
-                                onClick={(event) => this.selectValue(item, event)}
-                                style={{ cursor: this.rateDisabled ? 'auto' : 'pointer' }}
-                                key={item}
-                            >
-                                <i
-                                data-rate={item}
-                                class={`wu-rate_icon ${this.hoverIndex === item? "hover": ""}`}
-                                style={this.getIconStyle(item)}>
-                                    {/*直接传入html集合*/}
-                                    {this.getRateRender(item)}
-                                </i>
-
-                            </span>
-                        );
-                    })
-                }
-                {
-                    this.showText || this.showScore ? (
-                        <span class="wu-rate_text" style={{ color: this.textColor }}>{this.text}</span>
-                    ) : null
-                }
+            <div class="wu-rate" onKeydown={event => this.handleKey(event)} role="slider" aria-valuenow={this.currentValue} aria-valuetext={this.text} aria-valuemin="0" aria-valuemax={this.max} tabindex="0" id="rate">
+                {this.valueList.map((itemValue, item) => {
+                    return (
+                        <span data-rate={item} class="wu-rate_item" onMousemove={event => this.setCurrentValue(item, event)} onMouseleave={event => this.resetCurrentValue()} onClick={event => this.selectValue(item, event)} style={{ cursor: this.rateDisabled ? 'auto' : 'pointer' }} key={item}>
+                            <i data-rate={item} class={`wu-rate_icon ${this.hoverIndex === item ? 'hover' : ''}`} style={this.getIconStyle(item)}>
+                                {/*直接传入html集合*/}
+                                {this.getRateRender(item)}
+                            </i>
+                        </span>
+                    );
+                })}
+                {this.showText || this.showScore ? (
+                    <span class="wu-rate_text" style={{ color: this.textColor }}>
+                        {this.text}
+                    </span>
+                ) : null}
             </div>
         );
     }

@@ -16,7 +16,7 @@ export class WuBreadcrumb extends HTMLElement implements OnConnected {
     @Prop({ default: '', type: String })
     public separatorClass: string;
 
-    @Provide("wuBreadcrumbRef")
+    @Provide('wuBreadcrumbRef')
     public provideWuBreadcrumb() {
         return this;
     }
@@ -31,33 +31,32 @@ export class WuBreadcrumb extends HTMLElement implements OnConnected {
 
     @Emit('change')
     public change(...args) {
-        console.log("面包屑点击");
+        console.log('面包屑点击');
         console.log(...args);
         return { ...args };
     }
 
     public connected(shadowRoot: ShadowRoot): any {
-        const slotDom = this.shadowRoot.getElementById("defaultSlot") as HTMLSlotElement;
-        const items: Node[] = slotDom.assignedNodes().filter(item => (item as any).tagName === "WU-PLUS-BREADCRUMB-ITEM");
+        const slotDom = this.shadowRoot.getElementById('defaultSlot') as HTMLSlotElement;
+        const items: Node[] = slotDom.assignedNodes().filter(item => (item as any).tagName === 'WU-PLUS-BREADCRUMB-ITEM');
         if (items.length) {
             const dom = items[items.length - 1] as HTMLSlotElement;
             dom.setAttribute('aria-current', 'page');
             setTimeout(() => {
-                const htmlDom = dom.shadowRoot.querySelector(".wu-breadcrumb_separator") as HTMLElement;
-                htmlDom.style.display = "none";
-                htmlDom.style.fontWeight = "400";
-                htmlDom.style.color = "#606266";
-                htmlDom.style.cursor = "text";
-            }, 0)
+                const htmlDom = dom.shadowRoot.querySelector('.wu-breadcrumb_separator') as HTMLElement;
+                htmlDom.style.display = 'none';
+                htmlDom.style.fontWeight = '400';
+                htmlDom.style.color = '#606266';
+                htmlDom.style.cursor = 'text';
+            }, 0);
         }
-
     }
 
     public render(_renderProps = {}, _store = {}) {
         return (
             <div class="wu-breadcrumb" aria-label="Breadcrumb" role="navigation">
-                <slot id="defaultSlot" style={{ width: "100%" }} />
+                <slot id="defaultSlot" style={{ width: '100%' }} />
             </div>
-        )
+        );
     }
 }

@@ -16,11 +16,11 @@ function debounce(fn: any, wait: number) {
  * @param callback
  * @param duration
  */
-function throttle (callback: any, duration: number){
+function throttle(callback: any, duration: number) {
     let lastTime = new Date().getTime();
-    return function () {
+    return function() {
         const now = new Date().getTime();
-        if(now - lastTime > 500){
+        if (now - lastTime > 500) {
             callback();
             lastTime = now;
         }

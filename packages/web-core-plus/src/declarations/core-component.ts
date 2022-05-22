@@ -1,29 +1,33 @@
+import { InjectOptions, PropOptions, ProvideConfig } from '../decorators';
+
 /**
  * 渲染前
  */
-import { InjectOptions, PropOptions, ProvideConfig } from '../decorators';
-
 export interface OnBeforeRender<T = any> {
     beforeRender(): any;
 }
+
 /**
  * 渲染后
  */
 export interface OnRendered<T = any> {
     rendered(): any;
 }
+
 /**
  * 更新前预检查
  */
 export interface OnPreBeforeUpdate<T = any> {
     preBeforeUpdate(): boolean;
 }
+
 /**
  * 更新前
  */
 export interface OnBeforeUpdate<T = any> {
     beforeUpdate(): any;
 }
+
 /**
  * 更新前
  */
@@ -65,7 +69,6 @@ export interface OnUpdate<T = any> {
 }
 
 export interface BaseCustomComponent extends DefineComponent {
-
     /**
      * 组件注入的数据
      */
@@ -120,7 +123,7 @@ export interface BaseCustomComponent extends DefineComponent {
     /**
      * 影子dom
      */
-    shadowRoot:any;
+    shadowRoot: any;
 
     /**
      * 标签
@@ -142,7 +145,6 @@ export interface BaseCustomComponent extends DefineComponent {
 }
 
 export interface DefineComponent {
-
     /**
      * 移除属性
      * @param key
@@ -178,7 +180,7 @@ export interface DefineComponent {
     /**
      * 组件卸载
      */
-    disConnected(): void
+    disConnected(): void;
 
     /**
      * 组件更新前检查

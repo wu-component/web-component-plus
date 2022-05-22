@@ -1,6 +1,6 @@
 import 'reflect-metadata';
-import { toDotCase } from "../utils";
-import { COMPONENT_CUSTOM_EVENT } from "../app-data";
+import { toDotCase } from '../utils';
+import { COMPONENT_CUSTOM_EVENT } from '../app-data';
 
 export interface EventOptions {
     methodName?: any;

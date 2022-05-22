@@ -1,16 +1,15 @@
-import { Component, h, Method, OnConnected, Provide } from "@canyuegongzi/web-core-plus";
+import { Component, h, Method, OnConnected, Provide } from '@canyuegongzi/web-core-plus';
 
 @Component({
     name: 'wu-plus-provide',
 })
 export class WuProvide extends HTMLElement implements OnConnected {
+    public provide = '这是来自父级注入的数据';
 
-    public provide = "这是来自父级注入的数据";
-
-    @Provide("parentDescTitle")
+    @Provide('parentDescTitle')
     public provideParentDescTitle() {
         return {
-            parentDescTitle: this.provide
+            parentDescTitle: this.provide,
         };
     }
 
