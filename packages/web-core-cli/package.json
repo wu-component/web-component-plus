@@ -1,6 +1,6 @@
 {
   "name": "@canyuegongzi/t-cli",
-  "version": "1.2.7",
+  "version": "1.2.16",
   "description": "快速构建前后端开发环境脚手架，欢迎提供优秀的工程模板。",
   "bin": {
     "t": "cli_dist/cli/bin/t.js"
@@ -26,6 +26,17 @@
   "publishConfig": {
     "access": "public"
   },
+  "files": [
+    "cli_dist",
+    "cli_dist/cli/template/webComponent/*",
+    "src",
+    "LICENSE",
+    "README.md",
+    "package.json",
+    ".babelrc",
+    "gulpfile.js"
+
+  ],
   "dependencies": {
     "@babel/core": "^7.13.15",
     "@babel/plugin-transform-runtime": "^7.13.15",
