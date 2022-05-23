@@ -121,6 +121,12 @@ export interface BaseCustomComponent extends DefineComponent {
     host: any;
 
     /**
+     * 组件id
+     */
+    elementId: string;
+
+
+    /**
      * 影子dom
      */
     shadowRoot: any;
@@ -142,6 +148,12 @@ export interface BaseCustomComponent extends DefineComponent {
      * @param val
      */
     setAttribute(key: string, val: any): void;
+
+    /**
+     * 执行
+     * @param args
+     */
+    callUpdate?(...args): void;
 }
 
 export interface DefineComponent {
