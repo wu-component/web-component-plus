@@ -7,7 +7,7 @@ import {
     STATE_META_KEY
 } from '../app-data';
 import { PropOptions } from './PropDecorators';
-import { cssToDom, hyphenateReverse, isObject, toDotCase, getAttrMap } from '../utils';
+import { cssToDom, hyphenateReverse, isObject, toDotCase, getAttrMap, getGuid } from '../utils';
 import { EventOptions } from './EmitDecorators';
 import { WatchMetaOptions } from './WatchDecorators';
 import { StateOptions } from './StateDecorators';
@@ -17,6 +17,7 @@ import { MethodOptions } from "./MethodDecorators";
 import { diff } from "../runtime";
 import { formatValue, isEqual } from "../utils/format-type";
 import { BaseCustomComponent, DefineComponent } from "../decorators";
+import { queueWatcher } from "../core/watcher";
 type ComponentEnums = 'CustomWebComponent';
 interface CustomTagOptions {
     name: string;
@@ -178,11 +179,14 @@ export function defineComponent(options: CustomTagOptions, target: { new (): Def
         private parentNode: any;
         public shadowRoot!: any;
 
+        public elementId!: string;
+
         public attachShadow!: any;
 
         public dispatchEvent!: any;
 
         private _initComponent_(){
+            this.elementId = getGuid();
             this.propsList = Reflect.getMetadata(PROP_META_KEY, target.prototype) ?? [] as PropOptions[];
             this.injects = Reflect.getMetadata(COMPONENT_CUSTOM_INJECT, target.prototype) ?? [] as InjectOptions[];
             this.provides = Reflect.getMetadata(COMPONENT_CUSTOM_PROVIDE, target.prototype) ?? [] as ProvideConfig[];
@@ -315,6 +319,15 @@ export function defineComponent(options: CustomTagOptions, target: { new (): Def
          * @param updateSelf
          */
         public override update(ignoreAttrs?: string[], updateSelf?: boolean) {
+            queueWatcher(this as any);
+            // this.callUpdate(ignoreAttrs, updateSelf);
+        }
+
+        /**
+         * 真正执行更新
+         * @private
+         */
+        public callUpdate(ignoreAttrs?: string[], updateSelf?: boolean) {
             if (!this.isInstalled || this.willUpdate) {
                 return;
             }

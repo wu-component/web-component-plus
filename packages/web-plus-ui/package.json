@@ -1,6 +1,6 @@
 {
   "name": "@canyuegongzi/web-ui-plus",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "> TODO: description",
   "author": "Marvin <yongfeide123@gmail.com>",
   "homepage": "",
@@ -101,7 +101,7 @@
     "vue-tsc": "^0.29.8"
   },
   "dependencies": {
-    "@canyuegongzi/web-core-plus": "0.0.30",
+    "@canyuegongzi/web-core-plus": "0.0.32",
     "reflect-metadata": "^0.1.13"
   }
 }
