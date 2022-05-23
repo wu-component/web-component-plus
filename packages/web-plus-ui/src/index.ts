@@ -27,6 +27,8 @@ export * from './packages/wu-rate';
 export * from './packages/wu-message';
 
 /************************测试数据注入***************************/
-export * from './packages/wu-inject';
-export * from './packages/wu-provide';
+export * from './test/wu-inject';
+export * from './test/wu-inject-child1';
+export * from './test/wu-inject-child2';
+export * from './test/wu-provide';
 export * from './packages/wu-example';
