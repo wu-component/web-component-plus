@@ -37,6 +37,7 @@
     "include": [
         "typings/*.ts",
         "src/packages/**/*.tsx",
+        "src/test/**/*.tsx",
         "./css.d.ts", //配置的.d.ts文件
         "src/declarations/*.ts"
     ]
