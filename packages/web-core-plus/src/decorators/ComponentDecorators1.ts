@@ -17,7 +17,7 @@ import { MethodOptions } from "./MethodDecorators";
 import { diff } from "../runtime";
 import { formatValue, isEqual } from "../utils/format-type";
 import { BaseCustomComponent, DefineComponent } from "../decorators";
-import { queueWatcher } from "../core/watcher";
+//import { queueWatcher } from "../core/watcher";
 type ComponentEnums = 'CustomWebComponent';
 interface CustomTagOptions {
     name: string;
@@ -319,8 +319,8 @@ export function defineComponent(options: CustomTagOptions, target: { new (): Def
          * @param updateSelf
          */
         public override update(ignoreAttrs?: string[], updateSelf?: boolean) {
-            queueWatcher(this as any);
-            // this.callUpdate(ignoreAttrs, updateSelf);
+            // queueWatcher(this as any);
+            this.callUpdate(ignoreAttrs, updateSelf);
         }
 
         /**

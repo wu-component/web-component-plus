@@ -101,7 +101,7 @@
     "vue-tsc": "^0.29.8"
   },
   "dependencies": {
-    "@canyuegongzi/web-core-plus": "0.0.32",
+    "@canyuegongzi/web-core-plus": "0.0.33",
     "reflect-metadata": "^0.1.13"
   }
 }

@@ -1,4 +1,4 @@
-import { Component, Emit, h, OnConnected, OnBeforeUpdate, Prop } from '@canyuegongzi/web-core-plus';
+import { Component, Emit, h, OnConnected, OnBeforeUpdate, Prop, Inject } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 import { UISize } from '@/interface';
 import { extractClass } from '@/common';
@@ -16,7 +16,8 @@ export class WuCheckbox extends HTMLElement implements OnConnected, OnBeforeUpda
         super();
     }
 
-    public inject = [ 'value' ];
+    @Inject("groupRef")
+    public groupRef: any
 
     public beforeUpdate() {
         if (this.isGroup) {
@@ -25,7 +26,9 @@ export class WuCheckbox extends HTMLElement implements OnConnected, OnBeforeUpda
     }
 
     public initProps() {
-        const { disabled, size, value } = (this.parentNode as any).props;
+        const disabled = this.groupRef.disabled;
+        const size = this.groupRef.size;
+        const value = this.groupRef.value;
         this.disabled = disabled === 'true' || disabled === true;
         this.size = size || 'mini';
         this.checked = Array.isArray(value) && value.includes(this.label);

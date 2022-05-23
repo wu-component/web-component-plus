@@ -1,4 +1,13 @@
-import { h, Component, Prop, Emit, OnConnected, OnBeforeRender, OnBeforeUpdate } from '@canyuegongzi/web-core-plus';
+import {
+    h,
+    Component,
+    Prop,
+    Emit,
+    OnConnected,
+    OnBeforeRender,
+    OnBeforeUpdate,
+    Provide
+} from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 import { UISize } from '@/interface';
 
@@ -12,6 +21,11 @@ export class WuCheckboxGroup extends HTMLElement implements OnConnected, OnBefor
     }
 
     public slotRef!: HTMLSlotElement;
+
+    @Provide("groupRef")
+    public groupRef() {
+        return this;
+    }
 
     @Prop({ default: 'mini', type: String })
     public size: UISize;
@@ -30,11 +44,6 @@ export class WuCheckboxGroup extends HTMLElement implements OnConnected, OnBefor
             value: this.value,
         };
     }
-
-    public provide = {
-        // @ts-ignore
-        name: this.value,
-    };
 
     /**
      * 值修改
