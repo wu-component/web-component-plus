@@ -16,8 +16,8 @@ export class WuCheckbox extends HTMLElement implements OnConnected, OnBeforeUpda
         super();
     }
 
-    @Inject("groupRef")
-    public groupRef: any
+    @Inject('groupRef')
+    public groupRef: any;
 
     public beforeUpdate() {
         if (this.isGroup) {

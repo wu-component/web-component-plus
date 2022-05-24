@@ -16,7 +16,7 @@
   "scripts": {
     "format": "prettier --write \"{src,apps,libs,test}/**/*.{tsx,ts}\"",
     "lint": "eslint \"{src,apps,libs,test}/**/*.{tsx,ts}\" --fix",
-    "test": "jest -c packages/web-ui/jest.config.js",
+    "test": "jest -c ./jest.config.js",
     "build:rollup": "cross-env NODE_ENV=production rollup -c ./rollup.config.js",
     "build:rollup:example": "cross-env NODE_ENV=production rollup -c ./rollup.example.config.js",
     "package:start:dev": "nodemon",

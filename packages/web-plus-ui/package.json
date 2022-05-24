@@ -16,17 +16,10 @@
   "scripts": {
     "format": "prettier --write \"{src,apps,libs,test}/**/*.{tsx,ts}\"",
     "lint": "eslint \"{src,apps,libs,test}/**/*.{tsx,ts}\" --fix",
-    "test": "jest -c packages/web-ui/jest.config.js",
-    "test:karma": "node ./node_modules/karma/bin/karma start _test_/karma.conf.js --single-run",
-    "build:rollup": "cross-env NODE_ENV=production rollup -c ./rollup.config.js",
+    "test": "web-test-runner \"./test/**/*.js\" --node-resolve",
     "build:rollup:package": "cross-env NODE_ENV=production rollup -c ./build/build.js",
     "build:rollup:package:dev": "cross-env NODE_ENV=production rollup -c ./build/build-dev.js",
-    "package:start:dev": "nodemon",
-    "start:debug": "nodemon --config nodemon-debug.json",
-    "build:tsc": "cross-env NODE_ENV=production tsc -p tsconfig.build.json",
-    "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "build:tsc": "cross-env NODE_ENV=production tsc -p tsconfig.build.json"
   },
   "publishConfig": {
     "access": "public"
@@ -43,6 +36,7 @@
   ],
   "devDependencies": {
     "@babel/preset-typescript": "^7.13.0",
+    "@open-wc/testing": "^3.1.5",
     "@rollup/plugin-commonjs": "^19.0.2",
     "@rollup/plugin-inject": "^4.0.4",
     "@rollup/plugin-json": "^4.1.0",
@@ -56,6 +50,7 @@
     "@typescript-eslint/eslint-plugin": "^5.25.0",
     "@typescript-eslint/parser": "^5.25.0",
     "@vitejs/plugin-vue": "^2.3.1",
+    "@web/test-runner": "^0.13.28",
     "autoprefixer": "^10.4.4",
     "body-parser": "^1.19.0",
     "cross-env": "^7.0.3",
