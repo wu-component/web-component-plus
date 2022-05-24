@@ -22,6 +22,8 @@ export * from './packages/wu-breadcrumb';
 export * from './packages/wu-breadcrumb-item';
 export * from './packages/wu-page-header';
 export * from './packages/wu-rate';
+export * from './packages/wu-time-line';
+export * from './packages/wu-time-line-item';
 
 /***************************全局股那里*********************************/
 export * from './packages/wu-message';

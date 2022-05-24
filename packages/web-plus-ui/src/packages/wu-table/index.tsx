@@ -1,7 +1,4 @@
 import { Component, Emit, h, OnBeforeRender, OnConnected, Prop } from '@canyuegongzi/web-core-plus';
-import '../wu-table-header';
-import '../wu-table-body';
-import '../wu-table-footer';
 import '../wu-checkbox';
 import '../wu-input';
 import css from './index.scss';
