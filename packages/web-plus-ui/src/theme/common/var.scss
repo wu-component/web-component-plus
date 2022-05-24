@@ -558,3 +558,9 @@ $--rate-icon-size: 18px !default;
 /// margin||Spacing|2
 $--rate-icon-margin: 6px !default;
 $--rate-icon-color: $--color-text-placeholder !default;
+
+/* Timeline
+--------------------------*/
+$--timeline-node-size-normal: 12px !default;
+$--timeline-node-size-large: 14px !default;
+$--timeline-node-color: $--border-color-light !default;
