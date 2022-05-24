@@ -7,4 +7,5 @@ node_modules/
 .idea/*
 npm-debug.log
 .idea
+**/__snapshots__/*
 
