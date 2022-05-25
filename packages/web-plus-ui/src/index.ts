@@ -26,7 +26,8 @@ export * from './packages/wu-time-line';
 export * from './packages/wu-time-line-item';
 
 /***************************全局股那里*********************************/
-export * from './packages/wu-message';
+// export * from './packages/wu-message';
+export * from './packages/wu-message/MessagePopupManager';
 
 /************************测试数据注入***************************/
 export * from './test/wu-inject';
