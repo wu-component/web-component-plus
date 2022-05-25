@@ -18,13 +18,14 @@
     padding: $--message-padding;
     display: flex;
     align-items: center;
+    z-index: 3000;
 
     @include when(center) {
         justify-content: center;
     }
 
     @include when(closable) {
-        .el-message__content {
+        .wu-message_content {
             padding-right: 16px;
         }
     }
@@ -34,7 +35,7 @@
     }
 
     @include m(info) {
-        .el-message__content {
+        .wu-message_content {
             color: $--message-info-font-color;
         }
     }
@@ -43,7 +44,7 @@
         background-color: $--color-success-lighter;
         border-color: $--color-success-light;
 
-        .el-message__content {
+        .wu-message_content {
             color: $--message-success-font-color;
         }
     }
@@ -52,7 +53,7 @@
         background-color: $--color-warning-lighter;
         border-color: $--color-warning-light;
 
-        .el-message__content {
+        .wu-message_content {
             color: $--message-warning-font-color;
         }
     }
@@ -61,7 +62,7 @@
         background-color: $--color-danger-lighter;
         border-color: $--color-danger-light;
 
-        .el-message__content {
+        .wu-message_content {
             color: $--message-danger-font-color;
         }
     }
@@ -96,25 +97,25 @@
         }
     }
 
-    & .el-icon-success {
+    & .wu-icon-success {
         color: $--message-success-font-color;
     }
 
-    & .el-icon-error {
+    & .wu-icon-error {
         color: $--message-danger-font-color;
     }
 
-    & .el-icon-info {
+    & .wu-icon-info {
         color: $--message-info-font-color;
     }
 
-    & .el-icon-warning {
+    & .wu-icon-warning {
         color: $--message-warning-font-color;
     }
 }
 
-.el-message-fade-enter,
-.el-message-fade-leave-active {
+.wu-message-fade-enter,
+.wu-message-fade-leave-active {
     opacity: 0;
     transform: translate(-50%, -100%);
 }

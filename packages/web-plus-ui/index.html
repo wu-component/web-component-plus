@@ -413,6 +413,9 @@
                 </wu-plus-timeline-item>
             </wu-plus-timeline>
         </div>
+        <div>
+<!--            <wu-plus-message message="ceshicdvjkfdbjnv" show-close="true" />-->
+        </div>
 
     </div>
 </div>
@@ -423,6 +426,27 @@
 <!--<script type="module" src="./dist/web-plus.esm.js"></script>-->
 <!--<script type="module" src="./dev-server/main.ts"></script>-->
 <script type="module">
+    window.onload = function () {
+        WebUIPlus.Message.setOption({
+            message: "测试消息1",
+        })
+        WebUIPlus.Message.setOption({
+            message: "测试消息2",
+            duration: 100000,
+            showClose: true,
+        })
+        /*message.setOption({
+            message: "测试消息"
+        })*/
+        WebUIPlus.Message.setOption({
+            message: "测试消息3",
+            type:"success"
+        })
+        WebUIPlus.Message.setOption({
+            message: "测试消息4",
+            type:"error"
+        })
+    }
 
 
     // 代码有些啰嗦，简单实现关联多选框选择

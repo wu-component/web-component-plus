@@ -191,9 +191,6 @@ export class WuProgress extends HTMLElement {
     }
 
     public render(_renderProps = {}, _store = {}) {
-        console.log('props', this.props);
-        console.log('showText', this.showText);
-        console.log('textInside', this.textInside);
         return (
             <div
                 class="wu-progress"
