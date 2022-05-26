@@ -416,6 +416,44 @@
         <div>
 <!--            <wu-plus-message message="ceshicdvjkfdbjnv" show-close="true" />-->
         </div>
+        <div style="display: flex;flex-direction: row; height: 100px; justify-content: center; margin-bottom: 16px; margin-left: 16px">
+            <wu-plus-popover style="width: 160px">
+                <div style="text-align: center">點擊頂底部</div>
+                <div slot="popover" tip="popover">
+                    <ul style="text-align: center">
+                        <li>abc</li>
+                        <li>efg</li>
+                    </ul>
+                </div>
+            </wu-plus-popover>
+            <wu-plus-popover style="width: 160px" position="top">
+                <div style="text-align: center">點擊頂部</div>
+                <div slot="popover" tip="popover">
+                    <ul style="text-align: center">
+                        <li>abc</li>
+                        <li>efg</li>
+                    </ul>
+                </div>
+            </wu-plus-popover>
+            <wu-plus-popover style="width: 160px" trigger="hover">
+                <div style="text-align: center">提示信息</div>
+                <div slot="popover" tip="popover">
+                    <ul style="text-align: center">
+                        <li>abc</li>
+                        <li>efg</li>
+                    </ul>
+                </div>
+            </wu-plus-popover>
+            <wu-plus-popover style="width: 160px" trigger="hover" effect="dark">
+                <div style="text-align: center">提示信息</div>
+                <div slot="popover" tip="popover">
+                    <ul style="text-align: center">
+                        <li>abc</li>
+                        <li>efg</li>
+                    </ul>
+                </div>
+            </wu-plus-popover>
+        </div>
 
     </div>
 </div>
@@ -430,11 +468,11 @@
         WebUIPlus.Message.setOption({
             message: "测试消息1",
         })
-        WebUIPlus.Message.setOption({
+        /*WebUIPlus.Message.setOption({
             message: "测试消息2",
             duration: 100000,
             showClose: true,
-        })
+        })*/
         /*message.setOption({
             message: "测试消息"
         })*/

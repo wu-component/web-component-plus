@@ -97,6 +97,7 @@
   },
   "dependencies": {
     "@canyuegongzi/web-core-plus": "0.0.33",
+    "@popperjs/core": "^2.11.5",
     "reflect-metadata": "^0.1.13"
   }
 }
