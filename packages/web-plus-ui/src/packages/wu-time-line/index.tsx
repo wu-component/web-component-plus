@@ -13,7 +13,7 @@ export class WuTimeLine extends HTMLElement {
     @Prop({ default: false, type: Boolean })
     public reverse: boolean;
 
-    @Provide("timelineRef")
+    @Provide('timelineRef')
     public timelineRef() {
         return this;
     }
@@ -21,7 +21,7 @@ export class WuTimeLine extends HTMLElement {
     public render(_renderProps = {}, _store = {}) {
         const reverse = this.reverse;
         return (
-            <ul class={`wu-timeline ${reverse? reverse: 'is-reverse'}`}>
+            <ul class={`wu-timeline ${reverse ? reverse : 'is-reverse'}`}>
                 <slot />
             </ul>
         );

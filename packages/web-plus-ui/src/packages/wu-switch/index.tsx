@@ -1,4 +1,4 @@
-import { h, Component, Prop, Watch, OnConnected, Emit } from '@canyuegongzi/web-core-plus';
+import { h, Component, Prop, Watch, OnConnected, Emit, Inject } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 import { extractClass } from '@/common';
 @Component({
@@ -10,13 +10,17 @@ export class WuSwitch extends HTMLElement implements OnConnected {
         super();
     }
 
+    @Inject('wuFormRef')
+    public wuForm;
+
+    @Inject('wuFormItemRef')
+    public wuFormItem;
+
     public inputRef: HTMLInputElement;
 
     public coreRef: HTMLElement;
 
     public connected(shadowRoot: ShadowRoot) {
-        console.log(this);
-        console.log(this.value === this.activeValue);
         this.inputRef = shadowRoot.querySelector('.wu-switch_input');
         this.coreRef = shadowRoot.querySelector('.wu-switch_core');
         this.width = this.width || 40;

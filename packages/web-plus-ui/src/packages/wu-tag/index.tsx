@@ -18,6 +18,9 @@ export class WuTag extends HTMLElement {
     public text: string;
 
     @Prop({ default: '', type: String })
+    public value: string;
+
+    @Prop({ default: '', type: String })
     public color: string;
 
     @Prop({ default: false, type: Boolean })
@@ -52,6 +55,8 @@ export class WuTag extends HTMLElement {
         event = Array.isArray(event) && event.length ? event[0] : event;
         return {
             event,
+            value: this.value,
+            text: this.text,
         };
     }
 

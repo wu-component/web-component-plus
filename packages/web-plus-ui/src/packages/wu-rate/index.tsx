@@ -48,6 +48,9 @@ export class WuRate extends HTMLElement implements OnConnected, OnBeforeRender, 
     @Inject('wuFormRef')
     public wuForm;
 
+    @Inject('wuFormItemRef')
+    public wuFormItem;
+
     @Prop({ default: -1, type: Number })
     public value: number;
 
@@ -196,15 +199,11 @@ export class WuRate extends HTMLElement implements OnConnected, OnBeforeRender, 
      * @param e
      */
     public handleKey(e: MouseEvent) {
-        console.log(e);
         if (this.rateDisabled) {
             return;
         }
         let currentValue = this.currentValue;
         const keyCode = (e as any).keyCode;
-        console.log(currentValue);
-        console.log(keyCode);
-
         if (keyCode === 38 || keyCode === 39) {
             // left / down
             if (this.allowHalf) {
@@ -225,7 +224,6 @@ export class WuRate extends HTMLElement implements OnConnected, OnBeforeRender, 
         }
         currentValue = currentValue < 0 ? 0 : currentValue;
         currentValue = currentValue > this.max ? this.max : currentValue;
-        console.log(currentValue);
         this.input(currentValue);
         this.change(currentValue);
     }

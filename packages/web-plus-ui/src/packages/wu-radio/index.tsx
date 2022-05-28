@@ -1,4 +1,4 @@
-import { h, Component, Prop, Emit, OnConnected } from '@canyuegongzi/web-core-plus';
+import { h, Component, Prop, Emit, OnConnected, Inject } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 import { UISize } from '@/interface';
 import { extractClass, extract, debounce } from '@/common';
@@ -11,6 +11,12 @@ export class WuRadio extends HTMLElement implements OnConnected {
     constructor() {
         super();
     }
+
+    @Inject('wuFormRef')
+    public wuForm;
+
+    @Inject('wuFormItemRef')
+    public wuFormItem;
 
     @Prop({ default: 'mini', type: String })
     public size: UISize;

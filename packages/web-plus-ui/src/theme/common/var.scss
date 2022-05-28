@@ -564,3 +564,98 @@ $--rate-icon-color: $--color-text-placeholder !default;
 $--timeline-node-size-normal: 12px !default;
 $--timeline-node-size-large: 14px !default;
 $--timeline-node-color: $--border-color-light !default;
+
+
+/* Select
+-------------------------- */
+$--select-border-color-hover: $--border-color-hover !default;
+$--select-disabled-border: $--disabled-border-base !default;
+/// fontSize||Font|1
+$--select-font-size: $--font-size-base !default;
+$--select-close-hover-color: $--color-text-secondary !default;
+
+$--select-input-color: $--color-text-placeholder !default;
+$--select-multiple-input-color: #666 !default;
+/// color||Color|0
+$--select-input-focus-border-color: $--color-primary !default;
+/// fontSize||Font|1
+$--select-input-font-size: 14px !default;
+
+$--select-option-color: $--color-text-regular !default;
+$--select-option-disabled-color: $--color-text-placeholder !default;
+$--select-option-disabled-background: $--color-white !default;
+/// height||Other|4
+$--select-option-height: 34px !default;
+$--select-option-hover-background: $--background-color-base !default;
+/// color||Color|0
+$--select-option-selected-font-color: $--color-primary !default;
+$--select-option-selected-hover: $--background-color-base !default;
+
+$--select-group-color: $--color-info !default;
+$--select-group-height: 30px !default;
+$--select-group-font-size: 12px !default;
+
+$--select-dropdown-background: $--color-white !default;
+$--select-dropdown-shadow: $--box-shadow-light !default;
+$--select-dropdown-empty-color: #999 !default;
+/// height||Other|4
+$--select-dropdown-max-height: 274px !default;
+$--select-dropdown-padding: 6px 0 !default;
+$--select-dropdown-empty-padding: 10px 0 !default;
+$--select-dropdown-border: solid 1px $--border-color-light !default;
+
+/* Avatar
+--------------------------*/
+/// color||Color|0
+$--avatar-font-color: #fff !default;
+/// color||Color|0
+$--avatar-background-color: #C0C4CC !default;
+/// fontSize||Font Size|1
+$--avatar-text-font-size: 14px !default;
+/// fontSize||Font Size|1
+$--avatar-icon-font-size: 18px !default;
+/// borderRadius||Border|2
+$--avatar-border-radius: $--border-radius-base !default;
+/// size|1|Avatar Size|3
+$--avatar-large-size: 40px !default;
+/// size|1|Avatar Size|3
+$--avatar-medium-size: 36px !default;
+/// size|1|Avatar Size|3
+$--avatar-small-size: 28px !default;
+
+/* Badge
+-------------------------- */
+/// color||Color|0
+$--badge-background-color: $--color-danger !default;
+$--badge-radius: 10px !default;
+/// fontSize||Font|1
+$--badge-font-size: 12px !default;
+/// padding||Spacing|3
+$--badge-padding: 6px !default;
+/// height||Other|4
+$--badge-size: 18px !default;
+
+/* Empty
+-------------------------- */
+$--empty-padding: 40px 0 !default;
+$--empty-image-width: 160px !default;
+$--empty-description-margin-top: 20px !default;
+$--empty-bottom-margin-top: 20px !default;
+
+/* Skeleton
+--------------------------*/
+$--skeleton-color: #f2f2f2 !default;
+$--skeleton-to-color: #e6e6e6 !default;
+
+/* Svg
+--------------- */
+$--svg-monochrome-grey: #DCDDE0 !default;
+
+
+/* Card
+--------------------------*/
+/// color||Color|0
+$--card-border-color: $--border-color-lighter !default;
+$--card-border-radius: 4px !default;
+/// padding||Spacing|3
+$--card-padding: 20px !default;

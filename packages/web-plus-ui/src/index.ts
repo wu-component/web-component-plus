@@ -24,6 +24,13 @@ export * from './packages/wu-page-header';
 export * from './packages/wu-rate';
 export * from './packages/wu-time-line';
 export * from './packages/wu-time-line-item';
+export * from './packages/wu-select';
+export * from './packages/wu-select-option';
+export * from './packages/wu-avatar';
+export * from './packages/wu-badge';
+export * from './packages/wu-empty';
+export * from './packages/wu-card';
+
 
 /***************************全局股那里*********************************/
 export * from './packages/wu-popover';
