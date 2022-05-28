@@ -31,8 +31,6 @@ export class WuBreadcrumb extends HTMLElement implements OnConnected {
 
     @Emit('change')
     public change(...args) {
-        console.log('面包屑点击');
-        console.log(...args);
         return { ...args };
     }
 

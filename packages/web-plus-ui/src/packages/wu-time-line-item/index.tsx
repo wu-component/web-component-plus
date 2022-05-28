@@ -19,9 +19,9 @@ export class WuTimeLineItem extends HTMLElement implements OnConnected, OnBefore
     }
 
     private updateStyle() {
-        const childrenEl: this[] = this.parentNode.children as unknown as this[];
+        const childrenEl: this[] = (this.parentNode.children as unknown) as this[];
         if (childrenEl.length && this === childrenEl[childrenEl.length - 1]) {
-            (this.shadowRoot.querySelector(".wu-timeline-item_tail") as HTMLElement).style.display = "none";
+            (this.shadowRoot.querySelector('.wu-timeline-item_tail') as HTMLElement).style.display = 'none';
         }
     }
 
@@ -52,47 +52,27 @@ export class WuTimeLineItem extends HTMLElement implements OnConnected, OnBefore
     @Prop({ default: '', type: String })
     public icon: string;
 
-    @Inject("timelineRef")
-    public timelineRef: HTMLElement
-
+    @Inject('timelineRef')
+    public timelineRef: HTMLElement;
 
     public render(_renderProps = {}, _store = {}) {
         return (
             <li class="wu-timeline-item">
                 <div class="wu-timeline-item_tail" />
                 <div class={`wu-timeline-item_node wu-timeline-item_node-${this.size || ''} wu-timeline-item_node-${this.type || ''}`} style={{ backgroundColor: this.color }}>
-                    {
-                        this.icon ? (
-                            <i class={`wu-timeline-item_icon ${this.icon}`} />
-                        ): null
-                    }
-
+                    {this.icon ? <i class={`wu-timeline-item_icon ${this.icon}`} /> : null}
                 </div>
-                {
-                    this.isRenderDot ? (
-                        <div class="wu-timeline-item_dot">
-                            <slot name="dot"/>
-                        </div>
-                    ) : null
-                }
+                {this.isRenderDot ? (
+                    <div class="wu-timeline-item_dot">
+                        <slot name="dot" />
+                    </div>
+                ) : null}
                 <div class="wu-timeline-item_wrapper">
-                    {
-                        !this.hideTimestamp && this.placement === "top" ?(
-                            <div class="wu-timeline-item_timestamp is-top">
-                                {this.timestamp}
-                            </div>
-                        ): null
-                    }
+                    {!this.hideTimestamp && this.placement === 'top' ? <div class="wu-timeline-item_timestamp is-top">{this.timestamp}</div> : null}
                     <div class="wu-timeline-item_content">
                         <slot />
                     </div>
-                    {
-                        !this.hideTimestamp && this.placement === 'bottom'? (
-                            <div class="wu-timeline-item_timestamp is-bottom">
-                                {this.timestamp}
-                            </div>
-                        ): null
-                    }
+                    {!this.hideTimestamp && this.placement === 'bottom' ? <div class="wu-timeline-item_timestamp is-bottom">{this.timestamp}</div> : null}
                 </div>
             </li>
         );

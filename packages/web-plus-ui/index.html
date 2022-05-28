@@ -454,6 +454,93 @@
                 </div>
             </wu-plus-popover>
         </div>
+        <div>
+            <div style="margin-left: 32px; height: 160px">
+                <wu-plus-select id="select1" filterable="true" style="margin-top: 16px">
+                    <wu-plus-select-option label="item-item1" value="1"></wu-plus-select-option>
+                    <wu-plus-select-option label="item-item2" value="2"></wu-plus-select-option>
+                    <wu-plus-select-option label="item-item3" value="3"></wu-plus-select-option>
+                </wu-plus-select>
+                <wu-plus-select id="select2" filterable="true" disabled="true">
+                    <wu-plus-select-option label="item-item1" value="1"></wu-plus-select-option>
+                    <wu-plus-select-option label="item-item2" value="2"></wu-plus-select-option>
+                    <wu-plus-select-option label="item-item3" value="3"></wu-plus-select-option>
+                </wu-plus-select>
+                <wu-plus-select id="select7" filterable="true" style="margin-top: 16px" value="1">
+                    <wu-plus-select-option label="item-item1" value="1"></wu-plus-select-option>
+                    <wu-plus-select-option label="item-item2" value="2"></wu-plus-select-option>
+                    <wu-plus-select-option label="item-item3" value="3"></wu-plus-select-option>
+                </wu-plus-select>
+                <wu-plus-select multiple="true" id="select8" filterable="true" style="margin-top: 16px">
+                    <wu-plus-select-option label="item-item1" value="1"></wu-plus-select-option>
+                    <wu-plus-select-option label="item-item2" value="2"></wu-plus-select-option>
+                    <wu-plus-select-option label="item-item3" value="3"></wu-plus-select-option>
+                </wu-plus-select>
+                <wu-plus-select id="select12" style="margin-top: 16px">
+                    <wu-plus-select-option label="item-item1" value="1"></wu-plus-select-option>
+                    <wu-plus-select-option label="item-item2" value="2"></wu-plus-select-option>
+                    <wu-plus-select-option label="item-item3" value="3"></wu-plus-select-option>
+                </wu-plus-select>
+                <wu-plus-select multiple="true" id="select45" style="margin-top: 16px">
+                    <wu-plus-select-option label="item-item1" value="1"></wu-plus-select-option>
+                    <wu-plus-select-option label="item-item2" value="2"></wu-plus-select-option>
+                    <wu-plus-select-option label="item-item3" value="3"></wu-plus-select-option>
+                </wu-plus-select>
+                <wu-plus-select multiple="true" id="select56" collapseTags="true" style="margin-top: 16px" clearable="true" value="[1, 2]">
+                    <wu-plus-select-option label="item-item1" value="1"></wu-plus-select-option>
+                    <wu-plus-select-option label="item-item2" value="2"></wu-plus-select-option>
+                    <wu-plus-select-option label="item-item3" value="3"></wu-plus-select-option>
+                </wu-plus-select>
+            </div>
+        </div>
+
+        <div style="display: flex;flex-direction: row; height: 100px; justify-content: center; margin-bottom: 16px; margin-left: 16px">
+            <wu-plus-avatar size="48" fit="fill">
+                <img src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"/>
+            </wu-plus-avatar>
+
+            <wu-plus-avatar size="48" fit="fill" src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg">
+            </wu-plus-avatar>
+
+            <wu-plus-avatar size="48" id="avatar" fit="fill" src="https://empty">
+            </wu-plus-avatar>
+        </div>
+        <div style="height: 80px">
+            <wu-plus-badge value="200" max="99" type="waring">
+                <wu-plus-button size="mini" type="waring">primary</wu-plus-button>
+            </wu-plus-badge>
+        </div>
+
+        <div>
+            <wu-plus-empty description="描述文字"></wu-plus-empty>
+
+            <wu-plus-empty image="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"></wu-plus-empty>
+
+            <wu-plus-empty image-size="200"></wu-plus-empty>
+
+            <wu-plus-empty>
+                <wu-plus-button size="mini" type="waring">primary</wu-plus-button>
+            </wu-plus-empty>
+
+            <wu-plus-card class="box-card">
+                <div slot="header" class="clearfix">
+                    <span>卡片名称</span>
+                    <wu-plus-button style="float: right; padding: 3px 0" type="text">操作按钮</wu-plus-button>
+                </div>
+                <div class="text item">'列表内容 ' + o</div>
+                <div class="text item">'列表内容 ' + o</div>
+                <div class="text item">'列表内容 ' + o</div>
+                <div class="text item">'列表内容 ' + o</div>
+            </wu-plus-card>
+
+            <wu-plus-card class="box-card" header-show="false">
+                <div class="text item">'列表内容 ' + o</div>
+                <div class="text item">'列表内容 ' + o</div>
+                <div class="text item">'列表内容 ' + o</div>
+                <div class="text item">'列表内容 ' + o</div>
+            </wu-plus-card>
+        </div>
+
 
     </div>
 </div>
@@ -485,6 +572,18 @@
             type:"error"
         })
     }
+    const select1 = document.getElementById("select1")
+    const avatar = document.getElementById("avatar")
+    const select2 = document.getElementById("select2")
+    select1.addEventListener("change", (item) => {
+        console.log(item.detail)
+    })
+    select2.addEventListener("change", (item) => {
+        console.log(item.detail)
+    })
+    avatar.addEventListener("error", (e) => {
+        console.log(e);
+    })
 
 
     // 代码有些啰嗦，简单实现关联多选框选择

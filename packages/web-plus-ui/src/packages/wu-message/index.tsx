@@ -1,8 +1,8 @@
 ﻿import { h, Component, Prop, Emit } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
-import { extractClass } from "@/common";
-export type TypeEnums = "success" | "warning" | "info" | "error";
-export type PositionEnums = "top";
+import { extractClass } from '@/common';
+export type TypeEnums = 'success' | 'warning' | 'info' | 'error';
+export type PositionEnums = 'top';
 
 @Component({
     name: 'wu-plus-message',
@@ -15,13 +15,13 @@ export class WuMessage extends HTMLElement {
 
     public timer: any;
 
-    @Prop({ type: String, default: "top" })
+    @Prop({ type: String, default: 'top' })
     public position: string;
 
-    @Prop({ type: String, default: "" })
+    @Prop({ type: String, default: '' })
     public message: string;
 
-    @Prop({ type: String, default: "info" })
+    @Prop({ type: String, default: 'info' })
     public type: TypeEnums;
 
     @Prop({ type: Number, default: 3000 })
@@ -44,14 +44,14 @@ export class WuMessage extends HTMLElement {
 
     get positionStyle() {
         return {
-            'top': `${ this.verticalOffset }px`
+            top: `${this.verticalOffset}px`,
         };
     }
 
     /**
      * 关闭
      */
-    @Emit("close")
+    @Emit('close')
     public handleClose() {
         return true;
     }

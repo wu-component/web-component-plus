@@ -81,7 +81,7 @@ export class PopupManager {
      * @param options
      */
     public setOption(options: Options) {
-        if (typeof options !== "object") {
+        if (typeof options !== 'object') {
             options = {};
         }
         if (!options.hasOwnProperty('position')) {
@@ -127,4 +127,3 @@ export class PopupManager {
     }
 }
 export const Message = new PopupManager();
-

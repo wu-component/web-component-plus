@@ -35,7 +35,6 @@ export class WuTable extends HTMLElement implements OnConnected, OnBeforeRender 
     private setFixedLeft() {
         if (this.rootNode) {
             const fixedLeftEls = this.rootNode.querySelectorAll('.fixed-left');
-            console.log(this.rootNode);
             const boxRect = this.rootNode.getBoundingClientRect();
             fixedLeftEls.forEach((fixedLeftEl: HTMLElement, index: number) => {
                 const rect = fixedLeftEl.getBoundingClientRect();
@@ -196,7 +195,6 @@ export class WuTable extends HTMLElement implements OnConnected, OnBeforeRender 
         if (this.props.fixedRight) {
             this.props.columns[this.props.columns.length - 1].fixed = true;
         }
-        console.log(this.props);
         const { width, height } = this;
         return (
             <div

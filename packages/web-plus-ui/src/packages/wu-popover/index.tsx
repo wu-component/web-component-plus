@@ -1,9 +1,9 @@
 ﻿import { h, Component, Prop, OnConnected } from '@canyuegongzi/web-core-plus';
 import { createPopper } from '@popperjs/core/dist/esm';
 import css from './index.scss';
-import { Placement } from "@popperjs/core/lib/enums";
-import { classNames } from "@/common";
-export type TypeEnums = "success" | "warning" | "info" | "error";
+import { Placement } from '@popperjs/core/lib/enums';
+import { classNames } from '@/common';
+export type TypeEnums = 'success' | 'warning' | 'info' | 'error';
 
 @Component({
     name: 'wu-plus-popover',
@@ -23,19 +23,19 @@ export class WuPopover extends HTMLElement implements OnConnected {
         });
     }
 
-    @Prop({ type: String, default: "bottom" })
+    @Prop({ type: String, default: 'bottom' })
     public position: Placement;
 
-    @Prop({ type: String, default: "light" })
+    @Prop({ type: String, default: 'light' })
     public effect: string;
 
-    @Prop({ type: String, default: "click" })
+    @Prop({ type: String, default: 'click' })
     public trigger: string;
 
     @Prop({ type: Boolean, default: false })
     public block: boolean;
 
-    @Prop({ type: String, default: "" })
+    @Prop({ type: String, default: '' })
     public content: string;
 
     private timeout: any;
@@ -49,9 +49,13 @@ export class WuPopover extends HTMLElement implements OnConnected {
     @Prop({ type: Boolean, default: false })
     public disappear = false;
 
+    @Prop({ default: false, type: Boolean })
+    public disabled: boolean;
+
     private popper = null;
 
-    public onEnter = (evt) => {
+    public onEnter = evt => {
+        if (this.disabled) return;
         clearTimeout(this.timeout);
         this.isShow = !this.isShow;
         if (this.isShow) {
@@ -65,8 +69,8 @@ export class WuPopover extends HTMLElement implements OnConnected {
         const tip: Element = this.shadowRoot
             .querySelector('slot')
             .assignedNodes()
-            .find((node) => node.nodeType !== 3) as Element;
-        this.popper = createPopper(tip , this.shadowRoot.querySelector('.tip'), {
+            .find(node => node.nodeType !== 3) as Element;
+        this.popper = createPopper(tip, this.shadowRoot.querySelector('.tip'), {
             placement: this.position,
             modifiers: [
                 {
@@ -84,12 +88,12 @@ export class WuPopover extends HTMLElement implements OnConnected {
             ],
         });
         evt.stopPropagation();
-    }
+    };
 
-    public onEnterPopover = (evt) => {
+    public onEnterPopover = evt => {
         clearTimeout(this.timeout);
         evt.stopPropagation();
-    }
+    };
 
     public updatePosition() {
         this.popper.update();
@@ -109,21 +113,19 @@ export class WuPopover extends HTMLElement implements OnConnected {
                 this.leave();
             }, 300);
         }
-    }
+    };
 
     public onLeave = () => {
         this.timeout = setTimeout(() => {
             this.leave();
         }, 300);
-    }
-
-
+    };
 
     public render(_renderProps = {}, _store = {}) {
         const targetEvents: {
-            onMouseEnter: (e: Event) => void
-            onMouseLeave: (e: Event) => void
-            onClick: (e: Event) => void
+            onMouseEnter: (e: Event) => void;
+            onMouseLeave: (e: Event) => void;
+            onClick: (e: Event) => void;
         } = {
             onMouseEnter: null,
             onMouseLeave: null,
@@ -136,23 +138,19 @@ export class WuPopover extends HTMLElement implements OnConnected {
             targetEvents.onMouseLeave = this.onLeave;
         }
         return (
-           <div style="position:relative" appear={this.appear} disappear={this.disappear} name="fade">
-               <slot {...targetEvents} />
-               <div
-                   style={{ display: this.isShow ? 'block' : 'none' }}
-                   class={classNames({
-                       tip: true,
-                       [`is-${this.effect}`]: this.effect,
-                   })}
-               >
-                   <slot
-                       onMouseEnter={this.onEnterPopover}
-                       onMouseLeave={this.onLeavePopover}
-                       name="popover"
-                    />
-                   <i class="tip-arrow" data-popper-arrow />
-               </div>
-           </div>
+            <div style="position:relative" appear={this.appear} disappear={this.disappear} name="fade">
+                <slot {...targetEvents} />
+                <div
+                    style={{ display: this.isShow ? 'block' : 'none' }}
+                    class={classNames({
+                        tip: true,
+                        [`is-${this.effect}`]: this.effect,
+                    })}
+                >
+                    <slot onMouseEnter={this.onEnterPopover} onMouseLeave={this.onLeavePopover} name="popover" />
+                    <i class="tip-arrow" data-popper-arrow />
+                </div>
+            </div>
         );
     }
 }
