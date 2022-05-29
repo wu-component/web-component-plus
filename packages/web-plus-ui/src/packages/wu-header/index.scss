@@ -1,0 +1,9 @@
+@use "sass:map";
+@import '../../theme/common/var.scss';
+@import '../../theme/common/mixin.scss';
+
+@include b(header) {
+    padding: $--header-padding;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
