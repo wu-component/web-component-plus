@@ -1,0 +1,33 @@
+@use "sass:map";
+@import '../../theme/common/var.scss';
+@import '../../theme/common/mixin.scss';
+:host{
+    display: inline-block;
+}
+@include b(popconfirm) {
+    background: #fff;
+    min-width: 150px;
+    border-radius: 4px;
+    border: 1px solid #ebeef5;
+    padding: 12px;
+    z-index: 2000;
+    color: #606266;
+    line-height: 1.4;
+    text-align: justify;
+    font-size: 14px;
+    box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+    word-break: break-all;
+    @include e(main) {
+        display: flex;
+        align-items: center;
+    }
+    @include e(icon) {
+        margin-right: 5px;
+    }
+    @include e(action) {
+        text-align: right;
+        margin: 0
+    }
+}
+
+

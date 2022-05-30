@@ -104,21 +104,21 @@ export class WuPopover extends HTMLElement implements OnConnected {
         this.disappear = true;
         setTimeout(() => {
             this.isShow = false;
-        }, 300);
+        }, 0);
     }
 
     public onLeavePopover = () => {
         if (this.trigger === 'hover') {
             this.timeout = setTimeout(() => {
                 this.leave();
-            }, 300);
+            }, 0);
         }
     };
 
     public onLeave = () => {
         this.timeout = setTimeout(() => {
             this.leave();
-        }, 300);
+        }, 0);
     };
 
     public render(_renderProps = {}, _store = {}) {

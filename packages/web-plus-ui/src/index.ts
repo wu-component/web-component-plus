@@ -23,6 +23,7 @@ export * from './packages/wu-avatar';
 export * from './packages/wu-badge';
 export * from './packages/wu-empty';
 export * from './packages/wu-card';
+export * from './packages/wu-popconfirm';
 
 
 /***************************全局股那里*********************************/
