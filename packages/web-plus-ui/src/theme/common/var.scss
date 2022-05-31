@@ -672,3 +672,28 @@ $--footer-padding: 0 20px !default;
 --------------------------*/
 $--main-padding: 20px !default;
 
+
+/* Alert
+-------------------------- */
+$--alert-padding: 8px 16px !default;
+/// borderRadius||Border|2
+$--alert-border-radius: $--border-radius-base !default;
+/// fontSize||Font|1
+$--alert-title-font-size: 13px !default;
+/// fontSize||Font|1
+$--alert-description-font-size: 12px !default;
+/// fontSize||Font|1
+$--alert-close-font-size: 12px !default;
+/// fontSize||Font|1
+$--alert-close-customed-font-size: 13px !default;
+
+$--alert-success-color: $--color-success-lighter !default;
+$--alert-info-color: $--color-info-lighter !default;
+$--alert-warning-color: $--color-warning-lighter !default;
+$--alert-danger-color: $--color-danger-lighter !default;
+
+/// height||Other|4
+$--alert-icon-size: 16px !default;
+/// height||Other|4
+$--alert-icon-large-size: 28px !default;
+
