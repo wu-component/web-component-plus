@@ -18,7 +18,7 @@ import { diff } from "../runtime";
 import { formatValue, isEqual } from "../utils/format-type";
 import { BaseCustomComponent, DefineComponent } from "../decorators";
 //import { queueWatcher } from "../core/watcher";
-type ComponentEnums = 'CustomWebComponent';
+type ComponentEnums = 'CustomWebComponent' | 'LightDom';
 interface CustomTagOptions {
     name: string;
     is?: ComponentEnums;
@@ -356,7 +356,7 @@ export function defineComponent(options: CustomTagOptions, target: { new (): Def
          */
         public override initShadowRoot() {
             let shadowRoot: ShadowRoot;
-            if ((this.constructor as any).isLightDom) {
+            if (options.is === 'LightDom') {
                 shadowRoot = (this as unknown) as ShadowRoot;
             } else {
                 shadowRoot = this.shadowRoot || this.attachShadow?.({ mode: 'open' });
