@@ -31,6 +31,7 @@ export * from './packages/wu-popover';
 // export * from './packages/wu-message';
 export * from './packages/wu-message/MessagePopupManager';
 export * from './packages/wu-alert';
+export * from './packages/wu-tooltip';
 
 /************************测试数据注入***************************/
 export * from './test/wu-inject';
