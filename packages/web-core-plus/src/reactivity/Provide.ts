@@ -10,6 +10,12 @@ export interface ProvideConfig {
     [key: string]: any;
 }
 
+/**
+ * 向子组件注入数据
+ * @param key
+ * @param config
+ * @constructor
+ */
 export function Provide(key: string, config: ProvideOptions = {}): any {
     return function(target: any, methodName: string) {
         const functions: ProvideConfig[] = Reflect.getMetadata(COMPONENT_CUSTOM_PROVIDE, target) ?? [];

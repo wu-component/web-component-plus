@@ -1,6 +1,5 @@
-import 'reflect-metadata';
-import { COMPONENT_WATCH } from '../app-data';
-
+import "reflect-metadata";
+import { COMPONENT_WATCH } from "../app-data";
 interface WatchOptions {
     deep?: boolean;
 }
@@ -11,7 +10,14 @@ export interface WatchMetaOptions {
     callback?: any;
     options?: WatchOptions;
 }
-export function Watch(path: string, options?: WatchOptions): any {
+
+/**
+ * Watch 装饰器
+ * @param path
+ * @param options
+ * @constructor
+ */
+export function Watch(path: string, options?: WatchMetaOptions): any {
     return function(target: any, methodName: string, desc: any) {
         const functions: WatchMetaOptions[] = Reflect.getMetadata(COMPONENT_WATCH, target) ?? [];
         const methodFun = desc.value;

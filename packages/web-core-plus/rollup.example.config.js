@@ -33,7 +33,7 @@ export default [
             format: 'umd'
         },
     },
-    {
+   /* {
         input: './src/ex.ts',
         plugins: [
             // terser(),
@@ -57,5 +57,5 @@ export default [
             { file: 'example/index.cjs.js', format: 'cjs' },
             { file: 'example/index.esm.js', format: 'es' }
         ],
-    }
+    }*/
 ];

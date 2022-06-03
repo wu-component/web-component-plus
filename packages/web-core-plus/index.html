@@ -12,12 +12,17 @@
     <div id="dis">卸载</div>
     <p>ssss</p>-->
     <!--<wu-button-test type="success" id="testDom2">按钮</wu-button-test>-->
-    <wu-plus-inject1 type="success" id="testDom2">按钮</wu-plus-inject1>
+    <!--<wu-plus-inject1 type="success" id="testDom2">按钮</wu-plus-inject1>-->
+    <wu-plus-test id="testDom"></wu-plus-test>
 </div>
 
 </body>
-<script type="module" src="./example/index.esm.js"></script>
+<script type="module" src="./example/index.umd.js"></script>
 <script type="module">
+    const testDom = document.getElementById('testDom');
+    testDom.addEventListener('change', (e) => {
+        console.log(e);
+    })
     /*const testDom = document.getElementById('testDom2');
     let indexNum = 0;
     function testTap(e) {

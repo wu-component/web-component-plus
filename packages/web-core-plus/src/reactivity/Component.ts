@@ -1,23 +1,14 @@
 import 'reflect-metadata';
-import {
-    COMPONENT_CUSTOM_EVENT, COMPONENT_CUSTOM_INJECT,
-    COMPONENT_CUSTOM_METHOD, COMPONENT_CUSTOM_PROVIDE,
-    COMPONENT_WATCH,
-    PROP_META_KEY,
-    STATE_META_KEY
-} from '../app-data';
-import { PropOptions } from './PropDecorators';
-import { cssToDom, hyphenateReverse, isObject, toDotCase, getAttrMap, getGuid } from '../utils';
-import { EventOptions } from './EmitDecorators';
-import { WatchMetaOptions } from './WatchDecorators';
-import { StateOptions } from './StateDecorators';
-import { ProvideConfig } from "./ProvideDecorators";
-import { InjectOptions } from "./InjectDecorators";
-import { MethodOptions } from "./MethodDecorators";
+import { COMPONENT_CUSTOM_INJECT, COMPONENT_CUSTOM_PROVIDE, PROP_META_KEY } from '../app-data';
+import { cssToDom, hyphenateReverse, getAttrMap, getGuid } from '../utils';
 import { diff } from "../runtime";
-import { formatValue, isEqual } from "../utils/format-type";
-import { BaseCustomComponent, DefineComponent } from "../decorators";
-//import { queueWatcher } from "../core/watcher";
+import { formatValue } from "../utils/format-type";
+import { ProvideConfig } from "./Provide";
+import { InjectOptions } from "./Inject";
+import { PropOptions, PropsReactive } from "./PropsReactive";
+import { StatesReactive } from "./StatesReactive";
+import { EmitReactive } from "./Emit";
+import { BaseCustomComponent, DefineComponent } from "../declarations";
 type ComponentEnums = 'CustomWebComponent' | 'LightDom';
 interface CustomTagOptions {
     name: string;
@@ -26,119 +17,6 @@ interface CustomTagOptions {
     options?: ElementDefinitionOptions;
 }
 
-/**
- * 数据响应式处理逻辑
- * @param keys
- * @param functions
- * @param customElement
- */
-function injectKeys(keys: PropOptions[], functions: WatchMetaOptions[], customElement: any) {
-    const onlyFunctions: WatchMetaOptions[] = [];
-    for (let i = 0; i < functions.length; i++) {
-        const current = keys.find(item => item.attr === functions[i].path);
-        if (!current) {
-            onlyFunctions.push(functions[i]);
-        }
-    }
-    keys.forEach((props: PropOptions) => {
-        const attr = props.attr;
-        Object.defineProperty(customElement, props.attr, {
-            get: function() {
-                if (this.props === undefined) {
-                    this.props = {};
-                }
-                if (this.props[attr] !== undefined) {
-                    return this.props[attr];
-                }
-                return props.default;
-            },
-            set: function(val: any) {
-                const oldValue = isObject(this.props[attr]) || Array.isArray(this.props[attr]) ? JSON.parse(JSON.stringify(this.props[attr])) : this.props[attr];
-                const newValue = formatValue(val, props.type, props.default);
-                this.props[attr] = newValue;
-                val = newValue;
-                customElement?.update.call(this);
-                const watch: WatchMetaOptions = functions.find(item => item.path === props.attr);
-                if (watch) {
-                    if (!isEqual(this.props[attr], oldValue)) {
-                        customElement[watch.callbackName].call(this, this.props[attr], oldValue);
-                    }
-                }
-                return true;
-            },
-        });
-    });
-    injectWatch(onlyFunctions, customElement);
-}
-
-/**
- * 数据响应式处理逻辑
- * @param functions
- * @param customElement
- */
-function injectWatch(functions: WatchMetaOptions[], customElement: any) {
-    functions.forEach((props: WatchMetaOptions) => {
-        const attr = `__${props.path}__watch__`;
-        Object.defineProperty(customElement, props.path, {
-            get: function() {
-                return this[attr];
-            },
-            set: function(val: any) {
-                const oldValue = isObject(this[attr]) || Array.isArray(this[attr]) ? JSON.parse(JSON.stringify(this[attr])) : this[attr];
-                this[attr] = val;
-                if (!isEqual(val, oldValue)) {
-                    customElement[props.callbackName].call(this, this[attr], oldValue);
-                }
-                return true;
-            },
-        });
-    });
-}
-
-/**
- * 事件响应逻辑处理
- * @param functions
- * @param customElement
- */
-function injectEmit(functions: EventOptions[], customElement: any) {
-    functions.forEach((event: EventOptions) => {
-        Object.defineProperty(customElement, event.methodName, {
-            get: function() {
-                return function(...args: any) {
-                    const result: any = event.methodFun.call(this, args);
-                    const evtName = event.eventName ? event.eventName : toDotCase(event.methodName);
-                    customElement._dispatchEvent.call(this, evtName, result);
-                };
-            },
-        });
-    });
-}
-
-/**
- * 注入方法
- * @param functions
- * @param customElement
- */
-function injectMethod(functions: MethodOptions[], customElement: any) {
-    functions.forEach((event: EventOptions) => {
-        Object.defineProperty(customElement, event.methodName, {
-            get: function() {
-                return function(...args: any) {
-                    return event.methodFun.call(this, args);
-                };
-            },
-        });
-    });
-}
-
-/**
- * 数据响应式处理逻辑
- * @param stateList
- * @param customElement
- */
-function injectState(stateList: StateOptions[], customElement: any) {
-    stateList.forEach((props: StateOptions) => {});
-}
 /**
  * 组件装饰器
  * @param options
@@ -172,35 +50,19 @@ export function defineComponent(options: CustomTagOptions, target: { new (): Def
         public propsList: PropOptions[];
         public injects: InjectOptions[];
         public provides: ProvideConfig[] = [];
-        public functions: EventOptions[] = [];
-        public methodsFunctions: EventOptions[] = [];
-        public watchs: WatchMetaOptions[] = [];
-        public statesList: StateOptions[] = [];
         private parentNode: any;
         public shadowRoot!: any;
-
         public elementId!: string;
-
         public attachShadow!: any;
-
         public dispatchEvent!: any;
-
         private _initComponent_(){
             this.elementId = getGuid();
             this.propsList = Reflect.getMetadata(PROP_META_KEY, target.prototype) ?? [] as PropOptions[];
             this.injects = Reflect.getMetadata(COMPONENT_CUSTOM_INJECT, target.prototype) ?? [] as InjectOptions[];
             this.provides = Reflect.getMetadata(COMPONENT_CUSTOM_PROVIDE, target.prototype) ?? [] as ProvideConfig[];
-            this.functions = Reflect.getMetadata(COMPONENT_CUSTOM_EVENT, target.prototype) ?? [] as  EventOptions[];
-            this.methodsFunctions = Reflect.getMetadata(COMPONENT_CUSTOM_METHOD, target.prototype) ?? [] as EventOptions[];
-            this.watchs = Reflect.getMetadata(COMPONENT_WATCH, target.prototype) ?? [] as WatchMetaOptions[];
-            this.statesList = Reflect.getMetadata(STATE_META_KEY, target.prototype) ?? [] as StateOptions[];
-            // 数据响应式处理
-            injectKeys(this.propsList, this.watchs, this);
-            // 事件代理处理
-            injectEmit(this.functions, this);
-            // 方法注入
-            injectMethod(this.methodsFunctions, this);
-            injectState(this.statesList, this);
+            new PropsReactive(this);
+            new StatesReactive(this);
+            new EmitReactive(this);
         }
 
         constructor() {

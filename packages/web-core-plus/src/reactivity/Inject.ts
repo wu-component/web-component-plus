@@ -10,6 +10,12 @@ export interface InjectConfig {
     [key: string]: any;
 }
 
+/**
+ * 组件接受父组件注入的数据
+ * @param key
+ * @param options
+ * @constructor
+ */
 export function Inject(key: string, options: InjectOptions = {}): PropertyDecorator {
     return function(target: any, attr: any) {
         const keys: InjectConfig[] = Reflect.getMetadata(COMPONENT_CUSTOM_INJECT, target) ?? [];
