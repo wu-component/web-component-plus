@@ -75,14 +75,14 @@ export class WuProgress extends HTMLElement {
      * 内容
      */
     get content() {
-        return `${this.props.percentage}%`;
+        return `${this.percentage}%`;
     }
 
     /**
      * 进度条大小
      */
     get progressTextSize() {
-        const { type, strokeWidth, width } = this.props;
+        const { type, strokeWidth, width } = this;
         return type === 'line' ? 12 + strokeWidth * 0.4 : width * 0.111111 + 2;
     }
 
@@ -90,7 +90,7 @@ export class WuProgress extends HTMLElement {
      * 图标类名
      */
     get iconClass() {
-        const { status, type } = this.props;
+        const { status, type } = this;
         if (status === 'warning') {
             return 'el-icon-warning';
         }
@@ -105,7 +105,7 @@ export class WuProgress extends HTMLElement {
      * 颜色
      */
     get stroke() {
-        const { color, percentage, status } = this.props;
+        const { color, percentage, status } = this;
         let ret;
         if (color) {
             ret = this.getCurrentColor(percentage);
@@ -128,7 +128,7 @@ export class WuProgress extends HTMLElement {
     }
 
     get barStyle() {
-        const { percentage } = this.props;
+        const { percentage } = this;
         const style: Record<any, any> = {};
         style.width = percentage + '%';
         style.backgroundColor = this.getCurrentColor(percentage);
@@ -136,12 +136,12 @@ export class WuProgress extends HTMLElement {
     }
 
     get relativeStrokeWidth() {
-        const { strokeWidth, width } = this.props;
+        const { strokeWidth, width } = this;
         return ((strokeWidth / width) * 100).toFixed(1);
     }
 
     get radius() {
-        const { type } = this.props;
+        const { type } = this;
         if (type === 'circle' || type === 'dashboard') {
             return parseInt(String(50 - parseFloat(this.relativeStrokeWidth) / 2), 10);
         } else {
@@ -151,7 +151,7 @@ export class WuProgress extends HTMLElement {
 
     get trackPath() {
         const radius = this.radius;
-        const { type } = this.props;
+        const { type } = this;
         const isDashboard = type === 'dashboard';
         return `
           M 50 50
@@ -166,7 +166,7 @@ export class WuProgress extends HTMLElement {
     }
 
     get rate() {
-        const { type } = this.props;
+        const { type } = this;
         return type === 'dashboard' ? 0.75 : 1;
     }
 

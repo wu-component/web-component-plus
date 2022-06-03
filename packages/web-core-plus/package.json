@@ -1,6 +1,6 @@
 {
   "name": "@canyuegongzi/web-core-plus",
-  "version": "0.0.34",
+  "version": "0.0.35",
   "description": "> TODO: description",
   "author": "Marvin <yongfeide123@gmail.com>",
   "homepage": "",
@@ -84,7 +84,8 @@
     "ts-node": "^7.0.1",
     "tsconfig-paths": "^3.7.0",
     "tslib": "^2.3.1",
-    "typescript": "4.5.4"
+    "typescript": "4.5.4",
+    "sass": "^1.50.0"
   },
   "dependencies": {
     "reflect-metadata": "^0.1.13"

@@ -1,8 +1,8 @@
-import { InjectOptions, PropOptions, ProvideConfig } from '../decorators';
-
 /**
  * 渲染前
  */
+import {InjectOptions, PropOptions, ProvideConfig} from "../reactivity";
+
 export interface OnBeforeRender<T = any> {
     beforeRender(): any;
 }
