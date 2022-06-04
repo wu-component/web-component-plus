@@ -342,7 +342,8 @@ export class WuComponent extends HTMLElement implements BaseCustomComponent {
         const ele: any = this;
         if (!this.propsList || (Array.isArray(this.propsList) && !this.propsList.length)) return;
         // 拿到dom绑定的属性
-        const attrMap = getAttrMap(this.shadowRoot.host);
+        const host = this.shadowRoot && this.shadowRoot.host? this.shadowRoot.host: this;
+        const attrMap = getAttrMap(host);
         this.propsList.forEach((key: PropOptions) => {
             const attr = hyphenateReverse(key.attr);
             let val = attrMap[attr];
@@ -352,7 +353,7 @@ export class WuComponent extends HTMLElement implements BaseCustomComponent {
             const newValue = formatValue(val, key.type, key.default);
             this[attr] = newValue;
             this.props[attr] = newValue;
-            this.setAttribute(attr, newValue);
+            // this.setAttribute(attr, newValue);
         });
     }
 

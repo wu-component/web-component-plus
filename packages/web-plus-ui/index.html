@@ -762,6 +762,12 @@
     <p></p>
     <wu-plus-pagination total='2003' current-page='1' page-size='5' id="testPagination"></wu-plus-pagination>
 
+<!--    <h2>Transition</h2>
+    <wu-plus-transition name="fade">
+        <div>Hello Transition</div>
+    </wu-plus-transition>
+
+    <button id="transitionButton">Toggle</button>-->
     <div style="height: 100px">
 
     </div>
@@ -774,6 +780,9 @@
 <!--<script type="module" src="./dist/web-plus.esm.js"></script>-->
 <!--<script type="module" src="./dev-server/main.ts"></script>-->
 <script type="module">
+    /*document.getElementById("transitionButton").addEventListener('click', () => {
+        console.log('33333')
+    })*/
     const testPagination = document.getElementById("testPagination");
     testPagination.addEventListener("change", (e) => {
         console.log(e)

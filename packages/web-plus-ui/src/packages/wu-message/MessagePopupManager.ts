@@ -1,5 +1,6 @@
 import './index';
 import { WuMessage, TypeEnums, PositionEnums } from './index';
+import domReady from "../../common/dready";
 interface Options {
     center?: boolean;
     type?: TypeEnums;
@@ -29,6 +30,18 @@ export class PopupManager {
         this.duration = 3000;
         this.body = document.getElementsByTagName('body')[0];
         this.id = 0;
+
+        this.__init__();
+    }
+
+    /**
+     * 此处保证任何时机都能拿到dom结构
+     * @private
+     */
+    private __init__() {
+        domReady(() => {
+            this.body = document.getElementsByTagName('body')[0];
+        });
     }
 
     /**
