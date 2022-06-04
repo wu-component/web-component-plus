@@ -1,11 +1,11 @@
-import { Component, Emit, h, Prop } from '@canyuegongzi/web-core-plus';
+import { Component, Emit, h, Prop, WuComponent } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 
 @Component({
     name: 'wu-plus-page-header',
     css: css,
 })
-export class WuPageHeader extends HTMLElement {
+export class WuPageHeader extends WuComponent {
     constructor() {
         super();
     }
@@ -19,7 +19,7 @@ export class WuPageHeader extends HTMLElement {
     @Emit('back')
     public back() {}
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
         return (
             <div class="wu-page-header">
                 <div class="wu-page-header_left">

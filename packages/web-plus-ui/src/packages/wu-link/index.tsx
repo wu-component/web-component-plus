@@ -1,4 +1,4 @@
-import { h, Component, Prop, Emit, OnConnected, OnBeforeRender } from '@canyuegongzi/web-core-plus';
+import { h, Component, Prop, Emit, OnConnected, WuComponent, OnBeforeRender } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 import { extractClass } from '@/common';
 import { getAttrMap } from '@/common';
@@ -8,18 +8,18 @@ type WuLinkType = 'primary' | 'success' | 'warning' | 'danger' | 'info';
     name: 'wu-plus-link',
     css: css,
 })
-export class WuLink extends HTMLElement implements OnConnected, OnBeforeRender {
+export class WuLink extends WuComponent implements OnConnected, OnBeforeRender {
     constructor() {
         super();
     }
 
-    public beforeRender() {
+    public override beforeRender() {
         this.eleAttrsMap = getAttrMap(this.shadowRoot.host);
     }
 
     private eleAttrsMap: Record<string, any> = {};
 
-    public connected(shadowRoot: ShadowRoot) {
+    public override connected(shadowRoot: ShadowRoot) {
         this.eleAttrsMap = getAttrMap(shadowRoot.host);
     }
 
@@ -43,7 +43,7 @@ export class WuLink extends HTMLElement implements OnConnected, OnBeforeRender {
         return e;
     }
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
         return (
             <a
                 {...extractClass({}, 'wu-link', {

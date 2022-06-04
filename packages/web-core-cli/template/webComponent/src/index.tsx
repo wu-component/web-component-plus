@@ -1,11 +1,11 @@
-import { h, Prop, Component } from '@canyuegongzi/web-core-plus';
+import { h, Prop, Component, WuComponent } from '@canyuegongzi/web-core-plus';
 import css from "./index.scss";
 
 @Component({
     name: 'wu-test-example',
     css: css,
 })
-export class TestExample extends HTMLElement {
+export class TestExample extends WuComponent {
     constructor() {
         super();
     }
@@ -20,7 +20,7 @@ export class TestExample extends HTMLElement {
         this.count ++;
     }
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
         return (
             <div class="container">
                 <div>

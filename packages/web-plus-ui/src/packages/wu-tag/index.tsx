@@ -1,4 +1,4 @@
-import { Component, Emit, h, Prop } from '@canyuegongzi/web-core-plus';
+import { Component, Emit, h, Prop, WuComponent } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 import { UISize } from '@/interface';
 import { extractClass } from '@/common';
@@ -9,7 +9,7 @@ type TypeEnums = 'success' | 'info' | 'warning' | 'danger';
     name: 'wu-plus-tag',
     css: css,
 })
-export class WuTag extends HTMLElement {
+export class WuTag extends WuComponent {
     constructor() {
         super();
     }
@@ -60,7 +60,7 @@ export class WuTag extends HTMLElement {
         };
     }
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
         return (
             <span
                 {...extractClass({}, 'wu-tag', {

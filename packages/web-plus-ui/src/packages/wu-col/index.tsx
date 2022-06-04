@@ -1,4 +1,4 @@
-﻿import { h, Component, Prop } from '@canyuegongzi/web-core-plus';
+﻿import { h, Component, Prop, WuComponent } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 import { extractClass } from '@/common';
 
@@ -6,7 +6,7 @@ import { extractClass } from '@/common';
     name: 'wu-plus-col',
     css: css,
 })
-export class WuCol extends HTMLElement {
+export class WuCol extends WuComponent {
     constructor() {
         super();
     }
@@ -26,7 +26,7 @@ export class WuCol extends HTMLElement {
     @Prop({ default: '', type: Number })
     public push: number;
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
         const classList: string[] = [];
         const classListMap: Record<string, boolean> = {};
         const style: Record<string, string> = {};

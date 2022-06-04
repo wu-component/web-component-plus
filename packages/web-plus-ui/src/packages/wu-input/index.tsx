@@ -1,4 +1,4 @@
-import { h, Component, Prop, OnInstall, Emit, Inject } from '@canyuegongzi/web-core-plus';
+import { h, Component, Prop, OnInstall, Emit, Inject, WuComponent } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 import { UISize } from '@/interface';
 import { extractClass } from '@/common';
@@ -9,7 +9,7 @@ type TypeEnums = 'textarea' | 'input';
     name: 'wu-plus-input',
     css: css,
 })
-export class WuInput extends HTMLElement implements OnInstall {
+export class WuInput extends WuComponent implements OnInstall {
     @Inject('wuFormRef')
     public wuForm;
 
@@ -90,7 +90,7 @@ export class WuInput extends HTMLElement implements OnInstall {
     /**
      * 处理数据
      */
-    public install() {
+    public override install() {
         this.tempInputTagName = this.type === 'textarea' ? 'textarea' : 'input';
         this.$value = this.value;
     }
@@ -98,7 +98,7 @@ export class WuInput extends HTMLElement implements OnInstall {
     /**
      * 渲染前
      */
-    public beforeInstall() {}
+    public override beforeInstall() {}
 
     constructor() {
         super();
@@ -203,7 +203,7 @@ export class WuInput extends HTMLElement implements OnInstall {
         return this.value;
     }
 
-    public render() {
+    public override render() {
         this.tempTagName = 'wu-icon-' + (this.suffixIcon || this.prefixIcon);
         this.tempInputTagName = this.type === 'textarea' ? 'textarea' : 'input';
         const attrMap = {};

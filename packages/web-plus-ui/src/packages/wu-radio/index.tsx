@@ -1,4 +1,4 @@
-import { h, Component, Prop, Emit, OnConnected, Inject } from '@canyuegongzi/web-core-plus';
+import { h, Component, Prop, Emit, OnConnected, Inject, WuComponent } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 import { UISize } from '@/interface';
 import { extractClass, extract, debounce } from '@/common';
@@ -7,7 +7,7 @@ import { extractClass, extract, debounce } from '@/common';
     name: 'wu-plus-radio',
     css: css,
 })
-export class WuRadio extends HTMLElement implements OnConnected {
+export class WuRadio extends WuComponent implements OnConnected {
     constructor() {
         super();
     }
@@ -61,11 +61,11 @@ export class WuRadio extends HTMLElement implements OnConnected {
         };
     }
 
-    public connected(shadowRoot: ShadowRoot) {
+    public override connected(shadowRoot: ShadowRoot) {
         this.mounted();
     }
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
         return (
             <label
                 role="radio"

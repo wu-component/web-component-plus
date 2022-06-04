@@ -1,4 +1,4 @@
-import { h, Component, Prop, OnConnected, Emit, OnBeforeUpdate } from '@canyuegongzi/web-core-plus';
+import { h, Component, Prop, OnConnected, Emit, OnBeforeUpdate, WuComponent } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 import { extractClass } from "@/common";
 
@@ -8,16 +8,16 @@ type TypeEnums = 'primary' | 'success' | 'warning' | 'info' | 'danger'
     name: 'wu-plus-badge',
     css: css,
 })
-export class WuBadge extends HTMLElement implements OnConnected, OnBeforeUpdate {
+export class WuBadge extends WuComponent implements OnConnected, OnBeforeUpdate {
     constructor() {
         super();
     }
 
-    public beforeUpdate() {
+    public override beforeUpdate() {
         this.initIsFixed();
     }
 
-    public connected(shadowRoot: ShadowRoot) {
+    public override connected(shadowRoot: ShadowRoot) {
         this.initIsFixed();
     }
 
@@ -65,7 +65,7 @@ export class WuBadge extends HTMLElement implements OnConnected, OnBeforeUpdate 
         return event;
     }
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
         return (
             <div class="wu-badge">
                 <slot id="defaultSlot"/>

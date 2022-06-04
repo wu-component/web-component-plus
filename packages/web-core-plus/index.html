@@ -14,13 +14,22 @@
     <!--<wu-button-test type="success" id="testDom2">按钮</wu-button-test>-->
     <!--<wu-plus-inject1 type="success" id="testDom2">按钮</wu-plus-inject1>-->
     <wu-plus-test id="testDom"></wu-plus-test>
+    <p style="height: 2px;background: pink"></p>
+    <wu-plus-test-new id="testDom"></wu-plus-test-new>
+    <p style="height: 2px;background: pink"></p>
+    <wu-plus-test-new1 id="testDom1"></wu-plus-test-new1>
 </div>
 
 </body>
-<script type="module" src="./example/index.umd.js"></script>
+<script type="module" src="./example/index.esm.js"></script>
 <script type="module">
     const testDom = document.getElementById('testDom');
     testDom.addEventListener('change', (e) => {
+        console.log(e);
+    })
+
+    const testDom1 = document.getElementById('testDom1');
+    testDom1.addEventListener('change', (e) => {
         console.log(e);
     })
     /*const testDom = document.getElementById('testDom2');

@@ -7,7 +7,7 @@ interface Options {
     showClose?: boolean;
     duration?: number;
     position?: PositionEnums;
-    elementId?: number;
+    elId?: number;
 }
 /**
  * 消息提示管理器
@@ -96,7 +96,7 @@ export class PopupManager {
         if (!options.hasOwnProperty('showClose')) {
             options.showClose = false;
         }
-        options.elementId = this.id;
+        options.elId = this.id;
         const messageDom: WuMessage = document.createElement('wu-plus-message') as WuMessage;
         for (const key in options) {
             messageDom.setAttribute(key, options[key]);

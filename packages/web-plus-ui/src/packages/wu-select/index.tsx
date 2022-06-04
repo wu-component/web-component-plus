@@ -1,4 +1,4 @@
-import { Component, Emit, h, Inject, OnBeforeUpdate, OnConnected, Prop, Provide } from '@canyuegongzi/web-core-plus';
+import { Component, Emit, h, Inject, OnBeforeUpdate, OnConnected, Prop, Provide, WuComponent } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 import { UISize } from '@/interface';
 import { extractClass } from '@/common';
@@ -10,21 +10,21 @@ import '../wu-tag';
     name: 'wu-plus-select',
     css: css,
 })
-export class WuSelect extends HTMLElement implements OnConnected, OnBeforeUpdate {
+export class WuSelect extends WuComponent implements OnConnected, OnBeforeUpdate {
     constructor() {
         super();
     }
 
-    public beforeUpdate() {
+    public override beforeUpdate() {
         this.initOptions();
     }
 
     private initOptions() {
         const slotDom = this.shadowRoot.getElementById('defaultSlot') as HTMLSlotElement;
-        this.options = slotDom.assignedNodes().filter(item => (item as any).tagName === 'WU-PLUS-SELECT-OPTION') as WuSelectOptions[];
+        this.options = slotDom.assignedNodes().filter(item => (item as any).tagName === 'WU-PLUS-SELECT-OPTION') as unknown as WuSelectOptions[];
     }
 
-    connected(shadowRoot: ShadowRoot) {
+    public override connected(shadowRoot: ShadowRoot) {
         this.initOptions();
         const selectItems: WuSelectOptions[] = [];
         for (let i = 0; i < this.options.length; i ++) {
@@ -287,7 +287,7 @@ export class WuSelect extends HTMLElement implements OnConnected, OnBeforeUpdate
         return event;
     }
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
         const commonAttr: any = {};
         if (!this.filterable) {
             commonAttr.readonly = 'readonly';

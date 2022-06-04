@@ -1,12 +1,12 @@
-import { Component, Emit, h, Prop, Watch } from '../index';
+import { Component, Emit, h, Prop, State, Watch, WuComponent } from '../../index';
 // @ts-ignore
 import css from './index.scss';
 
 @Component({
-    name: 'wu-plus-test',
+    name: 'wu-plus-test-new1',
     css: css,
 })
-export class Index extends HTMLElement {
+export class Index2 extends WuComponent {
     constructor() {
         super();
     }
@@ -17,7 +17,7 @@ export class Index extends HTMLElement {
     @Prop({ type: Number, default: 45 })
     public numProp: number;
 
-    @Prop({ type: Number, default: 34 })
+    @State({ type: Number, default: 34 })
     public numState: number;
 
     public changeNumProp() {
@@ -47,7 +47,7 @@ export class Index extends HTMLElement {
     }
 
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
         return (
             <div class="test-container">
                 <p>prop、事件通知 </p>

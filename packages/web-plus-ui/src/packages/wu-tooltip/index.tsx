@@ -1,4 +1,4 @@
-import { h, Component, Prop, OnConnected } from '@canyuegongzi/web-core-plus';
+import { h, Component, Prop, OnConnected, WuComponent } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 import { createPopper } from '@popperjs/core/dist/esm';
 import { Placement } from "@popperjs/core/lib/enums";
@@ -8,12 +8,12 @@ import { classNames } from "@/common";
     name: 'wu-plus-tooltip',
     css: css,
 })
-export class WuTooltip extends HTMLElement implements OnConnected {
+export class WuTooltip extends WuComponent implements OnConnected {
     constructor() {
         super();
     }
 
-    public connected(shadowRoot: ShadowRoot) {}
+    public override connected(shadowRoot: ShadowRoot) {}
 
     @Prop({ default: '', type: String })
     public content: string;
@@ -59,7 +59,7 @@ export class WuTooltip extends HTMLElement implements OnConnected {
 
 
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
         return (
             <div>
                 <slot onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave} />

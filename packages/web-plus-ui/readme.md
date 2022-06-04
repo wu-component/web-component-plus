@@ -15,7 +15,7 @@ type WuButtonType = 'primary' | 'success' | 'warning' | 'danger' | 'info'
     name: 'wu-button',
     css: css
 })
-export class WuButton extends HTMLElement implements OnConnected, OnDisConnected, OnBeforeRender, OnRendered, OnBeforeUpdate, OnUpdated {
+export class WuButton extends WuComponent implements OnConnected, OnDisConnected, OnBeforeRender, OnRendered, OnBeforeUpdate, OnUpdated {
     constructor() {
         super();
     }

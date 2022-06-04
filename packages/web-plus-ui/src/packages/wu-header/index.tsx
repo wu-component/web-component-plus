@@ -1,11 +1,11 @@
-﻿import { h, Component, Prop } from '@canyuegongzi/web-core-plus';
+﻿import { h, Component, Prop, WuComponent } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 
 @Component({
     name: 'wu-plus-header',
     css: css,
 })
-export class WuHeader extends HTMLElement {
+export class WuHeader extends WuComponent {
     constructor() {
         super();
     }
@@ -14,7 +14,7 @@ export class WuHeader extends HTMLElement {
     public height: string;
 
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
         return (
             <footer class="wu-header" style={{ height: this.height }}>
                 <slot class="wu-header" style={{ height: this.height }} />
