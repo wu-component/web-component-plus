@@ -1,4 +1,4 @@
-﻿import { h, Component, Prop, OnConnected, OnBeforeUpdate } from '@canyuegongzi/web-core-plus';
+﻿import { h, Component, Prop, OnConnected, OnBeforeUpdate, WuComponent } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 
 type DirectionEnums = 'vertical' | 'horizontal' | any;
@@ -6,18 +6,18 @@ type DirectionEnums = 'vertical' | 'horizontal' | any;
     name: 'wu-plus-container',
     css: css,
 })
-export class WuContainer extends HTMLElement implements OnConnected, OnBeforeUpdate {
+export class WuContainer extends WuComponent implements OnConnected, OnBeforeUpdate {
     constructor() {
         super();
     }
 
     public isVertical = false;
 
-    public beforeUpdate() {
+    public override beforeUpdate() {
         this.isVertical = this.initIsVertical();
     }
 
-    public connected(shadowRoot: ShadowRoot) {
+    public override connected(shadowRoot: ShadowRoot) {
         this.isVertical = this.initIsVertical();
         (this as any).update();
     }
@@ -37,7 +37,7 @@ export class WuContainer extends HTMLElement implements OnConnected, OnBeforeUpd
     public direction: DirectionEnums;
 
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
         return (
             <section class={`${this.isVertical? 'wu-container is-vertical': 'wu-container'}`}>
                 <slot id="defaultSlot" class={`${this.isVertical? 'wu-container is-vertical': 'wu-container'}`}  />

@@ -1,4 +1,4 @@
-import { h, Component, Prop } from '@canyuegongzi/web-core-plus';
+import { h, Component, Prop, WuComponent } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 import { UISize } from '@/interface';
 import { extractClass } from '@/common';
@@ -9,7 +9,7 @@ type NativeType = 'button' | 'submit' | 'reset';
     name: 'wu-plus-button',
     css: css,
 })
-export class WuButton extends HTMLElement {
+export class WuButton extends WuComponent {
     constructor() {
         super();
     }
@@ -44,7 +44,7 @@ export class WuButton extends HTMLElement {
     @Prop({ default: '', type: String })
     public text: string;
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
         return (
             <button
                 disabled={this.disabled}

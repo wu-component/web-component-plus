@@ -1,4 +1,4 @@
-import { Component, Emit, h, Prop } from '@canyuegongzi/web-core-plus';
+import { Component, Emit, h, Prop, WuComponent } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 import { extractClass } from '@/common';
 type TypeEnums = 'line' | 'circle' | 'dashboard'; // line
@@ -9,12 +9,12 @@ type StrokeLinecapEnums = 'butt' | 'round' | 'square'; // round
     name: 'wu-plus-progress',
     css: css,
 })
-export class WuProgress extends HTMLElement {
+export class WuProgress extends WuComponent {
     constructor() {
         super();
     }
 
-    public props!: any;
+    public override props!: any;
 
     @Prop({ type: String, default: 'line' })
     public type: TypeEnums;
@@ -190,7 +190,7 @@ export class WuProgress extends HTMLElement {
         };
     }
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
         return (
             <div
                 class="wu-progress"

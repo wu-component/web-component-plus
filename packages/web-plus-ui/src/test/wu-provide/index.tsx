@@ -1,9 +1,9 @@
-import { Component, h, Method, OnConnected, Provide } from '@canyuegongzi/web-core-plus';
+import { Component, h, Method, OnConnected, Provide, WuComponent } from '@canyuegongzi/web-core-plus';
 
 @Component({
     name: 'wu-plus-provide',
 })
-export class WuProvide extends HTMLElement implements OnConnected {
+export class WuProvide extends WuComponent implements OnConnected {
     public provide = '这是来自父级注入的数据';
 
     @Provide('parentDescTitle')
@@ -22,9 +22,9 @@ export class WuProvide extends HTMLElement implements OnConnected {
         return this.provide;
     }
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
         return <slot />;
     }
 
-    public connected(shadowRoot: ShadowRoot): any {}
+    public override connected(shadowRoot: ShadowRoot): any {}
 }

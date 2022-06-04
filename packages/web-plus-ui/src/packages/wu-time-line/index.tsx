@@ -1,11 +1,11 @@
-﻿import { h, Component, Prop, Provide } from '@canyuegongzi/web-core-plus';
+﻿import { h, Component, Prop, Provide, WuComponent } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 
 @Component({
     name: 'wu-plus-timeline',
     css: css,
 })
-export class WuTimeLine extends HTMLElement {
+export class WuTimeLine extends WuComponent {
     constructor() {
         super();
     }
@@ -18,7 +18,7 @@ export class WuTimeLine extends HTMLElement {
         return this;
     }
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
         const reverse = this.reverse;
         return (
             <ul class={`wu-timeline ${reverse ? reverse : 'is-reverse'}`}>

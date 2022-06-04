@@ -1,11 +1,11 @@
-﻿import { h, Component, Prop } from '@canyuegongzi/web-core-plus';
+﻿import { h, Component, Prop, WuComponent } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 
 @Component({
     name: 'wu-leaflet-map',
     css: css,
 })
-export class WuLeafletMap extends HTMLElement {
+export class WuLeafletMap extends WuComponent {
     constructor() {
         super();
     }
@@ -13,7 +13,7 @@ export class WuLeafletMap extends HTMLElement {
     @Prop({ default: '', type: String })
     public name: string;
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
         return <i class={`wu-icon-${this.name}`} />;
     }
 }

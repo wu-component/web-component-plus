@@ -1,23 +1,23 @@
-import { h, Component, Prop, OnConnected, OnBeforeRender } from '@canyuegongzi/web-core-plus';
+import { h, Component, Prop, OnConnected, OnBeforeRender, WuComponent } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 
 @Component({
     name: 'wu-checkbox-button',
     css: css,
 })
-export class WuCheckboxButton extends HTMLElement implements OnConnected, OnBeforeRender {
+export class WuCheckboxButton extends WuComponent implements OnConnected, OnBeforeRender {
     constructor() {
         super();
     }
 
-    public beforeRender() {}
+    public override beforeRender() {}
 
-    public connected(shadowRoot: ShadowRoot) {}
+    public override connected(shadowRoot: ShadowRoot) {}
 
     @Prop({ default: false, type: Boolean })
     public disabled: boolean;
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
         return (
             <div>
                 <span>行</span>

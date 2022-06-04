@@ -1,4 +1,4 @@
-import { h, Component, Prop, Emit } from '@canyuegongzi/web-core-plus';
+import { h, Component, Prop, Emit, WuComponent } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 
 type ShapeEnums = 'circle' | 'square'
@@ -8,7 +8,7 @@ type FitEnums = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down'
     name: 'wu-plus-avatar',
     css: css,
 })
-export class WuAvatar extends HTMLElement {
+export class WuAvatar extends WuComponent {
     constructor() {
         super();
     }
@@ -82,7 +82,7 @@ export class WuAvatar extends HTMLElement {
         return <slot />;
     }
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
         const sizeStyle: Record<any, any> = typeof this.size === 'number' ? {
             height: `${this.size}px`,
             width: `${this.size}px`,

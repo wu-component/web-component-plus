@@ -1,4 +1,4 @@
-import { h, Component, Prop, OnConnected } from '@canyuegongzi/web-core-plus';
+import { h, Component, Prop, OnConnected, WuComponent } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 type ShadowEnums = 'always' | 'hover' | 'never';
 
@@ -6,12 +6,12 @@ type ShadowEnums = 'always' | 'hover' | 'never';
     name: 'wu-plus-menu-item',
     css: css,
 })
-export class WuMenuItem extends HTMLElement implements OnConnected {
+export class WuMenuItem extends WuComponent implements OnConnected {
     constructor() {
         super();
     }
 
-    public connected(shadowRoot: ShadowRoot) {}
+    public override connected(shadowRoot: ShadowRoot) {}
 
     @Prop({ default: '' })
     public header: string;
@@ -26,7 +26,7 @@ export class WuMenuItem extends HTMLElement implements OnConnected {
     public headerShow: boolean;
 
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
         return (
             <div class={this.shadow ? 'is-' + this.shadow + '-shadow wu-card' : 'is-always-shadow wu-card'}>
                 {this.headerShow ? (

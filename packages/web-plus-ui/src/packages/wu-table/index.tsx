@@ -1,4 +1,4 @@
-import { Component, Emit, h, OnBeforeRender, OnConnected, Prop } from '@canyuegongzi/web-core-plus';
+import { Component, Emit, h, OnBeforeRender, OnConnected, Prop, WuComponent } from '@canyuegongzi/web-core-plus';
 import '../wu-checkbox';
 import '../wu-input';
 import css from './index.scss';
@@ -8,22 +8,16 @@ import { classNames, extractClass } from '@/common';
     name: 'wu-plus-table',
     css: css,
 })
-export class WuTable extends HTMLElement implements OnConnected, OnBeforeRender {
+export class WuTable extends WuComponent implements OnConnected, OnBeforeRender {
     constructor() {
         super();
     }
 
-    public rootNode!: HTMLElement;
-
-    public props!: Record<any, any>;
-
-    public update!: () => void;
-
     public editingInput!: any;
 
-    public beforeRender() {}
+    public override beforeRender() {}
 
-    public connected(shadowRoot: ShadowRoot) {
+    public override connected(shadowRoot: ShadowRoot) {
         this.setFixedLeft();
         this.setFixedRight();
     }
@@ -114,10 +108,11 @@ export class WuTable extends HTMLElement implements OnConnected, OnBeforeRender 
     public changeHandlerTh(event: any, columns: any, options: { isAllSelect: boolean }) {
         // 勾选全选时强制勾选全部数据
         if (columns.type === 'selection' && options.isAllSelect) {
-            this.data.forEach(item => {
+            const data = this.data;
+            data.forEach(item => {
                 item.checked = event.detail.value;
             });
-            this.props.data = this.data;
+            this.data = data;
             this.update();
             this.selectionAllChange({ selection: this.data });
             this.selectionChange({ selection: this.data, currentRow: null });
@@ -190,10 +185,10 @@ export class WuTable extends HTMLElement implements OnConnected, OnBeforeRender 
         };
     }
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
         if (!this.columns.length) return;
-        if (this.props.fixedRight) {
-            this.props.columns[this.props.columns.length - 1].fixed = true;
+        if (this.fixedRight) {
+            this.columns[this.columns.length - 1].fixed = true;
         }
         const { width, height } = this;
         return (

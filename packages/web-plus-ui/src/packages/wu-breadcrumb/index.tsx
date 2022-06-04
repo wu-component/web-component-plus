@@ -1,11 +1,11 @@
-import { Component, Emit, h, OnConnected, Prop, Provide } from '@canyuegongzi/web-core-plus';
+import { Component, Emit, h, OnConnected, Prop, Provide, WuComponent } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 
 @Component({
     name: 'wu-plus-breadcrumb',
     css: css,
 })
-export class WuBreadcrumb extends HTMLElement implements OnConnected {
+export class WuBreadcrumb extends WuComponent implements OnConnected {
     constructor() {
         super();
     }
@@ -34,7 +34,7 @@ export class WuBreadcrumb extends HTMLElement implements OnConnected {
         return { ...args };
     }
 
-    public connected(shadowRoot: ShadowRoot): any {
+    public override connected(shadowRoot: ShadowRoot): any {
         const slotDom = this.shadowRoot.getElementById('defaultSlot') as HTMLSlotElement;
         const items: Node[] = slotDom.assignedNodes().filter(item => (item as any).tagName === 'WU-PLUS-BREADCRUMB-ITEM');
         if (items.length) {
@@ -50,7 +50,7 @@ export class WuBreadcrumb extends HTMLElement implements OnConnected {
         }
     }
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
         return (
             <div class="wu-breadcrumb" aria-label="Breadcrumb" role="navigation">
                 <slot id="defaultSlot" style={{ width: '100%' }} />

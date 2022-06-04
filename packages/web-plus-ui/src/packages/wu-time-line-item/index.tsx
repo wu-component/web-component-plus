@@ -1,20 +1,20 @@
-﻿import { h, Component, Prop, Inject, OnConnected, OnBeforeUpdate } from '@canyuegongzi/web-core-plus';
+﻿import { h, Component, Prop, Inject, OnConnected, OnBeforeUpdate, WuComponent } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 
 @Component({
     name: 'wu-plus-timeline-item',
     css: css,
 })
-export class WuTimeLineItem extends HTMLElement implements OnConnected, OnBeforeUpdate {
+export class WuTimeLineItem extends WuComponent implements OnConnected, OnBeforeUpdate {
     constructor() {
         super();
     }
 
-    public beforeUpdate() {
+    public override beforeUpdate() {
         this.updateStyle();
     }
 
-    public connected(shadowRoot: ShadowRoot) {
+    public override connected(shadowRoot: ShadowRoot) {
         this.updateStyle();
     }
 
@@ -55,7 +55,7 @@ export class WuTimeLineItem extends HTMLElement implements OnConnected, OnBefore
     @Inject('timelineRef')
     public timelineRef: HTMLElement;
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
         return (
             <li class="wu-timeline-item">
                 <div class="wu-timeline-item_tail" />

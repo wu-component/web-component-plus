@@ -1,4 +1,4 @@
-import { Component, Emit, h, Inject, Prop } from '@canyuegongzi/web-core-plus';
+import { Component, Emit, h, Inject, Prop, WuComponent } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 import { UISize } from '@/interface';
 import { extractClass } from '@/common';
@@ -7,7 +7,7 @@ import { extractClass } from '@/common';
     name: 'wu-plus-select-option',
     css: css,
 })
-export class WuSelectOptions extends HTMLElement {
+export class WuSelectOptions extends WuComponent {
     constructor() {
         super();
     }
@@ -95,7 +95,7 @@ export class WuSelectOptions extends HTMLElement {
         this.setSelect(selectOptions.includes(this));
     }
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
         return (
             <div
                 {...extractClass({}, '', {

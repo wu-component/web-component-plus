@@ -1,4 +1,4 @@
-﻿import { h, Component, Prop, OnConnected } from '@canyuegongzi/web-core-plus';
+﻿import { h, Component, Prop, OnConnected, WuComponent } from '@canyuegongzi/web-core-plus';
 import { createPopper } from '@popperjs/core/dist/esm';
 import css from './index.scss';
 import { Placement } from '@popperjs/core/lib/enums';
@@ -9,12 +9,12 @@ export type TypeEnums = 'success' | 'warning' | 'info' | 'error';
     name: 'wu-plus-popover',
     css: css,
 })
-export class WuPopover extends HTMLElement implements OnConnected {
+export class WuPopover extends WuComponent implements OnConnected {
     constructor() {
         super();
     }
 
-    public connected(shadowRoot: ShadowRoot) {
+    public override connected(shadowRoot: ShadowRoot) {
         window.addEventListener('click', (e: Event) => {
             if (this.trigger === 'manual') return;
             if (this.isShow) {
@@ -121,7 +121,7 @@ export class WuPopover extends HTMLElement implements OnConnected {
         }, 0);
     };
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
         const targetEvents: {
             onMouseEnter: (e: Event) => void;
             onMouseLeave: (e: Event) => void;

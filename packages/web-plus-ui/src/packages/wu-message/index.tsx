@@ -1,4 +1,4 @@
-﻿import { h, Component, Prop, Emit } from '@canyuegongzi/web-core-plus';
+﻿import { h, Component, Prop, Emit, WuComponent } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 import { extractClass } from '@/common';
 export type TypeEnums = 'success' | 'warning' | 'info' | 'error';
@@ -8,7 +8,7 @@ export type PositionEnums = 'top';
     name: 'wu-plus-message',
     css: css,
 })
-export class WuMessage extends HTMLElement {
+export class WuMessage extends WuComponent {
     constructor() {
         super();
     }
@@ -28,7 +28,7 @@ export class WuMessage extends HTMLElement {
     public duration: number;
 
     @Prop({ type: Number, default: 1 })
-    public elementId: number;
+    public elId: number;
 
     @Prop({ type: Boolean, default: false })
     public center: boolean;
@@ -74,7 +74,7 @@ export class WuMessage extends HTMLElement {
         }
     }
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
         return (
             <div
                 style={this.positionStyle}

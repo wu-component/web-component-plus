@@ -1,16 +1,16 @@
-﻿import { h, Component } from '@canyuegongzi/web-core-plus';
+﻿import { h, Component, WuComponent } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 
 @Component({
     name: 'wu-plus-main',
     css: css,
 })
-export class WuMain extends HTMLElement {
+export class WuMain extends WuComponent {
     constructor() {
         super();
     }
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
         return (
             <footer class="wu-main">
                 <slot class="wu-main" />

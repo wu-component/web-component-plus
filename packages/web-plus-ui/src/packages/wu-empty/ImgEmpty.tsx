@@ -1,4 +1,4 @@
-import { h, Component, OnConnected } from '@canyuegongzi/web-core-plus';
+import { h, Component, OnConnected, WuComponent } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 
 let id = 0;
@@ -6,16 +6,16 @@ let id = 0;
     name: 'wu-plus-img-empty',
     css: css,
 })
-export class WuImgEmpty extends HTMLElement implements OnConnected {
+export class WuImgEmpty extends WuComponent implements OnConnected {
     constructor() {
         super();
     }
 
-    connected(shadowRoot: ShadowRoot) {
+    override connected(shadowRoot: ShadowRoot) {
         id ++;
     }
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
         return (
             <svg
                 viewBox="0 0 79 86"

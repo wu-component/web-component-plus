@@ -1,4 +1,4 @@
-import { Component, Emit, h, OnConnected, OnBeforeUpdate, Prop, Inject } from '@canyuegongzi/web-core-plus';
+import { Component, Emit, h, OnConnected, OnBeforeUpdate, Prop, Inject, WuComponent } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 import { UISize } from '@/interface';
 import { extractClass } from '@/common';
@@ -7,10 +7,10 @@ import { extractClass } from '@/common';
     name: 'wu-plus-checkbox',
     css: css,
 })
-export class WuCheckbox extends HTMLElement implements OnConnected, OnBeforeUpdate {
+export class WuCheckbox extends WuComponent implements OnConnected, OnBeforeUpdate {
     public isGroup = false;
 
-    public props!: any;
+    public override props!: any;
 
     constructor() {
         super();
@@ -19,7 +19,7 @@ export class WuCheckbox extends HTMLElement implements OnConnected, OnBeforeUpda
     @Inject('groupRef')
     public groupRef: any;
 
-    public beforeUpdate() {
+    public override beforeUpdate() {
         if (this.isGroup) {
             this.initProps();
         }
@@ -34,7 +34,7 @@ export class WuCheckbox extends HTMLElement implements OnConnected, OnBeforeUpda
         this.checked = Array.isArray(value) && value.includes(this.label);
     }
 
-    public connected(shadowRoot: ShadowRoot) {
+    public override connected(shadowRoot: ShadowRoot) {
         if (this.indeterminate) {
             this.setAttribute('aria-controls', this.controls);
         }
@@ -123,7 +123,7 @@ export class WuCheckbox extends HTMLElement implements OnConnected, OnBeforeUpda
         this.focus = false;
     }
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
         return (
             <label
                 {...extractClass({}, 'wu-checkbox', {

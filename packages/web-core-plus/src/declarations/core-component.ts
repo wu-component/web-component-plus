@@ -1,7 +1,7 @@
 /**
  * 渲染前
  */
-import {InjectOptions, PropOptions, ProvideConfig} from "../reactivity";
+import { InjectOptions, ProvideConfig } from "../reactivity";
 
 export interface OnBeforeRender<T = any> {
     beforeRender(): any;
@@ -69,6 +69,7 @@ export interface OnUpdate<T = any> {
 }
 
 export interface BaseCustomComponent extends DefineComponent {
+    _customStyleElement: string;
     /**
      * 组件注入的数据
      */
@@ -109,11 +110,6 @@ export interface BaseCustomComponent extends DefineComponent {
      * 组件自定义样式
      */
     _customStyleContent: string;
-
-    /**
-     * 组件自定义属性集合，组件内部会对这类属性做响应式的处理
-     */
-    __keyList__: PropOptions[];
 
     /**
      * host
@@ -251,5 +247,5 @@ export interface DefineComponent {
      */
     rendered(): void;
 
-    render(...args): any;
+    render?(...args): any;
 }

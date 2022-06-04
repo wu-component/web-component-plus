@@ -1,20 +1,16 @@
-﻿import { h, Component, Prop, OnConnected, Watch } from '@canyuegongzi/web-core-plus';
+﻿import { h, Component, Prop, OnConnected, Watch, WuComponent } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 
 @Component({
     name: 'wu-plus-example',
     css: css,
 })
-export class WuExample extends HTMLElement implements OnConnected {
+export class WuExample extends WuComponent implements OnConnected {
     constructor() {
         super();
     }
 
-    connected(shadowRoot: ShadowRoot) {
-        console.log('组件初始化完成');
-        console.log(this.name);
-        console.log(this);
-        console.log(this.getValue);
+    override connected(shadowRoot: ShadowRoot) {
         setTimeout(() => {
             this.name = 'dsffvdfgbfnfgnfvcgmn';
         }, 2000);
@@ -33,7 +29,7 @@ export class WuExample extends HTMLElement implements OnConnected {
         return this.name;
     }
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
         return (
             <div class="test-container">
                 <div>

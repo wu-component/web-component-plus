@@ -1,4 +1,4 @@
-﻿import { h, Component, Prop, Emit } from '@canyuegongzi/web-core-plus';
+﻿import { h, Component, Prop, Emit, WuComponent } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 
 type TypeEnums = 'success' | 'warning' | 'info' | 'error';
@@ -11,7 +11,7 @@ const TYPE_CLASSES_MAP = {
     name: 'wu-plus-alert',
     css: css,
 })
-export class WuAlert extends HTMLElement {
+export class WuAlert extends WuComponent {
     constructor() {
         super();
     }
@@ -71,7 +71,7 @@ export class WuAlert extends HTMLElement {
         return this.description? 'is-bold' : '';
     }
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
         if (!this.visible) {
             return null;
         }

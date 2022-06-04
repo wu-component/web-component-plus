@@ -1,11 +1,11 @@
-import { h, Component, Prop, Watch, OnConnected, Emit, Inject } from '@canyuegongzi/web-core-plus';
+import { h, Component, Prop, Watch, OnConnected, Emit, Inject, WuComponent } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 import { extractClass } from '@/common';
 @Component({
     name: 'wu-plus-switch',
     css: css,
 })
-export class WuSwitch extends HTMLElement implements OnConnected {
+export class WuSwitch extends WuComponent implements OnConnected {
     constructor() {
         super();
     }
@@ -20,7 +20,7 @@ export class WuSwitch extends HTMLElement implements OnConnected {
 
     public coreRef: HTMLElement;
 
-    public connected(shadowRoot: ShadowRoot) {
+    public override connected(shadowRoot: ShadowRoot) {
         this.inputRef = shadowRoot.querySelector('.wu-switch_input');
         this.coreRef = shadowRoot.querySelector('.wu-switch_core');
         this.width = this.width || 40;
@@ -80,7 +80,7 @@ export class WuSwitch extends HTMLElement implements OnConnected {
         return this.value === this.activeValue;
     }
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
         const checked = this.value === this.activeValue;
         return (
             <div

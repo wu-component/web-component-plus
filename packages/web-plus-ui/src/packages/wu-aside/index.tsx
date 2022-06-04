@@ -1,11 +1,11 @@
-﻿import { h, Component, Prop } from '@canyuegongzi/web-core-plus';
+﻿import { h, Component, Prop, WuComponent } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 
 @Component({
     name: 'wu-plus-aside',
     css: css,
 })
-export class WuAside extends HTMLElement {
+export class WuAside extends WuComponent {
     constructor() {
         super();
     }
@@ -14,7 +14,7 @@ export class WuAside extends HTMLElement {
     public width: string;
 
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
         return (
             <footer class="wu-aside" style={{ width: this.width }}>
                 <slot class="wu-aside" style={{ width: this.width }} />

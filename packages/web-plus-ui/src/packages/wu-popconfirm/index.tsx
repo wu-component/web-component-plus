@@ -1,4 +1,4 @@
-﻿import { h, Component, Prop, Emit } from '@canyuegongzi/web-core-plus';
+﻿import { h, Component, Prop, Emit, WuComponent } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 import "../wu-popover";
 import "../wu-button";
@@ -7,7 +7,7 @@ import "../wu-button";
     name: 'wu-plus-popconfirm',
     css: css,
 })
-export class WuPopconfirm extends HTMLElement {
+export class WuPopconfirm extends WuComponent {
     constructor() {
         super();
     }
@@ -56,7 +56,7 @@ export class WuPopconfirm extends HTMLElement {
         this.visible = false;
     }
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
         return (
             <wu-plus-popover trigger="click" isShow={this.visible}>
                 <div class="wu-popconfirm" slot="popover">

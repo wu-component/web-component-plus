@@ -1,16 +1,16 @@
-import { Component, Emit, h, Inject, OnBeforeRender, OnConnected, OnInstall, Prop } from '@canyuegongzi/web-core-plus';
+import { Component, Emit, h, Inject, OnBeforeRender, OnConnected, OnInstall, Prop, WuComponent } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 
 @Component({
     name: 'wu-plus-rate',
     css: css,
 })
-export class WuRate extends HTMLElement implements OnConnected, OnBeforeRender, OnInstall {
+export class WuRate extends WuComponent implements OnConnected, OnBeforeRender, OnInstall {
     constructor() {
         super();
     }
 
-    public beforeInstall(): any {
+    public override beforeInstall(): any {
         this.checkoutProps();
         const list = [];
         const max = this.max;
@@ -20,7 +20,7 @@ export class WuRate extends HTMLElement implements OnConnected, OnBeforeRender, 
         this.valueList = list;
     }
 
-    public beforeRender() {}
+    public override beforeRender() {}
 
     public checkoutProps() {
         if (this.max !== this.rateList.length) {
@@ -31,7 +31,7 @@ export class WuRate extends HTMLElement implements OnConnected, OnBeforeRender, 
         }
     }
 
-    public connected(shadowRoot: ShadowRoot) {}
+    public override connected(shadowRoot: ShadowRoot) {}
 
     public pointerAtLeftHalf = true;
 
@@ -228,7 +228,7 @@ export class WuRate extends HTMLElement implements OnConnected, OnBeforeRender, 
         this.change(currentValue);
     }
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
         return (
             <div class="wu-rate" onKeydown={event => this.handleKey(event)} role="slider" aria-valuenow={this.currentValue} aria-valuetext={this.text} aria-valuemin="0" aria-valuemax={this.max} tabindex="0" id="rate">
                 {this.valueList.map((itemValue, item) => {

@@ -1,4 +1,4 @@
-import { h, Component, Prop } from '@canyuegongzi/web-core-plus';
+import { h, Component, Prop, WuComponent } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 import "./ImgEmpty";
 
@@ -6,7 +6,7 @@ import "./ImgEmpty";
     name: 'wu-plus-empty',
     css: css,
 })
-export class WuEmpty extends HTMLElement {
+export class WuEmpty extends WuComponent {
     constructor() {
         super();
     }
@@ -30,7 +30,7 @@ export class WuEmpty extends HTMLElement {
         };
     }
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
        return (
            <div class="wu-empty">
                <div class="wu-empty_image" style={this.imageStyle}>

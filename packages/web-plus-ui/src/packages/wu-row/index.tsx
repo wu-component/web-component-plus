@@ -1,4 +1,4 @@
-﻿import { h, Component, Prop } from '@canyuegongzi/web-core-plus';
+﻿import { h, Component, Prop, WuComponent } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 import { extractClass } from '@/common';
 
@@ -9,7 +9,7 @@ type AlignEnums = 'top' | 'middle' | 'bottom';
     name: 'wu-plus-row',
     css: css,
 })
-export class WuRow extends HTMLElement {
+export class WuRow extends WuComponent {
     constructor() {
         super();
     }
@@ -43,7 +43,7 @@ export class WuRow extends HTMLElement {
         return ret;
     }
 
-    public render(_renderProps = {}, _store = {}) {
+    public override render(_renderProps = {}, _store = {}) {
         return (
             <this.tag
                 {...extractClass({}, `wu-row`, {
