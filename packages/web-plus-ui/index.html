@@ -756,6 +756,11 @@
     </div>
 
 
+    <wu-plus-pagination total='25' current-page='0' page-size='5'></wu-plus-pagination>
+    <p></p>
+    <wu-plus-pagination total='25' current-page='1' page-size='5'></wu-plus-pagination>
+    <p></p>
+    <wu-plus-pagination total='2003' current-page='1' page-size='5' id="testPagination"></wu-plus-pagination>
 
     <div style="height: 100px">
 
@@ -769,6 +774,10 @@
 <!--<script type="module" src="./dist/web-plus.esm.js"></script>-->
 <!--<script type="module" src="./dev-server/main.ts"></script>-->
 <script type="module">
+    const testPagination = document.getElementById("testPagination");
+    testPagination.addEventListener("change", (e) => {
+        console.log(e)
+    })
     window.onload = function () {
         /*WebUIPlus.Message.setOption({
             message: "测试消息1",
