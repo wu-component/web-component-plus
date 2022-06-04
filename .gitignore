@@ -2,7 +2,7 @@
 #
 node_modules/
 **/node_modules/
-**/lib/*
+packages/web-plus-ui/**/lib/*
 **/dist/
 .idea/*
 npm-debug.log
