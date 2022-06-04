@@ -24,6 +24,8 @@ export * from './packages/wu-badge';
 export * from './packages/wu-empty';
 export * from './packages/wu-card';
 export * from './packages/wu-popconfirm';
+export * from './packages/wu-pagination';
+export * from './packages/wu-cascader';
 
 
 /***************************全局股那里*********************************/
@@ -48,3 +50,4 @@ export * from './packages/wu-container';
 export * from './packages/wu-main';
 export * from './packages/wu-header';
 export * from './packages/wu-footer';
+export * from './packages/wu-transition';

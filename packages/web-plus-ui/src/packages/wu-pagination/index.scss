@@ -1,0 +1,81 @@
+@use "sass:map";
+@use "sass:math";
+@import '../../theme/common/var.scss';
+.wu-pagination div {
+    color: rgba(0, 0, 0, 0.87);
+}
+:host{
+    box-sizing: border-box;
+}
+
+.wu-pagination ul, .wu-pagination li {
+    padding: 0;
+    margin: 0;
+}
+
+
+.wu-pagination li {
+    display: inline-block;
+    min-width: 32px;
+    height: 32px;
+    vertical-align: middle;
+    line-height: 32px;
+    text-align: center;
+    border-radius: 3px;
+    font-size: 12px;
+    margin: 0 2px 0 3px;
+}
+
+.wu-pager {
+    display: inline-block;
+}
+
+.wu-pagination button {
+    width: 32px;
+    height: 32px;
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    outline: none;
+    border-radius: 50%;
+}
+
+.wu-pagination button:hover {
+    background-color: $--pagination-hover-color;
+    color: $--pagination-background-color;
+}
+
+.wu-pagination button:not(disabled):active {
+    color: white;
+    background-color: $--pagination-hover-color;
+}
+
+.wu-pagination button:disabled {
+    pointer-events: none;
+    border-color: #eee;
+}
+
+.wu-pagination .active button:hover {
+    background-color: $--pagination-hover-color;
+}
+
+.wu-pagination .active button {
+    color: white;
+    background-color: $--pagination-hover-color;
+}
+
+.wu-pagination .more:after {
+    content: '...';
+}
+
+.wu-pagination .more {
+    border: none;
+    cursor: default;
+}
+
+.wu-pagination svg {
+    position: relative;
+    top: 2px;
+}

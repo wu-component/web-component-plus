@@ -697,3 +697,35 @@ $--alert-icon-size: 16px !default;
 /// height||Other|4
 $--alert-icon-large-size: 28px !default;
 
+
+/* Pagination
+-------------------------- */
+/// fontSize||Font|1
+$--pagination-font-size: 13px !default;
+/// color||Color|0
+$--pagination-background-color: $--color-white !default;
+/// color||Color|0
+$--pagination-font-color: $--color-text-primary !default;
+$--pagination-border-radius: 3px !default;
+/// color||Color|0
+$--pagination-button-color: $--color-text-primary !default;
+/// height||Other|4
+$--pagination-button-width: 35.5px !default;
+/// height||Other|4
+$--pagination-button-height: 28px !default;
+/// color||Color|0
+$--pagination-button-disabled-color: $--color-text-placeholder !default;
+/// color||Color|0
+$--pagination-button-disabled-background-color: $--color-white !default;
+/// color||Color|0
+$--pagination-hover-color: $--color-primary !default;
+
+/* Transition
+-------------------------- */
+$--all-transition: all .3s cubic-bezier(.645,.045,.355,1) !default;
+$--fade-transition: opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) !default;
+$--fade-linear-transition: opacity 200ms linear !default;
+$--md-fade-transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1), opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) !default;
+$--border-transition-base: border-color .2s cubic-bezier(.645,.045,.355,1) !default;
+$--color-transition-base: color .2s cubic-bezier(.645,.045,.355,1) !default;
+
