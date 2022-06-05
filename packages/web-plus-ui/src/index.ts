@@ -26,6 +26,7 @@ export * from './packages/wu-card';
 export * from './packages/wu-popconfirm';
 export * from './packages/wu-pagination';
 export * from './packages/wu-cascader';
+export * from './packages/wu-image';
 
 
 /***************************全局股那里*********************************/
