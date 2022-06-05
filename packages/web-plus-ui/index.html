@@ -768,6 +768,16 @@
     </wu-plus-transition>
 
     <button id="transitionButton">Toggle</button>-->
+
+    <wu-plus-dialog visible="false" title="提示" id="dialogTest1">
+        <span>你还，omiu dialog</span>
+        <span slot="footer">
+            <wu-plus-button size="mini">取 消</wu-plus-button>
+            <wu-plus-button size="mini" type="primary">确 定</wu-plus-button>
+        </span>
+    </wu-plus-dialog>
+
+    <wu-plus-button id="dialogButtonControl">打开弹框</wu-plus-button>
     <div style="height: 100px">
 
     </div>
@@ -783,9 +793,15 @@
     /*document.getElementById("transitionButton").addEventListener('click', () => {
         console.log('33333')
     })*/
+    const dialogButtonControl = document.getElementById('dialogButtonControl');
     const testPagination = document.getElementById("testPagination");
+
     testPagination.addEventListener("change", (e) => {
         console.log(e)
+    })
+    dialogButtonControl.addEventListener('click', () => {
+        const dom = document.getElementById("dialogTest1");
+        dom.visible = true;
     })
     window.onload = function () {
         /*WebUIPlus.Message.setOption({
