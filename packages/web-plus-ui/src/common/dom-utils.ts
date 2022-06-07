@@ -9,3 +9,8 @@ export function getAttrMap(dom: any) {
     }
     return pairs;
 }
+
+
+export const generateId = function() {
+    return Math.floor(Math.random() * 10000) + '';
+};
