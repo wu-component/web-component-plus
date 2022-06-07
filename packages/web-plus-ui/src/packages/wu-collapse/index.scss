@@ -1,0 +1,8 @@
+@use "sass:map";
+@import '../../theme/common/var.scss';
+@import '../../theme/common/mixin.scss';
+
+@include b(collapse) {
+    border-top: 1px solid $--collapse-border-color;
+    border-bottom: 1px solid $--collapse-border-color;
+}

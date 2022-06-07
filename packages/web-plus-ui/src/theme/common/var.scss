@@ -729,3 +729,23 @@ $--md-fade-transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1), opacity 3
 $--border-transition-base: border-color .2s cubic-bezier(.645,.045,.355,1) !default;
 $--color-transition-base: color .2s cubic-bezier(.645,.045,.355,1) !default;
 
+
+/* Collapse
+--------------------------*/
+/// color||Color|0
+$--collapse-border-color: $--border-color-lighter !default;
+/// height||Other|4
+$--collapse-header-height: 48px !default;
+/// color||Color|0
+$--collapse-header-background-color: $--color-white !default;
+/// color||Color|0
+$--collapse-header-font-color: $--color-text-primary !default;
+/// fontSize||Font|1
+$--collapse-header-font-size: 13px !default;
+/// color||Color|0
+$--collapse-content-background-color: $--color-white !default;
+/// fontSize||Font|1
+$--collapse-content-font-size: 13px !default;
+/// color||Color|0
+$--collapse-content-font-color: $--color-text-primary !default;
+

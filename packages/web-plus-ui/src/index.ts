@@ -27,6 +27,8 @@ export * from './packages/wu-popconfirm';
 export * from './packages/wu-pagination';
 export * from './packages/wu-cascader';
 export * from './packages/wu-image';
+export * from './packages/wu-collapse';
+export * from './packages/wu-collapse-item';
 
 
 /***************************全局股那里*********************************/
