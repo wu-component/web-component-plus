@@ -41,7 +41,7 @@ export class WuPopover extends WuComponent implements OnConnected {
     private timeout: any;
 
     @Prop({ type: Boolean, default: false })
-    private isShow = false;
+    public isShow = false;
 
     @Prop({ type: Boolean, default: false })
     private appear = false;
