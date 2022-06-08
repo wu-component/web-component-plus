@@ -2,6 +2,14 @@
 @import '../../theme/common/var.scss';
 @import '../../theme/common/mixin.scss';
 
+:host {
+    display: inline-block;
+}
+
+:host([block]) {
+    display: block;
+}
+
 @include b(textarea) {
     position: relative;
     // display: inline-block;
