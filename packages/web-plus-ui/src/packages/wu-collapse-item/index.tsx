@@ -102,7 +102,7 @@ export class WuCollapseItem extends WuComponent {
                     </div>
                 </div>
                 {
-                    this.isActive? (
+                    this.isActive ? (
                         <div
                             class="wu-collapse-item_wrap"
                             role="tabpanel"
@@ -113,7 +113,7 @@ export class WuCollapseItem extends WuComponent {
                                 <slot />
                             </div>
                         </div>
-                    ): null
+                    ) : null
                 }
             </div>
         );

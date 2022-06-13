@@ -124,14 +124,17 @@ export class WuComponent extends HTMLElement implements BaseCustomComponent {
      * @param val
      */
     public override setAttribute(key: string, val: any): void {
+        let newValue;
         if (val && typeof val === 'object') {
-            super.setAttribute(key, JSON.stringify(val));
+            newValue = JSON.stringify(val);
+
         } else {
-            super.setAttribute(key, val);
+            newValue = val;
         }
+        super.setAttribute(key, newValue);
         if (this.isInstalled) {
-            this[key] = val;
-            this.props[key] = val;
+            this[key] = newValue;
+            this.props[key] = newValue;
         }
     }
 

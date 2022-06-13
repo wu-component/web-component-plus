@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div id="hoc" style="margin: 32px">
+        <wu-plus-date-picker id="timePicker" />
+    </div>
+</div>
+
+</body>
+<script type="module" src="./dist-lib/web-plus-data-picker.umd.js"></script>
+<script type="module">
+    const timePicker = document.getElementById("timePicker");
+    timePicker.addEventListener("change", (e) => {
+        console.log(e);
+    })
+</script>
+</html>

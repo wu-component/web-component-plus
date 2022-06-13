@@ -29,11 +29,18 @@ module.exports = {
       '@typescript-eslint/ban-ts-comment': 'off',
       '@typescript-eslint/no-empty-function': 'off',
       '@typescript-eslint/no-unused-vars': 'off',
+      '@typescript-eslint/triple-slash-reference': 'off',
+      '@typescript-eslint/no-misused-new': 'off',
       'prefer-rest-params': 'off',
       '@typescript-eslint/no-this-alias': 'off',
       'semi':[ 'error','always' ],
       'prefer-spread': 'off',
       "array-bracket-spacing": [ "error","always" ],
-      "object-curly-spacing": [ "error","always" ]
+      "object-curly-spacing": [ "error","always" ],
+      'space-before-function-paren': 'off',
+      "no-irregular-whitespace": 2,//不能有不规则的空格
+      "arrow-spacing": 0,
+      "no-var": 0,
+      "space-infix-ops": 2
   },
 };
