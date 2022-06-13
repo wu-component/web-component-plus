@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="./core.umd.js"></script>
     <style>
         html {
 
@@ -1282,11 +1283,11 @@
         { "title":"address","key":"address","width":"120px" },
         { "title": "操作", "width":"120px", "align": "center",
             render: (item) => {
-                return WebCorePlus.h('div', null, [
-                    WebCorePlus.h(
+                return webCorePlus.h('div', null, [
+                    webCorePlus.h(
                         'wu-plus-button', { size: "mini", type: "primary", style: { color: "blue", cursor: "pointer"}, onclick: (item1) => editFun(item, item1)}, '编辑'
                     ),
-                    WebCorePlus.h(
+                    webCorePlus.h(
                         'wu-plus-button', { size: "mini", type: "danger", style: { color: "blue", marginLeft: "8px", cursor: "pointer"}, onclick: (item1) => deleteFun(item, item1)}, '删除'
                     )
                 ])

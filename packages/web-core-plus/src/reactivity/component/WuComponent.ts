@@ -133,8 +133,8 @@ export class WuComponent extends HTMLElement implements BaseCustomComponent {
         }
         super.setAttribute(key, newValue);
         if (this.isInstalled) {
-            this[key] = newValue;
-            this.props[key] = newValue;
+            this[key] = val;
+            this.props[key] = val;
         }
     }
 
