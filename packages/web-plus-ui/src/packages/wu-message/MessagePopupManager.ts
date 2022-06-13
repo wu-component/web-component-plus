@@ -1,6 +1,6 @@
 import './index';
 import { WuMessage, TypeEnums, PositionEnums } from './index';
-import domReady from "../../common/dready";
+import domReady from '../../common/dready';
 interface Options {
     center?: boolean;
     type?: TypeEnums;

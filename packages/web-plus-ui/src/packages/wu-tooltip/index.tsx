@@ -69,7 +69,7 @@ export class WuTooltip extends WuComponent implements OnConnected {
                         show: this.isShow,
                         [`is-${this.effect}`]: this.effect
                     })}>
-                    {this.content? this.content: <slot name="content" />}
+                    {this.content ? this.content : <slot name="content" />}
                     <i class="tip-arrow" data-popper-arrow />
                 </div>
             </div>

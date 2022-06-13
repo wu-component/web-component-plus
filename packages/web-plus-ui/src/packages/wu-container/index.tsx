@@ -39,8 +39,8 @@ export class WuContainer extends WuComponent implements OnConnected, OnBeforeUpd
 
     public override render(_renderProps = {}, _store = {}) {
         return (
-            <section class={`${this.isVertical? 'wu-container is-vertical': 'wu-container'}`}>
-                <slot id="defaultSlot" class={`${this.isVertical? 'wu-container is-vertical': 'wu-container'}`}  />
+            <section class={`${this.isVertical ? 'wu-container is-vertical' : 'wu-container'}`}>
+                <slot id="defaultSlot" class={`${this.isVertical ? 'wu-container is-vertical' : 'wu-container'}`}  />
             </section>
         );
     }

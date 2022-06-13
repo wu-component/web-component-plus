@@ -46,7 +46,7 @@ export class EmitReactive {
             Object.defineProperty(this.vm, event.methodName, {
                 get: function() {
                     return function(...args: any) {
-                        const result: any = event.methodFun.call(that.vm, args);
+                        const result: any = event.methodFun.call(that.vm, ...args);
                         const evtName = event.eventName ? event.eventName : toDotCase(event.methodName);
                         that.vm._dispatchEvent.call(that.vm, evtName, result);
                     };

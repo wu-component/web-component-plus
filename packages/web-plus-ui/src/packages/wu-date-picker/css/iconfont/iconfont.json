@@ -1,0 +1,37 @@
+{
+  "id": "2213760",
+  "name": "仙女日期选择器",
+  "font_family": "iconfont-xndatepicker",
+  "css_prefix_text": "icon-xndatepicker",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "553355",
+      "name": "删除",
+      "font_class": "shanchu",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "2912442",
+      "name": "日历",
+      "font_class": "rili",
+      "unicode": "e673",
+      "unicode_decimal": 58995
+    },
+    {
+      "icon_id": "9640936",
+      "name": "prev",
+      "font_class": "prev1",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "11304680",
+      "name": "prev",
+      "font_class": "prev",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    }
+  ]
+}

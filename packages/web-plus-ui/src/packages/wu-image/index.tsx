@@ -190,21 +190,21 @@ export class WuImage extends WuComponent implements OnConnected, OnDisConnected 
         return (
             <div class="wu-image">
                 {
-                    this.loading? (
+                    this.loading ? (
                         <slot name="placeholder">
                             <div class="wu-image_placeholder" />
                         </slot>
-                    ): null
+                    ) : null
                 }
                 {
-                    this.error? (
+                    this.error ? (
                         <slot name="error">
                             <div class="wu-image_error">ERROR</div>
                         </slot>
-                    ): null
+                    ) : null
                 }
                 {
-                    !this.error && !this.loading? (
+                    !this.error && !this.loading ? (
                         <img
                             v-on="$listeners"
                             onClick={this.clickHandler.bind(this)}
@@ -217,7 +217,7 @@ export class WuImage extends WuComponent implements OnConnected, OnDisConnected 
                                 'wu-image_preview': this.preview,
                             })}
                          alt={this.alt}/>
-                    ): null
+                    ) : null
                 }
             </div>
         );

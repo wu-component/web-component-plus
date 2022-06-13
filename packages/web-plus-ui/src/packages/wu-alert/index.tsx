@@ -68,7 +68,7 @@ export class WuAlert extends WuComponent {
     }
 
     get isBoldTitle() {
-        return this.description? 'is-bold' : '';
+        return this.description ? 'is-bold' : '';
     }
 
     public override render(_renderProps = {}, _store = {}) {
@@ -76,30 +76,30 @@ export class WuAlert extends WuComponent {
             return null;
         }
         return (
-            <div class={`wu-alert ${this.typeClass} ${this.center? "is-center": ''} ${'is-'+ this.effect}`} role="alert">
+            <div class={`wu-alert ${this.typeClass} ${this.center ? "is-center" : ''} ${'is-' + this.effect}`} role="alert">
                 {
-                    this.showIcon? (
+                    this.showIcon ? (
                         <slot name="icon" />
-                    ): null
+                    ) : null
                 }
                 <div class="wu-alert_content">
                     <span class={`wu-alert_title ${this.isBoldTitle} `}>
-                        {this.tip? this.tip: <slot name="title" />}
+                        {this.tip ? this.tip : <slot name="title" />}
                     </span>
                     <p class="wu-alert_description">
-                        {this.description? this.description : <slot name="description" />}
+                        {this.description ? this.description : <slot name="description" />}
                     </p>
                     {
-                        this.closable && !this.closeText? (
+                        this.closable && !this.closeText ? (
                             <svg onClick={this.close.bind(this)} class="wu-tag_close wu-icon-close wu-alert_closebtn" fill="currentColor" width="1em" height="1em" focusable="false" viewBox="0 0 24 24" aria-hidden="true">
                                 <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
                             </svg>
-                        ): null
+                        ) : null
                     }
                     {
-                        this.closable && this.closeText? (
+                        this.closable && this.closeText ? (
                             <i class="wu-alert_closebtn is-customed" onClick={this.close.bind(this)}>{this.closeText}</i>
-                        ): null
+                        ) : null
                     }
                 </div>
            </div>

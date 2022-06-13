@@ -32,7 +32,7 @@ export class WuMenuItemGroup extends WuComponent implements OnConnected {
                 {this.headerShow ? (
                     <div class="wu-card_header">
                         <slot name="header" id="slotHeader">{this.header || ''}</slot>
-                    </div>): null
+                    </div>) : null
                 }
                 <div class="wu-card_body" style={this.bodyStyle}>
                     <slot />

@@ -35,12 +35,12 @@ export class WuEmpty extends WuComponent {
            <div class="wu-empty">
                <div class="wu-empty_image" style={this.imageStyle}>
                    {
-                       this.image? (<img src={this.image} ondragstart="return false"  alt=""/>): (<wu-plus-img-empty />)
+                       this.image ? (<img src={this.image} ondragstart="return false"  alt=""/>) : (<wu-plus-img-empty />)
                    }
                </div>
                <div class="wu-empty_description">
                    {
-                       this.emptyDescription? (<p>{this.emptyDescription}</p>): (<slot name="description" />)
+                       this.emptyDescription ? (<p>{this.emptyDescription}</p>) : (<slot name="description" />)
                    }
                </div>
                <div class="wu-empty_bottom">

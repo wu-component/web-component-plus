@@ -19,6 +19,7 @@
     "test": "web-test-runner \"./test/**/*.js\" --node-resolve",
     "build:rollup:package": "cross-env NODE_ENV=production rollup -c ./build/build.js",
     "build:rollup:package:dev": "cross-env NODE_ENV=production rollup -c ./build/build-dev.js",
+    "build:rollup:data-picker:dev": "cross-env NODE_ENV=production rollup -c ./build/build-dev-data-picker.js",
     "build:tsc": "cross-env NODE_ENV=production tsc -p tsconfig.build.json"
   },
   "publishConfig": {
@@ -98,6 +99,7 @@
   "dependencies": {
     "@canyuegongzi/web-core-plus": "0.0.38",
     "@popperjs/core": "^2.11.5",
+    "dayjs": "^1.10.4",
     "reflect-metadata": "^0.1.13"
   }
 }
