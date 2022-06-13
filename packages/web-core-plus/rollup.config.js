@@ -28,7 +28,7 @@ export default [
             })
         ],
         output: {
-            name: 'WebCorePlus',
+            name: 'webCorePlus',
             file: pkg.browser,
             format: 'umd'
         },
