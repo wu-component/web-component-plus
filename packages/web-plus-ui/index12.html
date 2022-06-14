@@ -12,17 +12,62 @@
 <body>
 <div id="app">
     <div id="hoc" style="margin: 32px">
-        <wu-plus-date-picker id="timePicker" />
+        <h2>天选择器</h2>
+        <wu-plus-date-picker id="timePicker"></wu-plus-date-picker>
+        <h2>周选择器</h2>
+        <wu-plus-date-picker id="timePickerWeek" type="week"></wu-plus-date-picker>
+        <h2>周数选择器</h2>
+        <wu-plus-date-picker id="timePickerWeekNum" type="weeknum"></wu-plus-date-picker>
+        <h2>月选择器</h2>
+        <wu-plus-date-picker id="timePickerMonth" type="month"></wu-plus-date-picker>
+        <h2>年选择器</h2>
+        <wu-plus-date-picker id="timePickerYear" type="year"></wu-plus-date-picker>
+
+        <h2>天时间刻选择器</h2>
+        <wu-plus-date-picker id="timePickerDatetime" type="datetime"></wu-plus-date-picker>
+
+        <h2>天时间段选择器</h2>
+        <wu-plus-date-picker type="daterange"  id="timePickerDaterange"></wu-plus-date-picker>
     </div>
 </div>
 
 </body>
-<script type="module" src="./dist-lib/web-plus-data-picker.umd.js"></script>
+<!--<script type="module" src="./dist-lib/web-plus-data-picker.umd.js"></script>-->
 <script type="module" src="./core.umd.js"></script>
+<script type="module" src="./dist/web-plus.umd.js"></script>
+
 <script type="module">
+    // 天选择器
     const timePicker = document.getElementById("timePicker");
     timePicker.addEventListener("change", (e) => {
         console.log(e);
     })
+
+    // 周选择器
+    const timePickerWeek = document.getElementById("timePickerWeek");
+    timePickerWeek.addEventListener("change", (e) => {
+        console.log(e);
+    })
+
+    // 周数选择器
+    const timePickerWeekNum = document.getElementById("timePickerWeekNum");
+    timePickerWeekNum.addEventListener("change", (e) => {
+        console.log(e);
+    })
+
+
+    // 月选择器
+    const timePickerMonth = document.getElementById("timePickerMonth");
+    timePickerMonth.addEventListener("change", (e) => {
+        console.log(e);
+    })
+
+    // 年选择器
+    const timePickerYear = document.getElementById("timePickerYear");
+    timePickerYear.addEventListener("change", (e) => {
+        console.log(e);
+    })
+
+
 </script>
 </html>

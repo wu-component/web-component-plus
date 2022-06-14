@@ -50,6 +50,13 @@
     border-radius: 4px;
     user-select: none;
     z-index: 999;
+    box-sizing: initial;
+}
+
+.xndatepicker,
+.xndatepicker::before,
+.xndatepicker::after {
+    box-sizing: content-box;
 }
 
 .xndatepicker-input.icon-xndatepickerrili {
@@ -213,7 +220,7 @@
 .xndatepicker .date-item {
     border-left: 1px solid var(--border-color);
     padding: 10px;
-    width: 280px;
+    width: 292px;
     padding-top: 0;
 }
 
@@ -329,12 +336,13 @@
 }
 
 .xntimepicker {
-    position: fixed;
+    position: absolute;
     background: var(--background-color);
     padding: 10px;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
     border-radius: 4px;
     z-index: 9;
+    top: 32px;
     padding-bottom: 0;
 }
 
@@ -401,7 +409,9 @@
     background: var(--primary-color);
     color: var(--hover-color);
 }
-
+.timeitem {
+    position: relative;
+}
 .timeitem .timecont {
     width: 100px;
     flex: 0 0 100px;
@@ -629,3 +639,40 @@
         transform: scaleY(0);
     }
 }
+.weeknum-list::-webkit-scrollbar {
+    /*滚动条整体样式*/
+    width : 10px;  /*高宽分别对应横竖滚动条的尺寸*/
+    height: 1px;
+}
+.weeknum-list::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    border-radius: 10px;
+    box-shadow   : inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background   : #535353;
+}
+.weeknum-list::-webkit-scrollbar-track {
+    /*滚动条里面轨道*/
+    box-shadow   : inset 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background   : #ededed;
+}
+
+
+.xntimepicker .time-picker .time-cont ul::-webkit-scrollbar {  // minutes
+    /*滚动条整体样式*/
+    width : 10px;  /*高宽分别对应横竖滚动条的尺寸*/
+    height: 1px;
+}
+.xntimepicker .time-picker .time-cont ul::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    border-radius: 10px;
+    box-shadow   : inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background   : #535353;
+}
+.xntimepicker .time-picker .time-cont ul::-webkit-scrollbar-track {
+    /*滚动条里面轨道*/
+    box-shadow   : inset 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background   : #ededed;
+}
+

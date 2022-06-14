@@ -89,14 +89,14 @@ export class DatePicker {
         this.addTargetEvent();
     }
 
-    init() {
+    private init() {
         this.setCurrentTime({ startTime: this.option.startTime, endTime: this.option.endTime });
         this.rendPicker();
         this.initCallback();
         this.confirm(false, true);
     }
 
-    initTargetDom(targetDom) {
+    private initTargetDom(targetDom) {
         this.$t = $(targetDom);
         this.targetDom = targetDom;
         this.$t.addClass('xndatepicker-pc-input');
@@ -123,14 +123,14 @@ export class DatePicker {
         }
     }
 
-    resetDate(startTime, endTime) {
+    public resetDate(startTime, endTime) {
         const start = startTime ? dayjs(startTime) : null;
         const end = endTime ? dayjs(endTime) : null;
         this.setCurrentTime({ startTime: start, endTime: end });
         this.confirm(false);
     }
 
-    rendPicker() {
+    private rendPicker() {
         this.setCurrentTime({ startTime: this.selectedDate[0], endTime: this.selectedDate[1] });
         this.rendDatePicker();
         this.setPosition();
@@ -140,7 +140,7 @@ export class DatePicker {
         this.setDate();
     }
 
-    resetCurrentTime(startTime = '', endTime = '') {//显示日历的时候，重新设置当前的日期
+    public resetCurrentTime(startTime = '', endTime = '') {//显示日历的时候，重新设置当前的日期
         if (this.type == 'multiple') {
             this.multipleDates = $.extend(true, [], this.selectedMultiple || []);
         }
@@ -163,14 +163,14 @@ export class DatePicker {
         this.setPosition();
     }
 
-    updateCurrentTime(num) {
+    public updateCurrentTime(num) {
         if (this['timepicker' + num]) {
             const date = dayjs(this.selectedDate[num - 1]).format('YYYY-MM-DD HH:mm:ss');
             this['timepicker' + num].updateCurrentTime(date);
         }
     }
 
-    initTimePicker() {
+    private initTimePicker() {
         const that = this;
         if (this.type == 'datetime' || this.type == 'datetimerange') {
             this.timepicker1 = new TimePicker(this.$container.find('.time1 .timecont'), {
@@ -200,11 +200,11 @@ export class DatePicker {
         }
     }
 
-    initCallback() {
+    private initCallback() {
         this.on('confirm', this.onConfirm);
     }
 
-    addTargetEvent() {
+    private addTargetEvent() {
         // var clickFunc = (e) => {
         //     if (e.target == this.$targetDom.get(0)) {
         //         this.changeShowStatus();
@@ -241,7 +241,7 @@ export class DatePicker {
 
     }
 
-    changeShowStatus(hide = false) {
+    private changeShowStatus(hide = false) {
         if (this.show || hide) {
             if (this.$container) {
                 this.$container.removeClass("xndatepicker-animate");
@@ -274,7 +274,7 @@ export class DatePicker {
         // this.show = !this.show;
     }
 
-    addPosEvent() {
+    private addPosEvent() {
         const that = this;
         window.addEventListener("scroll", function () {
             that.setPosition();
@@ -284,7 +284,7 @@ export class DatePicker {
         });
     }
 
-    setPosition() {
+    private setPosition() {
         if (!this.$container || !this.$container.get(0)) {
             return;
         }
@@ -332,7 +332,7 @@ export class DatePicker {
         this.$container.find('.xntriangle').get(0).style.borderWidth = borderWidth;
     }
 
-    rendHoverStyle($t = null) {
+    private rendHoverStyle($t = null) {
         //判断$t是干啥来着？
         if ($t && $t.get(0) && ((this.type.indexOf('year') < 0 && $t.hasClass('year-item')) || (this.type.indexOf('date') >= 0 && !$t.hasClass('day-item')))) {
             return;
@@ -455,7 +455,7 @@ export class DatePicker {
 
     }
 
-    setDate() {
+    public setDate() {
         const date = {};
 
         this.$container.find(".cur-date").each((ele, i) => {
@@ -477,7 +477,8 @@ export class DatePicker {
         this.date1 = date[0];
         this.date2 = date[1];
     }
-    rendOtherDateList(otherdatenum) {
+
+    private rendOtherDateList(otherdatenum) {
         if (this.type.indexOf('range') < 0) {
             return;
         }
@@ -549,7 +550,7 @@ export class DatePicker {
         // console.log(this["tempdate" + otherdatenum].format('YYYY-MM-DD'))
     }
 
-    addEvent() {
+    public addEvent() {
         const mouseMoveFunc = (e) => {
             const $t = $(e.target);
             if (!this.$container) {
@@ -714,7 +715,7 @@ export class DatePicker {
         });
     }
 
-    autoConfirm(el?: HTMLElement) {
+    private autoConfirm(el?: HTMLElement) {
         if (!this.option.autoConfirm) {
             return;
         }
@@ -725,7 +726,7 @@ export class DatePicker {
         }
     }
 
-    setCurClass($t) {
+    private setCurClass($t) {
         if (this.type == 'week') {
             const date = $t.attr('data-date');
             let date1 = dayjs(date).clone().subtract((parseInt(this.option.firstDayOfWeek)) % 7, 'days').startOf('week').add((parseInt(this.option.firstDayOfWeek)) % 7, 'days').format('YYYY-MM-DD');
@@ -759,7 +760,7 @@ export class DatePicker {
         }
     }
 
-    correctDate(date1) {
+    private correctDate(date1) {
         //修正当前时间与最大最小值
         if (date1.startTime && (this.option.maxDate && dayjs(date1.startTime).isAfter(this.option.maxDate))) {
             date1.startTime = dayjs(this.option.maxDate).clone();
@@ -776,7 +777,7 @@ export class DatePicker {
         return date1;
     }
 
-    setCurrentTime(date2, _isinit = false) {
+    public setCurrentTime(date2, _isinit = false) {
         let date1 = $.extend(true, {}, date2);
         date1.startTime = date2.startTime ? date2.startTime.clone() : dayjs();
         date1.endTime = date2.endTime ? date2.endTime.clone() : dayjs();
@@ -845,7 +846,7 @@ export class DatePicker {
         this.selectedDate[1] && (this.date2 = this.selectedDate[1].clone());
     }
 
-    setCurrentDay() {
+    public setCurrentDay() {
         if (this.type.indexOf('range') < 0) {
             this.$container.find(".dater2").remove();
             this.$container.find(".time2").remove();
@@ -877,7 +878,7 @@ export class DatePicker {
         }
     }
 
-    setCurrentClass() {
+    public setCurrentClass() {
         if (this.selectedDate[0]) {
             const date1 = this.selectedDate[0].format(this.format);
             this.$container.find('.active-day[data-date="' + date1 + '"]').addClass('cur-date');
@@ -895,7 +896,7 @@ export class DatePicker {
         this.rendHoverStyle();
     }
 
-    cleardate(type = '') {
+    public cleardate(type = '') {
         if (type == 'endTime') {
             this.date2 = '';
             this.selectedDate[1] = '';
@@ -913,13 +914,13 @@ export class DatePicker {
         this.confirm();
     }
 
-    currentdate() {
+    public currentdate() {
         this.date1 = dayjs();
         this.date2 = dayjs();
         this.confirm();
     }
 
-    confirm(clear = false, isFirst = false) {
+    public confirm(clear = false, isFirst = false) {
         let canconfirm = false;
         let showstrStart = '';
         let showstrEnd = '';
@@ -1006,7 +1007,7 @@ export class DatePicker {
         this.fillInput(showstrStart, showstrEnd);
     }
 
-    fillInput(showstrStart, showstrEnd) {
+    private fillInput(showstrStart, showstrEnd) {
         if (!this.option.autoFillDate) {
             return;
         }
@@ -1021,7 +1022,7 @@ export class DatePicker {
         // this.targetDom.setAttribute('data-placeholder', this.placeholder.startTime)
     }
 
-    rendWeekNum(datenum) {
+    private rendWeekNum(datenum) {
         if (!this.$container.find('.dater' + datenum).get(0)) {
             return;
         }
@@ -1043,7 +1044,7 @@ export class DatePicker {
         this.setTodayDot('week');
     }
 
-    getWeekNumList(datenum) {
+    private getWeekNumList(datenum) {
         const curYear = dayjs(this['tempdate' + datenum]).format('YYYY');
         this.$container.find(".dater" + datenum + " .month-info").get(0).innerHTML = curYear;
         let html = '';
@@ -1062,7 +1063,7 @@ export class DatePicker {
         return html;
     }
 
-    rendMonth(datenum) {
+    private rendMonth(datenum) {
         if (!this.$container.find('.dater' + datenum).get(0)) {
             return;
         }
@@ -1086,7 +1087,7 @@ export class DatePicker {
         this.setTodayDot('month');
     }
 
-    getMonthList(datenum) {
+    private getMonthList(datenum) {
         const curYear = dayjs(this['tempdate' + datenum]).format('YYYY');
         this.$container.find(".dater" + datenum + " .month-info").get(0).innerHTML = curYear;
         let html = '';
@@ -1098,7 +1099,7 @@ export class DatePicker {
         return html;
     }
 
-    rendYears(datenum) {
+    private rendYears(datenum) {
         if (!this.$container.find('.dater' + datenum).get(0)) {
             return;
         }
@@ -1122,7 +1123,7 @@ export class DatePicker {
         this.setTodayDot('year');
     }
 
-    getYearList(datenum) {
+    private getYearList(datenum) {
         const chooseYear: number = dayjs(this['tempdate' + datenum]).format('YYYY') as unknown as number;
         const curYear: number = (chooseYear - chooseYear % 12) as number;
         this.$container.find(".dater" + datenum + " .year-info").html(curYear + '-' + (parseInt(String(curYear)) + 11));
@@ -1135,7 +1136,7 @@ export class DatePicker {
         return html;
     }
 
-    getDateCont() {
+    private getDateCont() {
         let html = `<div class="year-picker">
                             <div class="prev">
                             <span class="iconfont-xndatepicker icon-xndatepickerprev prev-year skip-date" data-unit="year" data-func="subtract"></span>
@@ -1160,7 +1161,7 @@ export class DatePicker {
         return html;
     }
 
-    rendDatePicker() {
+    private rendDatePicker() {
         const div = document.createElement("div");
         div.classList.add("xndatepicker", this.type, this.option.theme);
         div.id = this.id;
@@ -1225,7 +1226,7 @@ export class DatePicker {
 
     }
 
-    geneShortList() {
+    private geneShortList() {
         let ul = '<ul>';
         for (let i = 0; i < this.option.shortList.length; i++) {
             ul += '<li>' + this.option.shortList[i].name + '</li>';
@@ -1234,14 +1235,14 @@ export class DatePicker {
         this.$container.find('.shortcut').empty().append(ul);
     }
 
-    _getDaysNum(date) {
+    private _getDaysNum(date) {
         const ynow = date.year();
         const mnow = date.month();
         const m_days = [ 31, 28 + this.is_leap(ynow), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ];  //每个月的天数
         return m_days[mnow];
     }
 
-    geneDateList(curdate, $cont) {
+    private geneDateList(curdate, $cont) {
         if (!$cont || !curdate || (this.type.indexOf('date') < 0 && this.type != 'week' && this.type != 'multiple')) {
             return;
         }
@@ -1286,7 +1287,7 @@ export class DatePicker {
         }
     }
 
-    checkDisable(date, dir, type, unit = '') {
+    private checkDisable(date, dir, type, unit = '') {
         let disable = true;
         if (!this.option.minDate && !this.option.maxDate) {
             return false;
@@ -1316,13 +1317,13 @@ export class DatePicker {
         return disable;
     }
 
-    _rendYearHtml(date, $cont) {//需要重新生成哦
+    private _rendYearHtml(date, $cont) {//需要重新生成哦
         const ynow = date.year();
         const mnow = date.month() + 1;
         $cont.find(".year-info").html("<span class='year'>" + this.option.locale.yearHeadSuffix(ynow) + "<\/span><span class='month'>" + this.option.locale.monthHead[mnow - 1] + "<\/span>");
     }
 
-    _rendDayHtml(datelist, $cont, year) {
+    private _rendDayHtml(datelist, $cont, year) {
         const $c = $cont.find(".dater");
         if ($c.length() < 1) {
             $cont.append('<div class="dater"></div>');
@@ -1359,11 +1360,11 @@ export class DatePicker {
         this.setTodayDot('day');
     }
 
-    is_leap(year) {
+    private is_leap(year) {
         return (year % 100 == 0 ? (year % 400 == 0 ? 1 : 0) : (year % 4 == 0 ? 1 : 0));
     }
 
-    trigger(type, data) {
+    private trigger(type, data) {
         if (this.eventList[type]) {
             for (let i = 0; i < this.eventList[type].func.length; i++) {
                 if (typeof this.eventList[type].func[i] == 'function')
@@ -1372,7 +1373,7 @@ export class DatePicker {
         }
     }
 
-    on(type, func) {
+    private on(type, func) {
         if (!this.eventList[type]) {
             this.eventList[type] = {
                 func: [ func ]
@@ -1382,7 +1383,7 @@ export class DatePicker {
         }
     }
 
-    getRandomString(len?: number) {
+    private getRandomString(len?: number) {
         len = len || 8;
         const $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz';
         /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
@@ -1394,7 +1395,7 @@ export class DatePicker {
         return pwd;
     }
 
-    _setData(_key, $watch) {
+    private _setData(_key, $watch) {
         Object.defineProperty(this, _key, {
             get: () => {
                 return this[_key];
@@ -1409,11 +1410,11 @@ export class DatePicker {
     }
 
 
-    watch(key, callback) {
+    public watch(key, callback) {
         this._setData(key, callback);
     }
 
-    setTodayDot(type) {
+    private setTodayDot(type) {
         let date = dayjs().format('YYYY-MM-DD');
         if (type == 'year') {
             date = dayjs().format('YYYY');
@@ -1424,14 +1425,14 @@ export class DatePicker {
         this.$container.find('.' + type + '-item[data-date="' + date + '"]').addClass('is-today');
     }
 
-    destroy() {
+    public destroy() {
         this.removeMoveEvent();
         this.removeClickEvent();
         this.$container && (this.$container.remove());
 
     }
 
-    format(date, format) {
+    public format(date, format) {
         return dayjs(date).format(format);
     }
 }

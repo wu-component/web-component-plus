@@ -1,4 +1,5 @@
 import { WuComponent, OnConnected, OnDisConnected } from '@canyuegongzi/web-core-plus';
+import { UISize } from "@/interface";
 declare type PickerType = 'year' | 'month' | 'date' | 'multiple' | 'week' | 'datetime' | 'datetimerange' | 'daterange' | 'monthrange' | 'yearrange';
 export interface LocaleOptions {
     /****************************PC端***********************************/
@@ -51,7 +52,9 @@ export interface PickerOptions {
 export declare class WuDatePicker extends WuComponent implements OnConnected, OnDisConnected {
     private picker;
     constructor();
-    value: string[] | string;
+    defaultValue: string[] | string;
+    type: PickerType;
+    size: UISize;
     options: PickerOptions;
     connected(shadowRoot: ShadowRoot): void;
     disConnected(): void;
