@@ -5,6 +5,8 @@ import css from './index.scss';
 import css1 from './css/theme.scss';
 import css2 from './css/xndatepicker.scss';
 import css3 from './css/iconfont/iconfont.scss';
+import { UISize } from "@/interface";
+import { extractClass } from "@/common";
 
 
 type PickerType = 'year' | 'month' | 'date' |'multiple' | 'week' |'datetime' |'datetimerange' | 'daterange' |'monthrange' |'yearrange';
@@ -65,7 +67,13 @@ export class WuDatePicker extends WuComponent implements OnConnected, OnDisConne
     }
 
     @Prop({ default: '' })
-    public value: string[] | string;
+    public defaultValue: string[] | string;
+
+    @Prop({ default: 'date', type: String })
+    public type: PickerType;
+
+    @Prop({ default: 'mini', type: String })
+    public size: UISize;
 
     @Prop(
         {
@@ -108,22 +116,22 @@ export class WuDatePicker extends WuComponent implements OnConnected, OnDisConne
     public mountPicker() {
         const that = this;
         const options: PickerOptions = this.options;
-        if (Array.isArray(this.value)) {
-            if(this.value.length === 2) {
-                options.startTime = this.value[0];
-                options.endTime = this.value[1];
+        options.type = this.type || options.type;
+        if (Array.isArray(this.defaultValue)) {
+            if(this.defaultValue.length === 2) {
+                options.startTime = this.defaultValue[0];
+                options.endTime = this.defaultValue[1];
             }
-            if (this.value.length === 1) {
-                options.startTime = this.value[0];
+            if (this.defaultValue.length === 1) {
+                options.startTime = this.defaultValue[0];
             }
 
         }
         else {
-            options.startTime = this.value;
+            options.startTime = this.defaultValue;
         }
 
         this.picker = new DatePicker(this.shadowRoot.querySelector("#dataPicker"), options,function(data: any){
-            console.log(data);
             that.change(data);
         });
     }
@@ -153,7 +161,13 @@ export class WuDatePicker extends WuComponent implements OnConnected, OnDisConne
 
     public override render(_renderProps = {}, _store = {}) {
         return (
-            <div class="wu-data-picker" id="dataPicker" />
+            <div
+                class="wu-data-picker"
+                id="dataPicker"
+                {...extractClass({}, 'wu-data-picker', {
+                    ['wu-data-picker-' + this.size]: this.size
+                })}
+            />
         );
     }
 }

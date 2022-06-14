@@ -105,8 +105,8 @@ export class TimePicker {
         if (left + domwidth > wwidth) {
             left = targetWidth + targetLeft - domwidth;
         }
-        this.$container.get(0).style.top = top + 'px';
-        this.$container.get(0).style.left = left + 'px';
+        // this.$container.get(0).style.top = top + 'px';
+        // this.$container.get(0).style.left = left + 'px';
     }
     public rendtime() {
         if (!this.option.format) {
