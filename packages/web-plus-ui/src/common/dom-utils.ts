@@ -13,3 +13,9 @@ export function getAttrMap(dom: any) {
 export const generateId = function() {
     return Math.floor(Math.random() * 10000) + '';
 };
+
+
+export function newEval(fn: string) {
+    const Fn = Function;
+    return new Fn('return ' + fn)();
+}

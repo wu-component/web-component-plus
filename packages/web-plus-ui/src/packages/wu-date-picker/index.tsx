@@ -6,7 +6,7 @@ import css1 from './css/theme.scss';
 import css2 from './css/xndatepicker.scss';
 import css3 from './css/iconfont/iconfont.scss';
 import { UISize } from "@/interface";
-import { extractClass } from "@/common";
+import { extractClass, newEval } from "@/common";
 
 
 type PickerType = 'year' | 'month' | 'date' |'multiple' | 'week' |'datetime' |'datetimerange' | 'daterange' |'monthrange' |'yearrange';
@@ -67,13 +67,16 @@ export class WuDatePicker extends WuComponent implements OnConnected, OnDisConne
     }
 
     @Prop({ default: '' })
-    public defaultValue: string[] | string;
+    public default: string[] | string;
 
     @Prop({ default: 'date', type: String })
     public type: PickerType;
 
     @Prop({ default: 'mini', type: String })
     public size: UISize;
+
+    @Prop({ default: false, type: Boolean })
+    public disabled: boolean;
 
     @Prop(
         {
@@ -102,6 +105,7 @@ export class WuDatePicker extends WuComponent implements OnConnected, OnDisConne
 
     public override connected(shadowRoot: ShadowRoot) {
         this.mountPicker();
+
     }
 
     public override disConnected() {
@@ -116,19 +120,36 @@ export class WuDatePicker extends WuComponent implements OnConnected, OnDisConne
     public mountPicker() {
         const that = this;
         const options: PickerOptions = this.options;
+        // 数据降级处理
+        if (typeof this.options === 'string'  && this.default.indexOf('{') > -1 && this.default.indexOf('}') > -1) {
+            try {
+                this.options = JSON.parse(this.options);
+            }
+            catch (e) {
+                // @ts-ignore
+                this.options = newEval(this.options);
+            }
+        }
         options.type = this.type || options.type;
-        if (Array.isArray(this.defaultValue)) {
-            if(this.defaultValue.length === 2) {
-                options.startTime = this.defaultValue[0];
-                options.endTime = this.defaultValue[1];
+        if (typeof this.default === "string" && this.default.indexOf('[') > -1 && this.default.indexOf(']') > -1) {
+            this.default = newEval(this.default);
+        }
+        if (Array.isArray(this.default)) {
+            if(this.default.length === 2) {
+                options.startTime = this.default[0];
+                options.endTime = this.default[1];
             }
-            if (this.defaultValue.length === 1) {
-                options.startTime = this.defaultValue[0];
+            if (this.default.length === 1) {
+                options.startTime = this.default[0];
             }
-
         }
         else {
-            options.startTime = this.defaultValue;
+            options.startTime = this.default;
+        }
+
+        // 處理日期选择的
+        if (options.type === 'datetime' || options.type === 'datetimerange') {
+            options.showBottomButton = true;
         }
 
         this.picker = new DatePicker(this.shadowRoot.querySelector("#dataPicker"), options,function(data: any){
@@ -138,6 +159,9 @@ export class WuDatePicker extends WuComponent implements OnConnected, OnDisConne
 
     @Prop({ default: '60px', type: String })
     public height: string;
+
+    @Watch("disabled")
+    public disabledChange(val: boolean, old: boolean) {}
 
     @Watch("value")
     public valueChange(newValue: any, oldValue) {
@@ -159,13 +183,16 @@ export class WuDatePicker extends WuComponent implements OnConnected, OnDisConne
     }
 
 
+
+
     public override render(_renderProps = {}, _store = {}) {
         return (
             <div
                 class="wu-data-picker"
                 id="dataPicker"
                 {...extractClass({}, 'wu-data-picker', {
-                    ['wu-data-picker-' + this.size]: this.size
+                    ['wu-data-picker-' + this.size]: this.size,
+                    'is-disabled': this.disabled,
                 })}
             />
         );

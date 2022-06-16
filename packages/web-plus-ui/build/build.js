@@ -73,12 +73,14 @@ const config = readdirSync(input)
     }));
 
 
-// 整合打包
+// 整合打;包
 config.push({
     input: resolve(__dirname, "../src/index.ts"),
     plugins: [
         terser(),
-        url(),
+        url({
+            include: ['**/*.svg', '**/*.png', '**/*.jp(e)?g', '**/*.gif', '**/*.webp', '**/*.ttf', '**/*.woff']
+        }),
         nodeResolve(),
         commonjs(),
         postcss({
@@ -107,10 +109,18 @@ config.push({
         })
     ],
     output: [
-        { name: 'WebUIPlus', file: `${output}/web-plus.umd.js`, format: 'umd' },
+        {
+            name: 'webUIPlus',
+            file: `${output}/web-plus.umd.js`,
+            format: 'umd',
+            globals: {
+                '@canyuegongzi/web-core-plus': 'webCorePlus'
+            }
+        },
         { file: `${output}/web-plus.cjs.js`, format: 'cjs' },
         { file: `${output}/web-plus.esm.js`, format: 'es' }
 
-    ]
+    ],
+    external: [/web-core-plus$/],
 })
 export default config;

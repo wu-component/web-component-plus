@@ -4,6 +4,14 @@
 :host{
     display: inline-block;
 }
+:host([disabled]){
+    cursor: not-allowed;
+    pointer-events: none;
+}
+:host([disabled=true]){
+    cursor: not-allowed;
+    pointer-events: none;
+}
 .wu-data-picker {
     border: 1px solid #dcdfe6;
 }
@@ -34,6 +42,7 @@
         border-color: $--input-disabled-border;
         color: $--input-disabled-color;
         cursor: not-allowed;
+        pointer-events: none;
         .iconfont-xndatepicker {
             cursor: not-allowed;
         }
