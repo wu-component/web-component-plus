@@ -27,14 +27,24 @@
         <wu-plus-date-picker id="timePickerDatetime" type="datetime"></wu-plus-date-picker>
 
         <h2>天时间段选择器</h2>
-        <wu-plus-date-picker type="daterange"  id="timePickerDaterange"></wu-plus-date-picker>
+        <wu-plus-date-picker type="daterange" default="['2022-06-11', '2022-06-16']" id="timePickerDaterange"></wu-plus-date-picker>
+
+        <h2>月时间段选择器</h2>
+        <wu-plus-date-picker type="monthrange" default="['2022-03-11', '2022-06-16']" id="timePickerManthrange"></wu-plus-date-picker>
+
+        <h2>年时间段选择器</h2>
+        <wu-plus-date-picker type="yearrange" default="['2020-06-11', '2022-06-16']" id="timePickeryearrange"></wu-plus-date-picker>
+
+        <h2>禁用</h2>
+        <wu-plus-date-picker id="timePicker" disabled="true"></wu-plus-date-picker>
     </div>
 </div>
 
 </body>
-<!--<script type="module" src="./dist-lib/web-plus-data-picker.umd.js"></script>-->
-<script type="module" src="./core.umd.js"></script>
-<script type="module" src="./dist/web-plus.umd.js"></script>
+<script type="module" src="./example-lib/core/dist/index.umd.js"></script>
+<script type="module" src="./dist-lib/web-plus-data-picker.umd.js"></script>
+
+<!--<script type="module" src="./dist/web-plus.umd.js"></script>-->
 
 <script type="module">
     // 天选择器

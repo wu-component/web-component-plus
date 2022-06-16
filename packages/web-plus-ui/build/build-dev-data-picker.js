@@ -56,10 +56,18 @@ config.push({
         })
     ],
     output: [
-        { name: 'WebUIPlus', file: `${output}/web-plus-data-picker.umd.js`, format: 'umd' },
+        {
+            name: 'webUIPlusDatePicker',
+            file: `${output}/web-plus-data-picker.umd.js`,
+            format: 'umd',
+            globals: {
+                '@canyuegongzi/web-core-plus': 'webCorePlus'
+            }
+        },
         // { file: `${output}/web-plus.cjs.js`, format: 'cjs' },
         // { file: `${output}/web-plus.esm.js`, format: 'es' }
 
-    ]
+    ],
+    external: [/web-core-plus$/],
 })
 export default config;

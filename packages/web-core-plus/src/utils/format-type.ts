@@ -55,3 +55,8 @@ export function isEqual(a: any, b: any) {
     }
     return false;
 }
+
+export function newEval(fn: string) {
+    const Fn = Function;
+    return new Fn('return ' + fn)();
+}
