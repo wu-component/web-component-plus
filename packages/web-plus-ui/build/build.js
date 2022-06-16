@@ -13,7 +13,9 @@ import url from '@rollup/plugin-url';
 
 const input = resolve(__dirname, "../src/packages");
 const output = resolve(__dirname, "../dist");
-const getPath = _path => resolve(__dirname, _path)
+const getPath = _path => resolve(__dirname, _path);
+import os from 'os';
+const cpuNums = os.cpus().length;
 const extensions = [
     '.js',
     '.ts',
@@ -42,7 +44,13 @@ const config = readdirSync(input)
     .map(name => ({
         input: `${input}/${name}/index.tsx`,
         plugins: [
-            terser(),
+            terser({
+                    output: {
+                        comments: false,
+                    },
+                    numWorkers: cpuNums, //多线程压缩
+                }
+            ),
             url({
                 include: ['**/*.svg', '**/*.png', '**/*.jp(e)?g', '**/*.gif', '**/*.webp', '**/*.ttf', '**/*.woff']
             }),
@@ -56,7 +64,8 @@ const config = readdirSync(input)
                     autoprefixer()
                 ],
                 // extract: `${output}/${name}/lib/index.css`
-                extract: false
+                extract: false,
+                minimize: true
             }),
             tsPlugin,
             json(),
@@ -77,7 +86,13 @@ const config = readdirSync(input)
 config.push({
     input: resolve(__dirname, "../src/index.ts"),
     plugins: [
-        terser(),
+        terser({
+                output: {
+                    comments: false,
+                },
+                numWorkers: cpuNums, //多线程压缩
+            }
+        ),
         url({
             include: ['**/*.svg', '**/*.png', '**/*.jp(e)?g', '**/*.gif', '**/*.webp', '**/*.ttf', '**/*.woff']
         }),
