@@ -267,10 +267,12 @@ export class WuComponent extends HTMLElement implements BaseCustomComponent {
         this.beforeRender();
         const rendered = this.render(this.props, this.store);
         this.rootNode = diff(null, rendered, null, this);
-        if (Array.isArray(this.rootNode)) {
-            this.rootNode.forEach(item => shadowRoot.appendChild(item));
-        } else {
-            this.rootNode && shadowRoot.appendChild(this.rootNode);
+        if (this.$options.isMountDom === true) {
+            if (Array.isArray(this.rootNode)) {
+                this.rootNode.forEach(item => shadowRoot.appendChild(item));
+            } else {
+                this.rootNode && shadowRoot.appendChild(this.rootNode);
+            }
         }
         this.isInstalled = true;
         this.rendered();

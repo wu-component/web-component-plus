@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body, html {
+            margin: 0;
+        }
+        .router-link-container {
+            margin: 16px;
+            display: flex;
+            align-items: center;
+        }
+        .router-link{
+            padding: 4px;
+            background: #cdcdcd;
+            line-height: 24px;
+            text-align: center;
+            margin: 0 32px;
+            border-radius: 4px;
+            min-width: 60px;
+            cursor: pointer;
+        }
+    </style>
+    <!--引入底层库-->
+    <script src="./core/index.umd.js"></script>
+    <!--引入对应的组件产物-->
+    <script src="./ui/index.umd.js"></script>
+    <script type="text/javascript">
+        function linkView(path) {
+            window.router.push(path);
+        }
+
+    </script>
+</head>
+<body>
+<div class="router-link-container">
+    <span onclick="linkView('/home')" class="router-link">home</span>
+    <span onclick="linkView('/about')" class="router-link">about</span>
+    <span onclick="linkView('/my')" class="router-link">my</span>
+    <span onclick="linkView('/message')" class="router-link">message</span>
+</div>
+<div id="app" style="height: 200px">
+    <wu-plus-router-view>
+        <wu-plus-router-item path="/home">
+            <div style="height: 100%">
+                <div class="button-container" style="display: flex; flex-wrap: wrap; align-items: center;justify-content: space-around;padding: 16px">
+                    <wu-plus-button size="mini" type="primary">primary</wu-plus-button>
+                    <wu-plus-button size="mini" type="success">success</wu-plus-button>
+                    <wu-plus-button size="mini" type="warning">warning</wu-plus-button>
+                    <wu-plus-button size="mini" type="danger">danger</wu-plus-button>
+                    <wu-plus-button size="mini" type="info">info</wu-plus-button>
+                    <wu-plus-button size="mini" type="text">text</wu-plus-button>
+                </div>
+            </div>
+        </wu-plus-router-item>
+        <wu-plus-router-item path="/about">
+            <div style="height: 100%">
+                <div style="display: flex; align-items: center; flex-direction: column; padding: 16px">
+                    <wu-plus-progress style="width: 350px" percentage="70"></wu-plus-progress>
+                    <span style="height: 16px"></span>
+                    <wu-plus-progress style="width: 350px" percentage="60" color="red"></wu-plus-progress>
+                    <span style="height: 16px"></span>
+                    <wu-plus-progress style="width: 350px" percentage="50" color="yellow"></wu-plus-progress>
+                </div>
+            </div>
+        </wu-plus-router-item>
+        <wu-plus-router-item  path="/my">
+            <div style="height: 100%">
+                <div style="display: flex; flex-wrap: wrap; align-items: center;justify-content: space-around;padding: 16px">
+                    <div style="display: flex;flex-direction: column">
+                        <span>fill</span>
+                        <wu-plus-image style="width: 100px; height: 100px" src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" fit="fill"></wu-plus-image>
+                    </div>
+                    <div style="display: flex;flex-direction: column">
+                        <span>contain</span>
+                        <wu-plus-image style="width: 100px; height: 100px" src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" fit="contain"></wu-plus-image>
+                    </div>
+                    <div style="display: flex;flex-direction: column">
+                        <span>cover</span>
+                        <wu-plus-image style="width: 100px; height: 100px" src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" fit="cover"></wu-plus-image>
+                    </div>
+                    <div style="display: flex;flex-direction: column">
+                        <span>none</span>
+                        <wu-plus-image style="width: 100px; height: 100px" src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" fit="none"></wu-plus-image>
+                    </div>
+                    <div style="display: flex;flex-direction: column">
+                        <span>scale-down</span>
+                        <wu-plus-image style="width: 100px; height: 100px" src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" fit="scale-down"></wu-plus-image>
+                    </div>
+                </div>
+            </div>
+        </wu-plus-router-item>
+        <wu-plus-router-item path="/message">
+            <div style="height: 100%">
+                <div style="display: flex; align-items: center;justify-content: center;padding: 16px">
+                    <wu-plus-collapse style="width: 100%;" value="['1']" id="testCollapse">
+                        <wu-plus-collapse-item tip="一致性 Consistency" name="1">
+                            <div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>
+                            <div>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
+                        </wu-plus-collapse-item>
+
+                        <wu-plus-collapse-item tip="反馈 Feedback" name="2">
+                            <div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>
+                            <div>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
+                        </wu-plus-collapse-item>
+                    </wu-plus-collapse>
+                </div>
+            </div>
+        </wu-plus-router-item>
+    </wu-plus-router-view>
+</div>
+</body>
+</html>
