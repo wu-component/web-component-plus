@@ -5,6 +5,7 @@ export interface CustomTagOptions {
     name: string;
     is?: ComponentEnums;
     css?: string;
+    isMountDom?: boolean;
     options?: ElementDefinitionOptions;
 }
 
