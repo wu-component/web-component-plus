@@ -1,17 +1,9 @@
 <script lang="ts">
-import ButtonView from "./components/ButtonView.vue"
 import { defineComponent, ref } from "vue";
-import RadioView from "./components/RadioView.vue";
-import IconView from "./components/IconView.vue";
-import InputView from "./components/InputView.vue";
-import TreeView from "./components/TreeView.vue";
+import ButtonView from "./wu-component/ButtonView.vue";
 export default defineComponent({
   components: {
-    ButtonView,
-    RadioView,
-    IconView,
-    InputView,
-    TreeView
+    ButtonView
   },
   setup(){
     const sonRef = ref(null);
@@ -30,10 +22,6 @@ export default defineComponent({
     <el-main style="height: calc(100% - 32px)">
       <el-scrollbar style="height: 100%">
         <ButtonView></ButtonView>
-        <RadioView></RadioView>
-        <IconView></IconView>
-        <InputView></InputView>
-        <TreeView></TreeView>
       </el-scrollbar>
 
     </el-main>

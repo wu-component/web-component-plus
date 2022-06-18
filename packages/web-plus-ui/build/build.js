@@ -74,9 +74,9 @@ const config = readdirSync(input)
             })
         ],
         output: [
-            { name: name, file: `${output}/${name}/lib/web-plus.umd.js`, format: 'umd' },
-            { file: `${output}/${name}/lib/web-plus.cjs.js`, format: 'cjs' },
-            { file: `${output}/${name}/lib/web-plus.esm.js`, format: 'es' }
+            { name: name, file: `${output}/${name}/lib/index.umd.js`, format: 'umd' },
+            { file: `${output}/${name}/lib/index.cjs.js`, format: 'cjs' },
+            { file: `${output}/${name}/lib/index.esm.js`, format: 'es' }
 
         ]
     }));
@@ -106,7 +106,8 @@ config.push({
                 autoprefixer()
             ],
             // extract: `${output}/index.css`
-            extract: false
+            extract: false,
+            minimize: true
         }),
         typescript({
             tsconfig: getPath('../tsconfig.json'), // 导入本地ts配置
@@ -116,6 +117,9 @@ config.push({
                     declaration: true
                 }
             },
+            // https://unpkg.com/vue@3
+            // unpkg.com/:package@:version/:file
+            // https://unpkg.com/@canyuegongzi/web-ui-plus@0.0.20/dist/index.umd.js
             extensions
         }),
         json(),
@@ -126,14 +130,14 @@ config.push({
     output: [
         {
             name: 'webUIPlus',
-            file: `${output}/web-plus.umd.js`,
+            file: `${output}/index.umd.js`,
             format: 'umd',
             globals: {
                 '@canyuegongzi/web-core-plus': 'webCorePlus'
             }
         },
-        { file: `${output}/web-plus.cjs.js`, format: 'cjs' },
-        { file: `${output}/web-plus.esm.js`, format: 'es' }
+        { file: `${output}/index.cjs.js`, format: 'cjs' },
+        { file: `${output}/index.esm.js`, format: 'es' }
 
     ],
     external: [/web-core-plus$/],

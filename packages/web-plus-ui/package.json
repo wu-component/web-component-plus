@@ -1,6 +1,6 @@
 {
   "name": "@canyuegongzi/web-ui-plus",
-  "version": "0.0.20",
+  "version": "0.0.22",
   "description": "> TODO: description",
   "author": "Marvin <yongfeide123@gmail.com>",
   "homepage": "",
@@ -55,6 +55,7 @@
     "autoprefixer": "^10.4.4",
     "body-parser": "^1.19.0",
     "cross-env": "^7.0.3",
+    "cssnano": "^5.1.11",
     "eslint": "7.1.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-import": "^2.20.1",
@@ -99,7 +100,7 @@
     "vue-tsc": "^0.29.8"
   },
   "dependencies": {
-    "@canyuegongzi/web-core-plus": "0.0.39",
+    "@canyuegongzi/web-core-plus": "0.0.40",
     "@popperjs/core": "^2.11.5",
     "dayjs": "^1.10.4",
     "reflect-metadata": "^0.1.13"

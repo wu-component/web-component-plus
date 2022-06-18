@@ -118,14 +118,14 @@ config.push({
     output: [
         {
             name: 'webUIPlus',
-            file: `${output}/web-plus.umd.js`,
+            file: `${output}/index.umd.js`,
             format: 'umd',
             globals: {
                 '@canyuegongzi/web-core-plus': 'webCorePlus'
             }
         },
-        { file: `${output}/web-plus.cjs.js`, format: 'cjs' },
-        { file: `${output}/web-plus.esm.js`, format: 'es' }
+        { file: `${output}/index.cjs.js`, format: 'cjs' },
+        { file: `${output}/index.esm.js`, format: 'es' }
 
     ],
     external: [/web-core-plus$/],
