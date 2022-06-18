@@ -10,7 +10,8 @@ import replace from "@rollup/plugin-replace";
 import scss from 'rollup-plugin-scss'
 import autoprefixer from 'autoprefixer'
 import url from '@rollup/plugin-url';
-
+import os from 'os';
+const cpuNums = os.cpus().length;
 const input = resolve(__dirname, "../src/packages");
 const output = resolve(__dirname, "../dist");
 const getPath = _path => resolve(__dirname, _path)
@@ -76,7 +77,13 @@ const config = []
 config.push({
     input: resolve(__dirname, "../src/index.ts"),
     plugins: [
-        // terser(),
+        terser({
+                output: {
+                    comments: false,
+                },
+                numWorkers: cpuNums, //多线程压缩
+            }
+        ),
         url({
             include: ['**/*.svg', '**/*.png', '**/*.jp(e)?g', '**/*.gif', '**/*.webp', '**/*.ttf', '**/*.woff']
         }),
@@ -90,7 +97,8 @@ config.push({
                 autoprefixer()
             ],
             // extract: `${output}/index.css`
-            extract: false
+            extract: false,
+            minimize: true
         }),
         typescript({
             tsconfig: getPath('../tsconfig.json'), // 导入本地ts配置
@@ -110,14 +118,14 @@ config.push({
     output: [
         {
             name: 'webUIPlus',
-            file: `${output}/web-plus.umd.js`,
+            file: `${output}/index.umd.js`,
             format: 'umd',
             globals: {
                 '@canyuegongzi/web-core-plus': 'webCorePlus'
             }
         },
-        { file: `${output}/web-plus.cjs.js`, format: 'cjs' },
-        { file: `${output}/web-plus.esm.js`, format: 'es' }
+        { file: `${output}/index.cjs.js`, format: 'cjs' },
+        { file: `${output}/index.esm.js`, format: 'es' }
 
     ],
     external: [/web-core-plus$/],

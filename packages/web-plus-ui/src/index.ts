@@ -32,18 +32,10 @@ export * from './packages/wu-collapse-item';
 
 /***************************全局股那里*********************************/
 export * from './packages/wu-popover';
-// export * from './packages/wu-message';
 export * from './packages/wu-message/MessagePopupManager';
 export * from './packages/wu-alert';
 export * from './packages/wu-tooltip';
 export * from './packages/wu-dialog';
-
-/************************测试数据注入***************************/
-export * from './test/wu-inject';
-export * from './test/wu-inject-child1';
-export * from './test/wu-inject-child2';
-export * from './test/wu-provide';
-export * from './packages/wu-example';
 
 /*********************************布局组件*************************************/
 export * from './packages/wu-row';

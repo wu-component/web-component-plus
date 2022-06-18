@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@canyuegongzi/web-ui": "latest",
+    "@canyuegongzi/web-ui-plus": "0.0.22",
     "@stencil/core": "2.15.0",
     "element-plus": "^1.2.0-beta.3",
     "element-ui": "^2.15.6",
