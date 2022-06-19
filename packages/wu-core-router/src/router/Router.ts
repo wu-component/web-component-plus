@@ -8,13 +8,13 @@ export class Router implements BaseRouter{
     constructor(options: RouterOptions) {
         switch (options.type) {
             case "hash":
-                this.routerInstance = new HashRouter();
+                this.routerInstance = new HashRouter(options);
                 break;
             case "history":
-                this.routerInstance = new HistoryRouter();
+                this.routerInstance = new HistoryRouter(options);
                 break;
             default:
-                this.routerInstance = new HashRouter();
+                this.routerInstance = new HashRouter(options);
         }
 
     }
