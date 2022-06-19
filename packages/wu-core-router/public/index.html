@@ -27,12 +27,6 @@
     <script src="./core/index.umd.js"></script>
     <!--引入对应的组件产物-->
     <script src="./ui/index.umd.js"></script>
-    <script type="text/javascript">
-        function linkView(path) {
-            window.router.push(path);
-        }
-
-    </script>
 </head>
 <body>
 <div class="router-link-container">
@@ -113,3 +107,21 @@
 </div>
 </body>
 </html>
+<script type="text/javascript">
+    function linkView(path) {
+        window.router.push(path, { path: path });
+    }
+
+    const options = {
+        type: 'hash',
+        after: (e) => {
+            return true
+        },
+        before: (e) => {
+            return true;
+        }
+    };
+    window.router = new wuRouter.Router(options);
+    console.log(window.router)
+
+</script>

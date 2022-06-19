@@ -8,6 +8,11 @@ module.exports = {
         path: path.resolve(__dirname, '../', "dist"),
         filename: "bundle.[chunkhash:8].js",
         publicPath: '/',
+        library: {
+            name: 'wuRouter',
+            type: 'umd'
+        }
+        // name: 'wuRouter',
     },
     target: 'web',
     resolve: {
@@ -17,7 +22,8 @@ module.exports = {
         /*new webpack.EvalSourceMapDevToolPlugin({}),*/
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
-            template: "./public/index.html"
+            template: "./public/index.html",
+            scriptLoading: 'blocking'
         }),
         /*...commonPlugins*/
 

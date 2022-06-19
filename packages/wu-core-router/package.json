@@ -31,14 +31,7 @@
     "dist",
     "LICENSE",
     "README.md",
-    "src/app-data",
-    "src/declarations",
-    "src/decorators",
-    "src/index.ts",
-    "src/packages",
-    "src/reactivity",
-    "src/runtime",
-    "src/utils"
+    "src"
   ],
   "devDependencies": {
     "@babel/preset-typescript": "^7.13.0",
@@ -89,9 +82,11 @@
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.9.0"
   },
+  "peerDependencies": {
+      "@canyuegongzi/web-core-plus": "file:../web-core-plus",
+      "reflect-metadata": "^0.1.13"
+  },
   "dependencies": {
-    "path-to-regexp": "^6.2.1",
-    "@canyuegongzi/web-core-plus": "file:../web-core-plus",
-    "reflect-metadata": "^0.1.13"
+    "path-to-regexp": "^6.2.1"
   }
 }

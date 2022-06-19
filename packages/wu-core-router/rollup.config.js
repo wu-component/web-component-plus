@@ -28,15 +28,19 @@ export default [
             })
         ],
         output: {
-            name: 'webCorePlus',
+            name: 'wuRouter',
             file: pkg.browser,
-            format: 'umd'
+            format: 'umd',
+            globals: {
+                '@canyuegongzi/web-core-plus': 'webCorePlus'
+            }
         },
+        external: [ /web-core-plus$/ ],
     },
     {
         input: './src/index.ts',
         plugins: [
-            // terser(),
+            terser(),
             nodeResolve(),
             commonjs(),
             postcss({
@@ -57,5 +61,6 @@ export default [
             { file: pkg.main, format: 'cjs' },
             { file: pkg.module, format: 'es' }
         ],
+        external: [ /web-core-plus$/ ],
     }
 ];

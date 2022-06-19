@@ -21,3 +21,27 @@ export function getUrlParams(url) {
     }
     return args;
 }
+
+export function decodeParams(url: string, obj: Record<any, any> = {}) {
+    let result = '';
+    let item;
+    if (url.includes("?")) {
+        for (item in obj) {
+            if (obj[item] && String(obj[item])) {
+                result += `${item}=${obj[item]}&`;
+            }
+        }
+    }else{
+        result += "?";
+        for (item in obj) {
+            if (obj[item] && String(obj[item])) {
+                result += `${item}=${obj[item]}&`;
+            }
+        }
+    }
+    let str = url + result;
+    if (str.endsWith('&')) {
+        str = str.substring(0, str.length - 1);
+    }
+    return str
+}

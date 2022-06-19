@@ -8,9 +8,6 @@ const css = `
     margin: 0;
     display: block;
 }
-#defaultSlot {
-
-}
 `;
 @Component({
     name: 'wu-plus-router-item',
@@ -26,8 +23,6 @@ export class RouterItem extends WuComponent implements OnConnected {
     public path: string;
 
     public override connected(shadowRoot: ShadowRoot) {
-        console.log(this.children);
-        // const slotDom: any = this.shadowRoot.getElementById('defaultSlot');
         RouterConfig.register({
             path: this.path,
             element: Array.from(this.children)
