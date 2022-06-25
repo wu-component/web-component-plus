@@ -92,12 +92,12 @@ XNQuery.prototype = init.prototype = {
             return XNQuery([]);
         }
     },
-    parents(parentSelector /* optional */) {
+    parents(parentSelector? /* optional */, container?) {
         const el = this.el[0];
         if (parentSelector === undefined) {
-            parentSelector = [ document ];
+            parentSelector = [ container || document ];
         } else {
-            parentSelector = this.ConvertToArray(document.querySelectorAll(parentSelector));
+            parentSelector = this.ConvertToArray(container ? container.querySelectorAll(parentSelector) : document.querySelectorAll(parentSelector));
         }
         const parents = [];
         if (el) {

@@ -83,8 +83,8 @@
     "webpack-dev-server": "^4.9.0"
   },
   "peerDependencies": {
-      "@canyuegongzi/web-core-plus": "file:../web-core-plus",
-      "reflect-metadata": "^0.1.13"
+    "@canyuegongzi/web-core-plus": "0.0.41",
+    "reflect-metadata": "^0.1.13"
   },
   "dependencies": {
     "path-to-regexp": "^6.2.1"

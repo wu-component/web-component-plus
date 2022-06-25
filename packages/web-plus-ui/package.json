@@ -1,6 +1,6 @@
 {
   "name": "@canyuegongzi/web-ui-plus",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "description": "> TODO: description",
   "author": "Marvin <yongfeide123@gmail.com>",
   "homepage": "",
@@ -20,6 +20,7 @@
     "build:rollup:package": "cross-env NODE_ENV=production rollup -c ./build/build.js",
     "build:rollup:package:dev": "cross-env NODE_ENV=production rollup -c ./build/build-dev.js",
     "build:rollup:data-picker:dev": "cross-env NODE_ENV=production rollup -c ./build/build-dev-data-picker.js",
+    "build:rollup:tree:dev": "cross-env NODE_ENV=production rollup -c ./build/build-dev-tree.js",
     "build:tsc": "cross-env NODE_ENV=production tsc -p tsconfig.build.json"
   },
   "publishConfig": {
@@ -100,7 +101,7 @@
     "vue-tsc": "^0.29.8"
   },
   "dependencies": {
-    "@canyuegongzi/web-core-plus": "0.0.40",
+    "@canyuegongzi/web-core-plus": "0.0.41",
     "@popperjs/core": "^2.11.5",
     "dayjs": "^1.10.4",
     "reflect-metadata": "^0.1.13"
