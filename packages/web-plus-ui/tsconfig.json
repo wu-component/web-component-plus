@@ -11,6 +11,7 @@
         "jsxFragmentFactory": "Fragment",
         "lib": ["dom", "es2018", "esnext.array"],
         "module": "esnext",
+        "downlevelIteration": true,
         "moduleResolution": "node",
         "noImplicitAny": false,
         "noImplicitOverride": true,
