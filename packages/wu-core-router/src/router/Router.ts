@@ -27,10 +27,6 @@ export class Router implements BaseRouter{
 
     }
 
-    get routes() {
-        return RouterConfig.routeMap;
-    }
-
     public push(path: string, data?: Record<any, any>, ...args) {
         return this.routerInstance.push.call(this, path, data, ...args);
     }

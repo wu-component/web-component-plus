@@ -3,7 +3,7 @@
         "alwaysStrict": true,
         "allowSyntheticDefaultImports": true,
         "allowUnreachableCode": false,
-        "declaration": false,
+        "declaration": true,
         "experimentalDecorators": true,
         "forceConsistentCasingInFileNames": true,
         "jsx": "react",
