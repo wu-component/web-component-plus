@@ -24,4 +24,10 @@ export interface RouterOptions {
     type: 'hash' | 'history';
     after?: () => boolean;
     before?: () => boolean;
+    routers?: RouterItem[];
+}
+
+export interface RouterItem {
+    path: string;
+    element: any[] | string | Function;
 }

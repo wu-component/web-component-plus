@@ -18,7 +18,8 @@
     "lint": "eslint \"{src,apps,libs,test}/**/*.{tsx,ts}\" --fix",
     "test": "jest -c ./jest.config.js",
     "build:rollup": "cross-env NODE_ENV=production rollup -c ./rollup.config.js",
-    "dev": "webpack serve --config ./dev/webpack_dev.config --env development --mode development --hot"
+    "dev": "webpack serve --config ./dev/webpack_dev.config --env development --mode development --hot",
+    "build": "webpack --config ./dev/webpack_build.config.js --env production --mode production"
   },
   "publishConfig": {
     "access": "public"

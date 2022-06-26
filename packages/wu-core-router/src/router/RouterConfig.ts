@@ -2,7 +2,7 @@ import { pathToRegexp } from "path-to-regexp";
 
 interface RegisterRouterOptions {
     path: string;
-    element: any[];
+    element: any[] | string | Function;
 }
 
 interface RegisterContainerOptions {
@@ -11,7 +11,7 @@ interface RegisterContainerOptions {
 }
 
 interface RouterItem {
-    element: any[];
+    element: any[] | string | Function;
     reg: any;
 }
 class RouterConfig {
