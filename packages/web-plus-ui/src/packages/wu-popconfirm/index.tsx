@@ -2,6 +2,7 @@
 import css from './index.scss';
 import "../wu-popover";
 import "../wu-button";
+import { WuPopover } from "@/packages/wu-popover";
 
 @Component({
     name: 'wu-plus-popconfirm',
@@ -11,6 +12,8 @@ export class WuPopconfirm extends WuComponent {
     constructor() {
         super();
     }
+
+    private popoverRef!: WuPopover;
 
     @Prop({ default: '', type: String })
     public content: string;
@@ -49,16 +52,18 @@ export class WuPopconfirm extends WuComponent {
     @Emit("confirm")
     public confirm() {
         this.visible = false;
+        this.popoverRef?.leave();
     }
 
     @Emit("cancel")
     public cancel() {
         this.visible = false;
+        this.popoverRef?.leave();
     }
 
     public override render(_renderProps = {}, _store = {}) {
         return (
-            <wu-plus-popover trigger="click" isShow={this.visible}>
+            <wu-plus-popover trigger="click" isShow={this.visible} ref={(e) => this.popoverRef = e}>
                 <div class="wu-popconfirm" slot="popover">
                     <p class="wu-popconfirm_main">
                         {
