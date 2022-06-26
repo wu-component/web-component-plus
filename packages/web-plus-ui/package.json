@@ -1,6 +1,6 @@
 {
   "name": "@canyuegongzi/web-ui-plus",
-  "version": "0.0.23",
+  "version": "0.0.24",
   "description": "> TODO: description",
   "author": "Marvin <yongfeide123@gmail.com>",
   "homepage": "",
@@ -21,6 +21,7 @@
     "build:rollup:package:dev": "cross-env NODE_ENV=production rollup -c ./build/build-dev.js",
     "build:rollup:data-picker:dev": "cross-env NODE_ENV=production rollup -c ./build/build-dev-data-picker.js",
     "build:rollup:tree:dev": "cross-env NODE_ENV=production rollup -c ./build/build-dev-tree.js",
+    "build:rollup:color-picker:dev": "cross-env NODE_ENV=production rollup -c ./build/build-dev-color-picker.js",
     "build:tsc": "cross-env NODE_ENV=production tsc -p tsconfig.build.json"
   },
   "publishConfig": {

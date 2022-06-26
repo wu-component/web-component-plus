@@ -29,6 +29,7 @@ export * from './packages/wu-cascader';
 export * from './packages/wu-image';
 export * from './packages/wu-collapse';
 export * from './packages/wu-collapse-item';
+export * from './packages/wu-color-picker';
 
 /***************************全局股那里*********************************/
 export * from './packages/wu-popover';

@@ -15,6 +15,9 @@ export declare class WuPopover extends WuComponent implements OnConnected {
     disappear: boolean;
     disabled: boolean;
     private popper;
+    closeEmit(): {
+        value: boolean;
+    };
     onEnter: (evt: any) => void;
     onEnterPopover: (evt: any) => void;
     updatePosition(): void;
