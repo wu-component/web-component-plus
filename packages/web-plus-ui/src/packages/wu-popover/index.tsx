@@ -1,4 +1,4 @@
-﻿import { h, Component, Prop, OnConnected, WuComponent } from '@canyuegongzi/web-core-plus';
+﻿import { h, Component, Prop, OnConnected, WuComponent, Emit } from '@canyuegongzi/web-core-plus';
 import { createPopper } from '@popperjs/core/dist/esm';
 import css from './index.scss';
 import { Placement } from '@popperjs/core/lib/enums';
@@ -16,6 +16,10 @@ export class WuPopover extends WuComponent implements OnConnected {
 
     public override connected(shadowRoot: ShadowRoot) {
         window.addEventListener('click', (e: Event) => {
+            // @ts-ignore
+            if (e.target?.rootNode?.$options.name === 'wu-plus-popover') {
+                return;
+            }
             if (this.trigger === 'manual') return;
             if (this.isShow) {
                 this.leave();
@@ -53,6 +57,13 @@ export class WuPopover extends WuComponent implements OnConnected {
     public disabled: boolean;
 
     private popper = null;
+
+    @Emit('close')
+    public closeEmit() {
+        return {
+            value: true
+        };
+    }
 
     public onEnter = evt => {
         if (this.disabled) return;
@@ -104,6 +115,7 @@ export class WuPopover extends WuComponent implements OnConnected {
         this.disappear = true;
         setTimeout(() => {
             this.isShow = false;
+            this.closeEmit();
         }, 0);
     }
 
@@ -149,6 +161,7 @@ export class WuPopover extends WuComponent implements OnConnected {
                 >
                     <slot onMouseEnter={this.onEnterPopover} onMouseLeave={this.onLeavePopover} name="popover" />
                     <i class="tip-arrow" data-popper-arrow />
+                    <slot name="footer"></slot>
                 </div>
             </div>
         );
