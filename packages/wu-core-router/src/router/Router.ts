@@ -6,6 +6,14 @@ import RouterConfig from "../router/RouterConfig";
 export class Router implements BaseRouter{
     private routerInstance: HistoryRouter | HashRouter
     constructor(options: RouterOptions) {
+        if (options.routers) {
+            options.routers.forEach(item => {
+                RouterConfig.register({
+                    path: item.path,
+                    element: item.element
+                });
+            });
+        }
         switch (options.type) {
             case "hash":
                 this.routerInstance = new HashRouter(options);

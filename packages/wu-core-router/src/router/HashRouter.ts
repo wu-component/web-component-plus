@@ -65,9 +65,18 @@ export class HashRouter extends CommonRouter {
                 this.data = null;
                 if (this.before({ evt, query: this.query, params: this.params, data: this.data })) {
                     RouterConfig.routerViewContainer.default.shadowRoot.innerHTML = '';
-                    RouterConfig.routeMap[key].element.forEach(item => {
-                        RouterConfig.routerViewContainer.default.shadowRoot.appendChild(item);
-                    });
+                    if (Array.isArray(RouterConfig.routeMap[key].element)) {
+                        (RouterConfig.routeMap[key].element as any).forEach(item => {
+                            RouterConfig.routerViewContainer.default.shadowRoot.appendChild(item);
+                        });
+                    }
+                    if (typeof RouterConfig.routeMap[key].element == 'function') {
+                        RouterConfig.routerViewContainer.default.shadowRoot.appendChild((RouterConfig.routeMap[key] as any).element?.());
+                    }
+                    if (typeof RouterConfig.routeMap[key].element == 'string') {
+                        RouterConfig.routerViewContainer.default.shadowRoot.innerHTML = RouterConfig.routeMap[key].element;
+                    }
+
                     this.after?.(evt);
                 }
                 return false;

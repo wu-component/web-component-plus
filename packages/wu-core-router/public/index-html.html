@@ -22,8 +22,6 @@
             min-width: 60px;
             cursor: pointer;
         }
-        #app {
-        }
     </style>
     <!--引入底层库-->
     <script src="./core/index.umd.js"></script>
@@ -32,22 +30,14 @@
 </head>
 <body>
 <div class="router-link-container">
-    <span onclick="linkView('/home')" class="router-link">home page</span>
-    <span onclick="linkView('/about')" class="router-link">about page</span>
-    <span onclick="linkView('/my')" class="router-link">my page</span>
-    <span onclick="linkView('/message')" class="router-link">message page</span>
+    <span onclick="linkView('/home')" class="router-link">home</span>
+    <span onclick="linkView('/about')" class="router-link">about</span>
+    <span onclick="linkView('/my')" class="router-link">my</span>
+    <span onclick="linkView('/message')" class="router-link">message</span>
 </div>
-<div id="app">
-    <wu-plus-router-view></wu-plus-router-view>
-</div>
-</body>
-</html>
-<script type="text/javascript">
-    function linkView(path) {
-        window.router.push(path, { path: path });
-    }
-
-    const homeComponent = `
+<div id="app" style="height: 200px">
+    <wu-plus-router-view>
+        <wu-plus-router-item path="/home" component='
             <div style="height: 100%">
                  <div class="button-container" style="display: flex; flex-wrap: wrap; align-items: center;justify-content: space-around;padding: 16px">
                      <wu-plus-button size="mini" type="primary">primary</wu-plus-button>
@@ -57,9 +47,9 @@
                      <wu-plus-button size="mini" type="info">info</wu-plus-button>
                      <wu-plus-button size="mini" type="text">text</wu-plus-button>
                  </div>
-            </div>
-    `
-    const aboutComponent = `
+            </div>'>
+        </wu-plus-router-item>
+        <wu-plus-router-item path="/about" component='
             <div style="height: 100%">
                   <div style="display: flex; align-items: center; flex-direction: column; padding: 16px">
                       <wu-plus-progress style="width: 350px" percentage="70"></wu-plus-progress>
@@ -68,9 +58,9 @@
                       <span style="height: 16px"></span>
                       <wu-plus-progress style="width: 350px" percentage="50" color="yellow"></wu-plus-progress>
                   </div>
-            </div>
-    `
-    const myComponent = `
+            </div>'>
+        </wu-plus-router-item>
+        <wu-plus-router-item  path="/my" component='
             <div style="height: 100%">
                  <div style="display: flex; flex-wrap: wrap; align-items: center;justify-content: space-around;padding: 16px">
                      <div style="display: flex;flex-direction: column">
@@ -94,9 +84,9 @@
                          <wu-plus-image style="width: 100px; height: 100px" src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" fit="scale-down"></wu-plus-image>
                      </div>
                  </div>
-            </div>
-    `
-    const messageComponent = `
+            </div>'>
+        </wu-plus-router-item>
+        <wu-plus-router-item path="/message" component='
             <div style="height: 100%">
                 <div style="display: flex; align-items: center;justify-content: center;padding: 16px">
                     <wu-plus-collapse style="width: 100%;" value="["1"]" id="testCollapse">
@@ -110,9 +100,16 @@
                         </wu-plus-collapse-item>
                     </wu-plus-collapse>
                 </div>
-            </div>
-    `
-
+            </div>'>
+        </wu-plus-router-item>
+    </wu-plus-router-view>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    function linkView(path) {
+        window.router.push(path, { path: path });
+    }
     const options = {
         type: 'hash',
         after: (e) => {
@@ -121,27 +118,8 @@
         before: (e) => {
             return true;
         },
-        routers: [
-            {
-                path: '/home',
-                element: homeComponent
-            },
-            {
-                path: '/about',
-                element: aboutComponent
-            },
-            {
-                path: '/my',
-                element: myComponent
-            },
-            {
-                path: '/message',
-                element: messageComponent
-            }
-        ]
     };
     window.router = new wuRouter.Router(options);
-    linkView('/home');
-    console.log(router)
+    console.log(window.router)
 
 </script>
