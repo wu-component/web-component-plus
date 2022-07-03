@@ -1,3 +1,4 @@
+// webComponent 兼容
 ;(function() {
     if (
         // No Reflect, no classes, no need for shim because native custom elements
@@ -8,14 +9,22 @@
         // ES2015-compatible construction (`super()` or `Reflect.construct`).
         window.customElements.hasOwnProperty('polyfillWrapFlushCallback')
     ) {
-        return
+        return;
     }
-    const BuiltInHTMLElement = HTMLElement
+    const BuiltInHTMLElement = HTMLElement;
     // @ts-ignore
     window.HTMLElement = function HTMLElement() {
-        return Reflect.construct(BuiltInHTMLElement, [], this.constructor)
-    }
-    HTMLElement.prototype = BuiltInHTMLElement.prototype
-    HTMLElement.prototype.constructor = HTMLElement
-    Object.setPrototypeOf(HTMLElement, BuiltInHTMLElement)
-})()
+        return Reflect.construct(BuiltInHTMLElement, [], this.constructor);
+    };
+    HTMLElement.prototype = BuiltInHTMLElement.prototype;
+    HTMLElement.prototype.constructor = HTMLElement;
+    Object.setPrototypeOf(HTMLElement, BuiltInHTMLElement);
+})();
+// queueMicrotask 兼容
+if (typeof window.queueMicrotask !== "function") {
+    window.queueMicrotask = function (callback) {
+        Promise.resolve()
+            .then(callback)
+            .catch(e => setTimeout(() => { throw e; }));
+    };
+}

@@ -30,6 +30,7 @@ export * from './packages/wu-image';
 export * from './packages/wu-collapse';
 export * from './packages/wu-collapse-item';
 export * from './packages/wu-color-picker';
+export * from './packages/wu-menu';
 
 /***************************全局股那里*********************************/
 export * from './packages/wu-popover';
