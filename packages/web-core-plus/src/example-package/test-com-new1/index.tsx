@@ -2,6 +2,8 @@ import { Component, Emit, h, Prop, State, Watch, WuComponent } from '../../index
 // @ts-ignore
 import css from './index.scss';
 
+console.log("22222222");
+
 @Component({
     name: 'wu-plus-test-new1',
     css: css,

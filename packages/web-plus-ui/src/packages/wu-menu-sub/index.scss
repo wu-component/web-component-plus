@@ -48,24 +48,7 @@
     &.wu-menu-horizontal {
         border-bottom: solid 1px #e6e6e6;
     }
-    // mode="horizontal"
-    ::slotted(.wu-menu-horizontal) {
-        float: left;
-        height: 60px;
-        line-height: 60px;
-        margin: 0;
-        border-bottom: 2px solid transparent;
-        color: $--color-text-secondary;
-        a,
-        a:hover {
-            color: inherit;
-        }
 
-        &:not(.is-disabled):hover,
-        &:not(.is-disabled):focus{
-            background-color: #fff;
-        }
-    }
     @include m(horizontal) {
         border-right: none;
         & > .wu-menu-item {
@@ -197,22 +180,6 @@
             }
         }
     }
-    @include m(popup) {
-        z-index: 100;
-        min-width: 200px;
-        border: none;
-        padding: 5px 0;
-        border-radius: $--border-radius-small;
-        box-shadow: $--box-shadow-light;
-
-        &-bottom-start {
-            margin-top: 5px;
-        }
-        &-right-start {
-            margin-left: 5px;
-            margin-right: 5px;
-        }
-    }
 }
 @include b(menu-item) {
     @include menu-item;
@@ -239,6 +206,9 @@
 
     @include e(title) {
         @include menu-item;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
         &:hover {
             background-color: $--menu-item-hover-fill;
@@ -254,10 +224,7 @@
         min-width: 200px;
     }
     @include e(icon-arrow) {
-        position: absolute;
-        top: 50%;
-        right: 20px;
-        margin-top: -7px;
+        width: 12px;
         transition: transform .3s;
         font-size: 12px;
     }
@@ -300,91 +267,30 @@
     }
 }
 
+.wu-menu-popup {
+    z-index: 100;
+    min-width: 200px;
+    border: none;
+    padding: 5px 0;
+    border-radius: $--border-radius-small;
+    box-shadow: $--box-shadow-light;
+
+    &-bottom-start {
+        margin-top: 5px;
+    }
+    &-right-start {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+}
+
 .horizontal-collapse-transition .wu-submenu_title .wu-submenu_icon-arrow {
     transition: .2s;
     opacity: 0;
 }
-.wu-menu-horizontal {
-    border-right: none;
-    ::slotted(wu-plus-menu-item), ::slotted(wu-plus-sub-menu) {
-        float: left;
-        height: 60px;
-        line-height: 60px;
-        margin: 0;
-        border-bottom: 2px solid transparent;
-        color: $--color-text-secondary;
-        ::slotted(*){
-            a,
-            a:hover {
-                color: inherit;
-            }
 
-            &:not(.is-disabled):hover,
-            &:not(.is-disabled):focus{
-                background-color: #fff;
-            }
-
-
-            & > .wu-submenu {
-                float: left;
-
-                &:focus,
-                &:hover {
-                    outline: none;
-                    .wu-submenu_title {
-                        color: $--color-text-primary;
-                    }
-                }
-
-                &.is-active {
-                    .wu-submenu_title {
-                        border-bottom: 2px solid $--color-primary;
-                        color: $--color-text-primary;
-                    }
-                }
-
-                & .wu-submenu_title {
-                    height: 60px;
-                    line-height: 60px;
-                    border-bottom: 2px solid transparent;
-                    color: $--color-text-secondary;
-
-                    &:hover {
-                        background-color: #fff;
-                    }
-                }
-                & .wu-submenu_icon-arrow {
-                    position: static;
-                    vertical-align: middle;
-                    margin-left: 8px;
-                    margin-top: -3px;
-                }
-            }
-            & .wu-menu {
-                & .wu-menu-item,
-                & .wu-submenu_title {
-                    background-color: $--color-white;
-                    float: none;
-                    height: 36px;
-                    line-height: 36px;
-                    padding: 0 10px;
-                    color: $--color-text-secondary;
-                }
-                & .wu-menu-item.is-active,
-                & .wu-submenu.is-active > .wu-submenu_title {
-                    color: $--color-text-primary;
-                }
-            }
-            & .wu-menu-item:not(.is-disabled):hover,
-            & .wu-menu-item:not(.is-disabled):focus {
-                outline: none;
-                color: $--color-text-primary;
-            }
-            & > .wu-menu-item.is-active {
-                border-bottom: 2px solid $--color-primary;
-                color: $--color-text-primary;
-            }
-        }
-
-    }
+.icon-arrow {
+    width: 12px;
+    height: 12px;
 }
+
