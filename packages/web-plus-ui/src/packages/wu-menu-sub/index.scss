@@ -1,7 +1,9 @@
 @use "sass:map";
+@use "sass:math";
 @import '../../theme/common/var.scss';
 @import '../../theme/common/mixin.scss';
 @import '../../theme/common/transition.scss';
+
 
 @mixin menu-item {
     height: 56px;
@@ -181,23 +183,6 @@
         }
     }
 }
-@include b(menu-item) {
-    @include menu-item;
-
-    & [class^="wu-icon-"] {
-        margin-right: 5px;
-        width: 24px;
-        text-align: center;
-        font-size: 18px;
-        vertical-align: middle;
-    }
-    @include when(active) {
-        color: $--color-primary;
-        i {
-            color: inherit;
-        }
-    }
-}
 
 @include b(submenu) {
     list-style: none;
@@ -206,9 +191,10 @@
 
     @include e(title) {
         @include menu-item;
-        display: flex;
+        position: relative;
+        /*display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: center;*/
 
         &:hover {
             background-color: $--menu-item-hover-fill;
@@ -227,6 +213,10 @@
         width: 12px;
         transition: transform .3s;
         font-size: 12px;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
     }
     @include when(active) {
         .wu-submenu_title {
@@ -235,7 +225,7 @@
     }
     @include when(opened) {
         > .wu-submenu_title .wu-submenu_icon-arrow {
-            transform: rotateZ(180deg);
+            transform: translateY(-50%) rotateZ(180deg)
         }
     }
     @include when(disabled) {
@@ -293,4 +283,21 @@
     width: 12px;
     height: 12px;
 }
+.wu-submenu_icon-arrow {
+    width: 12px;
+}
+.is-opened .wu-submenu_title .wu-submenu_icon-arrow-horizontal {
+    transform: translateY(0) rotateZ(180deg) !important;
+}
+.wu-submenu .wu-submenu_title .wu-submenu_icon-arrow-horizontal {
+    position: static !important;
+    transform: translateY(0);
+    padding-left: 0 !important;
+    margin-left: 8px !important;
 
+}
+.wu-submenu_title-horizontal {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}

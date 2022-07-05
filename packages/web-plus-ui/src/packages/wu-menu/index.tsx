@@ -1,9 +1,12 @@
-import { h, Component, Prop, OnConnected, WuComponent, Provide, Watch } from '@canyuegongzi/web-core-plus';
+import { Component, Emit, h, OnConnected, Prop, Provide, Watch, WuComponent } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 import '../wu-menu-sub';
 import '../wu-menu-item-group';
 import '../wu-menu-item';
+import { WuMenuItem } from "../wu-menu-item";
+import { WuSubMenu } from "../wu-menu-sub";
 import { extractClass } from "@/common";
+
 type ModeEnums = 'horizontal' | 'vertical';
 type MenuTriggerEnums = 'hover' | 'click';
 
@@ -15,14 +18,12 @@ export class WuMenu extends WuComponent implements OnConnected {
     constructor() {
         super();
         this.activeIndex = this.defaultActive;
-        //this.openedMenus = (this.defaultOpeneds && !this.collapse) ? this.defaultOpeneds.slice(0) : [];
-        this.openedMenus = [];
+        this.openedMenus = (this.defaultOpeneds && !this.collapse) ? this.defaultOpeneds.slice(0) : [];
         this.items = {};
         this.submenus = {};
-
     }
 
-    public activeIndex;
+    public activeIndex = '';
 
     public openedMenus = [];
 
@@ -31,11 +32,6 @@ export class WuMenu extends WuComponent implements OnConnected {
     public submenus;
 
     public override connected(shadowRoot: ShadowRoot) {}
-
-    @Prop({ default: '' })
-    public header: string;
-
-
 
     @Prop({ default: 'vertical', type: String })
     public mode: ModeEnums;
@@ -78,10 +74,14 @@ export class WuMenu extends WuComponent implements OnConnected {
 
     @Watch('defaultActive')
     public defaultActiveChange(value){
-        if(!this.items[value]){
+        this.activeIndex = value;
+        if(!this.items[value] && Object.keys(this.items).length > 0){
             this.activeIndex = null;
         }
-        this.updateActiveIndex(value);
+        if (Object.keys(this.items).length > 0) {
+            this.updateActiveIndex(value);
+        }
+
     }
 
     @Watch('defaultOpeneds')
@@ -116,7 +116,7 @@ export class WuMenu extends WuComponent implements OnConnected {
             green += (255 - green) * percent;
             blue += (255 - blue) * percent;
         }
-        return `rgb(${ Math.round(red) }, ${ Math.round(green) }, ${ Math.round(blue) })`;
+        return `rgb(${Math.round(red)}, ${Math.round(green)}, ${Math.round(blue)})`;
     }
 
     public getColorChannels(color: any) {
@@ -209,7 +209,13 @@ export class WuMenu extends WuComponent implements OnConnected {
     }
 
     public addSubmenu(item) {
-        // TODO this.$set(this.submenus, item.index, item);
+        if (!item.index) {
+            return;
+        }
+        if (this.submenus === undefined) {
+            this.submenus = {};
+        }
+        this.submenus[item.index] = item;
     }
 
     public removeSubmenu(item) {
@@ -236,7 +242,7 @@ export class WuMenu extends WuComponent implements OnConnected {
         }
     }
 
-    public handleSubmenuClick = (submenu) => {
+    public handleSubmenuClick = (submenu: WuSubMenu) => {
         if (this.openedMenus === undefined) {
             this.openedMenus = (this.defaultOpeneds && !this.collapse) ? this.defaultOpeneds.slice(0) : [];
         }
@@ -245,15 +251,16 @@ export class WuMenu extends WuComponent implements OnConnected {
 
         if (isOpened) {
             this.closeMenu(index);
-            // TODO emit close this.$emit('close', index, indexPath);
+            this.closeChange(submenu);
         } else {
             this.openMenu(index, indexPath);
-            // TODO emit open this.$emit('open', index, indexPath);
-
+            this.openChange(submenu);
         }
+        this.updateSlotContent();
+
     }
 
-    public handleItemClick(item) {
+    public handleItemClick(item: WuMenuItem) {
         const hasIndex = item.index !== null;
         if (hasIndex) {
             this.activeIndex = item.index;
@@ -262,9 +269,38 @@ export class WuMenu extends WuComponent implements OnConnected {
         if (this.mode === 'horizontal' || this.collapse) {
             this.openedMenus = [];
         }
+        this.updateSlotContent();
+        this.select(item);
+    }
+
+    private updateSlotContent() {
+        Object.values(this.submenus).forEach(item => {
+            (item as any).update();
+        });
         Object.values(this.items).forEach(item => {
             (item as any).update();
         });
+    }
+
+    @Emit('select')
+    public select(item: WuMenuItem) {
+        return {
+            index: item.index, indexPath: item.indexPath, item: item
+        };
+    }
+
+    @Emit('open')
+    public openChange(item: WuSubMenu) {
+        return {
+            index: item.index, indexPath: item.indexPath, item: item
+        };
+    }
+
+    @Emit('close')
+    public closeChange(item: WuSubMenu) {
+        return {
+            index: item.index, indexPath: item.indexPath, item: item
+        };
     }
 
     public override render(_renderProps = {}, _store = {}) {

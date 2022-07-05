@@ -1,0 +1,17 @@
+{
+  "name": "admin",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build"
+  },
+  "dependencies": {
+    "@canyuegongzi/web-core-plus": "0.0.41",
+    "@canyuegongzi/web-ui-plus": "0.0.24"
+  },
+  "devDependencies": {
+    "vite": "^2.9.9",
+    "typescript": "^4.5.4"
+  }
+}
