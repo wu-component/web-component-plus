@@ -1,4 +1,4 @@
-import { h, Component, Prop, OnConnected, WuComponent, Inject } from '@canyuegongzi/web-core-plus';
+import { h, Component, Prop, OnConnected, WuComponent, Inject, OnDisConnected } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 import { WuMenu } from "../wu-menu";
 import { extractClass } from "@/common";
@@ -7,20 +7,25 @@ import { extractClass } from "@/common";
     name: 'wu-plus-sub-menu',
     css: css,
 })
-export class WuSubMenu extends WuComponent implements OnConnected {
+export class WuSubMenu extends WuComponent implements OnConnected, OnDisConnected {
     private currentPlacement = 'right-start'
     constructor() {
         super();
     }
 
-    public override connected(shadowRoot: ShadowRoot) {}
+    public override connected(shadowRoot: ShadowRoot) {
+        this.parentMenu.addSubmenu(this);
+        this.wuMenuRef?.addSubmenu(this);
+        this.update();
+    }
 
-    @Prop({ default: true, type: Boolean })
-    public headerShow: boolean;
+    public override disConnected() {
+        this.parentMenu.removeSubmenu(this);
+        this.wuMenuRef?.removeSubmenu(this);
+    }
 
     @Prop({ default: '', type: String })
     public index: string;
-
 
     @Prop({ default: 300, type: Number })
     public showTimeout: string;
@@ -81,11 +86,34 @@ export class WuSubMenu extends WuComponent implements OnConnected {
         this.items[item.index] = item;
     }
     get paddingStyle() {
-        return {};
+        if (this.wuMenuRef?.mode !== 'vertical') return {};
+
+        let padding = 20;
+        let parent = this.parentNode;
+
+        if (this.wuMenuRef?.collapse) {
+            padding = 20;
+        } else {
+            while (parent && parent.tagName !== 'WU-PLUS-MENU') {
+                if (parent.tagName === 'WU-PLUS-SUB-MENU') {
+                    padding += 20;
+                }
+                parent = parent.parentNode;
+            }
+        }
+        return { paddingLeft: padding + 'px' };
     }
 
     get itemStyle() {
-        return {};
+        const style: Record<any, any> = {
+            color: this.active ? this.activeTextColor : this.textColor
+        };
+        if (this.mode === 'horizontal' && !this.isNested) {
+            style.borderBottomColor = this.active
+                ? (this.wuMenuRef?.activeTextColor ? this.activeTextColor : '')
+                : 'transparent';
+        }
+        return style;
     }
 
     get parentMenu() {
@@ -96,6 +124,9 @@ export class WuSubMenu extends WuComponent implements OnConnected {
         return true;
     }
 
+    get isNested() {
+        return this.parentMenu !== this.wuMenuRef;
+    }
     public handleMouseenter(event: any, time: number) {}
 
     public handleMouseleave(flg) {}
@@ -194,6 +225,18 @@ export class WuSubMenu extends WuComponent implements OnConnected {
         return isFirstLevel;
     }
 
+    get indexPath() {
+        const path = [ this.index ];
+        let parent = this.parentNode;
+        while (parent.tagName !== 'WU-PLUS-MENU') {
+            if (parent.index) {
+                path.unshift(parent.index);
+            }
+            parent = parent.parentNode;
+        }
+        return path;
+    }
+
     public RenderPopupMenu() {
         return (
             <div
@@ -269,14 +312,23 @@ export class WuSubMenu extends WuComponent implements OnConnected {
                 onFocus={this.handleMouseenter}
             >
                 <div
-                    class="wu-submenu_title"
+                    {...extractClass({}, '', {
+                        "wu-submenu_title": true,
+                        [`wu-submenu_title-${this.mode}`]: true
+                    })}
                     onClick={() => this.handleClick()}
                     onMouseenter={() => this.handleTitleMouseenter()}
                     onMouseleave={() => this.handleTitleMouseleave()}
                     style={{ ...this.paddingStyle, ...this.itemStyle, backgroundColor: this.backgroundColor }}
                 >
                     <slot name="title"></slot>
-                    <i className="wu-submenu_icon-arrow" style={{ marginLeft: this.mode === 'horizontal' ? '8px' : '0px' }}>
+                    <i
+                        {...extractClass({}, '', {
+                            "wu-submenu_icon-arrow": true,
+                            [`wu-submenu_icon-arrow-${this.mode}`]: true
+                        })}
+                        style={{ marginLeft: this.mode === 'horizontal' ? '0' : '0px' }}
+                    >
                         {this.RenderSubmenuTitleIcon()}
                     </i>
                 </div>

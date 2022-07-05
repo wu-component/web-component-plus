@@ -1,15 +1,14 @@
-import { h, Component, Prop, OnConnected, WuComponent, Inject } from '@canyuegongzi/web-core-plus';
+import { h, Component, Prop, OnConnected, WuComponent, Inject, OnDisConnected } from '@canyuegongzi/web-core-plus';
 import "@canyuegongzi/web-ui-plus/dist/wu-tooltip/lib/index.esm";
 import css from './index.scss';
-import { WuMenu } from "../wu-menu";
 import { extractClass } from "@/common";
-type ShadowEnums = 'always' | 'hover' | 'never';
+import { WuMenu } from "../wu-menu";
 
 @Component({
     name: 'wu-plus-menu-item',
     css: css,
 })
-export class WuMenuItem extends WuComponent implements OnConnected {
+export class WuMenuItem extends WuComponent implements OnConnected, OnDisConnected {
     constructor() {
         super();
     }
@@ -17,23 +16,18 @@ export class WuMenuItem extends WuComponent implements OnConnected {
     public override connected(shadowRoot: ShadowRoot) {
         this.wuMenuRef?.addItem(this);
         this.parentMenu.addItem(this);
+        this.update();
     }
 
-    @Prop({ default: '' })
-    public header: string;
-
-    @Prop({ default: { padding: '20px' } })
-    public bodyStyle: Record<any, any>;
-
-    @Prop({ default: 'always', type: String })
-    public shadow: ShadowEnums;
-
-    @Prop({ default: true, type: Boolean })
-    public headerShow: boolean;
+    public override disConnected() {
+        this.parentMenu.addItem(this);
+        this.wuMenuRef?.addItem(this);
+    }
 
     @Prop({ default: '', type: String })
     public index: string;
 
+    @Prop({ default: false, type: Boolean })
     public disabled: boolean;
 
     @Inject('wuMenuRef')
@@ -43,7 +37,6 @@ export class WuMenuItem extends WuComponent implements OnConnected {
     public handleClick() {
         if (!this.disabled) {
             this.wuMenuRef?.handleItemClick(this);
-            console.log('this.active', this.active);
             this.update();
         }
 
@@ -109,7 +102,7 @@ export class WuMenuItem extends WuComponent implements OnConnected {
         return style;
     }
 
-    public isNested() {
+    get isNested() {
         return this.parentMenu !== this.wuMenuRef;
     }
 
@@ -119,6 +112,18 @@ export class WuMenuItem extends WuComponent implements OnConnected {
 
     get isSlotTitle() {
         return true;
+    }
+
+    get indexPath() {
+        const path = [ this.index ];
+        let parent = this.parentNode;
+        while (parent.tagName !== 'WU-PLUS-MENU') {
+            if (parent.index) {
+                path.unshift(parent.index);
+            }
+            parent = parent.parentNode;
+        }
+        return path;
     }
     public override render(_renderProps = {}, _store = {}) {
         return (
