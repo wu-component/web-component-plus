@@ -7,8 +7,6 @@ export default defineConfig({
       entry: 'src/main.tsx',
       formats: ['es']
     },
-    rollupOptions: {
-      external: /^lit/
-    }
+    rollupOptions: {}
   }
 })
