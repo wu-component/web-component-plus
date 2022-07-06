@@ -7,8 +7,9 @@
     "build": "tsc && vite build"
   },
   "dependencies": {
-    "@canyuegongzi/web-core-plus": "0.0.41",
-    "@canyuegongzi/web-ui-plus": "0.0.24"
+    "@canyuegongzi/web-core-plus": "latest",
+    "@canyuegongzi/web-ui-plus": "latest",
+    "@canyuegongzi/wu-core-router": "latest"
   },
   "devDependencies": {
     "vite": "^2.9.9",
