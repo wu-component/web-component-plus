@@ -1,6 +1,5 @@
 import { Router } from "@canyuegongzi/wu-core-router";
 import { RouterOptions } from "@canyuegongzi/wu-core-router/dist/router/common";
-
 const options: RouterOptions = {
     type: 'hash',
     after: () => {
