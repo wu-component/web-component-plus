@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@canyuegongzi/web-core-plus": "latest",
-    "@canyuegongzi/web-ui-plus": "latest",
+    "@canyuegongzi/web-ui-plus": "0.0.26",
     "@canyuegongzi/wu-core-router": "latest"
   },
   "devDependencies": {

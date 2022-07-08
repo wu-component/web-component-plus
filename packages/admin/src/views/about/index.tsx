@@ -17,7 +17,7 @@ export class AboutView extends WuComponent {
     public override render(_renderProps = {}, _store = {}) {
         return (
             <div style="height: 100%">
-                <wu-plus-button size="mini" type="primary" onClick={() => this.toHome()}>跳转到首页</wu-plus-button>
+                {/*<wu-plus-button size="mini" type="primary" onClick={() => this.toHome()}>跳转到首页</wu-plus-button>*/}
                 <div style="display: flex; align-items: center; flex-direction: column; padding: 16px">
                     <wu-plus-progress style="width: 350px" percentage="70"></wu-plus-progress>
                     <span style="height: 16px"></span>

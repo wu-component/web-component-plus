@@ -18,7 +18,7 @@ export class MyView extends WuComponent {
     public override render(_renderProps = {}, _store = {}) {
         return (
             <div style="height: 100%">
-                <wu-plus-button size="mini" type="primary" onClick={() => this.toAbout()}>跳转到关于的页面</wu-plus-button>
+                {/*<wu-plus-button size="mini" type="primary" onClick={() => this.toAbout()}>跳转到关于的页面</wu-plus-button>*/}
                 <div style="display: flex; flex-wrap: wrap; align-items: center;justify-content: space-around;padding: 16px">
                     <div style="display: flex;flex-direction: column">
                         <span>fill</span>

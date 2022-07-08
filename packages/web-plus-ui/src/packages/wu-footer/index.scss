@@ -2,6 +2,10 @@
 @import '../../theme/common/var.scss';
 @import '../../theme/common/mixin.scss';
 
+:host {
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
 @include b(footer) {
     padding: $--footer-padding;
     box-sizing: border-box;
