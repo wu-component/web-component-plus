@@ -1,19 +1,18 @@
-import { PluginFunc, ConfigType } from 'dayjs'
+import { PluginFunc, ConfigType } from 'dayjs';
 
-declare const plugin: PluginFunc
-export = plugin
+declare const plugin: PluginFunc;
+export = plugin;
 
 declare module 'dayjs' {
-  interface Dayjs {
-    
-    utc(keepLocalTime?: boolean): Dayjs
-    
-    local(): Dayjs
+    interface Dayjs {
+        utc(keepLocalTime?: boolean): Dayjs;
 
-    isUTC(): boolean
+        local(): Dayjs;
 
-    utcOffset(offset: number, keepLocalTime?: boolean): Dayjs
-  }
+        isUTC(): boolean;
 
-  export function utc(config?: ConfigType, format?: string): Dayjs
+        utcOffset(offset: number, keepLocalTime?: boolean): Dayjs;
+    }
+
+    export function utc(config?: ConfigType, format?: string): Dayjs;
 }

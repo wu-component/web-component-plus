@@ -1,10 +1,8 @@
-import { PluginFunc } from 'dayjs/esm'
+import { PluginFunc } from 'dayjs/esm';
 
-declare const plugin: PluginFunc
-export = plugin
+declare const plugin: PluginFunc;
+export = plugin;
 
 declare module 'dayjs/esm' {
-
-  export function isMoment(input: any): boolean
-
+    export function isMoment(input: any): boolean;
 }

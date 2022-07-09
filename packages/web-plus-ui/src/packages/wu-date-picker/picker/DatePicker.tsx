@@ -7,7 +7,7 @@ import isoWeeksInYear from 'dayjs/plugin/isoWeeksInYear';
 import WeekOfYear from 'dayjs/plugin/WeekOfYear';
 import isLeapYear from 'dayjs/plugin/isLeapYear';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
-import { format, option, shortList } from "./config";
+import { format, option, shortList } from './config';
 
 dayjs.extend(isSameOrBefore);
 dayjs.extend(isoWeeksInYear);
@@ -45,18 +45,18 @@ export class DatePicker {
         this.option = $.extend(true, {}, option, options);
         this.type = this.option.type;
         // @ts-ignore
-        this.format = this.type.indexOf('year') > -1 ? 'YYYY' : (this.type.indexOf('month') > -1 ? 'YYYY-MM' : (this.type.indexOf('time') > -1 ? 'YYYY-MM-DD' : 'YYYY-MM-DD'));
+        this.format = this.type.indexOf('year') > -1 ? 'YYYY' : this.type.indexOf('month') > -1 ? 'YYYY-MM' : this.type.indexOf('time') > -1 ? 'YYYY-MM-DD' : 'YYYY-MM-DD';
 
         if (typeof this.option.placeholder == 'string') {
             this.placeholder = {
                 startTime: this.option.placeholder,
-                endTime: this.option.placeholder
+                endTime: this.option.placeholder,
             };
         }
         if (typeof this.option.placeholder == 'object') {
             this.placeholder = {
                 startTime: this.option.placeholder.startTime,
-                endTime: this.option.placeholder.endTime
+                endTime: this.option.placeholder.endTime,
             };
         }
         this.initTargetDom(targetDom);
@@ -65,15 +65,17 @@ export class DatePicker {
 
         this.option.minDate && (this.option.minDate = dayjs(this.option.minDate));
         this.option.maxDate && (this.option.maxDate = dayjs(this.option.maxDate));
-        this.disableDate = this.option.disableDate || function (date, dayjs, calcType) {
-            return false;
-        };
+        this.disableDate =
+            this.option.disableDate ||
+            function(date, dayjs, calcType) {
+                return false;
+            };
         this.onConfirm = onConfirm;
-        this.selectedDate = {};//已确认的时间
-        this.date1 = this.option.startTime ? (this.option.startTime.clone()) : dayjs();//当前选择的起始时间
-        this.date2 = this.option.endTime ? (this.option.endTime.clone()) : dayjs();//当前选择的起始时间
-        this.tempdate1 = '';//左侧选择器的时间
-        this.tempdate2 = '';//右侧选择器的时间
+        this.selectedDate = {}; //已确认的时间
+        this.date1 = this.option.startTime ? this.option.startTime.clone() : dayjs(); //当前选择的起始时间
+        this.date2 = this.option.endTime ? this.option.endTime.clone() : dayjs(); //当前选择的起始时间
+        this.tempdate1 = ''; //左侧选择器的时间
+        this.tempdate2 = ''; //右侧选择器的时间
         this.multipleDates = $.extend(true, [], this.option.multipleDates || []);
         if (!options.shortList) {
             this.option.shortList = shortList[this.type];
@@ -101,7 +103,7 @@ export class DatePicker {
         this.targetDom = targetDom;
         this.$t.addClass('xndatepicker-pc-input');
         const num = [ 'startTime' ];
-        if ((this.type.indexOf('range') > -1) || this.type == 'week') {
+        if (this.type.indexOf('range') > -1 || this.type == 'week') {
             num.push('endTime');
         }
         for (let i = 0; i < num.length; i++) {
@@ -140,7 +142,8 @@ export class DatePicker {
         this.setDate();
     }
 
-    public resetCurrentTime(startTime = '', endTime = '') {//显示日历的时候，重新设置当前的日期
+    public resetCurrentTime(startTime = '', endTime = '') {
+        //显示日历的时候，重新设置当前的日期
         if (this.type == 'multiple') {
             this.multipleDates = $.extend(true, [], this.selectedMultiple || []);
         }
@@ -182,7 +185,7 @@ export class DatePicker {
                     currentTime = currentTime.second(res.value.second);
                     that.date1 = currentTime;
                     that.$container.find('.time1 .timecont>span').html(res.str);
-                }
+                },
             });
         }
         if (this.type == 'datetimerange') {
@@ -195,7 +198,7 @@ export class DatePicker {
                     currentTime = currentTime.second(res.value.second);
                     that.date2 = currentTime;
                     that.$container.find('.time2 .timecont>span').html(res.str);
-                }
+                },
             });
         }
     }
@@ -213,18 +216,24 @@ export class DatePicker {
         //         this.changeShowStatus(true);
         //     }
         // }
-        const clickFunc = (e) => {
+        const clickFunc = e => {
             if (e.target == this.targetDom) {
                 this.changeShowStatus();
-            } else if (!$(e.target).parents('.xndatepicker').get(0) || ($(e.target).parents('.xndatepicker').get(0).id != this.id)) {
-
+            } else if (
+                !$(e.target)
+                    .parents('.xndatepicker')
+                    .get(0) ||
+                $(e.target)
+                    .parents('.xndatepicker')
+                    .get(0).id != this.id
+            ) {
                 this.changeShowStatus(true);
             }
         };
         this.removeClickEvent = () => {
-            document.removeEventListener('click', clickFunc, true);//捕获阶段
+            document.removeEventListener('click', clickFunc, true); //捕获阶段
         };
-        document.addEventListener('click', clickFunc, true);//捕获阶段
+        document.addEventListener('click', clickFunc, true); //捕获阶段
         this.targetDom.addEventListener('click', e => {
             const $t = $(e.target);
             if ($t.hasClass('clear-btn')) {
@@ -238,14 +247,13 @@ export class DatePicker {
                 this.changeShowStatus();
             }
         });
-
     }
 
     private changeShowStatus(hide = false) {
         if (this.show || hide) {
             if (this.$container) {
-                this.$container.removeClass("xndatepicker-animate");
-                this.$container.addClass("xndatepicker-animate-out");
+                this.$container.removeClass('xndatepicker-animate');
+                this.$container.addClass('xndatepicker-animate-out');
                 setTimeout(() => {
                     if (this.$container) {
                         this.$container.remove();
@@ -267,7 +275,7 @@ export class DatePicker {
             this.$container.css({ display: 'block' });
             // this.$container.css({display: 'block', opacity: '0'})
             this.resetCurrentTime();
-            this.$container.addClass("xndatepicker-animate");
+            this.$container.addClass('xndatepicker-animate');
             // this.$container.fadeIn(200);
             this.show = true;
         }
@@ -276,10 +284,10 @@ export class DatePicker {
 
     private addPosEvent() {
         const that = this;
-        window.addEventListener("scroll", function () {
+        window.addEventListener('scroll', function() {
             that.setPosition();
         });
-        window.addEventListener("resize", function () {
+        window.addEventListener('resize', function() {
             that.setPosition();
         });
     }
@@ -307,13 +315,13 @@ export class DatePicker {
 
         let trangletop = -6;
         let trangleleft = 20;
-        let borderWidth = "1px 0 0 1px";
-        this.$container.css("transform-origin", "top");
+        let borderWidth = '1px 0 0 1px';
+        this.$container.css('transform-origin', 'top');
         if (top + domheight > wheight) {
             top = targetTop - domheight - 10;
             trangletop = domheight - 7;
-            borderWidth = "0 1px 1px 0";
-            this.$container.css("transform-origin", "bottom");
+            borderWidth = '0 1px 1px 0';
+            this.$container.css('transform-origin', 'bottom');
         }
         if (top < 0) {
             top = 0;
@@ -325,10 +333,10 @@ export class DatePicker {
         if (left < 0) {
             left = 0;
         }
-        this.$container.get(0).style.top = top + "px";
-        this.$container.get(0).style.left = left + "px";
-        this.$container.find('.xntriangle').get(0).style.left = trangleleft + "px";
-        this.$container.find('.xntriangle').get(0).style.top = trangletop + "px";
+        this.$container.get(0).style.top = top + 'px';
+        this.$container.get(0).style.left = left + 'px';
+        this.$container.find('.xntriangle').get(0).style.left = trangleleft + 'px';
+        this.$container.find('.xntriangle').get(0).style.top = trangletop + 'px';
         this.$container.find('.xntriangle').get(0).style.borderWidth = borderWidth;
     }
 
@@ -352,8 +360,16 @@ export class DatePicker {
         if (this.type == 'week') {
             if ($t) {
                 const date = $t.attr('data-date');
-                date1 = dayjs(date).subtract((parseInt(this.option.firstDayOfWeek)) % 7, 'days').startOf('week').add((parseInt(this.option.firstDayOfWeek)) % 7, 'days').format('YYYY-MM-DD');
-                date2 = dayjs(date).subtract((parseInt(this.option.firstDayOfWeek)) % 7, 'days').endOf('week').add((parseInt(this.option.firstDayOfWeek)) % 7, 'days').format('YYYY-MM-DD');
+                date1 = dayjs(date)
+                    .subtract(parseInt(this.option.firstDayOfWeek) % 7, 'days')
+                    .startOf('week')
+                    .add(parseInt(this.option.firstDayOfWeek) % 7, 'days')
+                    .format('YYYY-MM-DD');
+                date2 = dayjs(date)
+                    .subtract(parseInt(this.option.firstDayOfWeek) % 7, 'days')
+                    .endOf('week')
+                    .add(parseInt(this.option.firstDayOfWeek) % 7, 'days')
+                    .format('YYYY-MM-DD');
                 if (this.option.minDate && dayjs(date2).isBefore(this.option.minDate)) {
                     return;
                 }
@@ -366,69 +382,109 @@ export class DatePicker {
                 if (this.option.maxDate && dayjs(date2).isAfter(this.option.maxDate)) {
                     date2 = dayjs(this.option.maxDate).format('YYYY-MM-DD');
                 }
-                this.$container.find(".hover").removeClass("hover");
+                this.$container.find('.hover').removeClass('hover');
                 this.$container.find("[data-date='" + date1 + "']").addClass('hover');
                 this.$container.find("[data-date='" + date2 + "']").addClass('hover');
-                this.$container.find("[data-date='" + date1 + "']").nextUntil(this.$container.find("[data-date='" + date2 + "']").get(0)).addClass('hover');
+                this.$container
+                    .find("[data-date='" + date1 + "']")
+                    .nextUntil(this.$container.find("[data-date='" + date2 + "']").get(0))
+                    .addClass('hover');
             } else {
-                this.$container.find(".hover").removeClass("hover");
+                this.$container.find('.hover').removeClass('hover');
             }
-            this.$container.find(".cur-date").eq(0).nextUntil(this.$container.find(".cur-date").get(1)).addClass('hover');
-            this.$container.find(".cur-date").eq(1).addClass('right-date');
+            this.$container
+                .find('.cur-date')
+                .eq(0)
+                .nextUntil(this.$container.find('.cur-date').get(1))
+                .addClass('hover');
+            this.$container
+                .find('.cur-date')
+                .eq(1)
+                .addClass('right-date');
             return;
         }
         if ($t && !$t.hasClass('active-day')) {
             return;
         }
         if (this.type.indexOf('range') < 0) {
-            this.$container.find(".cur-date").addClass('circle-date');
+            this.$container.find('.cur-date').addClass('circle-date');
             return;
         }
         let inSame = undefined;
-        this.$container.find(".hover").removeClass("hover");
-        if ($t && !this.$container.find(".cur-date").get(1) && (!this.date2)) {
-            date1 = this.$container.find(".cur-date").eq(0).attr('data-date');
+        this.$container.find('.hover').removeClass('hover');
+        if ($t && !this.$container.find('.cur-date').get(1) && !this.date2) {
+            date1 = this.$container
+                .find('.cur-date')
+                .eq(0)
+                .attr('data-date');
             date2 = $t.attr('data-date');
             $('.circle-date').removeClass('circle-date');
             $('.right-date').removeClass('right-date');
             const isBefore = dayjs(date1).isBefore(date2);
             if (this.type.indexOf('year') > -1) {
-                inSame = (date1 - date1 % 12) == (date2 - date2 % 12);
+                inSame = date1 - (date1 % 12) == date2 - (date2 % 12);
             } else {
                 inSame = dayjs(date1).format(format) == dayjs(date2).format(format);
             }
             if (date1 != date2) {
                 if (inSame) {
                     if (isBefore) {
-                        this.$container.find(".cur-date").eq(0).nextUntil($t.get(0)).addClass("hover");
+                        this.$container
+                            .find('.cur-date')
+                            .eq(0)
+                            .nextUntil($t.get(0))
+                            .addClass('hover');
                     } else {
-                        this.$container.find(".cur-date").eq(0).addClass('right-date');
-                        $t.nextUntil(this.$container.find(".cur-date").get(0)).addClass("hover");
+                        this.$container
+                            .find('.cur-date')
+                            .eq(0)
+                            .addClass('right-date');
+                        $t.nextUntil(this.$container.find('.cur-date').get(0)).addClass('hover');
                     }
                 } else {
                     if (isBefore) {
-                        this.$container.find(".cur-date").eq(0).nextAll('span').addClass("hover");
-                        $t.prevAll('span').addClass("hover");
+                        this.$container
+                            .find('.cur-date')
+                            .eq(0)
+                            .nextAll('span')
+                            .addClass('hover');
+                        $t.prevAll('span').addClass('hover');
                     } else {
-                        this.$container.find(".cur-date").eq(0).addClass('right-date');
-                        this.$container.find(".cur-date").eq(0).prevAll('span').addClass("hover");
-                        $t.nextAll('span').addClass("hover");
+                        this.$container
+                            .find('.cur-date')
+                            .eq(0)
+                            .addClass('right-date');
+                        this.$container
+                            .find('.cur-date')
+                            .eq(0)
+                            .prevAll('span')
+                            .addClass('hover');
+                        $t.nextAll('span').addClass('hover');
                     }
                 }
             }
-
-
         } else {
-            date1 = this.$container.find(".cur-date").eq(0).attr('data-date');
-            date2 = this.$container.find(".cur-date").eq(1).attr('data-date');
-            if (this.$container.find(".cur-date").eq(0).hasClass('circle-date')) {
+            date1 = this.$container
+                .find('.cur-date')
+                .eq(0)
+                .attr('data-date');
+            date2 = this.$container
+                .find('.cur-date')
+                .eq(1)
+                .attr('data-date');
+            if (
+                this.$container
+                    .find('.cur-date')
+                    .eq(0)
+                    .hasClass('circle-date')
+            ) {
                 date2 = date1;
             }
             $('.circle-date').removeClass('circle-date');
             $('.right-date').removeClass('right-date');
             const isBefore = dayjs(date1, 'YYYY-MM-DD').isBefore(dayjs(date2, 'YYYY-MM-DD'));
             if (this.type.indexOf('year') > -1) {
-                inSame = (date1 - date1 % 12) == (date2 - date2 % 12);
+                inSame = date1 - (date1 % 12) == date2 - (date2 % 12);
             } else {
                 inSame = dayjs(date1).format(format) == dayjs(date2).format(format);
             }
@@ -436,42 +492,64 @@ export class DatePicker {
             if (date1 != date2) {
                 if (inSame) {
                     if (isBefore) {
-                        this.$container.find(".cur-date").eq(0).nextUntil(this.$container.find(".cur-date").get(1)).addClass("hover");
+                        this.$container
+                            .find('.cur-date')
+                            .eq(0)
+                            .nextUntil(this.$container.find('.cur-date').get(1))
+                            .addClass('hover');
                     } else {
-                        this.$container.find(".cur-date").eq(1).nextUntil(this.$container.find(".cur-date").get(0)).addClass("hover");
+                        this.$container
+                            .find('.cur-date')
+                            .eq(1)
+                            .nextUntil(this.$container.find('.cur-date').get(0))
+                            .addClass('hover');
                     }
                 } else {
-                    this.$container.find(".cur-date").eq(0).nextAll('span').addClass("hover");
-                    this.$container.find(".cur-date").eq(1).prevAll('span').addClass("hover");
+                    this.$container
+                        .find('.cur-date')
+                        .eq(0)
+                        .nextAll('span')
+                        .addClass('hover');
+                    this.$container
+                        .find('.cur-date')
+                        .eq(1)
+                        .prevAll('span')
+                        .addClass('hover');
                 }
             }
-
         }
         if (date1 == date2) {
-            this.$container.find(".cur-date").eq(0).addClass('circle-date');
+            this.$container
+                .find('.cur-date')
+                .eq(0)
+                .addClass('circle-date');
         } else {
-            this.$container.find(".cur-date").eq(1).addClass('right-date');
+            this.$container
+                .find('.cur-date')
+                .eq(1)
+                .addClass('right-date');
         }
-
     }
 
     public setDate() {
         const date = {};
 
-        this.$container.find(".cur-date").each((ele, i) => {
+        this.$container.find('.cur-date').each((ele, i) => {
             // @ts-ignore
-            const _datekey = $(ele).parents(".date-item").attr("data-id");
+            const _datekey = $(ele)
+                .parents('.date-item')
+                .attr('data-id');
             const day = dayjs($(ele).attr('data-date'), 'YYYY-MM-DD').format('YYYY-MM-DD');
             let time = '';
             if (this.type.indexOf('time')) {
-                time = ' ' + this.$container.find(".time" + (i + 1) + " .timecont>span").html();
+                time = ' ' + this.$container.find('.time' + (i + 1) + ' .timecont>span').html();
             }
             date[i] = dayjs(day + time, 'YYYY-MM-DD HH:mm:ss');
-            this.$container.find(".time" + (i + 1) + ">input").val(day);
-            if (this.$container.find(".circle-date").get(0) == ele) {
+            this.$container.find('.time' + (i + 1) + '>input').val(day);
+            if (this.$container.find('.circle-date').get(0) == ele) {
                 const j = 1;
                 date[j] = dayjs(day + time, 'YYYY-MM-DD HH:mm:ss');
-                this.$container.find(".time" + (j + 1) + ">input").val(day);
+                this.$container.find('.time' + (j + 1) + '>input').val(day);
             }
         });
         this.date1 = date[0];
@@ -487,61 +565,61 @@ export class DatePicker {
         if (otherdatenum < datenum) {
             if (this.type.indexOf('date') > -1 || this.type == 'week') {
                 // @ts-ignore
-                if ((dayjs(this['tempdate' + otherdatenum].format('YYYY-MM')).isSameOrAfter(this['tempdate' + datenum].format('YYYY-MM'))) || this.option.linkPanels) {
+                if (dayjs(this['tempdate' + otherdatenum].format('YYYY-MM')).isSameOrAfter(this['tempdate' + datenum].format('YYYY-MM')) || this.option.linkPanels) {
                     this['tempdate' + datenum] = this['tempdate' + otherdatenum].clone().add(1, 'months');
-                    this.geneDateList(this["tempdate" + datenum], this.$container.find(".dater" + datenum));
+                    this.geneDateList(this['tempdate' + datenum], this.$container.find('.dater' + datenum));
                 }
             }
-            if ((this.type.indexOf('month') > -1)) {
-                if ((this['tempdate' + otherdatenum].isSameOrAfter(this['tempdate' + datenum], 'year')) || this.option.linkPanels) {
+            if (this.type.indexOf('month') > -1) {
+                if (this['tempdate' + otherdatenum].isSameOrAfter(this['tempdate' + datenum], 'year') || this.option.linkPanels) {
                     this['tempdate' + datenum] = this['tempdate' + otherdatenum].clone().add(1, 'years');
                 }
                 this.rendMonth(datenum);
             }
-            if ((this.type.indexOf('weeknum') > -1)) {
-                if ((this['tempdate' + otherdatenum].isSameOrAfter(this['tempdate' + datenum], 'year')) || this.option.linkPanels) {
+            if (this.type.indexOf('weeknum') > -1) {
+                if (this['tempdate' + otherdatenum].isSameOrAfter(this['tempdate' + datenum], 'year') || this.option.linkPanels) {
                     this['tempdate' + datenum] = this['tempdate' + otherdatenum].clone().add(1, 'years');
                 }
                 this.rendWeekNum(datenum);
             }
-            if ((this.type.indexOf('year') > -1)) {
+            if (this.type.indexOf('year') > -1) {
                 const year1 = this['tempdate' + otherdatenum].format('YYYY');
                 const year2 = this['tempdate' + datenum].format('YYYY');
-                const year1P = year1 - year1 % 12;
-                const year2P = year2 - year2 % 12;
+                const year1P = year1 - (year1 % 12);
+                const year2P = year2 - (year2 % 12);
 
-                if ((year1P >= year2P) || this.option.linkPanels) {
+                if (year1P >= year2P || this.option.linkPanels) {
                     this['tempdate' + datenum] = this['tempdate' + otherdatenum].clone().add(12, 'years');
                 }
                 this.rendYears(datenum);
             }
         } else {
-            if ((this.type.indexOf('date') > -1 || this.type == 'week')) {
+            if (this.type.indexOf('date') > -1 || this.type == 'week') {
                 // @ts-ignore
-                if ((dayjs(this['tempdate' + otherdatenum].format('YYYY-MM')).isSameOrBefore(this['tempdate' + datenum].format('YYYY-MM'))) || this.option.linkPanels) {
+                if (dayjs(this['tempdate' + otherdatenum].format('YYYY-MM')).isSameOrBefore(this['tempdate' + datenum].format('YYYY-MM')) || this.option.linkPanels) {
                     this['tempdate' + datenum] = this['tempdate' + otherdatenum].clone().subtract(1, 'months');
-                    this.geneDateList(this["tempdate" + datenum], this.$container.find(".dater" + datenum));
+                    this.geneDateList(this['tempdate' + datenum], this.$container.find('.dater' + datenum));
                 }
             }
-            if ((this.type.indexOf('month') > -1)) {
-                if ((this['tempdate' + otherdatenum].isSameOrBefore(this['tempdate' + datenum], 'year')) || this.option.linkPanels) {
+            if (this.type.indexOf('month') > -1) {
+                if (this['tempdate' + otherdatenum].isSameOrBefore(this['tempdate' + datenum], 'year') || this.option.linkPanels) {
                     this['tempdate' + datenum] = this['tempdate' + otherdatenum].clone().subtract(1, 'years');
                 }
                 this.rendMonth(datenum);
             }
-            if ((this.type.indexOf('weeknum') > -1)) {
-                if ((this['tempdate' + otherdatenum].isSameOrBefore(this['tempdate' + datenum], 'year')) || this.option.linkPanels) {
+            if (this.type.indexOf('weeknum') > -1) {
+                if (this['tempdate' + otherdatenum].isSameOrBefore(this['tempdate' + datenum], 'year') || this.option.linkPanels) {
                     this['tempdate' + datenum] = this['tempdate' + otherdatenum].clone().subtract(1, 'years');
                     this.rendWeekNum(datenum);
                 }
             }
-            if ((this.type.indexOf('year') > -1)) {
+            if (this.type.indexOf('year') > -1) {
                 // eslint-disable-next-line no-var
                 const year1 = this['tempdate' + otherdatenum].format('YYYY');
                 const year2 = this['tempdate' + datenum].format('YYYY');
-                const year1P = year1 - year1 % 12;
-                const year2P = year2 - year2 % 12;
-                if ((year1P <= year2P) || this.option.linkPanels) {
+                const year1P = year1 - (year1 % 12);
+                const year2P = year2 - (year2 % 12);
+                if (year1P <= year2P || this.option.linkPanels) {
                     this['tempdate' + datenum] = this['tempdate' + otherdatenum].clone().subtract(12, 'years');
                 }
                 this.rendYears(datenum);
@@ -551,81 +629,80 @@ export class DatePicker {
     }
 
     public addEvent() {
-        const mouseMoveFunc = (e) => {
+        const mouseMoveFunc = e => {
             const $t = $(e.target);
             if (!this.$container) {
                 return;
             }
             if ($t.parents('.xndatepicker').get(0) == this.$container.get(0)) {
-                if ($t.hasClass("day-item") || $t.hasClass("month-item") || $t.hasClass("year-item") || $t.hasClass("week-item")) {
+                if ($t.hasClass('day-item') || $t.hasClass('month-item') || $t.hasClass('year-item') || $t.hasClass('week-item')) {
                     this.rendHoverStyle($t);
                 }
             }
         };
         this.removeMoveEvent = () => {
-            document.removeEventListener('mousemove', mouseMoveFunc);//捕获阶段
+            document.removeEventListener('mousemove', mouseMoveFunc); //捕获阶段
         };
         //
-        document.addEventListener("mousemove", mouseMoveFunc);
-        this.$container.get(0).addEventListener("click", (e) => {
+        document.addEventListener('mousemove', mouseMoveFunc);
+        this.$container.get(0).addEventListener('click', e => {
             const $t = $(e.target);
-            const datenum = $t.parents(".dater1").get(0) ? 1 : 2;
-            if ($t.hasClass("skip-date")) {
+            const datenum = $t.parents('.dater1').get(0) ? 1 : 2;
+            if ($t.hasClass('skip-date')) {
                 const func = $t.attr('data-func');
                 const unit = $t.attr('data-unit');
-                var newdate = dayjs(this["tempdate" + datenum]).clone();
+                var newdate = dayjs(this['tempdate' + datenum]).clone();
                 newdate = newdate[func](1, unit + 's').startOf(unit);
                 if (this.checkDisable(newdate, unit, this.type, unit)) {
                     return;
                 }
-                this["tempdate" + datenum] = this["tempdate" + datenum][func](1, unit + 's');
+                this['tempdate' + datenum] = this['tempdate' + datenum][func](1, unit + 's');
                 if (unit == 'year') {
-                    if (this.option.minDate && this["tempdate" + datenum].isBefore(this.option.minDate)) {
-                        this["tempdate" + datenum] = dayjs(this.option.minDate);
+                    if (this.option.minDate && this['tempdate' + datenum].isBefore(this.option.minDate)) {
+                        this['tempdate' + datenum] = dayjs(this.option.minDate);
                     }
-                    if (this.option.maxDate && this["tempdate" + datenum].isAfter(this.option.maxDate)) {
-                        this["tempdate" + datenum] = dayjs(this.option.maxDate);
+                    if (this.option.maxDate && this['tempdate' + datenum].isAfter(this.option.maxDate)) {
+                        this['tempdate' + datenum] = dayjs(this.option.maxDate);
                     }
                 }
-                this.geneDateList(this["tempdate" + datenum], this.$container.find(".dater" + datenum));
+                this.geneDateList(this['tempdate' + datenum], this.$container.find('.dater' + datenum));
                 this.rendOtherDateList(datenum);
             }
-            if ($t.hasClass("month-prev-year")) {
+            if ($t.hasClass('month-prev-year')) {
                 this.rendMonth(datenum);
             }
-            if ($t.hasClass("month-next-year")) {
+            if ($t.hasClass('month-next-year')) {
                 this.rendMonth(datenum);
             }
-            if ($t.hasClass("week-prev-year")) {
+            if ($t.hasClass('week-prev-year')) {
                 this.rendWeekNum(datenum);
             }
-            if ($t.hasClass("week-next-year")) {
+            if ($t.hasClass('week-next-year')) {
                 this.rendWeekNum(datenum);
             }
-            if ($t.hasClass("year-next-year")) {
-                let newdate = $.extend(true, {}, dayjs(this["tempdate" + datenum]));
+            if ($t.hasClass('year-next-year')) {
+                let newdate = $.extend(true, {}, dayjs(this['tempdate' + datenum]));
                 newdate = newdate['add'](12, 'years').startOf('year');
                 if (this.checkDisable(newdate, 1, 'year')) {
                     return;
                 }
-                this["tempdate" + datenum] = this["tempdate" + datenum].add(12, 'years');
+                this['tempdate' + datenum] = this['tempdate' + datenum].add(12, 'years');
                 this.rendYears(datenum);
                 this.rendOtherDateList(datenum);
             }
-            if ($t.hasClass("year-prev-year")) {
-                let newdate = $.extend(true, {}, dayjs(this["tempdate" + datenum]));
+            if ($t.hasClass('year-prev-year')) {
+                let newdate = $.extend(true, {}, dayjs(this['tempdate' + datenum]));
                 newdate = newdate.startOf('year');
                 if (this.checkDisable(newdate, -1, 'year')) {
                     return;
                 }
-                this["tempdate" + datenum] = this["tempdate" + datenum].subtract(12, 'years');
+                this['tempdate' + datenum] = this['tempdate' + datenum].subtract(12, 'years');
                 this.rendYears(datenum);
                 this.rendOtherDateList(datenum);
             }
 
-            if ((this.type.indexOf('date') > -1 && $t.hasClass("active-day")) || ($t.hasClass("day-item") && this.type == 'week')) {
-
-                this["date" + datenum] = this["tempdate" + datenum].date($t.html()).clone();
+            if ((this.type.indexOf('date') > -1 && $t.hasClass('active-day')) || ($t.hasClass('day-item') && this.type == 'week')) {
+                this['date' + datenum] = this['tempdate' + datenum].date($t.html()).clone();
 
                 this.setCurClass($t);
                 this.setDate();
@@ -633,7 +710,7 @@ export class DatePicker {
                     this.autoConfirm($t);
                 }
             }
-            if ((this.type.indexOf('multiple') > -1 && $t.hasClass("day-item") && !$t.hasClass("disable-day"))) {
+            if (this.type.indexOf('multiple') > -1 && $t.hasClass('day-item') && !$t.hasClass('disable-day')) {
                 const date = $t.attr('data-date');
                 const key = this.multipleDates.indexOf(date);
                 if (key > -1) {
@@ -644,53 +721,52 @@ export class DatePicker {
                     $t.addClass('cur-date');
                 }
             }
-            if ($t.hasClass("confirm-date")) {
+            if ($t.hasClass('confirm-date')) {
                 this.confirm();
             }
-            if ($t.hasClass("current-date")) {
+            if ($t.hasClass('current-date')) {
                 this.currentdate();
             }
-            if ($t.hasClass("clear-date")) {
+            if ($t.hasClass('clear-date')) {
                 this.cleardate();
             }
-            if ($t.hasClass("year") || $t.hasClass('month-info')) {
+            if ($t.hasClass('year') || $t.hasClass('month-info')) {
                 this.rendYears(datenum);
             }
-            if ($t.hasClass("month")) {
+            if ($t.hasClass('month')) {
                 this.rendMonth(datenum);
             }
-            if ($t.hasClass("year-item") && !$t.hasClass("disable-year")) {
+            if ($t.hasClass('year-item') && !$t.hasClass('disable-year')) {
                 if (this.type.indexOf('year') > -1) {
-                    this["date" + datenum] = dayjs($t.html());
+                    this['date' + datenum] = dayjs($t.html());
                     this.setCurClass($t);
                     this.setDate();
                     this.autoConfirm($t);
                 } else if (this.type.indexOf('weeknum') > -1) {
-                    this["tempdate" + datenum] = this["tempdate" + datenum].year($t.html());
+                    this['tempdate' + datenum] = this['tempdate' + datenum].year($t.html());
                     this.rendWeekNum(datenum);
                     this.rendOtherDateList(datenum);
                 } else {
-                    this["tempdate" + datenum] = this["tempdate" + datenum].year($t.html());
+                    this['tempdate' + datenum] = this['tempdate' + datenum].year($t.html());
                     this.rendMonth(datenum);
                     this.rendOtherDateList(datenum);
                 }
-
             }
-            if ($t.hasClass("month-item") && !$t.hasClass("disable-month")) {
+            if ($t.hasClass('month-item') && !$t.hasClass('disable-month')) {
                 if (this.type.indexOf('month') > -1) {
-                    this["date" + datenum] = dayjs($t.attr('data-date'));
+                    this['date' + datenum] = dayjs($t.attr('data-date'));
                     this.setCurClass($t);
                     this.setDate();
                     this.autoConfirm($t);
                 } else {
-                    this["tempdate" + datenum] = dayjs($t.attr('data-date'));
+                    this['tempdate' + datenum] = dayjs($t.attr('data-date'));
                     // this['date'+datenum]=null;
-                    this.geneDateList(this["tempdate" + datenum], this.$container.find(".dater" + datenum));
+                    this.geneDateList(this['tempdate' + datenum], this.$container.find('.dater' + datenum));
                     this.rendOtherDateList(datenum);
                 }
             }
-            if ($t.hasClass("week-item") && !$t.hasClass("disable-week")) {
-                this["date" + datenum] = dayjs($t.attr("data-date"));
+            if ($t.hasClass('week-item') && !$t.hasClass('disable-week')) {
+                this['date' + datenum] = dayjs($t.attr('data-date'));
                 if (this.type.indexOf('weeknum') > -1) {
                     this.setCurClass($t);
                     this.setDate();
@@ -698,7 +774,10 @@ export class DatePicker {
                 }
             }
             if ($t.get(0).nodeName == 'LI' && $t.parents('.shortcut').get(0)) {
-                const index = $t.parent().find("LI").index($t.get(0));
+                const index = $t
+                    .parent()
+                    .find('LI')
+                    .index($t.get(0));
                 if (this.type == 'multiple') {
                     const startTime = Array.isArray(this.option.shortList[index].value.startTime) ? this.option.shortList[index].value.startTime : [ this.option.shortList[index].value.startTime ];
                     this.multipleDates = startTime;
@@ -729,49 +808,63 @@ export class DatePicker {
     private setCurClass($t) {
         if (this.type == 'week') {
             const date = $t.attr('data-date');
-            let date1 = dayjs(date).clone().subtract((parseInt(this.option.firstDayOfWeek)) % 7, 'days').startOf('week').add((parseInt(this.option.firstDayOfWeek)) % 7, 'days').format('YYYY-MM-DD');
+            let date1 = dayjs(date)
+                .clone()
+                .subtract(parseInt(this.option.firstDayOfWeek) % 7, 'days')
+                .startOf('week')
+                .add(parseInt(this.option.firstDayOfWeek) % 7, 'days')
+                .format('YYYY-MM-DD');
             // var date1 = dayjs(date).clone().startOf('week').format('YYYY-MM-DD')
-            let date2 = dayjs(date).clone().subtract((parseInt(this.option.firstDayOfWeek)) % 7, 'days').endOf('week').add((parseInt(this.option.firstDayOfWeek)) % 7, 'days').format('YYYY-MM-DD');
-            if ((this.option.minDate && dayjs(date1).isBefore(this.option.minDate))) {
+            let date2 = dayjs(date)
+                .clone()
+                .subtract(parseInt(this.option.firstDayOfWeek) % 7, 'days')
+                .endOf('week')
+                .add(parseInt(this.option.firstDayOfWeek) % 7, 'days')
+                .format('YYYY-MM-DD');
+            if (this.option.minDate && dayjs(date1).isBefore(this.option.minDate)) {
                 date1 = dayjs(this.option.minDate).format('YYYY-MM-DD');
             }
-            if ((this.option.maxDate && dayjs(date2).isAfter(this.option.maxDate))) {
+            if (this.option.maxDate && dayjs(date2).isAfter(this.option.maxDate)) {
                 date2 = dayjs(this.option.maxDate).format('YYYY-MM-DD');
             }
-            $(".cur-date").removeClass('cur-date');
+            $('.cur-date').removeClass('cur-date');
             this.date1 = dayjs(date1);
             this.date2 = dayjs(date2);
             this.$container.find('[data-date="' + this.date1.format('YYYY-MM-DD') + '"]').addClass('cur-date');
             this.$container.find('[data-date="' + this.date2.format('YYYY-MM-DD') + '"]').addClass('cur-date');
-
         } else {
             if (this.type.indexOf('range') > -1) {
-                if (this.$container.find(".cur-date").length() > 1 || this.$container.find(".circle-date").get(0)) {
-                    this.$container.find(".cur-date").removeClass('cur-date');
+                if (this.$container.find('.cur-date').length() > 1 || this.$container.find('.circle-date').get(0)) {
+                    this.$container.find('.cur-date').removeClass('cur-date');
                 } else {
-                    if (this.$container.find(".cur-date").eq(0).attr('data-date') == $t.attr('data-date')) {
-                        $t.addClass("circle-date");
+                    if (
+                        this.$container
+                            .find('.cur-date')
+                            .eq(0)
+                            .attr('data-date') == $t.attr('data-date')
+                    ) {
+                        $t.addClass('circle-date');
                     }
                 }
             } else {
-                $(".cur-date").removeClass('cur-date');
+                $('.cur-date').removeClass('cur-date');
             }
-            $t.addClass("cur-date");
+            $t.addClass('cur-date');
         }
     }
 
     private correctDate(date1) {
         //修正当前时间与最大最小值
-        if (date1.startTime && (this.option.maxDate && dayjs(date1.startTime).isAfter(this.option.maxDate))) {
+        if (date1.startTime && this.option.maxDate && dayjs(date1.startTime).isAfter(this.option.maxDate)) {
             date1.startTime = dayjs(this.option.maxDate).clone();
         }
-        if (date1.endTime && (this.option.minDate && dayjs(date1.endTime).isBefore(this.option.minDate))) {
+        if (date1.endTime && this.option.minDate && dayjs(date1.endTime).isBefore(this.option.minDate)) {
             date1.endTime = dayjs(this.option.minDate).clone();
         }
-        if (date1.startTime && (this.option.minDate && dayjs(date1.startTime).isBefore(this.option.minDate))) {
+        if (date1.startTime && this.option.minDate && dayjs(date1.startTime).isBefore(this.option.minDate)) {
             date1.startTime = dayjs(this.option.minDate).clone();
         }
-        if (date1.endTime && (this.option.maxDate && dayjs(date1.endTime).isAfter(this.option.maxDate))) {
+        if (date1.endTime && this.option.maxDate && dayjs(date1.endTime).isAfter(this.option.maxDate)) {
             date1.endTime = dayjs(this.option.maxDate).clone();
         }
         return date1;
@@ -789,13 +882,14 @@ export class DatePicker {
         this.selectedDate[0] = date1.startTime;
         this.selectedDate[1] = date1.endTime;
         const startTime = date.startTime;
-        if (this.type.indexOf('range') > -1) {//双日历时
+        if (this.type.indexOf('range') > -1) {
+            //双日历时
             if (this.type.indexOf('year') > -1) {
                 const endTime = date.endTime;
                 const endTime1 = endTime.format('YYYY');
                 const startTime1 = startTime.format('YYYY');
-                const endYearP = endTime1 - endTime1 % 12;
-                const startYearP = startTime1 - startTime1 % 12;
+                const endYearP = endTime1 - (endTime1 % 12);
+                const startYearP = startTime1 - (startTime1 % 12);
                 if (startYearP + 12 >= endYearP) {
                     this.tempdate2 = endTime;
                     this.tempdate1 = endTime.clone().subtract('12', 'years');
@@ -816,25 +910,33 @@ export class DatePicker {
                 const endTime = date.endTime;
                 if (startTime.format('YYYY') == endTime.format('YYYY')) {
                     this.tempdate2 = endTime;
-                    this.tempdate1 = dayjs(endTime).clone().subtract(1, 'years');
+                    this.tempdate1 = dayjs(endTime)
+                        .clone()
+                        .subtract(1, 'years');
                 } else {
                     this.tempdate1 = startTime;
                     this.tempdate2 = endTime;
                 }
             }
-        } else if (this.type != 'week') {//单日历时
+        } else if (this.type != 'week') {
+            //单日历时
             this.date1 = startTime;
             this.date2 = date.endTime;
             this.tempdate1 = this.date1.clone();
             delete this.selectedDate[1];
-        } else {//周日历时
-            let date1 = dayjs(startTime).clone().subtract((parseInt(this.option.firstDayOfWeek)) % 7, 'days').startOf('week').add((parseInt(this.option.firstDayOfWeek)) % 7, 'days');
+        } else {
+            //周日历时
+            let date1 = dayjs(startTime)
+                .clone()
+                .subtract(parseInt(this.option.firstDayOfWeek) % 7, 'days')
+                .startOf('week')
+                .add(parseInt(this.option.firstDayOfWeek) % 7, 'days');
             // var date1 = dayjs(startTime).startOf('week');
             let date2 = date1.clone().add(6, 'days');
-            if ((this.option.minDate && dayjs(date1).isBefore(this.option.minDate))) {
+            if (this.option.minDate && dayjs(date1).isBefore(this.option.minDate)) {
                 date1 = dayjs(this.option.minDate.clone());
             }
-            if ((this.option.maxDate && dayjs(date2).isAfter(this.option.maxDate))) {
+            if (this.option.maxDate && dayjs(date2).isAfter(this.option.maxDate)) {
                 date2 = dayjs(this.option.maxDate.clone());
             }
             this.tempdate1 = date1;
@@ -848,11 +950,11 @@ export class DatePicker {
 
     public setCurrentDay() {
         if (this.type.indexOf('range') < 0) {
-            this.$container.find(".dater2").remove();
-            this.$container.find(".time2").remove();
+            this.$container.find('.dater2').remove();
+            this.$container.find('.time2').remove();
         }
         if (this.type.indexOf('time') < 0) {
-            this.$container.find(".timepicker").remove();
+            this.$container.find('.timepicker').remove();
         }
         if (this.type.indexOf('year') > -1) {
             this.rendYears(1);
@@ -864,15 +966,15 @@ export class DatePicker {
             this.rendWeekNum(1);
             this.rendWeekNum(2);
         } else {
-            this.geneDateList(this.tempdate1, this.$container.find(".dater1"));
-            this.geneDateList(this.tempdate2, this.$container.find(".dater2"));
+            this.geneDateList(this.tempdate1, this.$container.find('.dater1'));
+            this.geneDateList(this.tempdate2, this.$container.find('.dater2'));
         }
         if (this.type != 'multiple') {
             for (const i in this.selectedDate) {
                 const yearmonth = this.selectedDate[i].format('YYYY-MM');
                 const date = this.selectedDate[i].format('DD');
                 //const time = this.selectedDate[i].format('HH:mm:ss');
-                this.$container.find(".active-day[data-date='" + yearmonth + '-' + date + "']").addClass("cur-date");
+                this.$container.find(".active-day[data-date='" + yearmonth + '-' + date + "']").addClass('cur-date');
             }
             this.setCurrentClass();
         }
@@ -927,17 +1029,17 @@ export class DatePicker {
         if (this.type == 'multiple') {
             if (clear) {
                 if ((isFirst && this.option.confirmFirst) || !isFirst) {
-                    this.trigger("confirm", { startTime: this.selectedMultiple, dayjs: dayjs });
+                    this.trigger('confirm', { startTime: this.selectedMultiple, dayjs: dayjs });
                 }
                 showstrStart = '';
                 canconfirm = true;
             } else {
-                this.multipleDates = this.multipleDates.map((e) => {
+                this.multipleDates = this.multipleDates.map(e => {
                     return dayjs(e).format(this.option.format);
                 });
                 this.selectedMultiple = this.multipleDates;
                 if ((isFirst && this.option.confirmFirst) || !isFirst) {
-                    this.trigger("confirm", { startTime: this.selectedMultiple, dayjs: dayjs });
+                    this.trigger('confirm', { startTime: this.selectedMultiple, dayjs: dayjs });
                 }
                 showstrStart = this.multipleDates.join(',');
                 canconfirm = true;
@@ -948,17 +1050,17 @@ export class DatePicker {
                 const date1 = this.correctDate(this.option);
                 startTime = date1.startTime ? dayjs(date1.startTime) : '';
                 endTime = date1.endTime ? dayjs(date1.endTime) : '';
-                if ((this.type.indexOf('range') > -1) || this.type == 'week') {
+                if (this.type.indexOf('range') > -1 || this.type == 'week') {
                     if (this.option.confirmFirst) {
-                        this.trigger("confirm", { startTime: startTime, endTime: endTime, dayjs: dayjs });
+                        this.trigger('confirm', { startTime: startTime, endTime: endTime, dayjs: dayjs });
                     }
-                    showstrStart = (startTime ? startTime.format(this.option.format) : this.placeholder.startTime);
-                    showstrEnd = (endTime ? endTime.format(this.option.format) : this.placeholder.endTime);
+                    showstrStart = startTime ? startTime.format(this.option.format) : this.placeholder.startTime;
+                    showstrEnd = endTime ? endTime.format(this.option.format) : this.placeholder.endTime;
                 } else if (this.type.indexOf('range') < 0) {
                     if (this.option.confirmFirst) {
-                        this.trigger("confirm", { startTime: startTime, dayjs: dayjs });
+                        this.trigger('confirm', { startTime: startTime, dayjs: dayjs });
                     }
-                    showstrStart = (startTime ? startTime.format(this.option.format) : this.placeholder.startTime);
+                    showstrStart = startTime ? startTime.format(this.option.format) : this.placeholder.startTime;
                 }
                 canconfirm = true;
             } else {
@@ -966,17 +1068,17 @@ export class DatePicker {
                 this.date2 && (this.selectedDate[1] = this.date2.clone());
                 if (clear) {
                     if ((isFirst && this.option.confirmFirst) || !isFirst) {
-                        this.trigger("confirm", { startTime: this.selectedDate[0], endTime: this.selectedDate[1] });
+                        this.trigger('confirm', { startTime: this.selectedDate[0], endTime: this.selectedDate[1] });
                     }
                     showstrStart = '';
                     canconfirm = true;
                 }
-                if ((this.type.indexOf('range') > -1) || this.type == 'week') {
+                if (this.type.indexOf('range') > -1 || this.type == 'week') {
                     if ((isFirst && this.option.confirmFirst) || !isFirst) {
-                        this.trigger("confirm", {
+                        this.trigger('confirm', {
                             startTime: this.selectedDate[0],
                             endTime: this.selectedDate[1],
-                            dayjs: dayjs
+                            dayjs: dayjs,
                         });
                     }
                     try {
@@ -989,7 +1091,7 @@ export class DatePicker {
                     canconfirm = true;
                 } else if (this.type.indexOf('range') < 0) {
                     if ((isFirst && this.option.confirmFirst) || !isFirst) {
-                        this.trigger("confirm", { startTime: this.selectedDate[0], dayjs: dayjs });
+                        this.trigger('confirm', { startTime: this.selectedDate[0], dayjs: dayjs });
                     }
                     try {
                         showstrStart = this.selectedDate[0].format(this.option.format);
@@ -1038,27 +1140,47 @@ export class DatePicker {
                 </div>
                 <div class="weeknum-list"></div>
             `;
-        this.$container.find('.dater' + datenum).empty().append(html);
+        this.$container
+            .find('.dater' + datenum)
+            .empty()
+            .append(html);
         const weeklist = this.getWeekNumList(datenum);
-        this.$container.find('.dater' + datenum).find(".weeknum-list").append(weeklist);
+        this.$container
+            .find('.dater' + datenum)
+            .find('.weeknum-list')
+            .append(weeklist);
         this.setTodayDot('week');
     }
 
     private getWeekNumList(datenum) {
         const curYear = dayjs(this['tempdate' + datenum]).format('YYYY');
-        this.$container.find(".dater" + datenum + " .month-info").get(0).innerHTML = curYear;
+        this.$container.find('.dater' + datenum + ' .month-info').get(0).innerHTML = curYear;
         let html = '';
         let date;
-        const weeknums = dayjs((curYear + '/01/01')).isoWeeksInYear();
+        const weeknums = dayjs(curYear + '/01/01').isoWeeksInYear();
         for (let i = 0; i < weeknums; i++) {
-            date = dayjs(curYear + '01/01').week(i + 1).startOf('week');
+            date = dayjs(curYear + '01/01')
+                .week(i + 1)
+                .startOf('week');
             if (date.format('YYYY') != curYear) {
                 date = dayjs(curYear + '01/01').format('YYYY-MM-DD');
             } else {
                 date = date.format('YYYY-MM-DD');
             }
-            const disable = (!(((this.option.minDate && dayjs(this.option.minDate).startOf('week').isSameOrBefore(date)) || !this.option.minDate) && ((this.option.maxDate && dayjs(this.option.maxDate).endOf('week').isSameOrAfter(dayjs(date).endOf('week'))) || !this.option.maxDate))) || this.disableDate(date, dayjs, 'weeknum');
-            html += `<span class="week-item ${disable ? 'disable-week' : 'active-day'}" data-date="${date}">` + this.option.locale.weekNum(i + 1) + "</span>";
+            const disable =
+                !(
+                    ((this.option.minDate &&
+                        dayjs(this.option.minDate)
+                            .startOf('week')
+                            .isSameOrBefore(date)) ||
+                        !this.option.minDate) &&
+                    ((this.option.maxDate &&
+                        dayjs(this.option.maxDate)
+                            .endOf('week')
+                            .isSameOrAfter(dayjs(date).endOf('week'))) ||
+                        !this.option.maxDate)
+                ) || this.disableDate(date, dayjs, 'weeknum');
+            html += `<span class="week-item ${disable ? 'disable-week' : 'active-day'}" data-date="${date}">` + this.option.locale.weekNum(i + 1) + '</span>';
         }
         return html;
     }
@@ -1081,20 +1203,38 @@ export class DatePicker {
 
 </div>
             `;
-        this.$container.find('.dater' + datenum).empty().append(html);
+        this.$container
+            .find('.dater' + datenum)
+            .empty()
+            .append(html);
         const monthlist = this.getMonthList(datenum);
-        this.$container.find('.dater' + datenum).find(".month-list").append(monthlist);
+        this.$container
+            .find('.dater' + datenum)
+            .find('.month-list')
+            .append(monthlist);
         this.setTodayDot('month');
     }
 
     private getMonthList(datenum) {
         const curYear = dayjs(this['tempdate' + datenum]).format('YYYY');
-        this.$container.find(".dater" + datenum + " .month-info").get(0).innerHTML = curYear;
+        this.$container.find('.dater' + datenum + ' .month-info').get(0).innerHTML = curYear;
         let html = '';
         for (let i = 0; i < 12; i++) {
             // @ts-ignore
-            const disable = (!(((this.option.minDate && dayjs(this.option.minDate).startOf('month').isSameOrBefore((curYear + '/' + (i + 1) + '/01'))) || !this.option.minDate) && ((this.option.maxDate && dayjs(this.option.maxDate).startOf('month').isSameOrAfter((curYear + '/' + (i + 1) + '/01'))) || !this.option.maxDate))) || this.disableDate(dayjs(curYear + '/' + (i + 1), 'YYYY/MM'), dayjs, 'month');
-            html += `<span class="month-item ${disable ? 'disable-month' : 'active-day'}" data-date="${dayjs(curYear + '/' + (i + 1), 'YYYY/MM').format('YYYY-MM')}">` + this.option.locale.month[i] + "</span>";
+            const disable =
+                !(
+                    ((this.option.minDate &&
+                        dayjs(this.option.minDate)
+                            .startOf('month')
+                            .isSameOrBefore(curYear + '/' + (i + 1) + '/01')) ||
+                        !this.option.minDate) &&
+                    ((this.option.maxDate &&
+                        dayjs(this.option.maxDate)
+                            .startOf('month')
+                            .isSameOrAfter(curYear + '/' + (i + 1) + '/01')) ||
+                        !this.option.maxDate)
+                ) || this.disableDate(dayjs(curYear + '/' + (i + 1), 'YYYY/MM'), dayjs, 'month');
+            html += `<span class="month-item ${disable ? 'disable-month' : 'active-day'}" data-date="${dayjs(curYear + '/' + (i + 1), 'YYYY/MM').format('YYYY-MM')}">` + this.option.locale.month[i] + '</span>';
         }
         return html;
     }
@@ -1103,7 +1243,7 @@ export class DatePicker {
         if (!this.$container.find('.dater' + datenum).get(0)) {
             return;
         }
-        const html = (`
+        const html = `
                 <div class="year-picker">
                     <div class="prev">
                     <span class="iconfont-xndatepicker icon-xndatepickerprev1 year-prev-year"></span>
@@ -1116,22 +1256,40 @@ export class DatePicker {
                 <div class="year-list">
 
 </div>
-            `);
-        this.$container.find('.dater' + datenum).empty().append(html);
+            `;
+        this.$container
+            .find('.dater' + datenum)
+            .empty()
+            .append(html);
         const yearlist = this.getYearList(datenum);
-        this.$container.find('.dater' + datenum).find(".year-list").append(yearlist);
+        this.$container
+            .find('.dater' + datenum)
+            .find('.year-list')
+            .append(yearlist);
         this.setTodayDot('year');
     }
 
     private getYearList(datenum) {
-        const chooseYear: number = dayjs(this['tempdate' + datenum]).format('YYYY') as unknown as number;
-        const curYear: number = (chooseYear - chooseYear % 12) as number;
-        this.$container.find(".dater" + datenum + " .year-info").html(curYear + '-' + (parseInt(String(curYear)) + 11));
+        const chooseYear: number = (dayjs(this['tempdate' + datenum]).format('YYYY') as unknown) as number;
+        const curYear: number = (chooseYear - (chooseYear % 12)) as number;
+        this.$container.find('.dater' + datenum + ' .year-info').html(curYear + '-' + (parseInt(String(curYear)) + 11));
         let html = '';
         for (let i = 0; i < 12; i++) {
             // @ts-ignore
-            const disable = (!(((this.option.minDate && dayjs(this.option.minDate).startOf('year').isSameOrBefore(((parseInt(curYear) + i) + '/01/01'))) || !this.option.minDate) && ((this.option.maxDate && dayjs(this.option.maxDate).startOf('year').isSameOrAfter(((parseInt(curYear) + i) + '/01/01'))) || !this.option.maxDate))) || this.disableDate(dayjs((parseInt(curYear) + i) + '/01/01'), dayjs, 'year');
-            html += `<span class="year-item ${disable ? 'disable-year' : 'active-day'}" data-date="${(parseInt(String(curYear)) + i)}">` + (parseInt(String(curYear)) + i) + "</span>";
+            const disable =
+                !(
+                    ((this.option.minDate &&
+                        dayjs(this.option.minDate)
+                            .startOf('year')
+                            .isSameOrBefore(parseInt(curYear) + i + '/01/01')) ||
+                        !this.option.minDate) &&
+                    ((this.option.maxDate &&
+                        dayjs(this.option.maxDate)
+                            .startOf('year')
+                            .isSameOrAfter(parseInt(curYear) + i + '/01/01')) ||
+                        !this.option.maxDate)
+                ) || this.disableDate(dayjs(parseInt(curYear) + i + '/01/01'), dayjs, 'year');
+            html += `<span class="year-item ${disable ? 'disable-year' : 'active-day'}" data-date="${parseInt(String(curYear)) + i}">` + (parseInt(String(curYear)) + i) + '</span>';
         }
         return html;
     }
@@ -1162,16 +1320,19 @@ export class DatePicker {
     }
 
     private rendDatePicker() {
-        const div = document.createElement("div");
-        div.classList.add("xndatepicker", this.type, this.option.theme);
+        const div = document.createElement('div');
+        div.classList.add('xndatepicker', this.type, this.option.theme);
         div.id = this.id;
-        const bottomStr = this.option.showBottomButton ? `
+        const bottomStr = this.option.showBottomButton
+            ? `
                 <div class="xn-bottom">
 <!--            <a  class="xn-btn current-date">现在</a>-->
             <a  class="xn-btn clear-date">${this.option.locale.clear}</a>
             <a class="xn-btn confirm-date">${this.option.locale.confirm}</a>
-        </div>` : '';
-        const html = `
+        </div>`
+            : '';
+        const html =
+            `
         <div class="xn-top">
             <div class="shortcut">
 
@@ -1193,10 +1354,14 @@ export class DatePicker {
                 </div>
                 <div class="datepicker">
                     <div class="date-item dater1" data-id="1">
-                        ` + this.getDateCont() + `
+                        ` +
+            this.getDateCont() +
+            `
                     </div>
                     <div class="date-item dater2" data-id="2">
-                        ` + this.getDateCont() + `
+                        ` +
+            this.getDateCont() +
+            `
                     </div>
                 </div>
             </div>
@@ -1206,7 +1371,7 @@ export class DatePicker {
         <div class="xntriangle"></div>`;
         div.innerHTML = html;
         document.body.appendChild(div);
-        this.$container = $("#" + this.id);
+        this.$container = $('#' + this.id);
         // this.changeShowStatus(true)
         this.setCurrentDay();
         this.geneShortList();
@@ -1223,7 +1388,6 @@ export class DatePicker {
         if (!this.option.showShortKeys || this.option.shortList.length < 1) {
             this.$container.find('.shortcut').remove();
         }
-
     }
 
     private geneShortList() {
@@ -1232,13 +1396,16 @@ export class DatePicker {
             ul += '<li>' + this.option.shortList[i].name + '</li>';
         }
         ul += '</ul>';
-        this.$container.find('.shortcut').empty().append(ul);
+        this.$container
+            .find('.shortcut')
+            .empty()
+            .append(ul);
     }
 
     private _getDaysNum(date) {
         const ynow = date.year();
         const mnow = date.month();
-        const m_days = [ 31, 28 + this.is_leap(ynow), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ];  //每个月的天数
+        const m_days = [ 31, 28 + this.is_leap(ynow), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ]; //每个月的天数
         return m_days[mnow];
     }
 
@@ -1250,7 +1417,10 @@ export class DatePicker {
         $cont.empty().html(this.getDateCont());
         const ynow = date.year();
         const mnow = date.month() + 1;
-        let firstday = dayjs(date).startOf('month').day() - parseInt(this.option.firstDayOfWeek);
+        let firstday =
+            dayjs(date)
+                .startOf('month')
+                .day() - parseInt(this.option.firstDayOfWeek);
         if (firstday < 0) {
             firstday += 7;
         }
@@ -1265,7 +1435,7 @@ export class DatePicker {
             ldates.push({
                 iscur: true,
                 disable: disable,
-                day: i + 1
+                day: i + 1,
             });
         }
         const l = ldates.length;
@@ -1294,11 +1464,11 @@ export class DatePicker {
         }
         if (this.type.indexOf('year') > -1 || type == 'year') {
             const year = date.format('YYYY');
-            const min: number = ( this.option.minDate ? (dayjs(this.option.minDate).format('YYYY')) : 0) as number;
-            const max: number = this.option.maxDate ? (dayjs(this.option.maxDate).format('YYYY')) : year;
-            const yearP = year - year % 12 - 12;
-            const minP = min - min % 12;
-            const maxP = max - max % 12;
+            const min: number = (this.option.minDate ? dayjs(this.option.minDate).format('YYYY') : 0) as number;
+            const max: number = this.option.maxDate ? dayjs(this.option.maxDate).format('YYYY') : year;
+            const yearP = year - (year % 12) - 12;
+            const minP = min - (min % 12);
+            const maxP = max - (max % 12);
             if ((dir > 0 || minP <= yearP) && (dir < 0 || maxP >= yearP + 12)) {
                 disable = false;
             }
@@ -1317,14 +1487,15 @@ export class DatePicker {
         return disable;
     }
 
-    private _rendYearHtml(date, $cont) {//需要重新生成哦
+    private _rendYearHtml(date, $cont) {
+        //需要重新生成哦
         const ynow = date.year();
         const mnow = date.month() + 1;
-        $cont.find(".year-info").html("<span class='year'>" + this.option.locale.yearHeadSuffix(ynow) + "<\/span><span class='month'>" + this.option.locale.monthHead[mnow - 1] + "<\/span>");
+        $cont.find('.year-info').html("<span class='year'>" + this.option.locale.yearHeadSuffix(ynow) + "</span><span class='month'>" + this.option.locale.monthHead[mnow - 1] + '</span>');
     }
 
     private _rendDayHtml(datelist, $cont, year) {
-        const $c = $cont.find(".dater");
+        const $c = $cont.find('.dater');
         if ($c.length() < 1) {
             $cont.append('<div class="dater"></div>');
         }
@@ -1333,25 +1504,35 @@ export class DatePicker {
             // let ul = document.createElement("ul")
             for (let j = i * 7; j < i * 7 + 7; j++) {
                 /*const span = document.createElement("span");*/
-                const li = document.createElement("span");
-                li.classList.add("day-item");
+                const li = document.createElement('span');
+                li.classList.add('day-item');
                 if (datelist[j].iscur) {
                     if (!datelist[j].disable) {
-                        li.classList.add("active-day");
+                        li.classList.add('active-day');
                     }
-                    li.setAttribute("data-date", dayjs(year + '/' + datelist[j].day, 'YYYY/MM/DD').format('YYYY-MM-DD'));
+                    li.setAttribute('data-date', dayjs(year + '/' + datelist[j].day, 'YYYY/MM/DD').format('YYYY-MM-DD'));
                 } else {
                     if (datelist[j].isnext) {
-                        li.setAttribute("data-date", dayjs(year + '/' + datelist[j].day, 'YYYY/MM/DD').add(1, 'months').format('YYYY-MM-DD'));
+                        li.setAttribute(
+                            'data-date',
+                            dayjs(year + '/' + datelist[j].day, 'YYYY/MM/DD')
+                                .add(1, 'months')
+                                .format('YYYY-MM-DD'),
+                        );
                     } else {
-                        li.setAttribute("data-date", dayjs(year, 'YYYY/MM').subtract(1, 'months').date(datelist[j].day).format('YYYY-MM-DD'));
-
+                        li.setAttribute(
+                            'data-date',
+                            dayjs(year, 'YYYY/MM')
+                                .subtract(1, 'months')
+                                .date(datelist[j].day)
+                                .format('YYYY-MM-DD'),
+                        );
                     }
                 }
                 if (datelist[j].disable) {
-                    li.classList.add("disable-day");
+                    li.classList.add('disable-day');
                 }
-                li.innerHTML = (datelist[j].day);
+                li.innerHTML = datelist[j].day;
                 $c.append(li);
                 // ul.append(li)
             }
@@ -1361,14 +1542,13 @@ export class DatePicker {
     }
 
     private is_leap(year) {
-        return (year % 100 == 0 ? (year % 400 == 0 ? 1 : 0) : (year % 4 == 0 ? 1 : 0));
+        return year % 100 == 0 ? (year % 400 == 0 ? 1 : 0) : year % 4 == 0 ? 1 : 0;
     }
 
     private trigger(type, data) {
         if (this.eventList[type]) {
             for (let i = 0; i < this.eventList[type].func.length; i++) {
-                if (typeof this.eventList[type].func[i] == 'function')
-                    this.eventList[type].func[i](data);
+                if (typeof this.eventList[type].func[i] == 'function') this.eventList[type].func[i](data);
             }
         }
     }
@@ -1376,7 +1556,7 @@ export class DatePicker {
     private on(type, func) {
         if (!this.eventList[type]) {
             this.eventList[type] = {
-                func: [ func ]
+                func: [ func ],
             };
         } else {
             this.eventList[type].func.push(func);
@@ -1400,7 +1580,7 @@ export class DatePicker {
             get: () => {
                 return this[_key];
             },
-            set: (val) => {
+            set: val => {
                 const oldVal = this[_key];
                 this[_key] = val;
                 $watch(val, oldVal);
@@ -1408,7 +1588,6 @@ export class DatePicker {
             },
         });
     }
-
 
     public watch(key, callback) {
         this._setData(key, callback);
@@ -1428,8 +1607,7 @@ export class DatePicker {
     public destroy() {
         this.removeMoveEvent();
         this.removeClickEvent();
-        this.$container && (this.$container.remove());
-
+        this.$container && this.$container.remove();
     }
 
     public format(date, format) {

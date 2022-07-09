@@ -7,7 +7,6 @@ const { min, max, floor, round } = Math;
  * @returns {string | CanvasGradient | CanvasPattern}
  */
 function standardizeColor(name) {
-
     // Since invalid color's will be parsed as black, filter them out
     if (name.toLowerCase() === 'black') {
         return '#000000';
@@ -42,11 +41,7 @@ export function hsvToRgb(h, s, v) {
     const g = [ t, v, v, q, p, p ][mod];
     const b = [ p, p, t, v, v, q ][mod];
 
-    return [
-        r * 255,
-        g * 255,
-        b * 255
-    ];
+    return [ r * 255, g * 255, b * 255 ];
 }
 
 /**
@@ -58,7 +53,9 @@ export function hsvToRgb(h, s, v) {
  */
 export function hsvToHex(h, s, v) {
     return hsvToRgb(h, s, v).map(v =>
-        round(v).toString(16).padStart(2, '0')
+        round(v)
+            .toString(16)
+            .padStart(2, '0'),
     );
 }
 
@@ -87,12 +84,7 @@ export function hsvToCmyk(h, s, v) {
     // eslint-disable-next-line prefer-const
     y = k === 1 ? 0 : (1 - b - k) / (1 - k);
 
-    return [
-        c * 100,
-        m * 100,
-        y * 100,
-        k * 100
-    ];
+    return [ c * 100, m * 100, y * 100, k * 100 ];
 }
 
 /**
@@ -103,24 +95,20 @@ export function hsvToCmyk(h, s, v) {
  * @returns {number[]} HSL values
  */
 export function hsvToHsl(h, s, v) {
-    s /= 100, v /= 100;
+    (s /= 100), (v /= 100);
 
-    const l = (2 - s) * v / 2;
+    const l = ((2 - s) * v) / 2;
 
     if (l !== 0) {
         if (l === 1) {
             s = 0;
         } else if (l < 0.5) {
-            s = s * v / (l * 2);
+            s = (s * v) / (l * 2);
         } else {
-            s = s * v / (2 - l * 2);
+            s = (s * v) / (2 - l * 2);
         }
     }
-    return [
-        h,
-        s * 100,
-        l * 100
-    ];
+    return [ h, s * 100, l * 100 ];
 }
 
 /**
@@ -131,7 +119,7 @@ export function hsvToHsl(h, s, v) {
  * @return {number[]} HSV values.
  */
 export function rgbToHsv(r, g, b) {
-    r /= 255, g /= 255, b /= 255;
+    (r /= 255), (g /= 255), (b /= 255);
 
     let h, s, v;
     const minVal = min(r, g, b);
@@ -144,16 +132,16 @@ export function rgbToHsv(r, g, b) {
         h = s = 0;
     } else {
         s = delta / maxVal;
-        const dr = (((maxVal - r) / 6) + (delta / 2)) / delta;
-        const dg = (((maxVal - g) / 6) + (delta / 2)) / delta;
-        const db = (((maxVal - b) / 6) + (delta / 2)) / delta;
+        const dr = ((maxVal - r) / 6 + delta / 2) / delta;
+        const dg = ((maxVal - g) / 6 + delta / 2) / delta;
+        const db = ((maxVal - b) / 6 + delta / 2) / delta;
 
         if (r === maxVal) {
             h = db - dg;
         } else if (g === maxVal) {
-            h = (1 / 3) + dr - db;
+            h = 1 / 3 + dr - db;
         } else if (b === maxVal) {
-            h = (2 / 3) + dg - dr;
+            h = 2 / 3 + dg - dr;
         }
 
         if (h < 0) {
@@ -163,11 +151,7 @@ export function rgbToHsv(r, g, b) {
         }
     }
 
-    return [
-        h * 360,
-        s * 100,
-        v * 100
-    ];
+    return [ h * 360, s * 100, v * 100 ];
 }
 
 /**
@@ -202,7 +186,7 @@ export function hslToHsv(h, s, l) {
     s /= 100;
     l /= 100;
     s *= l < 0.5 ? l : 1 - l;
-    const ns = (l + s) ? (2 * s / (l + s)) * 100 : 0;
+    const ns = l + s ? ((2 * s) / (l + s)) * 100 : 0;
     const v = (l + s) * 100;
     return [ h, ns, v ];
 }
@@ -233,7 +217,7 @@ export function parseToHSVA(str) {
         rgba: /^((rgba)|rgb)[\D]+([\d.]+)[\D]+([\d.]+)[\D]+([\d.]+)[\D]*?([\d.]+|$)/i,
         hsla: /^((hsla)|hsl)[\D]+([\d.]+)[\D]+([\d.]+)[\D]+([\d.]+)[\D]*?([\d.]+|$)/i,
         hsva: /^((hsva)|hsv)[\D]+([\d.]+)[\D]+([\d.]+)[\D]+([\d.]+)[\D]*?([\d.]+|$)/i,
-        hexa: /^#?(([\dA-Fa-f]{3,4})|([\dA-Fa-f]{6})|([\dA-Fa-f]{8}))$/i
+        hexa: /^#?(([\dA-Fa-f]{3,4})|([\dA-Fa-f]{6})|([\dA-Fa-f]{8}))$/i,
     };
 
     /**
@@ -242,14 +226,12 @@ export function parseToHSVA(str) {
      * @param array
      * @return {*}
      */
-    const numarize = array => array.map(v => /^(|\d+)\.\d+|\d+$/.test(v) ? Number(v) : undefined);
+    const numarize = array => array.map(v => (/^(|\d+)\.\d+|\d+$/.test(v) ? Number(v) : undefined));
 
     let match;
     invalid: for (const type in regex) {
-
         // Check if current scheme passed
-        if (!(match = regex[type].exec(str)))
-            continue;
+        if (!(match = regex[type].exec(str))) continue;
 
         // match[2] does only contain a truly value if rgba, hsla, or hsla got matched
         //const alpha = !!match[2];
@@ -259,16 +241,14 @@ export function parseToHSVA(str) {
             case 'cmyk': {
                 const [ , c, m, y, k ] = numarize(match);
 
-                if (c > 100 || m > 100 || y > 100 || k > 100)
-                    break invalid;
+                if (c > 100 || m > 100 || y > 100 || k > 100) break invalid;
 
                 return { values: cmykToHsv(c, m, y, k), type };
             }
             case 'rgba': {
                 const [ , , , r, g, b, a ] = numarize(match);
 
-                if (r > 255 || g > 255 || b > 255 || a < 0 || a > 1)
-                    break invalid;
+                if (r > 255 || g > 255 || b > 255 || a < 0 || a > 1) break invalid;
 
                 return { values: [ ...rgbToHsv(r, g, b), a ], a, type };
             }
@@ -276,30 +256,31 @@ export function parseToHSVA(str) {
                 let [ , hex ] = match;
 
                 if (hex.length === 4 || hex.length === 3) {
-                    hex = hex.split('').map(v => v + v).join('');
+                    hex = hex
+                        .split('')
+                        .map(v => v + v)
+                        .join('');
                 }
 
                 const raw = hex.substring(0, 6);
                 let a = hex.substring(6);
 
                 // Convert 0 - 255 to 0 - 1 for opacity
-                a = a ? (parseInt(a, 16) / 255) : undefined;
+                a = a ? parseInt(a, 16) / 255 : undefined;
 
                 return { values: [ ...hexToHsv(raw), a ], a, type };
             }
             case 'hsla': {
                 const [ , , , h, s, l, a ] = numarize(match);
 
-                if (h > 360 || s > 100 || l > 100 || a < 0 || a > 1)
-                    break invalid;
+                if (h > 360 || s > 100 || l > 100 || a < 0 || a > 1) break invalid;
 
                 return { values: [ ...hslToHsv(h, s, l), a ], a, type };
             }
             case 'hsva': {
                 const [ , , , h, s, v, a ] = numarize(match);
 
-                if (h > 360 || s > 100 || v > 100 || a < 0 || a > 1)
-                    break invalid;
+                if (h > 360 || s > 100 || v > 100 || a < 0 || a > 1) break invalid;
 
                 return { values: [ h, s, v, a ], a, type };
             }

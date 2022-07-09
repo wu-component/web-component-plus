@@ -30,9 +30,7 @@ export class AppNavMenu extends WuComponent implements OnConnected {
                 <wu-plus-sub-menu index="2" disabled="false">
                     <div slot="title" style="display: flex;align-items: center">
                         <wu-plus-icon style="font-size: 24px;" name="setting"></wu-plus-icon>
-                        <span style="padding-left: 8px">
-                                        导航组
-                                    </span>
+                        <span style="padding-left: 8px">导航组</span>
                     </div>
                     <wu-plus-menu-item index="/about">系统配置</wu-plus-menu-item>
                     <wu-plus-menu-item index="/my">用户中心</wu-plus-menu-item>

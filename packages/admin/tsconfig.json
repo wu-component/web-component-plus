@@ -28,7 +28,7 @@
     "pretty": true,
     "resolveJsonModule": true,
     "sourceMap": true,
-    "target": "ES5",
+    "target": "esnext",
     "useUnknownInCatchVariables": true,
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
