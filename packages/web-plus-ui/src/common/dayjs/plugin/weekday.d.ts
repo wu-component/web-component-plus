@@ -1,12 +1,12 @@
-import { PluginFunc } from 'dayjs'
+import { PluginFunc } from 'dayjs';
 
-declare const plugin: PluginFunc
-export = plugin
+declare const plugin: PluginFunc;
+export = plugin;
 
 declare module 'dayjs' {
-  interface Dayjs {
-    weekday(): number
+    interface Dayjs {
+        weekday(): number;
 
-    weekday(value: number): Dayjs
-  }
+        weekday(value: number): Dayjs;
+    }
 }

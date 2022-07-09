@@ -9,33 +9,34 @@ export const defaultOption = {
     id: 'id',
     lineHeight: 32,
     dataType: 'tree',
-    lazyLoad:false,
+    lazyLoad: false,
     // pId: 'parentid',
-    selectType: 'checkbox',//radio,null
-    checkDisabled: function (d) {
+    selectType: 'checkbox', //radio,null
+    checkDisabled: function(d) {
         return false;
     },
-    autoOpen: function (d, level) {
+    autoOpen: function(d, level) {
         return level <= 2;
     },
-    checkSticky: { //check关联
-        on: 'pc',//p,自动勾选父，c自动勾选子，function
-        off: 'pc'
+    checkSticky: {
+        //check关联
+        on: 'pc', //p,自动勾选父，c自动勾选子，function
+        off: 'pc',
     },
-    editNode: function (d) {
+    editNode: function(d) {
         return true;
     },
-    deleteNode: function (d) {
+    deleteNode: function(d) {
         return true;
     },
-    addChildNode: function (d) {
+    addChildNode: function(d) {
         return true;
-    }
+    },
 };
 
 const iconMap = {
     tick: `<svg t="1656142168735" data-checkbox="data-checkbox" class="wu-tree-icon center" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="27917" width="200" height="200"><path data-checkbox="data-checkbox" d="M800 288a47.84 47.84 0 0 0-33.936 14.064L432 636.112 257.936 462.064a48 48 0 1 0-67.872 67.872l208 208c8.688 8.688 20.688 14.064 33.936 14.064s25.248-5.376 33.936-14.064l368-368A48 48 0 0 0 800 288z" fill="" p-id="27918"></path></svg>`,
-    up: `<svg t="1656144009618" data-slide="data-slide" class="wu-tree-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="28056" width="200" height="200"><path data-slide="data-slide" d="M715.8 493.5L335 165.1c-14.2-12.2-35-1.2-35 18.5v656.8c0 19.7 20.8 30.7 35 18.5l380.8-328.4c10.9-9.4 10.9-27.6 0-37z" p-id="28057"></path></svg>`
+    up: `<svg t="1656144009618" data-slide="data-slide" class="wu-tree-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="28056" width="200" height="200"><path data-slide="data-slide" d="M715.8 493.5L335 165.1c-14.2-12.2-35-1.2-35 18.5v656.8c0 19.7 20.8 30.7 35 18.5l380.8-328.4c10.9-9.4 10.9-27.6 0-37z" p-id="28057"></path></svg>`,
 };
 export class Tree {
     public readonly container: any;
@@ -48,7 +49,7 @@ export class Tree {
     private bottomIndex: number;
     private readonly slidedownHTML: { up: string; down: string };
     private readonly iconHTML: { folder: string; file: string };
-    private readonly selectHTML: Record<string, string>
+    private readonly selectHTML: Record<string, string>;
     private clicked: null;
     private readonly checked: { nodes: any; keys: any };
     private resizeObserver: ResizeObserver;
@@ -85,10 +86,10 @@ export class Tree {
         this.topIndex = 0;
         this.bottomIndex = this.totalNum + 4;
         this.slidedownHTML = {
-            'up': `<a class="xn-slidedown">
+            up: `<a class="xn-slidedown">
                        ${iconMap['up']}
                    </a>`,
-            'down': `<a class="xn-slidedown icon-rotate">
+            down: `<a class="xn-slidedown icon-rotate">
                           ${iconMap['up']}
                     </a>`,
         };
@@ -102,7 +103,7 @@ export class Tree {
                          <svg class="wu-tree-icon" aria-hidden="true">
                              <use xlink:href="#icon-file-fill"></use>
                          </svg>
-                    </a>`
+                    </a>`,
         };
         this.selectHTML = {
             checkbox: `<div class="xn-checkbox" data-checkbox="data-checkbox"></div>`,
@@ -119,11 +120,11 @@ export class Tree {
             radioon: `<div class="xn-radio on" data-radio="data-radio">
                              ${iconMap['tick']}
                       </div>`,
-            radiodisable: `<div class="xn-radio disable" data-radio="data-radio"></div>`
+            radiodisable: `<div class="xn-radio disable" data-radio="data-radio"></div>`,
         };
         this.checked = {
             nodes: [],
-            keys: []
+            keys: [],
         };
         this.clicked = null;
         this.getFlatData();
@@ -131,7 +132,7 @@ export class Tree {
         if (option.defaultCheckedKeys && Array.isArray(option.defaultCheckedKeys) && option.defaultCheckedKeys.length) {
             const nodes = [];
             const keys = [];
-            for (let i = 0; i < option.defaultCheckedKeys.length; i ++) {
+            for (let i = 0; i < option.defaultCheckedKeys.length; i++) {
                 const nodeData = this.getNodeById(option.defaultCheckedKeys[i]);
                 if (nodeData) {
                     nodes.push(nodeData);
@@ -140,7 +141,7 @@ export class Tree {
             }
             this.checked = {
                 nodes: nodes,
-                keys: keys
+                keys: keys,
             };
             console.log(this.checked);
         }
@@ -148,15 +149,12 @@ export class Tree {
         this.addResizeObserve();
     }
 
-
-
     public addResizeObserve() {
         this.resizeObserver = new ResizeObserver(entries => {
             this.totalNum = parseInt(String((this.container.clientHeight || document.body.clientHeight) / this.option.lineHeight));
             this.refreshDom(true);
         });
         this.resizeObserver.observe(this.container);
-
     }
 
     public init() {
@@ -178,7 +176,7 @@ export class Tree {
         this.openNumber = 0;
         this.dom = '<div class="xntree-cont">';
         this.index = 0;
-        this.dom += this._rendHTML(this.data, 0) + "</div>";
+        this.dom += this._rendHTML(this.data, 0) + '</div>';
         const movedom = this.addMoveDom();
         const scrollDom = '<div class="xntree-scroll" style="height:' + this.openNumber * this.option.lineHeight + 'px"></div>';
         this.container.innerHTML = scrollDom + this.dom + movedom;
@@ -188,7 +186,7 @@ export class Tree {
     }
 
     public setScrollWidth() {
-        const width = this.container.querySelector(".xntree-cont").clientWidth;
+        const width = this.container.querySelector('.xntree-cont').clientWidth;
         this.scrollDom.style.minWidth = width + 'px';
     }
 
@@ -230,16 +228,15 @@ export class Tree {
         return dom;
     }
 
-
     private _rendOneNode(l, span, level, open) {
         let pre = '<div class="xn-tree-icons">';
         if ((l.$show && l.children && l.children[0]) || this.option.lazyLoad) {
-            pre += this.slidedownHTML[(l.children && l.children[0] && l.children[0].$show) ? 'down' : 'up'];
+            pre += this.slidedownHTML[l.children && l.children[0] && l.children[0].$show ? 'down' : 'up'];
         } else {
             pre += '<a></a>';
         }
         if (!this.option.hideIcon) {
-            const icon = (l.children && l.children.length > 0) ? 'folder' : 'file';
+            const icon = l.children && l.children.length > 0 ? 'folder' : 'file';
             pre += this.iconHTML[icon];
         }
         pre += '</div>';
@@ -273,12 +270,12 @@ export class Tree {
         // ope += `</div>`
         let selectDom = '';
         if (this.option.selectType) {
-            selectDom = this.selectHTML[this.option.selectType + (((this.checked.nodes[l[this.option.id]]) || this.checked.nodes[l[this.option.id]]) ? 'on' : '')] || '';
+            selectDom = this.selectHTML[this.option.selectType + (this.checked.nodes[l[this.option.id]] || this.checked.nodes[l[this.option.id]] ? 'on' : '')] || '';
             if (this.option.checkDisabled(l)) {
                 selectDom = this.selectHTML[this.option.selectType + 'disable'];
             }
         }
-        const h = `<div style="line-height: ${this.option.lineHeight}px;height:${this.option.lineHeight}px" class="xntree-item ${!open ? 'xn-hide-sub' : ''} ${(this.clicked && this.clicked[this.option.id] == l[this.option.id]) ? 'on' : ''}" data-level="${level}" data-id="${l[this.option.id]}">
+        const h = `<div style="line-height: ${this.option.lineHeight}px;height:${this.option.lineHeight}px" class="xntree-item ${!open ? 'xn-hide-sub' : ''} ${this.clicked && this.clicked[this.option.id] == l[this.option.id] ? 'on' : ''}" data-level="${level}" data-id="${l[this.option.id]}">
                     ${span}
                     ${pre}
                     ${selectDom}
@@ -295,11 +292,12 @@ export class Tree {
         this.searchKeyword = keyword;
         if (keyword.trim()) {
             if (!func) {
-                func = (d) => {
+                func = d => {
                     return d[that.option.label].indexOf(keyword) > -1;
                 };
             }
-            const path = [], result = [];
+            const path = [],
+                result = [];
             const results = this.treeFindPath(this.data, func, path, result, containChild);
             this.seachKeys = [ ...new Set(results.flat()) ];
             this.searchKeysJson = {};
@@ -315,7 +313,7 @@ export class Tree {
             path.push(data[this.option.id]);
             const has = func(data);
             (has || (containChild && hasP)) && result.push([ ...path ]);
-            data.children && this.treeFindPath(data.children, func, path, result, containChild, (has || (containChild && hasP)));
+            data.children && this.treeFindPath(data.children, func, path, result, containChild, has || (containChild && hasP));
             path.pop();
         }
         return result;
@@ -323,11 +321,9 @@ export class Tree {
 
     public addEvent() {
         let startTime = new Date().getTime();
-        const clickFunc = (e) => {
-
-
+        const clickFunc = e => {
             const $t = $(e.target);
-            if ($t.hasClass('xn-slidedown')  || $t.get(0).getAttribute('data-slide')) {
+            if ($t.hasClass('xn-slidedown') || $t.get(0).getAttribute('data-slide')) {
                 e.stopPropagation();
                 this.slideEvent($t);
             }
@@ -353,7 +349,7 @@ export class Tree {
             }
             startTime = new Date().getTime();
         };
-        const dblclickFunc = (e) => {
+        const dblclickFunc = e => {
             // e.stopPropagation();
             const $t = $(e.target);
             if ($t.hasClass('xntree-label') || $t.parents('.xntree-label').get(0)) {
@@ -361,7 +357,7 @@ export class Tree {
                 if ($t.parents('.xntree-label').get(0)) {
                     $item = $t.parents('.xntree-label').eq(0);
                 }
-                const p = $item.parents(".xntree-item").get(0);
+                const p = $item.parents('.xntree-item').get(0);
                 const id = p.getAttribute('data-id');
                 const node = this.getNodeById(id);
                 if (this.option.on && this.option.on.dblclickNode) {
@@ -396,12 +392,12 @@ export class Tree {
             if ($t.parents('.xntree-item').get(0)) {
                 down = true;
                 el.$dom = $t.parents('.xntree-item').eq(0);
-                el.id = el.$dom.attr("data-id");
+                el.id = el.$dom.attr('data-id');
                 el.startTime = new Date().getTime();
             }
         };
         this.mousedownFunc = mousedownFunc;
-        this.container.addEventListener("mousedown", mousedownFunc);
+        this.container.addEventListener('mousedown', mousedownFunc);
 
         const mousemoveFunc = e => {
             if (!this.option.canMove) {
@@ -409,13 +405,15 @@ export class Tree {
             }
             if (down && new Date().getTime() - el.startTime > 300) {
                 const $t = $(e.target);
-                this.container.classList.add("xn-moving");
-                $(this.container).find('.xn-onmoving').removeClass('xn-onmoving');
+                this.container.classList.add('xn-moving');
+                $(this.container)
+                    .find('.xn-onmoving')
+                    .removeClass('xn-onmoving');
                 if ($t.parents('.xntree-item').get(0)) {
                     const $onDom = $t.parents('.xntree-item').eq(0);
                     el.$onDom = $onDom;
-                    el.onId = $onDom.attr("data-id");
-                    const [ dir, x, y,nextLevel ] = this.getMovePos($onDom, e);
+                    el.onId = $onDom.attr('data-id');
+                    const [ dir, x, y, nextLevel ] = this.getMovePos($onDom, e);
                     el.dir = dir;
                     el.y = y;
                     el.x = x;
@@ -434,7 +432,7 @@ export class Tree {
             }
         };
         this.mousemoveFunc = mousemoveFunc;
-        document.addEventListener("mousemove", mousemoveFunc);
+        document.addEventListener('mousemove', mousemoveFunc);
 
         const mouseupFunc = e => {
             if (down && move) {
@@ -442,18 +440,18 @@ export class Tree {
             }
             down = false;
             move = false;
-            this.container.classList.remove("xn-moving");
+            this.container.classList.remove('xn-moving');
             this.movedom.style.display = 'none';
         };
         this.mouseupFunc = mouseupFunc;
-        document.addEventListener("mouseup", mouseupFunc);
+        document.addEventListener('mouseup', mouseupFunc);
 
         const scrollFunc = e => {
-            const y = (this.container.scrollTop);
+            const y = this.container.scrollTop;
             this.topIndex = Math.floor(y / this.option.lineHeight);
             this.bottomIndex = this.topIndex + this.totalNum + 4;
             this.refreshDom(true);
-            this.container.querySelector(".xntree-cont").style.transform = 'translateY(' + (this.topIndex * this.option.lineHeight) + 'px)';
+            this.container.querySelector('.xntree-cont').style.transform = 'translateY(' + this.topIndex * this.option.lineHeight + 'px)';
         };
         this.scrollFunc = scrollFunc;
         this.container.addEventListener('scroll', scrollFunc);
@@ -465,7 +463,7 @@ export class Tree {
         this.currentNumber = 0;
         this.calcCurrent = true;
         const dom = this._rendHTML(this.data, 0, justScroll);
-        this.container.querySelector(".xntree-cont").innerHTML = dom;
+        this.container.querySelector('.xntree-cont').innerHTML = dom;
         if (!justScroll) {
             this.scrollDom.style.height = this.openNumber * this.option.lineHeight + 'px';
             if (needLocate) {
@@ -480,7 +478,7 @@ export class Tree {
         //     el.onId=
         // }
         const nextLevel = el.nextLevel;
-        while(el.nextLevel){
+        while (el.nextLevel) {
             el.onId = this.flatList[el.onId][this.option.pId];
             el.nextLevel--;
         }
@@ -500,7 +498,7 @@ export class Tree {
         let curP = this.flatList[this.flatList[el.id][this.option.pId]];
         if (!curP) {
             curP = {
-                children: this.data
+                children: this.data,
             };
         }
         for (let i = 0; i < curP.children.length; i++) {
@@ -513,7 +511,8 @@ export class Tree {
             this.flatList[el.onId].children = [];
             hasChild = false;
         }
-        if (el.dir == 'on' || (hasChild && el.dir == 'down' && this.flatList[el.onId].children[0] && this.flatList[el.onId].children[0].$show && !nextLevel)) {//1.在节点上，2.当节点为展开状态，鼠标在节点下方，统一做在节点上的操作
+        if (el.dir == 'on' || (hasChild && el.dir == 'down' && this.flatList[el.onId].children[0] && this.flatList[el.onId].children[0].$show && !nextLevel)) {
+            //1.在节点上，2.当节点为展开状态，鼠标在节点下方，统一做在节点上的操作
             this.flatList[el.id][this.option.pId] = el.onId;
             this.flatList[el.onId].children.unshift(this.flatList[el.id]);
             this.flatList[el.id].$show = this.flatList[el.onId].children[1] && this.flatList[el.onId].children[1].$show;
@@ -524,9 +523,10 @@ export class Tree {
             return;
         }
         let pNode = this.flatList[this.flatList[el.onId][this.option.pId]];
-        if ((!pNode) || (this.flatList[el.onId][this.option.id] == this.flatList[el.onId][this.option.pId])) {//有的时候跟节点的id和pid是同一个值
+        if (!pNode || this.flatList[el.onId][this.option.id] == this.flatList[el.onId][this.option.pId]) {
+            //有的时候跟节点的id和pid是同一个值
             pNode = {
-                children: this.data
+                children: this.data,
             };
         }
         let index;
@@ -567,34 +567,36 @@ export class Tree {
         const pos = $dom.get(0).getBoundingClientRect();
         const pPos = this.container.getBoundingClientRect();
         // @ts-ignore
-        const top = pos.top - pPos.top, top1 = pos.top + pos.height * 2 / 5, top2 = pos.top + pos.height * 3 / 5, top4 = pos.top + pos.height;
+        const top = pos.top - pPos.top,
+            top1 = pos.top + (pos.height * 2) / 5,
+            top2 = pos.top + (pos.height * 3) / 5,
+            top4 = pos.top + pos.height;
         const etop = e.clientY;
         let y, x;
         const curLevel = $dom.get(0).getAttribute('data-level');
         const siblingLevel = $dom.get(0).nextSibling ? $dom.get(0).nextSibling.getAttribute('data-level') : null;
         const isindent = e.target.classList.contains('xn-indent');
 
-
-        x = pos.left - pPos.left + ($dom.children(".xn-indent").el.length) * 15 + 15;
+        x = pos.left - pPos.left + $dom.children('.xn-indent').el.length * 15 + 15;
         if (etop <= top1) {
             dir = 'up';
-            y = top  + this.container.scrollTop;
+            y = top + this.container.scrollTop;
         }
         if (etop > top1 && etop <= top2) {
             dir = 'on';
         }
         if (etop > top2) {
             dir = 'down';
-            y = top + pos.height  + this.container.scrollTop;
-            if(isindent && curLevel != siblingLevel){
-                nextLevel = ($dom.children('.xn-indent').el).length - ($dom.children('.xn-indent').el).indexOf(e.target);
-                if(curLevel - nextLevel < siblingLevel){
+            y = top + pos.height + this.container.scrollTop;
+            if (isindent && curLevel != siblingLevel) {
+                nextLevel = $dom.children('.xn-indent').el.length - $dom.children('.xn-indent').el.indexOf(e.target);
+                if (curLevel - nextLevel < siblingLevel) {
                     nextLevel = curLevel - siblingLevel;
                 }
                 x = x - nextLevel * 15 - 15;
             }
         }
-        return [ dir, x, y,nextLevel ];
+        return [ dir, x, y, nextLevel ];
     }
 
     public setNodesShow(node) {
@@ -624,7 +626,7 @@ export class Tree {
     }
 
     public clickLabelEvent($item, $t, e) {
-        const p = $item.parents(".xntree-item", this.container).get(0);
+        const p = $item.parents('.xntree-item', this.container).get(0);
         // const plevel = parseInt(p.getAttribute('data-level'));
         const id = p.getAttribute('data-id');
         const node = this.getNodeById(id);
@@ -638,11 +640,10 @@ export class Tree {
             // $(p).addClass('on')
         }
         this.refreshDom();
-
     }
 
     public radioEvent($t) {
-        const p = $t.parents(".xntree-item", this.container).get(0);
+        const p = $t.parents('.xntree-item', this.container).get(0);
         const id = p.getAttribute('data-id');
         const node = this.getNodeById(id);
         this.checked.keys = [ id ];
@@ -653,7 +654,7 @@ export class Tree {
     }
 
     public checkEvent($t) {
-        const p = $t.parents(".xntree-item", this.container).get(0);
+        const p = $t.parents('.xntree-item', this.container).get(0);
         const id = p.getAttribute('data-id');
         const node = this.getNodeById(id);
         if (this.option.checkDisabled(node)) {
@@ -666,10 +667,11 @@ export class Tree {
         }
         let paths = [];
         if (sticky.indexOf('p') > -1) {
-            const func = (d) => {
+            const func = d => {
                 return d[this.option.id] == id;
             };
-            const path = [], result = [];
+            const path = [],
+                result = [];
             const results = this.treeFindPath(this.data, func, path, result, sticky.indexOf('c') > -1);
             paths = [ ...new Set(results.flat()) ];
         } else if (sticky.indexOf('c') > -1) {
@@ -712,11 +714,12 @@ export class Tree {
         for (let i = keys.length - 1; i >= 0; i--) {
             const id = keys[i];
             const node = this.getNodeById(id);
-            if (!node) {//用于处理设置的key值不存在的情况
+            if (!node) {
+                //用于处理设置的key值不存在的情况
                 keys.splice(i, 1);
                 continue;
             }
-            this.checked.nodes[id] = (node);
+            this.checked.nodes[id] = node;
         }
         this.checked.keys = keys;
         this.trigger('checkChange', false, false, this.checked, true);
@@ -742,18 +745,18 @@ export class Tree {
         return this.checked;
     }
 
-    public checkAll(justResult) {//justResult,仅选择当前搜索结果
+    public checkAll(justResult) {
+        //justResult,仅选择当前搜索结果
         let list = $.extend(true, [], this.flatListKeys);
         list = list.filter(e => {
             return !this.option.checkDisabled(this.getNodeById(e));
         });
         if (justResult && this.seachKeys) {
-            list = list.filter((e) => {
-                return (!this.seachKeys || this.searchKeysJson[e]);
+            list = list.filter(e => {
+                return !this.seachKeys || this.searchKeysJson[e];
             });
         }
         this.setCheckedKeys(list);
-
     }
 
     public clearAll() {
@@ -769,14 +772,14 @@ export class Tree {
         // oldDom.innerHTML = dom.innerHTML;
     }
 
-    public addNodes(id,nodes,open){
-        for(let i = nodes.length - 1;i >= 0;i--){
-            this._addOneNode(id,nodes[i],open);
+    public addNodes(id, nodes, open) {
+        for (let i = nodes.length - 1; i >= 0; i--) {
+            this._addOneNode(id, nodes[i], open);
         }
         this.refreshDom();
     }
 
-    public _addOneNode(id,node,open?){
+    public _addOneNode(id, node, open?) {
         const pNode = this.getNodeById(id);
         if (!pNode) {
             node.$level = 0;
@@ -800,8 +803,9 @@ export class Tree {
         this.flatList[node[this.option.id]] = node;
         this.flatListKeys.push(node[this.option.id]);
     }
-    public addNode(id, node) {//新增节点
-        this._addOneNode(id,node);
+    public addNode(id, node) {
+        //新增节点
+        this._addOneNode(id, node);
         this.refreshDom();
         // let [h, icon, dom] = this._rendOneNode(node, false, $level, true);
         // this.container.querySelector('[data-id="' + id + '"]').after(dom)
@@ -813,14 +817,17 @@ export class Tree {
         var last_element = parent.lastElementChild || parent.lastChild;
         //兄弟节点同样也是有兼容性
         var target_sibling = target_element.nextElementSibling || target_element.nextSibling;
-        if (last_element == target_element) {//先判断目标节点是不是父级的最后一个节点，如果是的话，直接给父级加子节点就好
+        if (last_element == target_element) {
+            //先判断目标节点是不是父级的最后一个节点，如果是的话，直接给父级加子节点就好
             parent.appendChild(insert_element);
-        } else {//不是最好后一个节点  那么插入到目标元素的下一个兄弟节点之前（就相当于目标元素的insertafter）
+        } else {
+            //不是最好后一个节点  那么插入到目标元素的下一个兄弟节点之前（就相当于目标元素的insertafter）
             parent.insertBefore(insert_element, target_sibling);
         }
     }
 
-    public deleteNode(id) {//删除节点
+    public deleteNode(id) {
+        //删除节点
         const node = this.getNodeById(id);
         let pNode = this.getNodeById(node[this.option.pId]);
         let key = null;
@@ -851,7 +858,9 @@ export class Tree {
         this._literalFlatTree({}, [ node ], {}, delKeys, 0, true);
         for (let i = 0; i < delKeys.length; i++) {
             const k = delKeys[i];
-            $(this.container).find("[data-id='" + k + "']").remove();
+            $(this.container)
+                .find("[data-id='" + k + "']")
+                .remove();
         }
     }
 
@@ -896,7 +905,7 @@ export class Tree {
         return false;
     }
 
-    public openChildren(node){
+    public openChildren(node) {
         for (let i = 0; i < node.children.length; i++) {
             node.children[i].$show = !node.children[i].$show;
         }
@@ -904,29 +913,28 @@ export class Tree {
     }
 
     public async slideEvent($t) {
-
-        const p = $t.parents(".xntree-item", this.container).get(0);
+        const p = $t.parents('.xntree-item', this.container).get(0);
         const id = p.getAttribute('data-id');
         const node = this.getNodeById(id);
-        if(node.children && node.children.length >= 0){
+        if (node.children && node.children.length >= 0) {
             node.$$loaded = true;
         }
-        if(node.$$loaded || !this.option.lazyLoad){
+        if (node.$$loaded || !this.option.lazyLoad) {
             this.openChildren(node);
-        }
-        else{
+        } else {
             const nodes = await this.option.on.loadData(node);
             node.$$loaded = true;
-            this.addNodes(id,nodes,true);
+            this.addNodes(id, nodes, true);
         }
     }
 
-
     public findChildren(p, plevel) {
-        const child = $(p).nextUntil('.xntree-item[data-level="' + plevel + '"]').filter((i, e) => {
-            const level = parseInt(e.getAttribute('data-level'));
-            return (level > plevel);
-        });
+        const child = $(p)
+            .nextUntil('.xntree-item[data-level="' + plevel + '"]')
+            .filter((i, e) => {
+                const level = parseInt(e.getAttribute('data-level'));
+                return level > plevel;
+            });
         return child;
     }
 
@@ -967,7 +975,6 @@ export class Tree {
                 d[i].children = [];
             }
             datajson[d[i][this.option.id]] = d[i];
-
         }
         const nd = d.filter(item => {
             if (datajson[item[this.option.pId]] && item[this.option.pId] != item[this.option.id]) {
@@ -1003,5 +1010,4 @@ export class Tree {
     public returnFlatData() {
         return this.flatList;
     }
-
-};
+}

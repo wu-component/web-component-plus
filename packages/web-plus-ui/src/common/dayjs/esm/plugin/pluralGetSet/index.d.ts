@@ -1,44 +1,44 @@
-import { PluginFunc, UnitType, ConfigType } from 'dayjs/esm'
+import { PluginFunc, UnitType, ConfigType } from 'dayjs/esm';
 
-declare const plugin: PluginFunc
-export = plugin
+declare const plugin: PluginFunc;
+export = plugin;
 
 declare module 'dayjs/esm' {
-  interface Dayjs {
-    years(): number
+    interface Dayjs {
+        years(): number;
 
-    years(value: number): Dayjs
+        years(value: number): Dayjs;
 
-    months(): number
+        months(): number;
 
-    months(value: number): Dayjs
+        months(value: number): Dayjs;
 
-    dates(): number
+        dates(): number;
 
-    dates(value: number): Dayjs
+        dates(value: number): Dayjs;
 
-    weeks(): number
+        weeks(): number;
 
-    weeks(value: number): Dayjs
+        weeks(value: number): Dayjs;
 
-    days(): number
+        days(): number;
 
-    days(value: number): Dayjs
+        days(value: number): Dayjs;
 
-    hours(): number
+        hours(): number;
 
-    hours(value: number): Dayjs
+        hours(value: number): Dayjs;
 
-    minutes(): number
+        minutes(): number;
 
-    minutes(value: number): Dayjs
+        minutes(value: number): Dayjs;
 
-    seconds(): number
+        seconds(): number;
 
-    seconds(value: number): Dayjs
+        seconds(value: number): Dayjs;
 
-    milliseconds(): number
+        milliseconds(): number;
 
-    milliseconds(value: number): Dayjs
-  }
+        milliseconds(value: number): Dayjs;
+    }
 }

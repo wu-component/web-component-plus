@@ -26,7 +26,7 @@
         "target": "ES5",
         "useUnknownInCatchVariables": true,
         "baseUrl": ".",
-        "declarationDir": "./types",
+        // "declarationDir": "./types",
         "paths": {
             "@/*":["./src/*"],
             "@/app-data": ["./src/app-data/index.ts"],

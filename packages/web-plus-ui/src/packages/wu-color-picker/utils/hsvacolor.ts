@@ -10,7 +10,10 @@ export function HSVaColor(h = 0, s = 0, v = 0, a = 1) {
     };
 
     const that = {
-        h, s, v, a,
+        h,
+        s,
+        v,
+        a,
 
         toHSVA() {
             const hsva = [ that.h, that.s, that.v, that.a ];
@@ -41,16 +44,20 @@ export function HSVaColor(h = 0, s = 0, v = 0, a = 1) {
 
             // Check if alpha channel make sense, convert it to 255 number space, convert
             // to hex and pad it with zeros if needet.
-            const alpha = that.a >= 1 ? '' : Number((that.a * 255).toFixed(0))
-                .toString(16)
-                .toUpperCase().padStart(2, '0');
+            const alpha =
+                that.a >= 1
+                    ? ''
+                    : Number((that.a * 255).toFixed(0))
+                          .toString(16)
+                          .toUpperCase()
+                          .padStart(2, '0');
 
             alpha && hex.push(alpha);
             hex.toString = () => `#${hex.join('').toUpperCase()}`;
             return hex;
         },
 
-        clone: () => HSVaColor(that.h, that.s, that.v, that.a)
+        clone: () => HSVaColor(that.h, that.s, that.v, that.a),
     };
 
     return that;

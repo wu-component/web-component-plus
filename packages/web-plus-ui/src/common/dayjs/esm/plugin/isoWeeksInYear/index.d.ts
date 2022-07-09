@@ -1,10 +1,10 @@
-import { PluginFunc } from 'dayjs/esm'
+import { PluginFunc } from 'dayjs/esm';
 
-declare const plugin: PluginFunc
-export = plugin
+declare const plugin: PluginFunc;
+export = plugin;
 
 declare module 'dayjs/esm' {
-  interface Dayjs {
-    isoWeeksInYear(): number
-  }
+    interface Dayjs {
+        isoWeeksInYear(): number;
+    }
 }
