@@ -1,4 +1,4 @@
-import { h, Component, Prop, OnInstall, Emit, Inject, WuComponent } from '@canyuegongzi/web-core-plus';
+ import { h, Component, Prop, OnInstall, Emit, Inject, WuComponent } from '@canyuegongzi/web-core-plus';
 import css from './index.scss';
 import { UISize } from '@/interface';
 import { extractClass } from '@/common';

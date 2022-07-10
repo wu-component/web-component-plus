@@ -299,6 +299,7 @@ export class Tree {
             const path = [],
                 result = [];
             const results = this.treeFindPath(this.data, func, path, result, containChild);
+            // @ts-ignore
             this.seachKeys = [ ...new Set(results.flat()) ];
             this.searchKeysJson = {};
             this.seachKeys.forEach(e => {
@@ -569,8 +570,8 @@ export class Tree {
         // @ts-ignore
         const top = pos.top - pPos.top,
             top1 = pos.top + (pos.height * 2) / 5,
-            top2 = pos.top + (pos.height * 3) / 5,
-            top4 = pos.top + pos.height;
+            top2 = pos.top + (pos.height * 3) / 5;
+            // top4 = pos.top + pos.height;
         const etop = e.clientY;
         let y, x;
         const curLevel = $dom.get(0).getAttribute('data-level');
@@ -673,6 +674,7 @@ export class Tree {
             const path = [],
                 result = [];
             const results = this.treeFindPath(this.data, func, path, result, sticky.indexOf('c') > -1);
+            // @ts-ignore
             paths = [ ...new Set(results.flat()) ];
         } else if (sticky.indexOf('c') > -1) {
             this._literalFlatTree({}, [ node ], {}, paths, 0, true);
