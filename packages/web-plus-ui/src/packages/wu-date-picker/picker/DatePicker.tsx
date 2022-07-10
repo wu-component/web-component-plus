@@ -1271,7 +1271,7 @@ export class DatePicker {
 
     private getYearList(datenum) {
         const chooseYear: number = (dayjs(this['tempdate' + datenum]).format('YYYY') as unknown) as number;
-        const curYear: number = (chooseYear - (chooseYear % 12)) as number;
+        const curYear: any = (chooseYear - (chooseYear % 12)) as number;
         this.$container.find('.dater' + datenum + ' .year-info').html(curYear + '-' + (parseInt(String(curYear)) + 11));
         let html = '';
         for (let i = 0; i < 12; i++) {
