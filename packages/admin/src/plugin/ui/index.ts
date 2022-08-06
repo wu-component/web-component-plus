@@ -1,0 +1,13 @@
+import "@canyuegongzi/web-ui-plus/dist/wu-menu/index.esm";
+import "@canyuegongzi/web-ui-plus/dist/wu-tooltip/index.esm";
+import "@canyuegongzi/web-ui-plus/dist/wu-menu-item/index.esm";
+import "@canyuegongzi/web-ui-plus/dist/wu-button/index.esm";
+import "@canyuegongzi/web-ui-plus/dist/wu-icon/index.esm";
+import "@canyuegongzi/web-ui-plus/dist/wu-collapse/index.esm";
+import "@canyuegongzi/web-ui-plus/dist/wu-collapse-item/index.esm";
+import "@canyuegongzi/web-ui-plus/dist/wu-progress/index.esm";
+import "@canyuegongzi/web-ui-plus/dist/wu-image/index.esm";
+import "@canyuegongzi/web-ui-plus/dist/wu-aside/index.esm";
+import "@canyuegongzi/web-ui-plus/dist/wu-container/index.esm";
+import "@canyuegongzi/web-ui-plus/dist/wu-header/index.esm";
+import "@canyuegongzi/web-ui-plus/dist/wu-footer/index.esm";

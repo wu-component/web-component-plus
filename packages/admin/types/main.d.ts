@@ -1,5 +1,4 @@
-import "@canyuegongzi/web-core-plus";
-import '@canyuegongzi/web-ui-plus';
+import './plugin';
 import './components';
 import './views';
 import './app/App';

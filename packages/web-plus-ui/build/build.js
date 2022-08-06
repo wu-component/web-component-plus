@@ -36,10 +36,10 @@ const tsPlugin = typescript({
     extensions
 })
 
-
+let config = []
 
 // 单独打包
-const config = readdirSync(input)
+config = readdirSync(input)
     .filter(name => ![].includes(name))
     .map(name => ({
         input: `${input}/${name}/index.tsx`,
@@ -59,7 +59,7 @@ const config = readdirSync(input)
             postcss({
                 name: 'index',
                 extensions: [ '.css', 'scss' ],
-                to: `${output}/${name}/lib/index.css`,
+                to: `${output}/${name}/index.css`,
                 plugins: [
                     autoprefixer()
                 ],
@@ -74,13 +74,53 @@ const config = readdirSync(input)
             })
         ],
         output: [
-            { name: name, file: `${output}/${name}/lib/index.umd.js`, format: 'umd' },
-            { file: `${output}/${name}/lib/index.cjs.js`, format: 'cjs' },
-            { file: `${output}/${name}/lib/index.esm.js`, format: 'es' }
-
+            { name: name, file: `${output}/${name}/index.umd.js`, format: 'umd' },
         ]
     }));
 
+// 单独打包
+const newConfig = readdirSync(input)
+    .filter(name => ![].includes(name))
+    .map(name => ({
+        input: `${input}/${name}/index.tsx`,
+        plugins: [
+            terser({
+                    output: {
+                        comments: false,
+                    },
+                    numWorkers: cpuNums, //多线程压缩
+                }
+            ),
+            url({
+                include: ['**/*.svg', '**/*.png', '**/*.jp(e)?g', '**/*.gif', '**/*.webp', '**/*.ttf', '**/*.woff']
+            }),
+            nodeResolve(),
+            commonjs(),
+            postcss({
+                name: 'index',
+                extensions: [ '.css', 'scss' ],
+                to: `${output}/${name}/index.css`,
+                plugins: [
+                    autoprefixer()
+                ],
+                // extract: `${output}/${name}/lib/index.css`
+                extract: false,
+                minimize: true
+            }),
+            tsPlugin,
+            json(),
+            replace({
+                preventAssignment: true
+            })
+        ],
+        output: [
+           // { file: `${output}/${name}/index.cjs.js`, format: 'cjs' },
+            { file: `${output}/${name}/index.esm.js`, format: 'es' }
+        ],
+        external: [/web-core-plus$/],
+    }));
+
+config = newConfig.concat(config);
 
 // 整合打;包
 config.push({

@@ -35,6 +35,11 @@
     // 入口文件
     "include": [
         "typings/*.ts",
+        "src/packages/**/*.tsx",
+        "src/packages/**/*.ts",
+        "src/test/**/*.tsx",
+        "src/common/**/*.ts",
+        "./css.d.ts", //配置的.d.ts文件
         "src/declarations/*.ts"
     ]
 }

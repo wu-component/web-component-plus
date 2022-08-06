@@ -1,6 +1,6 @@
 {
   "name": "@canyuegongzi/web-ui-plus",
-  "version": "0.0.26",
+  "version": "0.0.27",
   "description": "> TODO: description",
   "author": "Marvin <yongfeide123@gmail.com>",
   "homepage": "",
@@ -92,7 +92,7 @@
     "rollup-plugin-progress": "^1.1.2",
     "rollup-plugin-scss": "^3.0.0",
     "rollup-plugin-terser": "^7.0.2",
-    "rollup-plugin-typescript2": "^0.30.0",
+    "rollup-plugin-typescript2": "^0.32.1",
     "rollup-plugin-visualizer": "^5.5.0",
     "sass": "^1.52.1",
     "sass-loader": "^13.0.0",
