@@ -1,8 +1,8 @@
 import { h, Component, Prop, OnConnected, WuComponent, Inject, OnDisConnected } from '@canyuegongzi/web-core-plus';
-import "@canyuegongzi/web-ui-plus/dist/wu-tooltip/lib/index.esm";
 import css from './index.scss';
 import { extractClass } from "@/common";
 import { WuMenu } from "../wu-menu";
+import "../wu-tooltip";
 
 @Component({
     name: 'wu-plus-menu-item',

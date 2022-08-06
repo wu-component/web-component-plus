@@ -1,4 +1,9 @@
-import "./my";
+/*import "./my";
 import "./about";
 import "./message";
-import "./home";
+import "./home";*/
+import("./my");
+import("./about");
+import("./message");
+import("./home");
+export {}

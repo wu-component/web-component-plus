@@ -78,6 +78,7 @@ export class WuDialog extends WuComponent {
         this.rootNode.childNodes[0].leave();
         this.rootNode.childNodes[1].leave();
         this.enableScroll();
+        this.visible = false;
     }
 
     /**
