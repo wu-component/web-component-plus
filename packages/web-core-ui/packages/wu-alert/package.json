@@ -86,5 +86,9 @@
     },
     "dependencies": {
         "@wu-component/web-core-plus": "latest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/wu-component/web-component-plus"
     }
 }

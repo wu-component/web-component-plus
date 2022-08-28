@@ -36,6 +36,10 @@ readdirSync(input)
                     "publishConfig": {
                         "access": "public"
                     },
+                    "repository": {
+                        "type": "git",
+                        "url": "https://github.com/wu-component/web-component-plus"
+                    },
                 }
             }
             writeFileSync(getPath(`../packages/${item}/package.json`), JSON.stringify(data, null, 4), err => {

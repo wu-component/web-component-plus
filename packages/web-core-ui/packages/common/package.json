@@ -81,5 +81,9 @@
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.9.0"
   },
-  "dependencies": {}
+  "dependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/wu-component/web-component-plus"
+    }
 }

@@ -87,5 +87,9 @@
         "LICENSE",
         "types",
         "readme.md"
-    ]
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/wu-component/web-component-plus"
+    }
 }
