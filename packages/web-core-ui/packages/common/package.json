@@ -26,11 +26,11 @@
     "npm": ">= 5"
   },
   "files": [
-      "dist",
-      "src",
-      "LICENSE",
-      "readme.md",
-      "types"
+    "dist",
+    "src",
+    "LICENSE",
+    "readme.md",
+    "types"
   ],
   "devDependencies": {
     "@babel/preset-typescript": "^7.13.0",
@@ -81,9 +81,8 @@
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.9.0"
   },
-  "dependencies": {},
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/wu-component/web-component-plus"
-    }
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wu-component/web-component-plus"
+  }
 }

@@ -78,8 +78,8 @@
         "webpack-dev-server": "^4.9.0"
     },
     "dependencies": {
-        "@wu-component/web-core-plus": "latest",
-        "@popperjs/core": "^2.11.5"
+        "@popperjs/core": "^2.11.5",
+        "@wu-component/web-core-plus": "latest"
     },
     "files": [
         "dist",

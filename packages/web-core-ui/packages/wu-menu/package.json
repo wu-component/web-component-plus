@@ -79,8 +79,8 @@
     },
     "peerDependencies": {
         "@wu-component/wu-menu-item": "latest",
-        "@wu-component/wu-menu-sub": "latest",
-        "@wu-component/wu-menu-item-group": "latest"
+        "@wu-component/wu-menu-item-group": "latest",
+        "@wu-component/wu-menu-sub": "latest"
     },
     "dependencies": {
         "@wu-component/web-core-plus": "latest"

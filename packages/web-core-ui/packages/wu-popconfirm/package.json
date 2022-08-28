@@ -78,8 +78,8 @@
         "webpack-dev-server": "^4.9.0"
     },
     "peerDependencies": {
-        "@wu-component/wu-popover": "latest",
-        "@wu-component/wu-button": "latest"
+        "@wu-component/wu-button": "latest",
+        "@wu-component/wu-popover": "latest"
     },
     "dependencies": {
         "@wu-component/web-core-plus": "latest"

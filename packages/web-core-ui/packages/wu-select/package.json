@@ -79,8 +79,8 @@
     },
     "peerDependencies": {
         "@wu-component/wu-popover": "latest",
-        "@wu-component/wu-tag": "latest",
-        "@wu-component/wu-select-option": "latest"
+        "@wu-component/wu-select-option": "latest",
+        "@wu-component/wu-tag": "latest"
     },
     "dependencies": {
         "@wu-component/web-core-plus": "latest"
