@@ -95,3 +95,5 @@ export class WuMessage extends WuComponent {
         );
     }
 }
+
+export * from './MessagePopupManager';

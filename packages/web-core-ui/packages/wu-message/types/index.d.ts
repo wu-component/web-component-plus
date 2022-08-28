@@ -30,3 +30,4 @@ export declare class WuMessage extends WuComponent {
     startTimer(): void;
     render(_renderProps?: {}, _store?: {}): any;
 }
+export * from './MessagePopupManager';
