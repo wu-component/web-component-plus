@@ -11,6 +11,7 @@
     "build:common": "node ./scripts/build-common.js",
     "build:package": "lerna run build:package",
     "build:ui": "lerna run build:package",
+    "publish": "lerna publish",
     "clear-all": "rimraf node_modules && lerna clean -y",
     "bootstrap": "lerna bootstrap --npm-client yarn --use-workspace"
   },

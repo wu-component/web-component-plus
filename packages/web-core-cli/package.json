@@ -1,6 +1,6 @@
 {
-  "name": "@canyuegongzi/t-cli",
-  "version": "1.2.18",
+  "name": "@wu-component/t-cli",
+  "version": "1.2.19",
   "description": "快速构建前后端开发环境脚手架，欢迎提供优秀的工程模板。",
   "bin": {
     "t": "cli_dist/cli/bin/t.js"
