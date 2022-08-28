@@ -1,6 +1,7 @@
 @use "sass:map";
 @import '../../theme/common/var.scss';
 @import '../../theme/common/mixin.scss';
+@import './css/iconfont/iconfont.scss';
 :host{
     display: inline-block;
 }

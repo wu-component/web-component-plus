@@ -1,6 +1,6 @@
 import { OnConnected, WuComponent } from '@wu-component/web-core-plus';
-import '@wu-component/wu-popover';
-import '@wu-component/wu-input';
+import '@wu-component/wu-popover/src/index';
+import '@wu-component/wu-input/src/index';
 declare type UISize = 'medium' | 'small' | 'mini';
 interface CascaderOption {
     value: string;

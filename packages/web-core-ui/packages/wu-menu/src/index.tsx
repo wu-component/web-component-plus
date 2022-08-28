@@ -1,8 +1,8 @@
 import { Component, Emit, h, OnConnected, Prop, Provide, Watch, WuComponent } from '@wu-component/web-core-plus';
 import css from './index.scss';
-import '@wu-component/wu-menu-sub';
-import '@wu-component/wu-menu-item-group';
-import '@wu-component/wu-menu-item';
+import '@wu-component/wu-menu-sub/src/index';
+import '@wu-component/wu-menu-item-group/src/index';
+import '@wu-component/wu-menu-item/src/index';
 import { extractClass } from "@wu-component/common";
 import type { WuMenuItem, WuSubMenu } from "../types/type";
 

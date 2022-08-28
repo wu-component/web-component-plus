@@ -10,7 +10,7 @@
   "scripts": {
     "build:common": "node ./scripts/build-common.js",
     "build:package": "lerna run build:package",
-    "build:ui": "lerna run build:package",
+    "build:ui": "lerna run build:package && lerna run --scope @wu-component/ui-plus build",
     "publish": "lerna publish",
     "clear-all": "rimraf node_modules && lerna clean -y",
     "bootstrap": "lerna bootstrap --npm-client yarn --use-workspace"
@@ -44,6 +44,7 @@
     "prettier": "^1.15.3",
     "reflect-metadata": "^0.1.13",
     "rollup": "^2.74.1",
+    "rollup-plugin-cleanup": "^3.2.1",
     "rollup-plugin-filesize": "^9.1.1",
     "rollup-plugin-node-externals": "^2.2.0",
     "rollup-plugin-postcss": "^4.0.2",

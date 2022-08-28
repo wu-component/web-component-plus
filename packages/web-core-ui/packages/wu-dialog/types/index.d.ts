@@ -5,6 +5,7 @@ export declare class WuDialog extends WuComponent {
     closeOnClickModal: boolean;
     showClose: boolean;
     lockScroll: boolean;
+    zIndex: number;
     title: string;
     width: string;
     visibleChange(val: boolean): void;
@@ -16,6 +17,10 @@ export declare class WuDialog extends WuComponent {
      * 遮罩点击
      */
     handleMaskClick(): void;
+    /**
+     * 遮罩点击
+     */
+    handleMaskClickContent(e: any): void;
     /**
      * 主体点击
      */

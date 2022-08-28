@@ -1,6 +1,6 @@
 import { h, Component, WuComponent, Prop, State, Watch, Emit, Provide } from '@wu-component/web-core-plus';
 import css from './index.scss';
-import "@wu-component/wu-collapse-item";
+import "@wu-component/wu-collapse-item/src/index";
 
 @Component({
     name: 'wu-plus-collapse',

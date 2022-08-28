@@ -9,6 +9,7 @@ import replace from "@rollup/plugin-replace";
 import scss from 'rollup-plugin-scss'
 import autoprefixer from 'autoprefixer'
 import url from '@rollup/plugin-url';
+import cleanup from "rollup-plugin-cleanup";
 const output = resolve(__dirname, "../dist");
 const name = 'WebUIPlus';
 const extensions = [
@@ -87,7 +88,7 @@ const config = [
                 file: `${output}/index.umd.js`,
                 format: 'umd',
                 globals: {
-                    '@@wu-component/web-core-plus': 'webCorePlus'
+                    '@wu-component/web-core-plus': 'webCorePlus'
                 }
             },
             { file: `${output}/index.cjs.js`, format: 'cjs' },

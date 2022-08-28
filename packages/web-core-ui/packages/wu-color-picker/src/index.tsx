@@ -1,8 +1,8 @@
 type UISize = 'medium' | 'small' | 'mini';
 import { h, Component, Prop, OnConnected, WuComponent, State, Watch, Emit } from '@wu-component/web-core-plus';
 import css from './index.scss';
-import '@wu-component/wu-popover';
-import '@wu-component/wu-button';
+import '@wu-component/wu-popover/src/index';
+import '@wu-component/wu-button/src/index';
 import { WuColorPane } from "./color-pane";
 import './color-pane';
 import { HSVaColor } from "./utils/hsvacolor";

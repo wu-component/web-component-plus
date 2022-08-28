@@ -1,5 +1,5 @@
 import { WuComponent } from '@wu-component/web-core-plus';
-import "@wu-component/wu-time-line-item";
+import "@wu-component/wu-time-line-item/src/index";
 export declare class WuTimeLine extends WuComponent {
     constructor();
     reverse: boolean;

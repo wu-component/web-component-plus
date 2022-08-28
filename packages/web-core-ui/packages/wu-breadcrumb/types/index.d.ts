@@ -1,5 +1,5 @@
 import { OnConnected, WuComponent } from '@wu-component/web-core-plus';
-import "@wu-component/wu-breadcrumb-item";
+import "@wu-component/wu-breadcrumb-item/src/index";
 export declare class WuBreadcrumb extends WuComponent implements OnConnected {
     constructor();
     separator: string;

@@ -26,6 +26,10 @@ export class WuDialog extends WuComponent {
     @Prop({ type: Boolean, default: true })
     public lockScroll = true;
 
+    // 是否在 Dialog 出现时将 body 滚动锁定
+    @Prop({ type: Number, default: 500 })
+    public zIndex = 500;
+
     // 弹框标题
     @Prop({ default: '', type: String })
     public override title = '';
@@ -59,6 +63,21 @@ export class WuDialog extends WuComponent {
     @Emit('mask-click')
     public handleMaskClick(){
         if (this.closeOnClickModal) {
+            this.close();
+        }
+    }
+
+    /**
+     * 遮罩点击
+     */
+    @Emit('mask-click')
+    public handleMaskClickContent(e){
+        for (let i = 0 ; i < e.path.length; i ++) {
+            if (e.path[i]?.classList?.contains("wu-dialog")) {
+                return;
+            }
+        }
+        if (this.closeOnClickModal && e?.target?.tagName !== "WU-PLUS-DIALOG") {
             this.close();
         }
     }
@@ -109,9 +128,9 @@ export class WuDialog extends WuComponent {
         return (
             <div class="wu-dialog_wrapper">
                 <wu-plus-transition onafter-leave={this.onAfterLeave.bind(this)} appear name="dialog-zoom">
-                    <div class="wu-dialog_wrapper content">
+                    <div class="wu-dialog_wrapper content" onClick={(e) => this.handleMaskClickContent(e)}>
 
-                        <div role="dialog" aria-modal="true" aria-label={this.title} class="wu-dialog" style={{ width: this.width }} >
+                        <div role="dialog" aria-modal="true" aria-label={this.title} class="wu-dialog" style={{ width: this.width, zIndex: this.zIndex }} >
                             <div class="wu-dialog_header">
                                 <span class="wu-dialog_title">{this.title}</span>
                                 {
@@ -132,9 +151,10 @@ export class WuDialog extends WuComponent {
                     </div>
                 </wu-plus-transition>
 
-                <wu-plus-transition appear name="mask">
+                {/*<wu-plus-transition appear name="mask">
                     <div class="mask" onClick={() => this.handleMaskClick()} />
-                </wu-plus-transition>
+                </wu-plus-transition>*/}
+                <div className="mask" style={{  }} onClick={() => {}}/>
             </div>
         );
     }

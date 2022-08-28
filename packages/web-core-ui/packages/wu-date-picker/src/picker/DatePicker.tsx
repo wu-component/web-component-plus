@@ -651,7 +651,7 @@ export class DatePicker {
             if ($t.hasClass('skip-date')) {
                 const func = $t.attr('data-func');
                 const unit = $t.attr('data-unit');
-                var newdate = dayjs(this['tempdate' + datenum]).clone();
+                let newdate = dayjs(this['tempdate' + datenum]).clone();
                 newdate = newdate[func](1, unit + 's').startOf(unit);
                 if (this.checkDisable(newdate, unit, this.type, unit)) {
                     return;
