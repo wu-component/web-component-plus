@@ -1,0 +1,158 @@
+@use "sass:map";
+@use "sass:math";
+@import '../../theme/common/var.scss';
+@import '../../theme/common/mixin.scss';
+@import '../../theme/common/transition.scss';
+
+@mixin menu-item {
+    height: 56px;
+    line-height: 56px;
+    font-size: $--menu-item-font-size;
+    color: $--menu-item-font-color;
+    padding: 0 20px;
+    list-style: none;
+    cursor: pointer;
+    position: relative;
+    transition: border-color .3s, background-color .3s, color .3s;
+    box-sizing: border-box;
+    white-space: nowrap;
+
+    * {
+        vertical-align: middle;
+    }
+
+    i {
+        color: $--color-text-secondary;
+    }
+
+    &:hover,
+    &:focus {
+        outline: none;
+        background-color: $--menu-item-hover-fill;
+    }
+
+    @include when(disabled) {
+        opacity: 0.25;
+        cursor: not-allowed;
+        background: none !important;
+    }
+}
+
+@include b(menu) {
+    border-right: solid 1px #e6e6e6;
+    list-style: none;
+    position: relative;
+    margin: 0;
+    padding-left: 0;
+    background-color: $--menu-background-color;
+    @include utils-clearfix;
+    &.wu-menu-horizontal {
+        border-bottom: solid 1px #e6e6e6;
+    }
+    // mode="horizontal"
+    ::slotted(.wu-menu-horizontal) {
+        float: left;
+        height: 60px;
+        line-height: 60px;
+        margin: 0;
+        border-bottom: 2px solid transparent;
+        color: $--color-text-secondary;
+        a,
+        a:hover {
+            color: inherit;
+        }
+
+        &:not(.is-disabled):hover,
+        &:not(.is-disabled):focus{
+            background-color: #fff;
+        }
+    }
+}
+.horizontal-collapse-transition .wu-submenu_title .wu-submenu_icon-arrow {
+    transition: .2s;
+    opacity: 0;
+}
+.wu-menu-horizontal {
+    border-right: none;
+    ::slotted(wu-plus-menu-item), ::slotted(wu-plus-sub-menu) {
+        float: left;
+        height: 60px;
+        line-height: 60px;
+        margin: 0;
+        border-bottom: 2px solid transparent;
+        color: $--color-text-secondary;
+        ::slotted(*){
+            a,
+            a:hover {
+                color: inherit;
+            }
+
+            &:not(.is-disabled):hover,
+            &:not(.is-disabled):focus{
+                background-color: #fff;
+            }
+
+
+            & > .wu-submenu {
+                float: left;
+
+                &:focus,
+                &:hover {
+                    outline: none;
+                    .wu-submenu_title {
+                        color: $--color-text-primary;
+                    }
+                }
+
+                &.is-active {
+                    .wu-submenu_title {
+                        border-bottom: 2px solid $--color-primary;
+                        color: $--color-text-primary;
+                    }
+                }
+
+                & .wu-submenu_title {
+                    height: 60px;
+                    line-height: 60px;
+                    border-bottom: 2px solid transparent;
+                    color: $--color-text-secondary;
+
+                    &:hover {
+                        background-color: #fff;
+                    }
+                }
+                & .wu-submenu_icon-arrow {
+                    position: static;
+                    vertical-align: middle;
+                    margin-left: 8px;
+                    margin-top: -3px;
+                }
+            }
+            & .wu-menu {
+                & .wu-menu-item,
+                & .wu-submenu_title {
+                    background-color: $--color-white;
+                    float: none;
+                    height: 36px;
+                    line-height: 36px;
+                    padding: 0 10px;
+                    color: $--color-text-secondary;
+                }
+                & .wu-menu-item.is-active,
+                & .wu-submenu.is-active > .wu-submenu_title {
+                    color: $--color-text-primary;
+                }
+            }
+            & .wu-menu-item:not(.is-disabled):hover,
+            & .wu-menu-item:not(.is-disabled):focus {
+                outline: none;
+                color: $--color-text-primary;
+            }
+            & > .wu-menu-item.is-active {
+                border-bottom: 2px solid $--color-primary;
+                color: $--color-text-primary;
+            }
+        }
+
+    }
+}

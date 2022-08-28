@@ -1,0 +1,247 @@
+@use "sass:map";
+@use "sass:math";
+@import '../../theme/common/var.scss';
+@import '../../theme/common/mixin.scss';
+:host {
+    display: block;
+    width: 100%;
+}
+
+.wu-table {
+    overflow: auto;
+}
+
+.wu-table-table {
+    background: white;
+    margin: auto;
+    padding: 5px;
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    color: #606266;
+    font-weight: 400;
+}
+
+.wu-table-checkbox th:first-child,
+.wu-table-checkbox td:first-child {
+    padding: 2px 10px 2px;
+}
+
+th {
+    border-bottom: 1px solid #e0e0e0;
+    text-align: left;
+    vertical-align: middle;
+    padding: 10px 10px 10px;
+    color: rgba(0, 0, 0, 0.54);
+    line-height: 1.3125rem;
+    font-weight: 500;
+    background: #fafafa;
+    white-space: nowrap;
+}
+
+//https://stackoverflow.com/questions/4654481/lock-table-cells-to-their-default-size-regardless-of-content
+th,
+td {
+    // 下面这些样式会让冻结失效
+    // display: table-cell;
+    white-space: nowrap;
+    font-size: 0.875rem;
+    //  text-overflow: ellipsis;
+    //  overflow: hidden;
+    //  width: auto;
+    //  max-width: 1px;
+}
+
+th.fixed-top {
+    position: sticky;
+    top: -1px;
+    z-index: 1000;
+}
+
+// 头部排序
+.wu-table th.wu-table_cell.is-sortable {
+    cursor: pointer;
+}
+.wu-table th.wu-table_cell {
+    overflow: hidden;
+    user-select: none;
+    background-color: #fff;
+}
+
+.wu-table th.wu-table_cell >.cell {
+    display: inline-block;
+    box-sizing: border-box;
+    position: relative;
+    vertical-align: middle;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+}
+
+.wu-table .caret-wrapper {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    height: 34px;
+    width: 24px;
+    vertical-align: middle;
+    cursor: pointer;
+    overflow: initial;
+    position: relative;
+}
+
+.wu-table .sort-caret.ascending {
+    border-bottom-color: #c0c4cc;
+    top: 5px;
+}
+.wu-table .sort-caret {
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    position: absolute;
+    left: 7px;
+}
+
+
+.el-table td .wu-table_cell div {
+    box-sizing: border-box;
+}
+.wu-table .wu-table_cell {
+    padding: 12px 0;
+    // min-width: 0;
+    box-sizing: border-box;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    position: relative;
+    text-align: left;
+}
+.wu-table .wu-table_cell .cell {
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    word-break: break-all;
+    line-height: 23px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+// 头部样式
+.wu-table thead {
+    color: #909399;
+    font-weight: 500;
+}
+table thead th.fixed-left {
+    position: sticky;
+    left: -1px;
+    z-index: 1001;
+}
+
+table tbody td.fixed-left {
+    position: sticky;
+    left: -1px;
+    z-index: 999;
+}
+
+table thead th.fixed-right {
+    position: sticky;
+    z-index: 1001;
+}
+
+table tbody td.fixed-right {
+    position: sticky;
+    z-index: 1000;
+}
+
+.wu-table-border td,
+.wu-table-border th {
+    border-right: 1px solid #ebeef5;
+}
+
+.wu-table-border td:first-child,
+.wu-table-border th:first-child {
+    border-left: 1px solid #ebeef5;
+}
+
+.wu-table-border th {
+    border-top: 1px solid #ebeef5;
+}
+
+tr {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+tr:hover td {
+    background: #f5f5f5;
+}
+
+td {
+    text-align: left;
+    vertical-align: middle;
+    padding: 10px 10px 10px;
+    background: white;
+}
+
+td.compact,
+th.compact {
+    padding: 4px 10px 4px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.wu-table .wu-table-align-left .cell {
+    text-align: left;
+}
+
+.wu-table .wu-table-align-center .cell {
+    text-align: center;
+}
+
+wu-plus-checkbox {
+    height: 20px;
+    vertical-align: middle;
+}
+
+.wu-table .wu-table-align-right .cell {
+    text-align: right;
+}
+
+a,
+a:link,
+a:visited,
+a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    color: $--color-primary;
+}
+
+wu-plus-checkbox {
+    margin-right: 5px;
+}
+
+.wu-table-stripe tr:nth-of-type(odd) {
+    background: white;
+}
+
+.wu-table-stripe tr:nth-of-type(even) {
+    background: #fafafa;
+}
+
+.slide-fade-enter-active {
+    transition: all 0.3s ease;
+}
+
+.slide-fade-leave-active {
+    transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter,
+.slide-fade-leave-to {
+    transform: translateX(-40px);
+    opacity: 0;
+}

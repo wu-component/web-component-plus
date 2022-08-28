@@ -1,0 +1,14 @@
+@use "sass:map";
+@import '../../theme/common/var.scss';
+@import '../../theme/common/mixin.scss';
+
+:host {
+    overflow: auto;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+@include b(aside) {
+    overflow: auto;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
