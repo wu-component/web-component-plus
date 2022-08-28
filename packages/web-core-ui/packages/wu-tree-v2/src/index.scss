@@ -1,0 +1,37 @@
+@use "sass:map";
+@use "sass:math";
+@import '../../theme/common/var.scss';
+@import '../../theme/common/mixin.scss';
+:host{
+    display: block;
+    width: fit-content;
+    height: fit-content;
+}
+.wu-tree_inner {
+    //width:430px;
+    max-height:500px;
+    overflow: auto;
+    // border:1px solid #ccc;
+    background: #fff;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.wu-tree_inner::-webkit-scrollbar {
+    /*滚动条整体样式*/
+    width : 10px;  /*高宽分别对应横竖滚动条的尺寸*/
+    height: 1px;
+}
+.wu-tree_inner::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    border-radius: 10px;
+    box-shadow   : inset 0 0 5px rgba(144,147,153,.3);
+    background   : rgba(144,147,153,.3);
+}
+.wu-tree_inner::-webkit-scrollbar-track {
+    /*滚动条里面轨道*/
+    box-shadow   : inset 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background   : #ededed;
+}

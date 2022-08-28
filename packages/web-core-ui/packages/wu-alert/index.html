@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <div style="width: 400px; display: flex; justify-content: center; flex-direction: column; margin: 0 auto">
+        <h4>普通用法</h4>
+        <wu-plus-alert tip="成功提示的文案" type="success" effect="dark"></wu-plus-alert>
+        <p class="line-height"></p>
+        <wu-plus-alert tip="消息提示的文案" type="info" effect="dark"></wu-plus-alert>
+        <p class="line-height"></p>
+        <wu-plus-alert tip="警告提示的文案" type="warning" effect="dark"></wu-plus-alert>
+        <p class="line-height"></p>
+        <wu-plus-alert tip="错误提示的文案" type="error" effect="dark"></wu-plus-alert>
+        <p class="line-height"></p>
+
+        <h4>主题</h4>
+        <wu-plus-alert tip="dark主题" type="success" effect="dark"></wu-plus-alert>
+        <p class="line-height"></p>
+        <wu-plus-alert tip="light主题" type="success" effect="light"></wu-plus-alert>
+        <p class="line-height"></p>
+
+        <h4>自定义关闭按钮</h4>
+        <wu-plus-alert tip="不可关闭的 alert" type="success" closable="false"></wu-plus-alert>
+        <p class="line-height"></p>
+        <wu-plus-alert tip="自定义 close-text" type="info" close-text="知道了"></wu-plus-alert>
+        <p class="line-height"></p>
+
+        <h4>自定义icon</h4>
+        <wu-plus-alert tip="成功提示的文案 展示icon" type="success" show-icon="true">
+            <wu-plus-icon style="font-size: 12px" name="warning-outline" slot="icon"></wu-plus-icon>
+        </wu-plus-alert>
+        <p class="line-height"></p>
+
+        <h4>文字剧中</h4>
+        <wu-plus-alert tip="成功提示的文案 展示icon" type="success" show-icon="true" center></wu-plus-alert>
+        <p class="line-height"></p>
+
+        <h4>带有辅助性文字介绍</h4>
+        <wu-plus-alert
+            tip="成功提示的文案 展示icon"
+            type="success" show-icon="true"
+            description="这是一句绕口令：黑灰化肥会挥发发灰黑化肥挥发化为灰……"
+        ></wu-plus-alert>
+        <p class="line-height"></p>
+    </div>
+</div>
+<script src="./dist/index.umd.js"></script>
+</body>
+</html>

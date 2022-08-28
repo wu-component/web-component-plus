@@ -1,0 +1,678 @@
+.xndatepicker-pc-input{
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+}
+.xndatepicker-pc-input>div{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*width: 100%;*/
+    /*overflow: hidden;*/
+}
+.xndatepicker-pc-input>span{
+    padding:0 10px;
+}
+.xndatepicker-pc-input .input{
+    padding: 0 10px;
+    /*width: 100%;*/
+    /*overflow: hidden;*/
+    /*text-overflow: ellipsis;*/
+}
+.xndatepicker-pc-input .input:empty:before{
+    content:attr(data-placeholder);
+}
+/*.xndatepicker-pc-input:hover .clear-btn{*/
+/*    display: block;*/
+/*}*/
+.xndatepicker-pc-input:hover>div:before{
+    display: none;
+}
+.xndatepicker-pc-input>div>i.clear-btn{
+    display: none;
+}
+.xndatepicker-pc-input>div:hover i.clear-btn{
+    display: block;
+}
+.xndatepicker-pc-input>div:hover i.date-icon{
+    display: none;
+}
+.xndatepicker {
+    font-size: 14px;
+    line-height: 26px;
+    background: var(--background-color);
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
+    display: none;
+    position: fixed;
+    top: 100px;
+    left: 100px;
+    border-radius: 4px;
+    user-select: none;
+    z-index: 999;
+    box-sizing: initial;
+}
+
+.xndatepicker,
+.xndatepicker::before,
+.xndatepicker::after {
+    box-sizing: content-box;
+}
+
+.xndatepicker-input.icon-xndatepickerrili {
+    padding-right: 30px;
+}
+
+.xndatepicker-input.icon-xndatepickerrili:before {
+    position: absolute;
+    right: 10px;
+}
+
+.xndatepicker-input:empty:after {
+    content: attr(data-placeholder);
+}
+
+.xndatepicker .xn-top {
+    display: flex;
+    align-items: flex-start;
+}
+
+.xndatepicker .xn-bottom {
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: flex-end;
+    line-height: 31px;
+    font-size: 12px;
+}
+
+.xndatepicker .xn-bottom > a {
+    padding: 0 20px;
+    cursor: pointer;
+    border-left: 1px solid var(--border-color);
+}
+
+.xndatepicker .xn-bottom > a.confirm-date {
+    background: var(--primary-color);
+    color: var(--hover-color);
+    border-radius: 0 0 4px;
+}
+.xndatepicker .xn-bottom > a.confirm-date:hover{
+    background: var(--hover-background);
+}
+
+.xndatepicker .shortcut {
+    padding: 10px;
+    line-height: 36px;
+    white-space: nowrap;
+    font-size: 12px;
+    padding-top: 0;
+}
+
+.xndatepicker .shortcut li {
+    cursor: pointer;
+    color: var(--shortcut-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0 10px;
+}
+
+.xndatepicker .shortcut li:hover {
+    color: var(--shortcut-hover-color);
+}
+
+.xndatepicker .date-main {
+    border-left: 1px solid var(--border-color);
+}
+
+.xndatepicker .timepicker {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    line-height: 34px;
+    font-size: 12px;
+}
+
+.xndatepicker .datepicker {
+    display: flex;
+    align-items: flex-start;
+}
+
+.xndatepicker .timepicker > div {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 6px 0;
+}
+
+.xndatepicker .dater > span {
+    width: 36px;
+    text-align: center;
+    color: var(--disable-color);
+}
+
+.xndatepicker .dater > span.active-day {
+    color: var(--color);
+    cursor: pointer;
+}
+// 日选择器
+.xndatepicker .date-main .datepicker .dater > .day-item {
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.xndatepicker .dater > span.active-day.disable-day:hover {
+    cursor: not-allowed;
+    background: none;
+    color: var(--color);
+}
+
+.xndatepicker .dater > span.active-day.cur-date {
+    color: var(--hover-color);
+}
+
+.xndatepicker .cur-date {
+    border-radius: 4px 0 0 4px;
+}
+
+.xndatepicker .cur-date.right-date {
+    border-radius: 0 4px 4px 0;
+}
+
+.xndatepicker .cur-date.circle-date {
+    border-radius: 4px;
+}
+
+.xndatepicker .cur-date.circle-date.year-item, .xndatepicker .cur-date.circle-date.month-item {
+    border-radius: 4px;
+}
+
+.xndatepicker .dater > span.active-day:hover {
+    background: var(--hover-background);
+    color: var(--hover-color);
+    border-radius: 2px;
+}
+
+.xndatepicker .week {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+    color: var(--week-color);
+    font-size: 12px;
+}
+
+.xndatepicker .week span {
+    width: 40px;
+    text-align: center;
+    display: inline-block;
+}
+
+.xndatepicker .year-picker {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    line-height: 45px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--title-color);
+}
+
+.xndatepicker .date-item {
+    border-left: 1px solid var(--border-color);
+    padding: 10px;
+    width: 292px;
+    padding-top: 0;
+}
+
+.xndatepicker .date-item:first-child {
+    border: 0;
+}
+
+.xndatepicker .year-info span {
+    cursor: pointer;
+    margin: 0 2px;
+    letter-spacing: 1px;
+    color: var(--title-color);
+}
+
+.xndatepicker .year-info span:hover {
+    color: var(--title-hover-color);
+}
+
+.xndatepicker .next > span:hover, .xndatepicker .prev > span:hover {
+    color: var(--prev-hover-color);
+    cursor: pointer;
+}
+
+.xndatepicker .next, .xndatepicker .prev {
+    color: var(--primary-color);
+}
+
+.xndatepicker .next span, .xndatepicker .prev span {
+    font-size: 12px;
+}
+
+.xndatepicker .next > span:before {
+    transform: rotate(180deg);
+    transform-origin: center;
+    display: inline-block;
+
+}
+
+.xndatepicker.week .dater > span.active-day:hover, .xndatepicker.week .dater > .hover, .xndatepicker .dater > .active-day.hover, .month-item.hover, .year-item.hover, .week-item.hover {
+    background: var(--range-background);
+    color: var(--range-hover-color);
+}
+
+
+
+.year-list, .month-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.year-list .year-item, .month-list .month-item, .weeknum-list .week-item {
+    flex: 0 0 calc(100% / 3 - 3%);
+    width: calc(100% / 3 - 3%);
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 2px;
+    margin: 9px 1%;
+    font-size: 12px;
+    position: relative;
+    color: var(--color);
+}
+.xndatepicker .cur-date, .xndatepicker .hover.cur-date, .xndatepicker .dater > span.cur-date.hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+.weeknum-list .week-item {
+    flex: 0 0 calc(100% / 3 - 3%);
+    width: calc(100% / 3 - 3%);
+    height: 34px;
+    line-height: 34px;
+    margin: 2px 1%;
+}
+
+.year-list .year-item.disable-year, .month-list .month-item.disable-month, .weeknum-list .week-item.disable-week {
+    color: #ccc;
+}
+
+.year-list .year-item.disable-year:hover, .month-list .month-item.disable-month:hover, .weeknum-list .week-item.disable-week:hover {
+    background: none;
+    color: #ccc;
+}
+
+.year-list .year-item:hover, .month-list .month-item:hover, .weeknum-list .week-item:hover {
+    background: var(--hover-background);
+    color: var(--hover-color);
+    border-radius: 4px;
+}
+
+.datepicker .weeknum-list {
+    max-height: 232px;
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.xndatepicker .dater {
+    font-size: 12px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.xndatepicker .dater > span {
+    flex: 0 0 40px;
+    width: 40px;
+    text-align: center;
+    line-height: 40px;
+    margin: 1px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.xntimepicker {
+    position: absolute;
+    background: var(--background-color);
+    padding: 10px;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
+    border-radius: 4px;
+    z-index: 9;
+    top: 32px;
+    padding-bottom: 0;
+}
+
+.xntimepicker div.time-cont {
+    display: flex;
+    justify-content: space-around;
+}
+
+.xntimepicker div.time-btns {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /*padding: 0 14px;*/
+    font-size: 12px;
+}
+
+.xntimepicker .cur-time {
+    color: var(--primary-color);
+}
+
+.xntimepicker .confirm-time {
+    color: var(--hover-color);
+    line-height: 22px;
+    padding: 0 9px;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+.xntimepicker .confirm-time:hover {
+    background: var(--hover-background);
+}
+
+.xntimepicker ul {
+    height: 180px;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.xntimepicker ul:hover {
+    overflow: auto;
+    overflow: overlay;
+}
+
+.xntimepicker ul:last-child {
+    border-right: 0;
+}
+
+.xntimepicker ul li {
+    padding: 0 24px 0 14px;
+    color: var(--color);
+    line-height: 28px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.xntimepicker ul li:hover {
+    background: var(--hover-background);
+    color: var(--hover-color);
+}
+
+.xntimepicker ul li.on {
+    background: var(--primary-color);
+    color: var(--hover-color);
+}
+.timeitem {
+    position: relative;
+}
+.timeitem .timecont {
+    width: 100px;
+    flex: 0 0 100px;
+    height: 28px;
+    line-height: 28px;
+    text-align: left;
+    padding: 0 6px;
+    box-sizing: border-box;
+    cursor: pointer;
+    position: relative;
+    padding: 0 10px;
+    border-radius: 14px;
+    background: var(--background-color);
+    color: var(--color);
+    border: 1px solid var(--border-color);
+}
+
+.timeitem .timecont > span {
+    line-height: 26px;
+    position: absolute;
+    top: 0;
+}
+
+.timeitem > input {
+    outline: none;
+    line-height: 26px;
+    flex: 0 0 100px;
+    width: 100px;
+    margin-right: 10px;
+    font-size: 12px;
+    border-radius: 14px;
+    box-sizing: border-box;
+    padding: 0 10px;
+    background: var(--background-color);
+    color: var(--color);
+    border: 1px solid var(--border-color);
+
+}
+
+.xndatepicker .month-info:hover {
+    cursor: pointer;
+    color: var(--title-hover-color);
+}
+
+/*.xndatepicker.week .shortcut,.xndatepicker.year .shortcut,.xndatepicker.yearrange .shortcut{*/
+/*	display: none;*/
+/*}*/
+.xndatepicker .xntriangle {
+    display: block;
+    width: 12px;
+    height: 12px;
+    background: var(--background-color);
+    position: absolute;
+    border: 1px solid var(--border-color);
+    transform: rotate(45deg);
+}
+
+.xndatepicker .is-today:after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 3px;
+    background: #cf3824;
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 5px);
+}
+
+.xndatepicker .is-today {
+    font-weight: bold;
+}
+
+.xndatepicker.multiple .day-item {
+    border-radius: 4px !important;
+    flex: 0 0 30px;
+    width: 30px;
+    margin: 1px;
+}
+
+/*!*theme blue*!*/
+/*.xndatepicker.blue, .xndatepicker.blue .xntimepicker {*/
+/*    background: #002651;*/
+/*    color: #fff;*/
+/*    border-color: #11345b;*/
+/*}*/
+
+/*.xndatepicker.blue .xntriangle {*/
+/*    background: #002651;*/
+/*}*/
+
+/*.xndatepicker.blue .shortcut li {*/
+/*    color: #8c9fc0;*/
+/*    border-bottom: 1px solid #11345b;*/
+/*}*/
+
+/*.xndatepicker.blue .date-main, .xndatepicker.blue .year-picker, .xndatepicker.blue .xn-bottom, .xndatepicker.blue .xn-bottom > a, .xndatepicker.blue .xn-bottom > a.confirm-date, .xndatepicker.blue .xntriangle, .xndatepicker.blue .date-item {*/
+/*    border-color: #11345b;*/
+/*}*/
+
+/*.xndatepicker.blue .dater > span.active-day, .xndatepicker.blue .xntimepicker ul li {*/
+/*    color: #fff;*/
+/*}*/
+
+/*.xndatepicker.blue .week {*/
+/*    color: #66a6ef;*/
+/*}*/
+
+/*.xndatepicker.blue .timeitem .timecont, .xndatepicker.blue .timeitem > input {*/
+/*    background: #10529d;*/
+/*    border-color: #11345b;*/
+/*    color: #fff;*/
+/*}*/
+
+/*.xndatepicker.blue.week .dater > span.active-day:hover,*/
+/*.xndatepicker.blue.week .dater > .hover,*/
+/*.xndatepicker.blue .dater > .active-day.hover,*/
+/*.xndatepicker.blue .month-item.hover,*/
+/*.xndatepicker.blue .year-item.hover,*/
+/*.xndatepicker.blue .week-item.hover {*/
+/*    background: rgb(5 51 103);*/
+/*    color: #7daeff;*/
+/*}*/
+
+/*.xndatepicker.blue .cur-date, .xndatepicker.blue .hover.cur-date, .xndatepicker.blue .dater > span.cur-date.hover {*/
+/*    background: #2264d1;*/
+/*    color: #fff;*/
+/*}*/
+
+/*!*theme orange*!*/
+/*.xndatepicker.orange, .xndatepicker.orange .xntimepicker {*/
+/*    background: #fff;*/
+/*    !*color: #fff;*!*/
+/*    !*border-color: #fff;*!*/
+/*}*/
+
+/*!*.xndatepicker.orange .xntriangle {*!*/
+/*!*    background: #D32F2F;*!*/
+/*!*}*!*/
+
+/*.xndatepicker.orange .shortcut li {*/
+/*    color: #F44336;*/
+/*    border-bottom: 1px solid #fae2e1;*/
+/*}*/
+
+/*.xndatepicker.orange .date-main, .xndatepicker.orange .year-picker, .xndatepicker.orange .xn-bottom, .xndatepicker.orange .xn-bottom > a, .xndatepicker.orange .xn-bottom > a.confirm-date, .xndatepicker.orange .xntriangle, .xndatepicker.orange .date-item {*/
+/*    border-color: #fae2e1;*/
+/*}*/
+
+/*.xndatepicker.orange .dater > span.active-day, .xndatepicker.orange .xntimepicker ul li {*/
+/*    !*color: #fff;*!*/
+/*}*/
+
+/*.xndatepicker.orange .week {*/
+/*    color: #ff5300;*/
+/*}*/
+
+/*.xndatepicker.orange .timeitem .timecont, .xndatepicker.orange .timeitem > input {*/
+/*    !*background: #F44336;*!*/
+/*    border-color:#fae2e1;*/
+/*    color: #F44336;*/
+/*}*/
+
+/*.xndatepicker.orange.week .dater > span.active-day:hover,*/
+/*.xndatepicker.orange.week .dater > .hover,*/
+/*.xndatepicker.orange .dater > .active-day.hover,*/
+/*.xndatepicker.orange .month-item.hover,*/
+/*.xndatepicker.orange .year-item.hover,*/
+/*.xndatepicker.orange .week-item.hover {*/
+/*    background: #ff5300;*/
+/*    color: #FFCDD2;*/
+/*}*/
+
+/*.xndatepicker.orange .cur-date, .xndatepicker.orange .hover.cur-date, .xndatepicker.orange .dater > span.cur-date.hover {*/
+/*    background: #ff5300;*/
+/*    color: #fff;*/
+/*}*/
+
+/*.xndatepicker.orange .dater > span.active-day:hover {*/
+/*    background: #ff5300;*/
+/*}*/
+
+/*.xndatepicker.orange .xn-bottom > a.confirm-date {*/
+/*    background: #ff5300;*/
+/*}*/
+
+/*.xndatepicker.orange .next, .xndatepicker.orange .prev {*/
+/*    color: #ff5300;*/
+/*}*/
+
+/*.xndatepicker.orange .next > span:hover, .xndatepicker.orange .prev > span:hover {*/
+/*    color: #ff0000;*/
+/*}*/
+
+/*.xndatepicker.orange .year-info span:hover {*/
+/*    color: #ffdccb;*/
+/*}*/
+
+/*.xndatepicker.orange .year-list .year-item:hover, .xndatepicker.orange .month-list .month-item:hover, .xndatepicker.orange .weeknum-list .week-item:hover {*/
+/*    background: #ff5300;*/
+/*}*/
+
+.xndatepicker-animate {
+    animation: ani 0.1s;
+    transform-origin: bottom;
+    animation-fill-mode:forwards;
+}
+.xndatepicker-animate-out{
+    animation: ani-out 0.1s;
+    animation-fill-mode:forwards;
+}
+
+@keyframes ani {
+    0% {
+        transform: scaleY(0);
+    }
+    100% {
+        transform: scaleY(1);
+    }
+}
+@keyframes ani-out {
+    0% {
+        transform: scaleY(1);
+    }
+    100% {
+        transform: scaleY(0);
+    }
+}
+.weeknum-list::-webkit-scrollbar {
+    /*滚动条整体样式*/
+    width : 10px;  /*高宽分别对应横竖滚动条的尺寸*/
+    height: 1px;
+}
+.weeknum-list::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    border-radius: 10px;
+    box-shadow   : inset 0 0 5px rgba(144,147,153,.3);
+    background   : #535353;
+}
+.weeknum-list::-webkit-scrollbar-track {
+    /*滚动条里面轨道*/
+    box-shadow   : inset 0 0 5px rgba(144,147,153,.3);
+    border-radius: 10px;
+    background   : #ededed;
+}
+
+
+.xntimepicker .time-picker .time-cont ul::-webkit-scrollbar {  // minutes
+    /*滚动条整体样式*/
+    width : 10px;  /*高宽分别对应横竖滚动条的尺寸*/
+    height: 1px;
+}
+.xntimepicker .time-picker .time-cont ul::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    border-radius: 10px;
+    box-shadow   : inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background   : #535353;
+}
+.xntimepicker .time-picker .time-cont ul::-webkit-scrollbar-track {
+    /*滚动条里面轨道*/
+    box-shadow   : inset 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background   : #ededed;
+}
+

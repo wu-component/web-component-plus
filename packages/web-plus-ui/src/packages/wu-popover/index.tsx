@@ -17,7 +17,7 @@ export class WuPopover extends WuComponent implements OnConnected {
     public override connected(shadowRoot: ShadowRoot) {
         window.addEventListener('click', (e: Event) => {
             // @ts-ignore
-            if (e.target?.rootNode?.$options.name === 'wu-plus-popover') {
+            if (e.target?.rootNode?.$options?.name === 'wu-plus-popover') {
                 return;
             }
             if (this.trigger === 'manual') return;
