@@ -1,35 +1,77 @@
-## 组件说明
+## Link 超链接
 
-这是一个基于 WebComponent 的组件，内部已经集成 web-core-plus。
+文字超链接。
 
-### 环境搭建
+### 基础用法
 
-#### 开发
-
-该命令用于本地启动一个热更新的服务，用于本地开发。
-
-```bash
-
-npm run dev:package
-
+::: demo
+```html
+<template>
+    <div style="display: flex; flex-wrap: wrap; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-link>测试链接</wu-plus-link>
+        <wu-plus-link underline="true">测试链接</wu-plus-link>
+        <wu-plus-link type="danger">测试链接</wu-plus-link>
+        <wu-plus-link type="info">测试链接</wu-plus-link>
+        <wu-plus-link type="success">测试链接</wu-plus-link>
+        <wu-plus-link type="warning">测试链接</wu-plus-link>
+        <wu-plus-link type="primary">测试链接</wu-plus-link>
+        <wu-plus-link type="info" underline="true" href="www.baidu.com">测试链接</wu-plus-link>
+    </div>
+</template>
+<script>
+</script>
 ```
+:::
 
-#### 构建
+### 下划线
 
-该命令用于打包 webComponent， 该命令会构建出 umd、es、cjs 三种格式的产物，umd 格式可以直接在浏览器中预览效果。
-
-```bash
-
-npm run build:package
-
+::: demo
+```html
+<template>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-link underline="true">测试链接</wu-plus-link>
+    </div>
+</template>
+<script>
+</script>
 ```
+:::
 
-#### 预览
+### 超链接
 
-该命令用于预览效果，浏览器默认打开根目录 index.html 文件， index.html 按需要修改，
-
-```bash
-
-npm run example:package
-
+::: demo
+```html
+<template>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-link type="info" underline="true" href="https://www.baidu.com/" target="_blank">测试链接</wu-plus-link>
+    </div>
+</template>
+<script>
+</script>
 ```
+:::
+
+### 禁用
+
+::: demo
+```html
+<template>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-link type="info" disabled="true" underline="true" href="www.baidu.com">测试链接</wu-plus-link>
+    </div>
+</template>
+<script>
+</script>
+```
+:::
+
+### Attributes
+
+继承原生 a 标签的属性。
+
+| 参数      | 说明    | 类型      | 可选值       | 默认值   |
+|---------- |-------- |---------- |-------------  |-------- |
+| type | 按钮类型 | String | primary、success、warning、danger、info、text | primary |
+| disabled | 禁用 | Boolean | true、false | false |
+| underline | 下划线 | Boolean | true、false | false |
+| href | 链接 | String | - | - |

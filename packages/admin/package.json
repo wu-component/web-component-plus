@@ -7,9 +7,9 @@
     "build": "tsc && vite build"
   },
   "dependencies": {
-    "@canyuegongzi/web-core-plus": "file:../web-core-plus",
-    "@canyuegongzi/web-ui-plus": "file:../web-plus-ui",
-    "@canyuegongzi/wu-core-router": "file:../wu-core-router"
+    "@wu-component/web-core-plus": "file:../web-core-plus",
+    "@wu-component/ui-plus": "file:../web-core-ui/packages/ui",
+    "@wu-component/wu-core-router": "file:../wu-core-router"
   },
   "devDependencies": {
     "@types/node": "^18.0.3",

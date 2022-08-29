@@ -84,7 +84,7 @@
     "webpack-dev-server": "^4.9.0"
   },
   "peerDependencies": {
-    "@canyuegongzi/web-core-plus": "0.0.41",
+    "@wu-component/web-core-plus": "latest",
     "reflect-metadata": "^0.1.13"
   },
   "dependencies": {

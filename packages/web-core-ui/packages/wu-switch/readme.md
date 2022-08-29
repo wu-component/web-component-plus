@@ -1,35 +1,64 @@
-## 组件说明
 
-这是一个基于 WebComponent 的组件，内部已经集成 web-core-plus。
+## Switch 开关
 
-### 环境搭建
+表示两种相互对立的状态间的切换，多用于触发「开/关」。
 
-#### 开发
+### 基础用法
 
-该命令用于本地启动一个热更新的服务，用于本地开发。
-
-```bash
-
-npm run dev:package
-
+::: demo
+```html
+<template>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-switch value="true" id="switchId"></wu-plus-switch>
+    </div>
+</template>
+<script>
+</script>
 ```
+:::
 
-#### 构建
+### 自定义颜色
 
-该命令用于打包 webComponent， 该命令会构建出 umd、es、cjs 三种格式的产物，umd 格式可以直接在浏览器中预览效果。
-
-```bash
-
-npm run build:package
-
+::: demo
+```html
+<template>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-switch value="true" id="switchId1" active-color="yellow" inactive-color="red"></wu-plus-switch>
+    </div>
+</template>
+<script>
+</script>
 ```
+:::
 
-#### 预览
+### 禁用
 
-该命令用于预览效果，浏览器默认打开根目录 index.html 文件， index.html 按需要修改，
-
-```bash
-
-npm run example:package
-
+::: demo
+```html
+<template>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-switch value="false" disabled="true" id="switchId1"></wu-plus-switch>
+    </div>
+</template>
+<script>
+</script>
 ```
+:::
+
+### Attributes
+
+| 参数      | 说明    | 类型      | 可选值       | 默认值   |
+|---------- |-------- |---------- |-------------  |-------- |
+| value  | 是否打开 | Boolean | true、false  | -- |
+| disabled | 禁用 | Boolean | true、false | false |
+| activeColor | 激活的颜色 | String | -- | #409EFF |
+| inactiveColor | 未激活的颜色 | String | -- | #C0CCDA |
+| width | 宽度 | Number | -- | 40 |
+| name | switch 对应的 name 属性 | String | -- | -- |
+
+### Event
+
+| 事件名      | 说明    | 参数     | 
+|---------- |-------- |---------- |
+| change | 值修改 | (event: CustomEvent) => void |
+| input | 输入值 | (event: CustomEvent) => void |

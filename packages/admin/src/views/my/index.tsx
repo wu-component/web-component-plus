@@ -1,4 +1,4 @@
-import { h, Component, WuComponent } from '@canyuegongzi/web-core-plus';
+import { h, Component, WuComponent } from '@wu-component/web-core-plus';
 import css from './css.css'
 import router from "../../router";
 

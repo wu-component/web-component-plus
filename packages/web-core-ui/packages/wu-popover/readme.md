@@ -1,35 +1,99 @@
-## 组件说明
 
-这是一个基于 WebComponent 的组件，内部已经集成 web-core-plus。
+## Popover 弹出框
 
-### 环境搭建
+常用于主动操作后的反馈提示。
 
-#### 开发
+### 基础用法
 
-该命令用于本地启动一个热更新的服务，用于本地开发。
-
-```bash
-
-npm run dev:package
-
+::: demo
+```html
+<template>
+    <div style="display: flex; align-items: center;justify-content: center;width: 100%; margin-top: 8px; margin-bottom: 16px">
+        <wu-plus-popover style="width: 160px">
+            <wu-plus-button size="mini"  type="primary">点击触发弹出底部信息</wu-plus-button>
+            <div slot="popover" tip="popover">
+                <div style="height: 28px;line-height: 28px;padding-left: 6px;">提示信息</div>
+            </div>
+        </wu-plus-popover>
+        <wu-plus-popover style="width: 160px" position="top">
+            <wu-plus-button size="mini"  type="primary" >点击触发弹出顶部信息</wu-plus-button>
+            <div slot="popover" tip="popover">
+                <div style="height: 28px;line-height: 28px;padding-left: 6px;">提示信息</div>
+            </div>
+        </wu-plus-popover>
+    </div>
+</template>
+<script>
+</script>
 ```
+:::
 
-#### 构建
+### 不同触发方式
 
-该命令用于打包 webComponent， 该命令会构建出 umd、es、cjs 三种格式的产物，umd 格式可以直接在浏览器中预览效果。
+提供点击和鼠标进入触发。
 
-```bash
-
-npm run build:package
-
+::: demo
+```html
+<template>
+    <div style="display: flex; align-items: center;justify-content: center;width: 100%; margin-top: 8px; margin-bottom: 16px">
+        <div style="display: flex; align-items: center;justify-content: center;width: 100%; margin-top: 8px; margin-bottom: 16px">
+            <wu-plus-popover style="width: 160px" trigger="hover">
+                <wu-plus-button size="mini"  type="primary" >鼠标进入触触发</wu-plus-button>
+                <div slot="popover" tip="popover">
+                    <div style="height: 28px;line-height: 28px;padding-left: 6px;">提示信息</div>
+                </div>
+            </wu-plus-popover>
+            <wu-plus-popover style="width: 160px" trigger="click">
+                <wu-plus-button size="mini"  type="primary" >点击触触发</wu-plus-button>
+                <div slot="popover" tip="popover">
+                    <div style="height: 28px;line-height: 28px;padding-left: 6px;">提示信息</div>
+                </div>
+            </wu-plus-popover>
+        </div>
+    </div>
+</template>
+<script>
+</script>
 ```
+:::
 
-#### 预览
+### 主题自定义
 
-该命令用于预览效果，浏览器默认打开根目录 index.html 文件， index.html 按需要修改，
+开发者可以自定义 slot 的样式。
 
-```bash
-
-npm run example:package
-
+::: demo
+```html
+<template>
+    <div style="display: flex; height: 100px; align-items: center;justify-content: center;width: 100%; margin-top: 8px; margin-bottom: 16px">
+        <wu-plus-popover style="width: 160px" trigger="click" effect="dark">
+            <wu-plus-button size="mini"  type="primary" >提示信息-修改样式</wu-plus-button>
+            <div slot="popover" tip="popover">
+                <div style="height: 28px;color:red;line-height: 28px;padding-left: 6px;">提示信息</div>
+            </div>
+        </wu-plus-popover>
+    </div>
+</template>
+<script>
+</script>
 ```
+:::
+
+
+### Attributes
+
+| 参数      | 说明    | 类型      | 可选值       | 默认值   |
+|---------- |-------- |---------- |-------------  |-------- |
+| trigger | 触发方式 | String | click、hover、manual| click |
+| position | 出现位置 | Placement | top-start、top-end、bottom-start、bottom-end、<br> right-start、right-end、left-start、 <br> left-end、top、bottom、left、right| bottom |
+
+### Event
+
+| 事件名      | 说明    | 参数     | 
+|---------- |-------- |---------- |
+
+### Slot
+
+| 参数      | 说明    |
+|---------- |-------- |
+| popover  | 弹出层内容 |
+| --  | 目标内容 |

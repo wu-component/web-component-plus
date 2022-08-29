@@ -1,35 +1,49 @@
-## 组件说明
 
-这是一个基于 WebComponent 的组件，内部已经集成 web-core-plus。
+## Pagination 分页
 
-### 环境搭建
+当数据量过多时，使用分页分解数据。
 
-#### 开发
+### 基础用法
 
-该命令用于本地启动一个热更新的服务，用于本地开发。
-
-```bash
-
-npm run dev:package
-
+::: demo
+```html
+<template>
+    <div style="display: flex; align-items: center;justify-content: center;padding: 16px">
+        <wu-plus-pagination total='25' current-page='0' page-size='5'></wu-plus-pagination>
+    </div>
+</template>
+<script>
+</script>
 ```
+:::
 
-#### 构建
+### 更多
 
-该命令用于打包 webComponent， 该命令会构建出 umd、es、cjs 三种格式的产物，umd 格式可以直接在浏览器中预览效果。
-
-```bash
-
-npm run build:package
-
+::: demo
+```html
+<template>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-pagination total='2003' current-page='1' page-size='5' id="testPagination"></wu-plus-pagination>
+    </div>
+</template>
+<script>
+</script>
 ```
+:::
 
-#### 预览
 
-该命令用于预览效果，浏览器默认打开根目录 index.html 文件， index.html 按需要修改，
+### Attributes
 
-```bash
+| 参数      | 说明    | 类型      | 可选值       | 默认值   |
+|:--: |:--: |:--: |:--:  |:--: |
+| total  | 总数据量 | Number | --  | 0 |
+| page-size  | 每页的条数 | Number | --  | 10 |
+| current-page  | 当前页码 | Number | --  | 0 |
 
-npm run example:package
 
-```
+### Event
+
+| 事件名      | 说明    | 参数     | 
+|---------- |-------- |---------- |
+| change | 页码发生改变 | (event: CustomEvent) => void |
+

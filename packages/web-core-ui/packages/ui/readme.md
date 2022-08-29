@@ -1,35 +1,68 @@
-## 组件说明
+## 快速上手
 
-这是一个基于 WebComponent 的组件，内部已经集成 web-core-plus。
+### npm 使用
 
-### 环境搭建
+#### 按需引入
 
-#### 开发
+```js
+// 可以通过 install 安装组件
+// 复选框组件
+import '@wu-component/wu-checkbox';
+// 输入框
+import '@wu-component/wu-input';
+```
 
-该命令用于本地启动一个热更新的服务，用于本地开发。
+#### 全量引入
 
-```bash
+```js
+import '@wu-component/-ui-plus';
+```
 
-npm run dev:package
+### link 引入
+
+非 npm 方式下 可以直接在 html 文件中引入对应组件的静态产物。
+
+#### 按需引入
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--引入对应的组件产物,  子组件中已包含底层依赖，不用单独引入-->
+    <script src="https://unpkg.com/@wu-component/wu-button"></script>
+</head>
+<body>
+<div id="app">
+    <!--使用组件-->
+    <wu-plus-button type="primary" size="mini">mini</wu-plus-button>
+</div>
+
+</body>
+</html>
 
 ```
 
-#### 构建
+#### 全量引入
 
-该命令用于打包 webComponent， 该命令会构建出 umd、es、cjs 三种格式的产物，umd 格式可以直接在浏览器中预览效果。
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--引入底层库-->
+    <script src="https://unpkg.com/@wu-component/web-core-plus"></script>
+    <!--引入对应的组件产物-->
+    <script src="https://unpkg.com/@wu-component/ui-plus"></script>
+</head>
+<body>
+<div id="app">
+    <!--使用组件，支持的组件-->
+    <wu-plus-button type="primary" size="mini">mini</wu-plus-button>
+</div>
 
-```bash
-
-npm run build:package
+</body>
+</html>
 
 ```
 
-#### 预览
-
-该命令用于预览效果，浏览器默认打开根目录 index.html 文件， index.html 按需要修改，
-
-```bash
-
-npm run example:package
-
-```

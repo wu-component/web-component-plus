@@ -1,35 +1,89 @@
-## 组件说明
 
-这是一个基于 WebComponent 的组件，内部已经集成 web-core-plus。
 
-### 环境搭建
+## Card 卡片
 
-#### 开发
+将信息聚合在卡片容器中展示。
 
-该命令用于本地启动一个热更新的服务，用于本地开发。
+### 基础用法
 
-```bash
-
-npm run dev:package
-
+::: demo
+```html
+<template>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-card class="box-card" style="width: 400px">
+            <div slot="header" class="clearfix">
+                <span>卡片名称</span>
+                <wu-plus-button style="float: right; padding: 3px 0" type="text">操作按钮</wu-plus-button>
+            </div>
+            <div class="text item">列表内容</div>
+            <div class="text item">列表内容</div>
+            <div class="text item">列表内容</div>
+            <div class="text item">列表内容</div>
+        </wu-plus-card>
+    </div>
+</template>
+<script>
+</script>
 ```
+:::
 
-#### 构建
+### 简单卡片
 
-该命令用于打包 webComponent， 该命令会构建出 umd、es、cjs 三种格式的产物，umd 格式可以直接在浏览器中预览效果。
+卡片可以只有内容区域。
 
-```bash
-
-npm run build:package
-
+::: demo
+```html
+<template>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-card class="box-card" style="width: 400px" header-show="false">
+            <div class="text item">列表内容</div>
+            <div class="text item">列表内容</div>
+            <div class="text item">列表内容</div>
+            <div class="text item">列表内容</div>
+        </wu-plus-card>
+    </div>
+</template>
+<script>
+</script>
 ```
+:::
 
-#### 预览
+### 卡片阴影
 
-该命令用于预览效果，浏览器默认打开根目录 index.html 文件， index.html 按需要修改，
+可对阴影的显示进行配置，通过shadow属性设置卡片阴影出现的时机：always、hover或never。
 
-```bash
-
-npm run example:package
-
+::: demo
+```html
+<template>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-card shadow="always" style="width: 150px" header-show="false">
+            总是显示
+        </wu-plus-card>
+        <wu-plus-card shadow="hover" style="width: 150px" header-show="false">
+            鼠标悬浮时显示
+        </wu-plus-card>
+        <wu-plus-card shadow="never" style="width: 150px" header-show="false">
+            从不显示
+        </wu-plus-card>
+    </div>
+</template>
+<script>
+</script>
 ```
+:::
+
+### Attributes
+
+| 参数      | 说明    | 类型      | 可选值       | 默认值   |
+|---------- |-------- |---------- |-------------  |-------- |
+| header | 设置 header，也可以通过 slot#header 传入 DOM | String | - | - |
+| body-style | 设置 body 的样式 | Object | - | { padding: '20px' } |
+| header-show | 头部是否展示 | Boolean | true、false| true |
+| shadow | 设置阴影显示时机 | String | always、 hover、never | 'always' |
+
+### Slot
+
+| 参数      | 说明    |
+|---------- |-------- |
+| --  | 自定义主体内容 |
+| header  | 自定义header |
