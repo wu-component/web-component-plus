@@ -1,4 +1,4 @@
-import { h, Component, WuComponent, OnConnected } from '@canyuegongzi/web-core-plus';
+import { h, Component, WuComponent, OnConnected } from '@wu-component/web-core-plus';
 import router from "../../router";
 
 @Component({

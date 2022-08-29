@@ -1,35 +1,134 @@
-## 组件说明
 
-这是一个基于 WebComponent 的组件，内部已经集成 web-core-plus。
+## Select 选择器
 
-### 环境搭建
+当选项过多时，使用下拉菜单展示并选择内容。
 
-#### 开发
+### 基础用法
 
-该命令用于本地启动一个热更新的服务，用于本地开发。
-
-```bash
-
-npm run dev:package
-
+::: demo
+```html
+<template>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-select id="select1">
+            <wu-plus-select-option label="item-item1" value="1"></wu-plus-select-option>
+            <wu-plus-select-option label="item-item2" value="2"></wu-plus-select-option>
+            <wu-plus-select-option label="item-item3" value="3"></wu-plus-select-option>
+        </wu-plus-select>
+    </div>
+</template>
+<script>
+</script>
 ```
+:::
 
-#### 构建
+### 禁用状态
 
-该命令用于打包 webComponent， 该命令会构建出 umd、es、cjs 三种格式的产物，umd 格式可以直接在浏览器中预览效果。
+选择器不可用状态
 
-```bash
-
-npm run build:package
-
+::: demo
+```html
+<template>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-select id="select3" disabled="true">
+            <wu-plus-select-option label="item-item1" value="1"></wu-plus-select-option>
+            <wu-plus-select-option label="item-item2" value="2"></wu-plus-select-option>
+            <wu-plus-select-option label="item-item3" value="3"></wu-plus-select-option>
+        </wu-plus-select>
+    </div>
+</template>
+<script>
+</script>
 ```
+:::
 
-#### 预览
+### 可清空单选
 
-该命令用于预览效果，浏览器默认打开根目录 index.html 文件， index.html 按需要修改，
+包含清空按钮，可将选择器清空为初始状态。
 
-```bash
-
-npm run example:package
-
+::: demo
+```html
+<template>
+    <div style="display: flex; align-items: center;justify-content: space-between;padding: 16px">
+        <wu-plus-select id="select678" clearable="true">
+            <wu-plus-select-option label="item-item1" value="1"></wu-plus-select-option>
+            <wu-plus-select-option label="item-item2" value="2"></wu-plus-select-option>
+            <wu-plus-select-option label="item-item3" value="3"></wu-plus-select-option>
+        </wu-plus-select>
+        <wu-plus-select id="select765" clearable="true" multiple="true">
+            <wu-plus-select-option label="item-item1" value="1"></wu-plus-select-option>
+            <wu-plus-select-option label="item-item2" value="2"></wu-plus-select-option>
+            <wu-plus-select-option label="item-item3" value="3"></wu-plus-select-option>
+        </wu-plus-select>
+    </div>
+</template>
+<script>
+</script>
 ```
+:::
+
+### 基础多选
+
+适用性较广的基础多选，用 Tag 展示已选项。
+
+::: demo
+```html
+<template>
+    <div style="display: flex; align-items: center;justify-content: space-between;padding: 16px">
+        <wu-plus-select id="select72" multiple="true">
+            <wu-plus-select-option label="item-item1" value="1"></wu-plus-select-option>
+            <wu-plus-select-option label="item-item2" value="2"></wu-plus-select-option>
+            <wu-plus-select-option label="item-item3" value="3"></wu-plus-select-option>
+        </wu-plus-select>
+        <wu-plus-select id="select73" multiple="true" collapseTags="true">
+            <wu-plus-select-option label="item-item1" value="1"></wu-plus-select-option>
+            <wu-plus-select-option label="item-item2" value="2"></wu-plus-select-option>
+            <wu-plus-select-option label="item-item3" value="3"></wu-plus-select-option>
+        </wu-plus-select>
+    </div>
+</template>
+<script>
+</script>
+```
+:::
+
+
+### 可搜索
+
+可以利用搜索功能快速查找选项。
+
+::: demo
+```html
+<template>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-select id="select10" filterable="true">
+            <wu-plus-select-option label="item-item1" value="1"></wu-plus-select-option>
+            <wu-plus-select-option label="item-item2" value="2"></wu-plus-select-option>
+            <wu-plus-select-option label="item-item3" value="3"></wu-plus-select-option>
+        </wu-plus-select>
+    </div>
+</template>
+<script>
+</script>
+```
+:::
+
+### Attributes
+
+| 参数      | 说明    | 类型      | 可选值       | 默认值   |
+|---------- |-------- |---------- |-------------  |-------- |
+| size | 组件大小 | UISize | medium、small、mini | mini |
+| disabled | 是否禁用 | Boolean |true, false | false |
+| value | 选择的值 | String、Array |-- | -- |
+| multiple | 是否多选 | Boolean |true, false | false |
+| clearable | 是否清除 | Boolean |true, false | false |
+| collapseTags | 多选下是否折叠tag | Boolean |true, false | false |
+| placeholder | placeholder | String |--| -- |
+| filterable | 是否可搜索 | Boolean |true, false | false |
+
+
+### Event
+
+| 事件名      | 说明    | 参数     | 
+|---------- |-------- |---------- |
+| change | 值修改 | (event: CustomEvent) => void |
+| clear | 清除 | (event: CustomEvent) => void |

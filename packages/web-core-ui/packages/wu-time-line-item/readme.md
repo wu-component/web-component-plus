@@ -1,35 +1,103 @@
-## 组件说明
 
-这是一个基于 WebComponent 的组件，内部已经集成 web-core-plus。
+## Timeline 时间线
 
-### 环境搭建
+可视化地呈现时间流信息。
 
-#### 开发
+### 基础用法
 
-该命令用于本地启动一个热更新的服务，用于本地开发。
-
-```bash
-
-npm run dev:package
-
+::: demo
+```html
+<template>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-timeline>
+            <wu-plus-timeline-item timestamp="2018-04-15">
+                活动按期开始
+            </wu-plus-timeline-item>
+            <wu-plus-timeline-item timestamp="2018-04-13">
+                通过审核
+            </wu-plus-timeline-item>
+            <wu-plus-timeline-item timestamp="2018-04-12">
+                创建成功
+            </wu-plus-timeline-item>
+        </wu-plus-timeline>
+    </div>
+</template>
+<script>
+</script>
 ```
+:::
 
-#### 构建
+### 自定义节点类型
 
-该命令用于打包 webComponent， 该命令会构建出 umd、es、cjs 三种格式的产物，umd 格式可以直接在浏览器中预览效果。
-
-```bash
-
-npm run build:package
-
+::: demo
+```html
+<template>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-timeline>
+            <wu-plus-timeline-item timestamp="2018-04-15" type="primary">
+                活动按期开始
+            </wu-plus-timeline-item>
+            <wu-plus-timeline-item timestamp="2018-04-13" type="success">
+                通过审核
+            </wu-plus-timeline-item>
+            <wu-plus-timeline-item timestamp="2018-04-12" type="warning">
+                创建成功
+            </wu-plus-timeline-item>
+            <wu-plus-timeline-item timestamp="2018-04-12" type="danger">
+                创建成功1
+            </wu-plus-timeline-item>
+            <wu-plus-timeline-item timestamp="2018-04-12" type="info">
+                创建成功2
+            </wu-plus-timeline-item>
+        </wu-plus-timeline>
+    </div>
+</template>
+<script>
+</script>
 ```
+:::
 
-#### 预览
+### 自定义颜色
 
-该命令用于预览效果，浏览器默认打开根目录 index.html 文件， index.html 按需要修改，
-
-```bash
-
-npm run example:package
-
+::: demo
+```html
+<template>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-timeline>
+            <wu-plus-timeline-item timestamp="2018-04-15" color="blue">
+                活动按期开始
+            </wu-plus-timeline-item>
+            <wu-plus-timeline-item timestamp="2018-04-13" color="green">
+                通过审核
+            </wu-plus-timeline-item>
+        </wu-plus-timeline>
+    </div>
+</template>
+<script>
+</script>
 ```
+:::
+
+### wu-plus-timeline Attributes
+
+| 参数      | 说明    | 类型      | 可选值       | 默认值   |
+|---------- |-------- |---------- |-------------  |-------- |
+| type  | 类型 | TypeEnums | "success"、"info"、"warning"、 "danger"  | -- |
+
+### wu-plus-timeline-item Attributes
+
+| 参数      | 说明    | 类型      | 可选值       | 默认值   |
+|---------- |-------- |---------- |-------------  |-------- |
+| timestamp  | 时间戳 | String | --  | -- |
+| hide-timestamp  | 是否隐藏时间戳 | Boolean | true、false | false |
+| placement  | 时间戳位置 | String | 'top' 、 'bottom' | 'bottom' |
+| type  | 节点类型 | String | 'primary'、'success'、'warning'、'danger'、'info' | -- |
+| color  | 节点颜色 | String | -- | -- |
+| color  | 节点颜色 | String | -- | -- |
+
+### wu-plus-timeline-item Slot
+
+| 参数      | 说明    |
+|---------- |-------- |
+| dot  | 自定义节点 |
+

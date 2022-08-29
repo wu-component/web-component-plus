@@ -1,35 +1,78 @@
-## 组件说明
 
-这是一个基于 WebComponent 的组件，内部已经集成 web-core-plus。
+## ColorPicker 颜色选择器
 
-### 环境搭建
+用于颜色选择，支持多种格式。
 
-#### 开发
+### 基础用法
 
-该命令用于本地启动一个热更新的服务，用于本地开发。
-
-```bash
-
-npm run dev:package
-
+::: demo
+```html
+<template>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-color-picker id="colorPicker" />
+    </div>
+</template>
+<script>
+</script>
 ```
+:::
 
-#### 构建
+### 默认值
 
-该命令用于打包 webComponent， 该命令会构建出 umd、es、cjs 三种格式的产物，umd 格式可以直接在浏览器中预览效果。
+支持 rgba 或十六进制颜色。
 
-```bash
-
-npm run build:package
-
+::: demo
+```html
+<template>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-color-picker defaultvalue="rgba(19, 206, 102, 0.9)" id="colorPicker2" />
+        <wu-plus-color-picker defaultvalue="#409EFF" id="colorPicker20" />
+    </div>
+</template>
+<script>
+</script>
 ```
+:::
 
-#### 预览
+### 不同尺寸
 
-该命令用于预览效果，浏览器默认打开根目录 index.html 文件， index.html 按需要修改，
-
-```bash
-
-npm run example:package
-
+::: demo
+```html
+<template>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-color-picker size="medium" />
+        <wu-plus-color-picker size="small" />
+        <wu-plus-color-picker size="mini" />
+    </div>
+</template>
+<script>
+</script>
 ```
+:::
+
+### 禁用
+
+::: demo
+```html
+<template>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-color-picker id="colorPicker14" disabled="true" />
+    </div>
+</template>
+<script>
+</script>
+```
+:::
+
+### Attributes
+
+| 参数            | 说明 | 类型      | 可选值        | 默认值     |
+|---------------|--|---------|------------|---------|
+| defaultvalue | 默认颜色值 | String | -- | #ffffff     |
+| disabled    | 禁用 | String  | --         | false   |
+
+### Event
+
+| 事件名    | 说明  | 参数                           | 
+|--------|-----|------------------------------|
+| change | 值修改 | (event: CustomEvent) => void |

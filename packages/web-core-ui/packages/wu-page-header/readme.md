@@ -1,35 +1,55 @@
-## 组件说明
 
-这是一个基于 WebComponent 的组件，内部已经集成 web-core-plus。
+## PageHeader 布局
 
-### 环境搭建
+如果页面的路径比较简单，推荐使用页头组件而非面包屑组件。
 
-#### 开发
+### 基础用法
 
-该命令用于本地启动一个热更新的服务，用于本地开发。
+适用广泛的基础用法。
 
-```bash
-
-npm run dev:package
-
+::: demo
+```html
+<template>
+    <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px; margin-bottom: 16px">
+        <wu-plus-page-header id="backHeader" header="标题" content="主体" />
+    </div>
+</template>
+<script>
+</script>
 ```
+:::
 
-#### 构建
+### 插槽使用
 
-该命令用于打包 webComponent， 该命令会构建出 umd、es、cjs 三种格式的产物，umd 格式可以直接在浏览器中预览效果。
+自定义标题内容和主体内容。
 
-```bash
-
-npm run build:package
-
+::: demo
+```html
+<template>
+    <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px; margin-bottom: 16px">
+        <wu-plus-page-header id="backHeader">
+            <span slot="header">插槽标题</span>
+            <span slot="content">插槽主体</span>
+        </wu-plus-page-header>
+    </div>
+</template>
+<script>
+</script>
 ```
+:::
 
-#### 预览
 
-该命令用于预览效果，浏览器默认打开根目录 index.html 文件， index.html 按需要修改，
 
-```bash
+### Breadcrumb Attributes
 
-npm run example:package
+| 参数      | 说明    | 类型      | 可选值       | 默认值   |
+|---------- |-------- |---------- |-------------  |-------- |
+| header | 标题 | String | -- | '返回' |
+| content | 内容 | String | -- |--  |
 
-```
+
+### Event
+
+| 事件名      | 说明    | 参数     | 
+|---------- |-------- |---------- |
+| back | 点击返回 | (event: CustomEvent) => void |

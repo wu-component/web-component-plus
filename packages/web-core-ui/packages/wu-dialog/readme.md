@@ -1,35 +1,85 @@
-## 组件说明
 
-这是一个基于 WebComponent 的组件，内部已经集成 web-core-plus。
 
-### 环境搭建
+## Empty 空状态
 
-#### 开发
+空状态时的占位提示。
 
-该命令用于本地启动一个热更新的服务，用于本地开发。
+### 基础用法
 
-```bash
-
-npm run dev:package
-
+::: demo
+```html
+<template>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-empty description="描述文字"></wu-plus-empty>
+    </div>
+</template>
+<script>
+</script>
 ```
+:::
 
-#### 构建
+### 自定义图片
 
-该命令用于打包 webComponent， 该命令会构建出 umd、es、cjs 三种格式的产物，umd 格式可以直接在浏览器中预览效果。
+通过设置 image 属性传入图片 URL。
 
-```bash
-
-npm run build:package
-
+::: demo
+```html
+<template>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-empty image="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"></wu-plus-empty>
+    </div>
+</template>
+<script>
+</script>
 ```
+:::
 
-#### 预览
+### 图片尺寸
 
-该命令用于预览效果，浏览器默认打开根目录 index.html 文件， index.html 按需要修改，
+通过设置 size 属性来控制图片大小。
 
-```bash
-
-npm run example:package
-
+::: demo
+```html
+<template>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-empty size="150"></wu-plus-empty>
+    </div>
+</template>
+<script>
+</script>
 ```
+:::
+
+### 底部内容
+
+使用默认插槽可在底部插入内容。
+
+::: demo
+```html
+<template>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-empty>
+            <wu-plus-button size="mini" type="primary">重试</wu-plus-button>
+        </wu-plus-empty>
+    </div>
+</template>
+<script>
+</script>
+```
+:::
+
+### Attributes
+
+| 参数      | 说明    | 类型      | 可选值       | 默认值   |
+|---------- |-------- |---------- |-------------  |-------- |
+| image | 指定图片地址 | String | - | - |
+| size | 图片大小（宽度） | number | - | 100 |
+| description | 文本描述 | String | - | -- |
+
+### Slot
+
+| 参数      | 说明    |
+|---------- |-------- |
+| --  | 自定义底部内容 |
+| image  | 自定义图片 |
+| description  | 自定义描述文字 |
