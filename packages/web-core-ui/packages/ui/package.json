@@ -16,7 +16,6 @@
     "scripts": {
         "format": "prettier --write \"{src,apps,libs,test}/**/*.{tsx,ts}\"",
         "lint": "eslint \"{src,apps,libs,test}/**/*.{tsx,ts}\" --fix",
-        "test": "jest -c packages/web-ui/jest.config.js",
         "example:package": "live-server",
         "build": "cross-env NODE_ENV=production rollup -c ./build/build.js",
         "dev:package": "webpack serve --config ./build/webpack_dev.config --env development --mode development --hot"
