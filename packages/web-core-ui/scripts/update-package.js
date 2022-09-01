@@ -12,7 +12,7 @@ readdirSync(input)
                 console.log("err", err);
             }
             data = JSON.parse(data.toString());
-            data = {
+            const data1 = {
                 ...data, ...{
                     "files": [
                         "dist",
@@ -28,7 +28,7 @@ readdirSync(input)
                     "scripts": {
                         "format": "prettier --write \"{src,apps,libs,test}/**/*.{tsx,ts}\"",
                         "lint": "eslint \"{src,apps,libs,test}/**/*.{tsx,ts}\" --fix",
-                        "test": "jest -c packages/web-ui/jest.config.js",
+                        "test": "web-test-runner \"./test/*.js\" --node-resolve",
                         "example:package": "live-server",
                         "build:package": "cross-env NODE_ENV=production rollup -c ./build/build.js  && node build/declaration.js",
                         "dev:package": "webpack serve --config ./build/webpack_dev.config --env development --mode development --hot"
@@ -40,9 +40,14 @@ readdirSync(input)
                         "type": "git",
                         "url": "https://github.com/wu-component/web-component-plus"
                     },
+                    "devDependencies": {
+                        "@open-wc/testing": "^3.1.6",
+                        "@web/test-runner": "^0.13.28",
+                        ...data.devDependencies
+                    }
                 }
             }
-            writeFileSync(getPath(`../packages/${item}/package.json`), JSON.stringify(data, null, 4), err => {
+            writeFileSync(getPath(`../packages/${item}/package.json`), JSON.stringify(data1, null, 4), err => {
                 if (err) {
                     console.log("修改失败", err);
                 }
