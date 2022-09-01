@@ -1,8 +1,0 @@
-@use "sass:map";
-@use "sass:math";
-@import '../../theme/common/var.scss';
-@import '../../theme/common/mixin.scss';
-@include b(breadcrumb) {
-    font-size: 14px;
-    line-height: 1;
-}
