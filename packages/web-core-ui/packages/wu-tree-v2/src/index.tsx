@@ -1,5 +1,5 @@
 import { Component, Emit, h, OnConnected, State, Prop, WuComponent, Watch } from '@wu-component/web-core-plus';
-import "@wu-component/wu-checkbox/src/index.tsx";
+import '@wu-component/wu-checkbox/src/index';
 import css from './index.scss';
 import { Node } from './model/Node';
 import { extractClass } from "@wu-component/common";

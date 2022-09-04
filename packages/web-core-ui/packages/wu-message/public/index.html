@@ -6,7 +6,18 @@
 </head>
 <body>
 <div id="app">
-    <wu-test-example></wu-test-example>
+    <button id="messageButton1">点击弹出信息</button>
+
 </div>
 </body>
 </html>
+<script>
+    document.querySelector('#messageButton1').addEventListener("click", () => {
+        window.Message.setOption({
+            message: "测试消息1",
+            type: "info",
+            duration: 3000
+        })
+    })
+
+</script>

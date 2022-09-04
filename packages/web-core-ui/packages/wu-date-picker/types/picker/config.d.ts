@@ -1,4 +1,4 @@
-import dayjs from 'dayjs';
+import dayjs from '../dayjs/esm/index.js';
 export declare const format: {
     week: string;
     date: string;
@@ -123,3 +123,4 @@ export declare const option: {
     showBottomButton: boolean;
     disableDate: (date: any, dayjs: any) => boolean;
 };
+export { dayjs };

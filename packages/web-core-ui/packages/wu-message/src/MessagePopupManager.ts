@@ -1,4 +1,4 @@
-import './index';
+import './index.tsx';
 import { WuMessage, TypeEnums, PositionEnums } from './index';
 import domReady from "@wu-component/common/dist/dready";
 interface Options {
