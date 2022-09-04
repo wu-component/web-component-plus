@@ -1,3 +1,7 @@
+/// color|1|Brand Color|0
+$--color-primary: #409EFF !default;
+/// color|1|Background Color|4
+$--color-white: #FFFFFF !default;
 $wu-primary: #07c160;
 $wu-primary-active: darken($wu-primary, 10%);
 $wu-primary-fade-little: fade-out($wu-primary, 0.382);
@@ -712,4 +716,13 @@ $--menu-item-font-color: $--color-text-primary !default;
 /// color||Color|0
 $--menu-background-color: $--color-white !default;
 $--menu-item-hover-fill: $--color-primary-light-9 !default;
+
+/* Tree
+-------------------------- */
+/// color||Color|0
+$--tree-node-hover-background-color: $--background-color-base !default;
+/// color||Color|0
+$--tree-font-color: $--color-text-regular !default;
+/// color||Color|0
+$--tree-expand-icon-color: $--color-text-placeholder !default;
 

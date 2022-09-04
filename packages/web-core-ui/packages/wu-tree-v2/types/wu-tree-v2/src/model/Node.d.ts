@@ -1,0 +1,48 @@
+export declare const getChildState: (node: any) => {
+    all: boolean;
+    none: boolean;
+    allWithoutDisable: boolean;
+    half: boolean;
+};
+export declare class Node {
+    id: number;
+    text: string | null;
+    checked: boolean;
+    indeterminate: boolean;
+    data: any[];
+    expanded: boolean;
+    private readonly parent;
+    visible: boolean;
+    isCurrent: boolean;
+    level: number;
+    loaded: boolean;
+    childNodes: any[];
+    loading: boolean;
+    store: any;
+    isLeafByUser: boolean;
+    isLeaf?: boolean;
+    childNodeRendered: boolean;
+    constructor(options: any);
+    setData(data: any): void;
+    get label(): any;
+    get key(): any;
+    get disabled(): any;
+    get nextSibling(): any;
+    get previousSibling(): any;
+    contains(target: any, deep?: boolean): boolean;
+    remove(): void;
+    insertChild(child: any, index: any, batch?: boolean): void;
+    insertBefore(child: any, ref: any): void;
+    insertAfter(child: any, ref: any): void;
+    removeChild(child: any): void;
+    removeChildByData(data: any): void;
+    expand(callback?: any, expandParent?: any): void;
+    doCreateChildren(array: any, defaultProps?: {}): void;
+    collapse(): void;
+    shouldLoadData(): boolean;
+    updateLeafState(): void;
+    setChecked(value: any, deep: any, recursion?: boolean, passValue?: boolean): void;
+    getChildren(forceInit?: boolean): any;
+    updateChildren(): void;
+    loadData(callback: any, defaultProps?: {}): void;
+}

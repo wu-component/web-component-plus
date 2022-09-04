@@ -28,13 +28,13 @@
         "paths": {}
     },
     "exclude": [
-        "src/dayjs/*"
+        "./src/dayjs/*",
+        "./test/**/*",
+        "./test/index.test.js"
     ],
     "include": [
-        "src/*",
-        "src/**/*",
-        "typings/*",
-        "__tests__/*",
-        "__tests__/**/*"
+        "./src/*",
+        "./src/**/*",
+        "./typings/*"
     ]
 }

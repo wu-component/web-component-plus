@@ -79,7 +79,8 @@ export class Node {
     public loading: boolean;
     public store: any;
     public isLeafByUser: boolean;
-    private isLeaf: boolean;
+    isLeaf?: boolean;
+    childNodeRendered: boolean;
     constructor(options) {
         this.id = nodeIdSeed++;
         this.text = null;
@@ -314,7 +315,7 @@ export class Node {
         }
     }
 
-    expand(callback, expandParent) {
+    expand(callback = null, expandParent = null) {
         const done = () => {
             if (expandParent) {
                 let parent = this.parent;

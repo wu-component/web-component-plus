@@ -7,31 +7,124 @@
     width: fit-content;
     height: fit-content;
 }
-.wu-tree_inner {
-    //width:430px;
-    max-height:500px;
-    overflow: auto;
-    // border:1px solid #ccc;
-    background: #fff;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+@include b(tree) {
+    position: relative;
+    cursor: default;
+    background: $--color-white;
+    color: $--tree-font-color;
+
+    @include e(empty-block) {
+        position: relative;
+        min-height: 60px;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    @include e(empty-text) {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        color: $--color-text-secondary;
+        font-size: $--font-size-base;
+    }
+
+    @include e(drop-indicator) {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background-color: $--color-primary;
+    }
 }
 
-.wu-tree_inner::-webkit-scrollbar {
-    /*滚动条整体样式*/
-    width : 10px;  /*高宽分别对应横竖滚动条的尺寸*/
-    height: 1px;
+@include b(tree-node) {
+    white-space: nowrap;
+    outline: none;
+    &:focus { /* focus */
+        > .wu-tree-node_content {
+            background-color: $--tree-node-hover-background-color;
+        }
+    }
+
+    @include when(drop-inner) {
+        > .wu-tree-node_content .wu-tree-node_label {
+            background-color: $--color-primary;
+            color: #fff;
+        }
+    }
+
+    @include e(content) {
+        display: flex;
+        align-items: center;
+        height: 26px;
+        cursor: pointer;
+
+        & > .wu-tree-node_expand-icon {
+            padding: 6px;
+        }
+        & > label.wu-checkbox {
+            margin-right: 8px;
+        }
+        &:hover {
+            background-color: $--tree-node-hover-background-color;
+        }
+
+        .wu-tree.is-dragging & {
+            cursor: move;
+
+            & * {
+                pointer-events: none;
+            }
+        }
+
+        .wu-tree.is-dragging.is-drop-not-allow & {
+            cursor: not-allowed;
+        }
+    }
+
+    @include e(expand-icon) {
+        cursor: pointer;
+        color: $--tree-expand-icon-color;
+        font-size: 12px;
+
+        transform: rotate(0deg);
+        transition: transform 0.3s ease-in-out;
+
+        &.expanded {
+            transform: rotate(90deg);
+        }
+
+        &.is-leaf {
+            color: transparent;
+            cursor: default;
+        }
+    }
+
+    @include e(label) {
+        font-size: $--font-size-base;
+    }
+
+    @include e(loading-icon) {
+        margin-right: 8px;
+        font-size: $--font-size-base;
+        color: $--tree-expand-icon-color;
+    }
+
+    & > .wu-tree-node_children {
+        overflow: hidden;
+        background-color: transparent;
+    }
+
+    &.is-expanded > .wu-tree-node_children {
+        display: block;
+    }
 }
-.wu-tree_inner::-webkit-scrollbar-thumb {
-    /*滚动条里面小方块*/
-    border-radius: 10px;
-    box-shadow   : inset 0 0 5px rgba(144,147,153,.3);
-    background   : rgba(144,147,153,.3);
+
+.wu-tree-highlight-current .wu-tree-node.is-current > .wu-tree-node_content {
+    background-color: mix($--color-white, $--color-primary, 10%);
+    // background-color: $--color-primary;
+    color: $--color-white;
 }
-.wu-tree_inner::-webkit-scrollbar-track {
-    /*滚动条里面轨道*/
-    box-shadow   : inset 0 0 5px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    background   : #ededed;
-}
+
