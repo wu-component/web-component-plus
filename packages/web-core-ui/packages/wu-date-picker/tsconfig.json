@@ -27,5 +27,10 @@
         "baseUrl": ".",
         "paths": {}},
     // 入口文件
-    "include": ["src/index.tsx", "./css.d.ts", "types/*.d.ts", "src/index.scss"]
+    "include": ["src/index.tsx", "src/**/*",  "./css.d.ts", "types/*.d.ts", "src/index.scss"],
+    "exclude": [
+        "./src/dayjs/*",
+        "./test/**/*",
+        "./test/index.test.js"
+    ]
 }

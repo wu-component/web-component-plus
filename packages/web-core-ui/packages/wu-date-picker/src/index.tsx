@@ -1,5 +1,5 @@
 ﻿import DatePicker from './picker/DatePicker';
-import dayjs from 'dayjs';
+import { dayjs } from './picker/config';
 import { h, Component, Prop, Watch, WuComponent, OnConnected, OnDisConnected, Emit } from '@wu-component/web-core-plus';
 import css from './index.scss';
 import css1 from './css/theme.scss';
@@ -55,6 +55,7 @@ export interface PickerOptions {
     showBottomButton: boolean, // 是否显示底部控制按钮
     disableDate: (date, dayjs) => boolean,  //date为当前日期,如果当前日期为不可选日期，返回true
 }
+
 @Component({
     name: 'wu-plus-date-picker',
     css: css + css1 + css2 + css3

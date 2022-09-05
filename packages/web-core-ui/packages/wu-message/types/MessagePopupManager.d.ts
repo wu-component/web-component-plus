@@ -1,4 +1,4 @@
-import './index';
+import './index.tsx';
 import { WuMessage, TypeEnums, PositionEnums } from './index';
 interface Options {
     center?: boolean;

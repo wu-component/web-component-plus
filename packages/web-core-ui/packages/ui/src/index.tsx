@@ -7,6 +7,7 @@ export * from '@wu-component/wu-checkbox-group/src/index';
 export * from '@wu-component/wu-checkbox-button/src/index';
 export * from '@wu-component/wu-switch/src/index';
 export * from '@wu-component/wu-tree/src/index';
+export * from '@wu-component/wu-tree-v2/src/index';
 export * from '@wu-component/wu-link/src/index';
 export * from '@wu-component/wu-table/src/index';
 export * from '@wu-component/wu-tag/src/index';

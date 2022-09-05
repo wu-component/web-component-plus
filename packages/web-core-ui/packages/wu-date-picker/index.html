@@ -3,11 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="./dist/index.umd.js"></script>
 </head>
 <body>
 <div id="app">
-    <wu-test-example></wu-test-example>
+    <div id="hoc" style="margin: 32px">
+        <h2>天选择器</h2>
+        <wu-plus-date-picker id="timePicker"></wu-plus-date-picker>
+        <h2>周选择器</h2>
+        <wu-plus-date-picker id="timePickerWeek" type="week"></wu-plus-date-picker>
+        <h2>周数选择器</h2>
+        <wu-plus-date-picker id="timePickerWeekNum" type="weeknum"></wu-plus-date-picker>
+        <h2>月选择器</h2>
+        <wu-plus-date-picker id="timePickerMonth" type="month"></wu-plus-date-picker>
+        <h2>年选择器</h2>
+        <wu-plus-date-picker id="timePickerYear" type="year"></wu-plus-date-picker>
+
+        <h2>天时间刻选择器</h2>
+        <wu-plus-date-picker id="timePickerDatetime" type="datetime"></wu-plus-date-picker>
+
+        <h2>天时间段选择器</h2>
+        <wu-plus-date-picker type="daterange" default="['2022-06-11', '2022-06-16']" id="timePickerDaterange"></wu-plus-date-picker>
+
+        <h2>月时间段选择器</h2>
+        <wu-plus-date-picker type="monthrange" default="['2022-03-11', '2022-06-16']" id="timePickerManthrange"></wu-plus-date-picker>
+
+        <h2>年时间段选择器</h2>
+        <wu-plus-date-picker type="yearrange" default="['2020-06-11', '2022-06-16']" id="timePickeryearrange"></wu-plus-date-picker>
+
+        <h2>禁用</h2>
+        <wu-plus-date-picker id="timePicker" disabled="true"></wu-plus-date-picker>
+    </div>
 </div>
-<script src="./dist/index.umd.js"></script>
 </body>
 </html>
