@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <div style="width: 600px">
+        <h2>picture-card</h2>
+        <wu-plus-upload
+            show-file-list="false"
+            id="upload0"
+            auto-upload="true"
+            list-type="picture-card"
+            file-list='[{"name":"food.jpeg","url":"https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100"},{"name":"food2.jpeg","url":"https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100"}]'
+            headers='{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicm9vdCIsImlhdCI6MTY2MjkxMDM5MiwiZXhwIjoxNjYyOTEzOTkyfQ.65rWS2yBQHI1cP_PBqmk8jr2_h5_ENIRckZarmvffzU"}'
+            action="https://canyuegongzi.xyz/simple-file-center/v1.0/qiniu/multipleQiniu"
+            data='{"category":4,"userName":"root","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicm9vdCIsImlhdCI6MTY2MjkxMDM5MiwiZXhwIjoxNjYyOTEzOTkyfQ.65rWS2yBQHI1cP_PBqmk8jr2_h5_ENIRckZarmvffzU"}'
+        >
+            <button>选取文件</button>
+            <div slot="tip" class="wu-upload_tip" style="font-size: 12px;color: #606266;">只能上传jpg/png文件，且不超过500kb</div>
+        </wu-plus-upload>
+        <h2>picture</h2>
+        <wu-plus-upload
+            show-file-list="false"
+            id="upload1"
+            auto-upload="true"
+            list-type="picture"
+            file-list='[{"name":"food.jpeg","url":"https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100"},{"name":"food2.jpeg","url":"https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100"}]'
+            headers='{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicm9vdCIsImlhdCI6MTY2MjkxMDM5MiwiZXhwIjoxNjYyOTEzOTkyfQ.65rWS2yBQHI1cP_PBqmk8jr2_h5_ENIRckZarmvffzU"}'
+            action="https://canyuegongzi.xyz/simple-file-center/v1.0/qiniu/multipleQiniu"
+            data='{"category":4,"userName":"root","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicm9vdCIsImlhdCI6MTY2MjkxMDM5MiwiZXhwIjoxNjYyOTEzOTkyfQ.65rWS2yBQHI1cP_PBqmk8jr2_h5_ENIRckZarmvffzU"}'
+        >
+            <button>选取文件</button>
+            <div slot="tip" class="wu-upload_tip" style="font-size: 12px;color: #606266;">只能上传jpg/png文件，且不超过500kb</div>
+        </wu-plus-upload>
+
+        <h2>text</h2>
+        <wu-plus-upload
+            show-file-list="false"
+            id="upload2"
+            auto-upload="true"
+            list-type="text"
+            file-list='[{"name":"food.jpeg","url":"https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100"},{"name":"food2.jpeg","url":"https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100"}]'
+            headers='{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicm9vdCIsImlhdCI6MTY2MjkxMDM5MiwiZXhwIjoxNjYyOTEzOTkyfQ.65rWS2yBQHI1cP_PBqmk8jr2_h5_ENIRckZarmvffzU"}'
+            action="https://canyuegongzi.xyz/simple-file-center/v1.0/qiniu/multipleQiniu"
+            data='{"category":4,"userName":"root","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicm9vdCIsImlhdCI6MTY2MjkxMDM5MiwiZXhwIjoxNjYyOTEzOTkyfQ.65rWS2yBQHI1cP_PBqmk8jr2_h5_ENIRckZarmvffzU"}'
+        >
+            <button>选取文件</button>
+            <div slot="tip" class="wu-upload_tip" style="font-size: 12px;color: #606266;">只能上传jpg/png文件，且不超过500kb</div>
+        </wu-plus-upload>
+    </div>
+
+</div>
+</body>
+<script type="module">
+    const upload = document.getElementById("upload0")
+    upload.addEventListener("change", (e) => {
+        console.log("e", e)
+    })
+    upload.addEventListener("remove", (e) => {
+        console.log("remove", e)
+    })
+    const upload1 = document.getElementById("upload1")
+    upload1.addEventListener("change", (e) => {
+        console.log("e", e)
+    })
+    upload1.addEventListener("remove", (e) => {
+        console.log("remove", e)
+    })
+    const upload2 = document.getElementById("upload2")
+    upload2.addEventListener("change", (e) => {
+        console.log("e", e)
+    })
+    upload2.addEventListener("remove", (e) => {
+        console.log("remove", e)
+    })
+
+</script>
+</html>

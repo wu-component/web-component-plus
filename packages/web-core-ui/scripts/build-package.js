@@ -14,18 +14,4 @@ readdirSync(input)
             console.log(`${item} 构建完成`);
             resolve();
         });
-        /*taskList.push(() => {
-            return new Promise((resolve1, reject) => {
-                shell.cd(getPath(`../packages/${item}`));
-                shell.exec('cross-env NODE_ENV=production rollup -c ./build/build.js', (code, stdout, stderr) => {
-                    console.log(`${item} 构建完成`);
-                    resolve();
-                });
-            })
-        })*/
     })
-/*console.log(taskList);
-
-for (let i = 0; i < taskList.length; i ++) {
-    taskList[i]();
-}*/
