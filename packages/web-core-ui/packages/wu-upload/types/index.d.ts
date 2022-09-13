@@ -24,7 +24,6 @@ export declare class WuUpload extends WuComponent {
     fileList: File[];
     uploadFiles: File[];
     private dragover;
-    private uploader;
     private reqs;
     draging: boolean;
     focusing: boolean;
@@ -52,6 +51,7 @@ export declare class WuUpload extends WuComponent {
         [x: string]: any;
     };
     fileListChange(fileList: File[]): void;
+    submit(): void;
     /**
      * 拖动中
      * @param e
@@ -80,8 +80,9 @@ export declare class WuUpload extends WuComponent {
     /**
      * 文件上传
      * @param files
+     * @param flag
      */
-    uploadFilesFun(files: File[]): void;
+    uploadFilesFun(files: File[], flag?: boolean): void;
     beforeUploadFun(file: File): any;
     abort(file: any): void;
     onRemoveFun(file: any, raw: File): void;

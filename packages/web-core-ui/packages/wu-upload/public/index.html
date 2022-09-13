@@ -50,6 +50,38 @@
             <button>选取文件</button>
             <div slot="tip" class="wu-upload_tip" style="font-size: 12px;color: #606266;">只能上传jpg/png文件，且不超过500kb</div>
         </wu-plus-upload>
+
+        <h2>drag</h2>
+        <wu-plus-upload
+            show-file-list="false"
+            id="upload2"
+            auto-upload="true"
+            list-type="text"
+            drag="true"
+            file-list='[]'
+            headers='{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicm9vdCIsImlhdCI6MTY2MjkxMDM5MiwiZXhwIjoxNjYyOTEzOTkyfQ.65rWS2yBQHI1cP_PBqmk8jr2_h5_ENIRckZarmvffzU"}'
+            action="https://canyuegongzi.xyz/simple-file-center/v1.0/qiniu/multipleQiniu"
+            data='{"category":4,"userName":"root","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicm9vdCIsImlhdCI6MTY2MjkxMDM5MiwiZXhwIjoxNjYyOTEzOTkyfQ.65rWS2yBQHI1cP_PBqmk8jr2_h5_ENIRckZarmvffzU"}'
+        >
+            <div slot="tip" class="wu-upload_tip" style="font-size: 12px;color: #606266;">只能上传jpg/png文件，且不超过500kb</div>
+        </wu-plus-upload>
+        <h2>手动上传</h2>
+        <wu-plus-upload
+            show-file-list="false"
+            id="upload223"
+            auto-upload="false"
+            list-type="text"
+            multiple="true"
+            file-list='[]'
+            headers='{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicm9vdCIsImlhdCI6MTY2MjkxMDM5MiwiZXhwIjoxNjYyOTEzOTkyfQ.65rWS2yBQHI1cP_PBqmk8jr2_h5_ENIRckZarmvffzU"}'
+            action="https://canyuegongzi.xyz/simple-file-center/v1.0/qiniu/multipleQiniu"
+            data='{"category":4,"userName":"root","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicm9vdCIsImlhdCI6MTY2MjkxMDM5MiwiZXhwIjoxNjYyOTEzOTkyfQ.65rWS2yBQHI1cP_PBqmk8jr2_h5_ENIRckZarmvffzU"}'
+        >
+            <button>选取文件</button>
+            <div slot="tip" class="wu-upload_tip" style="font-size: 12px;color: #606266;">只能上传jpg/png文件，且不超过500kb</div>
+        </wu-plus-upload>
+
+        <button id="okUploadFile">确认上传文件</button>
     </div>
 
 </div>
@@ -75,6 +107,13 @@
     })
     upload2.addEventListener("remove", (e) => {
         console.log("remove", e)
+    })
+
+    const okUploadFile = document.querySelector("#okUploadFile");
+    okUploadFile.addEventListener("click", () => {
+        const upload223 = document.querySelector("#upload223");
+        console.log(upload223);
+        upload223.submit();
     })
 
 </script>
