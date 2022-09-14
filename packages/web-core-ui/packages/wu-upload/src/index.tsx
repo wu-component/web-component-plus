@@ -117,9 +117,8 @@ export class WuUpload extends WuComponent {
 
     public uploadFiles: File[] = [];
 
+    // @State({ default: false, type: Boolean })
     private dragover: any;
-
-    private uploader = null;
 
     private reqs: any = {};
 
@@ -136,6 +135,7 @@ export class WuUpload extends WuComponent {
 
     @Emit("file")
     public emitFile(files: File[]) {
+        this.uploadFilesFun(files);
         return {
             files
         };
@@ -143,6 +143,7 @@ export class WuUpload extends WuComponent {
 
     @Emit("change")
     public onChange(params: Record<any, any>) {
+        this.update();
         return {
             ...params
         };
@@ -168,7 +169,6 @@ export class WuUpload extends WuComponent {
             ...params
         };
     }
-    // on-preview
 
     @Emit("preview")
     public onPreview(params: Record<any, any>) {
@@ -192,14 +192,31 @@ export class WuUpload extends WuComponent {
         });
     }
 
+    public submit() {
+        const files = this.uploadFiles;
+        if (this.limit && files.length > this.limit) {
+            this.onExceedFun && this.onExceedFun(files, files);
+            return;
+        }
+        let postFiles = Array.prototype.slice.call(files);
+        if (!this.multiple) { postFiles = postFiles.slice(0, 1); }
+
+        if (postFiles.length === 0) { return; }
+        postFiles
+            .filter(file => file.status === 'ready')
+            .forEach(rawFile => {
+            this.upload(rawFile.raw);
+        });
+    }
+
     /**
      * 拖动中
      * @param e
      */
     public dropHandlerFun(e: any) {
         e.preventDefault();
-        if (this.disabled || !this.uploader) return;
-        const accept = this.uploader?.accept;
+        if (this.disabled) return;
+        const accept = this.accept;
         this.dragover = false;
         if (!accept) {
             this.emitFile((e.dataTransfer.files) as File[]);
@@ -239,6 +256,7 @@ export class WuUpload extends WuComponent {
         e.preventDefault();
         if (!this.disabled) {
             this.dragover = true;
+            this.update();
         }
     }
 
@@ -249,6 +267,7 @@ export class WuUpload extends WuComponent {
     public dropLeaveHandlerFun(e: MouseEvent) {
         e.preventDefault();
         this.dragover = false;
+        this.update();
     }
 
     /**
@@ -310,11 +329,19 @@ export class WuUpload extends WuComponent {
     /**
      * 文件上传
      * @param files
+     * @param flag
      */
-    public uploadFilesFun(files: File[]) {
-        if (this.limit && this.uploadFiles.length + files.length > this.limit) {
-            this.onExceedFun && this.onExceedFun(files, this.uploadFiles);
-            return;
+    public uploadFilesFun(files: File[], flag = false) {
+        if (flag === true) {
+            if (this.limit && files.length > this.limit) {
+                this.onExceedFun && this.onExceedFun(files, this.uploadFiles);
+                return;
+            }
+        }else {
+            if (this.limit && this.uploadFiles.length + files.length > this.limit) {
+                this.onExceedFun && this.onExceedFun(files, this.uploadFiles);
+                return;
+            }
         }
 
         let postFiles = Array.prototype.slice.call(files);
