@@ -44,6 +44,10 @@ export class WuRow extends WuComponent {
     }
 
     public override render(_renderProps = {}, _store = {}) {
+        const props = {
+            name: this.name,
+            tag: this.tag,
+        };
         return (
             <this.tag
                 {...extractClass({}, `wu-row`, {
@@ -52,7 +56,7 @@ export class WuRow extends WuComponent {
                     ['wu-row-flex']: this.type === 'flex',
                 })}
             >
-                <slot />
+                <slot {...props} />
             </this.tag>
         );
     }

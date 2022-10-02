@@ -1,7 +1,7 @@
 import { h, Component, Prop, OnConnected, WuComponent, Inject, OnDisConnected } from '@wu-component/web-core-plus';
 import css from './index.scss';
 import { extractClass } from "@wu-component/common";
-import "@wu-component/wu-tooltip/src/index";
+import "../../wu-tooltip/src/index.tsx";
 import type { WuMenu } from "../types/type";
 
 @Component({
@@ -117,7 +117,7 @@ export class WuMenuItem extends WuComponent implements OnConnected, OnDisConnect
     get indexPath() {
         const path = [ this.index ];
         let parent = this.parentNode;
-        while (parent.tagName !== 'WU-PLUS-MENU') {
+        while (parent?.tagName !== 'WU-PLUS-MENU') {
             if (parent.index) {
                 path.unshift(parent.index);
             }
@@ -143,7 +143,7 @@ export class WuMenuItem extends WuComponent implements OnConnected, OnDisConnect
                 onMouseleave={() => this.onMouseLeave()}
             >
                 {
-                    this.parentNode.tagName === 'ElMenu' && this.wuMenuRef.collapse && this.isSlotTitle ? (
+                    this.parentNode?.tagName === 'ElMenu' && this.wuMenuRef.collapse && this.isSlotTitle ? (
                         <wu-plus-tooltip effect="dark" position="right">
                             <div slot="content">
                                 <slot name="title"></slot>

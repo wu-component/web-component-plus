@@ -1,1 +1,2 @@
-export * from './example-package/test-com-new1';
+// @ts-ignore
+export * from './example-package/test-com-new1.tsx';

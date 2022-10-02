@@ -1,6 +1,6 @@
 import { Component, Emit, h, OnConnected, Prop, Provide, WuComponent } from '@wu-component/web-core-plus';
 import css from './index.scss';
-import "@wu-component/wu-breadcrumb-item/src/index";
+import "../../wu-breadcrumb-item/src/index";
 
 @Component({
     name: 'wu-plus-breadcrumb',
@@ -52,9 +52,13 @@ export class WuBreadcrumb extends WuComponent implements OnConnected {
     }
 
     public override render(_renderProps = {}, _store = {}) {
+        const props = {
+            separator: this.separator,
+            separatorClass: this.separatorClass
+        };
         return (
             <div class="wu-breadcrumb" aria-label="Breadcrumb" role="navigation">
-                <slot id="defaultSlot" style={{ width: '100%' }} />
+                <slot id="defaultSlot" style={{ width: '100%' }} {...props} />
             </div>
         );
     }

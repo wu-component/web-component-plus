@@ -1,6 +1,7 @@
 import { h, Component, Prop, Emit, OnConnected, OnBeforeRender, OnBeforeUpdate, Provide, WuComponent } from '@wu-component/web-core-plus';
 import css from './index.scss';
 type UISize = 'medium' | 'small' | 'mini';
+import "./src/index.tsx";
 
 @Component({
     name: 'wu-plus-checkbox-group',
@@ -53,13 +54,10 @@ export class WuCheckboxGroup extends WuComponent implements OnConnected, OnBefor
         this.change();
     }
 
-    public override connected(shadowRoot: ShadowRoot) {
-        setTimeout(() => {
-            this.slotRef = this.shadowRoot.getElementById('slot') as HTMLSlotElement;
-        }, 0);
-    }
+    public override connected(shadowRoot: ShadowRoot) {}
 
     public override beforeUpdate(): any {
+        this.slotRef = this.shadowRoot.getElementById('slot') as HTMLSlotElement;
         const nodeList = this.slotRef.assignedElements();
         nodeList.forEach(item => {
             (item as any).update();
@@ -67,9 +65,14 @@ export class WuCheckboxGroup extends WuComponent implements OnConnected, OnBefor
     }
 
     public override render(_renderProps = {}, _store = {}) {
+        const props = {
+            size: this.size,
+            disabled: this.disabled,
+            value: this.value,
+        };
         return (
             <div class="wu-checkbox-group" role="group" aria-label="checkbox-group">
-                <slot id="slot" />
+                <slot id="slot" {...props} />
             </div>
         );
     }

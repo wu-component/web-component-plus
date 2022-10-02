@@ -6,6 +6,9 @@ export declare class WuCheckbox extends WuComponent implements OnConnected, OnBe
     constructor();
     groupRef: any;
     beforeUpdate(): void;
+    get newDisabled(): any;
+    get newSize(): any;
+    get newValue(): any;
     initProps(): void;
     connected(shadowRoot: ShadowRoot): void;
     focus: boolean;

@@ -12,7 +12,7 @@
     "build:package": "lerna run build:package",
     "build:ui": "lerna run build:package && lerna run --scope @wu-component/ui-plus build",
     "publish": "lerna publish",
-    "clear-all": "rimraf node_modules && lerna clean -y",
+    "clear-all": "lerna clean -y && rimraf node_modules",
     "bootstrap": "lerna bootstrap --npm-client yarn --use-workspace"
   },
   "devDependencies": {

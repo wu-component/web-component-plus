@@ -1,8 +1,8 @@
 import { Component, Emit, h, OnConnected, Prop, Provide, Watch, WuComponent } from '@wu-component/web-core-plus';
 import css from './index.scss';
-import '@wu-component/wu-menu-sub/src/index';
-import '@wu-component/wu-menu-item-group/src/index';
-import '@wu-component/wu-menu-item/src/index';
+import '../../wu-menu-sub/src/index.tsx';
+import '../../wu-menu-item-group/src/index.tsx';
+import '../../wu-menu-item/src/index.tsx';
 import { extractClass } from "@wu-component/common";
 import type { WuMenuItem, WuSubMenu } from "../types/type";
 
@@ -303,6 +303,17 @@ export class WuMenu extends WuComponent implements OnConnected {
     }
 
     public override render(_renderProps = {}, _store = {}) {
+        const props = {
+            mode: this.mode,
+            collapse: this.collapse,
+            'background-color': this.backgroundColor,
+            'text-color': this.textColor,
+            'active-text-color': this.activeTextColor,
+            'default-active': this.defaultActive,
+            'default-Openeds': this.defaultOpeneds,
+            'unique-Opened': this.uniqueOpened,
+            'menu-trigger': this.menuTrigger,
+        };
         return (
             <ul
                 role="menubar"
@@ -314,7 +325,7 @@ export class WuMenu extends WuComponent implements OnConnected {
                     "wu-menu": true
                 })}
             >
-                <slot />
+                <slot {...props} />
             </ul>
         );
     }

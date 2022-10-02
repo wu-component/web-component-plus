@@ -36,7 +36,7 @@ export default [
     {
         input: './src/ex.ts',
         plugins: [
-            // terser(),
+            terser(),
             nodeResolve(),
             commonjs(),
             postcss({

@@ -1,4 +1,3 @@
-import 'reflect-metadata';
 import { COMPONENT_CUSTOM_PROVIDE } from '../app-data';
 export interface ProvideOptions {
     [key: string]: any;

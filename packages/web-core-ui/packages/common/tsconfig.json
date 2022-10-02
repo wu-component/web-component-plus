@@ -16,6 +16,7 @@
         "noImplicitOverride": true,
         "emitDecoratorMetadata": true,
         "noImplicitReturns": true,
+        "skipLibCheck": true,
         "noUnusedLocals": true,
         "noUnusedParameters": false,
         "outDir": "dist",
@@ -30,11 +31,12 @@
     "exclude": [
         "./src/dayjs/*",
         "./test/**/*",
-        "./test/index.test.js"
+        "./test/index.test.js",
+        "../../node_modules/@types/eslint/index.d.ts",
+        "../../node_modules/@types/mocha/index.d.ts"
     ],
     "include": [
         "./src/*",
-        "./src/**/*",
-        "./typings/*"
+        "./src/**/*"
     ]
 }
