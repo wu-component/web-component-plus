@@ -1,7 +1,7 @@
 ﻿import { h, Component, Prop, Emit, WuComponent } from '@wu-component/web-core-plus';
 import css from './index.scss';
-import "@wu-component/wu-popover/src/index";
-import "@wu-component/wu-button/src/index";
+import "../../wu-popover/src/index";
+import "../../wu-button/src/index";
 import type { WuPopover } from "../types/type";
 
 @Component({

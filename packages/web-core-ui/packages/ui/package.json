@@ -132,7 +132,8 @@
         "@wu-component/wu-transition": "latest",
         "@wu-component/wu-tree": "latest",
         "@wu-component/wu-tree-v2": "latest",
-        "@wu-component/wu-upload": "latest"
+        "@wu-component/wu-upload": "latest",
+        "@wu-component/wu-input-number": "0.0.9"
     },
     "repository": {
         "type": "git",

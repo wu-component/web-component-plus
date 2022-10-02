@@ -1,6 +1,6 @@
 import { Component, Emit, h, OnBeforeRender, OnConnected, Prop, WuComponent } from '@wu-component/web-core-plus';
-import '@wu-component/wu-checkbox/src/index';
-import '@wu-component/wu-input/src/index';
+import '../../wu-checkbox/src/index';
+import '../../wu-input/src/index';
 import css from './index.scss';
 import { classNames, extractClass } from '@wu-component/common';
 

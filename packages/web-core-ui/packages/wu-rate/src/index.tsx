@@ -10,15 +10,7 @@ export class WuRate extends WuComponent implements OnConnected, OnBeforeRender, 
         super();
     }
 
-    public override beforeInstall(): any {
-        this.checkoutProps();
-        const list = [];
-        const max = this.max;
-        for (let i = 0; i < max; i++) {
-            list.push(i + 1);
-        }
-        this.valueList = list;
-    }
+    public override beforeInstall(): any {}
 
     public override beforeRender() {}
 
@@ -31,7 +23,16 @@ export class WuRate extends WuComponent implements OnConnected, OnBeforeRender, 
         }
     }
 
-    public override connected(shadowRoot: ShadowRoot) {}
+    public override connected(shadowRoot: ShadowRoot) {
+        this.checkoutProps();
+        const list = [];
+        const max = this.max;
+        for (let i = 0; i < max; i++) {
+            list.push(i + 1);
+        }
+        this.valueList = list;
+        this.update();
+    }
 
     public pointerAtLeftHalf = true;
 
@@ -231,7 +232,7 @@ export class WuRate extends WuComponent implements OnConnected, OnBeforeRender, 
     public override render(_renderProps = {}, _store = {}) {
         return (
             <div class="wu-rate" onKeydown={event => this.handleKey(event)} role="slider" aria-valuenow={this.currentValue} aria-valuetext={this.text} aria-valuemin="0" aria-valuemax={this.max} tabindex="0" id="rate">
-                {this.valueList.map((itemValue, item) => {
+                {this?.valueList?.map((itemValue, item) => {
                     return (
                         <span data-rate={item} class="wu-rate_item" onMousemove={event => this.setCurrentValue(item, event)} onMouseleave={event => this.resetCurrentValue()} onClick={event => this.selectValue(item, event)} style={{ cursor: this.rateDisabled ? 'auto' : 'pointer' }} key={item}>
                             <i data-rate={item} class={`wu-rate_icon ${this.hoverIndex === item ? 'hover' : ''}`} style={this.getIconStyle(item)}>

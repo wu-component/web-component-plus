@@ -1,6 +1,6 @@
 ﻿import { h, Component, Prop, Provide, WuComponent } from '@wu-component/web-core-plus';
 import css from './index.scss';
-import "@wu-component/wu-time-line-item/src/index";
+import "../../wu-time-line-item/src/index";
 
 @Component({
     name: 'wu-plus-timeline',

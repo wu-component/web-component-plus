@@ -1,11 +1,19 @@
-import { Component, h, Prop, WuComponent } from '@wu-component/web-core-plus';
+import { Component, h, Prop, Provide, WuComponent } from '@wu-component/web-core-plus';
 import css from './index.scss';
 import { extractClass } from '@wu-component/common';
+import "./step/index.tsx";
 
 
 type Direction = 'vertical' | 'horizontal'
 type ProcessStatus = 'wait' | 'process' | 'finish' | 'error' | 'success'
 type FinishStatus = 'wait' | 'process' | 'finish' | 'error' | 'success'
+
+interface StepItem {
+    title: string;
+    description: string;
+    status: ProcessStatus;
+    icon: any;
+}
 @Component({
     name: 'wu-plus-steps',
     css: css,
@@ -14,6 +22,10 @@ export class WuSteps extends WuComponent {
     constructor() {
         super();
     }
+    public ss = 1;
+
+    @Prop({ default: [], type: Array })
+    public data: StepItem[];
 
     @Prop({ default: '', type: String })
     public space: string;
@@ -36,15 +48,28 @@ export class WuSteps extends WuComponent {
     @Prop({ default: false, type: Boolean })
     public simple = false;
 
+    @Provide('wuStepsRef')
+    public provideSteps() {
+        return this;
+    }
+
+    public stepOffset = 0;
+
+    get steps() {
+        const stepsChildren = this.childNodes;
+        return Array.from(stepsChildren).filter(it => {
+            return it.nodeName === "WU-PLUS-STEP";
+        });
+    }
+
     public override render(_renderProps = {}, _store = {}) {
         return (
             <div
-                {...extractClass({}, 'wu-steps', {
+            >
+                <slot {...extractClass({}, 'wu-steps', {
                     ['wu-steps-' + this.direction]: !this.simple,
                     'wu-steps-simple': this.simple
-                })}
-            >
-                <slot></slot>
+                })}></slot>
             </div>
         );
     }

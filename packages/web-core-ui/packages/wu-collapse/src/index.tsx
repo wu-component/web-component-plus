@@ -1,6 +1,6 @@
 import { h, Component, WuComponent, Prop, State, Watch, Emit, Provide } from '@wu-component/web-core-plus';
 import css from './index.scss';
-import "@wu-component/wu-collapse-item/src/index";
+import "../../wu-collapse-item/src/index";
 
 @Component({
     name: 'wu-plus-collapse',
@@ -77,9 +77,14 @@ export class WuCollapse extends WuComponent {
 
 
     public override render(_renderProps = {}, _store = {}) {
+        const props = {
+            accordion: this.accordion,
+            value: this.value,
+            activeNames: this.activeNames,
+        };
         return (
             <div class="wu-collapse" role="tablist" aria-multiselectable="true">
-                <slot />
+                <slot {...props} />
             </div>
         );
     }

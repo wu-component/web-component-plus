@@ -8,6 +8,7 @@ import { formatValue } from "../../utils/format-type";
 import { diff } from "../../runtime";
 import { COMPONENT_CUSTOM_INJECT, COMPONENT_CUSTOM_PROVIDE, PROP_META_KEY } from "../../app-data";
 import { BaseCustomComponent } from "../../declarations";
+import { WatchReactive } from "../WatchReactive";
 
 
 export class WuComponent extends HTMLElement implements BaseCustomComponent {
@@ -50,6 +51,7 @@ export class WuComponent extends HTMLElement implements BaseCustomComponent {
         this.injects = Reflect.getMetadata(COMPONENT_CUSTOM_INJECT, this) ?? [] as InjectOptions[];
         this.provides = Reflect.getMetadata(COMPONENT_CUSTOM_PROVIDE, this) ?? [] as ProvideConfig[];
         new PropsReactive(this);
+        new WatchReactive(this);
         new StatesReactive(this);
         new EmitReactive(this);
     }

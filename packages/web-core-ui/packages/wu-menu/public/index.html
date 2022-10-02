@@ -3,10 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://unpkg.com/@wu-component/wu-icon@0.0.9/dist/index.umd.js"></script>
 </head>
 <body>
 <div id="app">
-    <wu-test-example></wu-test-example>
+    <div style="display: flex;justify-content: center">
+        <div style="width: 240px">
+            <wu-plus-menu>
+                <wu-plus-menu-item index="1">
+                    <div style="display: flex;align-items: center">
+                        <wu-plus-icon style="font-size: 24px;" name="setting"></wu-plus-icon>
+                        <span slot="title" style="padding-left: 8px">处理中心</span>
+                    </div>
+                </wu-plus-menu-item>
+                <wu-plus-sub-menu index="2">
+                    <div slot="title" style="display: flex;align-items: center">
+                        <wu-plus-icon style="font-size: 24px;" name="setting"></wu-plus-icon>
+                        <span style="padding-left: 8px">
+                            导航组
+                        </span>
+                    </div>
+                    <wu-plus-menu-item index="5">系统配置</wu-plus-menu-item>
+                    <wu-plus-menu-item index="6">用户中心</wu-plus-menu-item>
+                </wu-plus-sub-menu>
+                <wu-plus-menu-item index="12">
+                    <div style="display: flex;align-items: center">
+                        <wu-plus-icon style="font-size: 24px;" name="setting"></wu-plus-icon>
+                        <span slot="title" style="padding-left: 8px">用戶中心</span>
+                    </div>
+                </wu-plus-menu-item>
+                <wu-plus-menu-item index="13">
+                    <div style="display: flex;align-items: center">
+                        <wu-plus-icon style="font-size: 24px;" name="setting"></wu-plus-icon>
+                        <span slot="title" style="padding-left: 8px">系統設置</span>
+                    </div>
+                </wu-plus-menu-item>
+            </wu-plus-menu>
+        </div>
+        <div style="width: 240px; margin-left: 32px">
+            <wu-plus-menu background-color="#545c64" text-color="#fff" active-text-color="#ffd04b" id="menuId1">
+                <wu-plus-menu-item index="1">
+                    <div style="display: flex;align-items: center">
+                        <wu-plus-icon style="font-size: 24px;" name="setting"></wu-plus-icon>
+                        <span slot="title" style="padding-left: 8px">处理中心</span>
+                    </div>
+                </wu-plus-menu-item>
+                <wu-plus-sub-menu index="2" disabled="false">
+                    <div slot="title" style="display: flex;align-items: center">
+                        <wu-plus-icon style="font-size: 24px;" name="setting"></wu-plus-icon>
+                        <span style="padding-left: 8px">
+                            导航组
+                        </span>
+                    </div>
+                    <wu-plus-menu-item index="5">系统配置</wu-plus-menu-item>
+                    <wu-plus-menu-item index="6">用户中心</wu-plus-menu-item>
+                </wu-plus-sub-menu>
+                <wu-plus-menu-item index="12">
+                    <div style="display: flex;align-items: center">
+                        <wu-plus-icon style="font-size: 24px;" name="setting"></wu-plus-icon>
+                        <span slot="title" style="padding-left: 8px">用戶中心</span>
+                    </div>
+                </wu-plus-menu-item>
+                <wu-plus-menu-item index="13" >
+                    <div style="display: flex;align-items: center">
+                        <wu-plus-icon style="font-size: 24px;" name="setting"></wu-plus-icon>
+                        <span slot="title" style="padding-left: 8px">系統設置</span>
+                    </div>
+                </wu-plus-menu-item>
+            </wu-plus-menu>
+        </div>
+    </div>
+
+    <div style="display: flex;justify-content: center">
+        <div style="width: 100%">
+            <wu-plus-menu mode="horizontal">
+                <wu-plus-menu-item index="1">
+                    <div style="display: flex;align-items: center">
+                        <wu-plus-icon style="font-size: 24px;" name="setting"></wu-plus-icon>
+                        <span slot="title" style="padding-left: 8px">处理中心</span>
+                    </div>
+                </wu-plus-menu-item>
+                <wu-plus-sub-menu index="2" disabled="false">
+                    <div slot="title" style="display: flex;align-items: center">
+                        <wu-plus-icon style="font-size: 24px;" name="setting"></wu-plus-icon>
+                        <span style="padding-left: 8px">
+                            导航组
+                        </span>
+                    </div>
+                    <wu-plus-menu-item index="5">系统配置</wu-plus-menu-item>
+                    <wu-plus-menu-item index="6">用户中心</wu-plus-menu-item>
+                </wu-plus-sub-menu>
+                <wu-plus-menu-item index="12">
+                    <div style="display: flex;align-items: center">
+                        <wu-plus-icon style="font-size: 24px;" name="setting"></wu-plus-icon>
+                        <span slot="title" style="padding-left: 8px">用戶中心</span>
+                    </div>
+                </wu-plus-menu-item>
+                <wu-plus-menu-item index="13">
+                    <div style="display: flex;align-items: center">
+                        <wu-plus-icon style="font-size: 24px;" name="setting"></wu-plus-icon>
+                        <span slot="title" style="padding-left: 8px">系統設置</span>
+                    </div>
+                </wu-plus-menu-item>
+            </wu-plus-menu>
+        </div>
+    </div>
+
+    <div style="display: flex;justify-content: center">
+        <div style="width: 100%">
+            <wu-plus-menu mode="horizontal">
+                <wu-plus-menu-item index="1" disabled="true">
+                    <div style="display: flex;align-items: center">
+                        <wu-plus-icon style="font-size: 24px;" name="setting"></wu-plus-icon>
+                        <span slot="title" style="padding-left: 8px">处理中心</span>
+                    </div>
+                </wu-plus-menu-item>
+                <wu-plus-sub-menu index="2" disabled="true">
+                    <div slot="title" style="display: flex;align-items: center">
+                        <wu-plus-icon style="font-size: 24px;" name="setting"></wu-plus-icon>
+                        <span style="padding-left: 8px">
+                            导航组
+                        </span>
+                    </div>
+                    <wu-plus-menu-item index="5">系统配置</wu-plus-menu-item>
+                    <wu-plus-menu-item index="6">用户中心</wu-plus-menu-item>
+                </wu-plus-sub-menu>
+                <wu-plus-menu-item index="12">
+                    <div style="display: flex;align-items: center">
+                        <wu-plus-icon style="font-size: 24px;" name="setting"></wu-plus-icon>
+                        <span slot="title" style="padding-left: 8px">用戶中心</span>
+                    </div>
+                </wu-plus-menu-item>
+                <wu-plus-menu-item index="13">
+                    <div style="display: flex;align-items: center">
+                        <wu-plus-icon style="font-size: 24px;" name="setting"></wu-plus-icon>
+                        <span slot="title" style="padding-left: 8px">系統設置</span>
+                    </div>
+                </wu-plus-menu-item>
+            </wu-plus-menu>
+        </div>
+    </div>
+
+    <div style="display: flex;justify-content: center">
+        <div style="width: 240px">
+            <wu-plus-menu background-color="#545c64" text-color="#fff" default-active="1" default-openeds="['2']" active-text-color="#ffd04b" id="menuId1">
+                <wu-plus-menu-item index="1">
+                    <div style="display: flex;align-items: center">
+                        <wu-plus-icon style="font-size: 24px;" name="setting"></wu-plus-icon>
+                        <span slot="title" style="padding-left: 8px">处理中心</span>
+                    </div>
+                </wu-plus-menu-item>
+                <wu-plus-sub-menu index="2" disabled="false">
+                    <div slot="title" style="display: flex;align-items: center">
+                        <wu-plus-icon style="font-size: 24px;" name="setting"></wu-plus-icon>
+                        <span style="padding-left: 8px">
+                        导航组
+                    </span>
+                    </div>
+                    <wu-plus-menu-item index="5">系统配置</wu-plus-menu-item>
+                    <wu-plus-menu-item index="6">用户中心</wu-plus-menu-item>
+                </wu-plus-sub-menu>
+                <wu-plus-menu-item index="12">
+                    <div style="display: flex;align-items: center">
+                        <wu-plus-icon style="font-size: 24px;" name="setting"></wu-plus-icon>
+                        <span slot="title" style="padding-left: 8px">用戶中心</span>
+                    </div>
+                </wu-plus-menu-item>
+                <wu-plus-menu-item index="13" disabled="true">
+                    <div style="display: flex;align-items: center">
+                        <wu-plus-icon style="font-size: 24px;" name="setting"></wu-plus-icon>
+                        <span slot="title" style="padding-left: 8px">系統設置</span>
+                    </div>
+                </wu-plus-menu-item>
+            </wu-plus-menu>
+        </div>
+    </div>
 </div>
 </body>
 </html>

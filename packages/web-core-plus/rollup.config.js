@@ -36,7 +36,7 @@ export default [
     {
         input: './src/index.ts',
         plugins: [
-            // terser(),
+            terser(),
             nodeResolve(),
             commonjs(),
             postcss({

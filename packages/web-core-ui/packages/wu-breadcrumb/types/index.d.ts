@@ -29,12 +29,13 @@ export declare class WuBreadcrumb extends WuComponent implements OnConnected {
         unshift(...items: any[]): number;
         indexOf(searchElement: any, fromIndex?: number): number;
         lastIndexOf(searchElement: any, fromIndex?: number): number;
-        every<S extends any>(predicate: (value: any, index: number, array: any[]) => value is S, thisArg?: any): this is S[];
+        // @ts-ignore
+        every<S>(predicate: (value: any, index: number, array: any[]) => value is S, thisArg?: any): this is S[];
         every(predicate: (value: any, index: number, array: any[]) => unknown, thisArg?: any): boolean;
         some(predicate: (value: any, index: number, array: any[]) => unknown, thisArg?: any): boolean;
         forEach(callbackfn: (value: any, index: number, array: any[]) => void, thisArg?: any): void;
         map<U>(callbackfn: (value: any, index: number, array: any[]) => U, thisArg?: any): U[];
-        filter<S_1 extends any>(predicate: (value: any, index: number, array: any[]) => value is S_1, thisArg?: any): S_1[];
+        filter<S_1>(predicate: (value: any, index: number, array: any[]) => value is S_1, thisArg?: any): S_1[];
         filter(predicate: (value: any, index: number, array: any[]) => unknown, thisArg?: any): any[];
         reduce(callbackfn: (previousValue: any, currentValue: any, currentIndex: number, array: any[]) => any): any;
         reduce(callbackfn: (previousValue: any, currentValue: any, currentIndex: number, array: any[]) => any, initialValue: any): any;
@@ -42,7 +43,7 @@ export declare class WuBreadcrumb extends WuComponent implements OnConnected {
         reduceRight(callbackfn: (previousValue: any, currentValue: any, currentIndex: number, array: any[]) => any): any;
         reduceRight(callbackfn: (previousValue: any, currentValue: any, currentIndex: number, array: any[]) => any, initialValue: any): any;
         reduceRight<U_2>(callbackfn: (previousValue: U_2, currentValue: any, currentIndex: number, array: any[]) => U_2, initialValue: U_2): U_2;
-        find<S_2 extends any>(predicate: (this: void, value: any, index: number, obj: any[]) => value is S_2, thisArg?: any): S_2;
+        find<S_2>(predicate: (this: void, value: any, index: number, obj: any[]) => value is S_2, thisArg?: any): S_2;
         find(predicate: (value: any, index: number, obj: any[]) => unknown, thisArg?: any): any;
         findIndex(predicate: (value: any, index: number, obj: any[]) => unknown, thisArg?: any): number;
         fill(value: any, start?: number, end?: number): any[];

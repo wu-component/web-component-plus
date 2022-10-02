@@ -1,5 +1,5 @@
 import { Component, Emit, h, OnConnected, State, Prop, WuComponent, Watch } from '@wu-component/web-core-plus';
-import '@wu-component/wu-checkbox/src/index';
+import '../../../packages/wu-checkbox/src/index';
 import css from './index.scss';
 import { Node } from './model/Node';
 import { extractClass } from "@wu-component/common";
@@ -26,86 +26,86 @@ export class WuTreeV2 extends WuComponent implements OnConnected {
         );
     }
 
-    @State({type: Boolean, default: true})
+    @State({ type: Boolean, default: true })
     public isTree;
 
-    @State({type: Boolean, default: false})
+    @State({ type: Boolean, default: false })
     public childNodeRendered;
 
-    @Prop({type: Boolean, default: false})
+    @Prop({ type: Boolean, default: false })
     public override draggable;
 
-    @Prop({type: String, default: ''})
+    @Prop({ type: String, default: '' })
     public iconclass;
 
-    @Prop({type: Boolean, default: false})
+    @Prop({ type: Boolean, default: false })
     public showCheckbox = false
 
-    @Prop({type: Boolean, default: true})
+    @Prop({ type: Boolean, default: true })
     public renderAfterExpand = true
 
-    @Prop({type: Boolean, default: true})
+    @Prop({ type: Boolean, default: true })
     public expandOnClickNode = true
 
-    @Prop({type: Boolean, default: false})
+    @Prop({ type: Boolean, default: false })
     public checkDescendants = false
 
-    @Prop({type: Boolean, default: true})
+    @Prop({ type: Boolean, default: true })
     public autoExpandParent = true
 
-    @Prop({type: Boolean, default: true})
+    @Prop({ type: Boolean, default: true })
     public highlightCurrent = true
 
-    @Prop({type: Boolean, default: false})
+    @Prop({ type: Boolean, default: false })
     public checkStrictly = false
 
-    @Prop({type: Boolean, default: false})
+    @Prop({ type: Boolean, default: false })
     public defaultExpandAll = false
 
-    @Prop({type: Boolean, default: false})
+    @Prop({ type: Boolean, default: false })
     public checkOnClickNode = false
 
-    @Prop({type: Array, default: []})
+    @Prop({ type: Array, default: [] })
     public defaultCheckedKeys = []
 
-    @Prop({type: Function})
+    @Prop({ type: Function })
     public allowDrag
 
-    @Prop({type: Function})
+    @Prop({ type: Function })
     public allowDrop
 
-    @Prop({type: Function})
+    @Prop({ type: Function })
     public lazy
 
-    @Prop({type: Function})
+    @Prop({ type: Function })
     public load
 
-    @Prop({type: Function})
+    @Prop({ type: Function })
     public filterNodeMethod
 
-    @Prop({type: Function})
+    @Prop({ type: Function })
     public renderContent
 
 
-    @Prop({type: Array, default: []})
+    @Prop({ type: Array, default: [] })
     public defaultExpandedKeys = []
 
-    @Prop({default: ''})
+    @Prop({ default: '' })
     public currentNodeKey = ''
 
-    @Prop({type: Object, default: { children: 'children', label: 'label', disabled: 'disabled' }})
+    @Prop({ type: Object, default: { children: 'children', label: 'label', disabled: 'disabled' } })
     public options = { children: 'children', label: 'label', disabled: 'disabled' }
 
-    @Prop({type: Number, default: 18})
+    @Prop({ type: Number, default: 18 })
     public indent = 18
 
-    @Prop({type: Array, default: []})
+    @Prop({ type: Array, default: [] })
     public data = []
 
-    @Prop({type: String, default: ''})
+    @Prop({ type: String, default: '' })
     public emptyText = ''
 
-    @Prop({type: String, default: ''})
+    @Prop({ type: String, default: '' })
     public nodeKey = ''
 
     public treeStore = null

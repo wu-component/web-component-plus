@@ -1,4 +1,3 @@
-import 'reflect-metadata';
 import { COMPONENT_CUSTOM_INJECT } from '../app-data';
 export interface InjectOptions {
     [key: string]: any;

@@ -162,8 +162,8 @@ export class WuSubMenu extends WuComponent implements OnConnected, OnDisConnecte
     }
     get active() {
         let isActive = false;
-        const submenus = this.submenus;
-        const items = this.items;
+        const submenus = this.submenus || {};
+        const items = this.items || {};
 
         Object.keys(items).forEach(index => {
             if (items[index].active) {

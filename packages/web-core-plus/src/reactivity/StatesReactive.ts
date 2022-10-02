@@ -1,6 +1,7 @@
-import "reflect-metadata";
-import { WatchMetaOptions } from "./WatchReactive";
-import { STATE_META_KEY, COMPONENT_WATCH } from "../app-data";
+import { STATE_META_KEY } from "../app-data";
+import { CommonReactive } from "./CommonReactive";
+import { observe } from "../core/observer";
+import Watcher from "../core/observer/watcher";
 
 declare type PropTyp = Object | String | Boolean | Function | Array<any>;
 
@@ -37,32 +38,12 @@ export function defineStates(options: StateOptions = { default: undefined }, tar
 /**
  * PROP 响应式处理
  */
-export class StatesReactive {
-    private readonly vm!: any;
+export class StatesReactive extends CommonReactive {
     private readonly statesList!: StateOptions[];
-    private readonly watchList!: WatchMetaOptions[];
-    constructor(vm: any, statesList: StateOptions[] = [], watchList: WatchMetaOptions[] = []) {
-        this.vm = vm;
+    constructor(vm: any, statesList: StateOptions[] = []) {
+        super(vm);
         this.statesList = statesList.length? statesList: Reflect.getMetadata(STATE_META_KEY, this.vm) ?? [];
-        this.watchList = watchList.length? watchList: Reflect.getMetadata(COMPONENT_WATCH, this.vm) ?? [];
         this.observerStates();
-    }
-
-    /**
-     * 过滤 PROP 对应的 watch
-     * @private
-     */
-    private watchCallback() {
-        const functions: WatchMetaOptions[] = this.watchList;
-        const keys: StateOptions[] = this.statesList;
-        const onlyFunctions: WatchMetaOptions[] = [];
-        for (let i = 0; i < functions.length; i++) {
-            const current = keys.find(item => item.attr === functions[i].path);
-            if (current) {
-                onlyFunctions.push(functions[i]);
-            }
-        }
-        return onlyFunctions;
     }
 
     /**
@@ -70,67 +51,26 @@ export class StatesReactive {
      * @private
      */
     private observerStates() {
-        const statesList: StateOptions[] = this.statesList;
-        const statesData: Record<string, any> = {};
-        this.observe(statesData);
-        const watchHandlers: WatchMetaOptions[] = this.watchCallback();
-        const that = this;
-        for (let i = 0; i < statesList.length; i ++) {
-            statesData[statesList[i].attr] = statesList[i].default;
-            const key = statesList[i].attr;
-            Object.defineProperty(this.vm, key, {
-                get(): any {
-                    return this.$states[key];
-                },
-                set(value: any) {
-                    const watchs: WatchMetaOptions[] = watchHandlers.filter(item => item.path === key);
-                    if(watchs.length) {
-                        watchs.forEach(item => {
-                            item.callback.call(that.vm, value, this.$states[key]);
-                        });
-                    }
-                    this.$states[key] = value;
-                }
-            });
+        let $states: Record<string, any> = {};
+        const propsList: StateOptions[] = this.statesList;
+        $states = propsList.reduce((pre, curr, index) => {
+            pre[curr.attr] = curr.default;
+            return pre;
+        }, {});
+        this.vm.$states = $states;
+        const keys = Object.keys(this.vm.$states);
+        let i = keys.length;
+        while (i--) {
+            const key = keys[i];
+            this.proxy(this.vm, "$states", key);
         }
-
-    }
-
-    /**
-     * 所有 PROP 挂载对应的 $states 中
-     * @param data
-     * @private
-     */
-    private observe(data: any={}): any { //递归监听对象所有属性，属性的属性。。。。
-        if(typeof data !== 'object'){
-            return data;
-        }
-        Object.keys(data).forEach(key=>{
-            data[key] = this.observe(data[key]);
+        observe(this.vm.$states);
+        new Watcher(this.vm.$states, () => {
+            return this.vm.render.call(this.vm, this.vm.$states, null);
+        }, (ww, t) => {
+            this.vm.update.call(this.vm, this.vm.$states, null);
         });
-        return this.defineReactive(data);
+
     }
 
-    /**
-     * 多层对象递归处理成响应式
-     * @param data
-     * @private
-     */
-    private defineReactive(data:any = {}) {
-        const that = this;
-        this.vm.$states =  new Proxy(data,{
-            get(target,key){
-                return Reflect.get(target,key);
-            },
-            set(target,key,value){
-                if(target[key] === value){
-                    return Reflect.set(target, key, value);
-                }
-                const res = Reflect.set(target, key, value);
-                that.vm.update.call(that.vm, res);
-                return res;
-            }
-        });
-        return this.vm.$states;
-    }
 }

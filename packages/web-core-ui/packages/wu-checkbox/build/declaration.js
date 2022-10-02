@@ -29,7 +29,7 @@ function fileDisplay(filePath) {
                         if (isFile) {
                             if (filedir.indexOf(".d.ts") > -1) {
                                 fs.copyFileSync(filedir, getPath(`../types/${filename}`));
-                                fs.rmSync(filedir);
+                                fs.unlinkSync(filedir);
                             }
                         }
                         if (isDir) {

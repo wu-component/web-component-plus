@@ -1,6 +1,8 @@
-import "reflect-metadata";
 import { WatchMetaOptions } from "./WatchReactive";
-import { PROP_META_KEY, COMPONENT_WATCH } from "../app-data";
+import { PROP_META_KEY } from "../app-data";
+import { observe } from "../core/observer";
+import Watcher from "../core/observer/watcher";
+import { CommonReactive } from "./CommonReactive";
 
 declare type PropTyp = Object | String | Boolean | Function | Array<any>;
 
@@ -36,32 +38,12 @@ export function defineProps(options: PropOptions = { default: undefined }, targe
 /**
  * PROP 响应式处理
  */
-export class PropsReactive {
-    private readonly vm!: any;
+export class PropsReactive extends CommonReactive {
     private readonly propsList!: PropOptions[];
-    private readonly watchList!: WatchMetaOptions[];
     constructor(vm: any, propsList: PropOptions[] = [], watchList: WatchMetaOptions[] = []) {
-        this.vm = vm;
+        super(vm);
         this.propsList = propsList.length? propsList: Reflect.getMetadata(PROP_META_KEY, this.vm) ?? [];
-        this.watchList = watchList.length? watchList: Reflect.getMetadata(COMPONENT_WATCH, this.vm) ?? [];
         this.observerProps();
-    }
-
-    /**
-     * 过滤 PROP 对应的 watch
-     * @private
-     */
-    private watchCallback() {
-        const functions: WatchMetaOptions[] = this.watchList;
-        const keys: PropOptions[] = this.propsList;
-        const onlyFunctions: WatchMetaOptions[] = [];
-        for (let i = 0; i < functions.length; i++) {
-            const current = keys.find(item => item.attr === functions[i].path);
-            if (current) {
-                onlyFunctions.push(functions[i]);
-            }
-        }
-        return onlyFunctions;
     }
 
     /**
@@ -69,67 +51,24 @@ export class PropsReactive {
      * @private
      */
     private observerProps() {
+        let $props: Record<string, any> = {};
         const propsList: PropOptions[] = this.propsList;
-        const propsData: Record<string, any> = {};
-        this.observe(propsData);
-        const watchHandlers: WatchMetaOptions[] = this.watchCallback();
-        const that = this;
-        for (let i = 0; i < propsList.length; i ++) {
-            propsData[propsList[i].attr] = propsList[i].default;
-            const key = propsList[i].attr;
-            Object.defineProperty(this.vm, key, {
-                get(): any {
-                    return this.$props[key];
-                },
-                set(value: any) {
-                    const watchs: WatchMetaOptions[] = watchHandlers.filter(item => item.path === key);
-                    if(watchs.length) {
-                        watchs.forEach(item => {
-                            item.callback.call(that.vm, value, this.$props[key]);
-                        });
-                    }
-                    this.$props[key] = value;
-                }
-            });
+        $props = propsList.reduce((pre, curr, index) => {
+            pre[curr.attr] = curr.default;
+            return pre;
+        }, {});
+        this.vm.$props = $props;
+        const keys = Object.keys(this.vm.$props);
+        let i = keys.length;
+        while (i--) {
+            const key = keys[i];
+            this.proxy(this.vm, "$props", key);
         }
-
-    }
-
-    /**
-     * 所有 PROP 挂载对应的 $props 中
-     * @param data
-     * @private
-     */
-    private observe(data: any={}): any { //递归监听对象所有属性，属性的属性。。。。
-        if(typeof data !== 'object'){
-            return data;
-        }
-        Object.keys(data).forEach(key=>{
-            data[key] = this.observe(data[key]);
+        observe(this.vm.$props);
+        new Watcher(this.vm.$props, () => {
+            return this.vm.render.call(this.vm, this.vm.$props, null);
+        }, (ww, t) => {
+            this.vm.update.call(this.vm, this.vm.$props, null);
         });
-        return this.defineReactive(data);
-    }
-
-    /**
-     * 多层对象递归处理成响应式
-     * @param data
-     * @private
-     */
-    private defineReactive(data:any = {}) {
-        const that = this;
-        this.vm.$props =  new Proxy(data,{
-            get(target,key){
-                return Reflect.get(target,key);
-            },
-            set(target,key,value){
-                if(target[key] === value){
-                    return Reflect.set(target, key, value);
-                }
-                const res = Reflect.set(target, key, value);
-                that.vm.update.call(that.vm, res);
-                return res;
-            }
-        });
-        return this.vm.$props;
     }
 }
