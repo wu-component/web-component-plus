@@ -86,7 +86,6 @@ export class WuTreeV2 extends WuComponent implements OnConnected {
     @Prop({ type: Function })
     public renderContent
 
-
     @Prop({ type: Array, default: [] })
     public defaultExpandedKeys = []
 
