@@ -1,6 +1,6 @@
 {
     "name": "@wu-component/ui-plus",
-    "version": "1.3.0",
+    "version": "1.4.0",
     "description": "> TODO: description",
     "author": "Marvin <yongfeide123@gmail.com>",
     "homepage": "",
@@ -116,7 +116,7 @@
         "@wu-component/wu-image": "latest",
         "@wu-component/wu-inject": "latest",
         "@wu-component/wu-input": "latest",
-        "@wu-component/wu-input-number": "^1.3.0",
+        "@wu-component/wu-input-number": "^1.4.0",
         "@wu-component/wu-leaflet-map": "latest",
         "@wu-component/wu-link": "latest",
         "@wu-component/wu-main": "latest",
