@@ -54,10 +54,6 @@ export * from '../../wu-transition/src/index';
 /*********************************复杂组件*************************************/
 export * from '../../wu-date-picker/src/index';
 export * from '../../wu-upload/src/index';
-
-
-
-
 /*
 export * from '@wu-component/wu-button/src/index';
 export * from '@wu-component/wu-icon/src/index';

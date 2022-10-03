@@ -1,10 +1,10 @@
-import { h, Component,  WuComponent } from '../index';
-import {  Prop } from '../reactivity/PropsReactive';
+import { h, Component, WuComponent, OnBeforeUpdate, OnRendered } from '../index';
+import {  Prop } from '../reactivity';
 import { extractClass } from "./class-name";
 // @ts-ignore
 import css from './index.scss';
-import { Watch } from "../reactivity/WatchReactive";
-import { State } from "../reactivity/StatesReactive";
+import { Watch } from "../reactivity";
+import { State } from "../reactivity";
 type WuButtonType = 'primary' | 'success' | 'warning' | 'danger' | 'info';
 type NativeType = 'button' | 'submit' | 'reset';
 type UISize = 'medium' | 'small' | 'mini';
@@ -14,10 +14,12 @@ type UISize = 'medium' | 'small' | 'mini';
     name: 'test-com-new1',
     css: css,
 })
-export class WuButton extends WuComponent {
+export class WuButton extends WuComponent implements OnBeforeUpdate, OnRendered {
     constructor() {
         super();
     }
+
+    public indexNumber = 1;
 
     @Prop({ default: 'primary', type: String })
     public type: WuButtonType;
@@ -57,14 +59,22 @@ export class WuButton extends WuComponent {
         console.log(val, old);
     }
 
+    public tapWatcher() {
+        for (let i = 0; i < 100; i ++) {
+            this.indexNumber ++;
+            this.text = this.indexNumber + '';
+        }
+    }
+
+    public override beforeUpdate() {}
+
+    public override rendered() {
+        console.log("渲染后");
+    }
+
     public override render(_renderProps = {}, _store = {}) {
         return (
             <button
-                onclick={() => {
-                    const types: WuButtonType[] = [ "success", "primary", "warning", "danger" ];
-                    const index= Math.floor(Math.random()*4);
-                    this.type = types[index];
-                }}
                 disabled={this.disabled}
                 {...extractClass({}, 'wu-button', {
                     ['wu-button-' + this.type]: this.type,
@@ -83,7 +93,14 @@ export class WuButton extends WuComponent {
                     ' ',
                 ]}
                 {this.text}
-                <slot />
+                <slot onclick={() => {
+                    const types: WuButtonType[] = [ "success", "primary", "warning", "danger", "primary", "warning",  "success", "primary", "warning", "danger" ];
+                    const index= Math.floor(Math.random()*10);
+                    this.type = types[index];
+                }} />
+                <button style={{ marginLeft: "20px" }} onclick={() => {
+                    this.tapWatcher();
+                }}>测试出发渲染---{this.text}</button>
             </button>
         );
     }

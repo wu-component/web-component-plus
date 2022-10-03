@@ -17,6 +17,9 @@ export default class Watcher {
   getter: Function
   value: any
 
+  timerFunc
+  callbacks = []
+
   /**
    * 观察者构造器
    * @param {*} $vm
@@ -36,6 +39,13 @@ export default class Watcher {
     }
     this.cb = cb;
     this.value = this.get();
+
+    if (typeof Promise !== 'undefined') {
+        const p = Promise.resolve();
+        this.timerFunc = () => {
+            p.then(this.flushCallbacks);
+        };
+    }
   }
 
   /**
@@ -56,6 +66,7 @@ export default class Watcher {
    * 触发 watcher 更新
    */
   update () {
+    // queueWatcher(this);
     // get获取新值
     const newVal = this.get();
     // 读取之前存储的旧值
@@ -63,5 +74,16 @@ export default class Watcher {
     this.value = newVal;
     // 触发 watch 回调
     this.cb.call(this.$vm, newVal, oldVal);
+  }
+
+  run() {
+      console.log("update");
+  }
+
+  flushCallbacks() {
+      for (let i = 0; i < this.callbacks.length; i++) {
+          this.callbacks[i]();
+      }
+      this.callbacks = [];
   }
 }

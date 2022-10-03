@@ -77,7 +77,7 @@ export class WatchReactive extends CommonReactive {
             watchOpt = handler;
             handler = watchOpt.handler!;
         }
-        const watcher = new Watcher(this.vm, expr, handler, watchOpt);
+        const watcher = new Watcher(this.vm.$reactive, expr, handler, watchOpt);
         if (watchOpt.immediate) {
             handler.call(this.vm, watcher.value);
         }

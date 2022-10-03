@@ -1,14 +1,13 @@
 import { ProvideConfig } from "../Provide";
 import { InjectOptions } from "../Inject";
-import { PropOptions, PropsReactive } from "../PropsReactive";
 import { EmitReactive } from "../Emit";
-import { StatesReactive } from "../StatesReactive";
 import { cssToDom, getAttrMap, getGuid, hyphenateReverse } from "../../utils";
 import { formatValue } from "../../utils/format-type";
 import { diff } from "../../runtime";
 import { COMPONENT_CUSTOM_INJECT, COMPONENT_CUSTOM_PROVIDE, PROP_META_KEY } from "../../app-data";
 import { BaseCustomComponent } from "../../declarations";
 import { WatchReactive } from "../WatchReactive";
+import { DataReactive, PropOptions } from "../DataReactive";
 
 
 export class WuComponent extends HTMLElement implements BaseCustomComponent {
@@ -50,9 +49,8 @@ export class WuComponent extends HTMLElement implements BaseCustomComponent {
         this.propsList = Reflect.getMetadata(PROP_META_KEY, this) ?? [] as PropOptions[];
         this.injects = Reflect.getMetadata(COMPONENT_CUSTOM_INJECT, this) ?? [] as InjectOptions[];
         this.provides = Reflect.getMetadata(COMPONENT_CUSTOM_PROVIDE, this) ?? [] as ProvideConfig[];
-        new PropsReactive(this);
+        new DataReactive({ vm: this });
         new WatchReactive(this);
-        new StatesReactive(this);
         new EmitReactive(this);
     }
 
@@ -260,7 +258,6 @@ export class WuComponent extends HTMLElement implements BaseCustomComponent {
      */
     public connectedCallback() {
         this.updateInject(this.update.bind(this));
-        // @ts-ignore
         const shadowRoot: ShadowRoot = this.initShadowRoot();
         this.attrsToProps();
         this.beforeInstall();

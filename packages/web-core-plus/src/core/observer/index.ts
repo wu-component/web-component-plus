@@ -56,6 +56,7 @@ export function observe (data: any): Observer | void {
  * @param {*} val
  */
 export function defineReactive (data: any, key: string | number, val: any) {
+  const dep = new Dep();
   const property = Object.getOwnPropertyDescriptor(data, key);
   if (property && property.configurable === false) {
     return;
@@ -65,22 +66,36 @@ export function defineReactive (data: any, key: string | number, val: any) {
   if ((!getter || setter) && arguments.length === 2) {
     val = data[key];
   }
-  observe(val);
+  let childOb = observe(val);
   Object.defineProperty(data, key, {
     enumerable: true,
     configurable: true,
     get: function() {
       const value = getter ? getter.call(data) : val;
-      const ob = this.__observer__;
-      ob?.dep?.depend();
+      /*const ob = this.__observer__;
+      ob?.dep?.depend();*/
+      if (Dep.target) {
+          dep.addSub(Dep.target);
+          if (childOb) {
+              childOb.dep.addSub(Dep.target);
+          }
+      }
       return value;
     },
     set: function(newVal) {
       if (newVal === val) return;
       val = newVal;
-      observe(newVal);
-      const ob = this.__observer__;
-      ob?.dep?.notify();
+      // observe(newVal);
+      // const ob = this.__observer__;
+      // ob?.dep?.notify();
+      if (getter && !setter) return;
+      if (setter) {
+          setter.call(data, newVal);
+      } else {
+          val = newVal;
+      }
+      childOb = observe(newVal);
+      dep.notify();
     }
   });
 }
