@@ -1,0 +1,6 @@
+424 error Error: Command failed with exit code 128: git tag v1.0.0 -m v1.0.0
+424 error fatal: tag 'v1.0.0' already exists
+424 error     at makeError (D:\npm\org-web-component-plus\packages\web-core-ui\node_modules\execa\lib\error.js:60:11)
+424 error     at handlePromise (D:\npm\org-web-component-plus\packages\web-core-ui\node_modules\execa\index.js:118:26)
+424 error     at processTicksAndRejections (internal/process/task_queues.js:93:5)
+424 error     at async Promise.all (index 0)
