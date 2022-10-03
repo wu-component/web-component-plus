@@ -131,6 +131,7 @@ export class WuUpload extends WuComponent {
 
     constructor() {
         super();
+        this.tempIndex = 1;
     }
 
     @Emit("file")
@@ -188,6 +189,7 @@ export class WuUpload extends WuComponent {
         this.uploadFiles = fileList.map((item: any) => {
             item.uid = item.uid || (Date.now() + this.tempIndex++);
             item.status = item.status || 'success';
+
             return item;
         });
     }
@@ -554,22 +556,18 @@ export class WuUpload extends WuComponent {
             return;
         }
         this.onRemoveFun(null, file);
-        console.log("点击删除");
         // $emit('remove', file)
     }
 
     public fileListFocus(e: MouseEvent, file: File, index: number) {
-        console.log("聚焦");
         //this.focusing = true;
     }
 
     public fileListBlur(e: MouseEvent, file: File, index: number) {
-        console.log("失去焦点");
         //this.focusing = false;
     }
 
     public fileListClick(e: MouseEvent, file: File, index: number) {
-        console.log("cddd");
         //this.focusing = false;
     }
 

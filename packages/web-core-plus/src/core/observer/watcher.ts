@@ -26,6 +26,7 @@ export default class Watcher {
    * @param {*} expr
    * @param {*} cb
    * @param options
+   * @param vm
    */
   constructor ($vm: any, expr: string | Function, cb: Function, options: WatchOptType = {}) {
     this.id = uid++;

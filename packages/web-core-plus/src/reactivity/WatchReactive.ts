@@ -58,7 +58,9 @@ export class WatchReactive extends CommonReactive {
         let $watch: Record<string, any> = {};
         const watchList: WatchMetaOptions[] = this.watchList;
         $watch = watchList.reduce((pre, curr, index) => {
-            this.$watch(curr.path, this.vm[curr.callbackName], curr);
+            this.$watch(curr.path, (...args) => {
+                this.vm[curr.callbackName].call(this.vm, ...args);
+            }, curr);
             pre[curr.path] = curr;
             return pre;
         }, {});

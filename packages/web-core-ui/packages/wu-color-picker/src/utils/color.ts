@@ -209,7 +209,7 @@ export function hexToHsv(hex) {
  */
 export function parseToHSVA(str) {
     // Check if string is a color-name
-    str = str.match(/^[a-zA-Z]+$/) ? standardizeColor(str) : str;
+    str = str?.match(/^[a-zA-Z]+$/) ? standardizeColor(str) : str;
 
     // Regular expressions to match different types of color represention
     const regex = {

@@ -1,4 +1,4 @@
-import { hsvToHsl, hsvToRgb, hsvToCmyk, hsvToHex } from './color.js';
+import { hsvToHsl, hsvToRgb, hsvToCmyk, hsvToHex } from './color';
 
 /**
  * Simple class which holds the properties
