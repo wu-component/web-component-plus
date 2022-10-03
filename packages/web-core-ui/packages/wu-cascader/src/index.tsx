@@ -4,7 +4,6 @@ import '@wu-component/wu-input/src/index';
 import css from './index.scss';
 import type { WuInput, WuPopover } from "../types/type";
 type UISize = 'medium' | 'small' | 'mini';
-
 interface CascaderOption {
     value: string
     label: string
