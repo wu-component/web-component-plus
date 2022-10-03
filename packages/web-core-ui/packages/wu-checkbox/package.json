@@ -1,6 +1,6 @@
 {
     "name": "@wu-component/wu-checkbox",
-    "version": "1.4.0",
+    "version": "1.4.1",
     "description": "> TODO: description",
     "author": "Marvin <yongfeide123@gmail.com>",
     "homepage": "",
@@ -95,5 +95,5 @@
         "type": "git",
         "url": "https://github.com/wu-component/web-component-plus"
     },
-    "gitHead": "f766197a759308ddea373807497194e3cdab6a5b"
+    "gitHead": "2dfd8257f889bee7b3d30d46a946ca873d26556d"
 }
