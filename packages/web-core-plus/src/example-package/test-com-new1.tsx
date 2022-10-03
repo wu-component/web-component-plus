@@ -57,7 +57,10 @@ export class WuButton extends WuComponent implements OnBeforeUpdate, OnRendered 
     @Watch("type")
     public typeChange(val, old) {
         console.log(val, old);
+        console.log(this);
     }
+
+    public index = 1
 
     public tapWatcher() {
         for (let i = 0; i < 100; i ++) {

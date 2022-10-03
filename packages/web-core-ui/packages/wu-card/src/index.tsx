@@ -25,7 +25,6 @@ export class WuCard extends WuComponent implements OnConnected {
     @Prop({ default: true, type: Boolean })
     public headerShow: boolean;
 
-
     public override render(_renderProps = {}, _store = {}) {
         return (
             <div class={this.shadow ? 'is-' + this.shadow + '-shadow wu-card' : 'is-always-shadow wu-card'}>

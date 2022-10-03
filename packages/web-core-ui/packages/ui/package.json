@@ -1,6 +1,6 @@
 {
     "name": "@wu-component/ui-plus",
-    "version": "1.0.1",
+    "version": "1.4.2",
     "description": "> TODO: description",
     "author": "Marvin <yongfeide123@gmail.com>",
     "homepage": "",
@@ -116,7 +116,7 @@
         "@wu-component/wu-image": "latest",
         "@wu-component/wu-inject": "latest",
         "@wu-component/wu-input": "latest",
-        "@wu-component/wu-input-number": "^1.0.1",
+        "@wu-component/wu-input-number": "^1.4.2",
         "@wu-component/wu-leaflet-map": "latest",
         "@wu-component/wu-link": "latest",
         "@wu-component/wu-main": "latest",
@@ -139,5 +139,5 @@
         "type": "git",
         "url": "https://github.com/wu-component/web-component-plus"
     },
-    "gitHead": "f766197a759308ddea373807497194e3cdab6a5b"
+    "gitHead": "2dfd8257f889bee7b3d30d46a946ca873d26556d"
 }

@@ -1,10 +1,10 @@
 type UISize = 'medium' | 'small' | 'mini';
 import { h, Component, Prop, OnConnected, WuComponent, State, Watch, Emit } from '@wu-component/web-core-plus';
 import css from './index.scss';
-import '@wu-component/wu-popover/src/index';
-import '@wu-component/wu-button/src/index';
+import '../../wu-popover/src/index.tsx';
+import '../../wu-button/src/index.tsx';
 import { WuColorPane } from "./color-pane";
-import './color-pane';
+import './color-pane/index.tsx';
 import { HSVaColor } from "./utils/hsvacolor";
 import { parseToHSVA } from "./utils/color";
 import { extractClass } from "@wu-component/common";
@@ -87,9 +87,9 @@ export class WuColorPicker extends WuComponent implements OnConnected {
             // this.changeEvent();
         }else{
             if(this.colorPane){
-                this.colorPane.val = this.value;
+                // this.colorPane.val = this.value;
             }else{
-                this.defaultvalue = this.value;
+                // this.defaultvalue = this.value;
             }
         }
     }
@@ -104,7 +104,12 @@ export class WuColorPicker extends WuComponent implements OnConnected {
     }
 
     get color() {
-        return HSVaColor(...parseToHSVA(this.$value).values);
+        try {
+            return HSVaColor(...parseToHSVA(this.$value)?.values);
+        }catch (e) {
+            return '';
+        }
+
     }
 
     get value() {

@@ -2059,6 +2059,11 @@
   resolved "https://registry.npmmirror.com/@webpack-cli/serve/-/serve-1.7.0.tgz#e1993689ac42d2b16e9194376cfb6753f6254db1"
   integrity sha512-oxnCNGj88fL+xzV+dacXs44HcDwf1ovs3AuEzvP7mqXw7fQntqIhQ1BRmynh4qEKQSSSRSWVyXRjmTbZIX9V2Q==
 
+"@wu-component/web-core-plus@file:../web-core-plus":
+  version "0.3.1"
+  dependencies:
+    "@abraham/reflection" "^0.10.0"
+
 "@wu-component/web-core-plus@latest":
   version "0.3.1"
   resolved "https://registry.npmmirror.com/@wu-component/web-core-plus/-/web-core-plus-0.3.1.tgz#bbb6ac5e875cbdf079b7987ee75c0e3e220b9d1f"
@@ -2123,9 +2128,9 @@
     "@wu-component/web-core-plus" latest
 
 "@wu-component/wu-cascader@latest":
-  version "1.0.1"
-  resolved "https://registry.npmmirror.com/@wu-component/wu-cascader/-/wu-cascader-1.0.1.tgz#baa215b76e15e590134d2fc8c444d2781f621f82"
-  integrity sha512-W+uIwVvEeNWbIejVchPWRYtg+j8OjEnFnFfenKLQw07s1LPtA8UxrruMZGqsWM0K2KZE/ioeAWg5HLh6hUAobQ==
+  version "1.0.2"
+  resolved "https://registry.npmmirror.com/@wu-component/wu-cascader/-/wu-cascader-1.0.2.tgz#d2d2e9b21f4644f571d420c610dd37d6bd54a476"
+  integrity sha512-eCMiPNRWXgCYub5OmdCvLQHtiNagmS60wULNSR58YAtVXHM26PDu/7ZTDVvAy0ShI0VjYzuZimuObwfzkktthA==
   dependencies:
     "@wu-component/web-core-plus" latest
 

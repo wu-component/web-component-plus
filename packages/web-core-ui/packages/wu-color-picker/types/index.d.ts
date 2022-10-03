@@ -1,9 +1,9 @@
 declare type UISize = 'medium' | 'small' | 'mini';
 import { OnConnected, WuComponent } from '@wu-component/web-core-plus';
-import '@wu-component/wu-popover/src/index';
-import '@wu-component/wu-button/src/index';
+import '../../wu-popover/src/index.tsx';
+import '../../wu-button/src/index.tsx';
 import { WuColorPane } from "./color-pane";
-import './color-pane';
+import './color-pane/index.tsx';
 export declare class WuColorPicker extends WuComponent implements OnConnected {
     popover: any;
     popoverRef: any;
@@ -32,7 +32,7 @@ export declare class WuColorPicker extends WuComponent implements OnConnected {
     valueChange(value: string, old: string): void;
     changeEvent(): {
         value: any;
-        color: {
+        color: string | {
             h: number;
             s: number;
             v: number;
@@ -56,7 +56,7 @@ export declare class WuColorPicker extends WuComponent implements OnConnected {
         toCMYK(): number[];
         toHEXA(): string[];
         clone: () => any;
-    };
+    } | "";
     get value(): any;
     render(_renderProps?: {}, _store?: {}): any;
 }
