@@ -1,5 +1,4 @@
 import { OnConnected, WuComponent, OnDisConnected } from '@wu-component/web-core-plus';
-import "../../wu-tooltip/src/index.tsx";
 import type { WuMenu } from "../types/type";
 export declare class WuMenuItem extends WuComponent implements OnConnected, OnDisConnected {
     constructor();
