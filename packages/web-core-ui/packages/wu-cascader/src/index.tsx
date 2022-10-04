@@ -1,6 +1,6 @@
 import { Component, Emit, h, OnConnected, Prop, WuComponent } from '@wu-component/web-core-plus';
-import '@wu-component/wu-popover/src/index';
-import '@wu-component/wu-input/src/index';
+import '../../wu-popover/src/index';
+import '../../wu-input/src/index';
 import css from './index.scss';
 import type { WuInput, WuPopover } from "../types/type";
 type UISize = 'medium' | 'small' | 'mini';

@@ -1,5 +1,4 @@
 import { OnConnected, WuComponent } from '@wu-component/web-core-plus';
-import '@wu-component/wu-checkbox/src/index';
 import { Node } from './model/Node';
 export declare class WuTreeV2 extends WuComponent implements OnConnected {
     constructor();

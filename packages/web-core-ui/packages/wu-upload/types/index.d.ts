@@ -1,5 +1,4 @@
 import { WuComponent } from '@wu-component/web-core-plus';
-import "../../../packages/wu-progress/src/index.tsx";
 export declare const documentIcon: () => any;
 export declare const closeIcon: () => any;
 export declare const circleIcon: () => any;
