@@ -88,14 +88,12 @@ export * from '@wu-component/wu-collapse/src/index';
 // export * from '@wu-component/wu-collapse-item/src/index';
 export * from '@wu-component/wu-color-picker/src/index';
 export * from '@wu-component/wu-menu/src/index';
-
 /!***************************全局股那里*********************************!/
 export * from '@wu-component/wu-popover/src/index';
 export { Message, WuMessage } from '@wu-component/wu-message/src/index';
 export * from '@wu-component/wu-alert/src/index';
 export * from '@wu-component/wu-tooltip/src/index';
 export * from '@wu-component/wu-dialog/src/index';
-
 /!*********************************布局组件*************************************!/
 export * from '@wu-component/wu-row/src/index';
 export * from '@wu-component/wu-col/src/index';
