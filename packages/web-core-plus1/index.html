@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--<wu-button id="testDom2" type="primary">按钮</wu-button>
+    <p style="height: 20px">sssssss</p>
+    <wu-button id="testDom3" type="danger">按钮</wu-button>
+    <div id="dis">卸载</div>
+    <p>ssss</p>-->
+    <!--<wu-button-test type="success" id="testDom2">按钮</wu-button-test>-->
+    <!--<wu-plus-inject1 type="success" id="testDom2">按钮</wu-plus-inject1>-->
+   <!-- <wu-plus-test id="testDom"></wu-plus-test>
+    <p style="height: 2px;background: pink"></p>
+    <wu-plus-test-new id="testDom"></wu-plus-test-new>
+    <p style="height: 2px;background: pink"></p>-->
+    <wu-plus-test-new1 id="testDom1"></wu-plus-test-new1>
+</div>
+
+</body>
+<script type="module" src="./example/index.esm.js"></script>
+<script type="module">
+   /* const testDom = document.getElementById('testDom');
+    testDom.addEventListener('change', (e) => {
+        console.log(e);
+    })
+*/
+    const testDom1 = document.getElementById('testDom1');
+    testDom1.addEventListener('change', (e) => {
+        console.log(e);
+    })
+    /*const testDom = document.getElementById('testDom2');
+    let indexNum = 0;
+    function testTap(e) {
+        console.log('第一個組件', e);
+        const types = ['primary', 'success', 'warning', 'danger', 'info']
+        indexNum ++
+        if (indexNum >= 4) {
+            indexNum = 0;
+        }
+        const setArrValue = types[indexNum];
+        testDom.setAttribute('type', setArrValue);
+    }
+    function dis() {
+        console.log('卸载')
+        testDom.remove();
+    }
+    testDom.addEventListener('valueChange', testTap);
+    setTimeout(() => {
+        console.log('2222222222222222')
+        testDom.setAttribute('type', 'warning')
+    }, 3000)*/
+    /*const testDom = document.getElementById('testDom2');
+    const testDom3 = document.getElementById('testDom3');
+    const disDom = document.getElementById('dis');
+    console.log(testDom)
+    console.log(disDom)
+    let indexNum = 0;
+    let indexNum1 = 0;
+    function testTap(e) {
+        console.log('第一個組件', e);
+        const types = ['primary', 'success', 'warning', 'danger', 'info']
+        indexNum ++
+        if (indexNum >= 4) {
+            indexNum = 0;
+        }
+        const setArrValue = types[indexNum];
+        testDom.setAttribute('type', setArrValue);
+    }
+    function testTap3(e) {
+        console.log('第二個組件', e);
+        const types = ['primary', 'danger']
+        indexNum1 ++
+        if (indexNum1 > 1) {
+            indexNum1 = 0;
+        }
+        const setArrValue = types[indexNum1];
+        console.log(setArrValue);
+        testDom3.setAttribute('type', setArrValue);
+    }
+    function dis() {
+        console.log('卸载')
+        testDom.remove();
+    }
+    testDom.addEventListener('valueChange', testTap);
+    testDom3.addEventListener('valueChange', testTap3);
+    disDom.addEventListener('click', dis);*/
+    /*setTimeout(() => {
+
+        testDom.setAttribute('type', 'success')
+    }, 3000)*/
+
+
+</script>
+</html>
