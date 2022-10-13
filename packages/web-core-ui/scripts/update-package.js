@@ -45,6 +45,7 @@ readdirSync(input)
                         "@web/test-runner": "^0.13.28",
                         "rollup-plugin-livereload": "^2.0.5",
                         "rollup-plugin-serve": "^2.0.1",
+                        "chalk": "4.1.2",
                         ...data.devDependencies
                     }
                 }

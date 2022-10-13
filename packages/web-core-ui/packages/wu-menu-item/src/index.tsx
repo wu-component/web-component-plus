@@ -1,7 +1,7 @@
 import { h, Component, Prop, OnConnected, WuComponent, Inject, OnDisConnected } from '@wu-component/web-core-plus';
 import css from './index.scss';
 import { extractClass } from "@wu-component/common";
-import "../../wu-tooltip/src/index.tsx";
+// import "../../wu-tooltip/src/index.tsx";
 import type { WuMenu } from "../types/type";
 
 @Component({

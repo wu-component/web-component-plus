@@ -1,5 +1,4 @@
 import { WuComponent } from '@wu-component/web-core-plus';
-import "@wu-component/wu-collapse-item/src/index";
 export declare class WuCollapse extends WuComponent {
     constructor();
     accordion: boolean;

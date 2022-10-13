@@ -14,13 +14,13 @@ export * from '../../wu-table/src/index';
 export * from '../../wu-tag/src/index';
 export * from '../../wu-progress/src/index';
 export * from '../../wu-breadcrumb/src/index';
-// export * from '@wu-component/wu-breadcrumb-item/src/index';
+export * from '../../wu-breadcrumb-item/src/index';
 export * from '../../wu-page-header/src/index';
 export * from '../../wu-rate/src/index';
 export * from '../../wu-time-line/src/index';
-// export * from '@wu-component/wu-time-line-item/src/index';
+export * from '../../wu-time-line-item/src/index';
 export * from '../../wu-select/src/index';
-// export * from '@wu-component/wu-select-option/src/index';
+export * from '../../wu-select-option/src/index';
 export * from '../../wu-avatar/src/index';
 export * from '../../wu-badge/src/index';
 export * from '../../wu-empty/src/index';
@@ -30,7 +30,7 @@ export * from '../../wu-pagination/src/index';
 export * from '../../wu-cascader/src/index';
 export * from '../../wu-image/src/index';
 export * from '../../wu-collapse/src/index';
-// export * from '@wu-component/wu-collapse-item/src/index';
+export * from '../../wu-collapse-item/src/index';
 export * from '../../wu-color-picker/src/index';
 export * from '../../wu-menu/src/index';
 
@@ -88,14 +88,12 @@ export * from '@wu-component/wu-collapse/src/index';
 // export * from '@wu-component/wu-collapse-item/src/index';
 export * from '@wu-component/wu-color-picker/src/index';
 export * from '@wu-component/wu-menu/src/index';
-
 /!***************************全局股那里*********************************!/
 export * from '@wu-component/wu-popover/src/index';
 export { Message, WuMessage } from '@wu-component/wu-message/src/index';
 export * from '@wu-component/wu-alert/src/index';
 export * from '@wu-component/wu-tooltip/src/index';
 export * from '@wu-component/wu-dialog/src/index';
-
 /!*********************************布局组件*************************************!/
 export * from '@wu-component/wu-row/src/index';
 export * from '@wu-component/wu-col/src/index';
@@ -105,7 +103,6 @@ export * from '@wu-component/wu-main/src/index';
 export * from '@wu-component/wu-header/src/index';
 export * from '@wu-component/wu-footer/src/index';
 export * from '@wu-component/wu-transition/src/index';
-
 /!*********************************复杂组件*************************************!/
 export * from '@wu-component/wu-date-picker/src/index';
 export * from '@wu-component/wu-upload/src/index';

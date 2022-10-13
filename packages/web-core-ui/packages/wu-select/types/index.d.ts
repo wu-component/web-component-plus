@@ -2,7 +2,6 @@ import { OnBeforeUpdate, OnConnected, WuComponent } from '@wu-component/web-core
 declare type UISize = 'medium' | 'small' | 'mini';
 import '@wu-component/wu-popover/src/index';
 import '@wu-component/wu-tag/src/index';
-import '@wu-component/wu-select-option/src/index';
 import type { WuSelectOptions } from "../types/type";
 export declare class WuSelect extends WuComponent implements OnConnected, OnBeforeUpdate {
     constructor();

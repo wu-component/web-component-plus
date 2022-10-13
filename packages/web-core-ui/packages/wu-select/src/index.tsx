@@ -4,7 +4,6 @@ type UISize = 'medium' | 'small' | 'mini';
 import { extractClass } from '@wu-component/common';
 import '@wu-component/wu-popover/src/index';
 import '@wu-component/wu-tag/src/index';
-import '@wu-component/wu-select-option/src/index';
 import type { WuSelectOptions } from "../types/type";
 
 @Component({
