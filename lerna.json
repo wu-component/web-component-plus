@@ -2,7 +2,6 @@
   "packages": [
     "packages/web-core-cli",
     "packages/web-core-plus",
-    "packages/web-core-ui",
     "packages/wu-core-router"
 
   ],

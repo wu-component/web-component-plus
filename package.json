@@ -6,5 +6,9 @@
   "private": true,
   "devDependencies": {
     "lerna": "^4.0.0"
+  },
+  "scripts": {
+    "install": "pnpm install",
+    "build:install": "cd ./packages/web-core-ui && pnpm install"
   }
 }
