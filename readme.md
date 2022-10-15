@@ -3,7 +3,7 @@
 web-plus-ui 是一套基于 webComponent 的 UI 组件库，目前尚在开发阶段，其中样式基于 elementUI。
 web-core-plus 是核心代码包，其中利用虚拟dom 实现了 WebComponent 的渲染;
 
-### 如何使用
+### 如何开发 WebVComponent 组件
 
 #### 自定义标签
 
@@ -104,4 +104,31 @@ export class WuButton extends HTMLElement {
     <wu-plus-button id="testDom4" type="info">按钮</wu-plus-button>
 </div>
 
+```
+
+### 参与开发
+
+#### 依赖安装
+
+```bin
+// 核心包、路由插件依赖安装
+pnpm install
+// 组件库以来安装
+cd ./packages/web-core-ui
+pnpm install
+```
+
+#### 构建
+```
+// 核心包构建
+cd web-core-plus
+pnpm run build:rollup
+
+// 路由插件构建
+cd web-core-router
+pnpm run build:rollup
+
+// 组件库构建
+cd web-core-ui
+pnpm run build:ui
 ```
