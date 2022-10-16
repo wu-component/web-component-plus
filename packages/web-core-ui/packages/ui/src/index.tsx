@@ -103,7 +103,6 @@ export * from '@wu-component/wu-main/src/index';
 export * from '@wu-component/wu-header/src/index';
 export * from '@wu-component/wu-footer/src/index';
 export * from '@wu-component/wu-transition/src/index';
-/!*********************************复杂组件*************************************!/
 export * from '@wu-component/wu-date-picker/src/index';
 export * from '@wu-component/wu-upload/src/index';
 */

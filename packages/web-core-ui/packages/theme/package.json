@@ -80,5 +80,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/wu-component/web-component-plus"
-  }
+  },
+  "gitHead": "186ad2a3cb32b6a803e5a0c52f6e79363ee4f1c5"
 }
