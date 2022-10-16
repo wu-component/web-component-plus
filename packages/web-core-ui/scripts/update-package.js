@@ -47,7 +47,12 @@ readdirSync(input)
                         "rollup-plugin-serve": "^2.0.1",
                         "chalk": "4.1.2",
                         ...data.devDependencies
-                    }
+                    },
+                    "dependencies": {
+                        ...data.dependencies,
+                        "@wu-component/common": "latest",
+                        "@wu-component/web-core-plus": "latest"
+                    },
                 }
             }
             writeFileSync(getPath(`../packages/${item}/package.json`), JSON.stringify(data1, null, 4), err => {

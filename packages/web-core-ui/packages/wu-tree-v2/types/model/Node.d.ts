@@ -20,7 +20,8 @@ export declare class Node {
     loading: boolean;
     store: any;
     isLeafByUser: boolean;
-    private isLeaf;
+    isLeaf?: boolean;
+    childNodeRendered: boolean;
     constructor(options: any);
     setData(data: any): void;
     get label(): any;
@@ -35,7 +36,7 @@ export declare class Node {
     insertAfter(child: any, ref: any): void;
     removeChild(child: any): void;
     removeChildByData(data: any): void;
-    expand(callback: any, expandParent: any): void;
+    expand(callback?: any, expandParent?: any): void;
     doCreateChildren(array: any, defaultProps?: {}): void;
     collapse(): void;
     shouldLoadData(): boolean;

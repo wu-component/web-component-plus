@@ -8,7 +8,6 @@
     "lerna": "^4.0.0"
   },
   "scripts": {
-    "install": "pnpm install",
-    "build:install": "cd ./packages/web-core-ui && pnpm install"
+    "install": "pnpm install && cd ./packages/web-core-ui && pnpm install"
   }
 }
