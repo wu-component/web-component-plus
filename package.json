@@ -5,9 +5,12 @@
   },
   "private": true,
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "del": "^7.0.0",
+    "fs-extra": "^10.1.0",
+    "lerna": "^4.0.0",
+    "process": "^0.11.10",
+    "rimraf": "^3.0.2",
+    "ts-node": "^7.0.1"
   },
-  "scripts": {
-    "install": "pnpm install && cd ./packages/web-core-ui && pnpm install"
-  }
+  "scripts": {}
 }

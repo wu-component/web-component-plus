@@ -1,0 +1,9 @@
+{
+  "watch": ["src"],
+  "ext": "ts",
+  "ignore": ["src/**/*.spec.ts"],
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "exec": "ts-node -r tsconfig-paths/register src/index.ts && pnpm run dev:build && yalc push"
+}
