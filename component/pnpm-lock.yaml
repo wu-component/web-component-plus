@@ -524,13 +524,6 @@ importers:
     specifiers:
       '@babel/preset-typescript': ^7.13.0
       '@open-wc/testing': ^3.1.6
-      '@rollup/plugin-commonjs': ^19.0.2
-      '@rollup/plugin-inject': ^4.0.4
-      '@rollup/plugin-json': ^4.1.0
-      '@rollup/plugin-node-resolve': ^13.1.3
-      '@rollup/plugin-replace': ^4.0.0
-      '@rollup/plugin-typescript': ^8.3.1
-      '@rollup/plugin-url': ^6.1.0
       '@types/jest': ^23.3.14
       '@types/node': ^10.17.60
       '@types/yaml': ^1.9.7
@@ -554,17 +547,6 @@ importers:
       nodemon: ^1.18.9
       prettier: ^1.15.3
       reflect-metadata: ^0.1.13
-      rollup: ^2.74.1
-      rollup-plugin-filesize: ^9.1.1
-      rollup-plugin-livereload: ^2.0.5
-      rollup-plugin-node-externals: ^2.2.0
-      rollup-plugin-postcss: ^4.0.2
-      rollup-plugin-progress: ^1.1.2
-      rollup-plugin-scss: ^3.0.0
-      rollup-plugin-serve: ^2.0.1
-      rollup-plugin-terser: ^7.0.2
-      rollup-plugin-typescript2: ^0.31.2
-      rollup-plugin-visualizer: ^5.6.0
       sass: ^1.52.1
       sass-loader: ^13.0.0
       style-loader: ^3.3.1
@@ -583,13 +565,6 @@ importers:
     devDependencies:
       '@babel/preset-typescript': 7.18.6
       '@open-wc/testing': 3.1.6
-      '@rollup/plugin-commonjs': 19.0.2_rollup@2.79.1
-      '@rollup/plugin-inject': 4.0.4_rollup@2.79.1
-      '@rollup/plugin-json': 4.1.0_rollup@2.79.1
-      '@rollup/plugin-node-resolve': 13.3.0_rollup@2.79.1
-      '@rollup/plugin-replace': 4.0.0_rollup@2.79.1
-      '@rollup/plugin-typescript': 8.5.0_hafrwlgfjmvsm7253l3bfjzhnq
-      '@rollup/plugin-url': 6.1.0_rollup@2.79.1
       '@types/jest': 23.3.14
       '@types/node': 10.17.60
       '@types/yaml': 1.9.7
@@ -611,17 +586,6 @@ importers:
       nodemon: 1.19.4
       prettier: 1.19.1
       reflect-metadata: 0.1.13
-      rollup: 2.79.1
-      rollup-plugin-filesize: 9.1.2
-      rollup-plugin-livereload: 2.0.5
-      rollup-plugin-node-externals: 2.2.0
-      rollup-plugin-postcss: 4.0.2_ts-node@7.0.1
-      rollup-plugin-progress: 1.1.2
-      rollup-plugin-scss: 3.0.0
-      rollup-plugin-serve: 2.0.1
-      rollup-plugin-terser: 7.0.2_rollup@2.79.1
-      rollup-plugin-typescript2: 0.31.2_gypgyaqhine6mwjfvh7icfhviq
-      rollup-plugin-visualizer: 5.8.3_rollup@2.79.1
       sass: 1.55.0
       sass-loader: 13.1.0_sass@1.55.0+webpack@5.74.0
       style-loader: 3.3.1_webpack@5.74.0

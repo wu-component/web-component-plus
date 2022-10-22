@@ -19,6 +19,7 @@
         "test": "web-test-runner \"./test/*.js\" --node-resolve",
         "example:package": "live-server",
         "build:package": "node ./node_modules/@wu-component/wu-build-tools/dist/index.js --input ./src/index.tsx --operate BUILD",
+        "build:package1": "cross-env NODE_ENV=production rollup -c ./build/build.js  && node build/declaration.js",
         "dev:package": "webpack serve --config ./build/webpack_dev.config --env development --mode development --hot"
     },
     "publishConfig": {

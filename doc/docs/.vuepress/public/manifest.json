@@ -1,0 +1,20 @@
+{
+    "name": "Marvin",
+    "short_name": "残月公子",
+    "icons": [
+      {
+        "src": "/images/photo.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "/images/photo.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#fff",
+    "theme_color": "#0084ff"
+  }

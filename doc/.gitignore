@@ -1,0 +1,12 @@
+# node.js
+#
+node_modules/
+**/node_modules/
+packages/web-plus-ui/**/lib/*
+**/dist/
+**/example-lib/
+.idea/*
+npm-debug.log
+.idea
+**/__snapshots__/*
+

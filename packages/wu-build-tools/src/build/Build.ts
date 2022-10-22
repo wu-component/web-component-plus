@@ -10,6 +10,10 @@ class Build {
     constructor(options: BuildProps) {
         this.config = options;
     }
+    /**
+     * 开始打包
+     * @returns 
+     */
     public start(): Promise<StartBuildResult> {
         return new Promise(async (resolve) => {
             try {
@@ -31,6 +35,10 @@ class Build {
         })
     }
 
+    /**
+     * 预构建检查
+     * @returns
+     */
     private preBuild() {
         return new Promise(async (resolve) => {
             const inputeEists = await pathExists(this.config.pathConfig.inputPath);
