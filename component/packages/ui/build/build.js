@@ -95,7 +95,7 @@ const config = [
             { file: `${output}/index.esm.js`, format: 'es' }
 
         ],
-        external: [/web-core-plus$/],
+        external: [ /web-core-plus$/ ],
     }
 ]
 

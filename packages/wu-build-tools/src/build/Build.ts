@@ -112,6 +112,6 @@ class Build {
             });         
         })
     }
-}
+} 
 
 export { Build }

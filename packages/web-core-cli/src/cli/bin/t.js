@@ -8,7 +8,7 @@ const options = {
     language: 'en'
 }
 program
-    .version(`@canyuegongzi/t-cli ${require('../../../package').version}`)
+    .version(`@wu-component/wu-cli ${require('../../../package').version}`)
     .usage('<command> [options]')
 
 program
