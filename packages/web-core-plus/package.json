@@ -22,7 +22,8 @@
     "start:debug": "nodemon --config nodemon-debug.json",
     "build:tsc": "cross-env NODE_ENV=production tsc -p tsconfig.build.json",
     "dev:package:example": "webpack serve --config ./build/webpack_dev.config --env development --mode development --hot",
-    "build:rollup:example": "cross-env NODE_ENV=production rollup -c ./rollup.example.config.js"
+    "build:rollup:example": "cross-env NODE_ENV=production rollup -c ./rollup.example.config.js",
+    "build:rollup:example1": "cross-env NODE_ENV=production rollup -c ./rollup.example.config1.js"
   },
   "publishConfig": {
     "access": "public"
