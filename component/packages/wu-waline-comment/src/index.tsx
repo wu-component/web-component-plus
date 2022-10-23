@@ -1,6 +1,7 @@
 import { h, Prop, Component, WuComponent, OnConnected, OnDisConnected } from '@wu-component/web-core-plus';
 import css from "./index.scss";
-import { init, WalineInstance } from "@waline/client/dist/waline.mjs";
+import { init } from "@waline/client/dist/waline.mjs";
+import type { WalineInstance } from "@waline/client/dist/waline";
 import  {
     WalineEmojiInfo,
     WalineHighlighter,
