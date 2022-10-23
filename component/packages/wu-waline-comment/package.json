@@ -85,7 +85,7 @@
     },
     "dependencies": {
         "@waline/client": "^2.13.0",
-        "@wu-component/common": "latest",
+        "@wu-component/common": "workspace:*",
         "@wu-component/web-core-plus": "latest"
     },
     "files": [
@@ -99,5 +99,14 @@
         "type": "git",
         "url": "https://github.com/wu-component/web-component-plus"
     },
-    "gitHead": "186ad2a3cb32b6a803e5a0c52f6e79363ee4f1c5"
+    "gitHead": "186ad2a3cb32b6a803e5a0c52f6e79363ee4f1c5",
+    "exports": {
+        ".": {
+            "types": "./types/index.d.ts",
+            "require": "./dist/index.cjs.js",
+            "import": "./dist/index.esm.js"
+        },
+        "./*": "./*"
+    },
+    "sideEffects": true
 }

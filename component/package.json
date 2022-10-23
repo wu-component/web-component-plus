@@ -9,12 +9,8 @@
   ],
   "scripts": {
     "build:common": "node ./scripts/build-common.js",
-    "build:package": "lerna run build:package",
-    "build:ui": "lerna run build:package && lerna run --scope @wu-component/ui-plus build && node ./scripts/scanner-check.js",
-    "scanner:pck": "node ./scripts/scanner-check.js",
-    "publish": "lerna publish",
-    "clear-all": "lerna clean -y && rimraf node_modules",
-    "bootstrap": "lerna bootstrap --npm-client yarn --use-workspace"
+    "build:ui:pnpm": "pnpm -r exec pnpm run build:package && pnpm run scanner:pck",
+    "scanner:pck": "node ./scripts/scanner-check.js"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.13.0",

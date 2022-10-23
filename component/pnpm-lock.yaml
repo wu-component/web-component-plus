@@ -337,55 +337,55 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@wu-component/web-core-plus': latest
-      '@wu-component/wu-alert': latest
-      '@wu-component/wu-aside': latest
-      '@wu-component/wu-avatar': latest
-      '@wu-component/wu-badge': latest
-      '@wu-component/wu-breadcrumb': latest
-      '@wu-component/wu-breadcrumb-item': latest
-      '@wu-component/wu-button': latest
-      '@wu-component/wu-card': latest
-      '@wu-component/wu-cascader': latest
-      '@wu-component/wu-cesium-map': latest
-      '@wu-component/wu-checkbox': latest
-      '@wu-component/wu-checkbox-button': latest
-      '@wu-component/wu-checkbox-group': latest
-      '@wu-component/wu-col': latest
-      '@wu-component/wu-collapse': latest
-      '@wu-component/wu-collapse-item': latest
-      '@wu-component/wu-color-picker': latest
-      '@wu-component/wu-container': latest
-      '@wu-component/wu-date-picker': latest
-      '@wu-component/wu-dialog': latest
-      '@wu-component/wu-empty': latest
-      '@wu-component/wu-footer': latest
-      '@wu-component/wu-form': latest
-      '@wu-component/wu-form-item': latest
-      '@wu-component/wu-form-label-wrap': latest
-      '@wu-component/wu-form1': latest
-      '@wu-component/wu-header': latest
-      '@wu-component/wu-icon': latest
-      '@wu-component/wu-image': latest
-      '@wu-component/wu-inject': latest
-      '@wu-component/wu-input': latest
-      '@wu-component/wu-input-number': ^1.6.1
-      '@wu-component/wu-leaflet-map': latest
-      '@wu-component/wu-link': latest
-      '@wu-component/wu-main': latest
-      '@wu-component/wu-mapbox-map': latest
-      '@wu-component/wu-menu': latest
-      '@wu-component/wu-menu-item': latest
-      '@wu-component/wu-menu-item-group': latest
-      '@wu-component/wu-menu-sub': latest
-      '@wu-component/wu-message': latest
-      '@wu-component/wu-tag': latest
-      '@wu-component/wu-time-line': latest
-      '@wu-component/wu-time-line-item': latest
-      '@wu-component/wu-tooltip': latest
-      '@wu-component/wu-transition': latest
-      '@wu-component/wu-tree': latest
-      '@wu-component/wu-tree-v2': latest
-      '@wu-component/wu-upload': latest
+      '@wu-component/wu-alert': workspace:*
+      '@wu-component/wu-aside': workspace:*
+      '@wu-component/wu-avatar': workspace:*
+      '@wu-component/wu-badge': workspace:*
+      '@wu-component/wu-breadcrumb': workspace:*
+      '@wu-component/wu-breadcrumb-item': workspace:*
+      '@wu-component/wu-button': workspace:*
+      '@wu-component/wu-card': workspace:*
+      '@wu-component/wu-cascader': workspace:*
+      '@wu-component/wu-cesium-map': workspace:*
+      '@wu-component/wu-checkbox': workspace:*
+      '@wu-component/wu-checkbox-button': workspace:*
+      '@wu-component/wu-checkbox-group': workspace:*
+      '@wu-component/wu-col': workspace:*
+      '@wu-component/wu-collapse': workspace:*
+      '@wu-component/wu-collapse-item': workspace:*
+      '@wu-component/wu-color-picker': workspace:*
+      '@wu-component/wu-container': workspace:*
+      '@wu-component/wu-date-picker': workspace:*
+      '@wu-component/wu-dialog': workspace:*
+      '@wu-component/wu-empty': workspace:*
+      '@wu-component/wu-footer': workspace:*
+      '@wu-component/wu-form': workspace:*
+      '@wu-component/wu-form-item': workspace:*
+      '@wu-component/wu-form-label-wrap': workspace:*
+      '@wu-component/wu-form1': workspace:*
+      '@wu-component/wu-header': workspace:*
+      '@wu-component/wu-icon': workspace:*
+      '@wu-component/wu-image': workspace:*
+      '@wu-component/wu-inject': workspace:*
+      '@wu-component/wu-input': workspace:*
+      '@wu-component/wu-input-number': workspace:*
+      '@wu-component/wu-leaflet-map': workspace:*
+      '@wu-component/wu-link': workspace:*
+      '@wu-component/wu-main': workspace:*
+      '@wu-component/wu-mapbox-map': workspace:*
+      '@wu-component/wu-menu': workspace:*
+      '@wu-component/wu-menu-item': workspace:*
+      '@wu-component/wu-menu-item-group': workspace:*
+      '@wu-component/wu-menu-sub': workspace:*
+      '@wu-component/wu-message': workspace:*
+      '@wu-component/wu-tag': workspace:*
+      '@wu-component/wu-time-line': workspace:*
+      '@wu-component/wu-time-line-item': workspace:*
+      '@wu-component/wu-tooltip': workspace:*
+      '@wu-component/wu-transition': workspace:*
+      '@wu-component/wu-tree': workspace:*
+      '@wu-component/wu-tree-v2': workspace:*
+      '@wu-component/wu-upload': workspace:*
       autoprefixer: ^10.4.4
       body-parser: ^1.19.0
       cross-env: ^7.0.3
@@ -530,7 +530,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -547,6 +547,8 @@ importers:
       nodemon: ^1.18.9
       prettier: ^1.15.3
       reflect-metadata: ^0.1.13
+      rollup-plugin-livereload: ^2.0.5
+      rollup-plugin-serve: ^2.0.1
       sass: ^1.52.1
       sass-loader: ^13.0.0
       style-loader: ^3.3.1
@@ -586,6 +588,8 @@ importers:
       nodemon: 1.19.4
       prettier: 1.19.1
       reflect-metadata: 0.1.13
+      rollup-plugin-livereload: 2.0.5
+      rollup-plugin-serve: 2.0.1
       sass: 1.55.0
       sass-loader: 13.1.0_sass@1.55.0+webpack@5.74.0
       style-loader: 3.3.1_webpack@5.74.0
@@ -616,7 +620,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -731,7 +735,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -846,7 +850,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -961,7 +965,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -1076,7 +1080,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -1191,7 +1195,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -1306,7 +1310,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -1421,7 +1425,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -1536,7 +1540,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -1651,7 +1655,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -1766,7 +1770,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -1881,7 +1885,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -1996,7 +2000,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -2111,7 +2115,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -2226,7 +2230,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -2342,7 +2346,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -2458,7 +2462,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -2573,7 +2577,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -2688,7 +2692,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -2803,7 +2807,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -2918,7 +2922,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -3033,7 +3037,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -3148,7 +3152,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -3263,7 +3267,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -3378,7 +3382,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -3493,7 +3497,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -3608,7 +3612,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -3723,7 +3727,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -3838,7 +3842,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -3953,7 +3957,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -4068,7 +4072,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -4183,7 +4187,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -4298,7 +4302,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -4413,7 +4417,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -4530,7 +4534,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -4645,7 +4649,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -4760,7 +4764,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -4875,7 +4879,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -4990,7 +4994,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -5105,7 +5109,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -5220,7 +5224,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -5335,7 +5339,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -5450,7 +5454,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -5565,7 +5569,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -5681,7 +5685,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -5797,7 +5801,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -5912,7 +5916,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -6027,7 +6031,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -6142,7 +6146,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -6257,7 +6261,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -6372,7 +6376,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -6487,7 +6491,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -6602,7 +6606,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -6717,7 +6721,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -6832,7 +6836,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -6947,7 +6951,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -7062,7 +7066,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -7177,7 +7181,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -7293,7 +7297,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -7409,7 +7413,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -7524,7 +7528,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -7639,7 +7643,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -7754,7 +7758,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4
@@ -7870,7 +7874,7 @@ importers:
       '@typescript-eslint/parser': ^5.25.0
       '@waline/client': ^2.13.0
       '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
+      '@wu-component/common': workspace:*
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
       autoprefixer: ^10.4.4

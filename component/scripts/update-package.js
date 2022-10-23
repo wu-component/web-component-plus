@@ -23,6 +23,15 @@ readdirSync(input)
                         "types",
                         "readme.md"
                     ],
+                    "exports": {
+                        ".": {
+                          "types": "./types/index.d.ts",
+                          "require": "./dist/index.cjs.js",
+                          "import": "./dist/index.esm.js"
+                        },
+                        "./*": "./*",
+                    },
+                    "sideEffects": true,
                     "types": "./types/index.d.ts",
                     "main": "./dist/index.cjs.js",
                     "module": "./dist/index.esm.js",
@@ -53,7 +62,7 @@ readdirSync(input)
                     },
                     "dependencies": {
                         ...data.dependencies,
-                        "@wu-component/common": "latest",
+                        "@wu-component/common": "workspace:*",
                         "@wu-component/web-core-plus": "latest"
                     },
                 }
