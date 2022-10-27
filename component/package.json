@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "build:common": "node ./scripts/build-common.js",
-    "build:ui:pnpm": "pnpm -r exec pnpm run build:package && pnpm run scanner:pck",
+    "build:ui": "node ./scripts/build-ui.js",
     "scanner:pck": "node ./scripts/scanner-check.js"
   },
   "devDependencies": {
@@ -27,7 +27,7 @@
     "@types/yaml": "^1.9.7",
     "@typescript-eslint/eslint-plugin": "^5.25.0",
     "@typescript-eslint/parser": "^5.25.0",
-    "@web/test-runner": "^0.14.0",
+    "@web/test-runner": "^0.13.28",
     "autoprefixer": "^10.4.4",
     "body-parser": "^1.19.0",
     "cross-env": "^7.0.3",

@@ -1,5 +1,4 @@
 import './reflect-metadata';
-import './polyfill';
-export * from './declarations';
-export * from './reactivity';
-export * from './runtime';
+export * from './core';
+export * from './type';
+export * from './decorator';

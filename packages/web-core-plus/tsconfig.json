@@ -25,13 +25,15 @@
         "target": "ES5",
         "useUnknownInCatchVariables": true,
         "baseUrl": ".",
-        "paths": {}
+        "paths": {
+            "@/*": ["./src/*"]
+        }
     },
     // 入口文件
+    // 入口文件
     "include": [
+        "**/*.ts", "**/*.tsx",
         "./src/**/*.tsx",
-        "typings/*.ts",
-        "./css.d.ts", //配置的.d.ts文件
-        "src/declarations/*.ts"
+        "./css.d.ts"
     ]
 }

@@ -6,6 +6,7 @@ import json from '@rollup/plugin-json';
 import postcss from 'rollup-plugin-postcss';
 import { terser } from "rollup-plugin-terser";
 import pkg from "./package.json";
+import gzipPlugin from 'rollup-plugin-gzip';
 
 export default [
     {
@@ -25,7 +26,14 @@ export default [
             json(),
             replace({
                 preventAssignment: true
-            })
+            }),
+            // GZIP compression as .gz files
+            gzipPlugin(),
+            /*// Brotil compression as .br files
+            gzipPlugin({
+                customCompression: content => brotliPromise(Buffer.from(content)),
+                fileName: '.br',
+            }),*/
         ],
         output: {
             name: 'webCorePlus',
@@ -51,7 +59,8 @@ export default [
             json(),
             replace({
                 preventAssignment: true
-            })
+            }),
+            gzipPlugin(),
         ],
         output: [
             { file: pkg.main, format: 'cjs' },
