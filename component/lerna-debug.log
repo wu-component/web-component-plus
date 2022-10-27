@@ -6,7 +6,7 @@
 0 silly argv }
 1 notice cli v4.0.0
 2 verbose rootPath D:\npm-dev\web-component-plus\component
-3 error Error: Unsupported URL Type "workspace:": workspace:*
+3 error Error: Unsupported URL Type "workspace:": latest
 3 error     at unsupportedURLType (D:\npm-dev\web-component-plus\component\node_modules\.pnpm\npm-package-arg@8.1.5\node_modules\npm-package-arg\npa.js:246:15)
 3 error     at fromURL (D:\npm-dev\web-component-plus\component\node_modules\.pnpm\npm-package-arg@8.1.5\node_modules\npm-package-arg\npa.js:306:13)
 3 error     at Function.resolve (D:\npm-dev\web-component-plus\component\node_modules\.pnpm\npm-package-arg@8.1.5\node_modules\npm-package-arg\npa.js:76:12)

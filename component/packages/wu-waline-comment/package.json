@@ -85,7 +85,7 @@
     },
     "dependencies": {
         "@waline/client": "^2.13.0",
-        "@wu-component/common": "workspace:*",
+        "@wu-component/common": "latest",
         "@wu-component/web-core-plus": "latest"
     },
     "files": [

@@ -75,7 +75,7 @@
         "webpack-dev-server": "^4.9.0"
     },
     "dependencies": {
-        "@wu-component/common": "workspace:*",
+        "@wu-component/common": "latest",
         "@wu-component/web-core-plus": "latest"
     },
     "repository": {

@@ -85,7 +85,7 @@
     },
     "dependencies": {
         "@popperjs/core": "^2.11.5",
-        "@wu-component/common": "workspace:*",
+        "@wu-component/common": "latest",
         "@wu-component/web-core-plus": "latest"
     },
     "files": [

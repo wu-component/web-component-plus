@@ -84,10 +84,10 @@
         "webpack-dev-server": "^4.9.0"
     },
     "peerDependencies": {
-        "@wu-component/wu-collapse-item": "workspace:*"
+        "@wu-component/wu-collapse-item": "latest"
     },
     "dependencies": {
-        "@wu-component/common": "workspace:*",
+        "@wu-component/common": "latest",
         "@wu-component/web-core-plus": "latest"
     },
     "files": [

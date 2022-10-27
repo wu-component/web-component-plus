@@ -91,10 +91,10 @@
         "webpack-dev-server": "^4.9.0"
     },
     "peerDependencies": {
-        "@wu-component/wu-breadcrumb-item": "workspace:*"
+        "@wu-component/wu-breadcrumb-item": "latest"
     },
     "dependencies": {
-        "@wu-component/common": "workspace:*",
+        "@wu-component/common": "latest",
         "@wu-component/web-core-plus": "latest"
     },
     "repository": {
