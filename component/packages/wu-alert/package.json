@@ -1,6 +1,6 @@
 {
     "name": "@wu-component/wu-alert",
-    "version": "1.7.0",
+    "version": "1.8.0",
     "description": "> TODO: description",
     "author": "Marvin <yongfeide123@gmail.com>",
     "homepage": "",
@@ -36,20 +36,18 @@
         "npm": ">= 5"
     },
     "devDependencies": {
-        "@open-wc/testing": "^3.1.6",
-        "@web/test-runner": "^0.13.28",
-        "rollup-plugin-livereload": "^2.0.5",
-        "rollup-plugin-serve": "^2.0.1",
-        "chalk": "4.1.2",
-        "@wu-component/wu-build-tools": "latest",
         "@babel/preset-typescript": "^7.13.0",
+        "@open-wc/testing": "^3.1.6",
         "@types/jest": "^23.3.14",
         "@types/node": "^10.17.60",
         "@types/yaml": "^1.9.7",
         "@typescript-eslint/eslint-plugin": "^5.25.0",
         "@typescript-eslint/parser": "^5.25.0",
+        "@web/test-runner": "^0.13.28",
+        "@wu-component/wu-build-tools": "latest",
         "autoprefixer": "^10.4.4",
         "body-parser": "^1.19.0",
+        "chalk": "4.1.2",
         "cross-env": "^7.0.3",
         "css-loader": "^6.7.1",
         "eslint": "7.1.0",
@@ -61,6 +59,8 @@
         "nodemon": "^1.18.9",
         "prettier": "^1.15.3",
         "reflect-metadata": "^0.1.13",
+        "rollup-plugin-livereload": "^2.0.5",
+        "rollup-plugin-serve": "^2.0.1",
         "sass": "^1.52.1",
         "sass-loader": "^13.0.0",
         "style-loader": "^3.3.1",
@@ -75,7 +75,7 @@
         "webpack-dev-server": "^4.9.0"
     },
     "dependencies": {
-        "@wu-component/common": "workspace:*",
+        "@wu-component/common": "latest",
         "@wu-component/web-core-plus": "latest"
     },
     "repository": {

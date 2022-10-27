@@ -28,3 +28,4 @@ if (typeof window.queueMicrotask !== "function") {
             .catch(e => setTimeout(() => { throw e; }));
     };
 }
+export {};

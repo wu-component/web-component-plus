@@ -18,18 +18,21 @@
         "noImplicitReturns": true,
         "noUnusedLocals": true,
         "noUnusedParameters": false,
-        "outDir": "build",
+        "outDir": "dist",
         "pretty": true,
         "resolveJsonModule": true,
         "sourceMap": true,
         "target": "ES6",
         "useUnknownInCatchVariables": true,
         "baseUrl": ".",
-        "paths": {}
+        "paths": {
+            "@/*": ["./src/*"]
+        }
     },
     // 入口文件
     "include": [
-        "typings/*.ts",
-        "src/declarations/*.ts"
+        "**/*.ts", "**/*.tsx",
+        "./src/**/*.tsx",
+        "./css.d.ts"
     ]
 }

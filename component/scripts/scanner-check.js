@@ -6,14 +6,16 @@ const httpServer = require("./check/http")
 const { getTargets, getPath, bytesToSize } = utils;
 const { bootstrap } = httpServer;
 const packages = getPath(`../../packages`)
-const targets = getTargets(packages);
+let targets = getTargets(packages);
 
 const task = () => {
+    targets = targets.filter(name => !["common", "ui", "common", "theme"].includes(name));
     const types = ["cjs", "esm", "umd"];
     const result = [];
     for (let i = 0; i < targets.length; i ++) {
         const typeResult = {}
         for (let j = 0; j < types.length; j ++) {
+            const filePath = getPath(`${packages}/${targets[i]}/dist/index.${types[j]}.js`);
             const status = fs.statSync(`${packages}/${targets[i]}/dist/index.${types[j]}.js`, "utf-8");
             typeResult[types[j]] = {
                 size: bytesToSize(status.size),
@@ -47,7 +49,7 @@ const task = () => {
             esmSize: item.file.esm.size,
             umdSize: item.file.umd.size,
             dependencies: dependencies,
-            peerDependencies: peerDependencies,
+            // peerDependencies: peerDependencies,
         }
     })
     console.table(newResult);

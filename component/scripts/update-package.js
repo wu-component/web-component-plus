@@ -62,7 +62,7 @@ readdirSync(input)
                     },
                     "dependencies": {
                         ...data.dependencies,
-                        "@wu-component/common": "workspace:*",
+                        "@wu-component/common": "latest",
                         "@wu-component/web-core-plus": "latest"
                     },
                 }

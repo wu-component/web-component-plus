@@ -9,7 +9,7 @@ import pkg from "./package.json";
 
 export default [
     {
-        input: './src/ex.ts',
+        input: './src/example.tsx',
         plugins: [
             terser(),
             nodeResolve(),
@@ -34,7 +34,7 @@ export default [
         },
     },
     {
-        input: './src/ex.ts',
+        input: './src/example.tsx',
         plugins: [
             terser(),
             nodeResolve(),

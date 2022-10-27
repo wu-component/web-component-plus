@@ -1,6 +1,6 @@
 {
     "name": "@wu-component/wu-waline-comment",
-    "version": "1.7.0",
+    "version": "1.8.0",
     "description": "> TODO: description",
     "author": "Marvin <yongfeide123@gmail.com>",
     "homepage": "",
@@ -85,7 +85,7 @@
     },
     "dependencies": {
         "@waline/client": "^2.13.0",
-        "@wu-component/common": "workspace:*",
+        "@wu-component/common": "latest",
         "@wu-component/web-core-plus": "latest"
     },
     "files": [
