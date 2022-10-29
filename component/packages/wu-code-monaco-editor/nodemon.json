@@ -1,0 +1,9 @@
+{
+  "watch": ["./src"],
+  "ext": "ts",
+  "ignore": ["./src/**/*.spec.ts"],
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "exec": "cross-env NODE_ENV=production tsc -p tsconfig.build.json && node ./build/dev.js"
+}
