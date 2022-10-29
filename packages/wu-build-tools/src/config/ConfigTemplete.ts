@@ -5,9 +5,9 @@ import postcss from "rollup-plugin-postcss";
 import typescript from "rollup-plugin-typescript2";
 import json from "@rollup/plugin-json";
 import replace from "@rollup/plugin-replace";
+import url from '@rollup/plugin-url';
 import scss from 'rollup-plugin-scss'
 import autoprefixer from 'autoprefixer'
-import url from '@rollup/plugin-url';
 import { RollupOptions } from "rollup";
 import { ConfigTempleteProps, PathConfig } from "./type";
 
@@ -35,7 +35,7 @@ class ConfigTemplete {
                 plugins: [
                     terser(),
                     url({
-                        include: ['**/*.svg', '**/*.png', '**/*.jp(e)?g', '**/*.gif', '**/*.webp', '**/*.ttf', '**/*.woff']
+                        include: ['**/*.svg', '**/*.png', '**/*.jp(e)?g', '**/*.gif', '**/*.webp', '**/*.ttf', '**/*.woff', '**/*?raw']
                     }),
                     nodeResolve(),
                     commonjs(),
@@ -52,7 +52,7 @@ class ConfigTemplete {
                         },
                          // @ts-ignore
                         extensions
-                        
+
                     }),
                     json(),
                     replace({
@@ -60,11 +60,20 @@ class ConfigTemplete {
                     })
                 ],
                 output: [
-                    { name: args.name, file: `${outputPath}/index.umd.js`, format: 'umd' },
+                    {
+                        name: args.name,
+                        file: `${outputPath}/index.umd.js`,
+                        format: 'umd',
+                        globals: {
+                            "@wu-component/web-core-plus": "webCorePlus"
+                        }
+                    },
                     { file: `${outputPath}/index.cjs.js`, format: 'cjs' },
                     { file: `${outputPath}/index.esm.js`, format: 'es' }
-        
-                ]
+                ],
+                external: [
+                    "@wu-component/web-core-plus"
+                ],
             }
         ]
     }

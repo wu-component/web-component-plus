@@ -13,7 +13,7 @@ const output = resolve(__dirname, "../dist");
 const getPath = _path => resolve(__dirname, _path);
 // import pkg from "../package.json";
 //const name = pkg.name;
-const name = 'WebUIPlus';
+const name = 'webCorePlus';
 const extensions = [
     '.js',
     '.ts',

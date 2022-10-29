@@ -1,6 +1,6 @@
 import { EventOptions, PropOptions, StateOptions, WatchOptType } from "@/type";
 import { COMPONENT_CUSTOM_EVENT, COMPONENT_WATCH, PROP_META_KEY, STATE_META_KEY } from "@/app-data";
-import { observe } from "@/core";
+// import { observe } from "@/core";
 import Watcher from "@/core/observer/watcher";
 import { toDotCase } from "@/share";
 
@@ -12,6 +12,7 @@ export function proxy(target, sourceKey, key) {
         set(val) {
             this[sourceKey][key] = val;
             this["props"][key] = val;
+            this.update.call(this, this.$reactive, null);
         }
     });
 }
@@ -41,12 +42,12 @@ export function dataReactive(){
         const key = keys[i];
         proxy(this, "$reactive", key);
     }
-    observe(this.$reactive);
+    /*observe(this.$reactive);
     new Watcher(this.$reactive, () => {
         return this.render.call(this, this.$reactive, null);
     }, (ww, t) => {
         this.update.call(this, this.$reactive, null);
-    });
+    });*/
 };
 
 /**

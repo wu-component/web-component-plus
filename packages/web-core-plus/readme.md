@@ -4,11 +4,11 @@
 ## 快速创建
 
 
-需要提前全局安装 t-cli 脚手架，关于 t-cli 详见 [使用指南](https://www.npmjs.com/package/@wu-component/t-cli) 。
+需要提前全局安装 t-cli 脚手架，关于 wu-cli 详见 [使用指南](https://www.npmjs.com/package/@wu-component/wu-cli) 。
 
 ```bash
 
-t init-web-component test-web-core-component
+wu init-web-component test-web-core-component
 
 ```
 
