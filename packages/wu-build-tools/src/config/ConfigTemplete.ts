@@ -35,7 +35,7 @@ class ConfigTemplete {
                 plugins: [
                     terser(),
                     url({
-                        include: ['**/*.svg', '**/*.png', '**/*.jp(e)?g', '**/*.gif', '**/*.webp', '**/*.ttf', '**/*.woff', '**/*?raw']
+                        include: ['**/*.svg', '**/*.txt', '**/*.html', '**/*.png', '**/*.jp(e)?g', '**/*.gif', '**/*.webp', '**/*.ttf', '**/*.woff', '**/*?raw']
                     }),
                     nodeResolve(),
                     commonjs(),

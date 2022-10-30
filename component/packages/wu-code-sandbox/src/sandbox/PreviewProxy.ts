@@ -68,7 +68,7 @@ export class PreviewProxy {
         if (event.source !== this.iframe.contentWindow) return;
 
         const { action, args } = event.data;
-
+        this.handlers.on_default_event(event);
         switch (action) {
             case 'cmd_error':
             case 'cmd_ok':

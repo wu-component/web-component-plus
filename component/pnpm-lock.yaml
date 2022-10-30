@@ -573,7 +573,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -679,7 +679,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -794,7 +794,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -909,7 +909,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -1024,7 +1024,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -1139,7 +1139,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -1254,7 +1254,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -1369,7 +1369,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -1484,7 +1484,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -1599,7 +1599,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -1714,7 +1714,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -1829,7 +1829,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -1944,7 +1944,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -2065,7 +2065,130 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
+      autoprefixer: 10.4.12
+      body-parser: 1.20.1
+      chalk: 4.1.2
+      cross-env: 7.0.3
+      css-loader: 6.7.1_webpack@5.74.0
+      eslint: 7.1.0
+      eslint-config-prettier: 6.15.0_eslint@7.1.0
+      eslint-plugin-import: 2.26.0_air2eablcyt5mvxgnwo4swjqcq
+      html-webpack-plugin: 5.5.0_webpack@5.74.0
+      jest: 23.6.0
+      live-server: 1.2.2
+      nodemon: 1.19.4
+      postcss-loader: 7.0.1_webpack@5.74.0
+      prettier: 1.19.1
+      raw-loader: 4.0.2_webpack@5.74.0
+      reflect-metadata: 0.1.13
+      rollup: 2.79.1
+      rollup-plugin-filesize: 9.1.2
+      rollup-plugin-livereload: 2.0.5
+      rollup-plugin-node-externals: 2.2.0
+      rollup-plugin-postcss: 4.0.2_ts-node@7.0.1
+      rollup-plugin-progress: 1.1.2
+      rollup-plugin-scss: 3.0.0
+      rollup-plugin-serve: 2.0.1
+      rollup-plugin-terser: 7.0.2_rollup@2.79.1
+      rollup-plugin-typescript2: 0.31.2_gypgyaqhine6mwjfvh7icfhviq
+      rollup-plugin-visualizer: 5.8.3_rollup@2.79.1
+      sass: 1.55.0
+      sass-loader: 13.1.0_sass@1.55.0+webpack@5.74.0
+      style-loader: 3.3.1_webpack@5.74.0
+      ts-jest: 23.10.5_jest@23.6.0
+      ts-loader: 9.4.1_qqxisngxjbp7lstdk7boexbu3e
+      ts-node: 7.0.1
+      tsconfig-paths: 3.14.1
+      tslib: 2.4.0
+      typescript: 4.8.4
+      webpack: 5.74.0_webpack-cli@4.10.0
+      webpack-cli: 4.10.0_vnmgq7jx5zjkzolvtfp7mdf5ri
+      webpack-dev-server: 4.11.1_5v66e2inugklgvlh4huuavolfq
+
+  packages/wu-code-playground:
+    specifiers:
+      '@babel/preset-typescript': ^7.13.0
+      '@monaco-editor/loader': ^1.3.2
+      '@open-wc/testing': ^3.1.6
+      '@rollup/plugin-commonjs': ^19.0.2
+      '@rollup/plugin-inject': ^4.0.4
+      '@rollup/plugin-json': ^4.1.0
+      '@rollup/plugin-node-resolve': ^13.1.3
+      '@rollup/plugin-replace': ^4.0.0
+      '@rollup/plugin-typescript': ^8.3.1
+      '@rollup/plugin-url': ^6.1.0
+      '@types/jest': ^23.3.14
+      '@types/node': ^10.17.60
+      '@types/yaml': ^1.9.7
+      '@typescript-eslint/eslint-plugin': ^5.25.0
+      '@typescript-eslint/parser': ^5.25.0
+      '@web/test-runner': ^0.13.28
+      '@wu-component/common': latest
+      '@wu-component/web-core-plus': latest
+      '@wu-component/wu-build-tools': latest
+      autoprefixer: ^10.4.4
+      body-parser: ^1.19.0
+      chalk: 4.1.2
+      cross-env: ^7.0.3
+      css-loader: ^6.7.1
+      eslint: 7.1.0
+      eslint-config-prettier: ^6.10.0
+      eslint-plugin-import: ^2.20.1
+      html-webpack-plugin: ^5.5.0
+      jest: ^23.6.0
+      live-server: ^1.2.2
+      monaco-editor: ^0.34.1
+      nodemon: ^1.18.9
+      postcss-loader: ^7.0.1
+      prettier: ^1.15.3
+      raw-loader: ^4.0.2
+      reflect-metadata: ^0.1.13
+      rollup: ^2.74.1
+      rollup-plugin-filesize: ^9.1.1
+      rollup-plugin-livereload: ^2.0.5
+      rollup-plugin-node-externals: ^2.2.0
+      rollup-plugin-postcss: ^4.0.2
+      rollup-plugin-progress: ^1.1.2
+      rollup-plugin-scss: ^3.0.0
+      rollup-plugin-serve: ^2.0.1
+      rollup-plugin-terser: ^7.0.2
+      rollup-plugin-typescript2: ^0.31.2
+      rollup-plugin-visualizer: ^5.6.0
+      sass: ^1.52.1
+      sass-loader: ^13.0.0
+      style-loader: ^3.3.1
+      ts-jest: ^23.1.4
+      ts-loader: ^9.3.0
+      ts-node: ^7.0.1
+      tsconfig-paths: ^3.7.0
+      tslib: ^2.3.1
+      typescript: ^4.6.4
+      webpack: ^5.72.1
+      webpack-cli: ^4.9.2
+      webpack-dev-server: ^4.9.0
+    dependencies:
+      '@monaco-editor/loader': 1.3.2_monaco-editor@0.34.1
+      '@wu-component/common': link:../common
+      '@wu-component/web-core-plus': 0.3.6
+      monaco-editor: 0.34.1
+    devDependencies:
+      '@babel/preset-typescript': 7.18.6
+      '@open-wc/testing': 3.1.6
+      '@rollup/plugin-commonjs': 19.0.2_rollup@2.79.1
+      '@rollup/plugin-inject': 4.0.4_rollup@2.79.1
+      '@rollup/plugin-json': 4.1.0_rollup@2.79.1
+      '@rollup/plugin-node-resolve': 13.3.0_rollup@2.79.1
+      '@rollup/plugin-replace': 4.0.0_rollup@2.79.1
+      '@rollup/plugin-typescript': 8.5.0_hafrwlgfjmvsm7253l3bfjzhnq
+      '@rollup/plugin-url': 6.1.0_rollup@2.79.1
+      '@types/jest': 23.3.14
+      '@types/node': 10.17.60
+      '@types/yaml': 1.9.7
+      '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
+      '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
+      '@web/test-runner': 0.13.31
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -2188,7 +2311,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -2305,7 +2428,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -2420,7 +2543,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -2535,7 +2658,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -2652,7 +2775,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -2767,7 +2890,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -2882,7 +3005,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -2997,7 +3120,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -3112,7 +3235,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -3227,7 +3350,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -3342,7 +3465,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -3457,7 +3580,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -3572,7 +3695,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -3687,7 +3810,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -3802,7 +3925,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -3917,7 +4040,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -4032,7 +4155,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -4147,7 +4270,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -4262,7 +4385,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -4377,7 +4500,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -4492,7 +4615,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -4607,7 +4730,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -4724,7 +4847,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -4839,7 +4962,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -4954,7 +5077,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -5069,7 +5192,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -5184,7 +5307,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -5299,7 +5422,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -5414,7 +5537,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -5529,7 +5652,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -5543,129 +5666,6 @@ importers:
       live-server: 1.2.2
       nodemon: 1.19.4
       prettier: 1.19.1
-      reflect-metadata: 0.1.13
-      rollup: 2.79.1
-      rollup-plugin-filesize: 9.1.2
-      rollup-plugin-livereload: 2.0.5
-      rollup-plugin-node-externals: 2.2.0
-      rollup-plugin-postcss: 4.0.2_ts-node@7.0.1
-      rollup-plugin-progress: 1.1.2
-      rollup-plugin-scss: 3.0.0
-      rollup-plugin-serve: 2.0.1
-      rollup-plugin-terser: 7.0.2_rollup@2.79.1
-      rollup-plugin-typescript2: 0.31.2_gypgyaqhine6mwjfvh7icfhviq
-      rollup-plugin-visualizer: 5.8.3_rollup@2.79.1
-      sass: 1.55.0
-      sass-loader: 13.1.0_sass@1.55.0+webpack@5.74.0
-      style-loader: 3.3.1_webpack@5.74.0
-      ts-jest: 23.10.5_jest@23.6.0
-      ts-loader: 9.4.1_qqxisngxjbp7lstdk7boexbu3e
-      ts-node: 7.0.1
-      tsconfig-paths: 3.14.1
-      tslib: 2.4.0
-      typescript: 4.8.4
-      webpack: 5.74.0_webpack-cli@4.10.0
-      webpack-cli: 4.10.0_vnmgq7jx5zjkzolvtfp7mdf5ri
-      webpack-dev-server: 4.11.1_5v66e2inugklgvlh4huuavolfq
-
-  packages/wu-monaco-editor:
-    specifiers:
-      '@babel/preset-typescript': ^7.13.0
-      '@monaco-editor/loader': ^1.3.2
-      '@open-wc/testing': ^3.1.6
-      '@rollup/plugin-commonjs': ^19.0.2
-      '@rollup/plugin-inject': ^4.0.4
-      '@rollup/plugin-json': ^4.1.0
-      '@rollup/plugin-node-resolve': ^13.1.3
-      '@rollup/plugin-replace': ^4.0.0
-      '@rollup/plugin-typescript': ^8.3.1
-      '@rollup/plugin-url': ^6.1.0
-      '@types/jest': ^23.3.14
-      '@types/node': ^10.17.60
-      '@types/yaml': ^1.9.7
-      '@typescript-eslint/eslint-plugin': ^5.25.0
-      '@typescript-eslint/parser': ^5.25.0
-      '@web/test-runner': ^0.13.28
-      '@wu-component/common': latest
-      '@wu-component/web-core-plus': latest
-      '@wu-component/wu-build-tools': latest
-      autoprefixer: ^10.4.4
-      body-parser: ^1.19.0
-      chalk: 4.1.2
-      cross-env: ^7.0.3
-      css-loader: ^6.7.1
-      eslint: 7.1.0
-      eslint-config-prettier: ^6.10.0
-      eslint-plugin-import: ^2.20.1
-      html-webpack-plugin: ^5.5.0
-      jest: ^23.6.0
-      live-server: ^1.2.2
-      monaco-editor: ^0.34.1
-      nodemon: ^1.18.9
-      postcss-loader: ^7.0.1
-      prettier: ^1.15.3
-      raw-loader: ^4.0.2
-      reflect-metadata: ^0.1.13
-      rollup: ^2.74.1
-      rollup-plugin-filesize: ^9.1.1
-      rollup-plugin-livereload: ^2.0.5
-      rollup-plugin-node-externals: ^2.2.0
-      rollup-plugin-postcss: ^4.0.2
-      rollup-plugin-progress: ^1.1.2
-      rollup-plugin-scss: ^3.0.0
-      rollup-plugin-serve: ^2.0.1
-      rollup-plugin-terser: ^7.0.2
-      rollup-plugin-typescript2: ^0.31.2
-      rollup-plugin-visualizer: ^5.6.0
-      sass: ^1.52.1
-      sass-loader: ^13.0.0
-      style-loader: ^3.3.1
-      ts-jest: ^23.1.4
-      ts-loader: ^9.3.0
-      ts-node: ^7.0.1
-      tsconfig-paths: ^3.7.0
-      tslib: ^2.3.1
-      typescript: ^4.6.4
-      webpack: ^5.72.1
-      webpack-cli: ^4.9.2
-      webpack-dev-server: ^4.9.0
-    dependencies:
-      '@monaco-editor/loader': 1.3.2_monaco-editor@0.34.1
-      '@wu-component/common': link:../common
-      '@wu-component/web-core-plus': 0.3.6
-      monaco-editor: 0.34.1
-    devDependencies:
-      '@babel/preset-typescript': 7.18.6
-      '@open-wc/testing': 3.1.6
-      '@rollup/plugin-commonjs': 19.0.2_rollup@2.79.1
-      '@rollup/plugin-inject': 4.0.4_rollup@2.79.1
-      '@rollup/plugin-json': 4.1.0_rollup@2.79.1
-      '@rollup/plugin-node-resolve': 13.3.0_rollup@2.79.1
-      '@rollup/plugin-replace': 4.0.0_rollup@2.79.1
-      '@rollup/plugin-typescript': 8.5.0_hafrwlgfjmvsm7253l3bfjzhnq
-      '@rollup/plugin-url': 6.1.0_rollup@2.79.1
-      '@types/jest': 23.3.14
-      '@types/node': 10.17.60
-      '@types/yaml': 1.9.7
-      '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
-      '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
-      '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
-      autoprefixer: 10.4.12
-      body-parser: 1.20.1
-      chalk: 4.1.2
-      cross-env: 7.0.3
-      css-loader: 6.7.1_webpack@5.74.0
-      eslint: 7.1.0
-      eslint-config-prettier: 6.15.0_eslint@7.1.0
-      eslint-plugin-import: 2.26.0_air2eablcyt5mvxgnwo4swjqcq
-      html-webpack-plugin: 5.5.0_webpack@5.74.0
-      jest: 23.6.0
-      live-server: 1.2.2
-      nodemon: 1.19.4
-      postcss-loader: 7.0.1_webpack@5.74.0
-      prettier: 1.19.1
-      raw-loader: 4.0.2_webpack@5.74.0
       reflect-metadata: 0.1.13
       rollup: 2.79.1
       rollup-plugin-filesize: 9.1.2
@@ -5767,7 +5767,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -5882,7 +5882,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -5997,7 +5997,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -6114,7 +6114,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -6229,7 +6229,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -6344,7 +6344,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -6459,7 +6459,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -6574,7 +6574,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -6689,7 +6689,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -6804,7 +6804,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -6919,7 +6919,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -7034,7 +7034,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -7149,7 +7149,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -7264,7 +7264,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -7379,7 +7379,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -7494,7 +7494,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -7609,7 +7609,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -7726,7 +7726,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -7841,7 +7841,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -7956,7 +7956,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -8071,7 +8071,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -8186,7 +8186,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -8303,7 +8303,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.41.0_b4mteysxb5yudzzv3kbnwdxmjm
       '@typescript-eslint/parser': 5.41.0_ofcmriis2sin4t7ptqesxr2wnu
       '@web/test-runner': 0.13.31
-      '@wu-component/wu-build-tools': 0.0.5
+      '@wu-component/wu-build-tools': 0.0.6
       autoprefixer: 10.4.12
       body-parser: 1.20.1
       chalk: 4.1.2
@@ -10626,8 +10626,8 @@ packages:
       weakmap-polyfill: 2.0.4
     dev: false
 
-  /@wu-component/wu-build-tools/0.0.5:
-    resolution: {integrity: sha512-UEiGhJsTccwoQjYPonT9FWH83UPdflFpVNA8Ht8qif824BIxCf0VrOeOqwd0wVk48Rf0lMr1WxhXzBIMeX1DhQ==}
+  /@wu-component/wu-build-tools/0.0.6:
+    resolution: {integrity: sha512-IpO2mA/eXtYxNp68BPWo/qkTfNs/NYNJWF+vBCidF4lBoh/sbYaIIoVp83QAOkyI167n5cxYUZaN8mawj4ujTg==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       cross-env: 7.0.3

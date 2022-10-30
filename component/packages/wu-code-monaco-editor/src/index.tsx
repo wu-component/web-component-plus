@@ -55,14 +55,12 @@ export class WuCodeMonacoEditor extends WuComponent implements OnConnected {
                 const file = new File([ u8arr ], `initialSrcTs.tsx`, {
                     type: "text/plain"
                 });
-                console.log(file);
                 const reader = new FileReader();
                 reader.onload = ()=> {
                     // 语句是为了显示内容换行
                     // @ts-ignore
                     /*const str = reader.result?.replace(/\n/g,"<br/>");
                     console.log(str);*/
-                    console.log(reader.result);
                     resolve(reader.result as string);
                 };
                 reader.readAsText(file,'utf-8');
