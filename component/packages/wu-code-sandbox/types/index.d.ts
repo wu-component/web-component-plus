@@ -16,6 +16,13 @@ export declare class WuMonacoEditorPreview extends WuComponent implements OnConn
      * @param code
      */
     runCode(type: string, code: string): void;
+    /**
+     * 沙箱加载依赖
+     * @param options
+     */
     loadDependencies(options: LoadDependencies): Promise<unknown>;
+    emitEvent(data: any): {
+        data: any;
+    };
     render(_renderProps?: {}, _store?: {}): any;
 }

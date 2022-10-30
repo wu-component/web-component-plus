@@ -1,8 +1,8 @@
-import { Component, h, OnConnected, Prop, WuComponent } from "@wu-component/web-core-plus";
+import { Component, Emit, h, OnConnected, Prop, WuComponent } from "@wu-component/web-core-plus";
 import css from './index.scss';
 import { PreviewProxy, LoadDependencies } from "./sandbox";
 import { Store } from "./Store";
-import srcdoc from './srcdoc.txt';
+import srcdoc from './srcdoc.html';
 
 @Component({
     name: 'wu-code-sandbox',
@@ -77,25 +77,35 @@ export class WuMonacoEditorPreview extends WuComponent implements OnConnected {
         // 示例话沙箱代理
         this.proxy = new PreviewProxy(this.container, {
             on_fetch_progress: (progress: any) => {
+                // this.emitEvent(progress);
                 // pending_imports = progress;
             },
             on_error: (event: any) => {
+                // this.emitEvent(event);
                 console.log("on_error", event);
             },
             on_unhandled_rejection: (event: any) => {
+                // this.emitEvent(event);
                 console.log("on_unhandled_rejection", event);
             },
             on_console: (log: any) => {
+                // this.emitEvent(log);
                 console.log("log", log);
             },
             on_console_group: (action: any) => {
+                // this.emitEvent(action);
                 // group_logs(action.label, false);
             },
-            on_console_group_end: () => {
+            on_console_group_end: (event: any) => {
+                // this.emitEvent(event);
                 // ungroup_logs();
             },
             on_console_group_collapsed: (action: any) => {
+                // this.emitEvent(event);
                 // group_logs(action.label, true);
+            },
+            on_default_event: (event: any) => {
+                this.emitEvent(event);
             }
         });
         // 沙箱实例完成
@@ -131,8 +141,20 @@ export class WuMonacoEditorPreview extends WuComponent implements OnConnected {
 
     }
 
+    /**
+     * 沙箱加载依赖
+     * @param options
+     */
     public loadDependencies(options: LoadDependencies) {
         return this.proxy.load_depend(options);
+    }
+
+    @Emit("message")
+    public emitEvent(data: any) {
+        return {
+            data: data || {}
+        };
+
     }
 
     public override render(_renderProps = {}, _store = {}) {
