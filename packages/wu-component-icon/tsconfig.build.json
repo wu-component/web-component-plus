@@ -1,0 +1,38 @@
+{
+    "compilerOptions": {
+        "alwaysStrict": true,
+        "allowSyntheticDefaultImports": true,
+        "allowUnreachableCode": false,
+        "declaration": true,
+        "experimentalDecorators": true,
+        "forceConsistentCasingInFileNames": true,
+        "jsx": "react",
+        "jsxFactory": "h",
+        "jsxFragmentFactory": "Fragment",
+        "lib": ["dom", "es2018", "esnext.array"],
+        "module": "esnext",
+        "moduleResolution": "node",
+        "noImplicitAny": false,
+        "noImplicitOverride": true,
+        "emitDecoratorMetadata": true,
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": false,
+        "outDir": "dist",
+        "pretty": true,
+        "resolveJsonModule": true,
+        "sourceMap": true,
+        "target": "ES5",
+        "useUnknownInCatchVariables": true,
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["./src/*"]
+        }
+    },
+    // 入口文件
+    "include": [
+        "**/*.ts", "**/*.tsx",
+        "./src/**/*.tsx",
+        "./css.d.ts"
+    ]
+}

@@ -40,7 +40,7 @@ export { Message, WuMessage } from '../../wu-message/src/index';
 export * from '../../wu-alert/src/index';
 export * from '../../wu-tooltip/src/index';
 export * from '../../wu-dialog/src/index';
-/*********************************布局组件*************************************/
+/*********************************布局组件**********************/
 export * from '../../wu-row/src/index';
 export * from '../../wu-col/src/index';
 export * from '../../wu-aside/src/index';
@@ -49,7 +49,7 @@ export * from '../../wu-main/src/index';
 export * from '../../wu-header/src/index';
 export * from '../../wu-footer/src/index';
 export * from '../../wu-transition/src/index';
-/*********************************复杂组件*************************************/
+/*********************************复杂组件**************************/
 export * from '../../wu-date-picker/src/index';
 export * from '../../wu-upload/src/index';
 export * from '../../wu-waline-comment/src/index';

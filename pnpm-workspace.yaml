@@ -4,3 +4,4 @@ packages:
   - 'packages/web-core-plus'
   - 'packages/wu-core-router'
   - 'packages/wu-build-tools'
+  - 'packages/wu-component-icon'
