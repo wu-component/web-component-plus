@@ -1,7 +1,7 @@
 import commonjs from '@rollup/plugin-commonjs';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import { babel } from '@rollup/plugin-babel';
-import typescript from '@rollup/plugin-typescript';
+import typescript from 'rollup-plugin-typescript2';
 import { terser } from 'rollup-plugin-terser';
 import css from 'rollup-plugin-import-css';
 import fs from 'fs';
@@ -29,13 +29,17 @@ const options = [
     {
         input: './src/packages/index.ts',
         output: {
-            dir: './umd',
+            dir: './dist',
             format: 'umd',
             name: 'index.mini.js',
         },
         plugins: [
             css(),
-            typescript(),
+            typescript({
+                compilerOptions: {
+                    "declaration": false,
+                }
+            }),
             commonjs(),
             nodeResolve({
                 extensions
@@ -58,10 +62,14 @@ const options = [
             chunkFileNames: '[name].js',
             format: 'es',
         },
-        // treeshake: false,
+        treeshake: false,
         plugins: [
             css(),
-            typescript(),
+            typescript({
+                compilerOptions: {
+                    "declaration": true,
+                }
+            }),
             commonjs(),
             nodeResolve({
                 extensions,
@@ -71,6 +79,28 @@ const options = [
             terser()
         ],
     },
+    /*{
+        input: './src/index.ts',
+        output: {
+            dir: './dist',
+            format: 'umd',
+            name: 'index.umd.js',
+        },
+        plugins: [
+            css(),
+            typescript(),
+            commonjs(),
+            nodeResolve({
+                extensions
+            }),
+            babel({
+                babelHelpers: 'runtime',
+                exclude: 'node_modules/!**',
+                extensions,
+            }),
+            terser(),
+        ],
+    },*/
 ];
 
 export default options;
