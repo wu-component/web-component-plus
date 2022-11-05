@@ -19,7 +19,7 @@ export class App extends WuComponent implements OnConnected {
         return (
             <div class="app-container">
                 <wu-plus-container style="width: 100%;height: 100%;    display: block;">
-                    <wu-plus-aside width="240px" style="height: 100%;display: block;background-color: rgb(84, 92, 100);">
+                    <wu-plus-aside width="280px" style="height: 100%;display: block;background-color: rgb(84, 92, 100)">
                         <app-nav-menu></app-nav-menu>
                     </wu-plus-aside>
                     <wu-plus-container style="width:100%">
