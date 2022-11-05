@@ -1,5 +1,5 @@
 {
-  "name": "admin",
+  "name": "template",
   "private": true,
   "version": "0.0.0",
   "scripts": {
@@ -7,9 +7,9 @@
     "build": "tsc && vite build"
   },
   "dependencies": {
-    "@wu-component/web-core-plus": "0.3.2",
-    "@wu-component/ui-plus": "1.5.0",
-    "@wu-component/wu-core-router": "0.0.3"
+    "@wu-component/web-core-plus": "latest",
+    "@wu-component/ui-plus": "latest",
+    "@wu-component/wu-core-router": "latest"
   },
   "devDependencies": {
     "@types/node": "^18.0.3",

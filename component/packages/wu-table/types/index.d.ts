@@ -1,4 +1,6 @@
 import { OnBeforeRender, OnConnected, WuComponent } from '@wu-component/web-core-plus';
+import '@wu-component/wu-checkbox';
+import '@wu-component/wu-input';
 export declare class WuTable extends WuComponent implements OnConnected, OnBeforeRender {
     constructor();
     editingInput: any;

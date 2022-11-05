@@ -1,4 +1,5 @@
 import { WuComponent } from '@wu-component/web-core-plus';
+import "@wu-component/wu-progress";
 export declare const documentIcon: () => any;
 export declare const closeIcon: () => any;
 export declare const circleIcon: () => any;

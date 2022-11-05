@@ -1,32 +1,21 @@
-import { OnConnected, OnBeforeUpdate, WuComponent } from '@wu-component/web-core-plus';
+import { OnConnected, OnBeforeRender, OnBeforeUpdate, WuComponent } from '@wu-component/web-core-plus';
 declare type UISize = 'medium' | 'small' | 'mini';
-export declare class WuCheckbox extends WuComponent implements OnConnected, OnBeforeUpdate {
-    isGroup: boolean;
-    props: any;
+export declare class WuCheckboxGroup extends WuComponent implements OnConnected, OnBeforeRender, OnBeforeUpdate {
     constructor();
-    groupRef: any;
-    beforeUpdate(): void;
-    get newDisabled(): any;
-    get newSize(): any;
-    get newValue(): any;
-    initProps(): void;
-    connected(shadowRoot: ShadowRoot): void;
-    focus: boolean;
+    slotRef: HTMLSlotElement;
+    groupRef(): this;
     size: UISize;
     disabled: boolean;
-    value: boolean;
-    label: string;
-    indeterminate: boolean;
-    checked: boolean;
-    border: boolean;
-    name: string;
-    id: string;
-    controls: string;
-    handleChange(ev: any): void;
+    value: string[];
+    beforeRender(): void;
     private change;
-    private checkChange;
-    onFocus(): void;
-    onBlur(): void;
+    /**
+     * 值修改
+     * @param vale
+     */
+    handleChange(vale: CustomEvent): void;
+    connected(shadowRoot: ShadowRoot): void;
+    beforeUpdate(): any;
     render(_renderProps?: {}, _store?: {}): any;
 }
 export {};

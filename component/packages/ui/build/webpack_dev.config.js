@@ -19,6 +19,10 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: "./public/index.html"
         }),
+        new webpack.ProvidePlugin({
+            identifier: ['webCorePlus'],
+            // ...
+        })
         /*...commonPlugins*/
 
     ],

@@ -28,7 +28,7 @@ class ConfigTemplete {
 
     public init(options: ConfigTempleteProps) {
         const { path, args } = options;
-        const { inputPath, outputPath, tsconfig } = path;
+        const { inputPath, outputPath, tsconfig, umdOutputPath } = path;
         this.config = [
             {
                 input: inputPath,
@@ -50,6 +50,47 @@ class ConfigTemplete {
                                 declaration: true
                             }
                         },
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                         // @ts-ignore
+                        extensions
+
+                    }),
+                    json(),
+                    replace({
+                        preventAssignment: true
+                    })
+                ],
+                output: [
+
+                    { file: `${outputPath}/index.cjs.js`, format: 'cjs' },
+                    { file: `${outputPath}/index.esm.js`, format: 'es' }
+                ],
+                external: [
+                    "@wu-component/web-core-plus",
+                    /^@wu-component\/wu-/g   // 忽略组件
+                ],
+            },
+            {
+                input: inputPath,
+                plugins: [
+                    terser(),
+                    url({
+                        include: ['**/*.svg', '**/*.txt', '**/*.html', '**/*.png', '**/*.jp(e)?g', '**/*.gif', '**/*.webp', '**/*.ttf', '**/*.woff', '**/*?raw']
+                    }),
+                    nodeResolve(),
+                    commonjs(),
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    postcss({ extensions: [ '.css', 'scss' ],plugins: [ autoprefixer() ], extract: false }),
+                    typescript({
+                        tsconfig: tsconfig, // 导入本地ts配置
+                        tsconfigDefaults: defaults,
+                        tsconfigOverride: {
+                            compilerOptions: {
+                                declaration: true
+                            }
+                        },
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                          // @ts-ignore
                         extensions
 
@@ -62,21 +103,21 @@ class ConfigTemplete {
                 output: [
                     {
                         name: args.name,
-                        file: `${outputPath}/index.umd.js`,
+                        file: `${umdOutputPath}/index.umd.js`,
                         format: 'umd',
                         globals: {
                             "@wu-component/web-core-plus": "webCorePlus"
                         }
-                    },
-                    { file: `${outputPath}/index.cjs.js`, format: 'cjs' },
-                    { file: `${outputPath}/index.esm.js`, format: 'es' }
+                    }
                 ],
                 external: [
-                    "@wu-component/web-core-plus"
+                    "@wu-component/web-core-plus",
+                    // @wu-component/wu-
                 ],
             }
         ]
     }
+
 }
 
 export { ConfigTemplete }

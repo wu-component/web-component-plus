@@ -3,9 +3,656 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        html {
+
+            color: #000;
+            overflow-y: scroll;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            overflow-x: hidden;
+        }
+
+        html * {
+            outline: none;
+            -webkit-text-size-adjust: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+        }
+
+        html,
+        body {
+            font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+            width: 100%;
+        }
+
+        body,
+        div,
+        dl,
+        dt,
+        dd,
+        ul,
+        ol,
+        li,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        pre,
+        code,
+        form,
+        fieldset,
+        legend,
+        input,
+        textarea,
+        p,
+        blockquote,
+        th,
+        td,
+        hr,
+        button,
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        section {
+            margin: 0;
+            padding: 0;
+        }
+
+        input,
+        select,
+        textarea {
+            font-size: 100%;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        fieldset,
+        img {
+            border: 0;
+        }
+
+        abbr,
+        acronym {
+            border: 0;
+            font-variant: normal;
+        }
+
+        del {
+            text-decoration: line-through;
+        }
+
+        address,
+        caption,
+        cite,
+        code,
+        dfn,
+        em,
+        th,
+        i,
+        var {
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        ol,
+        ul {
+            list-style: none;
+        }
+
+        caption,
+        th {
+            text-align: left;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-size: 100%;
+            font-weight: 500;
+        }
+
+        q:before,
+        q:after {
+            content: '';
+        }
+
+        sub,
+        sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline;
+        }
+
+        sup {
+            top: -0.5em;
+        }
+
+        sub {
+            bottom: -0.25em;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        ins,
+        a,
+        a:active,
+        a:visited,
+        a:link {
+            text-decoration: none;
+        }
+    </style>
+    <style>
+        wu-plus-header, wu-plus-footer {
+            background-color: #B3C0D1;
+            color: #333;
+            text-align: center;
+            line-height: 60px;
+        }
+
+        wu-plus-aside {
+            background-color: #D3DCE6;
+            color: #333;
+            text-align: center;
+            line-height: 200px;
+        }
+
+        wu-plus-main {
+            background-color: #E9EEF3;
+            color: #333;
+            text-align: center;
+            line-height: 160px;
+            width: 100%;
+        }
+
+        body > wu-plus-container {
+            margin-bottom: 40px;
+        }
+
+        wu-plus-container:nth-child(5) wu-plus-aside,
+        wu-plus-container:nth-child(6) wu-plus-aside {
+            line-height: 260px;
+        }
+
+        wu-plus-container:nth-child(7) wu-plus-aside {
+            line-height: 320px;
+        }
+        .line-height {
+            height: 8px;
+        }
+    </style>
 </head>
 <body>
 <div id="app">
+    <div >
+        <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+            <wu-plus-button size="mini" type="primary">primary</wu-plus-button>
+            <wu-plus-button size="mini" type="success">success</wu-plus-button>
+            <wu-plus-button size="mini" type="warning">warning</wu-plus-button>
+            <wu-plus-button size="mini" type="danger">danger</wu-plus-button>
+            <wu-plus-button size="mini" type="info">info</wu-plus-button>
+            <wu-plus-button size="mini" type="text">text</wu-plus-button>
+        </div>
+        <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+            <wu-plus-icon style="font-size: 24px" name="ice-cream-square"></wu-plus-icon>
+            <wu-plus-icon style="font-size: 24px" name="loading"></wu-plus-icon>
+            <wu-plus-icon style="font-size: 24px" name="star-off"></wu-plus-icon>
+            <wu-plus-icon style="font-size: 24px" name="user-solid"></wu-plus-icon>
+            <wu-plus-icon style="font-size: 24px" name="setting"></wu-plus-icon>
+            <wu-plus-icon style="font-size: 24px" name="warning-outline"></wu-plus-icon>
+        </div>
+        <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+            <wu-plus-radio label="男" value="medium" size="medium" name="medium" checked="true"></wu-plus-radio>
+            <wu-plus-radio label="女" value="small" size="small" name="small" checked="true"></wu-plus-radio>
+            <wu-plus-radio label="未知" value="mini" size="mini" name="mini" id="miniEvent1"></wu-plus-radio>
+        </div>
+        <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+            <wu-plus-input style="width: 280px" placeholder="请输入" clearable="true" type="input"></wu-plus-input>
+        </div>
+        <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+            <wu-plus-input style="width: 280px" disabled="true" clearable="true" type="textarea"></wu-plus-input>
+        </div>
+        <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+            <wu-plus-input style="width: 280px" disabled="false" clearable="true" maxLength="10" type="textarea"></wu-plus-input>
+        </div>
+        <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+            <wu-plus-input style="width: 280px" disabled="false" clearable="true" type="input" maxLength="10"></wu-plus-input>
+        </div>
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%">
+            <wu-plus-row>
+                <wu-plus-col span="12">
+                    <div style="height: 40px;background:red">12</div>
+                </wu-plus-col>
+                <wu-plus-col span="12">
+                    <div style="height: 40px;background:green">12</div>
+                </wu-plus-col>
+            </wu-plus-row>
+        </div>
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px">
+            <wu-plus-row>
+                <wu-plus-col span="4">
+                    <div style="height: 40px;background:red">4</div>
+                </wu-plus-col>
+                <wu-plus-col span="20">
+                    <div style="height: 40px;background:green">20</div>
+                </wu-plus-col>
+            </wu-plus-row>
+        </div>
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px">
+            <wu-plus-row>
+                <wu-plus-col span="20">
+                    <div style="height: 40px;background:red">4</div>
+                </wu-plus-col>
+                <wu-plus-col span="4">
+                    <div style="height: 40px;background:green">20</div>
+                </wu-plus-col>
+            </wu-plus-row>
+        </div>
+
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px">
+            <wu-plus-row>
+                <wu-plus-col span="20" style="background:red">
+                    <div style="height: 40px;background:red;display: flex;align-items: center">
+                        <span style="width: 48px">4</span>
+                        <wu-plus-button size="mini" type="primary">primary</wu-plus-button>
+                    </div>
+                </wu-plus-col>
+                <wu-plus-col span="4">
+                    <div style="height: 40px;background:green">20</div>
+                </wu-plus-col>
+            </wu-plus-row>
+        </div>
+
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px">
+            <wu-plus-row type="flex" justify="space-around">
+                <wu-plus-col span="10">
+                    <div style="height: 40px;background:red">10</div>
+                </wu-plus-col>
+                <wu-plus-col span="10">
+                    <div style="height: 40px;background:green">10</div>
+                </wu-plus-col>
+            </wu-plus-row>
+        </div>
+
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px">
+            <wu-plus-link>测试链接</wu-plus-link>
+            <wu-plus-link underline="true">测试链接</wu-plus-link>
+            <wu-plus-link type="danger">测试链接</wu-plus-link>
+            <wu-plus-link type="info">测试链接</wu-plus-link>
+            <wu-plus-link type="info" underline="true" href="https://www.baidu.com/" target="_blank">测试链接</wu-plus-link>
+            <wu-plus-link type="info" disabled="true" underline="true" href="www.baidu.com">测试链接</wu-plus-link>
+        </div>
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px">
+            <wu-plus-switch value="true" id="switchId"></wu-plus-switch>
+            <wu-plus-switch value="true" id="switchId1" active-color="yellow" inactive-color="red"></wu-plus-switch>
+            <wu-plus-switch value="false" disabled="true" id="switchId1"></wu-plus-switch>
+        </div>
+
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px">
+            <wu-plus-table id="table"></wu-plus-table>
+        </div>
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px; margin-bottom: 16px">
+            <!--            <wu-checkbox id="checkbox" checked="true" label="测试"></wu-checkbox>
+                        <wu-checkbox id="checkbox1" checked="true" disabled="true" label="测试"></wu-checkbox>-->
+        </div>
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px; margin-bottom: 16px">
+            <wu-plus-checkbox label="测试4" style="margin-right: 8px" indeterminate="true" checked="false" id="indeterminate"></wu-plus-checkbox>
+            <wu-plus-checkbox label="测试4" style="margin-right: 8px"></wu-plus-checkbox>
+            <wu-plus-checkbox-group value="['测试1']" id="checkoutBoxGroup">
+                <wu-plus-checkbox label="测试1" style="margin-right: 8px"></wu-plus-checkbox>
+                <wu-plus-checkbox label="测试2" style="margin-right: 8px"></wu-plus-checkbox>
+                <wu-plus-checkbox label="测试3"></wu-plus-checkbox>
+            </wu-plus-checkbox-group>
+            <wu-plus-button size="mini" type="primary" id="checkbox-button-id">primary</wu-plus-button>
+        </div>
+
+        <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+            <wu-plus-checkbox label="测试4" style="margin-right: 8px" indeterminate="true" id="indeterminate2"></wu-plus-checkbox>
+            <wu-plus-checkbox-group value="['测试1']" id="checkoutBoxGroup2">
+                <wu-plus-checkbox label="测试1" style="margin-right: 8px"></wu-plus-checkbox>
+                <wu-plus-checkbox label="测试2" style="margin-right: 8px"></wu-plus-checkbox>
+                <wu-plus-checkbox label="测试3"></wu-plus-checkbox>
+            </wu-plus-checkbox-group>
+        </div>
+
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px; margin-bottom: 16px">
+            <wu-plus-tag type="primary" effect="light" id="tag-id1">标签一</wu-plus-tag>
+            <wu-plus-tag type="primary" effect="dark" id="tag-id3">标签一</wu-plus-tag>
+            <wu-plus-tag type="primary" closable="true" effect="light" id="tag-id2">标签一</wu-plus-tag>
+        </div>
+
+        <div style="display: flex; align-items: center; flex-direction: column; width: 100%; margin-top: 8px; margin-bottom: 16px">
+            <wu-plus-progress style="width: 350px" percentage="70"></wu-plus-progress>
+            <span style="height:8px"></span>
+            <wu-plus-progress style="width: 350px" text-inside="true" stroke-width="26" percentage="70"></wu-plus-progress>
+            <span style="height:8px"></span>
+            <wu-plus-progress style="width: 350px" text-inside="true" stroke-width="26" percentage="40" color="red"></wu-plus-progress>
+            <span style="height:8px"></span>
+            <wu-plus-progress style="width: 350px" text-inside="false" status="success" text-inside="false" show-text="false" stroke-width="26" percentage="90" color="yellow"></wu-plus-progress>
+            <span style="height:8px"></span>
+            <wu-plus-progress style="width: 350px" type="circle" id="progressCircleId1" percentage="25"></wu-plus-progress>
+            <span style="height:8px"></span>
+            <div style="display: flex;flex-direction: row;">
+                <wu-plus-button size="mini" type="primary" id="progressButton1">+</wu-plus-button>
+                <wu-plus-button size="mini" type="success" id="progressButton2" style="margin-left: 16px;">-</wu-plus-button>
+            </div>
+
+            <span style="height:8px"></span>
+            <wu-plus-progress style="width: 350px" type="dashboard" id="progressCircleId19" percentage="25"></wu-plus-progress>
+
+        </div>
+
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px; margin-bottom: 16px">
+            <!--            <wu-plus-provide>
+                            <wu-plus-inject></wu-plus-inject>
+                        </wu-plus-provide>-->
+        </div>
+
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px; margin-bottom: 16px">
+            <wu-plus-breadcrumb>
+                <wu-plus-breadcrumb-item to="/hom">活动管理</wu-plus-breadcrumb-item>
+                <wu-plus-breadcrumb-item>活动列表</wu-plus-breadcrumb-item>
+                <wu-plus-breadcrumb-item>活动详情</wu-plus-breadcrumb-item>
+            </wu-plus-breadcrumb>
+        </div>
+
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px; margin-bottom: 16px">
+            <wu-plus-page-header id="backHeader">
+                <span slot="header">sssss</span>
+                <span slot="content">sssss</span>
+            </wu-plus-page-header>
+        </div>
+
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px; margin-bottom: 16px">
+            <wu-plus-rate id="rateTest"></wu-plus-rate>
+            <wu-plus-rate id="rateTest3" colors="['blue', 'blue', 'blue', 'blue','blue']"></wu-plus-rate>
+            <wu-plus-rate id="rateTest1" show-text="true"></wu-plus-rate>
+            <wu-plus-rate id="rateTest2" show-text="false" show-score="true"></wu-plus-rate>
+        </div>
+
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px; margin-bottom: 16px">
+            <wu-plus-table
+                checkbox="true"
+                stripe="false"
+                border="true"
+                compact="false"
+                width="500px"
+                height="200px"
+                data='[{"id":1,"name":"xwang","age":18,"address":"Tencent"}]'
+                columns='[{"title":"ID","key":"id","width":"80px", "align": "center"},{"title":"Name", "align": "center", "key":"name","width":"120px"},{"title":"age","key":"age","width":"120px"},{"title":"address","key":"address","width":"120px"}]'
+            ></wu-plus-table>
+
+        </div>
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px; margin-bottom: 16px">
+            <wu-plus-table
+                id="tableRef2"
+                checkbox="true"
+                stripe="false"
+                border="true"
+                compact="false"
+                width="100%"
+                height="300px"
+                columns='[{"width":"20px", "align": "center", "type": "selection"},{"title":"ID","key":"id","width":"80px", "align": "center"},{"title":"Name", "align": "center", "key":"name","width":"120px"},{"title":"age","key":"age","width":"120px"},{"title":"address","key":"address","width":"120px"}]'
+            ></wu-plus-table>
+            <!--            <wu-plus-example name="ceshiddfdfgf" id="dffsdfgdfgdfhdfh" />-->
+        </div>
+        <div style="display: flex;flex-direction: row">
+            <wu-plus-timeline>
+                <wu-plus-timeline-item timestamp="2018-04-15">
+                    活动按期开始
+                </wu-plus-timeline-item>
+                <wu-plus-timeline-item timestamp="2018-04-13">
+                    通过审核
+                </wu-plus-timeline-item>
+                <wu-plus-timeline-item timestamp="2018-04-12">
+                    创建成功
+                </wu-plus-timeline-item>
+            </wu-plus-timeline>
+            <wu-plus-timeline>
+                <wu-plus-timeline-item timestamp="2018-04-15" type="primary">
+                    活动按期开始
+                </wu-plus-timeline-item>
+                <wu-plus-timeline-item timestamp="2018-04-13" type="success">
+                    通过审核
+                </wu-plus-timeline-item>
+                <wu-plus-timeline-item timestamp="2018-04-12" type="warning">
+                    创建成功
+                </wu-plus-timeline-item>
+                <wu-plus-timeline-item timestamp="2018-04-12" type="danger">
+                    创建成功1
+                </wu-plus-timeline-item>
+                <wu-plus-timeline-item timestamp="2018-04-12" type="info">
+                    创建成功2
+                </wu-plus-timeline-item>
+            </wu-plus-timeline>
+            <wu-plus-timeline>
+                <wu-plus-timeline-item timestamp="2018-04-15" color="blue">
+                    活动按期开始
+                </wu-plus-timeline-item>
+                <wu-plus-timeline-item timestamp="2018-04-13" color="green">
+                    通过审核
+                </wu-plus-timeline-item>
+            </wu-plus-timeline>
+        </div>
+        <div>
+            <!--            <wu-plus-message message="ceshicdvjkfdbjnv" show-close="true" />-->
+        </div>
+        <div style="display: flex;flex-direction: row; height: 100px; justify-content: center; margin-bottom: 16px; margin-left: 16px">
+            <wu-plus-popover style="width: 160px">
+                <div style="text-align: center">點擊頂底部</div>
+                <div slot="popover" tip="popover">
+                    <ul style="text-align: center">
+                        <li>abc</li>
+                        <li>efg</li>
+                    </ul>
+                </div>
+            </wu-plus-popover>
+            <wu-plus-popover style="width: 160px" position="top">
+                <wu-plus-button size="mini" type="primary">primary</wu-plus-button>
+                <div slot="popover" tip="popover">
+                    <ul style="text-align: center">
+                        <li>abc</li>
+                        <li>efg</li>
+                    </ul>
+                </div>
+            </wu-plus-popover>
+            <wu-plus-popover style="width: 160px" trigger="hover">
+                <div style="text-align: center">提示信息</div>
+                <div slot="popover" tip="popover">
+                    <ul style="text-align: center">
+                        <li>abc</li>
+                        <li>efg</li>
+                    </ul>
+                </div>
+            </wu-plus-popover>
+            <wu-plus-popover style="width: 160px" trigger="hover" effect="dark">
+                <div style="text-align: center">提示信息</div>
+                <div slot="popover" tip="popover">
+                    <ul style="text-align: center">
+                        <li>abc</li>
+                        <li>efg</li>
+                    </ul>
+                </div>
+            </wu-plus-popover>
+        </div>
+        <div>
+            <div style="margin-left: 32px; height: 160px">
+                <wu-plus-select id="select1" filterable="true" style="margin-top: 16px">
+                    <wu-plus-select-option label="item-item1" value="1"></wu-plus-select-option>
+                    <wu-plus-select-option label="item-item2" value="2"></wu-plus-select-option>
+                    <wu-plus-select-option label="item-item3" value="3"></wu-plus-select-option>
+                </wu-plus-select>
+                <wu-plus-select id="select2" filterable="true" disabled="true">
+                    <wu-plus-select-option label="item-item1" value="1"></wu-plus-select-option>
+                    <wu-plus-select-option label="item-item2" value="2"></wu-plus-select-option>
+                    <wu-plus-select-option label="item-item3" value="3"></wu-plus-select-option>
+                </wu-plus-select>
+                <wu-plus-select id="select7" filterable="true" style="margin-top: 16px" value="1">
+                    <wu-plus-select-option label="item-item1" value="1"></wu-plus-select-option>
+                    <wu-plus-select-option label="item-item2" value="2"></wu-plus-select-option>
+                    <wu-plus-select-option label="item-item3" value="3"></wu-plus-select-option>
+                </wu-plus-select>
+                <wu-plus-select multiple="true" id="select8" filterable="true" style="margin-top: 16px">
+                    <wu-plus-select-option label="item-item1" value="1"></wu-plus-select-option>
+                    <wu-plus-select-option label="item-item2" value="2"></wu-plus-select-option>
+                    <wu-plus-select-option label="item-item3" value="3"></wu-plus-select-option>
+                </wu-plus-select>
+                <wu-plus-select id="select12" style="margin-top: 16px">
+                    <wu-plus-select-option label="item-item1" value="1"></wu-plus-select-option>
+                    <wu-plus-select-option label="item-item2" value="2"></wu-plus-select-option>
+                    <wu-plus-select-option label="item-item3" value="3"></wu-plus-select-option>
+                </wu-plus-select>
+                <wu-plus-select multiple="true" id="select45" style="margin-top: 16px">
+                    <wu-plus-select-option label="item-item1" value="1"></wu-plus-select-option>
+                    <wu-plus-select-option label="item-item2" value="2"></wu-plus-select-option>
+                    <wu-plus-select-option label="item-item3" value="3"></wu-plus-select-option>
+                </wu-plus-select>
+                <wu-plus-select multiple="true" id="select56" collapseTags="true" style="margin-top: 16px" clearable="true" value="[1, 2]">
+                    <wu-plus-select-option label="item-item1" value="1"></wu-plus-select-option>
+                    <wu-plus-select-option label="item-item2" value="2"></wu-plus-select-option>
+                    <wu-plus-select-option label="item-item3" value="3"></wu-plus-select-option>
+                </wu-plus-select>
+            </div>
+        </div>
+
+        <div style="display: flex;flex-direction: row; height: 100px; justify-content: center; margin-bottom: 16px; margin-left: 16px">
+            <wu-plus-avatar size="48" fit="fill">
+                <img src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"/>
+            </wu-plus-avatar>
+
+            <wu-plus-avatar size="48" fit="fill" src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg">
+            </wu-plus-avatar>
+
+            <wu-plus-avatar size="48" id="avatar" fit="fill" src="https://empty">
+            </wu-plus-avatar>
+        </div>
+        <div style="height: 80px">
+            <wu-plus-badge value="200" max="99" type="waring">
+                <wu-plus-button size="mini" type="waring">primary</wu-plus-button>
+            </wu-plus-badge>
+        </div>
+
+        <div>
+            <wu-plus-empty description="描述文字"></wu-plus-empty>
+
+            <wu-plus-empty image="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"></wu-plus-empty>
+
+            <wu-plus-empty image-size="200"></wu-plus-empty>
+
+            <wu-plus-empty>
+                <wu-plus-button size="mini" type="waring">primary</wu-plus-button>
+            </wu-plus-empty>
+
+            <wu-plus-card class="box-card">
+                <div slot="header" class="clearfix">
+                    <span>卡片名称</span>
+                    <wu-plus-button style="float: right; padding: 3px 0" type="text">操作按钮</wu-plus-button>
+                </div>
+                <div class="text item">'列表内容 ' + o</div>
+                <div class="text item">'列表内容 ' + o</div>
+                <div class="text item">'列表内容 ' + o</div>
+                <div class="text item">'列表内容 ' + o</div>
+            </wu-plus-card>
+
+            <wu-plus-card class="box-card" header-show="false">
+                <div class="text item">'列表内容 ' + o</div>
+                <div class="text item">'列表内容 ' + o</div>
+                <div class="text item">'列表内容 ' + o</div>
+                <div class="text item">'列表内容 ' + o</div>
+            </wu-plus-card>
+        </div>
+
+
+    </div>
+    <wu-plus-container>
+        <wu-plus-header>Header</wu-plus-header>
+        <wu-plus-main>Main</wu-plus-main>
+    </wu-plus-container>
+
+    <wu-plus-container>
+        <wu-plus-header>Header</wu-plus-header>
+        <wu-plus-main>Main</wu-plus-main>
+        <wu-plus-footer>Footer</wu-plus-footer>
+    </wu-plus-container>
+
+    <wu-plus-container>
+        <wu-plus-aside width="200px">Aside</wu-plus-aside>
+        <wu-plus-main>Main</wu-plus-main>
+    </wu-plus-container>
+
+
+
+
+    <wu-plus-container>
+        <wu-plus-header>Header</wu-plus-header>
+        <wu-plus-container>
+            <wu-plus-aside width="200px">Aside</wu-plus-aside>
+            <wu-plus-main>Main</wu-plus-main>
+        </wu-plus-container>
+    </wu-plus-container>
+
+    <wu-plus-container>
+        <wu-plus-header>Header</wu-plus-header>
+        <wu-plus-container >
+            <wu-plus-aside width="200px">Aside</wu-plus-aside>
+            <wu-plus-container style="width:100%">
+                <wu-plus-main>Main</wu-plus-main>
+                <wu-plus-footer>Footer</wu-plus-footer>
+            </wu-plus-container>
+        </wu-plus-container>
+    </wu-plus-container>
+
+    <wu-plus-container>
+        <wu-plus-aside width="200px">Aside</wu-plus-aside>
+        <wu-plus-container style="width:100%">
+            <wu-plus-header>Header</wu-plus-header>
+            <wu-plus-main>Main</wu-plus-main>
+        </wu-plus-container>
+    </wu-plus-container>
+
+    <wu-plus-container>
+        <wu-plus-aside width="200px">Aside</wu-plus-aside>
+        <wu-plus-container style="width:100%">
+            <wu-plus-header>Header</wu-plus-header>
+            <wu-plus-main>Main</wu-plus-main>
+            <wu-plus-footer>Footer</wu-plus-footer>
+        </wu-plus-container>
+    </wu-plus-container>
+
+    <wu-plus-popconfirm
+        confirm-button-text='好的'
+        cancel-button-text='不用了'
+        content="这是一段内容确定删除吗？"
+    >
+        <wu-plus-button slot="reference">删除</wu-plus-button>
+    </wu-plus-popconfirm>
+
+    <wu-plus-popconfirm
+        confirm-button-text='好的'
+        cancel-button-text='不用了'
+        content="这是一段内容确定删除吗？"
+    >
+        <wu-plus-icon style="font-size: 12px;margin-right:8px" name="setting" slot="icon"></wu-plus-icon>
+        <wu-plus-button slot="reference" type="warning">删除</wu-plus-button>
+    </wu-plus-popconfirm>
+    <p></p>
     <div style="width: 400px; display: flex; justify-content: center; flex-direction: column; margin: 0 auto">
         <h4>普通用法</h4>
         <wu-plus-alert tip="成功提示的文案" type="success" effect="dark"></wu-plus-alert>
@@ -47,6 +694,648 @@
         ></wu-plus-alert>
         <p class="line-height"></p>
     </div>
+
+    <div style="margin: 32px">
+        <wu-plus-tooltip content="提示文字 top" effect="dark" position="top">
+            <wu-plus-button size="mini" type="primary">上边</wu-plus-button>
+        </wu-plus-tooltip>
+
+        <wu-plus-tooltip content="提示文字 top-start" effect="dark" position="top-start">
+            <wu-plus-button size="mini" type="primary">左上</wu-plus-button>
+        </wu-plus-tooltip>
+
+        <wu-plus-tooltip content="提示文字 top-end" effect="dark" position="top-end">
+            <wu-plus-button size="mini" type="primary">右上</wu-plus-button>
+        </wu-plus-tooltip>
+    </div>
+
+    <div style="margin: 32px">
+
+        <wu-plus-tooltip content="提示文字 left-start" effect="dark" position="left-start">
+            <wu-plus-button size="mini" type="primary">左上</wu-plus-button>
+        </wu-plus-tooltip>
+
+        <wu-plus-tooltip content="提示文字 left" effect="dark" position="left">
+            <wu-plus-button size="mini" type="primary">左边</wu-plus-button>
+        </wu-plus-tooltip>
+
+        <wu-plus-tooltip content="提示文字 left-end" effect="dark" position="left-end">
+            <wu-plus-button size="mini" type="primary">左下</wu-plus-button>
+        </wu-plus-tooltip>
+    </div>
+
+    <div style="margin: 32px">
+
+        <wu-plus-tooltip content="提示文字 right-start" effect="dark" position="right-start">
+            <wu-plus-button size="mini" type="primary">右上</wu-plus-button>
+        </wu-plus-tooltip>
+
+        <wu-plus-tooltip content="提示文字 right" effect="dark" position="right">
+            <wu-plus-button size="mini" type="primary">右边</wu-plus-button>
+        </wu-plus-tooltip>
+
+        <wu-plus-tooltip content="提示文字 right-end" effect="dark" position="right-end">
+            <wu-plus-button size="mini" type="primary">右下</wu-plus-button>
+        </wu-plus-tooltip>
+    </div>
+
+    <div style="margin: 32px">
+        <wu-plus-tooltip content="提示文字 bottom-start" effect="dark" position="bottom-start">
+            <wu-plus-button size="mini" type="primary">左下</wu-plus-button>
+        </wu-plus-tooltip>
+
+        <wu-plus-tooltip content="提示文字 bottom" effect="dark" position="bottom">
+            <wu-plus-button size="mini" type="primary">下边</wu-plus-button>
+        </wu-plus-tooltip>
+
+
+        <wu-plus-tooltip content="提示文字 bottom-end" effect="dark" position="bottom-end">
+            <wu-plus-button size="mini" type="primary">右下</wu-plus-button>
+        </wu-plus-tooltip>
+    </div>
+
+
+    <wu-plus-pagination total='25' current-page='0' page-size='5'></wu-plus-pagination>
+    <p></p>
+    <wu-plus-pagination total='25' current-page='1' page-size='5'></wu-plus-pagination>
+    <p></p>
+    <wu-plus-pagination total='2003' current-page='1' page-size='5' id="testPagination"></wu-plus-pagination>
+
+    <!--    <h2>Transition</h2>
+        <wu-plus-transition name="fade">
+            <div>Hello Transition</div>
+        </wu-plus-transition>
+
+        <button id="transitionButton">Toggle</button>-->
+
+    <wu-plus-dialog visible="false" title="提示" id="dialogTest1">
+        <span>你还，omiu dialog</span>
+        <span slot="footer">
+            <wu-plus-button size="mini">取 消</wu-plus-button>
+            <wu-plus-button size="mini" type="primary">确 定</wu-plus-button>
+        </span>
+    </wu-plus-dialog>
+
+    <wu-plus-button id="dialogButtonControl">打开弹框</wu-plus-button>
+
+    <div style="padding: 16px">
+        <p style="height: 8px"></p>
+        <wu-plus-image style="width: 100px; height: 100px" src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" fit="fill"></wu-plus-image>
+        <wu-plus-image style="width: 100px; height: 100px" src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" fit="contain"></wu-plus-image>
+        <wu-plus-image style="width: 100px; height: 100px" src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" fit="cover"></wu-plus-image>
+        <wu-plus-image style="width: 100px; height: 100px" src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" fit="none"></wu-plus-image>
+        <wu-plus-image style="width: 100px; height: 100px" src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" fit="scale-down"></wu-plus-image>
+
+        <!--  错误信息      -->
+        <p style="height: 8px"></p>
+        <wu-plus-image style="width: 300px; height: 200px"></wu-plus-image>
+        <wu-plus-image style="width: 300px; height: 200px">
+            <div slot="error" class="image-slot-error" style="display: flex;justify-content: center;align-items: center; width: 100%;height: 100%;background: #f5f7fa;color: #909399;">
+                <wu-plus-icon name="picture-outline" style="font-size: 24px"></wu-plus-icon>
+            </div>
+        </wu-plus-image>
+
+        <!--    加载中    -->
+        <p style="height: 8px"></p>
+
+        <wu-plus-image style="width: 300px; height: 200px" src="https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg" ></wu-plus-image>
+        <wu-plus-image preview-src-list="['https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg']" style="width: 300px; height: 200px" src="https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg">
+            <div slot="placeholder" class="image-slot" style="display: flex;justify-content: center;align-items: center; width: 100%;height: 100%;background: #f5f7fa;color: #909399;">
+                加载中<span class="dot">...</span>
+            </div>
+        </wu-plus-image>
+    </div>
+
+    <wu-plus-collapse value="['1', '2']" id="testCollapse">
+        <wu-plus-collapse-item tip="一致性 Consistency" name="1">
+            <div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>
+            <div>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
+        </wu-plus-collapse-item>
+
+        <wu-plus-collapse-item tip="反馈 Feedback" name="2">
+            <div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>
+            <div>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
+        </wu-plus-collapse-item>
+    </wu-plus-collapse>
+
+    <p style="height: 32px"></p>
+
+    <wu-plus-collapse accordion="true" value="['1', '2']" id="testCollapse">
+        <wu-plus-collapse-item tip="一致性 Consistency" name="1">
+            <div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>
+            <div>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
+        </wu-plus-collapse-item>
+
+        <wu-plus-collapse-item tip="反馈 Feedback" name="2">
+            <div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>
+            <div>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
+        </wu-plus-collapse-item>
+    </wu-plus-collapse>
+
+    <div style="height: 100px;display: flex;flex-direction: column; align-items: center;justify-content: space-around">
+        <wu-plus-cascader id="testCascader1"></wu-plus-cascader>
+        <wu-plus-cascader id="testCascader2"></wu-plus-cascader>
+    </div>
+
+
+
+    <div style="height: 100px">
+
+    </div>
+
 </div>
+<div id="hoc" style="margin: 32px">
+    <h2>天选择器</h2>
+    <wu-plus-date-picker id="timePicker"></wu-plus-date-picker>
+    <h2>周选择器</h2>
+    <wu-plus-date-picker id="timePickerWeek" type="week"></wu-plus-date-picker>
+    <h2>周数选择器</h2>
+    <wu-plus-date-picker id="timePickerWeekNum" type="weeknum"></wu-plus-date-picker>
+    <h2>月选择器</h2>
+    <wu-plus-date-picker id="timePickerMonth" type="month"></wu-plus-date-picker>
+    <h2>年选择器</h2>
+    <wu-plus-date-picker id="timePickerYear" type="year"></wu-plus-date-picker>
+
+    <h2>天时间刻选择器</h2>
+    <wu-plus-date-picker id="timePickerDatetime" type="datetime"></wu-plus-date-picker>
+
+    <h2>天时间段选择器</h2>
+    <wu-plus-date-picker type="daterange" default="['2022-06-11', '2022-06-16']" id="timePickerDaterange"></wu-plus-date-picker>
+
+    <h2>月时间段选择器</h2>
+    <wu-plus-date-picker type="monthrange" default="['2022-03-11', '2022-06-16']" id="timePickerManthrange"></wu-plus-date-picker>
+
+    <h2>年时间段选择器</h2>
+    <wu-plus-date-picker type="yearrange" default="['2020-06-11', '2022-06-16']" id="timePickeryearrange"></wu-plus-date-picker>
+
+    <h2>禁用</h2>
+    <wu-plus-date-picker id="timePicker" disabled="true"></wu-plus-date-picker>
+</div>
+
 </body>
+<script type="module">
+    const options = [{
+        value: 'zhinan',
+        label: '指南',
+        children: [{
+            value: 'shejiyuanze',
+            label: '设计原则',
+            children: [{
+                value: 'yizhi',
+                label: '一致'
+            }, {
+                value: 'fankui',
+                label: '反馈'
+            }, {
+                value: 'xiaolv',
+                label: '效率'
+            }, {
+                value: 'kekong',
+                label: '可控'
+            }]
+        }, {
+            value: 'daohang',
+            label: '导航',
+            children: [{
+                value: 'cexiangdaohang',
+                label: '侧向导航'
+            }, {
+                value: 'dingbudaohang',
+                label: '顶部导航'
+            }]
+        }]
+    }, {
+        value: 'zujian',
+        label: '组件',
+        children: [{
+            value: 'basic',
+            label: 'Basic',
+            children: [{
+                value: 'layout',
+                label: 'Layout 布局'
+            }, {
+                value: 'color',
+                label: 'Color 色彩'
+            }, {
+                value: 'typography',
+                label: 'Typography 字体'
+            }, {
+                value: 'icon',
+                label: 'Icon 图标'
+            }, {
+                value: 'button',
+                label: 'Button 按钮'
+            }]
+        }, {
+            value: 'form',
+            label: 'Form',
+            children: [{
+                value: 'radio',
+                label: 'Radio 单选框'
+            }, {
+                value: 'checkbox',
+                label: 'Checkbox 多选框'
+            }, {
+                value: 'input',
+                label: 'Input 输入框'
+            }, {
+                value: 'input-number',
+                label: 'InputNumber 计数器'
+            }, {
+                value: 'select',
+                label: 'Select 选择器'
+            }, {
+                value: 'cascader',
+                label: 'Cascader 级联选择器'
+            }, {
+                value: 'switch',
+                label: 'Switch 开关'
+            }, {
+                value: 'slider',
+                label: 'Slider 滑块'
+            }, {
+                value: 'time-picker',
+                label: 'TimePicker 时间选择器'
+            }, {
+                value: 'date-picker',
+                label: 'DatePicker 日期选择器'
+            }, {
+                value: 'datetime-picker',
+                label: 'DateTimePicker 日期时间选择器'
+            }, {
+                value: 'upload',
+                label: 'Upload 上传'
+            }, {
+                value: 'rate',
+                label: 'Rate 评分'
+            }, {
+                value: 'form',
+                label: 'Form 表单'
+            }]
+        }, {
+            value: 'data',
+            label: 'Data',
+            children: [{
+                value: 'table',
+                label: 'Table 表格'
+            }, {
+                value: 'tag',
+                label: 'Tag 标签'
+            }, {
+                value: 'progress',
+                label: 'Progress 进度条'
+            }, {
+                value: 'tree',
+                label: 'Tree 树形控件'
+            }, {
+                value: 'pagination',
+                label: 'Pagination 分页'
+            }, {
+                value: 'badge',
+                label: 'Badge 标记'
+            }]
+        }, {
+            value: 'notice',
+            label: 'Notice',
+            children: [{
+                value: 'alert',
+                label: 'Alert 警告'
+            }, {
+                value: 'loading',
+                label: 'Loading 加载'
+            }, {
+                value: 'message',
+                label: 'Message 消息提示'
+            }, {
+                value: 'message-box',
+                label: 'MessageBox 弹框'
+            }, {
+                value: 'notification',
+                label: 'Notification 通知'
+            }]
+        }, {
+            value: 'navigation',
+            label: 'Navigation',
+            children: [{
+                value: 'menu',
+                label: 'NavMenu 导航菜单'
+            }, {
+                value: 'tabs',
+                label: 'Tabs 标签页'
+            }, {
+                value: 'breadcrumb',
+                label: 'Breadcrumb 面包屑'
+            }, {
+                value: 'dropdown',
+                label: 'Dropdown 下拉菜单'
+            }, {
+                value: 'steps',
+                label: 'Steps 步骤条'
+            }]
+        },
+            {
+                value: 'others',
+                label: 'Others',
+                children: [{
+                    value: 'dialog',
+                    label: 'Dialog 对话框'
+                }, {
+                    value: 'tooltip',
+                    label: 'Tooltip 文字提示'
+                }, {
+                    value: 'popover',
+                    label: 'Popover 弹出框'
+                }, {
+                    value: 'card',
+                    label: 'Card 卡片'
+                }, {
+                    value: 'carousel',
+                    label: 'Carousel 走马灯'
+                }, {
+                    value: 'collapse',
+                    label: 'Collapse 折叠面板'
+                }]
+            }]
+    },
+        {
+            value: 'ziyuan',
+            label: '资源',
+            children: [{
+                value: 'axure',
+                label: 'Axure Components'
+            }, {
+                value: 'sketch',
+                label: 'Sketch Templates'
+            }, {
+                value: 'jiaohu',
+                label: '组件交互文档'
+            }]
+        }
+    ]
+    /*document.getElementById("transitionButton").addEventListener('click', () => {
+        console.log('33333')
+    })*/
+    const dialogButtonControl = document.getElementById('dialogButtonControl');
+    const testPagination = document.getElementById("testPagination");
+
+    testPagination.addEventListener("change", (e) => {
+        console.log(e)
+    })
+    dialogButtonControl.addEventListener('click', () => {
+        const dom = document.getElementById("dialogTest1");
+        dom.visible = true;
+    })
+    window.onload = function () {
+        /*WebUIPlus.Message.setOption({
+            message: "测试消息1",
+        })*/
+        /*WebUIPlus.Message.setOption({
+            message: "测试消息2",
+            duration: 100000,
+            showClose: true,
+        })*/
+        /*message.setOption({
+            message: "测试消息"
+        })*/
+        /*WebUIPlus.Message.setOption({
+            message: "测试消息3",
+            type:"success"
+        })
+        WebUIPlus.Message.setOption({
+            message: "测试消息4",
+            type:"error"
+        })*/
+    }
+    const select1 = document.getElementById("select1")
+    const avatar = document.getElementById("avatar")
+    const select2 = document.getElementById("select2")
+    select1.addEventListener("change", (item) => {
+        console.log(item.detail)
+    })
+    select2.addEventListener("change", (item) => {
+        console.log(item.detail)
+    })
+    avatar.addEventListener("error", (e) => {
+        console.log(e);
+    })
+
+
+    // 代码有些啰嗦，简单实现关联多选框选择
+    const indeterminate = document.getElementById("indeterminate2");
+    const checkoutBoxGroup2 = document.getElementById("checkoutBoxGroup2");
+
+
+    // 级联选择器
+    const testCascader1 = document.getElementById("testCascader1");
+    const testCascader2 = document.getElementById("testCascader2");
+
+    testCascader1.addEventListener('item-click', (e) => {
+        console.log(e);
+    })
+    testCascader1.setAttribute('options', options);
+    testCascader2.setAttribute('options', options);
+    indeterminate.addEventListener('change', (e) => {
+        console.log(e.detail);
+        if (e.detail.value) {
+            checkoutBoxGroup2.setAttribute("value", ['测试1', '测试2', '测试3'])
+            indeterminate.setAttribute("indeterminate", "")
+            indeterminate.setAttribute("checked", true)
+        } else {
+            indeterminate.setAttribute("indeterminate", "")
+            checkoutBoxGroup2.setAttribute("value", [])
+            indeterminate.setAttribute("checked", false)
+        }
+    })
+    checkoutBoxGroup2.addEventListener("change", (e) => {
+        const value = checkoutBoxGroup2.getAttribute("value");
+        if (value.length === 0) {
+            indeterminate.setAttribute("indeterminate", false)
+            indeterminate.setAttribute("checked", false);
+            return
+        }
+        if (value.length < 3) {
+            indeterminate.setAttribute("indeterminate", true)
+            return;
+        }
+        if (value.length === 3) {
+            indeterminate.setAttribute("indeterminate", false)
+            indeterminate.setAttribute("checked", true)
+        }
+
+    })
+
+    /*const testDom = document.getElementById('testDom2');
+    console.log(testDom);
+    let indexNum = 0;
+    let indexNum1 = 0;
+    function testTap(e) {
+        console.log('第一個組件', e);
+        const types = ['primary', 'success', 'warning', 'danger', 'info']
+        indexNum ++
+        if (indexNum >= 4) {
+            indexNum = 0;
+        }
+        const setArrValue = types[indexNum];
+        testDom.setAttribute('type', setArrValue);
+    }
+    testDom.addEventListener('click', testTap);*/
+    /*const testDom = document.getElementById('testDom2');
+    const testDom3 = document.getElementById('testDom3');
+    const disDom = document.getElementById('dis');
+    console.log(testDom)
+    console.log(disDom)
+    let indexNum = 0;
+    let indexNum1 = 0;
+    function testTap(e) {
+        console.log('第一個組件', e);
+        const types = ['primary', 'success', 'warning', 'danger', 'info']
+        indexNum ++
+        if (indexNum >= 4) {
+            indexNum = 0;
+        }
+        const setArrValue = types[indexNum];
+        testDom.setAttribute('type', setArrValue);
+    }
+    function testTap3(e) {
+        console.log('第二個組件', e);
+        const types = ['primary', 'danger']
+        indexNum1 ++
+        if (indexNum1 > 1) {
+            indexNum1 = 0;
+        }
+        const setArrValue = types[indexNum1];
+        console.log(setArrValue);
+        testDom3.setAttribute('type', setArrValue);
+    }
+    function dis() {
+        console.log('卸载')
+        testDom.remove();
+    }
+    testDom.addEventListener('valueChange', testTap);
+    testDom3.addEventListener('valueChange', testTap3);
+    disDom.addEventListener('click', dis);*/
+    /*setTimeout(() => {
+
+        testDom.setAttribute('type', 'success')
+    }, 3000)*/
+
+    const switchId = document.getElementById('switchId');
+    const checkoutBoxGroup = document.getElementById('checkoutBoxGroup');
+    const checkboxButtonId = document.getElementById('checkbox-button-id');
+    switchId.addEventListener('change', (e) => {
+        console.log(e)
+    })
+
+    checkoutBoxGroup.addEventListener('change', (e) => {
+        console.log(e)
+    })
+    let _groupIndex = 0
+    const _groupValueList = [["测试1", "测试2"], ["测试1", "测试3"], ["测试1"], ["测试3"], []]
+    checkboxButtonId.addEventListener('click', () => {
+        if (_groupIndex >= 4) {
+            _groupIndex = 0
+        }
+        _groupIndex ++
+        const checkoutBoxGroup = document.getElementById('checkoutBoxGroup');
+        console.log(checkoutBoxGroup);
+        checkoutBoxGroup.setAttribute("value", _groupValueList[_groupIndex])
+    })
+
+    const tag2 = document.getElementById("tag-id2");
+    tag2.addEventListener("close", (e) => {
+        console.log("关闭")
+        console.log(e);
+    })
+
+    tag2.addEventListener("click", (e) => {
+        console.log("点击")
+        console.log(e);
+    })
+
+    const progressButton1 = document.getElementById("progressButton1");
+    const progressButton2 = document.getElementById("progressButton2");
+    const progressCircleId1 = document.getElementById("progressCircleId1");
+
+    let num = 25
+    progressButton1.addEventListener("click", () => {
+        num = num + 5
+        if (num >= 100) {
+            num = 100
+        }
+        progressCircleId1.setAttribute("percentage", num)
+    })
+
+    progressButton2.addEventListener("click", () => {
+        num = num - 5
+        if (num <= 0) {
+            num = 0
+        }
+        progressCircleId1.setAttribute("percentage", num)
+    })
+    const backHeader = document.getElementById("backHeader");
+    backHeader.addEventListener("back",(e) => {
+        console.log("返回")
+    })
+
+
+    const editFun = (item, item1) => {
+        console.log(item)
+        console.log(item1)
+    }
+    const deleteFun = (item, item1) => {
+        console.log(item)
+        console.log(item1)
+    }
+
+    const tableRef2 = document.getElementById("tableRef2");
+    /* const test = document.getElementById("dffsdfgdfgdfhdfh");
+     setTimeout(() => {
+         test.setAttribute("name", "fcsdvfsdvbdfnhfgjmfghmkfghm,gf")
+     }, 8000)*/
+    const columns = [
+        { "width":"20px", "type": "selection" },
+        { "title":"ID","key":"id","width":"80px", "align": "center" },
+        { "title":"Name", "align": "center", "key":"name","width":"120px" },
+        { "title":"age","key":"age","width":"120px" },
+        { "title":"address","key":"address","width":"120px" },
+        { "title": "操作", "width":"120px", "align": "center",
+            render: (item) => {
+                return webCorePlus.h('div', null, [
+                    webCorePlus.h(
+                        'wu-plus-button', { size: "mini", type: "primary", style: { color: "blue", cursor: "pointer"}, onclick: (item1) => editFun(item, item1)}, '编辑'
+                    ),
+                    webCorePlus.h(
+                        'wu-plus-button', { size: "mini", type: "danger", style: { color: "blue", marginLeft: "8px", cursor: "pointer"}, onclick: (item1) => deleteFun(item, item1)}, '删除'
+                    )
+                ])
+            }
+        }
+    ]
+    const list = [
+        {
+            "id":1,
+            "name":"xwang",
+            "age":18,
+            "address":"Tencent"
+        },
+        {
+            "id":2,
+            "name":"xwawwng",
+            "age":182,
+            "address":"Teneeeecent"
+        },
+        {
+            "id":3,
+            "name":"xwawwng",
+            "age":182,
+            "address":"Teneeeecent"
+        }
+    ]
+    console.log(tableRef2);
+    tableRef2.setAttribute('data', list)
+    tableRef2.setAttribute('columns', columns)
+
+
+
+</script>
 </html>

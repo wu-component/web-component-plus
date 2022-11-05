@@ -1,7 +1,6 @@
 import { h, Component, Prop, Emit, OnConnected, OnBeforeRender, OnBeforeUpdate, Provide, WuComponent } from '@wu-component/web-core-plus';
 import css from './index.scss';
 type UISize = 'medium' | 'small' | 'mini';
-import "./src/index.tsx";
 
 @Component({
     name: 'wu-plus-checkbox-group',

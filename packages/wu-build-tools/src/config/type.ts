@@ -1,6 +1,7 @@
 export interface BaseArgs {
     input: string;
     output: string;
+    umdOutput: string;
     tsconfig?: string;
     operate?: 'BUILD';
     name?: string;
@@ -12,6 +13,7 @@ export interface BaseArgs {
 export interface PathConfig {
     inputPath: string;
     outputPath: string;
+    umdOutputPath: string;
     tsconfig?: string;
     rootPath: string;
     typePath: string;

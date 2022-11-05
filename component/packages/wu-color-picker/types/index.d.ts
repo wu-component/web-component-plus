@@ -1,7 +1,7 @@
 declare type UISize = 'medium' | 'small' | 'mini';
 import { OnConnected, WuComponent } from '@wu-component/web-core-plus';
-import '../../wu-popover/src/index.tsx';
-import '../../wu-button/src/index.tsx';
+import '@wu-component/wu-popover';
+import '@wu-component/wu-button';
 import { WuColorPane } from "./color-pane";
 import './color-pane/index.tsx';
 export declare class WuColorPicker extends WuComponent implements OnConnected {

@@ -2,7 +2,7 @@ import { Component, Emit, h, Prop, State, Watch, WuComponent } from '@wu-compone
 import css from './index.scss';
 import { extractClass } from "@wu-component/common";
 import ajax from './lib/ajax';
-// import "../../../packages/wu-progress/src/index.tsx";
+import "@wu-component/wu-progress";
 export const documentIcon = () => {
     return (
         <svg t="1662962104388"  className="icon wu-icon-document" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
