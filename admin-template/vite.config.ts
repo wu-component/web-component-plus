@@ -1,5 +1,9 @@
 import { defineConfig } from 'vite'
 import { resolve } from 'path'
+// @ts-ignore
+import { nodeResolve } from '@rollup/plugin-node-resolve';
+// @ts-ignore
+import commonjs from "@rollup/plugin-commonjs";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -24,8 +28,14 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
       },
-      /*output:{
-        manualChunks(id) {
+      plugins: [
+        nodeResolve(),
+        commonjs(),
+      ],
+
+      output:{
+        sourcemap: true,
+        /*manualChunks(id) {
           if (id.includes('node_modules')) {
             return id
                 .toString()
@@ -33,7 +43,7 @@ export default defineConfig({
                 .split('/')[0]
                 .toString();
           }
-        },
+        },*/
         chunkFileNames: (chunkInfo) => {
           const facadeModuleId = chunkInfo.facadeModuleId
               ? chunkInfo.facadeModuleId.split('/')
@@ -42,7 +52,7 @@ export default defineConfig({
               facadeModuleId[facadeModuleId.length - 2] || '[name]';
           return `js/${fileName}/[name].[hash].js`;
         }
-      }*/
+      }
     }
   }
 })
