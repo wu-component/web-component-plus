@@ -11,3 +11,5 @@ npm-debug.log
 **/__snapshots__/*
 packages/wu-component-icon/**/lib/**
 packages/wu-component-icon/lib/**
+packages/wu-component-icon/umd/**
+**/umd/**
