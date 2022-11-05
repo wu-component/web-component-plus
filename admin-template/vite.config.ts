@@ -24,7 +24,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
       },
-      output:{
+      /*output:{
         manualChunks(id) {
           if (id.includes('node_modules')) {
             return id
@@ -42,7 +42,7 @@ export default defineConfig({
               facadeModuleId[facadeModuleId.length - 2] || '[name]';
           return `js/${fileName}/[name].[hash].js`;
         }
-      }
+      }*/
     }
   }
 })

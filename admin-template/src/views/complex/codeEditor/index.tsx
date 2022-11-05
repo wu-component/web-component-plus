@@ -1,6 +1,7 @@
 import { h, Component, WuComponent } from '@wu-component/web-core-plus';
 import "@wu-component/wu-code-monaco-editor";
 import css from './index.css'
+import { initialCode } from "./const";
 
 @Component({
     name: 'code-editor-page-view',
@@ -11,11 +12,13 @@ export class CodeEditorPageView extends WuComponent {
         super();
     }
 
+    private initialCode: string = initialCode;
+
     public override render(_renderProps = {}, _store = {}) {
         return (
-            <div style="height: calc(100vh - 60px)">
+            <div class="container">
                 <div style="width: 100%; height: 100%">
-                    <wu-code-monaco-editor theme="vs-dark" initial-value="console.log('test code')"  style="width: 100%;height: 100%"></wu-code-monaco-editor>
+                    <wu-code-monaco-editor language="typescript" theme="vs-dark" initial-value={this.initialCode}  style="width: 100%;height: 100%"></wu-code-monaco-editor>
                 </div>
             </div>
         );

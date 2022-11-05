@@ -32,6 +32,10 @@ const options: RouterOptions = {
         {
             path: "/lottieView",
             element: `<lottie-page-view></lottie-page-view>`
+        },
+        {
+            path: "/button",
+            element: `<button-page-view></button-page-view>`
         }
     ]
 };

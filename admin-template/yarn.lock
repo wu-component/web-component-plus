@@ -61,9 +61,9 @@
   integrity sha512-Kttzs8HXY1xDnvYZvZcoq3GD7xHDwVwFx55KCZF+pKEaUbtZie+V8bBZPoOuQyH0plfUNA/iH1qInKpvoe6RZA==
 
 "@wu-component/ui-plus@latest":
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/@wu-component/ui-plus/-/ui-plus-1.9.1.tgz#9e311e04d75f75e31614c1e90bebecf5bf09adb1"
-  integrity sha512-1wPehTLZGkngyDJrW8B9fCiYLd3B1MCEVQN79hwTwrfczfqHR9CELpJS5ft4isIOPEYTbPCFOKvxvuy5ueSK6Q==
+  version "1.9.3"
+  resolved "https://registry.yarnpkg.com/@wu-component/ui-plus/-/ui-plus-1.9.3.tgz#b6851aa780a7e39850c3062c900b4bca4e712a52"
+  integrity sha512-yrxbNPAyg2OVSJMvgZ7qTkmhLvAzEMCedWr1RFn1IIHPwAqUxOU2limWC91MesnadeiKHen+LLE21sCP04HB0g==
   dependencies:
     "@wu-component/web-core-plus" latest
     "@wu-component/wu-alert" latest
@@ -459,9 +459,9 @@
     lottie-web "^5.9.6"
 
 "@wu-component/wu-main@latest":
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/@wu-component/wu-main/-/wu-main-1.9.1.tgz#210150b01d76f63000206400dabfbe59e3767742"
-  integrity sha512-Fy1ooq7lQSrj06SRQM+zMzarXoTJQ9PfMgvoyyBqrhEK+wsYYSOS8NO+vEYBkNU40lbPSooSZz+rO4GCBtd5/g==
+  version "1.9.3"
+  resolved "https://registry.yarnpkg.com/@wu-component/wu-main/-/wu-main-1.9.3.tgz#6d8c592f94e0062dfcc41c7d830d0740d43c97a6"
+  integrity sha512-NDxZP9pkl7KGT/o41l4ljy8Fg+lYyLlusDI/Vk32Wwqd6rDmDRm5EuGMC+6LSIE5QEV8HPedHTCQA8Dpx0t4ng==
   dependencies:
     "@wu-component/common" latest
     "@wu-component/web-core-plus" latest
@@ -499,9 +499,9 @@
     "@wu-component/web-core-plus" latest
 
 "@wu-component/wu-menu@latest":
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/@wu-component/wu-menu/-/wu-menu-1.9.1.tgz#0b911ec00e9496a83bcb34eb27f8a795790b5549"
-  integrity sha512-7WktAGgmKG0uJM6Tfy0EXKiAx1M0RDPBp7+lVP861de050Wk51PtT5vQrA5SO/sb5ud2qO3w6HMwM81zUJxeAg==
+  version "1.9.3"
+  resolved "https://registry.yarnpkg.com/@wu-component/wu-menu/-/wu-menu-1.9.3.tgz#67080c5a5979fd4b0c3f7feac5385a0109845613"
+  integrity sha512-U3399k3NBv4mhfQst7LuzmibkfbVSLbiICuxHFt0FMhJ7kdYp0O0vvLPDsabGpascXN78MHt3TKeR0MJ1cQ5Yg==
   dependencies:
     "@wu-component/common" latest
     "@wu-component/web-core-plus" latest

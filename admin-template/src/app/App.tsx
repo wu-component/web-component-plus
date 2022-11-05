@@ -24,7 +24,7 @@ export class App extends WuComponent implements OnConnected {
                     </wu-plus-aside>
                     <wu-plus-container style="width:100%">
                         <wu-plus-header style="background-color: rgb(84, 92, 100);padding-left: -1px">Header</wu-plus-header>
-                        <wu-plus-main css=".wu-main {padding: 0} ">
+                        <wu-plus-main style="padding: 0;">
                             <wu-plus-router-view></wu-plus-router-view>
                         </wu-plus-main>
                         <wu-plus-footer>Footer</wu-plus-footer>
