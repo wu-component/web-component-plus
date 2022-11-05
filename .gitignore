@@ -9,4 +9,5 @@ packages/web-plus-ui/**/lib/*
 npm-debug.log
 .idea
 **/__snapshots__/*
-
+packages/wu-component-icon/**/lib/**
+packages/wu-component-icon/lib/**

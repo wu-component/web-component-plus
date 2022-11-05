@@ -9,22 +9,16 @@
         "lib": "lib",
         "test": "__tests__"
     },
-    "types": "./dist/index.d.ts",
-    "module": "./dist/index.es.js",
-    "main": "./dist/index.cj.js",
-    "browser": "./dist/index.umd.js",
+    "types": "./types/index.d.ts",
+    "module": "./lib/index.js",
+    "main": "./lib/index.js",
+    "browser": "./dist/index.js",
     "scripts": {
         "format": "prettier --write \"{src,apps,libs,test}/**/*.{tsx,ts}\"",
         "lint": "eslint \"{src,apps,libs,test}/**/*.{tsx,ts}\" --fix",
         "test": "jest -c ./jest.config.js",
-        "build:rollup": "cross-env NODE_ENV=production BABEL_ENV=umd rollup -c ./rollup.config.js",
-        "build:rollup:lib": "cross-env NODE_ENV=production BABEL_ENV=umd rollup -c ./rollup.lib.config.js",
-        "build:rollup:visualizer": "cross-env NODE_ENV=production rollup -c ./rollup.config.visualizer.js",
-        "package:start:dev": "nodemon",
-        "start:debug": "nodemon --config nodemon-debug.json",
-        "build:tsc": "node ./build/buils-tsc.js",
-        "dev:package:example": "webpack serve --config ./build/webpack_dev.config --env development --mode development --hot",
-        "build:rollup:example": "cross-env NODE_ENV=production rollup -c ./rollup.example.config.js"
+        "build:rollup": "ts-node ./build/index.ts",
+        "example": "live-server --port=8081"
     },
     "publishConfig": {
         "access": "public"
@@ -35,6 +29,7 @@
     },
     "files": [
         "dist",
+        "lib",
         "LICENSE",
         "README.md",
         "src"

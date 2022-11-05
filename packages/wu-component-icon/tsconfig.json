@@ -7,7 +7,7 @@
         "moduleResolution": "node",
         "strict": true,
         "sourceMap": false,
-        "declaration": false,
+        "declaration": true,
         "removeComments": true,
         "resolveJsonModule": true,
         "esModuleInterop": true,
