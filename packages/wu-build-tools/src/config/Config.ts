@@ -14,6 +14,7 @@ class BaseConfig {
     public args: BaseArgs = {
         input: "./src/index.tsx",
         output: "./dist",
+        umdOutput: "./dist",
         tsconfig: "./tsconfig.build.json",
         typePath: './types',
      };
@@ -33,7 +34,7 @@ class BaseConfig {
         argument.forEach((val: string, index: number) => {
             if (val.startsWith('--')) {
                 this.args[val.replace("--", '')] = true;
-            } 
+            }
             else {
                 let key = argument[index -1];
                 if (key) {
@@ -41,7 +42,7 @@ class BaseConfig {
                     this.args[key] = val;
                 }
             }
-        }); 
+        });
         if (!this.args.name) {
             // eslint-disable-next-line @typescript-eslint/no-var-requires
             const packageInfo = this.packageInfo;
@@ -62,12 +63,13 @@ class BaseConfig {
 
     /**
      * 读取打包信息的路径
-     * @returns 
+     * @returns
      */
     public getPathConfig(): PathConfig {
         return {
             inputPath: resolve(this.rootPath, this.args.input),
             outputPath: resolve(this.rootPath, this.args.output),
+            umdOutputPath: resolve(this.rootPath, this.args.umdOutput),
             tsconfig: resolve(this.rootPath, this.args.tsconfig),
             rootPath: this.rootPath,
             typePath: path.join(this.rootPath, this.args.typePath || './types')
@@ -76,7 +78,7 @@ class BaseConfig {
 
     /**
      * 读取构建参数
-     * @returns 
+     * @returns
      */
     public getRollupConfig(): RollupOptions[] {
         // 生成配置

@@ -45,6 +45,7 @@
     margin: 0;
     padding-left: 0;
     background-color: $--menu-background-color;
+    box-sizing: border-box;
     @include utils-clearfix;
     &.wu-menu-horizontal {
         border-bottom: solid 1px #e6e6e6;

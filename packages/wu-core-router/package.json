@@ -1,6 +1,6 @@
 {
   "name": "@wu-component/wu-core-router",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "> TODO: description",
   "author": "Marvin <yongfeide123@gmail.com>",
   "homepage": "",
@@ -88,6 +88,7 @@
     "reflect-metadata": "^0.1.13"
   },
   "dependencies": {
+     "@wu-component/web-core-plus": "latest",
     "path-to-regexp": "^6.2.1"
   }
 }

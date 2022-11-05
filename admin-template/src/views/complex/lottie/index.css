@@ -1,0 +1,44 @@
+:host {
+
+}
+.container {
+    padding: 20px;
+}
+.itemList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.item {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 18px;
+}
+.controlButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex: 1;
+    width: 100%;
+}
+.itemContainer {
+    width: 200px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 18px;
+}
+.currentSpeedText {
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 28px;
+}

@@ -1,5 +1,6 @@
 import { Component, Emit, h, OnConnected, Prop, Provide, WuComponent } from '@wu-component/web-core-plus';
 import css from './index.scss';
+import '@wu-component/wu-breadcrumb-item';
 
 @Component({
     name: 'wu-plus-breadcrumb',

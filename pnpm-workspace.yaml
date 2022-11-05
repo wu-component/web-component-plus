@@ -5,3 +5,4 @@ packages:
   - 'packages/wu-core-router'
   - 'packages/wu-build-tools'
   - 'packages/wu-component-icon'
+  - 'admin-template'

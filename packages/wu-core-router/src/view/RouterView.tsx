@@ -1,4 +1,4 @@
-import { h, WuComponent, Component, OnConnected } from "@canyuegongzi/web-core-plus";
+import { h, WuComponent, Component, OnConnected } from "@wu-component/web-core-plus";
 import RouterConfig from "../router/RouterConfig";
 
 const css = `

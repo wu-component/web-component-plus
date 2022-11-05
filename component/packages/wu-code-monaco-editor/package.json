@@ -1,6 +1,6 @@
 {
     "name": "@wu-component/wu-code-monaco-editor",
-    "version": "1.8.1",
+    "version": "1.9.1",
     "description": "> TODO: description",
     "author": "Marvin <yongfeide123@gmail.com>",
     "homepage": "",
@@ -12,15 +12,14 @@
     "types": "./types/index.d.ts",
     "main": "./dist/index.cjs.js",
     "module": "./dist/index.esm.js",
-    "browser": "./dist/index.umd.js",
+    "browser": "./umd/index.umd.js",
     "scripts": {
         "format": "prettier --write \"{src,apps,libs,test}/**/*.{tsx,ts}\"",
         "lint": "eslint \"{src,apps,libs,test}/**/*.{tsx,ts}\" --fix",
         "test": "web-test-runner \"./test/*.js\" --node-resolve",
         "example:package": "live-server",
         "build:package": "node ./node_modules/@wu-component/wu-build-tools/dist/index.js --input ./src/index.tsx --operate BUILD",
-        "dev:package": "webpack serve --config ./build/webpack_dev.config --env development --mode development --hot",
-        "dev:package:build": "webpack --config ./build/webpack_build.config.js --env development --mode production"
+        "dev:package": "webpack serve --config ./build/webpack_dev.config --env development --mode development --hot"
     },
     "publishConfig": {
         "access": "public"
@@ -60,6 +59,7 @@
         "nodemon": "^1.18.9",
         "postcss-loader": "^7.0.1",
         "prettier": "^1.15.3",
+        "process": "^0.11.10",
         "raw-loader": "^4.0.2",
         "reflect-metadata": "^0.1.13",
         "rollup": "^2.74.1",

@@ -1,0 +1,36 @@
+{
+  "name": "template",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build"
+  },
+  "dependencies": {
+    "@wu-component/web-core-plus": "latest",
+    "@wu-component/ui-plus": "latest",
+    "@wu-component/wu-code-monaco-editor": "latest",
+    "@wu-component/wu-code-sandbox": "latest",
+    "@wu-component/wu-lottie": "latest",
+    "@wu-component/wu-component-icon": "latest",
+    "@wu-component/wu-core-router": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.3",
+    "typescript": "^4.5.4",
+    "vite": "^2.9.9",
+    "eslint": "7.1.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "prettier": "^1.15.3",
+    "sass": "^1.52.1",
+    "sass-loader": "^13.0.0",
+    "shelljs": "^0.8.5",
+    "style-loader": "^3.3.1",
+    "ts-jest": "^23.1.4",
+    "ts-loader": "^9.3.0",
+    "ts-node": "^7.0.1",
+    "tsconfig-paths": "^3.7.0",
+    "tslib": "^2.3.1"
+  }
+}

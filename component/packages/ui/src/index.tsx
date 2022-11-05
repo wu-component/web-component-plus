@@ -1,110 +1,98 @@
-﻿export * from '../../wu-button/src/index';
-export * from '../../wu-icon/src/index';
-export * from '../../wu-radio/src/index';
-export * from '../../wu-input/src/index';
-export * from '../../wu-input-number/src/index';
-export * from '../../wu-checkbox/src/index';
-export * from '../../wu-checkbox-group/src/index';
-export * from '../../wu-checkbox-button/src/index';
-export * from '../../wu-switch/src/index';
-export * from '../../wu-tree/src/index';
-export * from '../../wu-tree-v2/src/index';
-export * from '../../wu-link/src/index';
-export * from '../../wu-table/src/index';
-export * from '../../wu-tag/src/index';
-export * from '../../wu-progress/src/index';
-export * from '../../wu-breadcrumb/src/index';
-export * from '../../wu-breadcrumb-item/src/index';
-export * from '../../wu-page-header/src/index';
-export * from '../../wu-rate/src/index';
-export * from '../../wu-time-line/src/index';
-export * from '../../wu-time-line-item/src/index';
-export * from '../../wu-select/src/index';
-export * from '../../wu-select-option/src/index';
-export * from '../../wu-avatar/src/index';
-export * from '../../wu-badge/src/index';
-export * from '../../wu-empty/src/index';
-export * from '../../wu-card/src/index';
-export * from '../../wu-popconfirm/src/index';
-export * from '../../wu-pagination/src/index';
-export * from '../../wu-cascader/src/index';
-export * from '../../wu-image/src/index';
-export * from '../../wu-collapse/src/index';
-export * from '../../wu-collapse-item/src/index';
-export * from '../../wu-color-picker/src/index';
-export * from '../../wu-menu/src/index';
-
+﻿import { WuAlert } from "@wu-component/wu-alert";
+import { WuAside } from '@wu-component/wu-aside';
+import { WuAvatar } from '@wu-component/wu-avatar';
+import { WuBadge } from '@wu-component/wu-badge';
+import { WuBreadcrumb } from '@wu-component/wu-breadcrumb';
+import { WuButton } from '@wu-component/wu-button';
+import { WuCard } from '@wu-component/wu-card';
+import { WuCheckbox } from '@wu-component/wu-checkbox';
+import { WuCheckboxGroup } from '@wu-component/wu-checkbox-group';
+import { WuCheckboxButton } from '@wu-component/wu-checkbox-button';
+import { WuIcon } from '@wu-component/wu-icon';
+import { WuRadio } from '@wu-component/wu-radio';
+import { WuInput } from '@wu-component/wu-input';
+import { WuInputNumber } from '@wu-component/wu-input-number';
+import { WuSwitch } from '@wu-component/wu-switch';
+import { WuTree } from '@wu-component/wu-tree';
+import { WuTreeV2 } from '@wu-component/wu-tree-v2';
+import { WuLink } from '@wu-component/wu-link';
+import { WuTable } from '@wu-component/wu-table';
+import { WuTag } from '@wu-component/wu-tag';
+import { WuProgress } from '@wu-component/wu-progress';
+import { WuPageHeader } from '@wu-component/wu-page-header';
+import { WuRate } from '@wu-component/wu-rate';
+import { WuTimeLine } from '@wu-component/wu-time-line';
+import { WuSelect } from '@wu-component/wu-select';
+import { WuEmpty } from '@wu-component/wu-empty';
+import { WuPopconfirm } from '@wu-component/wu-popconfirm';
+import { WuPagination } from '@wu-component/wu-pagination';
+import { WuCascader } from '@wu-component/wu-cascader';
+import { WuImage } from '@wu-component/wu-image';
+import { WuCollapse } from '@wu-component/wu-collapse';
+import { WuColorPicker } from '@wu-component/wu-color-picker';
+import { WuMenu } from '@wu-component/wu-menu';
 /***************************全局股那里*********************************/
-export * from '../../wu-popover/src/index';
-export { Message, WuMessage } from '../../wu-message/src/index';
-export * from '../../wu-alert/src/index';
-export * from '../../wu-tooltip/src/index';
-export * from '../../wu-dialog/src/index';
-/*********************************布局组件**********************/
-export * from '../../wu-row/src/index';
-export * from '../../wu-col/src/index';
-export * from '../../wu-aside/src/index';
-export * from '../../wu-container/src/index';
-export * from '../../wu-main/src/index';
-export * from '../../wu-header/src/index';
-export * from '../../wu-footer/src/index';
-export * from '../../wu-transition/src/index';
-/*********************************复杂组件**************************/
-export * from '../../wu-date-picker/src/index';
-export * from '../../wu-upload/src/index';
-export * from '../../wu-waline-comment/src/index';
-export * from '../../wu-lottie/src/index';
-/*
-export * from '@wu-component/wu-button/src/index';
-export * from '@wu-component/wu-icon/src/index';
-export * from '@wu-component/wu-radio/src/index';
-export * from '@wu-component/wu-input/src/index';
-export * from '@wu-component/wu-input-number/src/index';
-export * from '@wu-component/wu-checkbox/src/index';
-export * from '@wu-component/wu-checkbox-group/src/index';
-export * from '@wu-component/wu-checkbox-button/src/index';
-export * from '@wu-component/wu-switch/src/index';
-export * from '@wu-component/wu-tree/src/index';
-export * from '@wu-component/wu-tree-v2/src/index';
-export * from '@wu-component/wu-link/src/index';
-export * from '@wu-component/wu-table/src/index';
-export * from '@wu-component/wu-tag/src/index';
-export * from '@wu-component/wu-progress/src/index';
-export * from '@wu-component/wu-breadcrumb/src/index';
-// export * from '@wu-component/wu-breadcrumb-item/src/index';
-export * from '@wu-component/wu-page-header/src/index';
-export * from '@wu-component/wu-rate/src/index';
-export * from '@wu-component/wu-time-line/src/index';
-// export * from '@wu-component/wu-time-line-item/src/index';
-export * from '@wu-component/wu-select/src/index';
-// export * from '@wu-component/wu-select-option/src/index';
-export * from '@wu-component/wu-avatar/src/index';
-export * from '@wu-component/wu-badge/src/index';
-export * from '@wu-component/wu-empty/src/index';
-export * from '@wu-component/wu-card/src/index';
-export * from '@wu-component/wu-popconfirm/src/index';
-export * from '@wu-component/wu-pagination/src/index';
-export * from '@wu-component/wu-cascader/src/index';
-export * from '@wu-component/wu-image/src/index';
-export * from '@wu-component/wu-collapse/src/index';
-// export * from '@wu-component/wu-collapse-item/src/index';
-export * from '@wu-component/wu-color-picker/src/index';
-export * from '@wu-component/wu-menu/src/index';
-/!***************************全局股那里*********************************!/
-export * from '@wu-component/wu-popover/src/index';
-export { Message, WuMessage } from '@wu-component/wu-message/src/index';
-export * from '@wu-component/wu-alert/src/index';
-export * from '@wu-component/wu-tooltip/src/index';
-export * from '@wu-component/wu-dialog/src/index';
-/!*********************************布局组件*************************************!/
-export * from '@wu-component/wu-row/src/index';
-export * from '@wu-component/wu-col/src/index';
-export * from '@wu-component/wu-aside/src/index';
-export * from '@wu-component/wu-container/src/index';
-export * from '@wu-component/wu-main/src/index';
-export * from '@wu-component/wu-header/src/index';
-export * from '@wu-component/wu-footer/src/index';
-export * from '@wu-component/wu-transition/src/index';
-export * from '@wu-component/wu-date-picker/src/index';
-export * from '@wu-component/wu-upload/src/index';
-*/
+import { Message, WuMessage } from '@wu-component/wu-message';
+import { WuTooltip } from '@wu-component/wu-tooltip';
+import { WuDialog } from '@wu-component/wu-dialog';
+/*********************************布局组件*************************************/
+import { WuRow }  from '@wu-component/wu-row';
+import { WuCol }  from '@wu-component/wu-col';
+import { WuContainer }  from '@wu-component/wu-container';
+import { WuMain }  from '@wu-component/wu-main';
+import { WuHeader }  from '@wu-component/wu-header';
+import { WuFooter }  from '@wu-component/wu-footer';
+import { WuTransition }  from '@wu-component/wu-transition';
+import { WuDatePicker }  from '@wu-component/wu-date-picker';
+import { WuUpload } from '@wu-component/wu-upload';
+import { WuPopover } from "@wu-component/wu-popover";
+
+export default  {
+    WuAlert,
+    WuAside,
+    WuAvatar,
+    WuBadge,
+    WuBreadcrumb,
+    WuButton,
+    WuCard,
+    WuCheckbox,
+    WuCheckboxGroup,
+    WuCheckboxButton,
+    WuIcon,
+    WuRadio,
+    WuInput,
+    WuInputNumber,
+    WuSwitch,
+    WuTree,
+    WuTreeV2,
+    WuLink,
+    WuTable,
+    WuTag,
+    WuProgress,
+    WuPageHeader,
+    WuRate,
+    WuTimeLine,
+    WuSelect,
+    WuEmpty,
+    WuPopconfirm,
+    WuPagination,
+    WuCascader,
+    WuImage,
+    WuCollapse,
+    WuColorPicker,
+    WuMenu,
+    WuPopover,
+    WuMessage,
+    Message,
+    WuTooltip,
+    WuDialog,
+    WuRow,
+    WuCol,
+    WuContainer,
+    WuMain,
+    WuHeader,
+    WuFooter,
+    WuTransition,
+    WuDatePicker,
+    WuUpload
+};

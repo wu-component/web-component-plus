@@ -12,14 +12,15 @@ class Build {
     }
     /**
      * 开始打包
-     * @returns 
+     * @returns
      */
     public start(): Promise<StartBuildResult> {
         return new Promise(async (resolve) => {
             try {
                 await this.preBuild();
-                const buildResult: BuildResult = await build(this.config);
-                if (buildResult.state) {
+                const buildResult: BuildResult = await this.buildEs();
+                const buildResult1: BuildResult = await this.buildUmd();
+                if (buildResult.state && buildResult1.state) {
                     await this.declaration();
                     const lis: string[] = fs.readdirSync(this.config.pathConfig.outputPath) || [];
                     const outList = lis.filter(item => item.indexOf('d.ts') <= -1).map(item1 => path.join(this.config.pathConfig.outputPath, item1))
@@ -27,12 +28,20 @@ class Build {
                 } else {
                     resolve({ state: false, ...buildResult, fileList: [] });
                 }
-                
+
             }catch(e) {
                 console.log(e);
                 resolve({ state: true, error: e, fileList: [] })
             }
         })
+    }
+
+    private buildEs(): Promise<BuildResult> {
+        return  build(this.config.rollupOptions[0], this.config);
+    }
+
+    private buildUmd(): Promise<BuildResult> {
+        return  build(this.config.rollupOptions[1], this.config);
     }
 
     /**
@@ -91,7 +100,7 @@ class Build {
                                         const targetPath = path.join(rootPath, `./types/${filename}`);
                                         fs.copyFileSync(filedir, targetPath);
                                         fs.unlinkSync(filedir);
-                                    
+
                                     }
                                 }
                                 if (isDir) {
@@ -102,16 +111,16 @@ class Build {
                                         const target = path.join(rootPath, `./types/${filename}`)
                                         copySync(filedir, target);
                                     }
-    
+
                                 }
                             }
                         })
                     });
                     resolve({ state: true });
                 }
-            });         
+            });
         })
     }
-} 
+}
 
 export { Build }

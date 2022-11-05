@@ -1,6 +1,6 @@
 import { WuComponent } from '@wu-component/web-core-plus';
-import "@wu-component/wu-popover/src/index";
-import "@wu-component/wu-button/src/index";
+import "@wu-component/wu-popover";
+import "@wu-component/wu-button";
 export declare class WuPopconfirm extends WuComponent {
     constructor();
     private popoverRef;

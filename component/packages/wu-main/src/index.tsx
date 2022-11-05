@@ -13,7 +13,7 @@ export class WuMain extends WuComponent {
     public override render(_renderProps = {}, _store = {}) {
         return (
             <footer class="wu-main">
-                <slot class="wu-main" />
+                <slot />
             </footer>
         );
     }

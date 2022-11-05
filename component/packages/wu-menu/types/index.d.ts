@@ -1,7 +1,7 @@
 import { OnConnected, WuComponent } from '@wu-component/web-core-plus';
-import '../../wu-menu-sub/src/index.tsx';
-import '../../wu-menu-item-group/src/index.tsx';
-import '../../wu-menu-item/src/index.tsx';
+import '@wu-component/wu-menu-sub';
+import '@wu-component/wu-menu-item-group';
+import '@wu-component/wu-menu-item';
 import type { WuMenuItem, WuSubMenu } from "../types/type";
 declare type ModeEnums = 'horizontal' | 'vertical';
 declare type MenuTriggerEnums = 'hover' | 'click';

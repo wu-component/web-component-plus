@@ -1,20 +1,21 @@
-import { rollup } from "rollup";
+import {rollup, RollupOptions} from "rollup";
 import { BuildProps, BuildResult } from "./type";
 
 /**
- * 
- * @param options rollup 构建打包
- * @returns 
+ *
+ * @param rollupOptions
+ * @param _options
+ * @returns
  */
-function build(options: BuildProps): Promise<BuildResult> {
+function build(rollupOptions: RollupOptions, _options: BuildProps): Promise<BuildResult> {
     return new Promise(async (resolve) => {
       let bundle;
       let buildFailed = false;
       let buildError = null;
       try {
-        bundle = await rollup(options.rollupOptions[0]);
+        bundle = await rollup(rollupOptions);
         // console.log(bundle.watchFiles);
-        await generateOutputs(bundle, options.rollupOptions[0].output);
+        await generateOutputs(bundle, rollupOptions.output);
       } catch (error) {
         buildFailed = true;
         buildError = error;
@@ -29,13 +30,13 @@ function build(options: BuildProps): Promise<BuildResult> {
         resolve({ state: true, bundle});
       }
     })
-   
+
 }
-  
+
 /**
- * 
+ *
  * @param bundle 文件写入
- * @param output 
+ * @param output
  */
 async function generateOutputs(bundle, output) {
     for (const outputOptions of output) {
