@@ -24,6 +24,14 @@ const options: RouterOptions = {
         {
             path: '/message',
             element: `<message-view></message-view>`
+        },
+        {
+            path: "/codeEditorView",
+            element: `<code-editor-page-view></code-editor-page-view>`
+        },
+        {
+            path: "/lottieView",
+            element: `<lottie-page-view></lottie-page-view>`
         }
     ]
 };

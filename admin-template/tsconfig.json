@@ -30,6 +30,9 @@
     "sourceMap": true,
     "target": "esnext",
     "useUnknownInCatchVariables": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]

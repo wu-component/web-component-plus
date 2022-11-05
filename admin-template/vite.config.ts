@@ -4,6 +4,12 @@ import { resolve } from 'path'
 // https://vitejs.dev/config/
 export default defineConfig({
   base: './',
+  resolve: {
+    alias: {
+      "@": resolve(__dirname, "src"),
+      // 这里的 @ 就是我们要为 src 配置的别名
+    }
+  },
   build: {
     sourcemap: false,
     minify: 'terser',

@@ -40,7 +40,7 @@ importers:
       typescript: ^4.5.4
       vite: ^2.9.9
     dependencies:
-      '@wu-component/ui-plus': 1.8.0
+      '@wu-component/ui-plus': 1.9.1_ljtz7p2wbiwfwajcatrrrioeua
       '@wu-component/web-core-plus': link:../packages/web-core-plus
       '@wu-component/wu-core-router': link:../packages/wu-core-router
     devDependencies:
@@ -3789,62 +3789,73 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dev: false
 
-  /@wu-component/ui-plus/1.8.0:
-    resolution: {integrity: sha512-1fIlzxZbW7LFE2tfUzzRj+AexQkliw8cPlCifKRfDSz9CmpGbBI5or0m65RRK4je9k7J0XqhAKxGxt5nZUB8kA==}
+  /@wu-component/ui-plus/1.9.1_ljtz7p2wbiwfwajcatrrrioeua:
+    resolution: {integrity: sha512-1wPehTLZGkngyDJrW8B9fCiYLd3B1MCEVQN79hwTwrfczfqHR9CELpJS5ft4isIOPEYTbPCFOKvxvuy5ueSK6Q==}
     engines: {node: '>= 10', npm: '>= 5'}
+    peerDependencies:
+      '@wu-component/web-core-plus': latest
     dependencies:
-      '@wu-component/web-core-plus': 0.3.6
-      '@wu-component/wu-alert': 1.8.0
-      '@wu-component/wu-aside': 1.8.0
-      '@wu-component/wu-avatar': 1.8.0
-      '@wu-component/wu-badge': 1.8.0
-      '@wu-component/wu-breadcrumb': 1.8.0_s5tyiv4yhqyivhirwjnlqeacsi
-      '@wu-component/wu-breadcrumb-item': 1.8.0
-      '@wu-component/wu-button': 1.8.0
-      '@wu-component/wu-card': 1.8.0
-      '@wu-component/wu-cascader': 1.8.0
-      '@wu-component/wu-cesium-map': 1.8.0
-      '@wu-component/wu-checkbox': 1.8.0
-      '@wu-component/wu-checkbox-button': 1.8.0
-      '@wu-component/wu-checkbox-group': 1.8.0
-      '@wu-component/wu-col': 1.8.0
-      '@wu-component/wu-collapse': 1.8.0_7mxh5rdabt2m3huljaug7nlsk4
-      '@wu-component/wu-collapse-item': 1.8.0
-      '@wu-component/wu-color-picker': 1.8.0_n3dm4wpngc7cj2i3wtskiz4pcy
-      '@wu-component/wu-container': 1.8.0
-      '@wu-component/wu-date-picker': 1.8.0
-      '@wu-component/wu-dialog': 1.8.0
-      '@wu-component/wu-empty': 1.8.0
-      '@wu-component/wu-footer': 1.8.0
-      '@wu-component/wu-form': 1.8.0
-      '@wu-component/wu-form-item': 1.8.0
-      '@wu-component/wu-form-label-wrap': 1.8.0
-      '@wu-component/wu-form1': 1.8.0
-      '@wu-component/wu-header': 1.8.0
-      '@wu-component/wu-icon': 1.8.0
-      '@wu-component/wu-image': 1.8.0
-      '@wu-component/wu-inject': 1.8.0
-      '@wu-component/wu-input': 1.8.0
-      '@wu-component/wu-input-number': 1.8.0
-      '@wu-component/wu-leaflet-map': 1.8.0
-      '@wu-component/wu-link': 1.8.0
-      '@wu-component/wu-main': 1.8.0
-      '@wu-component/wu-mapbox-map': 1.8.0
-      '@wu-component/wu-menu': 1.8.0_kl6dtq65e5pljgl23altumaema
-      '@wu-component/wu-menu-item': 1.8.0_5zmcjykferwhwnuwg6e3qss4wa
-      '@wu-component/wu-menu-item-group': 1.8.0
-      '@wu-component/wu-menu-sub': 1.8.0
-      '@wu-component/wu-message': 1.8.0
-      '@wu-component/wu-tag': 1.8.0
-      '@wu-component/wu-time-line': 1.8.0_sfe6raes6dzcqcl7qwoxa7xc2y
-      '@wu-component/wu-time-line-item': 1.8.0
-      '@wu-component/wu-tooltip': 1.8.0
-      '@wu-component/wu-transition': 1.8.0
-      '@wu-component/wu-tree': 1.8.0
-      '@wu-component/wu-tree-v2': 1.8.0
-      '@wu-component/wu-upload': 1.8.0
-    transitivePeerDependencies:
-      - '@wu-component/wu-popover'
+      '@wu-component/web-core-plus': link:packages\web-core-plus
+      '@wu-component/wu-alert': 1.9.1
+      '@wu-component/wu-aside': 1.9.1
+      '@wu-component/wu-avatar': 1.9.1
+      '@wu-component/wu-badge': 1.9.1
+      '@wu-component/wu-breadcrumb': 1.9.1
+      '@wu-component/wu-breadcrumb-item': 1.9.1
+      '@wu-component/wu-button': 1.9.1
+      '@wu-component/wu-card': 1.9.1
+      '@wu-component/wu-cascader': 1.9.1
+      '@wu-component/wu-cesium-map': 1.9.1
+      '@wu-component/wu-checkbox': 1.9.1
+      '@wu-component/wu-checkbox-button': 1.9.1
+      '@wu-component/wu-checkbox-group': 1.9.1
+      '@wu-component/wu-col': 1.9.1
+      '@wu-component/wu-collapse': 1.9.1
+      '@wu-component/wu-collapse-item': 1.9.1
+      '@wu-component/wu-color-picker': 1.9.1
+      '@wu-component/wu-container': 1.9.1
+      '@wu-component/wu-date-picker': 1.9.1
+      '@wu-component/wu-dialog': 1.9.1
+      '@wu-component/wu-empty': 1.9.1
+      '@wu-component/wu-footer': 1.9.1
+      '@wu-component/wu-form': 1.9.1
+      '@wu-component/wu-form-item': 1.9.1
+      '@wu-component/wu-form-label-wrap': 1.9.1
+      '@wu-component/wu-form1': 1.9.1
+      '@wu-component/wu-header': 1.9.1
+      '@wu-component/wu-icon': 1.9.1
+      '@wu-component/wu-image': 1.9.1
+      '@wu-component/wu-inject': 1.9.1
+      '@wu-component/wu-input': 1.9.1
+      '@wu-component/wu-input-number': 1.9.1
+      '@wu-component/wu-leaflet-map': 1.9.1
+      '@wu-component/wu-link': 1.9.1
+      '@wu-component/wu-main': 1.9.1
+      '@wu-component/wu-mapbox-map': 1.9.1
+      '@wu-component/wu-menu': 1.9.1_r4uovldcz4v32en2miprchnhde
+      '@wu-component/wu-menu-item': 1.9.1_r4uovldcz4v32en2miprchnhde
+      '@wu-component/wu-menu-item-group': 1.9.1
+      '@wu-component/wu-menu-sub': 1.9.1
+      '@wu-component/wu-message': 1.9.1
+      '@wu-component/wu-page-header': 1.9.1
+      '@wu-component/wu-pagination': 1.9.1
+      '@wu-component/wu-popconfirm': 1.9.1
+      '@wu-component/wu-popover': 1.9.1
+      '@wu-component/wu-progress': 1.9.1
+      '@wu-component/wu-radio': 1.9.1
+      '@wu-component/wu-rate': 1.9.1
+      '@wu-component/wu-row': 1.9.1
+      '@wu-component/wu-select': 1.9.1
+      '@wu-component/wu-switch': 1.9.1
+      '@wu-component/wu-table': 1.9.1
+      '@wu-component/wu-tag': 1.9.1
+      '@wu-component/wu-time-line': 1.9.1
+      '@wu-component/wu-time-line-item': 1.9.1
+      '@wu-component/wu-tooltip': 1.9.1
+      '@wu-component/wu-transition': 1.9.1
+      '@wu-component/wu-tree': 1.9.1
+      '@wu-component/wu-tree-v2': 1.9.1
+      '@wu-component/wu-upload': 1.9.1
     dev: false
 
   /@wu-component/web-core-plus/0.3.6:
@@ -3855,384 +3866,377 @@ packages:
       weakmap-polyfill: 2.0.4
     dev: false
 
-  /@wu-component/wu-alert/1.8.0:
-    resolution: {integrity: sha512-r7NHsZ5eIw9s0c6dMK/UnYJjEL5S40aVmPc3do8SUSKFhfzdPlQ7qVg63sjrOhFmaJlpNpVdEFGJZB08WJm/mw==}
+  /@wu-component/wu-alert/1.9.1:
+    resolution: {integrity: sha512-T57vJppJCIdl/NtYkcxZ6JnIYN+/Vp6PzcDQ8ekEJbcOR8hgDS1+Pz9FIpw6OzgnqOLfsPRR6LNo1gmKlX4myA==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-aside/1.8.0:
-    resolution: {integrity: sha512-rcb764+8VwaQAUQkYdX9GPnjcRHvwPjTRct1aT8yOttBKcLIrtcMSgaIXalM+jUblDBVL4jbjqQ1tVw3tfYicw==}
+  /@wu-component/wu-aside/1.9.1:
+    resolution: {integrity: sha512-9mcI/V8s1Ec9YB+RNzsxmBqaJXWSLu067bJXdKha/BFGlafcLWdSH8LW/8MaIKX9Sbm6tokNAeINE961cCRmkg==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-avatar/1.8.0:
-    resolution: {integrity: sha512-bQpPM7vcR7zuJDX5fTC5J45QlwNMsNrhdevgka29G9a6ca4WucfbwLsTSymdil1XEPv8i6pg2emAu7gKFvN4zw==}
+  /@wu-component/wu-avatar/1.9.1:
+    resolution: {integrity: sha512-uCQv9Ehyvn6y2+3K+dCDY4hqCwIx3Ow5oETdp7FDAPKKfxlnE03BtZ8TExRDvp7umNUjbEKL5jiXsxAFQ9DU5w==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-badge/1.8.0:
-    resolution: {integrity: sha512-xFpcW26J1NKLW+Kws7z/Vu8RMA1Q1TNWAj07NJOEbr4gpr963mZZE3LdXzIle+pCQ1pDCsqgKKO52DCv3sDKzg==}
+  /@wu-component/wu-badge/1.9.1:
+    resolution: {integrity: sha512-pjwDTnZOFe6spGDGfolnUvkJjbflUSV2UC1pYNc6Ybu2gQv7W+MfPphAc63KLm2WJjCHyX00mIf/zDBNlYq3YA==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-breadcrumb-item/1.8.0:
-    resolution: {integrity: sha512-LoMA3tgegINqxtCz0sMErrRMXkxj0EAMHU0wWOoIb3bUeMqTXzsgf7YtSzcrySIk5IhL1GRyXVW9UmdSBTMtpA==}
+  /@wu-component/wu-breadcrumb-item/1.9.1:
+    resolution: {integrity: sha512-hcvp7Ku8omS4whRm4y/MfZZGKMtLMBVlQby1tiZCIxoKr4oLJ8N3wz4TOPwfZR3sXgVR6hvipkGeII3EeJ14zQ==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-breadcrumb/1.8.0_s5tyiv4yhqyivhirwjnlqeacsi:
-    resolution: {integrity: sha512-NhXYv+CaiSo7cwRtkQN6iByfOAANKSWAjOP6e3Y0YGt+4+H0WoW2LItXGGHrvhFPfso/qiQUyrVGECOQkTkF1w==}
-    engines: {node: '>= 10', npm: '>= 5'}
-    peerDependencies:
-      '@wu-component/wu-breadcrumb-item': latest
-    dependencies:
-      '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
-      '@wu-component/wu-breadcrumb-item': 1.8.0
-    dev: false
-
-  /@wu-component/wu-button/1.8.0:
-    resolution: {integrity: sha512-A7NUwn4GeLiG8iLdbARMk47K7OKwMi4q4GYxbEiS9GDe+fAYI78X92aWZXL3SgL2yaM8LTlCQFhO/WShl3V/5A==}
+  /@wu-component/wu-breadcrumb/1.9.1:
+    resolution: {integrity: sha512-Q8XzW0iVgZ9jbJGzOtyHD9HSTp8OGlDN9ThyfA9N79LKJTd1H4nckpC8msLkba5P+5ie1V7Cw6k3dky4CLIxUw==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/wu-breadcrumb-item': 1.9.1
     dev: false
 
-  /@wu-component/wu-card/1.8.0:
-    resolution: {integrity: sha512-v3/gt9hGQBj79dtvo08wEjMw2Q8Uw7Aifet8NkgedHLJTvDpMfMRR4ua2cgRn3tmF9dKs2uNoUF5VlGFOJLbgw==}
+  /@wu-component/wu-button/1.9.1:
+    resolution: {integrity: sha512-kl/0A3XbAlBicDaydN/42sLdBR1okI/3ipWGx7eiYsqv4r9ADHT4+8AE2ZeDEaO+y2rYWVY5Gr19B16L6bHaqQ==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-cascader/1.8.0:
-    resolution: {integrity: sha512-EkxqQJobJFhaE7vPdFwhCZgE0wR7FPyBXrphPeAYDD/DpoxTF23GQec7pxZXPjv3Fvw14u9h0jQkUOgHsZVovg==}
+  /@wu-component/wu-card/1.9.1:
+    resolution: {integrity: sha512-TbmcDvCwRh5kgZguFj13gkWJuzcMlgv/ZZFYrdm84KywK/c37D0YzYGw8j7/sdrTbd9NtMOv19HrRVCBa4ycIQ==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-cesium-map/1.8.0:
-    resolution: {integrity: sha512-6MGycoOt7as+iyrzOY+Sz5meY7QNXghLssUy5z72GlXtfk+x3p8+/pyvbNfDnxK2YcSE5hewllLEaKeHweN6Mg==}
+  /@wu-component/wu-cascader/1.9.1:
+    resolution: {integrity: sha512-VKsDOE519IJQLHesZoAG6m8C1582HPIMGmyznJ4ihlCCIj/fm5+uRozVcv+5ohn2gWLIaYckbfgW4mVIVoicXQ==}
+    engines: {node: '>= 10', npm: '>= 5'}
+    dependencies:
+      '@wu-component/common': 1.7.0
+      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/wu-input': 1.9.1
+      '@wu-component/wu-popover': 1.9.1
+    dev: false
+
+  /@wu-component/wu-cesium-map/1.9.1:
+    resolution: {integrity: sha512-Qr4jadutnN0WzJsGehmQbrE4QNUPAs2121A3TOfvVsBqAzzI0wRVTR2ySVudS+B2a3oNBjk6bQhecOtHpg8twA==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-checkbox-button/1.8.0:
-    resolution: {integrity: sha512-8z9xNtiBo4v6OITHywmNZqROIdFX7H/Lrkn2FihDUskjl47jykq1FqokS6Z/OcEdCsJ+pAvnxBZNa0Uy+cCLIw==}
+  /@wu-component/wu-checkbox-button/1.9.1:
+    resolution: {integrity: sha512-IJbt1mcv1gKL+Q5bMHu+PJtz5Ty5aWRKZqv7hlNjahd0iuoRkC7JPrIhR7SYC9qc6OiNoWsGLQdVLCD0tXJZsw==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-checkbox-group/1.8.0:
-    resolution: {integrity: sha512-9qdJJRmY7aXF4N7aqG5Rsd+/q8BZpszqk4/UUs/lUX9CpxnJop2mbcPlz/MnROBu2Z5fuNunfOn7JJc2Rffn5A==}
+  /@wu-component/wu-checkbox-group/1.9.1:
+    resolution: {integrity: sha512-A5x6HFWuK45suuoHQU484REDVvz5DXtnc6YMIQGdp2lUEFK1VHAjhaIZjVhwUwB7FtgzgssHYa89qDlXHW+90w==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-checkbox/1.8.0:
-    resolution: {integrity: sha512-HLnOp2iemHhGgJddSr2RLwjWL/3Kdig3eXh9FnumoNEq7JMwFhyHV54jj5fvpcgLVJWBLm/O+AeFw6pB/i/6Ng==}
+  /@wu-component/wu-checkbox/1.9.1:
+    resolution: {integrity: sha512-kWlYxG9Btgad0JV3YV3tlIuFWw0IDZ0FJWSXX+9KS9HcHelHI/Om0cj4ETbZ0UNE/O9Ap6FvSMwaXfTaUg+iIA==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-col/1.8.0:
-    resolution: {integrity: sha512-mh4npQo2oApWbPox5uGl3wor0pZ6FwK3kMjgdwiTQMWl+M+gJkkhZBVRGswKwK1ACpZgQ6VGdnA7j/VqRtTfIw==}
+  /@wu-component/wu-col/1.9.1:
+    resolution: {integrity: sha512-KWhpMmg64TOnhR0mAxN8JC+fFvlqTZpUmnjsM/+2KwJNBTEUHLMvs5d8uk5BG17I0HKcE0jy4uQG1Km9jK+ZqA==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-collapse-item/1.8.0:
-    resolution: {integrity: sha512-12kSPBbaXB7cJ1pH8wj4IsbgyLDvu8ClwfCShplzz0SbGlx5t+0jmgA58ZE7LL+Q2LaiMolErMB5Yk4pRbI/EQ==}
+  /@wu-component/wu-collapse-item/1.9.1:
+    resolution: {integrity: sha512-y42LekhVvH3NCO42v7zGE2WBbdQrj/pXYL1BodsrVUZgu03N8jzZiB4BlAy2qFDHLAuhMicudYSy9k1QO/qYOg==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-collapse/1.8.0_7mxh5rdabt2m3huljaug7nlsk4:
-    resolution: {integrity: sha512-B5iK7M6j3y3aWhlUCxRQgLwqUIHnA+9+qzsP2HRfw3CONY4udYs2QaCqO7inj5i6qgl3lx05kWGiv8va1tHelA==}
+  /@wu-component/wu-collapse/1.9.1:
+    resolution: {integrity: sha512-jlKkTAmkat5cf3x+GKCB+c/xEmKRNgo9wLEas/3hoooUggEKvzn2TOnucJ1gE1ycm5HmMker/0xSbO/m1Relrw==}
     engines: {node: '>= 10', npm: '>= 5'}
-    peerDependencies:
-      '@wu-component/wu-collapse-item': latest
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
-      '@wu-component/wu-collapse-item': 1.8.0
+      '@wu-component/wu-collapse-item': 1.9.1
     dev: false
 
-  /@wu-component/wu-color-picker/1.8.0_n3dm4wpngc7cj2i3wtskiz4pcy:
-    resolution: {integrity: sha512-b9sbeM+pT63zOercaRfw+0qIe+FFHOjQ033MsG1GHirHgJ0hukaN6oN2bYGqIglzgGnbY3eIQuYE70gBuFEQgA==}
+  /@wu-component/wu-color-picker/1.9.1:
+    resolution: {integrity: sha512-UpV1tsRxu2kP9tTo5fLszW9OrHqiXc0J2KiEcEpjy8nr1uHuawJdSe43r/SwuK+e8u6BaX+/RjIOQImmK6EV3w==}
     engines: {node: '>= 10', npm: '>= 5'}
-    peerDependencies:
-      '@wu-component/wu-button': latest
-      '@wu-component/wu-popover': latest
     dependencies:
       '@popperjs/core': 2.11.6
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
-      '@wu-component/wu-button': 1.8.0
+      '@wu-component/wu-button': 1.9.1
+      '@wu-component/wu-popover': 1.9.1
     dev: false
 
-  /@wu-component/wu-container/1.8.0:
-    resolution: {integrity: sha512-biOywZl6fD7C2v6Q0kL17aDaW8l6o/cVK4hBmgWuFPXdske9HnMVZ4UkqUWpaW2WJcdFdLsS9sWr7W1UuxLfZQ==}
+  /@wu-component/wu-container/1.9.1:
+    resolution: {integrity: sha512-rYh9vdZVnLIzsH4XfXsOJ9uAD5vnTQirpedX7N+kzViLI9ROHl6Wlkuz9j4P7oTR4/jExALLP4bvCw6Rfi+0dQ==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-date-picker/1.8.0:
-    resolution: {integrity: sha512-X5HaWKIpZWsnRI5RH5CsNYp1lXZsMoP2+ShNBMXw07aeJPtCEthQk/um2m9frWD2gzKIpUsjXrxjqw22sCYLjQ==}
+  /@wu-component/wu-date-picker/1.9.1:
+    resolution: {integrity: sha512-PQuD8jjoYvyKmzlsFZ9upaM/LV4c+Wjy/y8p9iKq8meVLvFQHvfFh3qsGHiWGTvNmiBAMcOWXs68OHzOWEIIWQ==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-dialog/1.8.0:
-    resolution: {integrity: sha512-7Y72/AuaEve/6g/qSdXuBpbAUvP2frk6N0Y3TcLyHz7jbF50pti9iZ+p8/dc64gkJtDb3srdNJZ4u0IvGDwRbQ==}
+  /@wu-component/wu-dialog/1.9.1:
+    resolution: {integrity: sha512-GcJax9QHImE1Us3D78J+JBF48xOyV20Q+L5Rf6vCkrGLIyaiJD+IcJgpqWuDo7ECF2j4YlSYT1+vmqfr51xQlA==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-empty/1.8.0:
-    resolution: {integrity: sha512-2WgiOiSMtc7Ju781f70CA6DJ7n+QlPf8dsPxbCxMjUP6Y7iNH8oFBlX0M8YTXTWFqApuunwCdLP19Nvp7cnyMQ==}
+  /@wu-component/wu-empty/1.9.1:
+    resolution: {integrity: sha512-P0tRKAFQhhIlQCMhXIFsDYVlU8iOLNtP1j9lp2JneyeuQkfpQKU3smVV8/rqOk9K21SH/8rc1xBxuIKXmNZtHQ==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-footer/1.8.0:
-    resolution: {integrity: sha512-QzckUPI/f71jLQ8DtvvyqXtjepeG5QhPqhHiTWihnw2N9uFpR6PMnNsxvqFgjmtvhLN4Il+jUEvnYffS253CMg==}
+  /@wu-component/wu-footer/1.9.1:
+    resolution: {integrity: sha512-uXUhNhDb1NRlW/7aIgXYltIthWePJLhTNfaEnOmR7Y/TwwS5tkPyPl3As2mLih/NDd1kKg2xAEerTZMWiqvg1w==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-form-item/1.8.0:
-    resolution: {integrity: sha512-hJ0tyBqgIUQKj47n8V+9LRZEgscKuLrHx53XFEJHPFynWWhtLmg3wn3vQ8l61eUNk2pEqr+yZuwG1VGayJFl3w==}
+  /@wu-component/wu-form-item/1.9.1:
+    resolution: {integrity: sha512-ZxYS5Is3V1EhA5xy4ZOAdySKKDMioYCZ1qNxWYoDY+6pjahapui7lfKprXgezE75pxs64VF2NMeSEURsfwEoxA==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-form-label-wrap/1.8.0:
-    resolution: {integrity: sha512-4z/0NDRKk6wC1LNXFNuLoVc4Cgw/89iSM/poJG0WP4i9ajiuQbvfLbpYCoI4apw+D+1wURltE++FBws63kyJDw==}
+  /@wu-component/wu-form-label-wrap/1.9.1:
+    resolution: {integrity: sha512-PB4ks06EgesRo1O/v3Q1sqd1i+l/CKJL33TGSEv3AuLvSHNMI+rdV6dlvT2B37t8gtTHzcvDLs5T/leKRMACgw==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-form/1.8.0:
-    resolution: {integrity: sha512-TZ8ejLEpheRNgEt9ydmpYat3a6X5cApHebns6Gi5wT73FXFs0MYjXGX9pXasZdBJmhV/hgg+msJ9YXOMmKfxGQ==}
+  /@wu-component/wu-form/1.9.1:
+    resolution: {integrity: sha512-rTVaJhlU/3iZPpGxemJD1UuaqwWrJnoSsCZhMV8mfDbqeXyX2u57RDFb1LLLNeGwXjhAguwQxFT9lrQRYx4xkA==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-form1/1.8.0:
-    resolution: {integrity: sha512-08gzxc3lG926f7tI/gFwyhGK5Kmf08FSIy6cnTxOOBL7Woqk8H3Zczbn4cIM2KVwmKbJaMPRd0vIwPnZiQLqfw==}
+  /@wu-component/wu-form1/1.9.1:
+    resolution: {integrity: sha512-JeyATL96viO4R+bF3zi1lvo4Uh8QrJIq2E6OnKASWCsDSHa1Zehm2JWuWKHo+fhsIm1JTaEUtfclje7rVbKmdg==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-header/1.8.0:
-    resolution: {integrity: sha512-bocJrGvh0RtQJY5ywmXNfbldGTB9riXLrZtq0IGURReKWqpEUFbvPriUZaf6fD7FRld9ZeOnGVpSpS2tWdvNNQ==}
+  /@wu-component/wu-header/1.9.1:
+    resolution: {integrity: sha512-05xSG6Uo5BEATjkmcuL6VJl7nw21vWMuSpwoXd9CiB1LlYoxb9dwY248IzLw9GJPjnFPzcGfkonivJrLm4S1Vw==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-icon/1.8.0:
-    resolution: {integrity: sha512-vxiSZTnopBE6qXbRkONNXOHOryPUkLYppDicGSa8mh9o2y6Sdvh9N/QahrQPcbx63EIsgKOVtRqx4QuPs0UERw==}
+  /@wu-component/wu-icon/1.9.1:
+    resolution: {integrity: sha512-ALZTtKQXhdsXYZtAux66UNoh8sBdfx2S60ftAlBasznNPkvciSbjNUUcg2ykx7MDq11UTehMyvlf9EPjEPQLGA==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-image/1.8.0:
-    resolution: {integrity: sha512-WYcZgengpUaqw8V7XatzctPQ882a3el0RNA4Y4AAsLIfY29nZyj5gGSBQiRhW1z4PzSKpulOLLKOv7dtE22q6Q==}
+  /@wu-component/wu-image/1.9.1:
+    resolution: {integrity: sha512-vpFjJCoapeQsqgx/MiftXbeSLgp8C4nkUco+ctU7wC8fwTDmDvLUkipbbR/xK+z2pzRjq1/MSp0kfF495R95Sw==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-inject/1.8.0:
-    resolution: {integrity: sha512-VBXrDOXs08OLuzifkyeegfgLJgxMPt18crZglpLRxqmLwtphpjLIg4xkR21x1SAXGGkzl1vZmYGc8mKOWsiYGA==}
+  /@wu-component/wu-inject/1.9.1:
+    resolution: {integrity: sha512-vzd7CiL3cbXXwdTliwXLRlvOcRB/i+mNW0PA5Sa6UWG8PX5HDHMqxMFXNLrPPLsPiF5A2oZ/xHhVNURTBFvAcQ==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-input-number/1.8.0:
-    resolution: {integrity: sha512-ptGIQiKZkzOCBJUajiAvMnIenEeXCMeNCocTUwWmgX8rAhUy+K2eewaEX30BE822gvfV+YS6TMkMJcPGFJ1JWw==}
+  /@wu-component/wu-input-number/1.9.1:
+    resolution: {integrity: sha512-B1r1q2yzo7mmbzdXftiHIxEanVtXCtbWv5OjSMHTc5oBVf7U9Tp9a/WqfAjdd0f2cUZq5yChPGGl/je2bx8DxA==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-input/1.8.0:
-    resolution: {integrity: sha512-IIXVwtXwTrtX7E0JKjYEwW5xNZN9UTZyHGobsY80CTPW/KqQlN/vDm0JG2tY5mp7+joiimkrlbUAi1JttyfkYw==}
+  /@wu-component/wu-input/1.9.1:
+    resolution: {integrity: sha512-9kTLPBk54MNCDmNtdhWIFt9l/dg5wWTJJ0fA65pgGCIaAiyEeZ6JwPOfHJiUEf6F0EfciaeBNrS5n+v/QNFW8g==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-leaflet-map/1.8.0:
-    resolution: {integrity: sha512-Nkgnh5uIKSkw0fsM6vCP887nOWG3jXsyfbYNehYTlcyhqW+24EnOkVZhmHha8b1ZdL+lhjLjV336xMIS88kskQ==}
+  /@wu-component/wu-leaflet-map/1.9.1:
+    resolution: {integrity: sha512-M58v5IKiNpt+pu2EPkSYvQbSWi45vzd40osAsiCi/AVuJxBStQf1akD83EseAzfyEvbV2drsvI+/IUh1PbaJrg==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-link/1.8.0:
-    resolution: {integrity: sha512-plvFiNuKJbvxjno9Z6x55MqLAlLIQDr+9Ocx0fJbk2j0I0DUPW0bwJgtQxWYimlRddXBVZVo1EC2gajXx9q9tg==}
+  /@wu-component/wu-link/1.9.1:
+    resolution: {integrity: sha512-Tli4ER02SzIM+E1zqfxitUBqP7sOne3zXWNkeiAt6h+/O3rISGFw3cEw0xgIEG/IZ4cWf5iw4zKJhOPYnEZ4xg==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-main/1.8.0:
-    resolution: {integrity: sha512-wuQexsQS4EjzUAK+rgJa2ohIeALYYz5znQjnOfMWvWkVUZ0DxYoRmM2r5JIJqgrB7s5NKXQ8Hr0RbGd+p8GTZg==}
+  /@wu-component/wu-main/1.9.1:
+    resolution: {integrity: sha512-Fy1ooq7lQSrj06SRQM+zMzarXoTJQ9PfMgvoyyBqrhEK+wsYYSOS8NO+vEYBkNU40lbPSooSZz+rO4GCBtd5/g==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-mapbox-map/1.8.0:
-    resolution: {integrity: sha512-gbv+v8cKJvBj74NvVvlrDZYX2pfEFv6M2g5er13UaSCnfsK95stKexE8nDAHgsNj9+PaJSecSknlGGsAU35wPA==}
+  /@wu-component/wu-mapbox-map/1.9.1:
+    resolution: {integrity: sha512-HLLHoJFmFjElLTvKxMGkf/Q8J6sPMSRwB6k4E/uTkygHQgyFp82PyQo7ubun6xR4IBIuqYzYV5yAaRXp24kqdg==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-menu-item-group/1.8.0:
-    resolution: {integrity: sha512-iXuqgL8hc9/6Vgk4W0hweHEOVuAhVyQQZYaMnpKPcbsBtzdoP2BNZpqTQeVUUvisdEfegr9bbDY7cYQAc1iHYA==}
+  /@wu-component/wu-menu-item-group/1.9.1:
+    resolution: {integrity: sha512-wdEAWIFyEPVZJKBGtq/iYd3gDYSBzAeF8MIKT5f/DBZ6YuPlYrLKquOmpW9M/Vhh04oTZVmf4G9Z+aAcs6r5Lw==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-menu-item/1.8.0_5zmcjykferwhwnuwg6e3qss4wa:
-    resolution: {integrity: sha512-o9I4m+eOdEga5UBKh6Az4za06gPyLaDBZYHljcaJSrVtm/gd35EsqH0L9aFN0rM+il4I9dkWmbeu8jhgNUXBlg==}
+  /@wu-component/wu-menu-item/1.9.1_r4uovldcz4v32en2miprchnhde:
+    resolution: {integrity: sha512-pKZOgf0lW9HT4lV4u3fJLjkQV+wykaxWhDUUHzdcVOefGigazjyNLctfyvjcDeZlhNf82lQ3afpnHIv6NOQT6g==}
     engines: {node: '>= 10', npm: '>= 5'}
     peerDependencies:
       '@wu-component/wu-tooltip': latest
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
-      '@wu-component/wu-tooltip': 1.8.0
+      '@wu-component/wu-tooltip': 1.9.1
     dev: false
 
-  /@wu-component/wu-menu-sub/1.8.0:
-    resolution: {integrity: sha512-9tP+iAedlGjJS/CvrJPUYAUjWlXlNaix3zVFBKROO2Ndy/sirTBLZBNAJBc4NIsQknoi5mDC23MDjGm+ipifyg==}
+  /@wu-component/wu-menu-sub/1.9.1:
+    resolution: {integrity: sha512-rbWewrrovtPpc0UMHoYi6Jb9OsIWMHhV2aDQSQgaN1jxtxwCyYYNdcoSHxLbbjmiuVs3u1+6wAMt9AUCsFCnQQ==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-menu/1.8.0_kl6dtq65e5pljgl23altumaema:
-    resolution: {integrity: sha512-hK37ToGsUQMMrqSr9Ly9JphSrU9+Y4pDK8DG96YpsKE2/yTUV5+mFM/xXNxAyZXELjtPoVWpopmWO+cx6DpLlg==}
+  /@wu-component/wu-menu/1.9.1_r4uovldcz4v32en2miprchnhde:
+    resolution: {integrity: sha512-7WktAGgmKG0uJM6Tfy0EXKiAx1M0RDPBp7+lVP861de050Wk51PtT5vQrA5SO/sb5ud2qO3w6HMwM81zUJxeAg==}
     engines: {node: '>= 10', npm: '>= 5'}
-    peerDependencies:
-      '@wu-component/wu-menu-item': latest
-      '@wu-component/wu-menu-item-group': latest
-      '@wu-component/wu-menu-sub': latest
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
-      '@wu-component/wu-menu-item': 1.8.0_5zmcjykferwhwnuwg6e3qss4wa
-      '@wu-component/wu-menu-item-group': 1.8.0
-      '@wu-component/wu-menu-sub': 1.8.0
+      '@wu-component/wu-menu-item': 1.9.1_r4uovldcz4v32en2miprchnhde
+      '@wu-component/wu-menu-item-group': 1.9.1
+      '@wu-component/wu-menu-sub': 1.9.1
+    transitivePeerDependencies:
+      - '@wu-component/wu-tooltip'
     dev: false
 
-  /@wu-component/wu-message/1.8.0:
-    resolution: {integrity: sha512-VilBG3aUpouSMuoRE5Cab26bpYeSY9DNiuD+FK7pCPy1IT6wP00KzBrk+fQnZaMIQm17IswwmVNenLzBjWVQwA==}
+  /@wu-component/wu-message/1.9.1:
+    resolution: {integrity: sha512-rnkZKxIBlENQz01289QL9EVF2jomr5E4VwMk82pjX6S1wMVxs0/reUnSAbkIjVCtz3W3VGWhSYsiF2idspDHCA==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-tag/1.8.0:
-    resolution: {integrity: sha512-PbT8QVbWnse+z9WTNpENy+EfE6+BYRjjYXuWEFdbXNWK6Cwjv4ls3jxGPSMHqwYlIaxFLG1WNxvckDz11YOoLg==}
+  /@wu-component/wu-page-header/1.9.1:
+    resolution: {integrity: sha512-cUYe5rHyrNbP9zTNRfoNxqJSyHd9fkLu8qUHh22zMggMyxXRBUgBe2/9v18xNeWAhJ/vCSVXnWfTu2RTYxaeWw==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-time-line-item/1.8.0:
-    resolution: {integrity: sha512-I/yPcvQa80BWiO+xbFNhf7+ioTuHzrIf890LtTGWl6gLtYRBME1B8x766ZblXxnh5Ik3HW7UOKHAagwo6YKQLw==}
+  /@wu-component/wu-pagination/1.9.1:
+    resolution: {integrity: sha512-nV46mkCxDaZKLgK9Vc4ZVOpmXBBIVBWR8FxGugWYCJIFC9i0p/2r88PIh7jG0xGs0ywywljQQ71aNw4NE3UwBA==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-time-line/1.8.0_sfe6raes6dzcqcl7qwoxa7xc2y:
-    resolution: {integrity: sha512-XVRkRtRgOmPXhDIUBxTupHZvo5MAFdls7pwwcSEG5QUOqWHpj9pLqDkbUXuS7WxACw5vhwfx9OCOUNk/4SGmlA==}
+  /@wu-component/wu-popconfirm/1.9.1:
+    resolution: {integrity: sha512-BP57sQBwFydX+h8ss7d8l9rc+wWxyDg+Jmo9yHHycaW7/50yahzdw9qdCcBC66b0IqxMOSQMmVRWpqYG0hlP6A==}
     engines: {node: '>= 10', npm: '>= 5'}
-    peerDependencies:
-      '@wu-component/wu-time-line-item': latest
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
-      '@wu-component/wu-time-line-item': 1.8.0
+      '@wu-component/wu-button': 1.9.1
+      '@wu-component/wu-popover': 1.9.1
     dev: false
 
-  /@wu-component/wu-tooltip/1.8.0:
-    resolution: {integrity: sha512-Qakd7644LmPSuBC7a3BAv+zcsVETMHqM9CImRfODK+yIbc1OIEWrORsUNG0Hw762SpsCN+opvgxoW0J+rbU79A==}
+  /@wu-component/wu-popover/1.9.1:
+    resolution: {integrity: sha512-Qjzlek3Ru56ClPw196AeAc5lUidog4hZU/Zio/CPoSyo+shjiAa3U7Bjz45P7PfLkxqHamrfjtX1uVP5iPYj8g==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@popperjs/core': 2.11.6
@@ -4240,36 +4244,141 @@ packages:
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-transition/1.8.0:
-    resolution: {integrity: sha512-Tw3hD7qLqFISVktDUdbN6cccPN4oDic50PUDtC1Lr3rGCyuA0CB+7WsjGVYbJUBC5lq+/OQjhjRTStnxcGDlmQ==}
+  /@wu-component/wu-progress/1.9.1:
+    resolution: {integrity: sha512-hhn+FRgXQ4umdOHHsxa3yYFYjHIZvGRUkiMDV83NuM29nV5gKhb5r0gv8wx9M9TlFaLlOcKRWYfZecTwdYMk1Q==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-tree-v2/1.8.0:
-    resolution: {integrity: sha512-6QBgxYiWsLOaW5cMHhWJb3p2Y0wlX0CGdEviszY86JWaV1XjsbDUkoKRZgXsp4eqSrkheTxu+GIj4i8fYtNR+w==}
+  /@wu-component/wu-radio/1.9.1:
+    resolution: {integrity: sha512-gOnxNFpoE2HQ2ukL/cD1lMhp7YNEqjCRvtpEo7XT/qEB/xQuGhd3Zv6NWk8sH5I3j1/55a833Jy//YTNTthGvA==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-tree/1.8.0:
-    resolution: {integrity: sha512-q6GvyQFgom7ITrhFD/mueuuqPHnmA12zSnv2mOZiYzyB0F1En+MZlVX4kdKtVPTKTwTxRpzHIWr4bQlrtWij1A==}
+  /@wu-component/wu-rate/1.9.1:
+    resolution: {integrity: sha512-ja4myO7bf593WBzroSSsL1zwpnzw7OfonzfsLkTq5fEEVdACse1WMinxfkTBFH04QQPV01Ju/USMkNwGh5aA8Q==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
     dev: false
 
-  /@wu-component/wu-upload/1.8.0:
-    resolution: {integrity: sha512-orZ+ZtTgtNi6BvCfhBJunqb90LGt/P6eM1YtMG986OLtMCypJbmodlzG1JMUOzWQQuQtuSaMhWk00HP7data/w==}
+  /@wu-component/wu-row/1.9.1:
+    resolution: {integrity: sha512-CLG+EJNfYcG0YL0eM7Eml0iiQBdz5AM/WOPeajtv1xcISqGlsJkxektK+PTOTzuql0zgcWewIVGLPwViSvRkGA==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
       '@wu-component/web-core-plus': 0.3.6
+    dev: false
+
+  /@wu-component/wu-select-option/1.9.1:
+    resolution: {integrity: sha512-/kxV6vVU6lbTG4qVWe+bj4Tv3mM8+TyjBQw6/Zl0HxQNJXFqeixhMAV9cDpWHEeRS+ReFvhmp0tyyl/27aI9xQ==}
+    engines: {node: '>= 10', npm: '>= 5'}
+    dependencies:
+      '@wu-component/common': 1.7.0
+      '@wu-component/web-core-plus': 0.3.6
+    dev: false
+
+  /@wu-component/wu-select/1.9.1:
+    resolution: {integrity: sha512-oZ3D7AzAxHHvvePRG9anVfUu22lQg1PiX4P3WlRoI1WL/B3iM1PIbVGORe4ra/Gvs5ON2pFWV0fjmL0+iIxdDQ==}
+    engines: {node: '>= 10', npm: '>= 5'}
+    dependencies:
+      '@wu-component/common': 1.7.0
+      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/wu-popover': 1.9.1
+      '@wu-component/wu-select-option': 1.9.1
+      '@wu-component/wu-tag': 1.9.1
+    dev: false
+
+  /@wu-component/wu-switch/1.9.1:
+    resolution: {integrity: sha512-6YSrsPyKOPdobmmRrBdfHQozY8LL/LLEbsu4xHekRJu18CT7vClEb4NDYXZF24hIZ6/JIpo1jL3a3JNAx7Ul6g==}
+    engines: {node: '>= 10', npm: '>= 5'}
+    dependencies:
+      '@wu-component/common': 1.7.0
+      '@wu-component/web-core-plus': 0.3.6
+    dev: false
+
+  /@wu-component/wu-table/1.9.1:
+    resolution: {integrity: sha512-au75cjS8tnSUWiMk/nT0iGdI5rhazx4En2kQQvByzxFN72OAXSku6THRlwwk50Wwhtn90QalHzUnMfVLv9Krcg==}
+    engines: {node: '>= 10', npm: '>= 5'}
+    dependencies:
+      '@wu-component/common': 1.7.0
+      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/wu-checkbox': 1.9.1
+      '@wu-component/wu-input': 1.9.1
+    dev: false
+
+  /@wu-component/wu-tag/1.9.1:
+    resolution: {integrity: sha512-3AnWieLF2NCAED0AbgKIWjL0MzMD9hMDWCTGAsOxY4UMd7yZAzlNOoQcTT8V5bLUjsmGOgrC0cYzvumYBcoLvw==}
+    engines: {node: '>= 10', npm: '>= 5'}
+    dependencies:
+      '@wu-component/common': 1.7.0
+      '@wu-component/web-core-plus': 0.3.6
+    dev: false
+
+  /@wu-component/wu-time-line-item/1.9.1:
+    resolution: {integrity: sha512-2ORb0WVweQO9gfkHtT1gIZfAjfnvMyfD31wBGwQgMoJhGXf0cMkDSRy2bscgBKtw2tmrJTrsAvLDKwkEiTvGCQ==}
+    engines: {node: '>= 10', npm: '>= 5'}
+    dependencies:
+      '@wu-component/common': 1.7.0
+      '@wu-component/web-core-plus': 0.3.6
+    dev: false
+
+  /@wu-component/wu-time-line/1.9.1:
+    resolution: {integrity: sha512-l5Z1IPV6ccCV1EmE5sfbD56z1E33BQ7LrIZFpqkBVoXvUHRtr44ITi7BrHY9ZUOl9LCgZqQvc9Qf4s6T2ltR6Q==}
+    engines: {node: '>= 10', npm: '>= 5'}
+    dependencies:
+      '@wu-component/common': 1.7.0
+      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/wu-time-line-item': 1.9.1
+    dev: false
+
+  /@wu-component/wu-tooltip/1.9.1:
+    resolution: {integrity: sha512-7waUzoGPttPyaApr8vf+vISoGvqF+F/XWSYUHP4/JCqmVcPRmx8gmrdGctun/QK6pli7wfTG04iJ7eeXhX/D3g==}
+    engines: {node: '>= 10', npm: '>= 5'}
+    dependencies:
+      '@popperjs/core': 2.11.6
+      '@wu-component/common': 1.7.0
+      '@wu-component/web-core-plus': 0.3.6
+    dev: false
+
+  /@wu-component/wu-transition/1.9.1:
+    resolution: {integrity: sha512-Zeqqx/wN8vaRXX62AOR+BFYbFNetgbTX9+r61mBUagUCwH97+o5n/EX2VN1CfOCtDrdfIXOCglv6IpaECkGPDw==}
+    engines: {node: '>= 10', npm: '>= 5'}
+    dependencies:
+      '@wu-component/common': 1.7.0
+      '@wu-component/web-core-plus': 0.3.6
+    dev: false
+
+  /@wu-component/wu-tree-v2/1.9.1:
+    resolution: {integrity: sha512-iJFbsv+p4XHJ3bsRyKATnXLkGXeh2xKlV10si3jhKUCUiJBd9UqzefNdXB2ZsaPkXoL0SCXK/IDEk5TdO/uVEw==}
+    engines: {node: '>= 10', npm: '>= 5'}
+    dependencies:
+      '@wu-component/common': 1.7.0
+      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/wu-checkbox': 1.9.1
+    dev: false
+
+  /@wu-component/wu-tree/1.9.1:
+    resolution: {integrity: sha512-XhlRbISVvZNnv3AzJmEMWhuIXfWrJjSu5hBoTHlKxP9c2wdpK3uConvCJP1SXCeh8Ui40s62s8/+ISWdxmMxiw==}
+    engines: {node: '>= 10', npm: '>= 5'}
+    dependencies:
+      '@wu-component/common': 1.7.0
+      '@wu-component/web-core-plus': 0.3.6
+    dev: false
+
+  /@wu-component/wu-upload/1.9.1:
+    resolution: {integrity: sha512-OcQmpwNajPkXy6+6dzgNqVGsvZkHyi7EMRGSpvFcl4ubHGmDdzhge0e8RhxgcVfjs9hmiri8bCM35TN8K1JhdA==}
+    engines: {node: '>= 10', npm: '>= 5'}
+    dependencies:
+      '@wu-component/common': 1.7.0
+      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/wu-progress': 1.9.1
     dev: false
 
   /@xtuc/ieee754/1.2.0:
