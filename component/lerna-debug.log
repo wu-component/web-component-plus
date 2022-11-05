@@ -1,17 +1,26 @@
 0 silly argv {
-0 silly argv   _: [ 'publish' ],
-0 silly argv   composed: 'publish',
+0 silly argv   _: [ 'version' ],
 0 silly argv   lernaVersion: '4.0.0',
 0 silly argv   '$0': 'C:\\Program Files\\nodejs\\node_modules\\lerna\\cli.js'
 0 silly argv }
 1 notice cli v4.0.0
 2 verbose rootPath D:\npm-dev\web-component-plus\component
-3 error Error: Unsupported URL Type "workspace:": latest
-3 error     at unsupportedURLType (D:\npm-dev\web-component-plus\component\node_modules\.pnpm\npm-package-arg@8.1.5\node_modules\npm-package-arg\npa.js:246:15)
-3 error     at fromURL (D:\npm-dev\web-component-plus\component\node_modules\.pnpm\npm-package-arg@8.1.5\node_modules\npm-package-arg\npa.js:306:13)
-3 error     at Function.resolve (D:\npm-dev\web-component-plus\component\node_modules\.pnpm\npm-package-arg@8.1.5\node_modules\npm-package-arg\npa.js:76:12)
-3 error     at D:\npm-dev\web-component-plus\component\node_modules\.pnpm\@lerna+package-graph@4.0.0\node_modules\@lerna\package-graph\index.js:66:30
-3 error     at Array.forEach (<anonymous>)
-3 error     at D:\npm-dev\web-component-plus\component\node_modules\.pnpm\@lerna+package-graph@4.0.0\node_modules\@lerna\package-graph\index.js:60:38
-3 error     at Map.forEach (<anonymous>)
-3 error     at new PackageGraph (D:\npm-dev\web-component-plus\component\node_modules\.pnpm\@lerna+package-graph@4.0.0\node_modules\@lerna\package-graph\index.js:49:10)
+3 info current version 1.9.2
+4 silly isAnythingCommitted
+5 verbose isAnythingCommitted 1
+6 silly getCurrentBranch
+7 verbose currentBranch feat/new
+8 silly remoteBranchExists
+9 silly isBehindUpstream
+10 error Error: Command failed with exit code 1: git remote update
+10 error Connection closed by 20.205.243.166 port 22
+10 error fatal: Could not read from remote repository.
+10 error
+10 error Please make sure you have the correct access rights
+10 error and the repository exists.
+10 error     at makeError (D:\npm-dev\web-component-plus\component\node_modules\.pnpm\execa@5.1.1\node_modules\execa\lib\error.js:60:11)
+10 error     at Function.module.exports.sync (D:\npm-dev\web-component-plus\component\node_modules\.pnpm\execa@5.1.1\node_modules\execa\index.js:194:17)
+10 error     at Object.execSync (D:\npm-dev\web-component-plus\component\node_modules\.pnpm\@lerna+child-process@4.0.0\node_modules\@lerna\child-process\index.js:39:16)
+10 error     at updateRemote (D:\npm-dev\web-component-plus\component\node_modules\.pnpm\@lerna+version@4.0.0\node_modules\@lerna\version\lib\is-behind-upstream.js:34:16)
+10 error     at isBehindUpstream (D:\npm-dev\web-component-plus\component\node_modules\.pnpm\@lerna+version@4.0.0\node_modules\@lerna\version\lib\is-behind-upstream.js:16:3)
+10 error     at VersionCommand.initialize (D:\npm-dev\web-component-plus\component\node_modules\.pnpm\@lerna+version@4.0.0\node_modules\@lerna\version\index.js:153:9)
