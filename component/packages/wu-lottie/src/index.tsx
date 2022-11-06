@@ -36,7 +36,7 @@ export class WuLottie extends WuComponent implements OnConnected, OnDisConnected
     }
 
     public override disConnected(): void {
-
+        this.lottieInstance.destroy();
     }
 
     private init(){
