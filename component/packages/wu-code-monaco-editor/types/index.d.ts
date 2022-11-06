@@ -4,10 +4,11 @@ export declare class WuCodeMonacoEditor extends WuComponent implements OnConnect
     initialValue: string;
     language: string;
     theme: string;
-    private __editor;
-    monacoInstance: any;
     get editor(): any;
     set editor(value: any);
+    get monacoInstance(): any;
+    set monacoInstance(value: any);
+    addTsDeclaration(url: string, name?: string): Promise<void>;
     private formatFile;
     private initEditor;
     connected(shadowRoot: ShadowRoot): void;

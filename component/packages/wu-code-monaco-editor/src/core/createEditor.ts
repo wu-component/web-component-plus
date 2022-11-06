@@ -1,4 +1,7 @@
 import loader from '@monaco-editor/loader';
+import { createTSXModel } from "./typescript";
+import { getMonaco } from "./content";
+import { commonOptions } from "./options";
 // import * as monaco from 'monaco-editor/esm/vs/editor/editor.main.js';
 
 /**
@@ -15,4 +18,19 @@ export function createEditorByLoader(editorContainer: HTMLElement, options: any)
             reject(e);
         });
     });
+}
+
+/**
+ * 创建编辑器语言 CONTENT
+ * @param type
+ * @param value
+ */
+export function createEditorMode(type: string, value: string) {
+    const monaco = getMonaco(this);
+    const model =
+        type === "typescript"
+            ? createTSXModel(value, this)
+            : monaco.editor.createModel(value, type);
+    model.updateOptions(commonOptions);
+    return model;
 }

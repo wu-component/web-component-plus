@@ -236,9 +236,9 @@
     "@wu-component/web-core-plus" latest
 
 "@wu-component/wu-aside@latest":
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/@wu-component/wu-aside/-/wu-aside-1.9.1.tgz#4e2fd4548a04068a28bebe7fdc4186b3719d5007"
-  integrity sha512-9mcI/V8s1Ec9YB+RNzsxmBqaJXWSLu067bJXdKha/BFGlafcLWdSH8LW/8MaIKX9Sbm6tokNAeINE961cCRmkg==
+  version "1.9.2"
+  resolved "https://registry.yarnpkg.com/@wu-component/wu-aside/-/wu-aside-1.9.2.tgz#20887f5d2b82ced161be5714d9eaa17548148ca5"
+  integrity sha512-7m0KK4iHi48WtmhHJthq8vovGtGtiIR9Iy5Rtz0uZdUait7lKw9nFutDCDvYTkLxjuBbX3gYu9uaLnYP9XvC9A==
   dependencies:
     "@wu-component/common" latest
     "@wu-component/web-core-plus" latest
@@ -2009,6 +2009,11 @@ normalize-path@^3.0.0, normalize-path@~3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/normalize-path/-/normalize-path-3.0.0.tgz#0dcd69ff23a1c9b11fd0978316644a0388216a65"
   integrity sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==
+
+nprogress@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/nprogress/-/nprogress-0.2.0.tgz#cb8f34c53213d895723fcbab907e9422adbcafb1"
+  integrity sha512-I19aIingLgR1fmhftnbWWO3dXc0hSxqHQHQb3H8m+K3TnEn/iSeTZZOyvKXWqQESMwuUVnatlCnZdLBZZt2VSA==
 
 object-inspect@^1.12.2, object-inspect@^1.9.0:
   version "1.12.2"

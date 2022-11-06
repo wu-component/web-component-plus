@@ -1,11 +1,16 @@
 import { Router } from "@wu-component/wu-core-router";
 import { RouterOptions } from "@wu-component/wu-core-router/dist/router/common";
+import nprogress from "@/plugin/basic/nprogress";
 const options: RouterOptions = {
     type: 'hash',
     after: () => {
+        console.log("结束");
+        nprogress.done();
         return true
     },
     before: () => {
+        console.log("开始");
+        nprogress.start();
         return true;
     },
     routers: [
@@ -36,7 +41,11 @@ const options: RouterOptions = {
         {
             path: "/button",
             element: `<button-page-view></button-page-view>`
-        }
+        },
+        {
+            path: "/icon",
+            element: `<icon-page-view></icon-page-view>`
+        },
     ]
 };
 export default new Router(options);

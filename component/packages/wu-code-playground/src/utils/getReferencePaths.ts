@@ -7,5 +7,5 @@ export function getReferencePaths(input: string) {
     } else {
       throw new Error(`Error parsing: "${s}".`);
     }
-  })
+  });
 }

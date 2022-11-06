@@ -12,6 +12,7 @@
     width: 100%;
     height: calc(100% - 56px);
     display: flex;
+    position: relative;
 }
 .editorContainer {
     width: 50%;
@@ -80,5 +81,21 @@
         right: 120px;
         top: 50%;
         transform: translateY(-50%);
+    }
+}
+.loadingContainer {
+    width: 100%;
+    height: calc(100% - 56px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 999;
+    background: rgba(255, 255, 255, 0.8);
+    .lottie {
+        width: 300px;
+        height: 300px
     }
 }

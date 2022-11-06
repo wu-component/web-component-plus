@@ -1,11 +1,12 @@
+import { getMonaco } from "./content";
 
 
 export const commonOptions = {
   tabSize: 2,
 };
 
-export const tsxCompilerOptions = () => {
-    const monaco = window.monaco;
+export const tsxCompilerOptions = (content) => {
+    const monaco = getMonaco(content);
     return {
         jsx: monaco.languages.typescript.JsxEmit['React'],
         jsxFactory: "h",
@@ -18,13 +19,17 @@ export const tsxCompilerOptions = () => {
         allowJs: true,
         experimentalDecorators: true,
         emitDecoratorMetadata: true,
+        downlevelIteration: true,
+        removeComments: true,
+        lib: [ 'dom', 'dom.iterable', 'esnext' ],
+        noImplicitAny: false,
+
+
         // downlevelIteration: true,
         moduleResolution: 2,
-        removeComments: true,
-        noImplicitAny: true,
         strictNullChecks: true,
         strictFunctionTypes: true,
-        strictPropertyInitialization: true,
+        strictPropertyInitialization: false,
         noImplicitThis: true,
         noImplicitReturns: true,
 
@@ -32,7 +37,6 @@ export const tsxCompilerOptions = () => {
         allowUnreachableCode: false,
         allowUnusedLabels: false,
 
-        downlevelIteration: false,
         noEmitHelpers: false,
         noLib: false,
         noStrictGenericChecks: false,
@@ -47,7 +51,9 @@ export const tsxCompilerOptions = () => {
         // experimentalDecorators: false,
         // emitDecoratorMetadata: false,
 
-        lib: [ 'dom', 'dom.iterable', 'esnext' ],
+        noSemanticValidation: false,
+        noSyntaxValidation: false,
+
     };
 
 };

@@ -8,9 +8,10 @@
     "./packages/*"
   ],
   "scripts": {
-    "build:common": "node ./scripts/build-common.js",
-    "build:ui": "node ./scripts/build-ui.js",
-    "scanner:pck": "node ./scripts/scanner-check.js"
+    "build:common": "ts-node ./scripts/build-common.js",
+    "build:ui": "ts-node ./scripts/build-ui.js",
+    "scanner:pck": "ts-node ./scripts/scanner-check.js",
+    "integrate:d": "ts-node ./scripts/integrate.ts"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.13.0",

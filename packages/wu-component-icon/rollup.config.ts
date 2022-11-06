@@ -4,7 +4,9 @@ import { babel } from '@rollup/plugin-babel';
 import typescript from 'rollup-plugin-typescript2';
 import { terser } from 'rollup-plugin-terser';
 import css from 'rollup-plugin-import-css';
+// @ts-ignore
 import fs from 'fs';
+// @ts-ignore
 import path from 'path';
 
 const extensions = [ '.js', '.ts', '.tsx' ];
@@ -36,6 +38,7 @@ const options = [
         plugins: [
             css(),
             typescript({
+                // @ts-ignore
                 compilerOptions: {
                     "declaration": false,
                 }
@@ -66,6 +69,7 @@ const options = [
         plugins: [
             css(),
             typescript({
+                // @ts-ignore
                 compilerOptions: {
                     "declaration": true,
                 }

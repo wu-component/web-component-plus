@@ -8,7 +8,7 @@
     flex-shrink: 0;
 }
 @include b(aside) {
-    overflow: auto;
-    box-sizing: border-box;
-    flex-shrink: 0;
+    // overflow: unset;
+    // box-sizing: border-box;
+    // flex-shrink: 0;
 }

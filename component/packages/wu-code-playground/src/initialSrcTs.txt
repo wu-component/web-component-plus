@@ -50,7 +50,7 @@ export class WuCodePlayground extends WuComponent implements OnConnected {
         alert("按钮点击");
     }
 
-    public override render(_renderProps = {}, _store = {}) {
+    public render(_renderProps = {}, _store = {}) {
         return (
             <div class="container">
                 <span class="button" onClick={() => this.tapFun()}>WuComponent</span>
@@ -69,5 +69,5 @@ const div = document.createElement("div");
 div.setAttribute("id", "testComponent");
 const test = document.createElement("wu-code-test");
 div.appendChild(test);
-document.querySelector("body").appendChild(div);
+document.querySelector("body")?.appendChild(div);
 /**********************非组件定义代码，手动插入代码  结束**********************************/

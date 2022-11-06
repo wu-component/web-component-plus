@@ -2213,6 +2213,9 @@ importers:
       '@wu-component/common': latest
       '@wu-component/web-core-plus': latest
       '@wu-component/wu-build-tools': latest
+      '@wu-component/wu-code-monaco-editor': latest
+      '@wu-component/wu-code-sandbox': latest
+      '@wu-component/wu-lottie': latest
       autoprefixer: ^10.4.4
       body-parser: ^1.19.0
       chalk: 4.1.2
@@ -2258,6 +2261,9 @@ importers:
       '@monaco-editor/loader': 1.3.2_monaco-editor@0.34.1
       '@wu-component/common': link:../common
       '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/wu-code-monaco-editor': link:../wu-code-monaco-editor
+      '@wu-component/wu-code-sandbox': link:../wu-code-sandbox
+      '@wu-component/wu-lottie': link:../wu-lottie
       monaco-editor: 0.34.1
     devDependencies:
       '@babel/preset-typescript': 7.18.6

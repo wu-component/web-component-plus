@@ -17,7 +17,7 @@ export class WuAside extends WuComponent {
     public override render(_renderProps = {}, _store = {}) {
         return (
             <footer class="wu-aside" style={{ width: this.width }}>
-                <slot class="wu-aside" style={{ width: this.width }} />
+                <slot style={{ width: this.width }} />
             </footer>
         );
     }

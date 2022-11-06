@@ -1,12 +1,14 @@
-﻿import { Component, h, OnConnected, Prop, WuComponent } from '@wu-component/web-core-plus';
+﻿import { Component, h, OnConnected, WuComponent, Prop } from '@wu-component/web-core-plus';
 import css from './index.scss';
 import { compileTS } from "./core/typescript";
-// import "../../wu-code-monaco-editor/src/index";
-// import "../../wu-code-sandbox/src/index";
+import "@wu-component/wu-code-monaco-editor";
+import "@wu-component/wu-code-sandbox";
+import "@wu-component/wu-lottie";
 import type { WuCodeMonacoEditor } from "../../wu-code-monaco-editor/types";
 import type { WuMonacoEditorPreview } from "../../wu-code-sandbox/types";
 import srcdoc from './srcdoc.html';
 import initialSrcTs from './initialSrcTs.txt';
+import { debounce } from "./utils";
 
 @Component({
     name: 'wu-code-playground',
@@ -17,10 +19,12 @@ export class WuCodePlayground extends WuComponent implements OnConnected {
         super();
     }
 
-    @Prop({ default: '', type: String })
-    public name: string;
+
+    @Prop({ type: Boolean, default: true })
+    public isLoading: boolean;
 
     public editorContainer: WuCodeMonacoEditor = null;
+
     public previewContainer: WuMonacoEditorPreview = null;
 
     public initialEvalSuccess = false;
@@ -28,15 +32,23 @@ export class WuCodePlayground extends WuComponent implements OnConnected {
     public override connected(shadowRoot: ShadowRoot): void {
         this.editorContainer = shadowRoot.querySelector("#editor");
         this.previewContainer = shadowRoot.querySelector("#preview");
-        // this.editorContainer.setAttribute("theme", "vs-dark");
-        // this.editorContainer.setAttribute("theme", "vs-dark");
         if (!this.initialEvalSuccess) {
+            // @ts-ignore
+            this.editorContainer?.addTsDeclaration("https://static-cdn.canyuegongzi.xyz/ts/Wu.d.ts");
             setTimeout(() => {
                 this.runCode();
                 this.initialEvalSuccess = true;
+                this.isLoading = false;
             }, 1000);
         }
+        const that = this;
+        window.addEventListener("resize", (res) => {
+            debounce(() => {
+                that.editorContainer.editor.layout();
+            }, 100, "editReSize");
+        });
     }
+
 
     /**
      * 开始执行代码
@@ -64,7 +76,7 @@ export class WuCodePlayground extends WuComponent implements OnConnected {
             }
         ).then(r => {});
     }
-
+    //
     public override render(_renderProps = {}, _store = {}) {
         return (
             <div class="playgroundContainer">
@@ -77,6 +89,12 @@ export class WuCodePlayground extends WuComponent implements OnConnected {
                     </div>*/}
                 </div>
                 <div class="content">
+                    <div className="loadingContainer" style={{ display: this.isLoading ? "flex": "none" }}>
+                        <div className="lottie">
+                            <wu-plus-lottie
+                                data="https://static-cdn.canyuegongzi.xyz/lf20/lf20_qD2Qe90HNO.json"></wu-plus-lottie>
+                        </div>
+                    </div>
                     <div className="editorContainer">
                         <wu-code-monaco-editor
                             className="editorContainer"
