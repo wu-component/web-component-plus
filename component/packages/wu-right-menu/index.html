@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./dist/index.umd.js"></script>
+</head>
+<body>
+<div id="app">
+    <wu-right-menu id="rateTest7" list='[{"name":"保存"},{"name":"另存为"},{"name":"放弃此次修改"},{"name":"设置","menu":[{"name":"首选项"},{"name":"快捷键"}]}]'>
+        <p>wweee</p>
+        <p>wweee</p>
+        <p>wweee</p>
+        <p>wweee</p>
+        <p>wweee</p>
+        <p>wweee</p>
+    </wu-right-menu>
+</div>
+</body>
+</html>
+<script>
+    document.getElementById('rateTest7').addEventListener("menuclick", (res) => {
+        console.log(res);
+    })
+</script>

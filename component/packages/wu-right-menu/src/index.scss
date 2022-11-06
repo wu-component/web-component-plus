@@ -1,0 +1,51 @@
+:host {
+
+}
+.menu {
+    display: none;
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    color: #444;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 2px;
+    list-style: none;
+    font-size: 12px;
+    cursor: default;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+}
+
+.menu li {
+    position: relative;
+    padding: 10px;
+    min-width: 80px;
+}
+
+.menu li:hover {
+    background-color: #efefef;
+}
+
+.menu li>ul {
+    display: none;
+    position: absolute;
+    width: max-content;
+    top: 0;
+    left: 100%;
+}
+
+.menu li:hover>ul {
+    display: inline-block;
+}
+
+.menu img {
+    position: absolute;
+    right: 10px;
+    top: 9px;
+    width: 20px;
+    height: 20px;
+}
