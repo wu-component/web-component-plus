@@ -31,7 +31,6 @@ import '@wu-component/wu-image';
 import '@wu-component/wu-collapse';
 import '@wu-component/wu-color-picker';
 import '@wu-component/wu-menu';
-
 import '@wu-component/wu-row';
 import '@wu-component/wu-col';
 import '@wu-component/wu-container';

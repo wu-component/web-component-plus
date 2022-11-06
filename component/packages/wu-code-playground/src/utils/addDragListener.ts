@@ -4,18 +4,18 @@ export const addDragListener = (
   onDragStart?: (event: MouseEvent) => void,
   onDragEnd?: (event: MouseEvent) => void
 ) => {
-  let lock = false
+  let lock = false;
   const cancel = (event: MouseEvent) => {
-    lock = false
-    onDragEnd && onDragEnd(event)
-    document.onmousemove = null
-    document.onmouseup = null
-  }
+    lock = false;
+    onDragEnd && onDragEnd(event);
+    document.onmousemove = null;
+    document.onmouseup = null;
+  };
   target.onmousedown = event => {
-    lock = true
-    onDragStart && onDragStart(event)
-    document.onmousemove = event => lock && callback(event)
-    document.onmouseup = cancel
-  }
-  target.onmouseup = cancel
-}
+    lock = true;
+    onDragStart && onDragStart(event);
+    document.onmousemove = event => lock && callback(event);
+    document.onmouseup = cancel;
+  };
+  target.onmouseup = cancel;
+};

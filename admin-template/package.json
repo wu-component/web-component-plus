@@ -13,7 +13,8 @@
     "@wu-component/wu-code-sandbox": "latest",
     "@wu-component/wu-component-icon": "latest",
     "@wu-component/wu-core-router": "latest",
-    "@wu-component/wu-lottie": "latest"
+    "@wu-component/wu-lottie": "latest",
+    "nprogress": "^0.2.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^19.0.2",

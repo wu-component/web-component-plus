@@ -11,7 +11,7 @@ module.exports = {
     },
     target: 'web',
     resolve: {
-        extensions: ['.ts', '.js', '.tsx'],
+        extensions: ['.ts', '.js', '.tsx', '.text'],
     },
     plugins: [
         /*new webpack.EvalSourceMapDevToolPlugin({}),*/

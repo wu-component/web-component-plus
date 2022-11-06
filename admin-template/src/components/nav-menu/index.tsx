@@ -31,6 +31,9 @@ export class AppNavMenu extends WuComponent implements OnConnected {
                     <wu-plus-menu-item index="/button">
                         <span style="padding-left: 8px">基础按钮</span>
                     </wu-plus-menu-item>
+                    <wu-plus-menu-item index="/icon">
+                        <span style="padding-left: 8px">基础图标</span>
+                    </wu-plus-menu-item>
                 </wu-plus-sub-menu>
                 {/*高级组件*/}
                 <wu-plus-sub-menu index="14" disabled="false">

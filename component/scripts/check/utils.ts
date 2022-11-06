@@ -28,7 +28,7 @@ const getTargets = (packages) => {
     }
 }
 // 模糊匹配需要打包的 package name
-const fuzzyMatchTarget = (partialTargets, includeAllMatching) => {
+const fuzzyMatchTarget = (partialTargets, includeAllMatching, targets) => {
     const matched = [];
     partialTargets.forEach((partialTarget) => {
         for (const target of targets) {

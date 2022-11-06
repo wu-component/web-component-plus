@@ -1,7 +1,7 @@
 export declare const commonOptions: {
     tabSize: number;
 };
-export declare const tsxCompilerOptions: () => {
+export declare const tsxCompilerOptions: (content: any) => {
     jsx: any;
     jsxFactory: string;
     jsxFragmentFactory: string;
@@ -12,9 +12,11 @@ export declare const tsxCompilerOptions: () => {
     allowJs: boolean;
     experimentalDecorators: boolean;
     emitDecoratorMetadata: boolean;
-    moduleResolution: number;
+    downlevelIteration: boolean;
     removeComments: boolean;
+    lib: string[];
     noImplicitAny: boolean;
+    moduleResolution: number;
     strictNullChecks: boolean;
     strictFunctionTypes: boolean;
     strictPropertyInitialization: boolean;
@@ -23,7 +25,6 @@ export declare const tsxCompilerOptions: () => {
     alwaysStrict: boolean;
     allowUnreachableCode: boolean;
     allowUnusedLabels: boolean;
-    downlevelIteration: boolean;
     noEmitHelpers: boolean;
     noLib: boolean;
     noStrictGenericChecks: boolean;
@@ -31,5 +32,6 @@ export declare const tsxCompilerOptions: () => {
     noUnusedParameters: boolean;
     preserveConstEnums: boolean;
     skipLibCheck: boolean;
-    lib: string[];
+    noSemanticValidation: boolean;
+    noSyntaxValidation: boolean;
 };

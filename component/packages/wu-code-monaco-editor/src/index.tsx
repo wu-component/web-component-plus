@@ -1,8 +1,9 @@
 import { Component, h, OnConnected, Prop, WuComponent } from "@wu-component/web-core-plus";
 import css from "./index.scss";
 import css1 from "monaco-editor/min/vs/editor/editor.main.css";
-import { createEditorByLoader, tsxCompilerOptions } from "./core";
-import { updateCompilerOptions } from "./core/typescript";
+import { createEditorByLoader, createEditorMode } from "./core";
+import { getEditor, setEditor, getMonaco, setMonaco } from "./core/content";
+import { addModuleDeclaration } from "./core/typescript";
 
 @Component({
     name: 'wu-code-monaco-editor',
@@ -23,21 +24,35 @@ export class WuCodeMonacoEditor extends WuComponent implements OnConnected {
     public theme: string;
 
     // private __editor: monaco.editor;
-    private __editor: any;
+    // private __editor: any;
 
     // public monacoInstance: monaco;
-    public monacoInstance: any;
+    // public monacoInstance: any;
 
-    //get editor(): monaco.editor {
     get editor() {
-            return this.__editor;
+        return getEditor(this);
     }
 
-    // set editor(value: monaco.editor) {
     set editor(value: any) {
         if (value) {
-            this.__editor = value;
+            setEditor(this, value);
         }
+    }
+
+    get monacoInstance() {
+        return getMonaco(this);
+    }
+
+    set monacoInstance(value: any) {
+        if (value) {
+            setMonaco(this, value);
+        }
+    }
+
+    public addTsDeclaration(url: string, name?: string) {
+        console.log("fetch", url);
+        // return addTsDeclaration.call(this, url, name);
+        return addModuleDeclaration(url, this, name);
     }
 
     private formatFile(doc: string): Promise<string> {
@@ -78,15 +93,17 @@ export class WuCodeMonacoEditor extends WuComponent implements OnConnected {
         const { editor, monacoInstance } = await createEditorByLoader(this.shadowRoot.querySelector("#container"), {
             value: this.initialValue,
             language: (this.props as any).language,
-            theme: (this.props as any).theme
+            theme: (this.props as any).theme,
+            // mode: createEditorMode.call(this, (this.props as any).language, this.initialValue)
         });
         this.editor = editor;
         this.monacoInstance = monacoInstance;
-        window.monaco = monacoInstance;
-        window.editor = editor;
-        // updateCompilerOptions({ moduleResolution: 2 });
-        updateCompilerOptions(tsxCompilerOptions());
-        // await addModuleDeclaration("https://unpkg.com/@wu-component/web-core-plus@0.3.3/dist/index.es.js", "@wu-component/web-core-plus");
+        const mode = createEditorMode.call(this, (this.props as any).language, this.initialValue);
+        editor.setModel(mode);
+        // editor.restoreViewState(data[type].state);
+        editor.focus();
+        this.addTsDeclaration("https://static-cdn.canyuegongzi.xyz/ts/Wu.d.ts");
+        // this.addTsDeclaration("https://static-cdn.canyuegongzi.xyz/ts/index.d.ts");
         return this.editor;
     }
 

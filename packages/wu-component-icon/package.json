@@ -36,8 +36,9 @@
     ],
     "devDependencies": {
         "@abraham/reflection": "^0.10.0",
-        "rollup-plugin-import-css": "^3.1.0",
         "@babel/preset-typescript": "^7.18.6",
+        "@babel/plugin-proposal-decorators": "^7.20.2",
+        "@rollup/plugin-babel": "^6.0.2",
         "@rollup/plugin-commonjs": "^19.0.2",
         "@rollup/plugin-json": "^4.1.0",
         "@rollup/plugin-node-resolve": "^13.1.3",
@@ -70,6 +71,7 @@
         "rollup-plugin-eslint": "^7.0.0",
         "rollup-plugin-filesize": "^9.1.1",
         "rollup-plugin-gzip": "^3.0.1",
+        "rollup-plugin-import-css": "^3.1.0",
         "rollup-plugin-node-externals": "^2.2.0",
         "rollup-plugin-postcss": "^4.0.2",
         "rollup-plugin-progress": "^1.1.2",
