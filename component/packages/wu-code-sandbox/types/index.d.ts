@@ -6,6 +6,7 @@ export declare class WuMonacoEditorPreview extends WuComponent implements OnConn
     initialSrcDoc: string;
     isBeforeRefresh: boolean;
     private container;
+    private isLoad;
     private proxy;
     previewStore: Store;
     private formatFile;
@@ -21,8 +22,7 @@ export declare class WuMonacoEditorPreview extends WuComponent implements OnConn
      * @param options
      */
     loadDependencies(options: LoadDependencies): Promise<unknown>;
-    emitEvent(data: any): {
-        data: any;
-    };
+    emitEvent(data: any): any;
+    emitSuccessEvent(): boolean;
     render(_renderProps?: {}, _store?: {}): any;
 }

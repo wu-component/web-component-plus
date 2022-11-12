@@ -29,6 +29,15 @@ export const updateCompilerOptions = (options: any, that: any) => {
 
 export const createTSXModel = (content: string, that: any) => {
     const monaco = getMonaco(that);
+    // const modes = monaco.editor.getModels();
+    // let currentMode = null;
+    // if (modes.length) {
+    //     currentMode = modes.find(item => item._languageId === 'typescript');
+    // }
+    // if (currentMode) {
+    //     updateCompilerOptions(tsxCompilerOptions(that), that);
+    //     return;
+    // }
     const codeModel =  monaco.editor.createModel(
         content,
         "typescript",

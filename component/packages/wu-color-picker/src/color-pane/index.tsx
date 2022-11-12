@@ -166,7 +166,7 @@ export class WuColorPane extends WuComponent implements OnConnected, OnDisConnec
         return HSVaColor(...this.$value);
     }
 
-    @Watch('val')
+    @Watch('val', { immediate: true })
     public valueChange(val: string, old?: string) {
         this.$value = parseToHSVA(val).values;
         //[h,s,v,a]

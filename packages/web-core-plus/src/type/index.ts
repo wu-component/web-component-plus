@@ -44,14 +44,20 @@ export interface StateOptions {
     type?: PropTyp;
 }
 
+export type ReactiveDataOption = PropOptions & StateOptions & {
+    attrType: "PROP" | 'STATE'
+}
+
 export interface EventOptions {
     methodName?: any;
     methodFun?: any;
     eventName?: string;
 }
 
-interface WatchOptions {
-    deep?: boolean;
+export interface WatchOptions {
+    immediate?: boolean
+    deep?: boolean,
+    path?: string;
 }
 export interface WatchMetaOptions {
     path: string;

@@ -58,7 +58,7 @@ export class WuFormLabelWrap extends WuComponent implements OnConnected, OnUpdat
             this.update();
         }
     }
-    @Watch('computedWidth')
+    @Watch('computedWidth', { immediate: true })
     public computedWidthChange(val: string, oldVal: string) {
         if (this.updateAll) {
             this.wuForm?.registerLabelWidth(val, oldVal);

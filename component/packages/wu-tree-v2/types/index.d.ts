@@ -37,6 +37,7 @@ export declare class WuTreeV2 extends WuComponent implements OnConnected {
     nodeKey: string;
     treeStore: any;
     treeRoot: any;
+    store: any;
     currentNode: any;
     treeItems: null;
     checkboxItems: [];

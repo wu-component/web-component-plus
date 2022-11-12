@@ -8,10 +8,14 @@
     "./packages/*"
   ],
   "scripts": {
-    "build:common": "ts-node ./scripts/build-common.js",
-    "build:ui": "ts-node ./scripts/build-ui.js",
-    "scanner:pck": "ts-node ./scripts/scanner-check.js",
-    "integrate:d": "ts-node ./scripts/integrate.ts"
+    "build:common": "ts-node ./scripts/build-common.ts",
+    "build:package": "node ./scripts/build-package.ts",
+    "build:package:umd": "ts-node ./scripts/build-umd.ts",
+    "scanner:package": "ts-node ./scripts/scanner-check-package.ts",
+    "scanner:package:umd": "ts-node ./scripts/scanner-check-umd.ts",
+    "integrate:d": "ts-node ./scripts/integrate.ts",
+    "playground:file:deploy": "ts-node ./scripts/playground-deploy.ts",
+    "playground:live-server": "cd ./playground && live-server"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.13.0",

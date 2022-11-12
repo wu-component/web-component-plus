@@ -8,9 +8,11 @@ export declare class RightMenuCore {
     menu: Menu[];
     el: HTMLElement;
     node: HTMLElement;
+    clickCallback: any;
     constructor(options: {
         el: HTMLElement;
         menu: Menu[];
+        clickCallback?: any;
     });
     /**
      * 初始化

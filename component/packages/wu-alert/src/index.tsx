@@ -46,16 +46,19 @@ export class WuAlert extends WuComponent {
     @Emit("confirm")
     public confirm() {
         this.visible = false;
+        return this;
     }
 
     @Emit("cancel")
     public cancel() {
         this.visible = false;
+        return this;
     }
 
     @Emit("close")
     public close() {
         this.visible = false;
+        return this;
     }
 
     get typeClass() {

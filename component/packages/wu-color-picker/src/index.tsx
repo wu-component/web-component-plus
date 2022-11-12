@@ -79,7 +79,7 @@ export class WuColorPicker extends WuComponent implements OnConnected {
         // this.popcon.prepend(this.colorPane);
     }
 
-    @Watch('val')
+    @Watch('val', { immediate: true })
     public valueChange(value: string, old: string) {
         this.$value = value;
         if(this.nativeclick){

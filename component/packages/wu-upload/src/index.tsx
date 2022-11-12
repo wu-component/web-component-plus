@@ -184,7 +184,7 @@ export class WuUpload extends WuComponent {
         };
     }
 
-    @Watch("fileList")
+    @Watch("fileList", { immediate: true })
     public fileListChange(fileList: File[]) {
         this.uploadFiles = fileList.map((item: any) => {
             item.uid = item.uid || (Date.now() + this.tempIndex++);

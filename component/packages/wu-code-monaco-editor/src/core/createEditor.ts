@@ -26,11 +26,25 @@ export function createEditorByLoader(editorContainer: HTMLElement, options: any)
  * @param value
  */
 export function createEditorMode(type: string, value: string) {
-    const monaco = getMonaco(this);
-    const model =
-        type === "typescript"
-            ? createTSXModel(value, this)
-            : monaco.editor.createModel(value, type);
-    model.updateOptions(commonOptions);
-    return model;
+    try {
+        const monaco = getMonaco(this);
+        /* const modes = monaco.editor.getModels();
+         let currentMode = null;
+         if (modes.length) {
+             currentMode = modes.find(item => item._languageId === type);
+         }
+         if (currentMode) {
+             return currentMode;
+         }*/
+        const model =
+            type === "typescript"
+                ? createTSXModel(value, this)
+                : monaco.editor.createModel(value, type);
+        model.updateOptions(commonOptions);
+        return model;
+    }catch (e) {
+        console.warn(e);
+        return  null;
+    }
+
 }

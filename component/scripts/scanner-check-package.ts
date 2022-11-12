@@ -1,10 +1,7 @@
 const path = require("path");
 const fs = require("fs-extra");
-const execa = import("execa");
 const utils = require("./check/utils")
-const httpServer = require("./check/http")
 const { getTargets, getPath, bytesToSize } = utils;
-const { bootstrap } = httpServer;
 const packages = getPath(`../../packages`)
 let targets = getTargets(packages);
 

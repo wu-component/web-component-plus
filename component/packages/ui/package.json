@@ -1,6 +1,6 @@
 {
     "name": "@wu-component/ui-plus",
-    "version": "1.9.3",
+    "version": "1.9.21",
     "description": "> TODO: description",
     "author": "Marvin <yongfeide123@gmail.com>",
     "homepage": "",
@@ -18,8 +18,9 @@
         "format": "prettier --write \"{src,apps,libs,test}/**/*.{tsx,ts}\"",
         "lint": "eslint \"{src,apps,libs,test}/**/*.{tsx,ts}\" --fix",
         "example:package": "live-server",
-        "build:package": "ts-node ./build/index.ts",
-        "dev:package": "webpack serve --config ./build/webpack_dev.config --env development --mode development --hot"
+        "build:package": "echo 'ui no build'",
+        "dev:package": "webpack serve --config ./build/webpack_dev.config --env development --mode development --hot",
+        "build:package:umd": "ts-node ./build/index.ts"
     },
     "publishConfig": {
         "access": "public"
@@ -214,6 +215,6 @@
         "type": "git",
         "url": "https://github.com/wu-component/web-component-plus"
     },
-    "gitHead": "186ad2a3cb32b6a803e5a0c52f6e79363ee4f1c5",
+    "gitHead": "a942c6861646590556e14919acea49fa69e7795a",
     "sideEffects": false
 }

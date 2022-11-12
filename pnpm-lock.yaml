@@ -20,13 +20,25 @@ importers:
 
   admin-template:
     specifiers:
+      '@rollup/plugin-commonjs': ^19.0.2
+      '@rollup/plugin-inject': ^4.0.4
+      '@rollup/plugin-json': ^4.1.0
+      '@rollup/plugin-node-resolve': ^13.1.3
+      '@rollup/plugin-replace': ^4.0.0
+      '@rollup/plugin-typescript': ^8.3.1
+      '@rollup/plugin-url': ^6.1.0
       '@types/node': ^18.0.3
       '@wu-component/ui-plus': latest
       '@wu-component/web-core-plus': latest
+      '@wu-component/wu-code-monaco-editor': latest
+      '@wu-component/wu-code-sandbox': latest
+      '@wu-component/wu-component-icon': latest
       '@wu-component/wu-core-router': latest
+      '@wu-component/wu-lottie': latest
       eslint: 7.1.0
       eslint-config-prettier: ^6.10.0
       eslint-plugin-import: ^2.20.1
+      nprogress: ^0.2.0
       prettier: ^1.15.3
       sass: ^1.52.1
       sass-loader: ^13.0.0
@@ -40,10 +52,22 @@ importers:
       typescript: ^4.5.4
       vite: ^2.9.9
     dependencies:
-      '@wu-component/ui-plus': 1.9.1_ljtz7p2wbiwfwajcatrrrioeua
+      '@wu-component/ui-plus': 1.9.3_ljtz7p2wbiwfwajcatrrrioeua
       '@wu-component/web-core-plus': link:../packages/web-core-plus
+      '@wu-component/wu-code-monaco-editor': 1.9.2
+      '@wu-component/wu-code-sandbox': 1.9.1
+      '@wu-component/wu-component-icon': link:../packages/wu-component-icon
       '@wu-component/wu-core-router': link:../packages/wu-core-router
+      '@wu-component/wu-lottie': 1.9.1
+      nprogress: 0.2.0
     devDependencies:
+      '@rollup/plugin-commonjs': 19.0.2
+      '@rollup/plugin-inject': 4.0.4
+      '@rollup/plugin-json': 4.1.0
+      '@rollup/plugin-node-resolve': 13.3.0
+      '@rollup/plugin-replace': 4.0.0
+      '@rollup/plugin-typescript': 8.5.0_hjjpfygmunulepk75ead4kovya
+      '@rollup/plugin-url': 6.1.0
       '@types/node': 18.11.7
       eslint: 7.1.0
       eslint-config-prettier: 6.15.0_eslint@7.1.0
@@ -381,10 +405,10 @@ importers:
       webpack-dev-server: ^4.9.0
       xml-js: ^1.6.11
     dependencies:
-      '@babel/plugin-proposal-decorators': 7.20.2
       weakmap-polyfill: 2.0.4
     devDependencies:
       '@abraham/reflection': 0.10.0
+      '@babel/plugin-proposal-decorators': 7.20.2
       '@babel/preset-typescript': 7.18.6
       '@rollup/plugin-babel': 6.0.2_rollup@2.79.1
       '@rollup/plugin-commonjs': 19.0.2_rollup@2.79.1
@@ -694,7 +718,7 @@ packages:
       '@babel/helper-split-export-declaration': 7.18.6
     transitivePeerDependencies:
       - supports-color
-    dev: false
+    dev: true
 
   /@babel/helper-create-regexp-features-plugin/7.19.0_@babel+core@7.19.6:
     resolution: {integrity: sha512-htnV+mHX32DF81amCDrwIDr8nrp1PTm+3wfBN9/v8QJOLEioOCOG7qNyq0nHeFiWbT3Eb7gsPwEmV64UCQ1jzw==}
@@ -787,6 +811,7 @@ packages:
   /@babel/helper-plugin-utils/7.20.2:
     resolution: {integrity: sha512-8RvlJG2mj4huQ4pZ+rU9lqKi9ZKiRmuvGuM2HlWmkmgOhbs6zEAw6IEiJ5cQqGbDzGZOhwuOQNtZMi/ENLjZoQ==}
     engines: {node: '>=6.9.0'}
+    dev: true
 
   /@babel/helper-remap-async-to-generator/7.18.9_@babel+core@7.19.6:
     resolution: {integrity: sha512-dI7q50YKd8BAv3VEfgg7PS7yD3Rtbi2J1XMXaalXO0W0164hYLnh8zpjRS0mte9MfVp/tltvr/cfdXPvJr1opA==}
@@ -960,7 +985,7 @@ packages:
       '@babel/plugin-syntax-decorators': 7.19.0
     transitivePeerDependencies:
       - supports-color
-    dev: false
+    dev: true
 
   /@babel/plugin-proposal-dynamic-import/7.18.6_@babel+core@7.19.6:
     resolution: {integrity: sha512-1auuwmK+Rz13SJj36R+jqFPMJWyKEDd7lLSdOj4oJK0UTgGueSAtkrCvz9ewmgyU/P941Rv2fQwZJN8s6QruXw==}
@@ -1146,7 +1171,7 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/helper-plugin-utils': 7.20.2
-    dev: false
+    dev: true
 
   /@babel/plugin-syntax-dynamic-import/7.8.3_@babel+core@7.19.6:
     resolution: {integrity: sha512-5gdGbFon+PszYzqs83S3E5mpi7/y/8M9eC90MRTZfduQOYW76ig6SOSPNe41IG5LoP3FGBn2N0RjVDSQiS94kQ==}
@@ -2785,6 +2810,15 @@ packages:
       write-file-atomic: 3.0.3
     dev: true
 
+  /@monaco-editor/loader/1.3.2_monaco-editor@0.34.1:
+    resolution: {integrity: sha512-BTDbpHl3e47r3AAtpfVFTlAi7WXv4UQ/xZmz8atKl4q7epQV5e7+JbigFDViWF71VBi4IIBdcWP57Hj+OWuc9g==}
+    peerDependencies:
+      monaco-editor: '>= 0.21.0 < 1'
+    dependencies:
+      monaco-editor: 0.34.1
+      state-local: 1.0.7
+    dev: false
+
   /@nicolo-ribaudo/chokidar-2/2.1.8-no-fsevents.3:
     resolution: {integrity: sha512-s88O1aVtXftvp5bCPB7WnmXc5IwOZZ7YPuwNPt+GtOOXpPvad1LfbmjYv+qII7zP6RU2QGnqve27dnLycEnyEQ==}
     requiresBuild: true
@@ -3008,6 +3042,21 @@ packages:
       rollup: 2.79.1
     dev: true
 
+  /@rollup/plugin-commonjs/19.0.2:
+    resolution: {integrity: sha512-gBjarfqlC7qs0AutpRW/hrFNm+cd2/QKxhwyFa+srbg1oX7rDsEU3l+W7LAUhsAp9mPJMAkXDhLbQaVwEaE8bA==}
+    engines: {node: '>= 8.0.0'}
+    peerDependencies:
+      rollup: ^2.38.3
+    dependencies:
+      '@rollup/pluginutils': 3.1.0
+      commondir: 1.0.1
+      estree-walker: 2.0.2
+      glob: 7.2.3
+      is-reference: 1.2.1
+      magic-string: 0.25.9
+      resolve: 1.22.1
+    dev: true
+
   /@rollup/plugin-commonjs/19.0.2_rollup@2.79.1:
     resolution: {integrity: sha512-gBjarfqlC7qs0AutpRW/hrFNm+cd2/QKxhwyFa+srbg1oX7rDsEU3l+W7LAUhsAp9mPJMAkXDhLbQaVwEaE8bA==}
     engines: {node: '>= 8.0.0'}
@@ -3040,6 +3089,16 @@ packages:
       rollup: 3.2.3
     dev: true
 
+  /@rollup/plugin-inject/4.0.4:
+    resolution: {integrity: sha512-4pbcU4J/nS+zuHk+c+OL3WtmEQhqxlZ9uqfjQMQDOHOPld7PsCd8k5LWs8h5wjwJN7MgnAn768F2sDxEP4eNFQ==}
+    peerDependencies:
+      rollup: ^1.20.0 || ^2.0.0
+    dependencies:
+      '@rollup/pluginutils': 3.1.0
+      estree-walker: 2.0.2
+      magic-string: 0.25.9
+    dev: true
+
   /@rollup/plugin-inject/4.0.4_rollup@3.2.3:
     resolution: {integrity: sha512-4pbcU4J/nS+zuHk+c+OL3WtmEQhqxlZ9uqfjQMQDOHOPld7PsCd8k5LWs8h5wjwJN7MgnAn768F2sDxEP4eNFQ==}
     peerDependencies:
@@ -3049,6 +3108,14 @@ packages:
       estree-walker: 2.0.2
       magic-string: 0.25.9
       rollup: 3.2.3
+    dev: true
+
+  /@rollup/plugin-json/4.1.0:
+    resolution: {integrity: sha512-yfLbTdNS6amI/2OpmbiBoW12vngr5NW2jCJVZSBEz+H5KfUJZ2M7sDjk0U6GOOdCWFVScShte29o9NezJ53TPw==}
+    peerDependencies:
+      rollup: ^1.20.0 || ^2.0.0
+    dependencies:
+      '@rollup/pluginutils': 3.1.0
     dev: true
 
   /@rollup/plugin-json/4.1.0_rollup@2.79.1:
@@ -3067,6 +3134,20 @@ packages:
     dependencies:
       '@rollup/pluginutils': 3.1.0_rollup@3.2.3
       rollup: 3.2.3
+    dev: true
+
+  /@rollup/plugin-node-resolve/13.3.0:
+    resolution: {integrity: sha512-Lus8rbUo1eEcnS4yTFKLZrVumLPY+YayBdWXgFSHYhTT2iJbMhoaaBL3xl5NCdeRytErGr8tZ0L71BMRmnlwSw==}
+    engines: {node: '>= 10.0.0'}
+    peerDependencies:
+      rollup: ^2.42.0
+    dependencies:
+      '@rollup/pluginutils': 3.1.0
+      '@types/resolve': 1.17.1
+      deepmerge: 4.2.2
+      is-builtin-module: 3.2.0
+      is-module: 1.0.0
+      resolve: 1.22.1
     dev: true
 
   /@rollup/plugin-node-resolve/13.3.0_rollup@2.79.1:
@@ -3097,6 +3178,15 @@ packages:
       is-module: 1.0.0
       resolve: 1.22.1
       rollup: 3.2.3
+    dev: true
+
+  /@rollup/plugin-replace/4.0.0:
+    resolution: {integrity: sha512-+rumQFiaNac9y64OHtkHGmdjm7us9bo1PlbgQfdihQtuNxzjpaB064HbRnewUOggLQxVCCyINfStkgmBeQpv1g==}
+    peerDependencies:
+      rollup: ^1.20.0 || ^2.0.0
+    dependencies:
+      '@rollup/pluginutils': 3.1.0
+      magic-string: 0.25.9
     dev: true
 
   /@rollup/plugin-replace/4.0.0_rollup@2.79.1:
@@ -3137,6 +3227,23 @@ packages:
       typescript: 4.8.4
     dev: true
 
+  /@rollup/plugin-typescript/8.5.0_hjjpfygmunulepk75ead4kovya:
+    resolution: {integrity: sha512-wMv1/scv0m/rXx21wD2IsBbJFba8wGF3ErJIr6IKRfRj49S85Lszbxb4DCo8iILpluTjk2GAAu9CoZt4G3ppgQ==}
+    engines: {node: '>=8.0.0'}
+    peerDependencies:
+      rollup: ^2.14.0
+      tslib: '*'
+      typescript: '>=3.7.0'
+    peerDependenciesMeta:
+      tslib:
+        optional: true
+    dependencies:
+      '@rollup/pluginutils': 3.1.0
+      resolve: 1.22.1
+      tslib: 2.4.0
+      typescript: 4.8.4
+    dev: true
+
   /@rollup/plugin-typescript/8.5.0_hqfxqf3ada2ft335fh2ekieg3m:
     resolution: {integrity: sha512-wMv1/scv0m/rXx21wD2IsBbJFba8wGF3ErJIr6IKRfRj49S85Lszbxb4DCo8iILpluTjk2GAAu9CoZt4G3ppgQ==}
     engines: {node: '>=8.0.0'}
@@ -3155,6 +3262,17 @@ packages:
       typescript: 4.5.4
     dev: true
 
+  /@rollup/plugin-url/6.1.0:
+    resolution: {integrity: sha512-FJNWBnBB7nLzbcaGmu1no+U/LlRR67TtgfRFP+VEKSrWlDTE6n9jMns/N4Q/VL6l4x6kTHQX4HQfwTcldaAfHQ==}
+    engines: {node: '>=10.0.0'}
+    peerDependencies:
+      rollup: ^1.20.0||^2.0.0
+    dependencies:
+      '@rollup/pluginutils': 3.1.0
+      make-dir: 3.1.0
+      mime: 2.6.0
+    dev: true
+
   /@rollup/plugin-url/6.1.0_rollup@3.2.3:
     resolution: {integrity: sha512-FJNWBnBB7nLzbcaGmu1no+U/LlRR67TtgfRFP+VEKSrWlDTE6n9jMns/N4Q/VL6l4x6kTHQX4HQfwTcldaAfHQ==}
     engines: {node: '>=10.0.0'}
@@ -3165,6 +3283,17 @@ packages:
       make-dir: 3.1.0
       mime: 2.6.0
       rollup: 3.2.3
+    dev: true
+
+  /@rollup/pluginutils/3.1.0:
+    resolution: {integrity: sha512-GksZ6pr6TpIjHm8h9lSQ8pi8BE9VeubNT0OMJ3B5uZJ8pz73NPiqOtCog/x2/QzM1ENChPKxMDhiQuRHsqc+lg==}
+    engines: {node: '>= 8.0.0'}
+    peerDependencies:
+      rollup: ^1.20.0||^2.0.0
+    dependencies:
+      '@types/estree': 0.0.39
+      estree-walker: 1.0.1
+      picomatch: 2.3.1
     dev: true
 
   /@rollup/pluginutils/3.1.0_rollup@2.79.1:
@@ -3856,15 +3985,15 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dev: false
 
-  /@wu-component/ui-plus/1.9.1_ljtz7p2wbiwfwajcatrrrioeua:
-    resolution: {integrity: sha512-1wPehTLZGkngyDJrW8B9fCiYLd3B1MCEVQN79hwTwrfczfqHR9CELpJS5ft4isIOPEYTbPCFOKvxvuy5ueSK6Q==}
+  /@wu-component/ui-plus/1.9.3_ljtz7p2wbiwfwajcatrrrioeua:
+    resolution: {integrity: sha512-yrxbNPAyg2OVSJMvgZ7qTkmhLvAzEMCedWr1RFn1IIHPwAqUxOU2limWC91MesnadeiKHen+LLE21sCP04HB0g==}
     engines: {node: '>= 10', npm: '>= 5'}
     peerDependencies:
       '@wu-component/web-core-plus': latest
     dependencies:
       '@wu-component/web-core-plus': link:packages\web-core-plus
       '@wu-component/wu-alert': 1.9.1
-      '@wu-component/wu-aside': 1.9.1
+      '@wu-component/wu-aside': 1.9.2
       '@wu-component/wu-avatar': 1.9.1
       '@wu-component/wu-badge': 1.9.1
       '@wu-component/wu-breadcrumb': 1.9.1
@@ -3897,9 +4026,9 @@ packages:
       '@wu-component/wu-input-number': 1.9.1
       '@wu-component/wu-leaflet-map': 1.9.1
       '@wu-component/wu-link': 1.9.1
-      '@wu-component/wu-main': 1.9.1
+      '@wu-component/wu-main': 1.9.3
       '@wu-component/wu-mapbox-map': 1.9.1
-      '@wu-component/wu-menu': 1.9.1_r4uovldcz4v32en2miprchnhde
+      '@wu-component/wu-menu': 1.9.3_r4uovldcz4v32en2miprchnhde
       '@wu-component/wu-menu-item': 1.9.1_r4uovldcz4v32en2miprchnhde
       '@wu-component/wu-menu-item-group': 1.9.1
       '@wu-component/wu-menu-sub': 1.9.1
@@ -3921,12 +4050,12 @@ packages:
       '@wu-component/wu-tooltip': 1.9.1
       '@wu-component/wu-transition': 1.9.1
       '@wu-component/wu-tree': 1.9.1
-      '@wu-component/wu-tree-v2': 1.9.1
+      '@wu-component/wu-tree-v2': 1.9.2
       '@wu-component/wu-upload': 1.9.1
     dev: false
 
-  /@wu-component/web-core-plus/0.3.6:
-    resolution: {integrity: sha512-cBdLTnQhjSQqJwcNvlG03MhOhR3i+yzalkN/gva48wu3oemTjWAzOwK/k45IlewxAG8FaqDCJ9irLJRzfVxcuw==}
+  /@wu-component/web-core-plus/0.3.8:
+    resolution: {integrity: sha512-SdIGEkCFkE5o6mOvfqgpuc4EYh4ko2SK7/nQ+zEqqS5WdRQE8SnHWB1zLxwLYgrEtkaizD3+QBhp5L3rAHAwsg==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@abraham/reflection': 0.10.0
@@ -3938,15 +4067,15 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
-  /@wu-component/wu-aside/1.9.1:
-    resolution: {integrity: sha512-9mcI/V8s1Ec9YB+RNzsxmBqaJXWSLu067bJXdKha/BFGlafcLWdSH8LW/8MaIKX9Sbm6tokNAeINE961cCRmkg==}
+  /@wu-component/wu-aside/1.9.2:
+    resolution: {integrity: sha512-7m0KK4iHi48WtmhHJthq8vovGtGtiIR9Iy5Rtz0uZdUait7lKw9nFutDCDvYTkLxjuBbX3gYu9uaLnYP9XvC9A==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-avatar/1.9.1:
@@ -3954,7 +4083,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-badge/1.9.1:
@@ -3962,7 +4091,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-breadcrumb-item/1.9.1:
@@ -3970,7 +4099,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-breadcrumb/1.9.1:
@@ -3978,7 +4107,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
       '@wu-component/wu-breadcrumb-item': 1.9.1
     dev: false
 
@@ -3987,7 +4116,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-card/1.9.1:
@@ -3995,7 +4124,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-cascader/1.9.1:
@@ -4003,7 +4132,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
       '@wu-component/wu-input': 1.9.1
       '@wu-component/wu-popover': 1.9.1
     dev: false
@@ -4013,7 +4142,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-checkbox-button/1.9.1:
@@ -4021,7 +4150,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-checkbox-group/1.9.1:
@@ -4029,7 +4158,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-checkbox/1.9.1:
@@ -4037,7 +4166,27 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
+    dev: false
+
+  /@wu-component/wu-code-monaco-editor/1.9.2:
+    resolution: {integrity: sha512-TBlGDDO/qZh6PNvdIVDgQEkWuwnQ1gVmSlt/kTEjx9nqpyBFOZ/aXAvkA70KjX13TBt6VmY2CppYb54bJ/BiNg==}
+    engines: {node: '>= 10', npm: '>= 5'}
+    dependencies:
+      '@monaco-editor/loader': 1.3.2_monaco-editor@0.34.1
+      '@wu-component/common': 1.7.0
+      '@wu-component/web-core-plus': 0.3.8
+      monaco-editor: 0.34.1
+    dev: false
+
+  /@wu-component/wu-code-sandbox/1.9.1:
+    resolution: {integrity: sha512-4uJoFbxuFb0YCkGjJg3gDdj5T3Ba/9iuNzCFkcET2ortyTQNvxo3Bg2Cc7t4twpd/Y6ntPcohJHv5rIJvt6mnw==}
+    engines: {node: '>= 10', npm: '>= 5'}
+    dependencies:
+      '@monaco-editor/loader': 1.3.2_monaco-editor@0.34.1
+      '@wu-component/common': 1.7.0
+      '@wu-component/web-core-plus': 0.3.8
+      monaco-editor: 0.34.1
     dev: false
 
   /@wu-component/wu-col/1.9.1:
@@ -4045,7 +4194,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-collapse-item/1.9.1:
@@ -4053,7 +4202,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-collapse/1.9.1:
@@ -4061,7 +4210,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
       '@wu-component/wu-collapse-item': 1.9.1
     dev: false
 
@@ -4071,7 +4220,7 @@ packages:
     dependencies:
       '@popperjs/core': 2.11.6
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
       '@wu-component/wu-button': 1.9.1
       '@wu-component/wu-popover': 1.9.1
     dev: false
@@ -4081,7 +4230,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-date-picker/1.9.1:
@@ -4089,7 +4238,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-dialog/1.9.1:
@@ -4097,7 +4246,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-empty/1.9.1:
@@ -4105,7 +4254,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-footer/1.9.1:
@@ -4113,7 +4262,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-form-item/1.9.1:
@@ -4121,7 +4270,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-form-label-wrap/1.9.1:
@@ -4129,7 +4278,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-form/1.9.1:
@@ -4137,7 +4286,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-form1/1.9.1:
@@ -4145,7 +4294,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-header/1.9.1:
@@ -4153,7 +4302,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-icon/1.9.1:
@@ -4161,7 +4310,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-image/1.9.1:
@@ -4169,7 +4318,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-inject/1.9.1:
@@ -4177,7 +4326,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-input-number/1.9.1:
@@ -4185,7 +4334,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-input/1.9.1:
@@ -4193,7 +4342,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-leaflet-map/1.9.1:
@@ -4201,7 +4350,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-link/1.9.1:
@@ -4209,15 +4358,24 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
-  /@wu-component/wu-main/1.9.1:
-    resolution: {integrity: sha512-Fy1ooq7lQSrj06SRQM+zMzarXoTJQ9PfMgvoyyBqrhEK+wsYYSOS8NO+vEYBkNU40lbPSooSZz+rO4GCBtd5/g==}
+  /@wu-component/wu-lottie/1.9.1:
+    resolution: {integrity: sha512-PkmRh6ByeXNON5bmUL1+Jlcy3kz5A+fnZuDxP8X+XJUAQ2jdfI+b6MIBCSXCQ+zbgIfdKg0Jr+pAK96Al2kfbQ==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
+      lottie-web: 5.9.6
+    dev: false
+
+  /@wu-component/wu-main/1.9.3:
+    resolution: {integrity: sha512-NDxZP9pkl7KGT/o41l4ljy8Fg+lYyLlusDI/Vk32Wwqd6rDmDRm5EuGMC+6LSIE5QEV8HPedHTCQA8Dpx0t4ng==}
+    engines: {node: '>= 10', npm: '>= 5'}
+    dependencies:
+      '@wu-component/common': 1.7.0
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-mapbox-map/1.9.1:
@@ -4225,7 +4383,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-menu-item-group/1.9.1:
@@ -4233,7 +4391,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-menu-item/1.9.1_r4uovldcz4v32en2miprchnhde:
@@ -4243,7 +4401,7 @@ packages:
       '@wu-component/wu-tooltip': latest
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
       '@wu-component/wu-tooltip': 1.9.1
     dev: false
 
@@ -4252,15 +4410,15 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
-  /@wu-component/wu-menu/1.9.1_r4uovldcz4v32en2miprchnhde:
-    resolution: {integrity: sha512-7WktAGgmKG0uJM6Tfy0EXKiAx1M0RDPBp7+lVP861de050Wk51PtT5vQrA5SO/sb5ud2qO3w6HMwM81zUJxeAg==}
+  /@wu-component/wu-menu/1.9.3_r4uovldcz4v32en2miprchnhde:
+    resolution: {integrity: sha512-U3399k3NBv4mhfQst7LuzmibkfbVSLbiICuxHFt0FMhJ7kdYp0O0vvLPDsabGpascXN78MHt3TKeR0MJ1cQ5Yg==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
       '@wu-component/wu-menu-item': 1.9.1_r4uovldcz4v32en2miprchnhde
       '@wu-component/wu-menu-item-group': 1.9.1
       '@wu-component/wu-menu-sub': 1.9.1
@@ -4273,7 +4431,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-page-header/1.9.1:
@@ -4281,7 +4439,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-pagination/1.9.1:
@@ -4289,7 +4447,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-popconfirm/1.9.1:
@@ -4297,7 +4455,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
       '@wu-component/wu-button': 1.9.1
       '@wu-component/wu-popover': 1.9.1
     dev: false
@@ -4308,7 +4466,7 @@ packages:
     dependencies:
       '@popperjs/core': 2.11.6
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-progress/1.9.1:
@@ -4316,7 +4474,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-radio/1.9.1:
@@ -4324,7 +4482,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-rate/1.9.1:
@@ -4332,7 +4490,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-row/1.9.1:
@@ -4340,7 +4498,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-select-option/1.9.1:
@@ -4348,7 +4506,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-select/1.9.1:
@@ -4356,7 +4514,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
       '@wu-component/wu-popover': 1.9.1
       '@wu-component/wu-select-option': 1.9.1
       '@wu-component/wu-tag': 1.9.1
@@ -4367,7 +4525,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-table/1.9.1:
@@ -4375,7 +4533,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
       '@wu-component/wu-checkbox': 1.9.1
       '@wu-component/wu-input': 1.9.1
     dev: false
@@ -4385,7 +4543,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-time-line-item/1.9.1:
@@ -4393,7 +4551,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-time-line/1.9.1:
@@ -4401,7 +4559,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
       '@wu-component/wu-time-line-item': 1.9.1
     dev: false
 
@@ -4411,7 +4569,7 @@ packages:
     dependencies:
       '@popperjs/core': 2.11.6
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-transition/1.9.1:
@@ -4419,15 +4577,15 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
-  /@wu-component/wu-tree-v2/1.9.1:
-    resolution: {integrity: sha512-iJFbsv+p4XHJ3bsRyKATnXLkGXeh2xKlV10si3jhKUCUiJBd9UqzefNdXB2ZsaPkXoL0SCXK/IDEk5TdO/uVEw==}
+  /@wu-component/wu-tree-v2/1.9.2:
+    resolution: {integrity: sha512-W6O/Go4GOq08N08KrHSMVyYgpdSmM2b+JTZTMr4gTBE79Kznw4blOXEYJ51ikN2ovwjtAGLAWzveTvkhfEG+Ow==}
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
       '@wu-component/wu-checkbox': 1.9.1
     dev: false
 
@@ -4436,7 +4594,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
     dev: false
 
   /@wu-component/wu-upload/1.9.1:
@@ -4444,7 +4602,7 @@ packages:
     engines: {node: '>= 10', npm: '>= 5'}
     dependencies:
       '@wu-component/common': 1.7.0
-      '@wu-component/web-core-plus': 0.3.6
+      '@wu-component/web-core-plus': 0.3.8
       '@wu-component/wu-progress': 1.9.1
     dev: false
 
@@ -11765,6 +11923,10 @@ packages:
       js-tokens: 4.0.0
     dev: true
 
+  /lottie-web/5.9.6:
+    resolution: {integrity: sha512-JFs7KsHwflugH5qIXBpB4905yC1Sub2MZWtl/elvO/QC6qj1ApqbUZJyjzJseJUtVpgiDaXQLjBlIJGS7UUUXA==}
+    dev: false
+
   /lower-case/2.0.2:
     resolution: {integrity: sha512-7fm3l3NAF9WfN6W3JOmf5drwpVqX78JtoGJ3A6W0a6ZnldM41w2fV5D490psKFTpMds8TJse/eHLFFsNHHjHgg==}
     dependencies:
@@ -12282,6 +12444,10 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
+  /monaco-editor/0.34.1:
+    resolution: {integrity: sha512-FKc80TyiMaruhJKKPz5SpJPIjL+dflGvz4CpuThaPMc94AyN7SeC9HQ8hrvaxX7EyHdJcUY5i4D0gNyJj1vSZQ==}
+    dev: false
+
   /ms/2.0.0:
     resolution: {integrity: sha512-Tpp60P6IUJDTuOq/5Z8cdskzJujfwqfOTkrwIwj7IRISpnkJnT6SyJ4PCPnGMoFjC9ddhal5KVIYtAt97ix05A==}
     dev: true
@@ -12706,6 +12872,10 @@ packages:
       gauge: 2.7.4
       set-blocking: 2.0.0
     dev: true
+
+  /nprogress/0.2.0:
+    resolution: {integrity: sha512-I19aIingLgR1fmhftnbWWO3dXc0hSxqHQHQb3H8m+K3TnEn/iSeTZZOyvKXWqQESMwuUVnatlCnZdLBZZt2VSA==}
+    dev: false
 
   /nth-check/2.1.1:
     resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}
@@ -15948,6 +16118,10 @@ packages:
     dependencies:
       escape-string-regexp: 2.0.0
     dev: true
+
+  /state-local/1.0.7:
+    resolution: {integrity: sha512-HTEHMNieakEnoe33shBYcZ7NX83ACUjCu8c40iOGEZsngj9zRnkqS9j1pqQPXwobB0ZcVTk27REb7COQ0UR59w==}
+    dev: false
 
   /static-extend/0.1.2:
     resolution: {integrity: sha512-72E9+uLc27Mt718pMHt9VMNiAL4LMsmDbBva8mxWUCkT07fSzEGMYUCk0XWY6lp0j6RBAG4cJ3mWuZv2OE3s0g==}

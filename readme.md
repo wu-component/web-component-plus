@@ -1,5 +1,8 @@
 ## web-component-ui
 
+[中文官网](https://wu.canyuegongzi.xyz/)
+[英文官网](https://wu-component.github.io/)
+
 web-plus-ui 是一套基于 webComponent 的 UI 组件库，目前尚在开发阶段，其中样式基于 elementUI。
 web-core-plus 是核心代码包，其中利用虚拟dom 实现了 WebComponent 的渲染;
 

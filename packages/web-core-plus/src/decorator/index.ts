@@ -4,7 +4,7 @@ import {
     PropOptions,
     ProvideOptions,
     StateOptions,
-    WatchMetaOptions
+    WatchOptions
 } from "@/type";
 import {
     defineComponent,
@@ -34,9 +34,9 @@ export function Method(): any {
  * @param options
  * @constructor
  */
-export function Watch(path: string, options?: WatchMetaOptions): any {
+export function Watch(path: string, options?: WatchOptions): any {
     return function(target: any, methodName: string, desc: any) {
-        defineWatch(target, path, methodName, desc);
+        defineWatch(target, path, methodName, desc, options);
     };
 }
 

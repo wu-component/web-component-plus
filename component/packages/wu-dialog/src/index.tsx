@@ -38,12 +38,12 @@ export class WuDialog extends WuComponent {
     @Prop({ default: '50%', type: String })
     public width = '50%';
 
-    @Watch('visible')
+    @Watch('visible', { immediate: true })
     public visibleChange(val: boolean) {
         if (val) {
-            if (this.lockScroll) {
-                this.disableScroll();
-            }
+            this.lockScroll && this.disableScroll();
+        } else {
+            this.lockScroll && this.enableScroll();
         }
     }
 
@@ -95,7 +95,7 @@ export class WuDialog extends WuComponent {
     @Emit('close')
     public close() {
         this.rootNode.childNodes[0].leave();
-        this.rootNode.childNodes[1].leave();
+        this.rootNode?.childNodes?.[1].leave?.();
         this.enableScroll();
         this.visible = false;
     }
@@ -150,10 +150,6 @@ export class WuDialog extends WuComponent {
                         </div>
                     </div>
                 </wu-plus-transition>
-
-                {/*<wu-plus-transition appear name="mask">
-                    <div class="mask" onClick={() => this.handleMaskClick()} />
-                </wu-plus-transition>*/}
                 <div className="mask" style={{  }} onClick={() => {}}/>
             </div>
         );

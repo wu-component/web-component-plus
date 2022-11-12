@@ -21,6 +21,8 @@ export class WuMonacoEditorPreview extends WuComponent implements OnConnected {
 
     private container: HTMLIFrameElement = null;
 
+    private isLoad = false;
+
     // 沙箱
     private proxy: PreviewProxy
 
@@ -61,7 +63,7 @@ export class WuMonacoEditorPreview extends WuComponent implements OnConnected {
 
     public override async connected(shadowRoot: ShadowRoot) {
         const initialSrcDoc = (this.props as any).initialSrcDoc;
-        this.container = shadowRoot.querySelector("#codeIframe");
+        // this.container = shadowRoot.querySelector("#codeIframe");
         const fragment = document.createElement("div");
         let current = {};
         if (initialSrcDoc) {
@@ -120,6 +122,10 @@ export class WuMonacoEditorPreview extends WuComponent implements OnConnected {
                 }
                 this.previewStore.code = [];
             });
+            if (this.isLoad === false) {
+                this.isLoad = true;
+                this.emitSuccessEvent();
+            }
         });
         this.container.setAttribute("srcdoc", this.initialSrcDoc);
     }
@@ -151,9 +157,13 @@ export class WuMonacoEditorPreview extends WuComponent implements OnConnected {
 
     @Emit("message")
     public emitEvent(data: any) {
-        return {
-            data: data || {}
-        };
+        return data || {};
+
+    }
+
+    @Emit("success")
+    public emitSuccessEvent() {
+        return true;
 
     }
 
@@ -161,7 +171,7 @@ export class WuMonacoEditorPreview extends WuComponent implements OnConnected {
         const sandbox = () => [ 'allow-forms', 'allow-modals', 'allow-pointer-lock', 'allow-popups',  'allow-same-origin', 'allow-scripts', 'allow-top-navigation-by-user-activation' ].join(' ');
         return (
             <div class="containerViewer">
-                <iframe frameBorder="0" id="codeIframe" sandbox={sandbox()}></iframe>
+                <iframe frameBorder="0" ref={ref => this.container = ref} id="codeIframe" sandbox={sandbox()}></iframe>
             </div>
         );
     }

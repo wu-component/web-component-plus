@@ -1,6 +1,6 @@
 {
     "name": "@wu-component/wu-code-playground",
-    "version": "1.9.1",
+    "version": "1.9.21",
     "description": "> TODO: description",
     "author": "Marvin <yongfeide123@gmail.com>",
     "homepage": "",
@@ -89,6 +89,7 @@
     "peerDependencies": {
         "@wu-component/common": "latest",
         "@wu-component/web-core-plus": "latest",
+        "@wu-component/wu-alert": "latest",
         "@wu-component/wu-code-monaco-editor": "latest",
         "@wu-component/wu-code-sandbox": "latest",
         "@wu-component/wu-lottie": "latest"
@@ -97,10 +98,11 @@
         "@monaco-editor/loader": "^1.3.2",
         "@wu-component/common": "latest",
         "@wu-component/web-core-plus": "latest",
-        "monaco-editor": "^0.34.1",
+        "@wu-component/wu-alert": "latest",
         "@wu-component/wu-code-monaco-editor": "latest",
         "@wu-component/wu-code-sandbox": "latest",
-        "@wu-component/wu-lottie": "latest"
+        "@wu-component/wu-lottie": "latest",
+        "monaco-editor": "^0.34.1"
     },
     "files": [
         "dist",
@@ -113,7 +115,7 @@
         "type": "git",
         "url": "https://github.com/wu-component/web-component-plus"
     },
-    "gitHead": "186ad2a3cb32b6a803e5a0c52f6e79363ee4f1c5",
+    "gitHead": "a942c6861646590556e14919acea49fa69e7795a",
     "exports": {
         ".": {
             "types": "./types/index.d.ts",
