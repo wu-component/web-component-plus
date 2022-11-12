@@ -13,7 +13,7 @@ import { WuRadio } from '@wu-component/wu-radio';
 import { WuInput } from '@wu-component/wu-input';
 import { WuInputNumber } from '@wu-component/wu-input-number';
 import { WuSwitch } from '@wu-component/wu-switch';
-import { WuTree } from '@wu-component/wu-tree';
+// import { WuTree } from '@wu-component/wu-tree';
 import { WuTreeV2 } from '@wu-component/wu-tree-v2';
 import { WuLink } from '@wu-component/wu-link';
 import { WuTable } from '@wu-component/wu-table';
@@ -63,7 +63,7 @@ export default  {
     WuInput,
     WuInputNumber,
     WuSwitch,
-    WuTree,
+    // WuTree,
     WuTreeV2,
     WuLink,
     WuTable,

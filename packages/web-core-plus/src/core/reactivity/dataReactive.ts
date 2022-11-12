@@ -1,7 +1,5 @@
-import { EventOptions, PropOptions, StateOptions, WatchOptType } from "@/type";
-import { COMPONENT_CUSTOM_EVENT, COMPONENT_WATCH, PROP_META_KEY, STATE_META_KEY } from "@/app-data";
-// import { observe } from "@/core";
-import Watcher from "@/core/observer/watcher";
+import { EventOptions, ReactiveDataOption } from "@/type";
+import { COMPONENT_CUSTOM_EVENT } from "@/app-data";
 import { toDotCase } from "@/share";
 
 export function proxy(target, sourceKey, key) {
@@ -10,9 +8,11 @@ export function proxy(target, sourceKey, key) {
             return this[sourceKey][key];
         },
         set(val) {
+            const old = this[sourceKey][key];
             this[sourceKey][key] = val;
             this["props"][key] = val;
             this.update.call(this, this.$reactive, null);
+            this.watchChangeCallback.call(this, key, val, old);
         }
     });
 }
@@ -20,18 +20,12 @@ export function proxy(target, sourceKey, key) {
 /**
  * 数据响应式操操作
  */
-export function dataReactive(){
+export function dataReactive(list: ReactiveDataOption[]){
     let $reactive: Record<string, any> = {};
-    const propsList: PropOptions[] = this.geMateList(PROP_META_KEY);
-    const statesList: StateOptions[] = this.geMateList(STATE_META_KEY);
-    $reactive = propsList.reduce((pre, curr, index) => {
+    $reactive = list.reduce((pre, curr, index) => {
         pre[curr.attr] = curr.default;
         return pre;
     }, $reactive);
-    $reactive = statesList.reduce((pre, curr, index) => {
-        pre[curr.attr] = curr.default;
-        return pre;
-    }, $reactive || {});
     if (!this.$reactive) {
         this.$reactive = {};
     }
@@ -42,13 +36,7 @@ export function dataReactive(){
         const key = keys[i];
         proxy(this, "$reactive", key);
     }
-    /*observe(this.$reactive);
-    new Watcher(this.$reactive, () => {
-        return this.render.call(this, this.$reactive, null);
-    }, (ww, t) => {
-        this.update.call(this, this.$reactive, null);
-    });*/
-};
+}
 
 /**
  * 事件处理
@@ -69,31 +57,4 @@ export function emitReactive() {
     });
 }
 
-export function $watch (expr: string | Function, handler: Function | WatchOptType, watchOpt: WatchOptType = {}, that): Function {
-    if (typeof handler === 'object') {
-        watchOpt = handler;
-        handler = watchOpt.handler!;
-    }
-    const watcher = new Watcher(that.$reactive, expr, handler, watchOpt);
-    if (watchOpt.immediate) {
-        handler.call(that, watcher.value);
-    }
-    return function unWatchFn () {};
-}
-/**
- * watch 处理
- */
-export function watchReactive() {
-    const watchList = this.geMateList(COMPONENT_WATCH) ?? [];
-    const that = this;
-    let $w: Record<string, any> = {};
-    $w = watchList.reduce((pre, curr) => {
-        $watch(curr.path, (...args) => {
-            that[curr.callbackName].call(that, ...args);
-        }, curr, that);
-        pre[curr.path] = curr;
-        return pre;
-    }, {});
-    that.$watch = $w;
-}
 

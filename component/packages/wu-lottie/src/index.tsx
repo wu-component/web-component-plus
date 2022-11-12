@@ -51,12 +51,12 @@ export class WuLottie extends WuComponent implements OnConnected, OnDisConnected
         });
     }
 
-    @Watch('data')
+    @Watch('data', { immediate: true })
     public dataChnage(val: string, old: string) {
         this.init();
     }
 
-    @Watch('loop')
+    @Watch('loop', { immediate: true })
     public loopChnage(val: boolean, old: boolean) {
         if (!this.lottieInstance) return;
         this.lottieInstance.loop = val;
@@ -66,7 +66,7 @@ export class WuLottie extends WuComponent implements OnConnected, OnDisConnected
         }
     }
 
-    @Watch('autoplay')
+    @Watch('autoplay', { immediate: true })
     public lautoplayChnage(val: boolean, old: boolean) {
         if (!this.lottieInstance) return;
         this.lottieInstance.autoplay = val;

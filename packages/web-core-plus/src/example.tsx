@@ -8,7 +8,7 @@ import "./example1.tsx";
 })
 export class TestComponent extends WuComponent  implements OnConnected {
 
-    @Prop({ type: String, default: '' })
+    @Prop({ type: String, default: '12' })
     public attr: string;
 
     @Prop({ type: Number, default: 0 })
@@ -28,20 +28,21 @@ export class TestComponent extends WuComponent  implements OnConnected {
             value: "0"
         };
     }
-    public override connected(shadowRoot: ShadowRoot) {
-        console.log([ this ]);
+    public override connected(shadowRoot: ShadowRoot) {}
+
+    @Watch("count", { immediate: true })
+    public attrWatchChange(val: string, old: string) {
+        console.log(val, old);
     }
 
-    @Watch("attr")
-    public attrWatchChange(val: string, old: string) {
+    @Watch("attr", { immediate: true })
+    public countChange(val: string, old: string) {
         console.log(val, old);
     }
 
     public override render() {
         return (
             <div class="container">
-                <p>fdsgbdfsghd</p>
-                <p>fdsgbdfsghd</p>
                 <p>{this.attr}</p>
                 <p>
                     <button onClick={() => this.updateCount()}>更新</button>
@@ -54,7 +55,9 @@ export class TestComponent extends WuComponent  implements OnConnected {
                 <p>
                     <button onClick={() => this.testFun()}>测试事件</button>
                 </p>
-                <test-example1 attr={this.attr}></test-example1>
+                <test-example1 attr={this.attr} onchild-update={(res) => {
+                    console.log(res);
+                }}></test-example1>
             </div>
         );
     }

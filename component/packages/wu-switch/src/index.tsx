@@ -54,7 +54,7 @@ export class WuSwitch extends WuComponent implements OnConnected {
     @Prop({ default: true, type: Boolean })
     public validateEvent: boolean;
 
-    @Watch('checked')
+    @Watch('checked', { immediate: true })
     public checkedChange(val: any, oldVal: any) {}
 
     public handleChange() {

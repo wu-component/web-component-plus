@@ -20,7 +20,7 @@ export class WuCollapse extends WuComponent {
     @State({ default: [], type: Array })
     public activeNames: string[];
 
-    @Watch('value')
+    @Watch('value', { immediate: true })
     public valueChange(value: string[], old: string[]) {
         this.activeNames = [].concat(value);
     }

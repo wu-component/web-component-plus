@@ -111,6 +111,9 @@ export class WuTreeV2 extends WuComponent implements OnConnected {
 
     @State({ type: Object })
     public treeRoot = null
+
+    @State({ type: Object })
+    public override store = null
     public currentNode =  null
     public treeItems: null
     public checkboxItems: []
@@ -128,11 +131,10 @@ export class WuTreeV2 extends WuComponent implements OnConnected {
         } else {
             this.data = data;
         }
-        console.log(this.data);
         this.init();
     }
 
-    @Watch("data")
+    @Watch("data", { immediate: true })
     public dataChange(val: any) {
         const data = typeof val === 'string'? JSON.parse(val): val;
         if (this.store) {
@@ -140,6 +142,7 @@ export class WuTreeV2 extends WuComponent implements OnConnected {
         }else {
             this.init();
         }
+        this.update();
     }
 
     private init() {
@@ -163,7 +166,6 @@ export class WuTreeV2 extends WuComponent implements OnConnected {
         });
 
         this.treeRoot = this.store.root;
-        console.log(this.showCheckbox);
 
         // const dragState = this.dragState;
         // this.update();

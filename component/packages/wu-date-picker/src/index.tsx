@@ -161,10 +161,10 @@ export class WuDatePicker extends WuComponent implements OnConnected, OnDisConne
     @Prop({ default: '60px', type: String })
     public height: string;
 
-    @Watch("disabled")
+    @Watch("disabled", { immediate: true })
     public disabledChange(val: boolean, old: boolean) {}
 
-    @Watch("value")
+    @Watch("value", { immediate: true })
     public valueChange(newValue: any, oldValue) {
         let startTime, endTime;
         if (Array.isArray(newValue)) {

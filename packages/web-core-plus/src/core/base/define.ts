@@ -3,8 +3,8 @@ import {
     EventOptions, InjectConfig, InjectOptions, MethodOptions,
     PropOptions,
     ProvideConfig,
-    ProvideOptions,
-    StateOptions, WatchMetaOptions
+    ProvideOptions, ReactiveDataOption,
+    StateOptions, WatchMetaOptions, WatchOptions
 } from "@/type";
 import {
     COMPONENT_CUSTOM_EVENT,
@@ -28,8 +28,13 @@ export function defineComponent(ctor: any, options: CustomTagOptions) {
     if (customElements.get(options.name)) {
         return;
     }
+    class El extends ctor {
+        constructor() {
+            super();
+        }
+    }
     ctor.$options = options;
-    customElements.define(options.name, ctor, options.options || {});
+    customElements.define(options.name, <CustomElementConstructor>El, options.options || {});
 }
 
 /**
@@ -40,8 +45,8 @@ export function defineComponent(ctor: any, options: CustomTagOptions) {
  */
 export function defineProps(target: any, attr: string, options: PropOptions = { default: undefined }) {
     const value = options.default;
-    const keys: PropOptions[] = Reflect.getMetadata(PROP_META_KEY, target) ?? [];
-    keys.push({ default: value, type: options.type, attr });
+    const keys: ReactiveDataOption[] = Reflect.getMetadata(PROP_META_KEY, target) ?? [];
+    keys.push({ default: value, type: options.type, attr, attrType: 'PROP' });
     Reflect.defineMetadata(PROP_META_KEY, keys, target);
 }
 
@@ -54,8 +59,8 @@ export function defineProps(target: any, attr: string, options: PropOptions = { 
  */
 export function defineStates( target: any, attr: string, options: StateOptions = { default: undefined },) {
     const value = options.default;
-    const keys: StateOptions[] = Reflect.getMetadata(STATE_META_KEY, target) ?? [];
-    keys.push({ default: value, type: options.type, attr });
+    const keys: ReactiveDataOption[] = Reflect.getMetadata(STATE_META_KEY, target) ?? [];
+    keys.push({ default: value, type: options.type, attr, attrType: 'STATE' });
     Reflect.defineMetadata(STATE_META_KEY, keys, target);
 }
 
@@ -110,7 +115,7 @@ export function defineInject(target: any, key: string, attr: string, options: In
  * @param desc
  * @param options
  */
-export function defineWatch(target: any, path: string, methodName: string, desc: any, options?: WatchMetaOptions) {
+export function defineWatch(target: any, path: string, methodName: string, desc: any, options?: WatchOptions) {
     const functions: WatchMetaOptions[] = Reflect.getMetadata(COMPONENT_WATCH, target) ?? [];
     const methodFun = desc.value;
     functions.push({

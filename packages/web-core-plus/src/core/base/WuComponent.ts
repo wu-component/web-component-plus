@@ -1,10 +1,23 @@
 import '@/polyfill';
 import 'weakmap-polyfill';
 import { cssToDom, getAttrMap, hyphenateReverse, formatValue } from "@/share";
-import { diff } from "../runtime";
-import { COMPONENT_CUSTOM_INJECT, COMPONENT_CUSTOM_PROVIDE, PROP_META_KEY } from "@/app-data";
-import { dataReactive, emitReactive, watchReactive } from "../reactivity/dataReactive";
-import { DefineComponent, PropOptions, ProvideConfig, InjectOptions, CustomTagOptions  } from "@/type";
+import { diff } from "@/core";
+import {
+    COMPONENT_CUSTOM_INJECT,
+    COMPONENT_CUSTOM_PROVIDE,
+    COMPONENT_WATCH,
+    PROP_META_KEY,
+    STATE_META_KEY
+} from "@/app-data";
+import { dataReactive, emitReactive } from "@/core/reactivity";
+import {
+    DefineComponent,
+    PropOptions,
+    ProvideConfig,
+    InjectOptions,
+    CustomTagOptions,
+    WatchMetaOptions, StateOptions, ReactiveDataOption
+} from "@/type";
 
 let id = 0;
 
@@ -40,17 +53,23 @@ export class WuComponent extends HTMLElement implements DefineComponent {
     public css: any;
     public injection: Record<string, any> = {};
 
+    private watchListMap: Map<string, WatchMetaOptions[]> = new Map<string, WatchMetaOptions[]>();
+
     public geMateList<K, T>(makeKey: K): T[] {
         return Reflect.getMetadata(makeKey as any, this) ?? [] as T[];
     }
     private initComponent(){
         this.elementId = id++;
         this.propsList = this.geMateList(PROP_META_KEY);
-        this.injects = this.geMateList(COMPONENT_CUSTOM_INJECT) ?? [] as InjectOptions[];;
-        this.provides = this.geMateList(COMPONENT_CUSTOM_PROVIDE) ?? [] as ProvideConfig[];;
-        dataReactive.call(this);
+        this.injects = this.geMateList(COMPONENT_CUSTOM_INJECT) ?? [] as InjectOptions[];
+        this.provides = this.geMateList(COMPONENT_CUSTOM_PROVIDE) ?? [] as ProvideConfig[];
+        const propsList: PropOptions[] = this.geMateList(PROP_META_KEY) || [];
+        const statesList: StateOptions[] = this.geMateList(STATE_META_KEY) || [];
+        const dataReactiveList: ReactiveDataOption[] = propsList.concat(statesList) as ReactiveDataOption[];
+        this.watchListMap = this.initWatch();
+        dataReactive.call(this, dataReactiveList);
         emitReactive.call(this);
-        watchReactive.call(this);
+        // watchReactive.call(this);
     }
 
     constructor() {
@@ -61,6 +80,24 @@ export class WuComponent extends HTMLElement implements DefineComponent {
         this.injection = {};
         this.providesMap = this.getProvides();
         this.injectsList = this.getInjects();
+    }
+
+    /**
+     * 初始化watch
+     * @private
+     */
+    private initWatch(): Map<string, WatchMetaOptions[]> {
+        const watchMap: Map<string, WatchMetaOptions[]> = new Map<string, WatchMetaOptions[]>();
+        const watchList = this.geMateList(COMPONENT_WATCH) ?? [] as WatchMetaOptions[];
+        watchList.forEach((item: WatchMetaOptions) => {
+            const current = watchMap.get(item.path);
+            if(current && Object.prototype.toString.call(current) === '[object Array]') {
+                watchMap.set(item.path, [ ...current, item ]);
+            }else {
+                watchMap.set(item.path, [ item ]);
+            }
+        });
+        return watchMap;
     }
 
     public initCss(shadowRoot: any): ShadowRoot {
@@ -205,6 +242,30 @@ export class WuComponent extends HTMLElement implements DefineComponent {
     public update(ignoreAttrs?: string[], updateSelf?: boolean) {
         // queueWatcher(this as any);
         this.callUpdate(ignoreAttrs, updateSelf);
+    }
+
+    /**
+     * 执行对应的watch对应的回调函数
+     * @param path
+     * @param val
+     * @param old
+     */
+    public watchChangeCallback(path: string, val: any, old: any) {
+        if (this.watchListMap.has(path)){
+            const watchers: WatchMetaOptions[] = this.watchListMap.get(path);
+            if (watchers && Object.prototype.toString.call(watchers) === '[object Array]') {
+                for (let i = 0; i < watchers.length; i ++) {
+                    if (!this.isInstalled) {
+                        if (watchers[i]?.options?.immediate) {
+                            this[watchers[i].callbackName].call(this, val, old);
+                        }
+                    } else {
+                        this[watchers[i].callbackName].call(this, val, old);
+                    }
+
+                }
+            }
+        }
     }
 
     /**

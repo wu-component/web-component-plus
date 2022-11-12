@@ -71,7 +71,7 @@ export class WuMenu extends WuComponent implements OnConnected {
         return this;
     }
 
-    @Watch('defaultActive')
+    @Watch('defaultActive', { immediate: true })
     public defaultActiveChange(value){
         this.activeIndex = value;
         if(!this.items[value] && Object.keys(this.items).length > 0){
@@ -83,14 +83,14 @@ export class WuMenu extends WuComponent implements OnConnected {
 
     }
 
-    @Watch('defaultOpeneds')
+    @Watch('defaultOpeneds', { immediate: true })
     public defaultOpenedsChange(value) {
         if (!this.collapse) {
             this.openedMenus = value;
         }
     }
 
-    @Watch('collapse')
+    @Watch('collapse', { immediate: true })
     public collapseChange(value) {
         if (value) this.openedMenus = [];
         // this.broadcast('ElSubmenu', 'toggle-collapse', value);

@@ -1,6 +1,7 @@
 
 ## Tree 树组件
 
+此组件后续会废弃， 建议使用 [wu-tree-v2](https://www.npmjs.com/package/@wu-component/wu-tree-v2)
 
 ### 基础用法
 

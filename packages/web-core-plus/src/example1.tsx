@@ -27,21 +27,26 @@ export class TestComponent1 extends WuComponent  implements OnConnected {
             value: "0"
         };
     }
-    public override connected(shadowRoot: ShadowRoot) {
-        console.log([this])
-    }
+    public override connected(shadowRoot: ShadowRoot) {}
 
-    @Watch("attr")
+    @Watch("attr", { immediate: true })
     public attrWatchChange(val: string, old: string) {
         console.log(val, old);
+    }
+
+    @Emit('child-update')
+    public childUpdate(attr: string) {
+        return attr;
     }
 
     public override render() {
         return (
             <div class="container">
-                <p>fdsgbdfsghd</p>
-                <p>fdsgbdfsghd</p>
+                <h2>子组件</h2>
                 <p>{this.attr}</p>
+                <p>
+                    <button onclick={() => this.childUpdate(this.attr)}>子组件更新</button>
+                </p>
             </div>
         );
     }
