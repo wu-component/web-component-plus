@@ -13,7 +13,8 @@
     "build:package:umd": "ts-node ./scripts/build-umd.ts",
     "scanner:package": "ts-node ./scripts/scanner-check-package.ts",
     "scanner:package:umd": "ts-node ./scripts/scanner-check-umd.ts",
-    "integrate:d": "ts-node ./scripts/integrate.ts"
+    "integrate:d": "ts-node ./scripts/integrate.ts",
+    "playground:file:deploy": "ts-node ./scripts/playground-deploy.ts"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.13.0",

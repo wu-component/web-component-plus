@@ -2,10 +2,14 @@
 import css from './index.scss';
 import { compileTS } from "./core/typescript";
 import "@wu-component/wu-code-monaco-editor";
+// import "../../wu-code-monaco-editor/src/index.tsx";
 import "@wu-component/wu-code-sandbox";
-import "@wu-component/wu-lottie";
-import type { WuCodeMonacoEditor } from "../../wu-code-monaco-editor/types";
-import type { WuMonacoEditorPreview } from "../../wu-code-sandbox/types";
+// import "../../wu-code-sandbox/src/index.tsx";
+// import "@wu-component/wu-lottie";
+// import type { WuCodeMonacoEditor } from "../../wu-code-monaco-editor/types";
+import type { WuCodeMonacoEditor } from "@wu-component/wu-code-monaco-editor/types";
+// import type { WuMonacoEditorPreview } from "../../wu-code-sandbox/types";
+import type { WuMonacoEditorPreview } from "@wu-component/wu-code-sandbox/types";
 import srcdoc from './srcdoc.html';
 import initialSrcTs from './initialSrcTs.txt';
 import { debounce } from "./utils";
@@ -30,21 +34,12 @@ export class WuCodePlayground extends WuComponent implements OnConnected {
     public initialEvalSuccess = false;
 
     public override connected(shadowRoot: ShadowRoot): void {
-        this.editorContainer = shadowRoot.querySelector("#editor");
-        this.previewContainer = shadowRoot.querySelector("#preview");
-        if (!this.initialEvalSuccess) {
-            // @ts-ignore
-            this.editorContainer?.addTsDeclaration("https://static-cdn.canyuegongzi.xyz/ts/Wu.d.ts");
-            setTimeout(() => {
-                this.runCode();
-                this.initialEvalSuccess = true;
-                this.isLoading = false;
-            }, 1000);
-        }
+        // this.editorContainer = shadowRoot.querySelector("#editor");
+        // this.previewContainer = shadowRoot.querySelector("#preview");
         const that = this;
         window.addEventListener("resize", (res) => {
             debounce(() => {
-                that.editorContainer.editor.layout();
+                that.editorContainer?.editor?.layout?.();
             }, 100, "editReSize");
         });
     }
@@ -76,6 +71,31 @@ export class WuCodePlayground extends WuComponent implements OnConnected {
             }
         ).then(r => {});
     }
+
+    private sandboxSuccess() {
+        if (!this.initialEvalSuccess) {
+            // @ts-ignore
+            this.editorContainer?.addTsDeclaration("https://static-cdn.canyuegongzi.xyz/ts/Wu.d.ts");
+            setTimeout(() => {
+                this.runCode();
+                this.initialEvalSuccess = true;
+                this.isLoading = false;
+            }, 1000);
+        }
+    }
+
+    public renderLoading() {
+        return (
+            <div className="sk-chase">
+                <div className="sk-chase-dot"></div>
+                <div className="sk-chase-dot"></div>
+                <div className="sk-chase-dot"></div>
+                <div className="sk-chase-dot"></div>
+                <div className="sk-chase-dot"></div>
+                <div className="sk-chase-dot"></div>
+            </div>
+        );
+    }
     //
     public override render(_renderProps = {}, _store = {}) {
         return (
@@ -90,10 +110,11 @@ export class WuCodePlayground extends WuComponent implements OnConnected {
                 </div>
                 <div class="content">
                     <div className="loadingContainer" style={{ display: this.isLoading ? "flex": "none" }}>
-                        <div className="lottie">
+                        {/*<div className="lottie">
                             <wu-plus-lottie
                                 data="https://static-cdn.canyuegongzi.xyz/lf20/lf20_qD2Qe90HNO.json"></wu-plus-lottie>
-                        </div>
+                        </div>*/}
+                        {this.renderLoading()}
                     </div>
                     <div className="editorContainer">
                         <wu-code-monaco-editor
@@ -102,10 +123,11 @@ export class WuCodePlayground extends WuComponent implements OnConnected {
                             initial-value={initialSrcTs}
                             theme="vs-dark"
                             language="typescript"
+                            ref={ref => this.editorContainer = ref}
                         ></wu-code-monaco-editor>
                     </div>
                     <div className="codeViewerContainer">
-                        <wu-code-sandbox id="preview" isBeforeRefresh={true} initial-src-doc={srcdoc}></wu-code-sandbox>
+                        <wu-code-sandbox ref={ref => this.previewContainer = ref} id="preview" onsuccess={() => this.sandboxSuccess()} isBeforeRefresh={true} initial-src-doc={srcdoc}></wu-code-sandbox>
                     </div>
                 </div>
             </div>

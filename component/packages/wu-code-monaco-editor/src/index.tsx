@@ -99,7 +99,7 @@ export class WuCodeMonacoEditor extends WuComponent implements OnConnected {
         this.editor = editor;
         this.monacoInstance = monacoInstance;
         const mode = createEditorMode.call(this, (this.props as any).language, this.initialValue);
-        editor.setModel(mode);
+        mode && editor.setModel(mode);
         // editor.restoreViewState(data[type].state);
         editor.focus();
         this.addTsDeclaration("https://static-cdn.canyuegongzi.xyz/ts/Wu.d.ts");
