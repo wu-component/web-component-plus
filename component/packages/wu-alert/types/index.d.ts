@@ -11,9 +11,9 @@ export declare class WuAlert extends WuComponent {
     showIcon: boolean;
     center: boolean;
     effect: string;
-    confirm(): void;
-    cancel(): void;
-    close(): void;
+    confirm(): this;
+    cancel(): this;
+    close(): this;
     get typeClass(): string;
     get iconClass(): any;
     get isBoldTitle(): "" | "is-bold";

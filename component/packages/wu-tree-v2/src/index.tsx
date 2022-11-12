@@ -110,9 +110,6 @@ export class WuTreeV2 extends WuComponent implements OnConnected {
     public treeStore = null
 
     @State({ type: Object })
-    public treeRoot = null
-
-    @State({ type: Object })
     public override store = null
     public currentNode =  null
     public treeItems: null
@@ -165,10 +162,14 @@ export class WuTreeV2 extends WuComponent implements OnConnected {
             filterNodeMethod: this.filterNodeMethod
         });
 
-        this.treeRoot = this.store.root;
+        // this.treeRoot = this.store.root;
 
         // const dragState = this.dragState;
         // this.update();
+    }
+
+    get treeRoot() {
+        return this.store?.root || null;
     }
 
     public override connected(shadowRoot: ShadowRoot) {

@@ -6,6 +6,7 @@ export {};
 declare global {
     interface Window {
         monaco: IMonaco;
-        editor: IStandaloneCodeEditor
+        editor: IStandaloneCodeEditor,
+        __DOC_VERSION__: any
     }
 }

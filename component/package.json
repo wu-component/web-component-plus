@@ -14,7 +14,8 @@
     "scanner:package": "ts-node ./scripts/scanner-check-package.ts",
     "scanner:package:umd": "ts-node ./scripts/scanner-check-umd.ts",
     "integrate:d": "ts-node ./scripts/integrate.ts",
-    "playground:file:deploy": "ts-node ./scripts/playground-deploy.ts"
+    "playground:file:deploy": "ts-node ./scripts/playground-deploy.ts",
+    "playground:live-server": "cd ./playground && live-server"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.13.0",

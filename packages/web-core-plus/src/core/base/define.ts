@@ -28,13 +28,13 @@ export function defineComponent(ctor: any, options: CustomTagOptions) {
     if (customElements.get(options.name)) {
         return;
     }
-    class El extends ctor {
+    /*class El extends ctor {
         constructor() {
             super();
         }
-    }
+    }*/
     ctor.$options = options;
-    customElements.define(options.name, <CustomElementConstructor>El, options.options || {});
+    customElements.define(options.name, ctor, options.options || {});
 }
 
 /**

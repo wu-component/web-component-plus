@@ -9,12 +9,14 @@ export class RightMenuCore {
     public menu: Menu[] = [];
     public el: HTMLElement;
     public node: HTMLElement;
+    public clickCallback: any;
 
-    constructor(options: { el: HTMLElement, menu: Menu[] }) {
+    constructor(options: { el: HTMLElement, menu: Menu[], clickCallback? }) {
         this.menu = options.menu || [];
         this.el = options.el || null;
         this.node = this.init();
         const that = this;
+        this.clickCallback = options?.clickCallback;
         this.el.oncontextmenu = function (e) {
             return false;
         };
@@ -57,7 +59,11 @@ export class RightMenuCore {
                 that.addHandler(menuItem, 'click', function() {
                     that.hide();
                     that.emitEvent(data[i], "menuclick");
-                    data[i].callback?.();
+                    // data[i].callback?.();
+                    if (typeof that.clickCallback === "function") {
+                        that.clickCallback.call(this, data[i]);
+                    }
+
                 });
             })(i);
             if (data[i]['menu']) {

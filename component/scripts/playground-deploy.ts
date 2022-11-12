@@ -18,6 +18,9 @@ const html = `<!DOCTYPE html>
         }
     </style>
     [[__script__]]
+    <script>
+    window.__DOC_VERSION__ = [[__DOC_VERSION__]]
+</script>
 </head>
 <body style="width: 100%;height: 100%;margin: 0;">
     <wu-code-playground style="width: 100%;height: 100%"></wu-code-playground>
@@ -29,10 +32,10 @@ const fileMap = {
         from: "../packages/web-core-plus/dist/index.umd.js",
         to:  "playground/static/web-core-plus/index.umd.js",
     },
-    'wu-lottie': {
+    /*'wu-lottie': {
         from: "packages/wu-lottie/dist/index.umd.js",
         to:  "playground/static/wu-lottie/index.umd.js",
-    },
+    },*/
     'wu-code-monaco-editor': {
         from: "packages/wu-code-monaco-editor/dist/index.umd.js",
         to:  "playground/static/wu-code-monaco-editor/index.umd.js",
@@ -57,8 +60,9 @@ function deploy() {
     }
 
     const fd = openSync(path.resolve(__dirname, '../playground', 'index.html'), "w");
-    const content = html.replace('[[__script__]]', script);
-    writeSync(fd, content);
+    let content = html.replace('[[__script__]]', script);
+    const content1 = content.replace('[[__DOC_VERSION__]]', new Date().getTime().toString());
+    writeSync(fd, content1);
     closeSync(fd);
 
 }
