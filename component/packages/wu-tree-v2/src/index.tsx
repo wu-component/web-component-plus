@@ -2,7 +2,7 @@ import { Component, Emit, h, OnConnected, State, Prop, WuComponent, Watch } from
 import '@wu-component/wu-checkbox';
 import css from './index.scss';
 import { Node } from './model/Node';
-import { extractClass } from "@wu-component/common";
+import { extractClass, newEval } from "@wu-component/common";
 import { TreeStore } from "./model/TreeStore";
 import { getNodeKey } from './model/util';
 
@@ -107,10 +107,9 @@ export class WuTreeV2 extends WuComponent implements OnConnected {
     @Prop({ type: String, default: '' })
     public nodeKey = ''
 
+    @State({ type: Object })
     public treeStore = null
 
-    @State({ type: Object })
-    public override store = null
     public currentNode =  null
     public treeItems: null
     public checkboxItems: []
@@ -122,20 +121,35 @@ export class WuTreeV2 extends WuComponent implements OnConnected {
         dropType: ""
     }
 
-    public setData(data: any) {
-        if (typeof data === 'string') {
-            this.data = JSON.parse(data);
-        } else {
-            this.data = data;
+    /**
+     * 序列化数据
+     * @param val
+     * @private
+     */
+    private formatData(val: any) {
+        if(!val) {
+            return [];
         }
+        try {
+            if (Object.prototype.toString.call(val) === '[object Array]') {
+                return val;
+            }
+            return JSON.parse(val);
+        }catch (e) {
+            return newEval(val);
+        }
+    }
+
+    public setData(data: any) {
+        this.data = this.formatData(data);
         this.init();
     }
 
     @Watch("data", { immediate: true })
     public dataChange(val: any) {
-        const data = typeof val === 'string'? JSON.parse(val): val;
-        if (this.store) {
-            this.store.setData(data);
+        const data = this.formatData(val);
+        if (this.treeStore) {
+            this.treeStore.setData(data);
         }else {
             this.init();
         }
@@ -146,11 +160,11 @@ export class WuTreeV2 extends WuComponent implements OnConnected {
         this.isTree = true;
         // this.data = data;
 
-        this.store = new TreeStore({
+        this.treeStore = new TreeStore({
             key: this.nodeKey,
             data: this.data,
             lazy: this.lazy,
-            props: this.props,
+            props: this.options,
             load: this.load,
             currentNodeKey: this.currentNodeKey,
             checkStrictly: this.checkStrictly,
@@ -161,29 +175,27 @@ export class WuTreeV2 extends WuComponent implements OnConnected {
             defaultExpandAll: this.defaultExpandAll,
             filterNodeMethod: this.filterNodeMethod
         });
-
-        // this.treeRoot = this.store.root;
-
-        // const dragState = this.dragState;
-        // this.update();
     }
 
     get treeRoot() {
-        return this.store?.root || null;
+        return this.treeStore?.root || null;
     }
 
     public override connected(shadowRoot: ShadowRoot) {
         this.init();
     }
 
-    @Emit('node-click')
-    public nodeClick(params: any) {
-        return {};
-    }
 
     @Emit('check-change')
-    public checkChange(params) {
-        return {};
+    public checkChange(node) {
+        const store = this.treeRoot.store;
+        return {
+            data: node.data,
+            checkedNodes: store.getCheckedNodes(),
+            checkedKeys: store.getCheckedKeys(),
+            halfCheckedNodes: store.getHalfCheckedNodes(),
+            halfCheckedKeys: store.getHalfCheckedKeys(),
+        };
     }
 
     @Emit('move-change')
@@ -211,14 +223,14 @@ export class WuTreeV2 extends WuComponent implements OnConnected {
 
     public filter(value) {
         if (!this.filterNodeMethod) throw new Error('[Tree] filterNodeMethod is required when filter');
-        this.store.filter(value);
+        this.treeStore.filter(value);
     }
     public getNodeKey(node) {
         return getNodeKey(this.nodeKey, node.data);
     }
     public getNodePath(data) {
         if (!this.nodeKey) throw new Error('[Tree] nodeKey is required in getNodePath');
-        const node = this.store.getNode(data);
+        const node = this.treeStore.getNode(data);
         if (!node) return [];
         const path = [ node.data ];
         let parent = node.parent;
@@ -229,13 +241,13 @@ export class WuTreeV2 extends WuComponent implements OnConnected {
         return path.reverse();
     }
     public getCheckedNodes(leafOnly, includeHalfChecked) {
-        return this.store.getCheckedNodes(leafOnly, includeHalfChecked);
+        return this.treeStore.getCheckedNodes(leafOnly, includeHalfChecked);
     }
     public getCheckedKeys(leafOnly) {
-        return this.store.getCheckedKeys(leafOnly);
+        return this.treeStore.getCheckedKeys(leafOnly);
     }
     public getCurrentNode() {
-        const currentNode = this.store.getCurrentNode();
+        const currentNode = this.treeStore.getCurrentNode();
         return currentNode ? currentNode.data : null;
     }
     public getCurrentKey() {
@@ -245,43 +257,43 @@ export class WuTreeV2 extends WuComponent implements OnConnected {
     }
     public setCheckedNodes(nodes, leafOnly) {
         if (!this.nodeKey) throw new Error('[Tree] nodeKey is required in setCheckedNodes');
-        this.store.setCheckedNodes(nodes, leafOnly);
+        this.treeStore.setCheckedNodes(nodes, leafOnly);
     }
     public setCheckedKeys(keys, leafOnly) {
         if (!this.nodeKey) throw new Error('[Tree] nodeKey is required in setCheckedKeys');
-        this.store.setCheckedKeys(keys, leafOnly);
+        this.treeStore.setCheckedKeys(keys, leafOnly);
     }
     public setChecked(data, checked, deep) {
-        this.store.setChecked(data, checked, deep);
+        this.treeStore.setChecked(data, checked, deep);
     }
     public getHalfCheckedNodes() {
-        return this.store.getHalfCheckedNodes();
+        return this.treeStore.getHalfCheckedNodes();
     }
     public getHalfCheckedKeys() {
-        return this.store.getHalfCheckedKeys();
+        return this.treeStore.getHalfCheckedKeys();
     }
     public setCurrentNode(node) {
         if (!this.nodeKey) throw new Error('[Tree] nodeKey is required in setCurrentNode');
-        this.store.setUserCurrentNode(node);
+        this.treeStore.setUserCurrentNode(node);
     }
     public setCurrentKey(key) {
         if (!this.nodeKey) throw new Error('[Tree] nodeKey is required in setCurrentKey');
-        this.store.setCurrentNodeKey(key);
+        this.treeStore.setCurrentNodeKey(key);
     }
     public getNode(data) {
-        return this.store.getNode(data);
+        return this.treeStore.getNode(data);
     }
     public removeNode(data) {
-        this.store.remove(data);
+        this.treeStore.remove(data);
     }
     public appendNode(data, parentNode) {
-        this.store.append(data, parentNode);
+        this.treeStore.append(data, parentNode);
     }
     public insertNodeBefore(data, refNode) {
-        this.store.insertBefore(data, refNode);
+        this.treeStore.insertBefore(data, refNode);
     }
     public insertNodeAfter(data, refNode) {
-        this.store.insertAfter(data, refNode);
+        this.treeStore.insertAfter(data, refNode);
     }
     public handleNodeExpand(nodeData, node, instance) {
         // this.broadcast('ElTreeNode', 'tree-node-expand', node);
@@ -289,7 +301,7 @@ export class WuTreeV2 extends WuComponent implements OnConnected {
     }
     public updateKeyChildren(key, data) {
         if (!this.nodeKey) throw new Error('[Tree] nodeKey is required in updateKeyChild');
-        this.store.updateChildren(key, data);
+        this.treeStore.updateChildren(key, data);
     }
     public initTabIndex() {
         this.treeItems  = this.shadowRoot.querySelectorAll('.is-focusable[role=treeitem]');

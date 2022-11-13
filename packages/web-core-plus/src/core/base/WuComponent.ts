@@ -82,6 +82,10 @@ export class WuComponent extends HTMLElement implements DefineComponent {
         this.injectsList = this.getInjects();
     }
 
+    get inlineCss() {
+        return super.getAttribute("css");
+    }
+
     /**
      * 初始化watch
      * @private
@@ -280,13 +284,22 @@ export class WuComponent extends HTMLElement implements DefineComponent {
             return;
         }
         this.willUpdate = true;
+        if (this.customStyleContent != this.inlineCss) {
+            this.customStyleContent = this.inlineCss;
+            if (this.customStyleElement) {
+                this.customStyleElement.textContent = this.customStyleContent;
+            } else {
+                this.customStyleElement = cssToDom(this.inlineCss);
+                this.shadowRoot.appendChild(this.customStyleElement);
+            }
+        }
         // this.attrsToProps();
         this.beforeUpdate();
         this.beforeRender();
-        if (this.customStyleContent != this.$options.css) {
+        /*if (this.customStyleContent != this.$options.css) {
             this.customStyleContent = this.$options.css;
             // this.customStyleElement.textContent = this.customStyleContent;
-        }
+        }*/
         // 属性变化，重新执行render 渲染， 走diff，生成新的dom
         const rendered = this.render(this.$reactive, this.store);
         this.rendered();
@@ -316,7 +329,7 @@ export class WuComponent extends HTMLElement implements DefineComponent {
                 cssToDom(typeof this.css === 'function' ? this.css() : this.css)
             );
         }
-        const propsCss = (this.$reactive as any)?.css;
+        const propsCss = this.inlineCss;
         if (propsCss) {
             this.customStyleElement = cssToDom(propsCss);
             this.customStyleContent = propsCss;
