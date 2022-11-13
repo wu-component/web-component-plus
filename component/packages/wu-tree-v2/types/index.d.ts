@@ -36,8 +36,6 @@ export declare class WuTreeV2 extends WuComponent implements OnConnected {
     emptyText: string;
     nodeKey: string;
     treeStore: any;
-    treeRoot: any;
-    store: any;
     currentNode: any;
     treeItems: null;
     checkboxItems: [];
@@ -48,12 +46,24 @@ export declare class WuTreeV2 extends WuComponent implements OnConnected {
         allowDrop: true;
         dropType: "";
     };
+    /**
+     * 序列化数据
+     * @param val
+     * @private
+     */
+    private formatData;
     setData(data: any): void;
     dataChange(val: any): void;
     private init;
+    get treeRoot(): any;
     connected(shadowRoot: ShadowRoot): void;
-    nodeClick(params: any): {};
-    checkChange(params: any): {};
+    checkChange(node: any): {
+        data: any;
+        checkedNodes: any;
+        checkedKeys: any;
+        halfCheckedNodes: any;
+        halfCheckedKeys: any;
+    };
     moveChange(params: any): {};
     get childrenNode(): Node[];
     set childrenNode(value: Node[]);

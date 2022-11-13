@@ -40,6 +40,11 @@ export class TestComponent extends WuComponent  implements OnConnected {
         console.log(val, old);
     }
 
+    public ssCss = `.container {
+    font-size: 49px;
+    color: red;
+}`
+
     public override render() {
         return (
             <div class="container">
@@ -55,7 +60,7 @@ export class TestComponent extends WuComponent  implements OnConnected {
                 <p>
                     <button onClick={() => this.testFun()}>测试事件</button>
                 </p>
-                <test-example1 attr={this.attr} onchild-update={(res) => {
+                <test-example1 css={this.ssCss} attr={this.attr} onchild-update={(res) => {
                     console.log(res);
                 }}></test-example1>
             </div>
