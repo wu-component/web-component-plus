@@ -5,7 +5,6 @@ const shellBuildPackage = 'pnpm -r exec pnpm run build:package';
 const shellScannerPck = 'ts-node ./scripts/scanner-check-package.ts';
 
 const result = shell.exec(shellBuildCommon);
-console.log(result);
 if (result.code === 0) {
     console.log("common build success");
     const result1 = shell.exec(shellBuildPackage);

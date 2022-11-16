@@ -2,8 +2,10 @@ const path = require("path");
 const fs = require("fs-extra");
 const utils = require("./check/utils")
 const { getTargets, getPath, bytesToSize } = utils;
+const efs = require('fs-extra');
 const packages = getPath(`../../packages`)
 let targets = getTargets(packages);
+const { ensureFileSync, copyFileSync } = efs;
 
 const task = () => {
     targets = targets.filter(name => !["common", "ui", "common", "theme"].includes(name));
@@ -49,14 +51,22 @@ const task = () => {
             // peerDependencies: peerDependencies,
         }
     })
-    console.table(newResult);
+    // console.table(newResult);
     return result;
 }
 
 const run = () => {
     const result = task();
-    // console.log(result);
-    // bootstrap(result);
+    const json = {
+        list: result,
+        packageLength: result.length
+    }
+    ensureFileSync(path.resolve(__dirname, '../', 'package-version.json'));
+    fs.writeFileSync(path.resolve(__dirname, '../', 'package-version.json'), JSON.stringify(json, null,"\t"), (err) => {
+        if (!err) {
+            console.log("数据初始化成功");
+        }
+    });
 }
 
 run();
