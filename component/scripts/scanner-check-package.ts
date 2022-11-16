@@ -58,8 +58,8 @@ const task = () => {
 const run = () => {
     const result = task();
     const json = {
-        list: result,
-        packageLength: result.length
+        packages: result,
+        count: result.length
     }
     ensureFileSync(path.resolve(__dirname, '../', 'package-version.json'));
     fs.writeFileSync(path.resolve(__dirname, '../', 'package-version.json'), JSON.stringify(json, null,"\t"), (err) => {
