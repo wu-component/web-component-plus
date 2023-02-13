@@ -1,6 +1,6 @@
 {
   "name": "@wu-component/theme",
-  "version": "1.10.5",
+  "version": "1.10.6",
   "description": "> TODO: description",
   "author": "Marvin <yongfeide123@gmail.com>",
   "homepage": "",
@@ -81,5 +81,5 @@
     "type": "git",
     "url": "https://github.com/wu-component/web-component-plus"
   },
-  "gitHead": "51b61282add9dc6e480a78f536d4e6c03042938e"
+  "gitHead": "c0032056a713388d3dabfcad80417d67990b6770"
 }
