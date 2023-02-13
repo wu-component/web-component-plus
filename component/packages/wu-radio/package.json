@@ -1,6 +1,6 @@
 {
     "name": "@wu-component/wu-radio",
-    "version": "1.10.1",
+    "version": "1.10.2",
     "description": "> TODO: description",
     "author": "Marvin <yongfeide123@gmail.com>",
     "homepage": "",
@@ -99,7 +99,7 @@
         "type": "git",
         "url": "https://github.com/wu-component/web-component-plus"
     },
-    "gitHead": "fefd81404523dcd230f041887db24460d81b409e",
+    "gitHead": "7210525fec301813e608066acc27f0f401cce361",
     "exports": {
         ".": {
             "types": "./types/index.d.ts",
