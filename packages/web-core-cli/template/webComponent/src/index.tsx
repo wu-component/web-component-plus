@@ -1,4 +1,4 @@
-import { h, Prop, Component, WuComponent } from '@canyuegongzi/web-core-plus';
+import { h, Prop, Component, WuComponent } from '@wu-component/web-core-plus';
 import css from "./index.scss";
 
 @Component({

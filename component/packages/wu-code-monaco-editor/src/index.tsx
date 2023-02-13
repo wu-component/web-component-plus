@@ -120,3 +120,4 @@ export class WuCodeMonacoEditor extends WuComponent implements OnConnected {
         );
     }
 }
+// https://registry.npmjs.org/monaco-editor/-/monaco-editor-0.34.1.tgz

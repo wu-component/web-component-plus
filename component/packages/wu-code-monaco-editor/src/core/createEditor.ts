@@ -4,6 +4,12 @@ import { getMonaco } from "./content";
 import { commonOptions } from "./options";
 // import * as monaco from 'monaco-editor/esm/vs/editor/editor.main.js';
 
+loader.config({
+    paths: {
+        vs: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.0/min/vs/',
+    }
+});
+
 /**
  * 实例化编辑器
  */
