@@ -1,6 +1,6 @@
 {
     "name": "@wu-component/wu-header",
-    "version": "1.11.0",
+    "version": "1.11.1",
     "description": "> TODO: description",
     "author": "Marvin <yongfeide123@gmail.com>",
     "homepage": "",
@@ -99,7 +99,7 @@
         "type": "git",
         "url": "https://github.com/wu-component/web-component-plus"
     },
-    "gitHead": "135ba50d421992e1d1f523c8b4b4917089eb5d9e",
+    "gitHead": "be32ede5e5cb1ba222441535852c408eb2275a49",
     "exports": {
         ".": {
             "types": "./types/index.d.ts",
