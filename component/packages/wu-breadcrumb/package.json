@@ -1,6 +1,6 @@
 {
     "name": "@wu-component/wu-breadcrumb",
-    "version": "1.10.2",
+    "version": "1.10.3",
     "description": "> TODO: description",
     "author": "Marvin <yongfeide123@gmail.com>",
     "homepage": "",
@@ -103,7 +103,7 @@
         "type": "git",
         "url": "https://github.com/wu-component/web-component-plus"
     },
-    "gitHead": "7210525fec301813e608066acc27f0f401cce361",
+    "gitHead": "0a3f2dd43b23e0388941f70fe7f10d262308f7f0",
     "exports": {
         ".": {
             "types": "./types/index.d.ts",
