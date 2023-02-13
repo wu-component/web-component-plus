@@ -1,6 +1,6 @@
 {
     "name": "@wu-component/wu-rate",
-    "version": "1.10.4",
+    "version": "1.10.5",
     "description": "> TODO: description",
     "author": "Marvin <yongfeide123@gmail.com>",
     "homepage": "",
@@ -99,7 +99,7 @@
         "type": "git",
         "url": "https://github.com/wu-component/web-component-plus"
     },
-    "gitHead": "165fb82d016f0fafb254ef819a8b6255ac19c8a9",
+    "gitHead": "51b61282add9dc6e480a78f536d4e6c03042938e",
     "exports": {
         ".": {
             "types": "./types/index.d.ts",
