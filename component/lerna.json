@@ -1,8 +1,6 @@
 {
   "useWorkspaces": true,
   "npmClient": "pnpm",
-  "packages": [
-    "./packages/*"
-  ],
-  "version": "1.11.3"
+  "packages": ["./packages/*"],
+  "version": "1.11.4"
 }
