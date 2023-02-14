@@ -101,7 +101,7 @@
         "type": "git",
         "url": "https://github.com/wu-component/web-component-plus"
     },
-    "gitHead": "566f4a9a41342905469bd8f57cedb867beb48e56",
+    "gitHead": "c8b8d97327b76adf798f6b68268747518f5635ec",
     "exports": {
         ".": {
             "types": "./types/index.d.ts",

@@ -1,3 +1,5 @@
+import 'construct-style-sheets-polyfill'
+
 // webComponent 兼容
 ;(function() {
     if (
