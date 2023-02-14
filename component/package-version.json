@@ -6,12 +6,12 @@
 			"directory": "wu-alert",
 			"file": {
 				"cjs": {
-					"size": "8.41 KB",
+					"size": "6.30 KB",
 					"format": "cjs",
 					"file": "packages/wu-alert/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "8.31 KB",
+					"size": "6.20 KB",
 					"format": "esm",
 					"file": "packages/wu-alert/dist/index.esm.js"
 				},
@@ -33,12 +33,12 @@
 			"directory": "wu-aside",
 			"file": {
 				"cjs": {
-					"size": "3.39 KB",
+					"size": "1.83 KB",
 					"format": "cjs",
 					"file": "packages/wu-aside/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "3.34 KB",
+					"size": "1.78 KB",
 					"format": "esm",
 					"file": "packages/wu-aside/dist/index.esm.js"
 				},
@@ -60,12 +60,12 @@
 			"directory": "wu-avatar",
 			"file": {
 				"cjs": {
-					"size": "5.46 KB",
+					"size": "3.73 KB",
 					"format": "cjs",
 					"file": "packages/wu-avatar/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "5.38 KB",
+					"size": "3.66 KB",
 					"format": "esm",
 					"file": "packages/wu-avatar/dist/index.esm.js"
 				},
@@ -87,12 +87,12 @@
 			"directory": "wu-badge",
 			"file": {
 				"cjs": {
-					"size": "11.4 KB",
+					"size": "9.65 KB",
 					"format": "cjs",
 					"file": "packages/wu-badge/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "11.3 KB",
+					"size": "9.58 KB",
 					"format": "esm",
 					"file": "packages/wu-badge/dist/index.esm.js"
 				},
@@ -114,12 +114,12 @@
 			"directory": "wu-breadcrumb",
 			"file": {
 				"cjs": {
-					"size": "4.85 KB",
+					"size": "3.29 KB",
 					"format": "cjs",
 					"file": "packages/wu-breadcrumb/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "4.80 KB",
+					"size": "3.24 KB",
 					"format": "esm",
 					"file": "packages/wu-breadcrumb/dist/index.esm.js"
 				},
@@ -144,12 +144,12 @@
 			"directory": "wu-breadcrumb-item",
 			"file": {
 				"cjs": {
-					"size": "4.60 KB",
+					"size": "2.95 KB",
 					"format": "cjs",
 					"file": "packages/wu-breadcrumb-item/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "4.55 KB",
+					"size": "2.90 KB",
 					"format": "esm",
 					"file": "packages/wu-breadcrumb-item/dist/index.esm.js"
 				},
@@ -171,12 +171,12 @@
 			"directory": "wu-button",
 			"file": {
 				"cjs": {
-					"size": "20.7 KB",
+					"size": "17.1 KB",
 					"format": "cjs",
 					"file": "packages/wu-button/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "20.6 KB",
+					"size": "17.0 KB",
 					"format": "esm",
 					"file": "packages/wu-button/dist/index.esm.js"
 				},
@@ -198,12 +198,12 @@
 			"directory": "wu-card",
 			"file": {
 				"cjs": {
-					"size": "4.33 KB",
+					"size": "2.64 KB",
 					"format": "cjs",
 					"file": "packages/wu-card/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "4.26 KB",
+					"size": "2.58 KB",
 					"format": "esm",
 					"file": "packages/wu-card/dist/index.esm.js"
 				},
@@ -225,12 +225,12 @@
 			"directory": "wu-cascader",
 			"file": {
 				"cjs": {
-					"size": "28.5 KB",
+					"size": "28.4 KB",
 					"format": "cjs",
 					"file": "packages/wu-cascader/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "28.3 KB",
+					"size": "28.1 KB",
 					"format": "esm",
 					"file": "packages/wu-cascader/dist/index.esm.js"
 				},
@@ -254,12 +254,12 @@
 			"directory": "wu-cesium-map",
 			"file": {
 				"cjs": {
-					"size": "3.26 KB",
+					"size": "1.71 KB",
 					"format": "cjs",
 					"file": "packages/wu-cesium-map/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "3.22 KB",
+					"size": "1.67 KB",
 					"format": "esm",
 					"file": "packages/wu-cesium-map/dist/index.esm.js"
 				},
@@ -281,12 +281,12 @@
 			"directory": "wu-checkbox",
 			"file": {
 				"cjs": {
-					"size": "20.6 KB",
+					"size": "17.6 KB",
 					"format": "cjs",
 					"file": "packages/wu-checkbox/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "20.5 KB",
+					"size": "17.5 KB",
 					"format": "esm",
 					"file": "packages/wu-checkbox/dist/index.esm.js"
 				},
@@ -308,12 +308,12 @@
 			"directory": "wu-checkbox-button",
 			"file": {
 				"cjs": {
-					"size": "11.5 KB",
+					"size": "8.49 KB",
 					"format": "cjs",
 					"file": "packages/wu-checkbox-button/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "11.5 KB",
+					"size": "8.44 KB",
 					"format": "esm",
 					"file": "packages/wu-checkbox-button/dist/index.esm.js"
 				},
@@ -335,12 +335,12 @@
 			"directory": "wu-checkbox-group",
 			"file": {
 				"cjs": {
-					"size": "13.0 KB",
+					"size": "9.95 KB",
 					"format": "cjs",
 					"file": "packages/wu-checkbox-group/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "12.9 KB",
+					"size": "9.90 KB",
 					"format": "esm",
 					"file": "packages/wu-checkbox-group/dist/index.esm.js"
 				},
@@ -372,7 +372,7 @@
 					"file": "packages/wu-code-monaco-editor/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "97.5 KB",
+					"size": "97.6 KB",
 					"format": "umd",
 					"file": "packages/wu-code-monaco-editor/dist/index.umd.js"
 				}
@@ -391,17 +391,17 @@
 			"directory": "wu-code-playground",
 			"file": {
 				"cjs": {
-					"size": "66.8 KB",
+					"size": "65.4 KB",
 					"format": "cjs",
 					"file": "packages/wu-code-playground/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "66.7 KB",
+					"size": "65.3 KB",
 					"format": "esm",
 					"file": "packages/wu-code-playground/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "171 KB",
+					"size": "170 KB",
 					"format": "umd",
 					"file": "packages/wu-code-playground/dist/index.umd.js"
 				}
@@ -431,17 +431,17 @@
 			"directory": "wu-code-sandbox",
 			"file": {
 				"cjs": {
-					"size": "25.8 KB",
+					"size": "26.0 KB",
 					"format": "cjs",
 					"file": "packages/wu-code-sandbox/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "25.7 KB",
+					"size": "25.9 KB",
 					"format": "esm",
 					"file": "packages/wu-code-sandbox/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "26.0 KB",
+					"size": "26.3 KB",
 					"format": "umd",
 					"file": "packages/wu-code-sandbox/dist/index.umd.js"
 				}
@@ -460,12 +460,12 @@
 			"directory": "wu-col",
 			"file": {
 				"cjs": {
-					"size": "48.8 KB",
+					"size": "35.2 KB",
 					"format": "cjs",
 					"file": "packages/wu-col/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "48.8 KB",
+					"size": "35.2 KB",
 					"format": "esm",
 					"file": "packages/wu-col/dist/index.esm.js"
 				},
@@ -487,12 +487,12 @@
 			"directory": "wu-collapse",
 			"file": {
 				"cjs": {
-					"size": "5.24 KB",
+					"size": "3.69 KB",
 					"format": "cjs",
 					"file": "packages/wu-collapse/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "5.20 KB",
+					"size": "3.64 KB",
 					"format": "esm",
 					"file": "packages/wu-collapse/dist/index.esm.js"
 				},
@@ -517,12 +517,12 @@
 			"directory": "wu-collapse-item",
 			"file": {
 				"cjs": {
-					"size": "13.0 KB",
+					"size": "11.2 KB",
 					"format": "cjs",
 					"file": "packages/wu-collapse-item/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "12.9 KB",
+					"size": "11.1 KB",
 					"format": "esm",
 					"file": "packages/wu-collapse-item/dist/index.esm.js"
 				},
@@ -544,17 +544,17 @@
 			"directory": "wu-color-picker",
 			"file": {
 				"cjs": {
-					"size": "51.0 KB",
+					"size": "45.4 KB",
 					"format": "cjs",
 					"file": "packages/wu-color-picker/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "50.8 KB",
+					"size": "45.2 KB",
 					"format": "esm",
 					"file": "packages/wu-color-picker/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "84.0 KB",
+					"size": "80.4 KB",
 					"format": "umd",
 					"file": "packages/wu-color-picker/dist/index.umd.js"
 				}
@@ -577,12 +577,12 @@
 			"directory": "wu-container",
 			"file": {
 				"cjs": {
-					"size": "4.21 KB",
+					"size": "2.58 KB",
 					"format": "cjs",
 					"file": "packages/wu-container/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "4.16 KB",
+					"size": "2.53 KB",
 					"format": "esm",
 					"file": "packages/wu-container/dist/index.esm.js"
 				},
@@ -604,12 +604,12 @@
 			"directory": "wu-date-picker",
 			"file": {
 				"cjs": {
-					"size": "87.4 KB",
+					"size": "78.0 KB",
 					"format": "cjs",
 					"file": "packages/wu-date-picker/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "87.3 KB",
+					"size": "78.0 KB",
 					"format": "esm",
 					"file": "packages/wu-date-picker/dist/index.esm.js"
 				},
@@ -631,12 +631,12 @@
 			"directory": "wu-dialog",
 			"file": {
 				"cjs": {
-					"size": "7.76 KB",
+					"size": "7.08 KB",
 					"format": "cjs",
 					"file": "packages/wu-dialog/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "7.65 KB",
+					"size": "6.98 KB",
 					"format": "esm",
 					"file": "packages/wu-dialog/dist/index.esm.js"
 				},
@@ -658,12 +658,12 @@
 			"directory": "wu-empty",
 			"file": {
 				"cjs": {
-					"size": "8.08 KB",
+					"size": "6.35 KB",
 					"format": "cjs",
 					"file": "packages/wu-empty/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "7.93 KB",
+					"size": "6.21 KB",
 					"format": "esm",
 					"file": "packages/wu-empty/dist/index.esm.js"
 				},
@@ -685,12 +685,12 @@
 			"directory": "wu-footer",
 			"file": {
 				"cjs": {
-					"size": "3.48 KB",
+					"size": "1.90 KB",
 					"format": "cjs",
 					"file": "packages/wu-footer/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "3.44 KB",
+					"size": "1.85 KB",
 					"format": "esm",
 					"file": "packages/wu-footer/dist/index.esm.js"
 				},
@@ -712,12 +712,12 @@
 			"directory": "wu-form",
 			"file": {
 				"cjs": {
-					"size": "8.08 KB",
+					"size": "6.44 KB",
 					"format": "cjs",
 					"file": "packages/wu-form/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "8.00 KB",
+					"size": "6.36 KB",
 					"format": "esm",
 					"file": "packages/wu-form/dist/index.esm.js"
 				},
@@ -739,12 +739,12 @@
 			"directory": "wu-form-item",
 			"file": {
 				"cjs": {
-					"size": "3.96 KB",
+					"size": "2.32 KB",
 					"format": "cjs",
 					"file": "packages/wu-form-item/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "3.91 KB",
+					"size": "2.27 KB",
 					"format": "esm",
 					"file": "packages/wu-form-item/dist/index.esm.js"
 				},
@@ -766,12 +766,12 @@
 			"directory": "wu-form-label-wrap",
 			"file": {
 				"cjs": {
-					"size": "5.47 KB",
+					"size": "3.83 KB",
 					"format": "cjs",
 					"file": "packages/wu-form-label-wrap/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "5.42 KB",
+					"size": "3.78 KB",
 					"format": "esm",
 					"file": "packages/wu-form-label-wrap/dist/index.esm.js"
 				},
@@ -793,12 +793,12 @@
 			"directory": "wu-form1",
 			"file": {
 				"cjs": {
-					"size": "8.08 KB",
+					"size": "6.44 KB",
 					"format": "cjs",
 					"file": "packages/wu-form1/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "8.00 KB",
+					"size": "6.37 KB",
 					"format": "esm",
 					"file": "packages/wu-form1/dist/index.esm.js"
 				},
@@ -820,12 +820,12 @@
 			"directory": "wu-header",
 			"file": {
 				"cjs": {
-					"size": "3.48 KB",
+					"size": "1.90 KB",
 					"format": "cjs",
 					"file": "packages/wu-header/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "3.44 KB",
+					"size": "1.85 KB",
 					"format": "esm",
 					"file": "packages/wu-header/dist/index.esm.js"
 				},
@@ -847,12 +847,12 @@
 			"directory": "wu-icon",
 			"file": {
 				"cjs": {
-					"size": "19.9 KB",
+					"size": "14.4 KB",
 					"format": "cjs",
 					"file": "packages/wu-icon/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "19.9 KB",
+					"size": "14.3 KB",
 					"format": "esm",
 					"file": "packages/wu-icon/dist/index.esm.js"
 				},
@@ -874,12 +874,12 @@
 			"directory": "wu-image",
 			"file": {
 				"cjs": {
-					"size": "64.7 KB",
+					"size": "59.1 KB",
 					"format": "cjs",
 					"file": "packages/wu-image/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "64.7 KB",
+					"size": "59.1 KB",
 					"format": "esm",
 					"file": "packages/wu-image/dist/index.esm.js"
 				},
@@ -928,12 +928,12 @@
 			"directory": "wu-input",
 			"file": {
 				"cjs": {
-					"size": "23.1 KB",
+					"size": "20.0 KB",
 					"format": "cjs",
 					"file": "packages/wu-input/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "22.9 KB",
+					"size": "19.8 KB",
 					"format": "esm",
 					"file": "packages/wu-input/dist/index.esm.js"
 				},
@@ -955,12 +955,12 @@
 			"directory": "wu-input-number",
 			"file": {
 				"cjs": {
-					"size": "23.1 KB",
+					"size": "20.0 KB",
 					"format": "cjs",
 					"file": "packages/wu-input-number/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "23.0 KB",
+					"size": "19.8 KB",
 					"format": "esm",
 					"file": "packages/wu-input-number/dist/index.esm.js"
 				},
@@ -982,12 +982,12 @@
 			"directory": "wu-leaflet-map",
 			"file": {
 				"cjs": {
-					"size": "3.26 KB",
+					"size": "1.72 KB",
 					"format": "cjs",
 					"file": "packages/wu-leaflet-map/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "3.22 KB",
+					"size": "1.67 KB",
 					"format": "esm",
 					"file": "packages/wu-leaflet-map/dist/index.esm.js"
 				},
@@ -1009,12 +1009,12 @@
 			"directory": "wu-link",
 			"file": {
 				"cjs": {
-					"size": "12.4 KB",
+					"size": "10.4 KB",
 					"format": "cjs",
 					"file": "packages/wu-link/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "12.4 KB",
+					"size": "10.4 KB",
 					"format": "esm",
 					"file": "packages/wu-link/dist/index.esm.js"
 				},
@@ -1064,12 +1064,12 @@
 			"directory": "wu-main",
 			"file": {
 				"cjs": {
-					"size": "3.44 KB",
+					"size": "1.72 KB",
 					"format": "cjs",
 					"file": "packages/wu-main/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "3.39 KB",
+					"size": "1.67 KB",
 					"format": "esm",
 					"file": "packages/wu-main/dist/index.esm.js"
 				},
@@ -1091,12 +1091,12 @@
 			"directory": "wu-mapbox-map",
 			"file": {
 				"cjs": {
-					"size": "3.26 KB",
+					"size": "1.71 KB",
 					"format": "cjs",
 					"file": "packages/wu-mapbox-map/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "3.22 KB",
+					"size": "1.67 KB",
 					"format": "esm",
 					"file": "packages/wu-mapbox-map/dist/index.esm.js"
 				},
@@ -1118,12 +1118,12 @@
 			"directory": "wu-menu",
 			"file": {
 				"cjs": {
-					"size": "32.6 KB",
+					"size": "28.7 KB",
 					"format": "cjs",
 					"file": "packages/wu-menu/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "32.4 KB",
+					"size": "28.6 KB",
 					"format": "esm",
 					"file": "packages/wu-menu/dist/index.esm.js"
 				},
@@ -1152,12 +1152,12 @@
 			"directory": "wu-menu-item",
 			"file": {
 				"cjs": {
-					"size": "17.9 KB",
+					"size": "14.3 KB",
 					"format": "cjs",
 					"file": "packages/wu-menu-item/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "17.8 KB",
+					"size": "14.3 KB",
 					"format": "esm",
 					"file": "packages/wu-menu-item/dist/index.esm.js"
 				},
@@ -1181,12 +1181,12 @@
 			"directory": "wu-menu-item-group",
 			"file": {
 				"cjs": {
-					"size": "8.16 KB",
+					"size": "4.68 KB",
 					"format": "cjs",
 					"file": "packages/wu-menu-item-group/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "8.09 KB",
+					"size": "4.62 KB",
 					"format": "esm",
 					"file": "packages/wu-menu-item-group/dist/index.esm.js"
 				},
@@ -1208,12 +1208,12 @@
 			"directory": "wu-menu-sub",
 			"file": {
 				"cjs": {
-					"size": "27.8 KB",
+					"size": "23.2 KB",
 					"format": "cjs",
 					"file": "packages/wu-menu-sub/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "27.7 KB",
+					"size": "23.1 KB",
 					"format": "esm",
 					"file": "packages/wu-menu-sub/dist/index.esm.js"
 				},
@@ -1235,12 +1235,12 @@
 			"directory": "wu-message",
 			"file": {
 				"cjs": {
-					"size": "14.5 KB",
+					"size": "12.5 KB",
 					"format": "cjs",
 					"file": "packages/wu-message/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "14.4 KB",
+					"size": "12.4 KB",
 					"format": "esm",
 					"file": "packages/wu-message/dist/index.esm.js"
 				},
@@ -1262,12 +1262,12 @@
 			"directory": "wu-page-header",
 			"file": {
 				"cjs": {
-					"size": "5.75 KB",
+					"size": "3.99 KB",
 					"format": "cjs",
 					"file": "packages/wu-page-header/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "5.69 KB",
+					"size": "3.93 KB",
 					"format": "esm",
 					"file": "packages/wu-page-header/dist/index.esm.js"
 				},
@@ -1289,12 +1289,12 @@
 			"directory": "wu-pagination",
 			"file": {
 				"cjs": {
-					"size": "14.5 KB",
+					"size": "12.8 KB",
 					"format": "cjs",
 					"file": "packages/wu-pagination/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "14.4 KB",
+					"size": "12.7 KB",
 					"format": "esm",
 					"file": "packages/wu-pagination/dist/index.esm.js"
 				},
@@ -1316,17 +1316,17 @@
 			"directory": "wu-popconfirm",
 			"file": {
 				"cjs": {
-					"size": "26.6 KB",
+					"size": "21.2 KB",
 					"format": "cjs",
 					"file": "packages/wu-popconfirm/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "26.4 KB",
+					"size": "21.1 KB",
 					"format": "esm",
 					"file": "packages/wu-popconfirm/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "59.4 KB",
+					"size": "55.8 KB",
 					"format": "umd",
 					"file": "packages/wu-popconfirm/dist/index.umd.js"
 				}
@@ -1348,12 +1348,12 @@
 			"directory": "wu-popover",
 			"file": {
 				"cjs": {
-					"size": "32.7 KB",
+					"size": "31.9 KB",
 					"format": "cjs",
 					"file": "packages/wu-popover/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "32.7 KB",
+					"size": "31.9 KB",
 					"format": "esm",
 					"file": "packages/wu-popover/dist/index.esm.js"
 				},
@@ -1376,12 +1376,12 @@
 			"directory": "wu-progress",
 			"file": {
 				"cjs": {
-					"size": "16.8 KB",
+					"size": "14.8 KB",
 					"format": "cjs",
 					"file": "packages/wu-progress/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "16.7 KB",
+					"size": "14.7 KB",
 					"format": "esm",
 					"file": "packages/wu-progress/dist/index.esm.js"
 				},
@@ -1430,12 +1430,12 @@
 			"directory": "wu-radio",
 			"file": {
 				"cjs": {
-					"size": "14.9 KB",
+					"size": "12.5 KB",
 					"format": "cjs",
 					"file": "packages/wu-radio/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "14.8 KB",
+					"size": "12.4 KB",
 					"format": "esm",
 					"file": "packages/wu-radio/dist/index.esm.js"
 				},
@@ -1457,12 +1457,12 @@
 			"directory": "wu-rate",
 			"file": {
 				"cjs": {
-					"size": "9.21 KB",
+					"size": "7.43 KB",
 					"format": "cjs",
 					"file": "packages/wu-rate/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "9.09 KB",
+					"size": "7.31 KB",
 					"format": "esm",
 					"file": "packages/wu-rate/dist/index.esm.js"
 				},
@@ -1511,12 +1511,12 @@
 			"directory": "wu-row",
 			"file": {
 				"cjs": {
-					"size": "10.6 KB",
+					"size": "8.89 KB",
 					"format": "cjs",
 					"file": "packages/wu-row/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "10.5 KB",
+					"size": "8.82 KB",
 					"format": "esm",
 					"file": "packages/wu-row/dist/index.esm.js"
 				},
@@ -1538,17 +1538,17 @@
 			"directory": "wu-select",
 			"file": {
 				"cjs": {
-					"size": "52.4 KB",
+					"size": "46.3 KB",
 					"format": "cjs",
 					"file": "packages/wu-select/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "52.2 KB",
+					"size": "46.1 KB",
 					"format": "esm",
 					"file": "packages/wu-select/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "97.5 KB",
+					"size": "96.7 KB",
 					"format": "umd",
 					"file": "packages/wu-select/dist/index.umd.js"
 				}
@@ -1572,12 +1572,12 @@
 			"directory": "wu-select-option",
 			"file": {
 				"cjs": {
-					"size": "12.3 KB",
+					"size": "10.6 KB",
 					"format": "cjs",
 					"file": "packages/wu-select-option/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "12.3 KB",
+					"size": "10.5 KB",
 					"format": "esm",
 					"file": "packages/wu-select-option/dist/index.esm.js"
 				},
@@ -1599,12 +1599,12 @@
 			"directory": "wu-steps",
 			"file": {
 				"cjs": {
-					"size": "29.3 KB",
+					"size": "23.8 KB",
 					"format": "cjs",
 					"file": "packages/wu-steps/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "29.1 KB",
+					"size": "23.7 KB",
 					"format": "esm",
 					"file": "packages/wu-steps/dist/index.esm.js"
 				},
@@ -1626,12 +1626,12 @@
 			"directory": "wu-switch",
 			"file": {
 				"cjs": {
-					"size": "13.5 KB",
+					"size": "11.6 KB",
 					"format": "cjs",
 					"file": "packages/wu-switch/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "13.5 KB",
+					"size": "11.5 KB",
 					"format": "esm",
 					"file": "packages/wu-switch/dist/index.esm.js"
 				},
@@ -1653,17 +1653,17 @@
 			"directory": "wu-table",
 			"file": {
 				"cjs": {
-					"size": "41.0 KB",
+					"size": "35.4 KB",
 					"format": "cjs",
 					"file": "packages/wu-table/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "40.7 KB",
+					"size": "35.0 KB",
 					"format": "esm",
 					"file": "packages/wu-table/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "61.6 KB",
+					"size": "55.5 KB",
 					"format": "umd",
 					"file": "packages/wu-table/dist/index.umd.js"
 				}
@@ -1685,12 +1685,12 @@
 			"directory": "wu-tag",
 			"file": {
 				"cjs": {
-					"size": "16.5 KB",
+					"size": "13.7 KB",
 					"format": "cjs",
 					"file": "packages/wu-tag/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "16.4 KB",
+					"size": "13.6 KB",
 					"format": "esm",
 					"file": "packages/wu-tag/dist/index.esm.js"
 				},
@@ -1712,12 +1712,12 @@
 			"directory": "wu-time-line",
 			"file": {
 				"cjs": {
-					"size": "3.72 KB",
+					"size": "2.14 KB",
 					"format": "cjs",
 					"file": "packages/wu-time-line/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "3.67 KB",
+					"size": "2.10 KB",
 					"format": "esm",
 					"file": "packages/wu-time-line/dist/index.esm.js"
 				},
@@ -1742,12 +1742,12 @@
 			"directory": "wu-time-line-item",
 			"file": {
 				"cjs": {
-					"size": "6.87 KB",
+					"size": "5.00 KB",
 					"format": "cjs",
 					"file": "packages/wu-time-line-item/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "6.77 KB",
+					"size": "4.90 KB",
 					"format": "esm",
 					"file": "packages/wu-time-line-item/dist/index.esm.js"
 				},
@@ -1769,12 +1769,12 @@
 			"directory": "wu-tooltip",
 			"file": {
 				"cjs": {
-					"size": "31.8 KB",
+					"size": "29.7 KB",
 					"format": "cjs",
 					"file": "packages/wu-tooltip/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "31.7 KB",
+					"size": "29.6 KB",
 					"format": "esm",
 					"file": "packages/wu-tooltip/dist/index.esm.js"
 				},
@@ -1797,12 +1797,12 @@
 			"directory": "wu-transition",
 			"file": {
 				"cjs": {
-					"size": "10.9 KB",
+					"size": "9.10 KB",
 					"format": "cjs",
 					"file": "packages/wu-transition/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "10.8 KB",
+					"size": "9.01 KB",
 					"format": "esm",
 					"file": "packages/wu-transition/dist/index.esm.js"
 				},
@@ -1824,12 +1824,12 @@
 			"directory": "wu-tree",
 			"file": {
 				"cjs": {
-					"size": "37.5 KB",
+					"size": "34.8 KB",
 					"format": "cjs",
 					"file": "packages/wu-tree/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "37.4 KB",
+					"size": "34.7 KB",
 					"format": "esm",
 					"file": "packages/wu-tree/dist/index.esm.js"
 				},
@@ -1851,17 +1851,17 @@
 			"directory": "wu-tree-v2",
 			"file": {
 				"cjs": {
-					"size": "37.1 KB",
+					"size": "35.1 KB",
 					"format": "cjs",
 					"file": "packages/wu-tree-v2/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "36.9 KB",
+					"size": "34.9 KB",
 					"format": "esm",
 					"file": "packages/wu-tree-v2/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "57.8 KB",
+					"size": "54.8 KB",
 					"format": "umd",
 					"file": "packages/wu-tree-v2/dist/index.umd.js"
 				}
@@ -1881,17 +1881,17 @@
 			"directory": "wu-upload",
 			"file": {
 				"cjs": {
-					"size": "38.7 KB",
+					"size": "34.4 KB",
 					"format": "cjs",
 					"file": "packages/wu-upload/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "38.4 KB",
+					"size": "34.2 KB",
 					"format": "esm",
 					"file": "packages/wu-upload/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "55.5 KB",
+					"size": "53.5 KB",
 					"format": "umd",
 					"file": "packages/wu-upload/dist/index.umd.js"
 				}
@@ -1911,12 +1911,12 @@
 			"directory": "wu-waline-comment",
 			"file": {
 				"cjs": {
-					"size": "187 KB",
+					"size": "180 KB",
 					"format": "cjs",
 					"file": "packages/wu-waline-comment/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "187 KB",
+					"size": "180 KB",
 					"format": "esm",
 					"file": "packages/wu-waline-comment/dist/index.esm.js"
 				},

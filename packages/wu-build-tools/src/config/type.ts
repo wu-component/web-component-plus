@@ -6,6 +6,7 @@ export interface BaseArgs {
     operate?: 'BUILD';
     name?: string;
     typePath?: string;
+    cssminimize?: boolean;
 
 }
 

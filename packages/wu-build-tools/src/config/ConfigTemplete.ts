@@ -41,7 +41,7 @@ class ConfigTemplete {
                     commonjs(),
                     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                     // @ts-ignore
-                    postcss({ extensions: [ '.css', 'scss' ],plugins: [ autoprefixer() ], extract: false }),
+                    postcss({ extensions: [ '.css', 'scss' ],plugins: [ autoprefixer() ], extract: false, minimize: args?.hasOwnProperty('cssminimize')? args?.cssminimize: true }),
                     typescript({
                         tsconfig: tsconfig, // 导入本地ts配置
                         tsconfigDefaults: defaults,

@@ -1,6 +1,6 @@
 {
     "name": "@wu-component/wu-card",
-    "version": "1.9.24",
+    "version": "1.11.1",
     "description": "> TODO: description",
     "author": "Marvin <yongfeide123@gmail.com>",
     "homepage": "",
@@ -99,7 +99,7 @@
         "type": "git",
         "url": "https://github.com/wu-component/web-component-plus"
     },
-    "gitHead": "48dd881b6b98f74b7e39f50c1ee29c2cbc6d343e",
+    "gitHead": "be32ede5e5cb1ba222441535852c408eb2275a49",
     "exports": {
         ".": {
             "types": "./types/index.d.ts",
