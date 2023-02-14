@@ -1,5 +1,6 @@
 import { WuComponent, OnConnected, OnBeforeUpdate, OnBeforeRender, OnInstall, OnDisConnected } from "@wu-component/web-core-plus";
 declare type TypeEnums = 'success' | 'warning' | 'info' | 'error';
+// 大小
 declare type UISize = 'medium' | 'small' | 'mini';
 declare type ShadowEnums = 'always' | 'hover' | 'never';
 export declare class WuAlert extends WuComponent {
