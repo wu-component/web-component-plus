@@ -1,6 +1,6 @@
 {
     "name": "@wu-component/web-core-plus",
-    "version": "0.3.12",
+    "version": "0.3.13",
     "description": "> TODO: description",
     "author": "Marvin <yongfeide123@gmail.com>",
     "homepage": "",
@@ -96,6 +96,8 @@
     },
     "dependencies": {
         "@abraham/reflection": "^0.10.0",
-        "weakmap-polyfill": "^2.0.4"
+        "@rollup/plugin-terser": "^0.4.0",
+        "construct-style-sheets-polyfill": "3.0.1",
+        "weakmap-polyfill": "2.0.4"
     }
 }

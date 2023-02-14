@@ -13,3 +13,4 @@ packages/wu-component-icon/**/lib/**
 packages/wu-component-icon/lib/**
 packages/wu-component-icon/umd/**
 **/umd/**
+component/playground/**

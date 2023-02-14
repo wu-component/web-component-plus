@@ -10,6 +10,7 @@
   "scripts": {
     "build:common": "ts-node ./scripts/build-common.ts",
     "build:package": "node ./scripts/build-package.ts",
+    "publish:pub": "node ./scripts/publish.ts",
     "build:package:umd": "ts-node ./scripts/build-umd.ts",
     "scanner:package": "ts-node ./scripts/scanner-check-package.ts",
     "scanner:package:umd": "ts-node ./scripts/scanner-check-umd.ts",
@@ -44,7 +45,7 @@
     "fs-extra": "^10.1.0",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^23.6.0",
-    "lerna": "^4.0.0",
+    "lerna": "^6.5.1",
     "live-server": "^1.2.2",
     "node-fs-copy": "^1.0.0",
     "nodemon": "^1.18.9",

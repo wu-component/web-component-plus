@@ -1,0 +1,36 @@
+---
+name: 问题反馈
+description: 反馈 BUG 帮助我们改进
+title: '[问题反馈]: '
+labels:
+  - 问题反馈
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: 问题描述 | Describe the bug
+      description: 请描述你的问题现象 | A clear and concise description of what the bug is.
+      placeholder:
+      value:
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: 复现网址 | Website URL
+      description: 请提供下可复现网站地址 | Please supply a website url which can reproduce problem.
+      placeholder: ex. https://blog-demo.mereith.com
+    validations:
+      required: false
+
+  - type: input
+    id: version
+    attributes:
+      label: 版本 | Version
+      description: 请提供下出现问题的版本号 | Please supply the version which can reproduce problem.
+      placeholder: ex. v0.32.0
+    validations:
+      required: false
+
+

@@ -4,7 +4,7 @@ import typescript from 'rollup-plugin-typescript2';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import postcss from 'rollup-plugin-postcss';
-import { terser } from "rollup-plugin-terser";
+import terser from '@rollup/plugin-terser';
 import pkg from "./package.json";
 import gzipPlugin from 'rollup-plugin-gzip';
 
