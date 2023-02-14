@@ -1,6 +1,6 @@
 {
     "name": "@wu-component/wu-lottie",
-    "version": "1.11.1",
+    "version": "1.11.2",
     "description": "> TODO: description",
     "author": "Marvin <yongfeide123@gmail.com>",
     "homepage": "",
@@ -100,7 +100,7 @@
         "type": "git",
         "url": "https://github.com/wu-component/web-component-plus"
     },
-    "gitHead": "be32ede5e5cb1ba222441535852c408eb2275a49",
+    "gitHead": "566f4a9a41342905469bd8f57cedb867beb48e56",
     "exports": {
         ".": {
             "types": "./types/index.d.ts",
