@@ -1,5 +1,6 @@
 import commonjs from '@rollup/plugin-commonjs';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
+
 import { babel } from '@rollup/plugin-babel';
 import typescript from 'rollup-plugin-typescript2';
 import { terser } from 'rollup-plugin-terser';
@@ -30,11 +31,11 @@ const componentNames = fs
 const options = [
     {
         input: './src/packages/index.ts',
-        output: {
-            dir: './dist',
-            format: 'umd',
-            name: 'index.mini.js',
-        },
+        output: [
+            { file: `dist/index.cjs.js`, format: 'cjs' },
+            { file: `dist/index.esm.js`, format: 'es' },
+            { file: `dist/index.mini.js`, name: 'WuIcon', format: 'umd' },
+        ],
         plugins: [
             css(),
             typescript({
@@ -47,11 +48,6 @@ const options = [
             nodeResolve({
                 extensions
             }),
-            babel({
-                babelHelpers: 'runtime',
-                exclude: 'node_modules/**',
-                extensions,
-            }),
             terser(),
         ],
     },
@@ -60,6 +56,12 @@ const options = [
             result[p.path] = `${packageSrcRoot}/${p.name}`;
             return result;
         }, {}),
+
+        /*output: [
+            { file: `lib/index.cjs.js`, format: 'cjs' },
+            { file: `lib/index.esm.js`, chunkFileNames: '[name].js', format: 'es' },
+            { file: `lib/index.mini.js`, name: 'WuIcon', format: 'umd' },
+        ],*/
         output: {
             dir: 'lib',
             chunkFileNames: '[name].js',
@@ -79,7 +81,6 @@ const options = [
                 extensions,
                 modulesOnly: true,
             }),
-            babel({ babelHelpers: 'runtime', exclude: 'node_modules/**', extensions }),
             terser()
         ],
     },

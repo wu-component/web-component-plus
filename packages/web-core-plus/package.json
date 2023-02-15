@@ -1,6 +1,6 @@
 {
     "name": "@wu-component/web-core-plus",
-    "version": "0.3.13",
+    "version": "0.3.14",
     "description": "> TODO: description",
     "author": "Marvin <yongfeide123@gmail.com>",
     "homepage": "",
@@ -23,7 +23,8 @@
         "start:debug": "nodemon --config nodemon-debug.json",
         "build:tsc": "node ./build/buils-tsc.js",
         "dev:package:example": "webpack serve --config ./build/webpack_dev.config --env development --mode development --hot",
-        "build:rollup:example": "cross-env NODE_ENV=production rollup -c ./rollup.example.config.js"
+        "build:rollup:example": "cross-env NODE_ENV=production rollup -c ./rollup.example.config.js",
+        "example": "live-server"
     },
     "publishConfig": {
         "access": "public"
@@ -97,7 +98,7 @@
     "dependencies": {
         "@abraham/reflection": "^0.10.0",
         "@rollup/plugin-terser": "^0.4.0",
-        "construct-style-sheets-polyfill": "3.0.1",
+        "construct-style-sheets-polyfill": "^3.1.0",
         "weakmap-polyfill": "2.0.4"
     }
 }

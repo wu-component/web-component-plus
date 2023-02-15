@@ -2,7 +2,7 @@
 	"packages": [
 		{
 			"name": "@wu-component/wu-alert",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-alert",
 			"file": {
 				"cjs": {
@@ -29,7 +29,7 @@
 		},
 		{
 			"name": "@wu-component/wu-aside",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-aside",
 			"file": {
 				"cjs": {
@@ -56,7 +56,7 @@
 		},
 		{
 			"name": "@wu-component/wu-avatar",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-avatar",
 			"file": {
 				"cjs": {
@@ -83,7 +83,7 @@
 		},
 		{
 			"name": "@wu-component/wu-badge",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-badge",
 			"file": {
 				"cjs": {
@@ -110,7 +110,7 @@
 		},
 		{
 			"name": "@wu-component/wu-breadcrumb",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-breadcrumb",
 			"file": {
 				"cjs": {
@@ -140,7 +140,7 @@
 		},
 		{
 			"name": "@wu-component/wu-breadcrumb-item",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-breadcrumb-item",
 			"file": {
 				"cjs": {
@@ -167,7 +167,7 @@
 		},
 		{
 			"name": "@wu-component/wu-button",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-button",
 			"file": {
 				"cjs": {
@@ -194,7 +194,7 @@
 		},
 		{
 			"name": "@wu-component/wu-card",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-card",
 			"file": {
 				"cjs": {
@@ -221,7 +221,7 @@
 		},
 		{
 			"name": "@wu-component/wu-cascader",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-cascader",
 			"file": {
 				"cjs": {
@@ -250,7 +250,7 @@
 		},
 		{
 			"name": "@wu-component/wu-cesium-map",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-cesium-map",
 			"file": {
 				"cjs": {
@@ -277,7 +277,7 @@
 		},
 		{
 			"name": "@wu-component/wu-checkbox",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-checkbox",
 			"file": {
 				"cjs": {
@@ -304,7 +304,7 @@
 		},
 		{
 			"name": "@wu-component/wu-checkbox-button",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-checkbox-button",
 			"file": {
 				"cjs": {
@@ -331,7 +331,7 @@
 		},
 		{
 			"name": "@wu-component/wu-checkbox-group",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-checkbox-group",
 			"file": {
 				"cjs": {
@@ -358,7 +358,7 @@
 		},
 		{
 			"name": "@wu-component/wu-code-monaco-editor",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-code-monaco-editor",
 			"file": {
 				"cjs": {
@@ -387,7 +387,7 @@
 		},
 		{
 			"name": "@wu-component/wu-code-playground",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-code-playground",
 			"file": {
 				"cjs": {
@@ -427,7 +427,7 @@
 		},
 		{
 			"name": "@wu-component/wu-code-sandbox",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-code-sandbox",
 			"file": {
 				"cjs": {
@@ -456,7 +456,7 @@
 		},
 		{
 			"name": "@wu-component/wu-col",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-col",
 			"file": {
 				"cjs": {
@@ -483,7 +483,7 @@
 		},
 		{
 			"name": "@wu-component/wu-collapse",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-collapse",
 			"file": {
 				"cjs": {
@@ -513,7 +513,7 @@
 		},
 		{
 			"name": "@wu-component/wu-collapse-item",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-collapse-item",
 			"file": {
 				"cjs": {
@@ -540,7 +540,7 @@
 		},
 		{
 			"name": "@wu-component/wu-color-picker",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-color-picker",
 			"file": {
 				"cjs": {
@@ -573,7 +573,7 @@
 		},
 		{
 			"name": "@wu-component/wu-container",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-container",
 			"file": {
 				"cjs": {
@@ -600,7 +600,7 @@
 		},
 		{
 			"name": "@wu-component/wu-date-picker",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-date-picker",
 			"file": {
 				"cjs": {
@@ -627,7 +627,7 @@
 		},
 		{
 			"name": "@wu-component/wu-dialog",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-dialog",
 			"file": {
 				"cjs": {
@@ -654,7 +654,7 @@
 		},
 		{
 			"name": "@wu-component/wu-empty",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-empty",
 			"file": {
 				"cjs": {
@@ -681,7 +681,7 @@
 		},
 		{
 			"name": "@wu-component/wu-footer",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-footer",
 			"file": {
 				"cjs": {
@@ -708,7 +708,7 @@
 		},
 		{
 			"name": "@wu-component/wu-form",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-form",
 			"file": {
 				"cjs": {
@@ -735,7 +735,7 @@
 		},
 		{
 			"name": "@wu-component/wu-form-item",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-form-item",
 			"file": {
 				"cjs": {
@@ -762,7 +762,7 @@
 		},
 		{
 			"name": "@wu-component/wu-form-label-wrap",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-form-label-wrap",
 			"file": {
 				"cjs": {
@@ -789,7 +789,7 @@
 		},
 		{
 			"name": "@wu-component/wu-form1",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-form1",
 			"file": {
 				"cjs": {
@@ -816,7 +816,7 @@
 		},
 		{
 			"name": "@wu-component/wu-header",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-header",
 			"file": {
 				"cjs": {
@@ -843,7 +843,7 @@
 		},
 		{
 			"name": "@wu-component/wu-icon",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-icon",
 			"file": {
 				"cjs": {
@@ -870,7 +870,7 @@
 		},
 		{
 			"name": "@wu-component/wu-image",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-image",
 			"file": {
 				"cjs": {
@@ -897,7 +897,7 @@
 		},
 		{
 			"name": "@wu-component/wu-inject",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-inject",
 			"file": {
 				"cjs": {
@@ -924,7 +924,7 @@
 		},
 		{
 			"name": "@wu-component/wu-input",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-input",
 			"file": {
 				"cjs": {
@@ -951,7 +951,7 @@
 		},
 		{
 			"name": "@wu-component/wu-input-number",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-input-number",
 			"file": {
 				"cjs": {
@@ -978,7 +978,7 @@
 		},
 		{
 			"name": "@wu-component/wu-leaflet-map",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-leaflet-map",
 			"file": {
 				"cjs": {
@@ -1005,7 +1005,7 @@
 		},
 		{
 			"name": "@wu-component/wu-link",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-link",
 			"file": {
 				"cjs": {
@@ -1032,7 +1032,7 @@
 		},
 		{
 			"name": "@wu-component/wu-lottie",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-lottie",
 			"file": {
 				"cjs": {
@@ -1060,7 +1060,7 @@
 		},
 		{
 			"name": "@wu-component/wu-main",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-main",
 			"file": {
 				"cjs": {
@@ -1087,7 +1087,7 @@
 		},
 		{
 			"name": "@wu-component/wu-mapbox-map",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-mapbox-map",
 			"file": {
 				"cjs": {
@@ -1114,7 +1114,7 @@
 		},
 		{
 			"name": "@wu-component/wu-menu",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-menu",
 			"file": {
 				"cjs": {
@@ -1148,7 +1148,7 @@
 		},
 		{
 			"name": "@wu-component/wu-menu-item",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-menu-item",
 			"file": {
 				"cjs": {
@@ -1177,7 +1177,7 @@
 		},
 		{
 			"name": "@wu-component/wu-menu-item-group",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-menu-item-group",
 			"file": {
 				"cjs": {
@@ -1204,7 +1204,7 @@
 		},
 		{
 			"name": "@wu-component/wu-menu-sub",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-menu-sub",
 			"file": {
 				"cjs": {
@@ -1231,7 +1231,7 @@
 		},
 		{
 			"name": "@wu-component/wu-message",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-message",
 			"file": {
 				"cjs": {
@@ -1258,7 +1258,7 @@
 		},
 		{
 			"name": "@wu-component/wu-page-header",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-page-header",
 			"file": {
 				"cjs": {
@@ -1285,7 +1285,7 @@
 		},
 		{
 			"name": "@wu-component/wu-pagination",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-pagination",
 			"file": {
 				"cjs": {
@@ -1312,7 +1312,7 @@
 		},
 		{
 			"name": "@wu-component/wu-popconfirm",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-popconfirm",
 			"file": {
 				"cjs": {
@@ -1344,7 +1344,7 @@
 		},
 		{
 			"name": "@wu-component/wu-popover",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-popover",
 			"file": {
 				"cjs": {
@@ -1372,7 +1372,7 @@
 		},
 		{
 			"name": "@wu-component/wu-progress",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-progress",
 			"file": {
 				"cjs": {
@@ -1399,7 +1399,7 @@
 		},
 		{
 			"name": "@wu-component/wu-provide",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-provide",
 			"file": {
 				"cjs": {
@@ -1426,7 +1426,7 @@
 		},
 		{
 			"name": "@wu-component/wu-radio",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-radio",
 			"file": {
 				"cjs": {
@@ -1453,7 +1453,7 @@
 		},
 		{
 			"name": "@wu-component/wu-rate",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-rate",
 			"file": {
 				"cjs": {
@@ -1480,7 +1480,7 @@
 		},
 		{
 			"name": "@wu-component/wu-right-menu",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-right-menu",
 			"file": {
 				"cjs": {
@@ -1507,7 +1507,7 @@
 		},
 		{
 			"name": "@wu-component/wu-row",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-row",
 			"file": {
 				"cjs": {
@@ -1534,7 +1534,7 @@
 		},
 		{
 			"name": "@wu-component/wu-select",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-select",
 			"file": {
 				"cjs": {
@@ -1568,7 +1568,7 @@
 		},
 		{
 			"name": "@wu-component/wu-select-option",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-select-option",
 			"file": {
 				"cjs": {
@@ -1595,7 +1595,7 @@
 		},
 		{
 			"name": "@wu-component/wu-steps",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-steps",
 			"file": {
 				"cjs": {
@@ -1622,7 +1622,7 @@
 		},
 		{
 			"name": "@wu-component/wu-switch",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-switch",
 			"file": {
 				"cjs": {
@@ -1649,7 +1649,7 @@
 		},
 		{
 			"name": "@wu-component/wu-table",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-table",
 			"file": {
 				"cjs": {
@@ -1681,7 +1681,7 @@
 		},
 		{
 			"name": "@wu-component/wu-tag",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-tag",
 			"file": {
 				"cjs": {
@@ -1708,7 +1708,7 @@
 		},
 		{
 			"name": "@wu-component/wu-time-line",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-time-line",
 			"file": {
 				"cjs": {
@@ -1738,7 +1738,7 @@
 		},
 		{
 			"name": "@wu-component/wu-time-line-item",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-time-line-item",
 			"file": {
 				"cjs": {
@@ -1765,7 +1765,7 @@
 		},
 		{
 			"name": "@wu-component/wu-tooltip",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-tooltip",
 			"file": {
 				"cjs": {
@@ -1793,7 +1793,7 @@
 		},
 		{
 			"name": "@wu-component/wu-transition",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-transition",
 			"file": {
 				"cjs": {
@@ -1820,7 +1820,7 @@
 		},
 		{
 			"name": "@wu-component/wu-tree",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-tree",
 			"file": {
 				"cjs": {
@@ -1847,7 +1847,7 @@
 		},
 		{
 			"name": "@wu-component/wu-tree-v2",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-tree-v2",
 			"file": {
 				"cjs": {
@@ -1877,7 +1877,7 @@
 		},
 		{
 			"name": "@wu-component/wu-upload",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-upload",
 			"file": {
 				"cjs": {
@@ -1907,7 +1907,7 @@
 		},
 		{
 			"name": "@wu-component/wu-waline-comment",
-			"version": "1.11.1",
+			"version": "1.11.4",
 			"directory": "wu-waline-comment",
 			"file": {
 				"cjs": {

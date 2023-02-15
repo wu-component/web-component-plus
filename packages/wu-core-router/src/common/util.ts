@@ -1,6 +1,6 @@
 export function getParams(toArr, pathArr) {
     const params = {};
-    toArr.forEach(function (item, index) {
+    toArr.forEach(function(item, index) {
         if (index > 0) {
             params[pathArr[index].replace(':', '')] = item;
         }
@@ -25,14 +25,14 @@ export function getUrlParams(url) {
 export function decodeParams(url: string, obj: Record<any, any> = {}) {
     let result = '';
     let item;
-    if (url.includes("?")) {
+    if (url.includes('?')) {
         for (item in obj) {
             if (obj[item] && String(obj[item])) {
                 result += `${item}=${obj[item]}&`;
             }
         }
-    }else{
-        result += "?";
+    } else {
+        result += '?';
         for (item in obj) {
             if (obj[item] && String(obj[item])) {
                 result += `${item}=${obj[item]}&`;
@@ -43,5 +43,5 @@ export function decodeParams(url: string, obj: Record<any, any> = {}) {
     if (str.endsWith('&')) {
         str = str.substring(0, str.length - 1);
     }
-    return str
+    return str;
 }
