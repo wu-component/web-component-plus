@@ -290,7 +290,7 @@ export class WuComponent extends HTMLElement implements DefineComponent {
                 this.customStyleElement.textContent = this.customStyleContent;
             } else {
                 this.customStyleElement = cssToDom(this.inlineCss);
-                this.shadowRoot.appendChild(this.customStyleElement);
+                this.shadowRoot?.appendChild(this.customStyleElement);
             }
         }
         // this.attrsToProps();

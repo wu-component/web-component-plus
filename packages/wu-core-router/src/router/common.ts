@@ -1,4 +1,4 @@
-export abstract class  CommonRouter {
+export abstract class CommonRouter {
     public routeByTo = false;
     public data: Record<any, any> = {};
     public params: Record<any, any> = {};
@@ -8,16 +8,16 @@ export abstract class  CommonRouter {
     protected constructor(options: RouterOptions) {
         this.init(options);
     }
-    public abstract push(path: string, data: Record<any, any>, ...args): void
-    public abstract back(...args): void
-    public abstract init(options: RouterOptions): void
-    public abstract before(...args): boolean
-    public abstract after(...args): boolean
+    public abstract push(path: string, data: Record<any, any>, ...args): void;
+    public abstract back(...args): void;
+    public abstract init(options: RouterOptions): void;
+    public abstract before(...args): boolean;
+    public abstract after(...args): boolean;
 }
 
 export interface BaseRouter {
-    push(path: string, data?: Record<any, any>, ...args): void
-    back(...args): void
+    push(path: string, data?: Record<any, any>, ...args): void;
+    back(...args): void;
 }
 
 export interface RouterOptions {

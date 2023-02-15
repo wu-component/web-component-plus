@@ -1,4 +1,4 @@
-import { pathToRegexp } from "path-to-regexp";
+import { pathToRegexp } from 'path-to-regexp';
 
 interface RegisterRouterOptions {
     path: string;
@@ -7,7 +7,7 @@ interface RegisterRouterOptions {
 
 interface RegisterContainerOptions {
     id: string;
-    container: HTMLElement
+    container: HTMLElement;
 }
 
 interface RouterItem {
@@ -15,9 +15,9 @@ interface RouterItem {
     reg: any;
 }
 class RouterConfig {
-    public routeMap: Record<string, RouterItem> = {}
+    public routeMap: Record<string, RouterItem> = {};
 
-    public routerViewContainer: Record<string, any> = {}
+    public routerViewContainer: Record<string, any> = {};
 
     /**
      * 注册路由
@@ -26,14 +26,13 @@ class RouterConfig {
     public register(options: RegisterRouterOptions) {
         this.routeMap[options.path] = {
             element: options.element,
-            reg: pathToRegexp(options.path)
+            reg: pathToRegexp(options.path),
         };
     }
 
     public registerContainer(options: RegisterContainerOptions) {
         this.routerViewContainer[options.id || 'default'] = options.container;
     }
-
 }
 
 export default new RouterConfig();

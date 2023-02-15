@@ -1,6 +1,6 @@
-import { CommonRouter, RouterOptions } from "./common";
-import RouterConfig from "../router/RouterConfig";
-import { decodeParams, getParams, getUrlParams } from "../common";
+import { CommonRouter, RouterOptions } from './common';
+import RouterConfig from '../router/RouterConfig';
+import { decodeParams, getParams, getUrlParams } from '../common';
 
 export class HashRouter extends CommonRouter {
     constructor(options: RouterOptions) {
@@ -39,8 +39,8 @@ export class HashRouter extends CommonRouter {
     public init(options: RouterOptions): void {
         window.addEventListener('hashchange', this.hashChange.bind(this));
         document.addEventListener('DOMContentLoaded', this.hashChange.bind(this));
-        this.after = options.after? options.after.bind(this): () => true;
-        this.before = options.before? options.before.bind(this): () => true;
+        this.after = options.after ? options.after.bind(this) : () => true;
+        this.before = options.before ? options.before.bind(this) : () => true;
     }
 
     /**
@@ -48,7 +48,7 @@ export class HashRouter extends CommonRouter {
      * @private
      */
     private hashChange(evt: Event) {
-        if (!this.routeByTo ) {
+        if (!this.routeByTo) {
             // byNative = true;
         }
         this.routeByTo = false;
@@ -56,12 +56,12 @@ export class HashRouter extends CommonRouter {
         let path = window.location.hash.replace('#', '');
         if (path === '') path = '/';
 
-        Object.keys(RouterConfig.routeMap).every( (key) => {
+        Object.keys(RouterConfig.routeMap).every(key => {
             const toArr = path.split('?')[0].match(RouterConfig.routeMap[key].reg);
             if (toArr) {
                 const pathArr = key.match(RouterConfig.routeMap[key].reg);
                 this.params = getParams(toArr, pathArr);
-                this.query = this.query? { ...this.query, ...getUrlParams(path) }: getUrlParams(path);
+                this.query = this.query ? { ...this.query, ...getUrlParams(path) } : getUrlParams(path);
                 this.data = null;
                 if (this.before({ evt, query: this.query, params: this.params, data: this.data })) {
                     RouterConfig.routerViewContainer.default.shadowRoot.innerHTML = '';
@@ -100,5 +100,4 @@ export class HashRouter extends CommonRouter {
     public before(...args): boolean {
         return true;
     }
-
 }

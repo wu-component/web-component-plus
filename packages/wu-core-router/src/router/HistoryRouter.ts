@@ -1,4 +1,4 @@
-import { CommonRouter, RouterOptions } from "./common";
+import { CommonRouter, RouterOptions } from './common';
 
 export class HistoryRouter extends CommonRouter {
     constructor(options: RouterOptions) {
@@ -9,10 +9,9 @@ export class HistoryRouter extends CommonRouter {
     public push(...args): void {}
 
     public init(options: RouterOptions): void {
-        this.after = options.after? options.after.bind(this): () => true;
-        this.before = options.before? options.before.bind(this): () => true;
+        this.after = options.after ? options.after.bind(this) : () => true;
+        this.before = options.before ? options.before.bind(this) : () => true;
     }
-
 
     public after(...args): boolean {
         return true;
@@ -21,6 +20,4 @@ export class HistoryRouter extends CommonRouter {
     public before(...args): boolean {
         return true;
     }
-
-
 }

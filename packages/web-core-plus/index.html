@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script>
+    <script type="module" src="./dist/index.umd.js"></script>
     <script>
         const vConsole = new window.VConsole();
     </script>
@@ -21,13 +23,11 @@
     <p style="height: 2px;background: pink"></p>
     <wu-plus-test-new id="testDom"></wu-plus-test-new>
     <p style="height: 2px;background: pink"></p>-->
-    <test-com-new1 id="testDom1"></test-com-new1>
-    <test-com-new2 id="testDoWm1"></test-com-new2>
+    <test-example>测试按钮1</test-example>
 </div>
 
 </body>
 <script type="module" src="./example/index.umd.js"></script>
-<script type="module" src="./example1/index.umd.js"></script>
 
 <script type="module">
    /* const testDom = document.getElementById('testDom');
@@ -35,10 +35,6 @@
         console.log(e);
     })
 */
-    const testDom1 = document.getElementById('testDom1');
-    testDom1.addEventListener('change', (e) => {
-        console.log(e);
-    })
     /*const testDom = document.getElementById('testDom2');
     let indexNum = 0;
     function testTap(e) {
