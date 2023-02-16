@@ -1,6 +1,6 @@
 {
   "name": "@wu-component/wu-table",
-  "version": "1.11.7",
+  "version": "1.11.8",
   "description": "> TODO: description",
   "author": "Marvin <yongfeide123@gmail.com>",
   "homepage": "",
@@ -105,7 +105,7 @@
     "type": "git",
     "url": "https://github.com/wu-component/web-component-plus"
   },
-  "gitHead": "c8b8d97327b76adf798f6b68268747518f5635ec",
+  "gitHead": "cfebfd71e68e599260cbe9d70457476cfd493c55",
   "exports": {
     ".": {
       "types": "./types/index.d.ts",
