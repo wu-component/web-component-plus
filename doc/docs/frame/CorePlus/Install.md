@@ -2,10 +2,10 @@
 
 ### 快速创建
 
-需要提前全局安装 t-cli 脚手架，详见 [t-cli工具](https://www.npmjs.com/package/@wu-component/t-cli)
+需要提前全局安装 wu-cli 脚手架，详见 [wu-cli工具](https://www.npmjs.com/package/@wu-component/wu-cli)
 
 ```bin
-t init-web-component test-web-core-component
+wu init-web-component test-web-core-component
 ```
 
 ### 开发

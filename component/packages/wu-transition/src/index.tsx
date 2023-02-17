@@ -1,6 +1,22 @@
 import { Component, Emit, OnConnected, Prop, State, WuComponent } from '@wu-component/web-core-plus';
 import css from './index.scss';
-import domReady from "@wu-component/common/dist/dready";
+const readyCallbackList = [];
+document.addEventListener('DOMContentLoaded', () => {
+    domTransitionReady.done = true;
+    readyCallbackList.forEach(callback => {
+        callback();
+    });
+});
+
+export default function domTransitionReady(callback) {
+    if (domTransitionReady.done) {
+        callback();
+        return;
+    }
+    readyCallbackList.push(callback);
+}
+
+domTransitionReady.done = false;
 
 @Component({
     name: 'wu-plus-transition',
@@ -62,7 +78,8 @@ export class WuTransition extends WuComponent implements OnConnected {
     public afterLeave() {}
 
     public override connected(shadowRoot: ShadowRoot) {
-        domReady(() => {
+        console.log("3333");
+        domTransitionReady(() => {
             if (this.appear) {
                 this.enter();
             }

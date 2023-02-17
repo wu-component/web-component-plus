@@ -9,9 +9,9 @@
 ```html
 
 <template>
-    <div style="display: flex; align-items: center;justify-content: space-evenly;padding: 16px">
-        <wu-plus-cascader id="testCascader1"></wu-plus-cascader>
-        <wu-plus-cascader id="testCascader2"></wu-plus-cascader>
+    <div style="display: flex; align-items: center;justify-content: space-evenly;padding: 16px; flex-wrap: wrap;">
+        <wu-plus-cascader id="testCascader1" style="margin-bottom: 8px"></wu-plus-cascader>
+        <wu-plus-cascader id="testCascader2" style="margin-bottom: 8px"></wu-plus-cascader>
     </div>
 </template>
 <script>

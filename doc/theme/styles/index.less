@@ -1,0 +1,348 @@
+// @import './theme.light.less';
+// @import './theme.dark.less';
+
+@import '~ant-design-vue/dist/antd.less';
+
+@import './palette.less';
+@import './config.less';
+@import './code.less';
+@import './custom-blocks.less';
+@import './arrow.less';
+@import './wrapper.less';
+@import './toc.less';
+
+@import './searchbox.less';
+@import './nprogress.less';
+// @import './pwa.less';
+
+
+html,body {
+  padding: 0;
+  margin: 0;
+  background-color: #fff;
+  font-family: Inter,-apple-system,BlinkMacSystemFont,PingFang SC,Hiragino Sans GB,noto sans,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; 
+}
+body{
+  font-size: @bodyFontSize;
+  color: @bodyTextColor;
+}
+
+*::-webkit-scrollbar {
+  width: 4px; 
+}
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(221, 221, 221);
+}
+
+*::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+#app{
+  transition: transform .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.page {
+  padding-left: @sidebarWidth - 2;
+}
+
+.navbar {
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  box-sizing: border-box;
+  box-shadow: 0 2px 8px #f0f1f2;
+}
+
+.sidebar {
+  font-size: 14px;
+  background-color: #fff;
+  width: @sidebarWidth - 2;
+  position: fixed;
+  z-index: 10;
+  margin: 0;
+  top: @navbarHeight + 2;
+  left: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  border-right: 1px solid @borderColor;
+  overflow-y: auto;
+}
+
+.@{contentClass}:not(.custom) {
+  & {
+    .wrapper;
+  }
+
+  > *:first-child{
+    margin-top: @navbarHeight + 2rem;
+  }
+
+  p.demo {
+    padding: 1rem 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.@{contentClass}.custom {
+  padding: 0;
+  margin: 0;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+a {
+  color: @accentColor;
+  text-decoration: none;
+  &:link,
+  &:visited,
+  &:hover,
+  &:active{
+    text-decoration: none !important;
+  }
+}
+
+p a code {
+  font-weight: 400;
+  color: @accentColor;
+}
+
+// p{
+//   margin-bottom: .4em;
+//   // text-align: justify;
+// }
+
+kbd {
+  background: #eee;
+  border: solid 0.15rem #ddd;
+  border-bottom: solid 0.25rem #ddd;
+  border-radius: 0.15rem;
+  padding: 0 0.15em;
+}
+
+blockquote {
+  color: #666;
+  border-left: 0.2rem solid #cbcbcb;
+  margin: 1rem 0;
+  padding: 0.25rem 1rem;
+  background-color: #f8f8f8;
+
+  & > p {
+    margin: .625rem 0;
+  }
+}
+
+ul, ol {
+  padding-left: 1.2em;
+}
+
+strong {
+  font-weight: 600;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  line-height: 1.25;
+
+  .@{contentClass}:not(.custom) > & {
+    margin-top: -(@navbarHeight + 1.275rem);
+    padding-top: @navbarHeight + 2.3rem;
+    margin-bottom: 0;
+
+    &:first-child {
+      margin-top: -0.2rem;
+      margin-bottom: 1rem;
+
+      + p, + pre, + .custom-block {
+        margin-top: 1rem;
+      }
+    }
+  }
+
+  &:hover .header-anchor {
+    opacity: 1;
+  }
+}
+
+h1 {
+  font-size: 2.25rem;
+  margin-left: -1px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin: 0;
+  padding-top: 1.2rem;
+  padding-bottom: .8rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+  padding-top: .625rem;
+  padding-bottom: .75rem;
+}
+
+a.header-anchor {
+  font-size: 0.9em;
+  float: left;
+  margin-left: -0.87em;
+  padding-right: 0.23em;
+  margin-top: 0.125em;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+code, kbd, .line-number {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+p, ul, ol {
+  line-height: 1.7;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid @borderColor;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 1rem 0;
+  display: block;
+  overflow-x: auto;
+}
+
+tr {
+  border-top: 1px solid #dfe2e5;
+
+  &:nth-child(2n) {
+    background-color: #f6f8fa;
+  }
+}
+
+th, td {
+  border: 1px solid #dfe2e5;
+  padding: 0.6em 1em;
+}
+
+.theme-container {
+
+  &.no-navbar {
+    .@{contentClass}:not(.custom) > h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.5rem;
+      padding-top: 0;
+    }
+
+    .sidebar {
+      top: 0;
+    }
+  }
+  &.no-sidebar {
+    .@{contentClass}:not(.custom) {
+      max-width: @contentWidthNoSidebar;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+    }
+
+    .page-edit{
+      max-width: @contentWidthNoSidebar;
+      padding: 1.5rem 2.5rem;
+      padding-bottom: 1rem;
+      overflow: unset;
+    }
+  }
+
+  .@{contentClass}{
+    ul:not([class^= "ant-"]){
+      li{
+        list-style-type: circle;
+        line-height: 2;
+      }
+    }
+  }
+}
+
+@media (min-width: (@MQMobile + 1px)) {
+  .theme-container.no-sidebar {
+    .sidebar {
+      display: none;
+    }
+
+    .page {
+      padding-left: 0;
+    }
+  }
+}
+
+// ant design style reset
+.ant-menu-horizontal{
+  line-height: @navbarHeight;
+  border-bottom: transparent;
+}
+
+.ant-menu-item .anticon, 
+.ant-menu-submenu-title .anticon{
+  font-size: .75rem;
+  margin-right: 0;
+}
+.ant-menu-item, .ant-menu-submenu-title{
+  padding: 0 .875rem;
+}
+
+#nav.ant-menu-horizontal {
+
+  @navItemPadding: 0 6px;
+
+  > .ant-menu-item{
+    a{
+      border-top: 2px solid transparent;
+      padding: @navItemPadding;
+      transition: color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), border-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+  }
+
+  > .ant-menu-item:hover,
+  > .ant-menu-submenu:hover {
+    a{
+      border-top-color: @accentColor;
+    }
+
+    border-bottom: 2px solid transparent;
+  }
+
+  > .ant-menu-item-selected {
+    a{
+      border-color: @accentColor;
+      padding: @navItemPadding;
+    }
+    border-bottom: 2px solid transparent;
+  }
+}
+
+.ant-drawer > *{
+  transition: transform .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.ant-menu-horizontal > .ant-menu-item:hover, .ant-menu-horizontal > .ant-menu-submenu:hover, .ant-menu-horizontal > .ant-menu-item-active, .ant-menu-horizontal > .ant-menu-submenu-active, .ant-menu-horizontal > .ant-menu-item-open, .ant-menu-horizontal > .ant-menu-submenu-open, .ant-menu-horizontal > .ant-menu-item-selected, .ant-menu-horizontal > .ant-menu-submenu-selected{
+  border-bottom-color: transparent;
+}
+
+@import './mobile.less';
+// @import './antdv/index.less';
+@import (optional) '~@docs/style.less';

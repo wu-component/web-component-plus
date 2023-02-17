@@ -19,7 +19,7 @@
 <script>
     export default {
         mounted() {
-            setTimeout(() => {
+            this.$nextTick(() => {
                 document.querySelector("#messageButton1").addEventListener("click", () => {
                     webUIPlus.Message.setOption({
                         message: "测试消息1",
@@ -48,7 +48,7 @@
                         duration: 6000
                     })
                 })
-            }, 1000)
+            })
 
         }
     }

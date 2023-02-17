@@ -11,12 +11,12 @@
     <div style="display: flex; width: 30% align-items: center;justify-content: space-around;padding: 16px">
         <wu-plus-upload
                 show-file-list="false"
-                id="upload2"
+                id="upload0"
                 auto-upload="true"
-                list-type="text"
+                list-type="picture-card"
                 file-list='[{"name":"food.jpeg","url":"https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100"},{"name":"food2.jpeg","url":"https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100"}]'
                 headers='{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicm9vdCIsImlhdCI6MTY2MjkxMDM5MiwiZXhwIjoxNjYyOTEzOTkyfQ.65rWS2yBQHI1cP_PBqmk8jr2_h5_ENIRckZarmvffzU"}'
-                action=""
+                action="https://canyuegongzi.xyz/simple-file-center/v1.0/qiniu/multipleQiniu"
                 data='{"category":4,"userName":"root","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicm9vdCIsImlhdCI6MTY2MjkxMDM5MiwiZXhwIjoxNjYyOTEzOTkyfQ.65rWS2yBQHI1cP_PBqmk8jr2_h5_ENIRckZarmvffzU"}'
         >
             <wu-plus-button>选取文件</wu-plus-button>

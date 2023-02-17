@@ -1,0 +1,26 @@
+wrapper() {
+  max-width: $contentWidth;
+  margin: 0 auto;
+  padding: 2rem 2.5rem;
+
+  @media (max-width: $MQNarrow) {
+    padding: 1.5rem;
+  }
+
+  @media (max-width: $MQMobileNarrow) {
+    padding: 1rem 1.5rem;
+  }
+}
+
+horizontal-wrapper() {
+  max-width: var(--content-width);
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 2.5rem;
+  padding-left: 2.5rem;
+
+  @media (max-width: $MQNarrow) {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+}

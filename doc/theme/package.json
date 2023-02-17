@@ -1,0 +1,60 @@
+{
+  "name": "vuepress-plugin-comment1",
+  "version": "1.31.0-beta.2",
+  "description": "A simple Comment plugin for vuepress",
+  "keywords": [
+    "vuepress-plugin",
+    "vuepress-blog",
+    "comment",
+    "valine",
+    "vssue",
+    "page-info"
+  ],
+  "homepage": "https://vuepress-theme-hope.github.io/v1/comment/",
+  "bugs": {
+    "url": "https://github.com/vuepress-theme-hope/vuepress-theme-hope-v1/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vuepress-theme-hope/vuepress-theme-hope.git",
+    "directory": "packages/comment"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Mr.Hope",
+    "email": "mister-hope@outlook.com",
+    "url": "https://mrhope.site"
+  },
+  "main": "lib/node/index.js",
+  "types": "lib/types/index.d.ts",
+  "scripts": {
+    "build": "tsc -b tsconfig.json",
+    "clean": "rimraf lib *.tsbuildinfo",
+    "copy": "cpx \"src/**/*.{d.ts,vue,styl}\" lib",
+    "demo:build": "vuepress build __tests__/demo",
+    "demo:clean-dev": "vuepress dev __tests__/demo --no-cache",
+    "demo:dev": "vuepress dev __tests__/demo"
+  },
+  "dependencies": {
+    "@mr-hope/vuepress-plugin-git": "workspace:*",
+    "@vssue/api-bitbucket-v2": "^1.4.7",
+    "@vssue/api-gitea-v1": "^1.4.7",
+    "@vssue/api-gitee-v5": "^1.4.7",
+    "@vssue/api-github-v3": "^1.4.7",
+    "@vssue/api-github-v4": "^1.4.7",
+    "@vssue/api-gitlab-v4": "^1.4.7",
+    "@vssue/vuepress-plugin-vssue": "^1.4.8",
+    "@waline/client": "^2.10.0",
+    "giscus": "^1.2.0",
+    "twikoo": "^1.6.7",
+    "valine": "^1.5.1",
+    "vssue": "^1.4.8",
+    "vue": "^2.7.10",
+    "vuepress-plugin-reading-time1": "workspace:*",
+    "vuepress-shared": "workspace:*",
+    "vuepress-typings": "workspace:*"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

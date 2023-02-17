@@ -1,0 +1,124 @@
+.search-box {
+  line-height: @navbarHeight + 0.125rem;
+
+  input {
+    height: 1.375rem !important;
+    color: rgba(0, 0, 0, 0.65) !important;
+    border-radius: 0 !important;
+    border: none !important;
+    border-left: 1px solid darken(@borderColor, 5%) !important;
+    line-height: 1.375rem !important;
+    padding-left: 2.2rem !important;
+    background: #fff url('../assets/search.svg') 0.5rem 0 no-repeat !important;
+    background-size: 1.25rem !important;
+  }
+
+  .suggestions {
+    top: @navbarHeight + 0.3125rem !important;
+    border-radius: 3px !important;
+    border: none !important;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  .suggestion {
+    border-radius: 3px !important;
+    transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
+
+    &:hover {
+      background-color: fade(@accentColor, 10%) !important;
+    }
+
+    a {
+      color: @textColor !important;
+      .page-title {
+        font-weight: normal !important;
+      }
+    }
+
+    &.focused {
+      background-color: fade(@accentColor, 10%) !important;
+
+      a {
+        color: @accentColor !important;
+      }
+    }
+  }
+}
+
+@media (max-width: @MQNarrow) {
+  .search-box {
+    input {
+      border: 1px solid #d9d9d9 !important;
+      border-radius: 40px !important;
+      height: 2rem !important;
+      background-position: 0.5rem 0.3rem !important;
+
+      &:hover {
+        border-color: @accentColor !important;
+      }
+      &:focus {
+        border-color: @accentColor !important;
+        box-shadow: 0 0 0 2px fade(@accentColor, 20%);
+      }
+    }
+  }
+}
+
+// Match IE11
+// @media all and (-ms-high-contrast: none) {
+//   .search-box input {
+//     height: 2rem;
+//   }
+// }
+
+@media (max-width: @MQNarrow) and (min-width: @MQMobile) {
+  .search-box {
+    left: 0rem !important;
+
+    input {
+      border-color: transparent !important;
+      background-size: 1.65rem !important;
+      background-position: 0.5rem 0.1rem !important;
+
+      &:focus {
+        border-color: @accentColor !important;
+        background-size: 1.25rem !important;
+        background-position: 0.5rem 0.3rem !important;
+        box-shadow: 0 0 0 2px fade(@accentColor, 20%);
+      }
+    }
+    .suggestions {
+      left: 0.625rem !important;
+    }
+  }
+}
+
+@media (max-width: @MQMobile) {
+  .search-box {
+    input {
+      left: 1rem !important;
+      border-color: transparent !important;
+      background-size: 1.5rem !important;
+      background-position: 0.5rem 0.1rem !important;
+
+      &:focus {
+        border-color: @accentColor !important;
+        background-size: 1.25rem !important;
+        background-position: 0.5rem 0.3rem !important;
+        box-shadow: 0 0 0 2px fade(@accentColor, 20%);
+        left: 0.625rem !important;
+      }
+    }
+    .suggestions {
+      left: 0.625rem !important;
+    }
+  }
+}
+
+@media (max-width: @MQMobileNarrow) {
+  .search-box {
+    input:focus {
+      width: 10rem;
+    }
+  }
+}

@@ -96,7 +96,6 @@ wu-plus-footer：底栏容器。
         color: #333;
         text-align: center;
         line-height: 160px;
-        width: 100%;
     }
 
     .container-test wu-plus-container {

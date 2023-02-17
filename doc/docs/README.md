@@ -48,10 +48,10 @@ footer: MIT Licensed | Copyright © 2020-present Marvin.
 
 ```bash
 ## 安装脚手架
-npm install @wu-component/t-cli -g
+npm install @wu-component/wu-cli -g
 
 ## 创建组件 <web-component-name> 为组件需要定义的组件名 此处按照 wu-todo-example 做示例
-t init-web-component <web-component-name>
+wu init-web-component <web-component-name>
 
 ## 进入对应目录
 cd wu-todo-example

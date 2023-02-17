@@ -10,7 +10,7 @@
 ::: demo
 ```html
 <template>
-    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+    <div class="themeCodeContainer">
         <wu-plus-avatar size="60" fit="fill" shape="circle">
             <img src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"/>
         </wu-plus-avatar>
@@ -44,7 +44,7 @@
 ::: demo
 ```html
 <template>
-    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+    <div class="themeCodeContainer">
         <wu-plus-avatar size="60" fit="fill" shape="circle">
             <img src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"/>
         </wu-plus-avatar>
@@ -65,7 +65,7 @@
 ::: demo
 ```html
 <template>
-    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+    <div class="themeCodeContainer">
         <div v-for="fit in fits" :key="fit">
             <wu-plus-avatar size="60" :size="100" :fit="fit" :src="url">
             </wu-plus-avatar>
