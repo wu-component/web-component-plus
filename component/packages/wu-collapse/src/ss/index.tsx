@@ -1,7 +1,8 @@
 import { h, Component, WuComponent, State, Inject, Prop } from '@wu-component/web-core-plus';
 import css from './index.scss';
 import { extractClass, generateId } from "@wu-component/common";
-import type { WuCollapse } from "../types/type";
+import { type WuCollapse } from '../index';
+
 
 @Component({
     name: 'wu-plus-collapse-item',
@@ -68,6 +69,8 @@ export class WuCollapseItem extends WuComponent {
     }
 
     public override render(_renderProps = {}, _store = {}) {
+        // @ts-ignore
+
         return (
             <div
                 class="wu-collapse-item"

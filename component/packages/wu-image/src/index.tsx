@@ -120,7 +120,7 @@ export class WuImage extends WuComponent implements OnConnected, OnDisConnected 
      */
     public getImageStyle(fit: any) {
         const { imageWidth, imageHeight } = this;
-        const { clientWidth: containerWidth, clientHeight: containerHeight } = this.rootNode;
+        const { clientWidth: containerWidth, clientHeight: containerHeight } = this.shadowRoot.host;
 
         if (!imageWidth || !imageHeight || !containerWidth || !containerHeight) return {};
 
@@ -187,6 +187,8 @@ export class WuImage extends WuComponent implements OnConnected, OnDisConnected 
     }
 
     public override render(_renderProps = {}, _store = {}) {
+        console.log(this.previewSrcList);
+        console.log({...this})
         return (
             <div class="wu-image">
                 {

@@ -87,7 +87,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.5",
     "@wu-component/common": "latest",
-    "@wu-component/web-core-plus": "latest"
+    "@wu-component/web-core-plus": "next"
   },
   "files": [
     "dist",

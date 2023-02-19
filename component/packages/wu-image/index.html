@@ -3,10 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://unpkg.com/@wu-component/web-core-plus@next"></script>
+    <script src="./dist/index.umd.js"></script>
 </head>
 <body>
 <div id="app">
-    <wu-test-example></wu-test-example>
+    <div style="display: flex; flex-wrap: wrap; align-items: center;justify-content: space-around;padding: 16px">
+        <div style="display: flex;flex-direction: column">
+            <span>fill</span>
+            <wu-plus-image style="width: 100px; height: 100px" src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" fit="fill"></wu-plus-image>
+        </div>
+        <div style="display: flex;flex-direction: column">
+            <span>contain</span>
+            <wu-plus-image style="width: 100px; height: 100px" src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" fit="contain"></wu-plus-image>
+        </div>
+        <div style="display: flex;flex-direction: column">
+            <span>cover</span>
+            <wu-plus-image style="width: 100px; height: 100px" src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" fit="cover"></wu-plus-image>
+        </div>
+        <div style="display: flex;flex-direction: column">
+            <span>none</span>
+            <wu-plus-image style="width: 100px; height: 100px" src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" fit="none"></wu-plus-image>
+        </div>
+        <div style="display: flex;flex-direction: column">
+            <span>scale-down</span>
+            <wu-plus-image style="width: 100px; height: 100px" src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" fit="scale-down"></wu-plus-image>
+        </div>
+    </div>
 </div>
 <script src="./dist/index.umd.js"></script>
 </body>

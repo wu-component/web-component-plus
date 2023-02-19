@@ -36,10 +36,10 @@
         console.log(e.detail);
         if (e.detail.value) {
             console.log("全选")
-            checkoutBoxGroup.setAttribute("value", ['测试1', '测试2', '测试3'])
-            indeterminate.setAttribute("checked", true)
+            checkoutBoxGroup.setAttribute("value", JSON.stringify(['测试1', '测试2', '测试3']))
+            indeterminate.setAttribute("checked", 'true')
         } else {
-            indeterminate.setAttribute("indeterminate", "")
+            indeterminate.setAttribute("indeterminate", false)
             checkoutBoxGroup.setAttribute("value", [])
             indeterminate.setAttribute("checked", false)
         }

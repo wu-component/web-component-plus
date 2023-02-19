@@ -280,10 +280,6 @@ export class WuWalineComment extends WuComponent implements OnConnected, OnDisCo
 
     public override connected(shadowRoot: ShadowRoot) {
         // @ts-ignore
-        console.log(this.$reactive);
-        // @ts-ignore
-        console.log(this.$optiopns);
-        // @ts-ignore
         const el: HTMLElement = this.$options.is === 'CustomWebComponent'? this.shadowRoot.querySelector('#waline-container'): this.querySelector('#waline-container');
         this.waline = init({
             el: el,

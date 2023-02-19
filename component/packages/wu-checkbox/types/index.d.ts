@@ -1,8 +1,7 @@
 import { OnConnected, OnBeforeUpdate, WuComponent } from '@wu-component/web-core-plus';
-declare type UISize = 'medium' | 'small' | 'mini';
+type UISize = 'medium' | 'small' | 'mini';
 export declare class WuCheckbox extends WuComponent implements OnConnected, OnBeforeUpdate {
     isGroup: boolean;
-    props: any;
     constructor();
     groupRef: any;
     beforeUpdate(): void;
@@ -14,13 +13,12 @@ export declare class WuCheckbox extends WuComponent implements OnConnected, OnBe
     focus: boolean;
     size: UISize;
     disabled: boolean;
-    value: boolean;
+    value: string;
     label: string;
     indeterminate: boolean;
     checked: boolean;
     border: boolean;
     name: string;
-    id: string;
     controls: string;
     handleChange(ev: any): void;
     private change;

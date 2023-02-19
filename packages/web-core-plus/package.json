@@ -99,6 +99,7 @@
         "@abraham/reflection": "^0.10.0",
         "@rollup/plugin-terser": "^0.4.0",
         "construct-style-sheets-polyfill": "^3.1.0",
+        "preact": "^10.12.1",
         "weakmap-polyfill": "2.0.4"
     }
 }

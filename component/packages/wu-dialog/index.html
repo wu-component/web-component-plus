@@ -3,12 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="https://unpkg.com/@wu-component/web-core-plus"></script>
+    <script src="https://unpkg.com/@wu-component/web-core-plus@next"></script>
+    <script src="./dist/index.umd.js"></script>
 </head>
-<body>
 <div id="app">
-    <wu-test-example></wu-test-example>
+    <div style="display: flex; align-items: center;justify-content: center;width: 100%; margin-top: 8px; margin-bottom: 16px">
+        <wu-plus-dialog visible="false" title="提示" id="dialogTest1">
+            <span>你还，dialog</span>
+            <span slot="footer">
+            <button size="mini" id="cancle">取 消</button>
+            <button size="mini" id="ok">确 定</button>
+        </span>
+        </wu-plus-dialog>
+
+        <button id="dialogButtonControl">打开弹框</button>
+    </div>
 </div>
-<script src="./dist/index.umd.js"></script>
 </body>
 </html>
+
+<script>
+    const dialogButtonControl = document.getElementById('dialogButtonControl');
+    const cancle = document.getElementById('cancle');
+    const ok = document.getElementById('ok');
+    dialogButtonControl.addEventListener('click', () => {
+        const dom = document.getElementById("dialogTest1");
+        dom.setAttribute('visible', true)
+    })
+    cancle.addEventListener('click', () => {
+        const dom = document.getElementById("dialogTest1");
+        dom.setAttribute('visible', false)
+        console.log("去喜爱")
+    })
+    ok.addEventListener('click', () => {
+        const dom = document.getElementById("dialogTest1");
+        dom.setAttribute('visible', false)
+        console.log("确认")
+    })
+</script>

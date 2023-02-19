@@ -118,6 +118,7 @@ export class WuColorPicker extends WuComponent implements OnConnected {
 
     public override render(_renderProps = {}, _store = {}) {
         return (
+            // @ts-ignore
             <wu-plus-popover trigger="click" id="popover" ref={e => (this.popoverRef = e)} disabled={this.disabled} position="bottom">
                 <div class="color-btn wu-color-picker"
                      style={{ backgroundColor: this.val }}
@@ -134,13 +135,18 @@ export class WuColorPicker extends WuComponent implements OnConnected {
 
                     </span>
                 </div>
+                {/*@ts-ignore*/}
                 <div slot="popover" tip="popover" id="popcon">
+                    {/*@ts-ignore*/}
                     <wu-plus-color-pane ref={e => (this.colorPane = e)} defaultvalue={this.defaultvalue}></wu-plus-color-pane>
                     <div class="pop-footer">
+                        {/*@ts-ignore*/}
                         <wu-plus-button type="text" onClick={() => this.cancleCallback()}>取 消</wu-plus-button>
+                        {/*@ts-ignore*/}
                         <wu-plus-button type="primary" id="btn-submit" onClick={() => this.okCallback()}>确 认</wu-plus-button>
                     </div>
                 </div>
+                {/*@ts-ignore*/}
             </wu-plus-popover>
         );
     }

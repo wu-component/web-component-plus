@@ -209,10 +209,6 @@ export class WuComponent extends HTMLElement implements DefineComponent {
             newValue = val;
         }
         super.setAttribute(key, newValue);
-        if (this.isInstalled) {
-            this[key] = val;
-            // this.$reactive[key] = val;
-        }
     }
 
     public override getAttribute(key: string) {

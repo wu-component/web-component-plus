@@ -1,6 +1,6 @@
 import { h, Component, Prop, WuComponent } from '@wu-component/web-core-plus';
 import css from './index.scss';
-import "./ImgEmpty";
+import "./ImgEmpty.tsx";
 
 @Component({
     name: 'wu-plus-empty',
@@ -31,11 +31,12 @@ export class WuEmpty extends WuComponent {
     }
 
     public override render(_renderProps = {}, _store = {}) {
-       return (
+        return (
            <div class="wu-empty">
                <div class="wu-empty_image" style={this.imageStyle}>
                    {
-                       this.image ? (<img src={this.image} ondragstart="return false"  alt=""/>) : (<wu-plus-img-empty />)
+                       /*@ts-ignore*/
+                       this.image ? (<img src={this.image} onDragStart="return false"  alt=""/>) : (<wu-plus-img-empty />)
                    }
                </div>
                <div class="wu-empty_description">

@@ -1,6 +1,6 @@
 import { WuComponent, OnConnected, OnDisConnected } from '@wu-component/web-core-plus';
-declare type UISize = 'medium' | 'small' | 'mini';
-declare type PickerType = 'year' | 'month' | 'date' | 'multiple' | 'week' | 'datetime' | 'datetimerange' | 'daterange' | 'monthrange' | 'yearrange';
+type UISize = 'medium' | 'small' | 'mini';
+type PickerType = 'year' | 'month' | 'date' | 'multiple' | 'week' | 'datetime' | 'datetimerange' | 'daterange' | 'monthrange' | 'yearrange';
 export interface LocaleOptions {
     /****************************PC端***********************************/
     month?: string[];
@@ -60,6 +60,7 @@ export declare class WuDatePicker extends WuComponent implements OnConnected, On
     connected(shadowRoot: ShadowRoot): void;
     disConnected(): void;
     change(data: any): any;
+    get newDefault(): any;
     mountPicker(): void;
     height: string;
     disabledChange(val: boolean, old: boolean): void;

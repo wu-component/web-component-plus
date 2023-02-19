@@ -1,12 +1,13 @@
-import { h, Component, WuComponent, Prop, State, Watch, Emit, Provide } from '@wu-component/web-core-plus';
+import { h, Component, WuComponent, Prop, Watch, Emit, Provide, OnConnected, State } from '@wu-component/web-core-plus';
 import css from './index.scss';
 import "@wu-component/wu-collapse-item";
+import "./ss/index.tsx";
 
 @Component({
     name: 'wu-plus-collapse',
     css: css,
 })
-export class WuCollapse extends WuComponent {
+export class WuCollapse extends WuComponent implements OnConnected {
     constructor() {
         super();
     }
@@ -50,6 +51,10 @@ export class WuCollapse extends WuComponent {
         this.activeNames = activeNames;
         this.inputChange(value);
         this.change(value);
+    }
+
+    public override connected(shadowRoot: ShadowRoot) {
+        this.activeNames = this.value;
     }
 
     public handleItemClick(item) {

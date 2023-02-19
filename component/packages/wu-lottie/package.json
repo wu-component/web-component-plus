@@ -86,7 +86,7 @@
   },
   "dependencies": {
     "@wu-component/common": "latest",
-    "@wu-component/web-core-plus": "latest",
+    "@wu-component/web-core-plus": "next",
     "lottie-web": "^5.9.6"
   },
   "files": [

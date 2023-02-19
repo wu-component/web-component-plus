@@ -8,6 +8,9 @@ import css3 from './css/iconfont/iconfont.scss';
 type UISize = 'medium' | 'small' | 'mini';
 import { extractClass, newEval } from "@wu-component/common";
 
+// prod
+const style = css + css1 + css2 + css3;
+// dev
 
 type PickerType = 'year' | 'month' | 'date' |'multiple' | 'week' |'datetime' |'datetimerange' | 'daterange' |'monthrange' |'yearrange';
 
@@ -58,7 +61,7 @@ export interface PickerOptions {
 
 @Component({
     name: 'wu-plus-date-picker',
-    css: css + css1 + css2 + css3
+    css: style,
 })
 export class WuDatePicker extends WuComponent implements OnConnected, OnDisConnected {
 
@@ -118,6 +121,17 @@ export class WuDatePicker extends WuComponent implements OnConnected, OnDisConne
         return data;
     }
 
+    get newDefault() {
+        if (typeof this.default === "string" && this.default.indexOf('[') > -1 && this.default.indexOf(']') > -1) {
+            let val = newEval(this.default);
+            if (val.indexOf(',') > -1) {
+                val = val.split(',');
+            }
+            return val;
+        }
+        return this.default;
+    }
+
     public mountPicker() {
         const that = this;
         const options: PickerOptions = this.options;
@@ -132,27 +146,23 @@ export class WuDatePicker extends WuComponent implements OnConnected, OnDisConne
             }
         }
         options.type = this.type || options.type;
-        if (typeof this.default === "string" && this.default.indexOf('[') > -1 && this.default.indexOf(']') > -1) {
-            this.default = newEval(this.default);
-        }
-        if (Array.isArray(this.default)) {
-            if(this.default.length === 2) {
-                options.startTime = this.default[0];
-                options.endTime = this.default[1];
+        if (Array.isArray(this.newDefault)) {
+            if(this.newDefault.length === 2) {
+                options.startTime = this.newDefault[0];
+                options.endTime = this.newDefault[1];
             }
-            if (this.default.length === 1) {
-                options.startTime = this.default[0];
+            if (this.newDefault.length === 1) {
+                options.startTime = this.newDefault[0];
             }
         }
         else {
-            options.startTime = this.default;
+            options.startTime = this.newDefault;
         }
 
         // 處理日期选择的
         if (options.type === 'datetime' || options.type === 'datetimerange') {
             options.showBottomButton = true;
         }
-
         this.picker = new DatePicker(this.shadowRoot.querySelector("#dataPicker"), options,function(data: any){
             that.change(data);
         });

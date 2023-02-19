@@ -21,7 +21,7 @@ export class WuImgEmpty extends WuComponent implements OnConnected {
                 viewBox="0 0 79 86"
                 version="1.1"
                 xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink">
+                xmlnsXlink="http://www.w3.org/1999/xlink">
                 <defs>
                     <linearGradient id={`linearGradient-1-${id}`} x1="38.8503086%" y1="0%" x2="61.1496914%" y2="100%">
                         <stop stop-color="#FCFCFD" offset="0%" />
@@ -81,13 +81,13 @@ export class WuImgEmpty extends WuComponent implements OnConnected {
                     height="36"/>
                 <g id="Rectangle-Copy-17" transform="translate(53.000000, 45.000000)">
                     <mask id={`mask-4-${id}`} fill="white">
-                        <use xlink:href={`#path-3-${id}`} />
+                        <use xlinkHref={`#path-3-${id}`} />
                     </mask>
                     <use
                         id="Mask"
                         fill="#E0E3E9"
                         transform="translate(8.500000, 18.000000) scale(-1, 1) translate(-8.500000, -18.000000) "
-                          xlink:href={`#path-3-${id}`}
+                        xlinkHref={`#path-3-${id}`}
                     />
                     <polygon
                         id="Rectangle-Copy"
