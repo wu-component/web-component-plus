@@ -1,5 +1,5 @@
 import { OnConnected, WuComponent } from '@wu-component/web-core-plus';
-declare type ShadowEnums = 'always' | 'hover' | 'never';
+type ShadowEnums = 'always' | 'hover' | 'never';
 export declare class WuCard extends WuComponent implements OnConnected {
     constructor();
     connected(shadowRoot: ShadowRoot): void;

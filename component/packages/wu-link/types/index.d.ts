@@ -1,5 +1,5 @@
 import { OnConnected, WuComponent, OnBeforeRender } from '@wu-component/web-core-plus';
-declare type WuLinkType = 'primary' | 'success' | 'warning' | 'danger' | 'info';
+type WuLinkType = 'primary' | 'success' | 'warning' | 'danger' | 'info';
 export declare class WuLink extends WuComponent implements OnConnected, OnBeforeRender {
     constructor();
     beforeRender(): void;

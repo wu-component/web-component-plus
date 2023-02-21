@@ -6,7 +6,21 @@
 </head>
 <body>
 <div id="app">
-    <app-view1></app-view1>
+    <div style="display: flex; align-items: center;justify-content: center;padding: 16px">
+        <wu-plus-tree-v2 draggable="false" show-checkbox="false" data='[{"label":"一级 1","value":"1","children":[{"label":"二级 1-1","value":"1.1","children":[{"label":"三级 1-1-1","value":"1.1.1"}]}]},{"label":"一级 2","value":"2","children":[{"label":"二级 2-1","value":"2.1","children":[{"label":"三级 2-1-1","value":"2.1.1"}]},{"label":"二级 2-2","value":"2.2","children":[{"label":"三级 2-2-1","value":"2.2.1"}]}]},{"label":"一级 3","value":"3","children":[{"label":"二级 3-1","value":"3.1","children":[{"label":"三级 3-1-1","value":"3.1.1"}]},{"label":"二级 3-2","value":"3.2","children":[{"label":"三级 3-2-1","value":"3.2.1"}]}]}]'></wu-plus-tree-v2>
+    </div>
+
+    <div style="display: flex; align-items: center;justify-content: center;padding: 16px">
+        <wu-plus-tree-v2 draggable="false" show-checkbox="true" node-key="value" id="tree1" default-checked-keys="['1']" data='[{"label":"一级 1","value":"1","children":[{"label":"二级 1-1","value":"1.1","children":[{"label":"三级 1-1-1","value":"1.1.1"}]}]},{"label":"一级 2","value":"2","children":[{"label":"二级 2-1","value":"2.1","children":[{"label":"三级 2-1-1","value":"2.1.1"}]},{"label":"二级 2-2","value":"2.2","children":[{"label":"三级 2-2-1","value":"2.2.1"}]}]},{"label":"一级 3","value":"3","children":[{"label":"二级 3-1","value":"3.1","children":[{"label":"三级 3-1-1","value":"3.1.1"}]},{"label":"二级 3-2","value":"3.2","children":[{"label":"三级 3-2-1","value":"3.2.1"}]}]}]'></wu-plus-tree-v2>
+    </div>
+
+    <div style="display: flex; align-items: center;justify-content: center;padding: 16px">
+        <wu-plus-tree-v2 draggable="false" default-expanded-keys="['1', '1.1']" show-checkbox="true" node-key="value" id="tree1" default-checked-keys="['1']" data='[{"label":"一级 1","value":"1","children":[{"label":"二级 1-1","value":"1.1","children":[{"label":"三级 1-1-1","value":"1.1.1"}]}]},{"label":"一级 2","value":"2","children":[{"label":"二级 2-1","value":"2.1","children":[{"label":"三级 2-1-1","value":"2.1.1"}]},{"label":"二级 2-2","value":"2.2","children":[{"label":"三级 2-2-1","value":"2.2.1"}]}]},{"label":"一级 3","value":"3","children":[{"label":"二级 3-1","value":"3.1","children":[{"label":"三级 3-1-1","value":"3.1.1"}]},{"label":"二级 3-2","value":"3.2","children":[{"label":"三级 3-2-1","value":"3.2.1"}]}]}]'></wu-plus-tree-v2>
+    </div>
+
+    <div style="display: flex; align-items: center;justify-content: center;padding: 16px">
+        <wu-plus-tree-v2 draggable="false"  highlight-current="false" show-checkbox="true" node-key="value" id="tree1" data='[{"label":"一级 1","value":"1","children":[{"label":"二级 1-1","value":"1.1","children":[{"label":"三级 1-1-1","value":"1.1.1"}]}]},{"label":"一级 2","value":"2","children":[{"label":"二级 2-1","value":"2.1","children":[{"label":"三级 2-1-1","value":"2.1.1"}]},{"label":"二级 2-2","value":"2.2","children":[{"label":"三级 2-2-1","value":"2.2.1"}]}]},{"label":"一级 3","value":"3","children":[{"label":"二级 3-1","value":"3.1","children":[{"label":"三级 3-1-1","value":"3.1.1"}]},{"label":"二级 3-2","value":"3.2","children":[{"label":"三级 3-2-1","value":"3.2.1"}]}]}]'></wu-plus-tree-v2>
+    </div>
     <!--<wu-plus-tree-v2 draggable="false" show-checkbox="false"></wu-plus-tree-v2>
 
     <div style="height: 100px;background: #0bb56e"></div>

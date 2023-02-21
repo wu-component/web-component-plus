@@ -6,7 +6,6 @@ export declare class WuTreeV2 extends WuComponent implements OnConnected {
     renderCaret: () => any;
     isTree: any;
     childNodeRendered: any;
-    draggable: any;
     iconclass: any;
     showCheckbox: boolean;
     renderAfterExpand: boolean;
@@ -112,6 +111,7 @@ export declare class WuTreeV2 extends WuComponent implements OnConnected {
         halfCheckedNodes: any;
         halfCheckedKeys: any;
     };
+    dropIndicator: any;
     /****************************************树节点***********************************************/
     handleClick(e: MouseEvent, node: Node): void;
     handleDragStart(e: MouseEvent): void;

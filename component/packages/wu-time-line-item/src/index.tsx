@@ -56,6 +56,7 @@ export class WuTimeLineItem extends WuComponent implements OnConnected, OnBefore
     public timelineRef: HTMLElement;
 
     public override render(_renderProps = {}, _store = {}) {
+        console.log(this.isRenderDot);
         return (
             <li class="wu-timeline-item">
                 <div class="wu-timeline-item_tail" />

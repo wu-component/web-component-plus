@@ -1,6 +1,7 @@
-import { WuComponent } from '@wu-component/web-core-plus';
+import { WuComponent, OnConnected } from '@wu-component/web-core-plus';
 import "@wu-component/wu-collapse-item";
-export declare class WuCollapse extends WuComponent {
+import "./ss/index.tsx";
+export declare class WuCollapse extends WuComponent implements OnConnected {
     constructor();
     accordion: boolean;
     value: string[];
@@ -18,6 +19,7 @@ export declare class WuCollapse extends WuComponent {
      * @param activeNames
      */
     setActiveNames(activeNames: string[]): void;
+    connected(shadowRoot: ShadowRoot): void;
     handleItemClick(item: any): void;
     render(_renderProps?: {}, _store?: {}): any;
 }

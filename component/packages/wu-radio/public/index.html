@@ -6,7 +6,17 @@
 </head>
 <body>
 <div id="app">
-    <wu-test-example></wu-test-example>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-radio label="男" value="medium" size="medium" name="medium" checked="true" @change="valueChange"></wu-plus-radio>
+        <wu-plus-radio label="女" value="small" size="small" name="small" checked="true"></wu-plus-radio>
+        <wu-plus-radio label="未知" value="mini" size="mini" name="mini" id="miniEvent1"></wu-plus-radio>
+    </div>
+    <div style="display: flex; align-items: center;justify-content: space-between;padding: 16px">
+        <wu-plus-radio label="未知" value="mini" disabled="true" size="medium" name="mini" id="miniEvent1"></wu-plus-radio>
+    </div>
+    <div style="display: flex; align-items: center;justify-content: space-between;padding: 16px">
+        <wu-plus-radio label="未知" value="mini" border="true" size="medium" name="mini" id="miniEvent1"></wu-plus-radio>
+    </div>
 </div>
 </body>
 </html>

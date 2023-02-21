@@ -1,7 +1,7 @@
 import { WuComponent } from '@wu-component/web-core-plus';
-declare type UISize = 'medium' | 'small' | 'mini';
-declare type EffectEnums = 'dark' | 'light' | 'plain';
-declare type TypeEnums = 'success' | 'info' | 'warning' | 'danger';
+type UISize = 'medium' | 'small' | 'mini';
+type EffectEnums = 'dark' | 'light' | 'plain';
+type TypeEnums = 'success' | 'info' | 'warning' | 'danger';
 export declare class WuTag extends WuComponent {
     constructor();
     text: string;

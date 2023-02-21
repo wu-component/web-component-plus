@@ -83,6 +83,13 @@ export class WuImage extends WuComponent implements OnConnected, OnDisConnected 
         return Array.isArray(previewSrcList) && previewSrcList.length > 0;
     }
 
+    get imgList() {
+        if (this.preview) {
+            return this.previewSrcList;
+        }
+        return this.src? [ this.src ] : [];
+    }
+
     get imageIndex() {
         let previewIndex = 0;
         const srcIndex = this.previewSrcList.indexOf(this.src);
@@ -187,8 +194,6 @@ export class WuImage extends WuComponent implements OnConnected, OnDisConnected 
     }
 
     public override render(_renderProps = {}, _store = {}) {
-        console.log(this.previewSrcList);
-        console.log({...this})
         return (
             <div class="wu-image">
                 {
@@ -206,20 +211,24 @@ export class WuImage extends WuComponent implements OnConnected, OnDisConnected 
                     ) : null
                 }
                 {
-                    !this.error && !this.loading ? (
-                        <img
-                            v-on="$listeners"
-                            onClick={this.clickHandler.bind(this)}
-                            src={this.src}
-                            id="__imageTag__"
-                            style={this.imageStyle}
-                            {...extractClass({}, '', {
-                                'wu-image_inner': true,
-                                'wu-image_inner-center': this.alignCenter,
-                                'wu-image_preview': this.preview,
-                            })}
-                         alt={this.alt}/>
-                    ) : null
+                    !this.error && !this.loading ?
+                        this.imgList.map((item, index) => {
+                            return (
+                                <img
+                                    v-on="$listeners"
+                                    onClick={this.clickHandler.bind(this)}
+                                    src={item}
+                                    id="__imageTag__"
+                                    style={this.imageStyle}
+                                    {...extractClass({}, '', {
+                                        'wu-image_inner': true,
+                                        'wu-image_inner-center': this.alignCenter,
+                                        'wu-image_preview': this.preview,
+                                    })}
+                                    alt={this.alt}/>
+                            );
+                        })
+                     : null
                 }
             </div>
         );

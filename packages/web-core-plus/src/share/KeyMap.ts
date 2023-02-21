@@ -1,4 +1,4 @@
-export default class KeyMap<Key1, Key2, Value> {
+export class KeyMap<Key1, Key2, Value> {
   private map: Map<Key1, Map<Key2, Value>> = new Map();
 
   public get(key1: Key1, key2: Key2) {
@@ -16,6 +16,10 @@ export default class KeyMap<Key1, Key2, Value> {
       this.map.set(key1, subMap);
     }
     subMap?.set(key2, value);
+  }
+
+  public getProperty(key1: Key1) {
+      return this.map.get(key1);
   }
 
   public forEach(cb: (value: Value, key1: Key1, key2: Key2) => void) {

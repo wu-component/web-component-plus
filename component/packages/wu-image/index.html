@@ -30,6 +30,45 @@
             <wu-plus-image style="width: 100px; height: 100px" src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg" fit="scale-down"></wu-plus-image>
         </div>
     </div>
+    <div style="display: flex; align-items: center;flex-wrap: wrap;justify-content: space-around;padding: 16px">
+        <div style="display: flex;flex-direction: column">
+            <span>默认</span>
+            <wu-plus-image style="width: 300px; height: 200px" src="https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg" ></wu-plus-image>
+        </div>
+
+        <div style="display: flex;flex-direction: column">
+            <span>自定义</span>
+            <wu-plus-image style="width: 300px; height: 200px" src="https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg">
+                <div slot="placeholder" class="image-slot" style="display: flex;justify-content: center;align-items: center; width: 100%;height: 100%;background: #f5f7fa;color: #909399;">
+                    加载中<span class="dot">...</span>
+                </div>
+            </wu-plus-image>
+        </div>
+    </div>
+
+
+    <div style="display: flex; align-items: center;flex-wrap: wrap;justify-content: space-around;padding: 16px">
+        <div style="display: flex;flex-direction: column">
+            <span>默认</span>
+            <wu-plus-image style="width: 300px; height: 200px"></wu-plus-image>
+        </div>
+
+        <div style="display: flex;flex-direction: column">
+            <span>自定义</span>
+            <wu-plus-image style="width: 300px; height: 200px">
+                <div slot="error" class="image-slot-error" style="display: flex;justify-content: center;align-items: center; width: 100%;height: 100%;background: #f5f7fa;color: #909399;">
+                    sssdd
+                </div>
+            </wu-plus-image>
+        </div>
+    </div>
+    <div style="display: flex; align-items: center;flex-wrap: wrap;justify-content: space-around;padding: 16px">
+        <wu-plus-image preview-src-list="['https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg', 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg']" style="width: 300px; height: 200px" src="https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg">
+            <div slot="placeholder" class="image-slot" style="display: flex;justify-content: center;align-items: center; width: 100%;height: 100%;background: #f5f7fa;color: #909399;">
+                加载中<span class="dot">...</span>
+            </div>
+        </wu-plus-image>
+    </div>
 </div>
 <script src="./dist/index.umd.js"></script>
 </body>

@@ -24,7 +24,7 @@ export class WuSwitch extends WuComponent implements OnConnected {
         this.inputRef = shadowRoot.querySelector('.wu-switch_input');
         this.coreRef = shadowRoot.querySelector('.wu-switch_core');
         this.width = this.width || 40;
-        this.inputRef.checked = this.value === this.activeValue;
+        this.inputRef.checked = this.value.toString() === this.activeValue.toString();
     }
 
     @Prop({ default: false, type: Boolean })
@@ -58,11 +58,12 @@ export class WuSwitch extends WuComponent implements OnConnected {
     public checkedChange(val: any, oldVal: any) {}
 
     public handleChange() {
-        this.value = this.value === this.activeValue ? this.inactiveValue : this.activeValue;
+        // @ts-ignore
+        this.value = this.value.toString() === this.activeValue.toString() ? this.inactiveValue :this.activeValue;
         this.changeEmit();
         this.inputEmit();
         setTimeout(() => {
-            this.inputRef.checked = this.value === this.activeValue;
+            this.inputRef.checked = this.value.toString() === this.activeValue.toString();
         }, 0);
     }
 
@@ -72,16 +73,16 @@ export class WuSwitch extends WuComponent implements OnConnected {
 
     @Emit('input')
     public inputEmit() {
-        return this.value === this.activeValue;
+        return { value: this.value.toString() === this.activeValue.toString() };
     }
 
     @Emit('change')
     public changeEmit() {
-        return this.value === this.activeValue;
+        return { value: this.value.toString() === this.activeValue.toString() };
     }
 
     public override render(_renderProps = {}, _store = {}) {
-        const checked = this.value === this.activeValue;
+        const checked = this.value.toString() === this.activeValue.toString();
         return (
             <div
                 {...extractClass({}, 'wu-switch', {
@@ -93,6 +94,7 @@ export class WuSwitch extends WuComponent implements OnConnected {
                 aria-disabled={this.disabled}
                 onClick={this.switchValue.bind(this)}
             >
+                {/*@ts-ignore*/}
                 <input class="wu-switch_input" type="checkbox" onChange={this.handleChange.bind(this)} id={this.id} name={this.name} true-value={this.activeValue} false-value={this.inactiveValue} disabled={this.disabled} onkeydown={this.switchValue.bind(this)} />
                 <span
                     class="wu-switch_core"

@@ -137,6 +137,7 @@ export class WuMenuItem extends WuComponent implements OnConnected, OnDisConnect
                 })}
                 style={{ ...this.paddingStyle, ...this.itemStyle, backgroundColor: this.backgroundColor }}
                 onClick={() => this.handleClick()}
+                // @ts-ignore
                 onMouseenter={() => this.onMouseEnter()}
                 onFocus={() => this.onMouseEnter()}
                 onBlur={() => this.onMouseLeave()}
@@ -144,6 +145,7 @@ export class WuMenuItem extends WuComponent implements OnConnected, OnDisConnect
             >
                 {
                     this.parentNode?.tagName === 'ElMenu' && this.wuMenuRef.collapse && this.isSlotTitle ? (
+                        // @ts-ignore
                         <wu-plus-tooltip effect="dark" position="right">
                             <div slot="content">
                                 <slot name="title"></slot>
@@ -151,6 +153,7 @@ export class WuMenuItem extends WuComponent implements OnConnected, OnDisConnect
                             <div style="position: absolute;left: 0;top: 0;height: 100%;width: 100%;display: inline-block;box-sizing: border-box;padding: 0 20px;">
                                 <slot></slot>
                             </div>
+                            {/*@ts-ignore*/}
                         </wu-plus-tooltip>
                     ) : (
                         <div>

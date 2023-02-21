@@ -3,10 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://unpkg.com/@wu-component/web-core-plus@next"></script>
 </head>
 <body>
 <div id="app">
-    <wu-test-example></wu-test-example>
+    <div style="display: flex; align-items: center; flex-direction: column; padding: 16px">
+        <wu-plus-progress style="max-width: 350px;width: 85%;" percentage="70"></wu-plus-progress>
+        <span style="height: 16px"></span>
+        <wu-plus-progress style="max-width: 350px;width: 85%;" percentage="60" color="red"></wu-plus-progress>
+        <span style="height: 16px"></span>
+        <wu-plus-progress style="max-width: 350px;width: 85%;" percentage="50" color="yellow"></wu-plus-progress>
+    </div>
+    <div style="display: flex; align-items: center;flex-direction: column;padding: 16px">
+        <wu-plus-progress style="max-width: 350px;width: 85%;" text-inside="true" stroke-width="26" percentage="70" color="#409eff"></wu-plus-progress>
+        <span style="height: 16px"></span>
+        <wu-plus-progress style="max-width: 350px;width: 85%;" text-inside="true" stroke-width="26" percentage="60" color="green"></wu-plus-progress>
+        <span style="height: 16px"></span>
+        <wu-plus-progress style="max-width: 350px;width: 85%;" text-inside="true" stroke-width="26" percentage="50" color="red"></wu-plus-progress>
+        <span style="height: 16px"></span>
+        <wu-plus-progress style="max-width: 350px;width: 85%;" text-inside="true" stroke-width="26" percentage="50" color="#e6a23c"></wu-plus-progress>
+    </div>
+    <div style="display: flex; align-items: center;flex-direction: column;padding: 16px">
+        <wu-plus-progress style="max-width: 350px;width: 85%;" show-text="false" text-inside="false" stroke-width="26" percentage="70" color="#409eff"></wu-plus-progress>
+        <span style="height: 8px"></span>
+        <wu-plus-progress style="max-width: 350px;width: 85%;" show-text="false" text-inside="false" stroke-width="20" percentage="60" color="green"></wu-plus-progress>
+        <span style="height: 8px"></span>
+        <wu-plus-progress style="max-width: 350px;width: 85%;" show-text="false" text-inside="false" stroke-width="16" percentage="50" color="red"></wu-plus-progress>
+        <span style="height: 8px"></span>
+        <wu-plus-progress style="max-width: 350px;width: 85%;" show-text="false" text-inside="false" stroke-width="10" percentage="50" color="#e6a23c"></wu-plus-progress>
+    </div>
+
+    <div style="display: flex; width: 80%; margin: 0 auto; flex-wrap: wrap; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-progress type="circle" id="progressCircleId1" percentage="0"></wu-plus-progress>
+        <span style="height: 8px"></span>
+        <wu-plus-progress type="circle"  text-inside="true" stroke-width="6" percentage="60" color="green"></wu-plus-progress>
+        <span style="height: 8px"></span>
+        <wu-plus-progress style="max-width: 350px;width: 85%;" type="dashboard" id="progressCircleId19" percentage="25"></wu-plus-progress>
+    </div>
+
+
+
 </div>
 <script src="./dist/index.umd.js"></script>
 </body>

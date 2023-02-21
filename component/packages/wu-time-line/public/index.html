@@ -6,7 +6,39 @@
 </head>
 <body>
 <div id="app">
-    <wu-test-example></wu-test-example>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-timeline>
+            <wu-plus-timeline-item timestamp="2018-04-15" type="primary">
+                活动按期开始
+            </wu-plus-timeline-item>
+            <wu-plus-timeline-item timestamp="2018-04-13" type="success">
+                通过审核
+            </wu-plus-timeline-item>
+            <wu-plus-timeline-item timestamp="2018-04-12" type="warning">
+                创建成功
+            </wu-plus-timeline-item>
+            <wu-plus-timeline-item timestamp="2018-04-12" type="danger">
+                创建成功1
+            </wu-plus-timeline-item>
+            <wu-plus-timeline-item timestamp="2018-04-12" type="info">
+                创建成功2
+            </wu-plus-timeline-item>
+        </wu-plus-timeline>
+    </div>
+
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-timeline>
+            <wu-plus-timeline-item timestamp="2018-04-15">
+                活动按期开始
+            </wu-plus-timeline-item>
+            <wu-plus-timeline-item timestamp="2018-04-13">
+                通过审核
+            </wu-plus-timeline-item>
+            <wu-plus-timeline-item timestamp="2018-04-12" is-render-dot="true">
+                创建成功
+            </wu-plus-timeline-item>
+        </wu-plus-timeline>
+    </div>
 </div>
 </body>
 </html>

@@ -6,7 +6,24 @@
 </head>
 <body>
 <div id="app">
-    <wu-plus-rate id="rateTest7" value="2" show-text="true" disabled="true"></wu-plus-rate>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-rate value="1" id="rateTest"></wu-plus-rate>
+        <wu-plus-rate id="rateTest2"></wu-plus-rate>
+    </div>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-rate id="rateTest2" colors="['blue', 'blue', 'blue', 'blue','blue']"></wu-plus-rate>
+    </div>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-rate id="rateTest5" show-text="true"></wu-plus-rate>
+        <wu-plus-rate id="rateTest6" show-text="true" texts="['差', '不太好', '一般', '还行', '特别好']"></wu-plus-rate>
+    </div>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-rate id="rateTest7" value="2" show-text="true" disabled="true"></wu-plus-rate>
+    </div>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-rate id="rateTest7" value="2" rate-list="['①', '②', '③', '④', '⑤']"></wu-plus-rate>
+    </div>
+
 </div>
 </body>
 </html>

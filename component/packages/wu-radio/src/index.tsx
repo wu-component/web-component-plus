@@ -69,6 +69,7 @@ export class WuRadio extends WuComponent implements OnConnected {
         return (
             <label
                 role="radio"
+                // @ts-ignore
                 tabindex="0"
                 onclick={debounce(this.clickHandler.bind(this), 0)}
                 {...extractClass({}, 'wu-radio', {
@@ -86,6 +87,7 @@ export class WuRadio extends WuComponent implements OnConnected {
                     })}
                 >
                     <span class="wu-radio_inner" />
+                    {/*@ts-ignore*/}
                     <input type="radio" aria-hidden="true" {...extract({}, [ 'checked', 'value', 'disabled' ])} tabindex="-1" class="wu-radio_original" />
                 </span>
                 <span class="wu-radio_label">

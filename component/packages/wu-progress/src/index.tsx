@@ -14,8 +14,6 @@ export class WuProgress extends WuComponent {
         super();
     }
 
-    public override props!: any;
-
     @Prop({ type: String, default: 'line' })
     public type: TypeEnums;
 

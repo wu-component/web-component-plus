@@ -33,5 +33,9 @@ module.exports = {
         rules: [
             ...commonRules
         ]
-    }
+    },
+    ignoreWarnings: [
+        /warning from compiler/,
+        (warning) => true,
+    ],
 }

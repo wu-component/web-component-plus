@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="./public/core/"></script>
+    <script src="https://unpkg.com/@wu-component/web-core-plus@next"></script>
     <script src="./dist/index.umd.js"></script>
 </head>
 <body>
 <div id="app">
-    <wu-plus-tree-v2 draggable="false" show-checkbox="false"></wu-plus-tree-v2>
+    <wu-plus-tree-v2 draggable="false" id="tree3" show-checkbox="false"></wu-plus-tree-v2>
 
     <div style="height: 100px;background: #0bb56e"></div>
 
@@ -26,6 +26,7 @@
 <script>
     const dom = document.querySelector("wu-plus-tree-v2")
     const tree1 = document.querySelector("#tree1");
+    const tree3 = document.querySelector("#tree3");
     const tree2 = document.querySelector("#tree2");
     /*dom.setAttribute("data",  [
         {
@@ -143,6 +144,76 @@
     ])*/
     console.log(tree1)
     tree1.setAttribute("data", JSON.stringify( [
+        {
+            label: '一级 1',
+            value: '1',
+            children: [
+                {
+                    label: '二级 1-1',
+                    value: '1.1',
+                    children: [
+                        {
+                            label: '三级 1-1-1',
+                            value: '1.1.1',
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            label: '一级 2',
+            value: '2',
+            children: [
+                {
+                    label: '二级 2-1',
+                    value: '2.1',
+                    children: [
+                        {
+                            label: '三级 2-1-1',
+                            value: '2.1.1',
+                        }
+                    ]
+                },
+                {
+                    label: '二级 2-2',
+                    value: '2.2',
+                    children: [
+                        {
+                            label: '三级 2-2-1',
+                            value: '2.2.1',
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            label: '一级 3',
+            value: '3',
+            children: [
+                {
+                    label: '二级 3-1',
+                    value: '3.1',
+                    children: [
+                        {
+                            label: '三级 3-1-1',
+                            value: '3.1.1',
+                        }
+                    ]
+                },
+                {
+                    label: '二级 3-2',
+                    value: '3.2',
+                    children: [
+                        {
+                            label: '三级 3-2-1',
+                            value: '3.2.1',
+                        }
+                    ]
+                }
+            ]
+        }
+    ]))
+    tree3.setAttribute("data", JSON.stringify( [
         {
             label: '一级 1',
             value: '1',

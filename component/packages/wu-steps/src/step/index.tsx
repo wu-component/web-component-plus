@@ -16,9 +16,6 @@ export class WuStep extends WuComponent implements OnConnected {
     }
 
     public override connected(shadowRoot: ShadowRoot){
-        console.log(this.$parent);
-        console.log([ this ][0].shadowRoot);
-        console.log(this.updateComponent());
         this.update();
     }
 

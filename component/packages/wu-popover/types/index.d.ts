@@ -1,9 +1,11 @@
-import { OnConnected, WuComponent } from '@wu-component/web-core-plus';
+import { OnConnected, WuComponent, OnDisConnected } from '@wu-component/web-core-plus';
 import { Placement } from '@popperjs/core/lib/enums';
-export declare type TypeEnums = 'success' | 'warning' | 'info' | 'error';
-export declare class WuPopover extends WuComponent implements OnConnected {
+export type TypeEnums = 'success' | 'warning' | 'info' | 'error';
+export declare class WuPopover extends WuComponent implements OnConnected, OnDisConnected {
     constructor();
+    private maskClick;
     connected(shadowRoot: ShadowRoot): void;
+    disConnected(shadowRoot: ShadowRoot): void;
     position: Placement;
     effect: string;
     trigger: string;

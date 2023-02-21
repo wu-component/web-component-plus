@@ -1,6 +1,6 @@
 import { WuComponent } from '@wu-component/web-core-plus';
-declare type ShapeEnums = 'circle' | 'square';
-declare type FitEnums = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down';
+type ShapeEnums = 'circle' | 'square';
+type FitEnums = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down';
 export declare class WuAvatar extends WuComponent {
     constructor();
     size: number;

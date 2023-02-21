@@ -1,4 +1,4 @@
-declare type UISize = 'medium' | 'small' | 'mini';
+type UISize = 'medium' | 'small' | 'mini';
 import { OnConnected, WuComponent } from '@wu-component/web-core-plus';
 import '@wu-component/wu-popover';
 import '@wu-component/wu-button';

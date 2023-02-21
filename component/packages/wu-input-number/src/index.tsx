@@ -213,6 +213,7 @@ export class WuInputNumber extends WuComponent implements OnInstall {
         if (this.minLength) {
             attrMap['min-length'] = this.minLength;
         }
+
         return (
             <div
                 {...extractClass({}, `wu-${this.tempInputTagName}`, {
@@ -227,6 +228,7 @@ export class WuInputNumber extends WuComponent implements OnInstall {
             >
                 {(this.prefixIcon || this.suffixIcon) && (
                     <this.tempTagName
+                        // @ts-ignore
                         css={`
                             svg {
                                 width: 1em;
@@ -249,6 +251,7 @@ export class WuInputNumber extends WuComponent implements OnInstall {
                     className={`wu-${this.tempInputTagName}_inner`}
                     autocomplete={this.autoComplete}
                     {...attrMap}
+                    // @ts-ignore
                     block={this.block}
                     onchange={this.handleChange.bind(this)}
                     onfocus={this.handleFocus.bind(this)}

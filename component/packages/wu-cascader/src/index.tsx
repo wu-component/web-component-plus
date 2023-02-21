@@ -1,4 +1,4 @@
-import { Component, Emit, h, OnConnected, Prop, WuComponent } from '@wu-component/web-core-plus';
+import { Component, Emit, h, OnConnected, OnDisConnected, Prop, WuComponent } from '@wu-component/web-core-plus';
 import '@wu-component/wu-popover';
 import '@wu-component/wu-input';
 import css from './index.scss';
@@ -38,7 +38,7 @@ export interface CascaderProps {
     name: 'wu-plus-cascader',
     css: css,
 })
-export class WuCascader extends WuComponent implements OnConnected {
+export class WuCascader extends WuComponent implements OnConnected, OnDisConnected {
     constructor() {
         super();
     }
@@ -59,21 +59,27 @@ export class WuCascader extends WuComponent implements OnConnected {
     @Prop({ default: false, type: Boolean })
     public disabled: boolean;
 
+    private maskClick(e) {
+        // admin 系统里 e.target.localName 直接输出 my-app 了
+        // if (e.target.localName === 'wu-cascader') return
+        if (this.popoverRef.isShow) {
+            this.popoverRef.isShow = false;
+            this.popoverRef.update();
+        }
+    }
+
 
     public override connected(shadowRoot: ShadowRoot) {
-        const inputDom = this.inputRef.shadowRoot?.querySelector('.wu-input input');
+        const inputDom = this.inputRef.shadowRoot?.querySelector('.wu-input input') as HTMLElement;
         inputDom.style.cursor =  this.disabled ? 'not-allowed' : 'pointer';
         inputDom.style.color =  this.disabled ? '' : '#606266';
         inputDom.style.backgroundColor =  this.disabled ? '' : 'white';
 
-        window.addEventListener('click', (e) => {
-            // admin 系统里 e.target.localName 直接输出 my-app 了
-            // if (e.target.localName === 'wu-cascader') return
-            if (this.popoverRef.isShow) {
-                this.popoverRef.isShow = false;
-                // this.popoverRef.update();
-            }
-        });
+        window.addEventListener('click', (e) => this.maskClick(e));
+    }
+
+    public override disConnected(shadowRoot: ShadowRoot) {
+        window.removeEventListener('click', (e) => this.maskClick(e));
     }
 
     /**
@@ -122,7 +128,9 @@ export class WuCascader extends WuComponent implements OnConnected {
          * @param index 层级
          */
         const showRightPanel = (options: CascaderOption[], index: number) => {
-            if (!this.value || !this.value.length) return;
+            if (!this.value || !this.value.length) {
+                return false;
+            };
             const curOption = options.find(
                 (item) => item.value === this.value[index]
             );
@@ -170,12 +178,15 @@ export class WuCascader extends WuComponent implements OnConnected {
             );
         };
         return (
+            // @ts-ignore
             <div class={classes} onclick={(e) => e.stopPropagation()}>
+                {/*@ts-ignore*/}
                 <wu-plus-popover
                     ref={(e) => (this.popoverRef = e)}
                     trigger="manual"
                     position="bottom"
-                >
+                >{/*@ts-ignore*/}
+
                     <wu-plus-input
                         class="wu-cascader-input"
                         ref={(e) => (this.inputRef = e)}
@@ -198,10 +209,11 @@ export class WuCascader extends WuComponent implements OnConnected {
 
                     <div slot="popover" class="wu-cascader-dropdown_wrap">
                         <ul class="wu-cascader-dropdown_menu">
-                            {this.options.map((item) => CascaderOptionItem(item, 0))}
+                            {(this.options || []).map((item) => CascaderOptionItem(item, 0))}
                         </ul>
-                        {showRightPanel(this.options, 0)}
+                        {showRightPanel((this.options || []), 0)}
                     </div>
+                    {/*@ts-ignore*/}
                 </wu-plus-popover>
             </div>
         );

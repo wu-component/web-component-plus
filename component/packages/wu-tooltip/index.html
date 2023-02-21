@@ -3,10 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://unpkg.com/@wu-component/web-core-plus@next"></script>
+    <script src="./dist/index.umd.js"></script>
 </head>
 <body>
 <div id="app">
-    <wu-test-example></wu-test-example>
+    <div style="width: 100%; display: flex;flex-direction: column;align-items: center">
+        <div style="margin: 8px">
+            <wu-plus-tooltip content="提示文字 top" effect="dark" position="top">
+                <wu-plus-button size="mini" type="primary">上边</wu-plus-button>
+            </wu-plus-tooltip>
+
+            <wu-plus-tooltip content="提示文字 top-start" effect="dark" position="top-start">
+                <wu-plus-button size="mini" type="primary">左上</wu-plus-button>
+            </wu-plus-tooltip>
+
+            <wu-plus-tooltip content="提示文字 top-end" effect="dark" position="top-end">
+                <wu-plus-button size="mini" type="primary">右上</wu-plus-button>
+            </wu-plus-tooltip>
+        </div>
+        <div style="margin: 8px">
+
+            <wu-plus-tooltip content="提示文字 left-start" effect="dark" position="left-start">
+                <wu-plus-button size="mini" type="primary">左上</wu-plus-button>
+            </wu-plus-tooltip>
+
+            <wu-plus-tooltip content="提示文字 left" effect="dark" position="left">
+                <wu-plus-button size="mini" type="primary">左边</wu-plus-button>
+            </wu-plus-tooltip>
+
+            <wu-plus-tooltip content="提示文字 left-end" effect="dark" position="left-end">
+                <wu-plus-button size="mini" type="primary">左下</wu-plus-button>
+            </wu-plus-tooltip>
+        </div>
+        <div style="margin: 8px">
+
+            <wu-plus-tooltip content="提示文字 right-start" effect="dark" position="right-start">
+                <wu-plus-button size="mini" type="primary">右上</wu-plus-button>
+            </wu-plus-tooltip>
+
+            <wu-plus-tooltip content="提示文字 right" effect="dark" position="right">
+                <wu-plus-button size="mini" type="primary">右边</wu-plus-button>
+            </wu-plus-tooltip>
+
+            <wu-plus-tooltip content="提示文字 right-end" effect="dark" position="right-end">
+                <wu-plus-button size="mini" type="primary">右下</wu-plus-button>
+            </wu-plus-tooltip>
+        </div>
+        <div style="margin: 8px">
+            <wu-plus-tooltip content="提示文字 bottom-start" effect="dark" position="bottom-start">
+                <wu-plus-button size="mini" type="primary">左下</wu-plus-button>
+            </wu-plus-tooltip>
+
+            <wu-plus-tooltip content="提示文字 bottom" effect="dark" position="bottom">
+                <wu-plus-button size="mini" type="primary">下边</wu-plus-button>
+            </wu-plus-tooltip>
+
+
+            <wu-plus-tooltip content="提示文字 bottom-end" effect="dark" position="bottom-end">
+                <wu-plus-button size="mini" type="primary">右下</wu-plus-button>
+            </wu-plus-tooltip>
+        </div>
+    </div>
+    <div style="display: flex; height: 100px; align-items: center;justify-content: center;width: 100%; margin-top: 8px; margin-bottom: 16px">
+        <wu-plus-tooltip content="dark" effect="dark">
+            <wu-plus-button size="mini" type="primary">下边</wu-plus-button>
+        </wu-plus-tooltip>
+
+
+        <wu-plus-tooltip content="light" effect="light">
+            <wu-plus-button size="mini" type="primary" style="margin-left: 16px">右下</wu-plus-button>
+        </wu-plus-tooltip>
+    </div>
+
+    <div style="display: flex; height: 100px; align-items: center;justify-content: center;width: 100%; margin-top: 8px; margin-bottom: 16px">
+        <wu-plus-tooltip effect="dark">
+            <wu-plus-button size="mini" type="primary">slot</wu-plus-button>
+            <span slot="content">提示信息</span>
+        </wu-plus-tooltip>
+    </div>
 </div>
 <script src="./dist/index.umd.js"></script>
 </body>

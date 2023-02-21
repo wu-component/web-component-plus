@@ -1,5 +1,5 @@
 import { OnConnected, WuComponent } from '@wu-component/web-core-plus';
-declare type UISize = 'medium' | 'small' | 'mini';
+type UISize = 'medium' | 'small' | 'mini';
 export declare class WuRadio extends WuComponent implements OnConnected {
     constructor();
     wuForm: any;

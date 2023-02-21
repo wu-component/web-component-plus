@@ -87,7 +87,7 @@ export class WuDialog extends WuComponent {
      */
     @Emit('mask-click')
     public handleMaskClickContent(e){
-        for (let i = 0 ; i < e?.path.length; i ++) {
+        for (let i = 0 ; i < (e?.path?.length || 0); i ++) {
             if (e.path[i]?.classList?.contains("wu-dialog")) {
                 return;
             }

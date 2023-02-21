@@ -18,7 +18,11 @@ export declare class WuSwitch extends WuComponent implements OnConnected {
     checkedChange(val: any, oldVal: any): void;
     handleChange(): void;
     switchValue(): void;
-    inputEmit(): boolean;
-    changeEmit(): boolean;
+    inputEmit(): {
+        value: boolean;
+    };
+    changeEmit(): {
+        value: boolean;
+    };
     render(_renderProps?: {}, _store?: {}): any;
 }

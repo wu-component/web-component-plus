@@ -17,6 +17,7 @@ export class WuTreeV2 extends WuComponent implements OnConnected {
 
     public renderCaret = () => {
         return (
+            // @ts-ignore
             <svg t="1662282298321" className="icon" viewBox="0 0 1024 1024" version="1.1"
                  xmlns="http://www.w3.org/2000/svg" p-id="2355" width="12" height="12">
                 <path
@@ -31,9 +32,6 @@ export class WuTreeV2 extends WuComponent implements OnConnected {
 
     @State({ type: Boolean, default: false })
     public childNodeRendered;
-
-    @Prop({ type: Boolean, default: false })
-    public override draggable;
 
     @Prop({ type: String, default: '' })
     public iconclass;
@@ -304,11 +302,13 @@ export class WuTreeV2 extends WuComponent implements OnConnected {
         this.treeStore.updateChildren(key, data);
     }
     public initTabIndex() {
+        // @ts-ignore
         this.treeItems  = this.shadowRoot.querySelectorAll('.is-focusable[role=treeitem]');
+        // @ts-ignore
         this.checkboxItems = this.shadowRoot.querySelectorAll('input[type=checkbox]');
         const checkedItem = this.shadowRoot.querySelectorAll('.is-checked[role=treeitem]');
         if (checkedItem.length) {
-            checkedItem[0].setAttribute('tabindex', 0);
+            checkedItem[0].setAttribute('tabindex', '0');
             return;
         }
         if (this.treeItems && this.treeItems[0]) {
@@ -320,6 +320,7 @@ export class WuTreeV2 extends WuComponent implements OnConnected {
         const currentItem = ev.target;
         if (currentItem.className.indexOf('el-tree-node') === -1) return;
         const keyCode = ev.keyCode;
+        // @ts-ignore
         this.treeItems = this.shadowRoot.querySelectorAll('.is-focusable[role=treeitem]');
         const currentIndex = this.treeItemArray.indexOf(currentItem);
         let nextIndex;
@@ -384,6 +385,8 @@ export class WuTreeV2 extends WuComponent implements OnConnected {
             halfCheckedKeys: store.getHalfCheckedKeys(),
         };
     }
+
+    public dropIndicator: any
 
 
 
@@ -471,6 +474,7 @@ export class WuTreeV2 extends WuComponent implements OnConnected {
                     ['is-checked']: !treeNode.disabled && treeNode.checked,
                 })}
                 role="treeitem"
+                // @ts-ignore
                 tabindex="-1"
                 aria-expanded={treeNode.expanded}
                 aria-disabled={treeNode.disabled}
@@ -487,6 +491,7 @@ export class WuTreeV2 extends WuComponent implements OnConnected {
                     style={{ 'padding-left': (treeNode.level - 1) * this.indent + 'px' } }
                 >
                     <span
+                        // @ts-ignore
                         onclick={(e) => this.handleExpandIconClick(e, treeNode)}
                         {...extractClass({}, 'wu-tree-node_expand-icon', {
                             ['is-leaf']: treeNode?.isLeaf,
@@ -502,12 +507,14 @@ export class WuTreeV2 extends WuComponent implements OnConnected {
 
                     {
                         this.showCheckbox? (
+                            // @ts-ignore
                             <wu-plus-checkbox
                                 checked={treeNode.checked}
                                 indeterminate={treeNode.indeterminate}
                                 disabled={!!treeNode.disabled}
                                 onchange={(e) => this.handleCheckChange(treeNode, e, e)}
                             >
+                                {/*// @ts-ignore*/}
                             </wu-plus-checkbox>
                         ): null
                     }
@@ -565,7 +572,7 @@ export class WuTreeV2 extends WuComponent implements OnConnected {
                     this.dragState?.showDropIndicator? (
                         <div
                             className="wu-tree_drop-indicator"
-                            ref="dropIndicator">
+                            ref={(ref) => this.dropIndicator = ref}>
                         </div>
                     ): null
                 }

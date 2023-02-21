@@ -1,14 +1,17 @@
 import { WuComponent } from '@wu-component/web-core-plus';
+import "@wu-component/wu-transition";
 export declare class WuDialog extends WuComponent {
     constructor();
     visible: boolean;
+    show: boolean;
     closeOnClickModal: boolean;
     showClose: boolean;
     lockScroll: boolean;
     zIndex: number;
-    title: string;
+    caption: string;
     width: string;
-    visibleChange(val: boolean): void;
+    transitionRef: any;
+    visibleChange(val: boolean, old: boolean): void;
     /**
      * 弹框打开
      */
