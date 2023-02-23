@@ -86,7 +86,8 @@
   },
   "dependencies": {
     "@wu-component/common": "latest",
-    "@wu-component/web-core-plus": "next"
+    "@wu-component/web-core-plus": "next",
+    "@wu-component/wu-row": "latest"
   },
   "files": [
     "dist",

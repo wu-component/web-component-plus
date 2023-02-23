@@ -281,13 +281,13 @@ export class WuSubMenu extends WuComponent implements OnConnected, OnDisConnecte
             this?.wuMenuRef?.mode === 'horizontal' && this.isFirstLevel ||
             this?.wuMenuRef?.mode === 'vertical' && !this?.wuMenuRef.collapse
         ) ? (
-            <svg t="1656840651123" className="icon icon-arrow" viewBox="0 0 1024 1024" version="1.1"
+            <svg className="icon icon-arrow" viewBox="0 0 1024 1024" version="1.1"
                  xmlns="http://www.w3.org/2000/svg" p-id="4769" width="200" height="200">
                 <path d="M500.8 604.779L267.307 371.392l-45.227 45.27 278.741 278.613L779.307 416.66l-45.248-45.248z"
                       p-id="4770"></path>
             </svg>
         ) : (
-            <svg t="1656840623816" className="icon icon-arrow" style={{ marginLeft: '8px' }} viewBox="0 0 1024 1024" version="1.1"
+            <svg className="icon icon-arrow" style={{ marginLeft: '8px' }} viewBox="0 0 1024 1024" version="1.1"
                  xmlns="http://www.w3.org/2000/svg" p-id="4630" width="200" height="200">
                 <path
                     d="M593.450667 512.128L360.064 278.613333l45.290667-45.226666 278.613333 278.762666L405.333333 790.613333l-45.226666-45.269333z"
@@ -310,6 +310,7 @@ export class WuSubMenu extends WuComponent implements OnConnected, OnDisConnecte
                 aria-expanded={this.opened}
                 onMouseenter={(event) => this.handleMouseenter(event, 100)}
                 onMouseleave={(event) => this.handleMouseleave(false)}
+                // @ts-ignore
                 onFocus={this.handleMouseenter}
             >
                 <div
@@ -318,6 +319,7 @@ export class WuSubMenu extends WuComponent implements OnConnected, OnDisConnecte
                         [`wu-submenu_title-${this.mode}`]: true
                     })}
                     onClick={() => this.handleClick()}
+                    // @ts-ignore
                     onMouseenter={() => this.handleTitleMouseenter()}
                     onMouseleave={() => this.handleTitleMouseleave()}
                     style={{ ...this.paddingStyle, ...this.itemStyle, backgroundColor: this.backgroundColor }}

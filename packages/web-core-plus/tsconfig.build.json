@@ -34,5 +34,8 @@
         "**/*.ts", "**/*.tsx",
         "./src/**/*.tsx",
         "./css.d.ts"
+    ],
+    "exclude": [
+        "./src/example/**"
     ]
 }

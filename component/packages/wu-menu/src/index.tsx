@@ -16,10 +16,6 @@ type MenuTriggerEnums = 'hover' | 'click';
 export class WuMenu extends WuComponent implements OnConnected {
     constructor() {
         super();
-        this.activeIndex = this.defaultActive;
-        this.openedMenus = (this.defaultOpeneds && !this.collapse) ? this.defaultOpeneds.slice(0) : [];
-        this.items = {};
-        this.submenus = {};
     }
 
     public activeIndex = '';
@@ -30,7 +26,12 @@ export class WuMenu extends WuComponent implements OnConnected {
 
     public submenus;
 
-    public override connected(shadowRoot: ShadowRoot) {}
+    public override connected(shadowRoot: ShadowRoot) {
+        this.activeIndex = this.defaultActive;
+        this.openedMenus = (this.defaultOpeneds && !this.collapse) ? this.defaultOpeneds.slice(0) : [];
+        this.items = {};
+        this.submenus = {};
+    }
 
     @Prop({ default: 'vertical', type: String })
     public mode: ModeEnums;
@@ -52,8 +53,8 @@ export class WuMenu extends WuComponent implements OnConnected {
     public defaultActive: string;
 
     // 当前打开的 sub-menu 的 index 的数组
-    @Prop({ type: Array })
-    public defaultOpeneds: string[];
+    @Prop({ type: Array, default: [] })
+    public defaultOpeneds: string[] = [];
 
     // 是否只保持一个子菜单的展开
     @Prop({ default: false, type: Boolean })
@@ -310,7 +311,7 @@ export class WuMenu extends WuComponent implements OnConnected {
             'text-color': this.textColor,
             'active-text-color': this.activeTextColor,
             'default-active': this.defaultActive,
-            'default-Openeds': this.defaultOpeneds,
+            'default-openeds': this.defaultOpeneds,
             'unique-Opened': this.uniqueOpened,
             'menu-trigger': this.menuTrigger,
         };

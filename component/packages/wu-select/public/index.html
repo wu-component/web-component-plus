@@ -6,7 +6,51 @@
 </head>
 <body>
 <div id="app">
-    <wu-test-example></wu-test-example>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-select id="select1">
+            <wu-plus-select-option label="item-item1" value="1"></wu-plus-select-option>
+            <wu-plus-select-option label="item-item2" value="2"></wu-plus-select-option>
+            <wu-plus-select-option label="item-item3" value="3"></wu-plus-select-option>
+        </wu-plus-select>
+    </div>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-select id="select3" disabled="true">
+            <wu-plus-select-option label="item-item1" value="1"></wu-plus-select-option>
+            <wu-plus-select-option label="item-item2" value="2"></wu-plus-select-option>
+            <wu-plus-select-option label="item-item3" value="3"></wu-plus-select-option>
+        </wu-plus-select>
+    </div>
+    <div style="display: flex; align-items: center;justify-content: space-between;padding: 16px">
+        <wu-plus-select id="select678" clearable="true">
+            <wu-plus-select-option label="item-item1" value="1"></wu-plus-select-option>
+            <wu-plus-select-option label="item-item2" value="2"></wu-plus-select-option>
+            <wu-plus-select-option label="item-item3" value="3"></wu-plus-select-option>
+        </wu-plus-select>
+        <wu-plus-select id="select765" clearable="true" multiple="true">
+            <wu-plus-select-option label="item-item1" value="1"></wu-plus-select-option>
+            <wu-plus-select-option label="item-item2" value="2"></wu-plus-select-option>
+            <wu-plus-select-option label="item-item3" value="3"></wu-plus-select-option>
+        </wu-plus-select>
+    </div>
+    <div style="display: flex; align-items: center;justify-content: space-between;padding: 16px">
+        <wu-plus-select id="select72" multiple="true">
+            <wu-plus-select-option label="item-item1" value="1"></wu-plus-select-option>
+            <wu-plus-select-option label="item-item2" value="2"></wu-plus-select-option>
+            <wu-plus-select-option label="item-item3" value="3"></wu-plus-select-option>
+        </wu-plus-select>
+        <wu-plus-select id="select73" multiple="true" collapse-tags="true">
+            <wu-plus-select-option label="item-item1" value="1"></wu-plus-select-option>
+            <wu-plus-select-option label="item-item2" value="2"></wu-plus-select-option>
+            <wu-plus-select-option label="item-item3" value="3"></wu-plus-select-option>
+        </wu-plus-select>
+    </div>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-select id="select10" filterable="true">
+            <wu-plus-select-option label="item-item1" value="1"></wu-plus-select-option>
+            <wu-plus-select-option label="item-item2" value="2"></wu-plus-select-option>
+            <wu-plus-select-option label="item-item3" value="3"></wu-plus-select-option>
+        </wu-plus-select>
+    </div>
 </div>
 </body>
 </html>

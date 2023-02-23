@@ -1,4 +1,4 @@
-import { Component, Emit, h, Inject, Prop, WuComponent } from '@wu-component/web-core-plus';
+import { Component, Emit, h, Inject, Prop, WuComponent, OnConnected } from '@wu-component/web-core-plus';
 import css from './index.scss';
 type UISize = 'medium' | 'small' | 'mini';
 import { extractClass } from '@wu-component/common';
@@ -7,7 +7,7 @@ import { extractClass } from '@wu-component/common';
     name: 'wu-plus-select-option',
     css: css,
 })
-export class WuSelectOptions extends WuComponent {
+export class WuSelectOptions extends WuComponent implements OnConnected {
     constructor() {
         super();
     }
@@ -22,7 +22,7 @@ export class WuSelectOptions extends WuComponent {
     public disabled: string;
 
     @Prop({ default: true, type: Boolean })
-    public visible: boolean;
+    public visible: boolean = true;
 
     @Prop({ default: '' })
     public value: string;
@@ -33,12 +33,16 @@ export class WuSelectOptions extends WuComponent {
     @Prop({ default: false, type: Boolean })
     public selected = false;
 
+    public show = true;
+
     @Emit('close')
     public handleClose(event: Event) {
         event = Array.isArray(event) && event.length ? event[0] : event;
         event.stopPropagation();
         return {
             event,
+            label: this.label,
+            value: this.value,
         };
     }
 
@@ -47,6 +51,8 @@ export class WuSelectOptions extends WuComponent {
         event = Array.isArray(event) && event.length ? event[0] : event;
         return {
             event,
+            label: this.label,
+            value: this.value,
         };
     }
 
@@ -64,6 +70,8 @@ export class WuSelectOptions extends WuComponent {
      */
     public setVisible(val: boolean) {
         this.visible = val;
+        this.show = val;
+        this.update();
     }
 
     get hover() {
@@ -73,6 +81,10 @@ export class WuSelectOptions extends WuComponent {
     @Emit('itemClick')
     public selectOptionClick() {
         return this;
+    }
+
+    public override connected(shadowRoot: ShadowRoot) {
+        this.show = this.visible;
     }
 
     public clickItem(event: MouseEvent) {
@@ -103,12 +115,14 @@ export class WuSelectOptions extends WuComponent {
                     'is-disabled': this.disabled,
                     'wu-select-dropdown_item': true,
                 })}
-                style={{ visibility: !this.visible ? 'hidden' : 'visible', height: !this.visible ? 0 : 'auto' }}
+                style={{ visibility: (!this.visible || !this.show) ? 'hidden' : 'visible', height: (!this.visible || !this.show) ? 0 : 'auto' }}
+                // @ts-ignore
                 onclick={this.clickItem.bind(this)}
                 onMouseenter={this.hoverItem.bind(this)}
             >
                 <span class={this.selected ? 'selected' : ''}>{this.label}</span>
                 {this.selected ? (
+                    // @ts-ignore
                     <svg class="a3 a2" focusable="false" viewBox="0 0 24 24" aria-hidden="true" tabindex="-1" title="Check" curr>
                         <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
                     </svg>

@@ -3,10 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        .container-test wu-plus-header, .container-test wu-plus-footer {
+            background-color: #B3C0D1;
+            color: #333;
+            text-align: center;
+            line-height: 60px;
+        }
+
+        .container-test wu-plus-aside {
+            background-color: #D3DCE6;
+            color: #333;
+            text-align: center;
+            line-height: 200px;
+        }
+
+        .container-test wu-plus-main {
+            background-color: #E9EEF3;
+            color: #333;
+            text-align: center;
+            line-height: 160px;
+        }
+
+        .container-test wu-plus-container {
+        }
+
+        .container-test wu-plus-container:nth-child(5) wu-plus-aside,
+        .container-test wu-plus-container:nth-child(6) wu-plus-aside {
+            line-height: 260px;
+        }
+
+        .container-test wu-plus-container:nth-child(7) wu-plus-aside {
+            line-height: 320px;
+        }
+    </style>
 </head>
 <body>
-<div id="app">
-    <wu-test-example></wu-test-example>
+<div style="width:100%" class="container-test">
+    <wu-plus-container>
+        <wu-plus-header>Header</wu-plus-header>
+        <wu-plus-main>Main</wu-plus-main>
+    </wu-plus-container>
+    <p></p>
+    <wu-plus-container>
+        <wu-plus-header>Header</wu-plus-header>
+        <wu-plus-main>Main</wu-plus-main>
+        <wu-plus-footer>Footer</wu-plus-footer>
+    </wu-plus-container>
+    <p></p>
+    <wu-plus-container>
+        <wu-plus-aside width="200px">Aside</wu-plus-aside>
+        <wu-plus-main>Main</wu-plus-main>
+    </wu-plus-container>
+
+    <p></p>
+
+
+    <wu-plus-container>
+        <wu-plus-header>Header</wu-plus-header>
+        <wu-plus-container>
+            <wu-plus-aside width="200px">Aside</wu-plus-aside>
+            <wu-plus-main>Main</wu-plus-main>
+        </wu-plus-container>
+    </wu-plus-container>
+    <p></p>
+    <wu-plus-container>
+        <wu-plus-header>Header</wu-plus-header>
+        <wu-plus-container >
+            <wu-plus-aside width="200px">Aside</wu-plus-aside>
+            <wu-plus-container style="width:100%">
+                <wu-plus-main>Main</wu-plus-main>
+                <wu-plus-footer>Footer</wu-plus-footer>
+            </wu-plus-container>
+        </wu-plus-container>
+    </wu-plus-container>
+    <p></p>
+    <wu-plus-container>
+        <wu-plus-aside width="200px">Aside</wu-plus-aside>
+        <wu-plus-container style="width:100%">
+            <wu-plus-header>Header</wu-plus-header>
+            <wu-plus-main>Main</wu-plus-main>
+        </wu-plus-container>
+    </wu-plus-container>
+    <p></p>
+    <wu-plus-container>
+        <wu-plus-aside width="200px">Aside</wu-plus-aside>
+        <wu-plus-container style="width:100%">
+            <wu-plus-header>Header</wu-plus-header>
+            <wu-plus-main>Main</wu-plus-main>
+            <wu-plus-footer>Footer</wu-plus-footer>
+        </wu-plus-container>
+    </wu-plus-container>
 </div>
 </body>
 </html>

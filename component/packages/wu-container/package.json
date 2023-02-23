@@ -86,7 +86,19 @@
   },
   "dependencies": {
     "@wu-component/common": "latest",
+    "@wu-component/wu-footer": "latest",
+    "@wu-component/wu-aside": "latest",
+    "@wu-component/wu-main": "latest",
+    "@wu-component/wu-header": "latest",
     "@wu-component/web-core-plus": "next"
+  },
+  "peerDependencies": {
+     "@wu-component/common": "latest",
+     "@wu-component/wu-footer": "latest",
+     "@wu-component/wu-aside": "latest",
+     "@wu-component/wu-main": "latest",
+     "@wu-component/wu-header": "latest",
+     "@wu-component/web-core-plus": "next"
   },
   "files": [
     "dist",

@@ -1,6 +1,6 @@
 // @ts-ignore
 import css from './index.scss';
-import { Component, Emit, Prop, Watch, State, WuComponent, h, OnConnected, Inject } from "./";
+import { Component, Emit, Prop, Watch, State, WuComponent, h, OnConnected, Inject } from "../";
 @Component({
     name: 'test-example1',
     css: css,

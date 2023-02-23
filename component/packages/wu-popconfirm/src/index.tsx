@@ -52,18 +52,22 @@ export class WuPopconfirm extends WuComponent {
     @Emit("confirm")
     public confirm() {
         this.visible = false;
-        this.popoverRef?.leave();
+        // this.popoverRef?.leave();
+        this.popoverRef.isShow = false;
+        this.popoverRef.update();
     }
 
     @Emit("cancel")
     public cancel() {
         this.visible = false;
-        this.popoverRef?.leave();
+        this.popoverRef.isShow = false;
+        this.popoverRef.update();
     }
 
     public override render(_renderProps = {}, _store = {}) {
         return (
-            <wu-plus-popover trigger="click" isShow={this.visible} ref={(e) => this.popoverRef = e}>
+            // @ts-ignore
+            <wu-plus-popover trigger="click" is-show={this.visible} ref={(e) => this.popoverRef = e}>
                 <div class="wu-popconfirm" slot="popover">
                     <p class="wu-popconfirm_main">
                         {
@@ -72,25 +76,29 @@ export class WuPopconfirm extends WuComponent {
                         {this.content}
                     </p>
                     <div class="wu-popconfirm_action">
+                        {/*// @ts-ignore*/}
                         <wu-plus-button
                             size="mini"
                             type={this.cancelButtonType}
                             onClick={() => this.cancel()}>
                             {this.displayCancelButtonText}
+                            {/*// @ts-ignore*/}
                         </wu-plus-button>
+                        {/*// @ts-ignore*/}
                         <wu-plus-button
                             style="margin-left: 10px;"
                             size="mini"
                             type={this.confirmButtonType}
                             onClick={() => this.confirm()}>
                             {this.displayConfirmButtonText}
+                            {/*// @ts-ignore*/}
                         </wu-plus-button>
                     </div>
                 </div>
                 <div>
                     <slot name="reference" />
                 </div>
-
+                {/*// @ts-ignore*/}
             </wu-plus-popover>
         );
     }

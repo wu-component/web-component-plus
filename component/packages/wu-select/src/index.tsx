@@ -1,4 +1,15 @@
-import { Component, Emit, h, Inject, OnBeforeUpdate, OnConnected, Prop, Provide, WuComponent } from '@wu-component/web-core-plus';
+import {
+    Component,
+    Emit,
+    h,
+    Inject,
+    OnBeforeUpdate,
+    OnConnected,
+    OnDisConnected,
+    Prop,
+    Provide,
+    WuComponent
+} from '@wu-component/web-core-plus';
 import css from './index.scss';
 type UISize = 'medium' | 'small' | 'mini';
 import { extractClass } from '@wu-component/common';
@@ -6,12 +17,13 @@ import '@wu-component/wu-popover';
 import '@wu-component/wu-tag';
 import '@wu-component/wu-select-option';
 import type { WuSelectOptions } from "../types/type";
+import type { WuPopover } from "@wu-component/wu-popover";
 
 @Component({
     name: 'wu-plus-select',
     css: css,
 })
-export class WuSelect extends WuComponent implements OnConnected, OnBeforeUpdate {
+export class WuSelect extends WuComponent implements OnConnected, OnBeforeUpdate, OnDisConnected {
     constructor() {
         super();
     }
@@ -25,11 +37,20 @@ export class WuSelect extends WuComponent implements OnConnected, OnBeforeUpdate
         this.options = slotDom.assignedNodes().filter(item => (item as any).tagName === 'WU-PLUS-SELECT-OPTION') as unknown as WuSelectOptions[];
     }
 
+    private maskClick(e) {
+        // admin 系统里 e.target.localName 直接输出 my-app 了
+        // if (e.target.localName === 'wu-cascader') return
+        if (this.popover.isShow) {
+            this.popover.isShow = false;
+            this.popover.update();
+        }
+    }
+
     public override connected(shadowRoot: ShadowRoot) {
         this.initOptions();
         const selectItems: WuSelectOptions[] = [];
         for (let i = 0; i < this.options.length; i ++) {
-            if (this.value.includes(this.options[i].value)) {
+            if (this.value?.includes(this.options[i].value)) {
                 selectItems.push(this.options[i]);
             }
         }
@@ -44,6 +65,11 @@ export class WuSelect extends WuComponent implements OnConnected, OnBeforeUpdate
             (this as any).update();
             this.updateSelectList();
         });
+        window.addEventListener('click', (e) => this.maskClick(e));
+    }
+
+    public override disConnected(shadowRoot: ShadowRoot) {
+        window.removeEventListener('click', (e) => this.maskClick(e));
     }
 
     /**
@@ -74,7 +100,7 @@ export class WuSelect extends WuComponent implements OnConnected, OnBeforeUpdate
 
     public options: WuSelectOptions[] = [];
 
-    public popover = null;
+    public popover: WuPopover = null;
 
     public tagsRef = null;
 
@@ -162,7 +188,9 @@ export class WuSelect extends WuComponent implements OnConnected, OnBeforeUpdate
         }
         if (!this.multiple) {
             Promise.resolve().then(() => {
-                this.popover?.leave?.();
+                // this.popover?.leave?.();
+                this.popover.isShow = false;
+                this.popover.update();
             });
         }
     }
@@ -249,7 +277,7 @@ export class WuSelect extends WuComponent implements OnConnected, OnBeforeUpdate
      */
     public closeTag(value: CustomEvent) {
         if (this.disabled) return;
-        const index = this.selectedItems.findIndex(item => item.value === value.detail.value);
+        const index = this.selectedItems.findIndex(item => (item.value).toString() === value.detail.value.toString());
         this.selectedItems.splice(index, 1);
         (this as any).update();
         this.updateSelectList();
@@ -299,21 +327,27 @@ export class WuSelect extends WuComponent implements OnConnected, OnBeforeUpdate
                     ['wu-select-' + this.size]: this.size,
                     'is-disabled': this.disabled,
                 })}
+                // @ts-ignore
                 onMouseenter={this.onMouseenter.bind(this)}
                 onMouseleave={this.onMouseleave.bind(this)}
             >
+                {/* @ts-ignore*/}
                 <wu-plus-popover ref={e => (this.popover = e)} position="bottom" disabled={this.disabled}>
                     <div>
                         {this.multiple ? (
                             <div class="wu-select_tags" ref={e => (this.tagsRef = e)} style={{ 'max-width': this.inputWidth - 32 + 'px', width: '100%' }}>
                                 {Array.isArray(this.selectedItems) && this.collapseTags && this.selectedItems.length ? (
                                     <span>
+                                        {/*@ts-ignore*/}
                                         <wu-plus-tag style="padding: 0 8px;" size={this.size} type="text" closable={false} value={this.selectedItems[0].value}>
                                             <span class="wu-select_tags-text">{this.selectedItems[0].label}</span>
+                                        {/*// @ts-ignore*/}
                                         </wu-plus-tag>
                                         {this.selectedItems.length > 1 ? (
+                                            // @ts-ignore
                                             <wu-plus-tag size={this.size} type="text" closable={false}>
                                                 <span class="wu-select_tags-text">+{this.selectedItems.length - 1}</span>
+                                            {/*// @ts-ignore*/}
                                             </wu-plus-tag>
                                         ) : null}
                                     </span>
@@ -321,8 +355,10 @@ export class WuSelect extends WuComponent implements OnConnected, OnBeforeUpdate
                                 {Array.isArray(this.selectedItems) && !this.collapseTags && this.selectedItems.length
                                     ? this.selectedItems.map(item => {
                                           return (
+                                              /*// @ts-ignore*/
                                               <wu-plus-tag style="padding: 0 8px;" size={this.size} type="text" closable={true} onClose={this.closeTag.bind(this)} value={item.value}>
                                                   <span class="wu-select_tags-text">{item.label}</span>
+                                              {/*// @ts-ignore*/}
                                               </wu-plus-tag>
                                           );
                                       })
@@ -386,7 +422,7 @@ export class WuSelect extends WuComponent implements OnConnected, OnBeforeUpdate
                     <div slot="popover" class="wu-select-dropdown_wrap">
                         <slot id="defaultSlot" />
                     </div>
-
+                {/*// @ts-ignore*/}
                 </wu-plus-popover>
             </div>
         );

@@ -1,4 +1,4 @@
-﻿import { h, Component, Prop, Emit, WuComponent } from '@wu-component/web-core-plus';
+﻿import {h, Component, Prop, Emit, WuComponent, Fragment, OnConnected} from '@wu-component/web-core-plus';
 import css from './index.scss';
 type TypeEnums = 'success' | 'warning' | 'info' | 'error';
 const TYPE_CLASSES_MAP = {
@@ -10,7 +10,7 @@ const TYPE_CLASSES_MAP = {
     name: 'wu-plus-alert',
     css: css,
 })
-export class WuAlert extends WuComponent {
+export class WuAlert extends WuComponent implements OnConnected {
     constructor() {
         super();
     }
@@ -18,6 +18,8 @@ export class WuAlert extends WuComponent {
     // 是否显示
     @Prop({ default: true, type: Boolean })
     public visible: boolean;
+
+    public show = true;
 
     @Prop({ default: '', type: String })
     public tip: string;
@@ -43,21 +45,31 @@ export class WuAlert extends WuComponent {
     @Prop({ default: 'light', type: String })
     public effect: string;
 
+    public override connected(shadowRoot: ShadowRoot) {
+        this.show = this.visible;
+    }
+
     @Emit("confirm")
     public confirm() {
         this.visible = false;
+        this.show = false;
+        this.update();
         return this;
     }
 
     @Emit("cancel")
     public cancel() {
         this.visible = false;
+        this.show = false;
+        this.update();
         return this;
     }
 
     @Emit("close")
     public close() {
         this.visible = false;
+        this.show = false;
+        this.update();
         return this;
     }
 
@@ -74,8 +86,8 @@ export class WuAlert extends WuComponent {
     }
 
     public override render(_renderProps = {}, _store = {}) {
-        if (!this.visible) {
-            return null;
+        if ((!this.visible) || (!this.show)) {
+            return <Fragment></Fragment>;
         }
         return (
             <div class={`wu-alert ${this.typeClass} ${this.center ? "is-center" : ''} ${'is-' + this.effect}`} role="alert">

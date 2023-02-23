@@ -88,17 +88,17 @@ export class WuCodeMonacoEditor extends WuComponent implements OnConnected {
     }
 
     private async initEditor() {
-        const initialValue = (this.props as any).initialValue || '';
+        const initialValue = this.initialValue || '';
         this.initialValue = await this.formatFile(initialValue);
         const { editor, monacoInstance } = await createEditorByLoader(this.shadowRoot.querySelector("#container"), {
             value: this.initialValue,
-            language: (this.props as any).language,
-            theme: (this.props as any).theme,
+            language: (this as any).language,
+            theme: (this as any).theme,
             // mode: createEditorMode.call(this, (this.props as any).language, this.initialValue)
         });
         this.editor = editor;
         this.monacoInstance = monacoInstance;
-        const mode = createEditorMode.call(this, (this.props as any).language, this.initialValue);
+        const mode = createEditorMode.call(this, (this as any).language, this.initialValue);
         mode && editor.setModel(mode);
         // editor.restoreViewState(data[type].state);
         editor.focus();

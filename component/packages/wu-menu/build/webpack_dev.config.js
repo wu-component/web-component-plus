@@ -27,8 +27,8 @@ module.exports = {
         open: true,
         port: 9005
     },
-    // devtool: 'eval-source-map',
-    devtool: false,
+    devtool: 'eval-source-map',
+    // devtool: true,
     module: {
         rules: [
             ...commonRules

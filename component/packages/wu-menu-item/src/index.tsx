@@ -20,8 +20,8 @@ export class WuMenuItem extends WuComponent implements OnConnected, OnDisConnect
     }
 
     public override disConnected() {
-        this.parentMenu.addItem(this);
-        this.wuMenuRef?.addItem(this);
+        this.parentMenu.removeItem(this);
+        this.wuMenuRef?.removeItem(this);
     }
 
     @Prop({ default: '', type: String })
@@ -71,7 +71,7 @@ export class WuMenuItem extends WuComponent implements OnConnected, OnDisConnect
     }
 
     get active() {
-        return this.index === this.wuMenuRef?.activeIndex;
+        return this.index + '' === this.wuMenuRef?.activeIndex + '';
     }
 
     get hoverBackground() {
@@ -144,7 +144,7 @@ export class WuMenuItem extends WuComponent implements OnConnected, OnDisConnect
                 onMouseleave={() => this.onMouseLeave()}
             >
                 {
-                    this.parentNode?.tagName === 'ElMenu' && this.wuMenuRef.collapse && this.isSlotTitle ? (
+                    this.parentNode?.tagName === 'WU-PLUS-MENU' && this.wuMenuRef?.collapse && this.isSlotTitle ? (
                         // @ts-ignore
                         <wu-plus-tooltip effect="dark" position="right">
                             <div slot="content">

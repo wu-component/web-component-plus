@@ -6,7 +6,19 @@
 </head>
 <body>
 <div id="app">
-    <wu-test-example></wu-test-example>
+    <div style="display: flex; align-items: center;justify-content: center;padding: 16px">
+        <wu-plus-pagination id="pagination" total='25' current-page='0' page-size='5'></wu-plus-pagination>
+    </div>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-pagination total='2003' current-page='1' page-size='5' id="testPagination"></wu-plus-pagination>
+    </div>
 </div>
 </body>
 </html>
+
+<script>
+    const dom = document.querySelector("#pagination");
+    dom.addEventListener('change', (e) => {
+        console.log(e)
+    })
+</script>

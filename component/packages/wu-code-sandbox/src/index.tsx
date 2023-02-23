@@ -62,7 +62,7 @@ export class WuMonacoEditorPreview extends WuComponent implements OnConnected {
     }
 
     public override async connected(shadowRoot: ShadowRoot) {
-        const initialSrcDoc = (this.props as any).initialSrcDoc;
+        const initialSrcDoc = (this as any).initialSrcDoc;
         // this.container = shadowRoot.querySelector("#codeIframe");
         const fragment = document.createElement("div");
         let current = {};
@@ -136,7 +136,7 @@ export class WuMonacoEditorPreview extends WuComponent implements OnConnected {
      * @param code
      */
     public runCode(type: string, code: string) {
-        if ((this.props as any).isBeforeRefresh) {
+        if ((this as any).isBeforeRefresh) {
             // 此处做了定制，webComponent 中无法重复定义元素，所以此处需要重新加载沙箱
             this.container.contentWindow.location.reload();
             // 将需要执行的代码暂存

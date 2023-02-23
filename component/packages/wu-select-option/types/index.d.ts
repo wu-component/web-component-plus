@@ -1,6 +1,6 @@
-import { WuComponent } from '@wu-component/web-core-plus';
-declare type UISize = 'medium' | 'small' | 'mini';
-export declare class WuSelectOptions extends WuComponent {
+import { WuComponent, OnConnected } from '@wu-component/web-core-plus';
+type UISize = 'medium' | 'small' | 'mini';
+export declare class WuSelectOptions extends WuComponent implements OnConnected {
     constructor();
     selectRef: any;
     label: string;
@@ -9,11 +9,16 @@ export declare class WuSelectOptions extends WuComponent {
     value: string;
     size: UISize;
     selected: boolean;
+    show: boolean;
     handleClose(event: Event): {
         event: Event;
+        label: string;
+        value: string;
     };
     handleClick(event: any): {
         event: any;
+        label: string;
+        value: string;
     };
     /**
      * 设置勾选
@@ -27,6 +32,7 @@ export declare class WuSelectOptions extends WuComponent {
     setVisible(val: boolean): void;
     get hover(): boolean;
     selectOptionClick(): this;
+    connected(shadowRoot: ShadowRoot): void;
     clickItem(event: MouseEvent): void;
     hoverItem(): void;
     /**

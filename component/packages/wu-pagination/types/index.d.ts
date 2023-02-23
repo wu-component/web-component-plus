@@ -16,6 +16,8 @@ export declare class WuPagination extends WuComponent implements OnBeforeRender 
     beforeRender(): void;
     change(index: number): {
         currentPage: number;
+        pageSize: number;
+        total: number;
     };
     private goto;
     private getInterval;

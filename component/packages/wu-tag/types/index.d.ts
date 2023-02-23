@@ -15,6 +15,8 @@ export declare class WuTag extends WuComponent {
     effect: EffectEnums;
     handleClose(event: Event): {
         event: Event;
+        value: string;
+        text: string;
     };
     handleClick(event: any): {
         event: any;
