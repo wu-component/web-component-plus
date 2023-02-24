@@ -22,7 +22,7 @@ export class WuSelectOptions extends WuComponent implements OnConnected {
     public disabled: string;
 
     @Prop({ default: true, type: Boolean })
-    public visible: boolean = true;
+    public visible = true;
 
     @Prop({ default: '' })
     public value: string;

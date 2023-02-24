@@ -34,18 +34,13 @@ export class WuComponent extends HTMLElement implements DefineComponent {
             return {
                 get(this: WuComponent): any {
                     let val = this.pureGetAttribute(keyName);
-
+                    if (options.type === Boolean) {
+                        if (val) {
+                            return options.converter(val, options.type);
+                        }
+                        return options.converter(_value, options.type);
+                    }
                     if (!isEmpty(defaultValue)) {
-                        // 判断val是否为空值
-                        // const isEmpty = () => !(val || val === false || val === 0)
-                        // 当类型为非Boolean时，通过isEmpty方法判断val是否为空值
-                        // 当类型为Boolean时，在isEmpty判断之外，额外认定空字符串不为空值
-                        //
-                        // 条件表达式推导过程
-                        // 由：(options.type !== Boolean && isEmpty(val)) || (options.type === Boolean && isEmpty(val) && val !== '')
-                        // 变形为：isEmpty(val) && (options.type !== Boolean || (options.type === Boolean && val !== ''))
-                        // 其中options.type === Boolean显然恒等于true：isEmpty(val) && (options.type !== Boolean || (true && val !== ''))
-                        // 得出：isEmpty(val) && (options.type !== Boolean || val !== '')
                         if (isEmpty(val) && (options.type !== Boolean || val !== "")) {
                             return defaultValue;
                         }
@@ -74,7 +69,7 @@ export class WuComponent extends HTMLElement implements DefineComponent {
                     }
                     if (val) {
                         if (typeof val === "boolean") {
-                            this.pureSetAttribute(keyName, "");
+                            this.pureSetAttribute(keyName, val);
                         } else {
                             this.pureSetAttribute(keyName, newValue);
                         }
@@ -82,6 +77,10 @@ export class WuComponent extends HTMLElement implements DefineComponent {
                         this.removeAttribute(keyName);
                     }
                     _value = val;
+                    // 兜底处理  值 true ---> false 时无法触发更新
+                    if (options.type === Boolean && _value === false) {
+                        this.update.call(this);
+                    }
                 },
                 configurable: true,
                 enumerable: true,
@@ -122,7 +121,7 @@ export class WuComponent extends HTMLElement implements DefineComponent {
                     this._render();
                 },
                 configurable: true,
-                enumerable: true,
+                enumerable: true
             };
         };
     }
@@ -176,20 +175,24 @@ export class WuComponent extends HTMLElement implements DefineComponent {
      * 属性变化
      */
     public attributeChangedCallback(name: string, oldValue: string, value: string) {
-        // 因为 React 的属性变更并不会触发 set，此时如果 boolean 值变更，这里的 value 会是字符串，组件内部通过 get 操作可以获取到正确的类型
-        const newValue = this[name] || value;
-        if (!this.preBeforeUpdate(name, oldValue, newValue)) {
-            return;
-        }
-        this._render();
+        Promise.resolve().finally(() => {
+            // 因为 React 的属性变更并不会触发 set，此时如果 boolean 值变更，这里的 value 会是字符串，组件内部通过 get 操作可以获取到正确的类型
+            const newValue = this[name] || value;
+            if (!this.preBeforeUpdate(name, oldValue, newValue)) {
+                return;
+            }
+            this._render();
 
-        this.updated(name, oldValue, newValue);
+            this.updated(name, oldValue, newValue);
 
-        // 因为 React的属性变更并不会触发set，此时如果boolean值变更，这里的value会是字符串，组件内部通过get操作可以正常判断类型，但css里面有根据boolean属性设置样式的将会出现问题
-        if (value !== oldValue) {
-            // boolean 重走set
-            this._updateBooleanProperty(name);
-        }
+            // 因为 React的属性变更并不会触发set，此时如果boolean值变更，这里的value会是字符串，组件内部通过get操作可以正常判断类型，但css里面有根据boolean属性设置样式的将会出现问题
+            if (value !== oldValue) {
+                // boolean 重走set
+                this._updateBooleanProperty(name);
+            }
+        });
+
+
     }
     private _updateBooleanProperty(propertyName: string) {
         if ((this.constructor as any).isBooleanProperty(propertyName)) {
@@ -381,6 +384,9 @@ export class WuComponent extends HTMLElement implements DefineComponent {
      * 组件更新前检查
      */
     public preBeforeUpdate(propName: string, oldValue: string, newValue: string): boolean {
+        if (newValue === null && oldValue === 'true') {
+            return false;
+        }
         return oldValue !== newValue;
     }
 

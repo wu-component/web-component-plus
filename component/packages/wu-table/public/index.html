@@ -6,7 +6,17 @@
 </head>
 <body>
 <div id="app">
-    <wu-test-example></wu-test-example>
+    <div style="display: flex; align-items: center;justify-content: center;width: 100%; margin-top: 8px; margin-bottom: 16px">
+        <wu-plus-table
+            checkbox="true"
+            stripe="false"
+            border="true"
+            compact="false"
+            data='[{"id":1,"name":"xwang","age":18,"address":"是是是"}]'
+            columns='[{"title":"ID","key":"id","align":"center"},{"title":"Name","align":"center","key":"name"},{"title":"age","key":"age"},{"title":"address","key":"address"}]'
+        ></wu-plus-table>
+
+    </div>
 </div>
 </body>
 </html>

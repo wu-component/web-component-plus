@@ -17,6 +17,9 @@ export class TestComponent extends WuComponent  implements OnConnected {
     @Prop({ type: String, default: 'waring' })
     public type = 'waring';
 
+    @Prop({ type: Boolean, default: true })
+    public clearable = true;
+
     public updateCount() {
         this.count = this.count + 1;
         console.log(this.chRef);
@@ -69,31 +72,17 @@ export class TestComponent extends WuComponent  implements OnConnected {
     private chRef = null;
 
     public override render() {
+        console.log(this.clearable, typeof this.clearable)
         return (
             <div class="container">
-                <p>{this.attr}</p>
-                <p>
-                    <button onClick={() => this.updateCount()}>更新</button>
-                    <button onClick={() => this.updateType()}>type</button>
-                    <span>{this.count}</span>
-                    <span>{this.type}</span>
-                </p>
-                <p>
-                    <button onClick={() => this.updateAttr()}>更新Attr</button>
-                    <span>{this.attr}</span>
-                </p>
-                <p>
-                    <button onClick={() => this.testFun()}>测试事件</button>
-                </p>
-
-                <p>
-                    <button onClick={() => this.updateCss()}>更新css</button>
-                </p>
-                {{/*@ts-ignore*/}}
-                <test-example1 css={this.ssCss} ref={(ref) => this.chRef = ref} attr={this.attr} onchild-update={(res) => {
-                    console.log('jj', res);
-                    {{/*@ts-ignore*/}}
-                }}></test-example1>
+                <button onClick={() => {
+                    // console.log("this.clearable", this.clearable);
+                    this.clearable = !this.clearable;
+                    console.log(this.clearable)
+                }}>
+                    this修改
+                </button>
+                <span>{this.clearable? '能清除': '不能清楚'}</span>
             </div>
         );
     }

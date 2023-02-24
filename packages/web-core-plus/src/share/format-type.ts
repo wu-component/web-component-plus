@@ -5,7 +5,7 @@ export function newEval(fn: string) {
         return new Fn('return ' + fn)();
     }
     catch (e) {
-        console.warn("eval fail", e);
+        console.warn("eval fail", e, fn);
     }
 
 }
@@ -28,7 +28,11 @@ export const defaultConverter: converterFunction = (value, type?) => {
             case Array:
             case Object:
                 if (typeof value === 'string') {
-                    newValue = JSON.parse(value.replace(/'/g, '"'));
+                    try {
+                        newValue = JSON.parse(value);
+                    }catch (e) {
+                        newValue = JSON.parse(value.replace(/'/g, '"'));
+                    }
                 } else if (Object.prototype.toString.call(value) === '[object Array]' || Object.prototype.toString.call(value) === '[object Object]') {
                     newValue = value;
                 } else {
@@ -43,7 +47,7 @@ export const defaultConverter: converterFunction = (value, type?) => {
         }
         return newValue;
     }catch (e) {
-        console.warn("formatValue file, please input element attr", e);
+        console.warn("formatValue file, please input element attr", e, value);
         return newEval(value);
     }
 
