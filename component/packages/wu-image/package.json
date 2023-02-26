@@ -1,6 +1,6 @@
 {
   "name": "@wu-component/wu-image",
-  "version": "1.11.8",
+  "version": "2.0.0",
   "description": "> TODO: description",
   "author": "Marvin <yongfeide123@gmail.com>",
   "homepage": "",
@@ -57,6 +57,7 @@
     "jest": "^23.6.0",
     "live-server": "^1.2.2",
     "nodemon": "^1.18.9",
+    "postcss-loader": "^7.0.1",
     "prettier": "^1.15.3",
     "process": "^0.11.10",
     "reflect-metadata": "^0.1.13",
@@ -82,8 +83,7 @@
     "typescript": "^4.6.4",
     "webpack": "^5.72.1",
     "webpack-cli": "^4.9.2",
-    "webpack-dev-server": "^4.9.0",
-    "postcss-loader": "^7.0.1"
+    "webpack-dev-server": "^4.9.0"
   },
   "dependencies": {
     "@wu-component/common": "latest",

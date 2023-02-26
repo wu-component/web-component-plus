@@ -1,6 +1,6 @@
 {
   "name": "@wu-component/wu-container",
-  "version": "1.11.8",
+  "version": "2.0.0",
   "description": "> TODO: description",
   "author": "Marvin <yongfeide123@gmail.com>",
   "homepage": "",
@@ -86,19 +86,19 @@
   },
   "dependencies": {
     "@wu-component/common": "latest",
-    "@wu-component/wu-footer": "latest",
+    "@wu-component/web-core-plus": "next",
     "@wu-component/wu-aside": "latest",
-    "@wu-component/wu-main": "latest",
+    "@wu-component/wu-footer": "latest",
     "@wu-component/wu-header": "latest",
-    "@wu-component/web-core-plus": "next"
+    "@wu-component/wu-main": "latest"
   },
   "peerDependencies": {
-     "@wu-component/common": "latest",
-     "@wu-component/wu-footer": "latest",
-     "@wu-component/wu-aside": "latest",
-     "@wu-component/wu-main": "latest",
-     "@wu-component/wu-header": "latest",
-     "@wu-component/web-core-plus": "next"
+    "@wu-component/common": "latest",
+    "@wu-component/web-core-plus": "next",
+    "@wu-component/wu-aside": "latest",
+    "@wu-component/wu-footer": "latest",
+    "@wu-component/wu-header": "latest",
+    "@wu-component/wu-main": "latest"
   },
   "files": [
     "dist",
