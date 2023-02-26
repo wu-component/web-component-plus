@@ -29,7 +29,7 @@ const html = `<!DOCTYPE html>
 </html>`
 const fileMap = {
     'web-core-plus': {
-        from: "../packages/web-core-plus/dist/index.umd.js",
+        from: "../packages/web-core-plus/dist/index.iife.min.js",
         to:  "playground/static/web-core-plus/index.umd.js",
     },
     /*'wu-lottie': {

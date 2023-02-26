@@ -1,8 +1,8 @@
 import { WuComponent } from '@wu-component/web-core-plus';
 import "./step/index.tsx";
-declare type Direction = 'vertical' | 'horizontal';
-declare type ProcessStatus = 'wait' | 'process' | 'finish' | 'error' | 'success';
-declare type FinishStatus = 'wait' | 'process' | 'finish' | 'error' | 'success';
+type Direction = 'vertical' | 'horizontal';
+type ProcessStatus = 'wait' | 'process' | 'finish' | 'error' | 'success';
+type FinishStatus = 'wait' | 'process' | 'finish' | 'error' | 'success';
 interface StepItem {
     title: string;
     description: string;

@@ -1,6 +1,6 @@
 {
   "name": "@wu-component/wu-code-sandbox",
-  "version": "1.11.8",
+  "version": "2.0.1",
   "description": "> TODO: description",
   "author": "Marvin <yongfeide123@gmail.com>",
   "homepage": "",
@@ -18,7 +18,8 @@
     "lint": "eslint \"{src,apps,libs,test}/**/*.{tsx,ts}\" --fix",
     "test": "web-test-runner \"./test/*.js\" --node-resolve",
     "example:package": "live-server",
-    "build:package": "node ./node_modules/@wu-component/wu-build-tools/dist/index.js --input ./src/index.tsx --operate BUILD",
+    "build:package:rollup": "node ./node_modules/@wu-component/wu-build-tools/dist/index.js --input ./src/index.tsx --operate BUILD",
+    "build:package": "webpack --config ./build/build.umd.ts && webpack --config ./build/build.esm.ts && webpack --config ./build/build.commonjs.ts",
     "dev:package": "webpack serve --config ./build/webpack_dev.config --env development --mode development --hot"
   },
   "publishConfig": {
@@ -48,6 +49,7 @@
     "autoprefixer": "^10.4.4",
     "body-parser": "^1.19.0",
     "chalk": "4.1.2",
+    "compile-code-loader": "^1.0.0",
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
     "eslint": "7.1.0",
@@ -87,6 +89,7 @@
     "webpack-dev-server": "^4.9.0"
   },
   "dependencies": {
+    "@jetbrains/websandbox": "^1.0.7",
     "@monaco-editor/loader": "^1.3.2",
     "@wu-component/common": "latest",
     "@wu-component/web-core-plus": "next",

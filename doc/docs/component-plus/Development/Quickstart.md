@@ -29,7 +29,7 @@ import '@wu-component/ui-plus';
 <head>
     <meta charset="UTF-8">
     <!--引入对应的组件产物,  子组件中已包含底层依赖，不用单独引入-->
-    <script src="https://unpkg.com/@wu-component/wu-button"></script>
+    <script src="https://unpkg.com/@wu-component/wu-button@next"></script>
 </head>
 <body>
 <div id="app">
@@ -48,7 +48,7 @@ import '@wu-component/ui-plus';
 <head>
     <meta charset="UTF-8">
     <!--引入底层库-->
-    <script src="https://unpkg.com/@wu-component/web-core-plus"></script>
+    <script src="https://unpkg.com/@wu-component/web-core-plus@next"></script>
     <!--引入对应的组件产物-->
     <script src="https://unpkg.com/@wu-component/ui-plus"></script>
 </head>

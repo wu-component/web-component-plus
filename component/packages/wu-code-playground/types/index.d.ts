@@ -3,7 +3,7 @@ import "@wu-component/wu-code-monaco-editor";
 import "@wu-component/wu-code-sandbox";
 import "@wu-component/wu-alert";
 import type { WuCodeMonacoEditor } from "@wu-component/wu-code-monaco-editor/types";
-import type { WuMonacoEditorPreview } from "@wu-component/wu-code-sandbox/types";
+import type { WuCodeSandbox } from "@wu-component/wu-code-sandbox/types";
 interface NoticeItem {
     close: boolean;
     text: string;
@@ -17,7 +17,7 @@ export declare class WuCodePlayground extends WuComponent implements OnConnected
     isLoading: boolean;
     noticeList: NoticeContentItem[];
     editorContainer: WuCodeMonacoEditor;
-    previewContainer: WuMonacoEditorPreview;
+    previewContainer: WuCodeSandbox;
     initialEvalSuccess: boolean;
     connected(shadowRoot: ShadowRoot): void;
     /**

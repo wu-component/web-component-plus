@@ -1,4 +1,4 @@
-import { Component, h, OnConnected, Prop, WuComponent } from "@wu-component/web-core-plus";
+import { Component, h, OnConnected, Prop, WuComponent } from "https://unpkg.com/@wu-component/web-core-plus@next/dist/index.mjs";
 const css = `
         .container {
             display: flex;

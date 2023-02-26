@@ -8,9 +8,12 @@
             width: 100vw;height:100vh;
         }
     </style>
+    <script src="https://unpkg.com/@wu-component/web-core-plus@next"></script>
 </head>
-<body style="width: 100%;height: 100%;margin: 0;">
-    <wu-code-monaco-editor style="width: 100%;height: 100%"></wu-code-monaco-editor>
+<body style="width: 100%;height: 100%;margin: 0; display: flex;justify-content: space-between;">
+    <wu-code-monaco-editor theme="vs-dark" width="500px" style="width: 400px;height: 100%"></wu-code-monaco-editor>
+
+    <wu-code-monaco-editor style="width: 600px;height: 100%"></wu-code-monaco-editor>
 </body>
 <script src="./dist/index.umd.js"></script>
 </html>

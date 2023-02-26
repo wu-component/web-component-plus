@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://unpkg.com/@wu-component/web-core-plus@next"></script>
 </head>
 <body>
 <div id="app">
@@ -16,6 +17,18 @@
             pageview="true"
             emoji="['//unpkg.com/@waline/emojis@1.0.1/weibo', '//unpkg.com/@waline/emojis@1.0.1/bilibili']"
         ></wu-waline-comment>
+    </div>
+
+    <div style="width: 600px; margin: 60px auto; ">
+        <wu-waline-comment-shadow
+            serverurl="https://wu-component-issues.vercel.app"
+            style="--waline-theme-color: red"
+            dark="body.theme-dark"
+            language="zh-CN"
+            comment="true"
+            pageview="true"
+            emoji="['//unpkg.com/@waline/emojis@1.0.1/weibo', '//unpkg.com/@waline/emojis@1.0.1/bilibili']"
+        ></wu-waline-comment-shadow>
     </div>
 
 </div>

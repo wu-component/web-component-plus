@@ -1,6 +1,6 @@
 {
   "name": "@wu-component/wu-code-playground",
-  "version": "1.11.8",
+  "version": "2.0.1",
   "description": "> TODO: description",
   "author": "Marvin <yongfeide123@gmail.com>",
   "homepage": "",
@@ -102,6 +102,7 @@
     "@wu-component/wu-code-monaco-editor": "latest",
     "@wu-component/wu-code-sandbox": "latest",
     "@wu-component/wu-lottie": "latest",
+    "esbuild-wasm": "^0.17.10",
     "monaco-editor": "^0.34.1"
   },
   "files": [

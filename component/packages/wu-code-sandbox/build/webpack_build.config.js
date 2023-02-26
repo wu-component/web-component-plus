@@ -5,8 +5,8 @@ const {commonPlugins, commonRules} = require("./webpack_common.config");
 module.exports = {
     entry: ['./src/index.tsx'],
     output: {
-        path: path.resolve(__dirname, '../', "dist"),
-        filename: "bundle.[chunkhash:8].js",
+        path: path.resolve(__dirname, '../', "dist1"),
+        filename: "index.js",
         publicPath: '/',
     },
     target: 'web',

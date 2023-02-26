@@ -1,7 +1,7 @@
-import { OnConnected, WuComponent } from '@wu-component/web-core-plus';
+import { OnConnected, OnDisConnected, WuComponent } from '@wu-component/web-core-plus';
 import '@wu-component/wu-popover';
 import '@wu-component/wu-input';
-declare type UISize = 'medium' | 'small' | 'mini';
+type UISize = 'medium' | 'small' | 'mini';
 interface CascaderOption {
     value: string;
     label: string;
@@ -30,7 +30,7 @@ export interface CascaderProps {
      */
     onOptionClick?: (item: any, index: any, evt: any) => void;
 }
-export declare class WuCascader extends WuComponent implements OnConnected {
+export declare class WuCascader extends WuComponent implements OnConnected, OnDisConnected {
     constructor();
     private popoverRef;
     private inputRef;
@@ -38,7 +38,9 @@ export declare class WuCascader extends WuComponent implements OnConnected {
     options: CascaderOption[];
     size: UISize;
     disabled: boolean;
+    private maskClick;
     connected(shadowRoot: ShadowRoot): void;
+    disConnected(shadowRoot: ShadowRoot): void;
     /**
      * 根据当前 value 获取 label 值
      * @param value

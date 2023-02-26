@@ -18,7 +18,7 @@ npm install @wu-component/ui-plus
 <head>
     <meta charset="UTF-8">
     <!--引入底层库-->
-    <script src="https://unpkg.com/@wu-component/web-core-plus"></script>
+    <script src="https://unpkg.com/@wu-component/web-core-plus@next"></script>
     <!--引入组件库->
     <script src="https://unpkg.com/@wu-component/ui-plus"></script>
 </head>

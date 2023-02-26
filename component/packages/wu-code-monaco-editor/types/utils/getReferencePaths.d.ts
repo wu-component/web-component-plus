@@ -1,1 +1,1 @@
-export declare function getReferencePaths(input: string): string[];
+export declare function getReferencePaths(input: string): any[];

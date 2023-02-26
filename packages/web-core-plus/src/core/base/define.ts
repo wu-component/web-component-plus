@@ -71,9 +71,6 @@ export function defineComponent(ctor: typeof WuComponent, options: CustomTagOpti
             if (style) {
                 this.getStyles = () => style;
             }
-            if(options.is !== 'LightDom') {
-
-            }
             const shadowRoot = options.is !== 'LightDom'? (this.shadowRoot || this.attachShadow({ mode: "open" })): this;
 
             if (shadowRoot) {

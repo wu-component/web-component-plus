@@ -1,5 +1,4 @@
 import { OnConnected, WuComponent } from '@wu-component/web-core-plus';
-// @ts-ignore
 import { Placement } from '@popperjs/core/lib/enums';
 export declare type TypeEnums = 'success' | 'warning' | 'info' | 'error';
 export declare class WuPopover extends WuComponent implements OnConnected {

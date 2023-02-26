@@ -19,6 +19,6 @@
     "vuepress": "1.9.7",
     "vuepress-plugin-demo-container": "^0.2.0",
     "vuepress-plugin-sitemap": "^2.3.1",
-    "vuepress-theme-antdocs": "^1.4.3"
+    "vuepress-theme-antdocs": "^1.4.6"
   }
 }

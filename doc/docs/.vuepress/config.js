@@ -7,7 +7,7 @@ module.exports = {
 		['script', { charset: "utf-8", src: "/web-plus.esm.js" }],*/
 
 		['script', { charset: "utf-8", src: "https://unpkg.com/vconsole@latest/dist/vconsole.min.js" }],
-		['script', { charset: "utf-8", src: "/js/core/index.umd.js" }],
+		['script', { charset: "utf-8", src: "/js/core/index.iife.min.js" }],
 		['script', { charset: "utf-8", src: "/js/example/index.umd.js" }],
 		// ['script', { charset: "utf-8", src: "/js/upload/index.umd.js" }],
 
@@ -56,7 +56,8 @@ module.exports = {
 					{ text: 'playground', key: '1017', link: 'https://static-cdn.canyuegongzi.xyz/wu-code-playground/index.html'},
 				]
 			},
-			{text: 'Github', key: '10', link: 'https://github.com/wu-component'}
+			{text: 'v1.x', key: '10112', link: 'https://wu-component.github.io/docs-v1'},
+			{text: 'Github', key: '10', link: '/component-plus/log/changelog'}
 
 		],
 		sidebarDepth: 0,

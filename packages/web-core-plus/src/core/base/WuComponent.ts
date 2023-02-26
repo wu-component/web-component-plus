@@ -215,7 +215,7 @@ export class WuComponent extends HTMLElement implements DefineComponent {
             newValue = val;
         }
         super.setAttribute(getKebabCase(key), newValue);
-        this[key] = val;
+        // this[key] = val;
     }
 
     /**
@@ -294,7 +294,7 @@ export class WuComponent extends HTMLElement implements DefineComponent {
      */
     public initShadowRoot() {
         if (this.css) {
-            this.shadowRoot.appendChild(
+            this.rooDom.appendChild(
                 cssToDom(typeof this.css === 'function' ? this.css() : this.css)
             );
         }
@@ -302,9 +302,9 @@ export class WuComponent extends HTMLElement implements DefineComponent {
         if (propsCss) {
             this.customStyleElement = cssToDom(propsCss);
             this.customStyleContent = propsCss;
-            this.shadowRoot.appendChild(this.customStyleElement);
+            this.rooDom.appendChild(this.customStyleElement);
         }
-        return this.shadowRoot;
+        return this.rooDom;
     }
 
     /**
@@ -366,7 +366,7 @@ export class WuComponent extends HTMLElement implements DefineComponent {
      * 组件销毁
      */
     public disconnectedCallback() {
-        this.disConnected(this.shadowRoot);
+        this.disConnected(this.rooDom);
         this.rootPatch(null);
     }
 
@@ -448,10 +448,14 @@ export class WuComponent extends HTMLElement implements DefineComponent {
     }
 
     private rootPatch = (newRootVNode: any) => {
-        if (this.shadowRoot) {
-            render(newRootVNode, this.shadowRoot);
+        if (this.rooDom) {
+            render(newRootVNode, this.rooDom);
         }
     };
+
+    get rooDom() {
+        return this.shadowRoot || this;
+    }
 
     public getStyles(): string {
         return "";
@@ -469,7 +473,7 @@ export class WuComponent extends HTMLElement implements DefineComponent {
                     this.customStyleElement.textContent = this.customStyleContent;
                 } else {
                     this.customStyleElement = cssToDom(this.inlineCss);
-                    this.shadowRoot?.appendChild(this.customStyleElement);
+                    this.rooDom?.appendChild(this.customStyleElement);
                 }
             });
         }

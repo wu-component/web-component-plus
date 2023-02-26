@@ -1,0 +1,414 @@
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/core/connection.ts":
+/*!********************************!*\
+!*** ./src/core/connection.ts ***!
+\********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "TYPE_MESSAGE": () => (/* binding */ TYPE_MESSAGE),
+/* harmony export */   "TYPE_RESPONSE": () => (/* binding */ TYPE_RESPONSE),
+/* harmony export */   "TYPE_SERVICE_MESSAGE": () => (/* binding */ TYPE_SERVICE_MESSAGE),
+/* harmony export */   "TYPE_SET_INTERFACE": () => (/* binding */ TYPE_SET_INTERFACE),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+var __assign = (undefined && undefined.__assign) || function () {
+__assign = Object.assign || function(t) {
+for (var s, i = 1, n = arguments.length; i < n; i++) {
+s = arguments[i];
+for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+t[p] = s[p];
+}
+return t;
+};
+return __assign.apply(this, arguments);
+};
+var __read = (undefined && undefined.__read) || function (o, n) {
+var m = typeof Symbol === "function" && o[Symbol.iterator];
+if (!m) return o;
+var i = m.call(o), r, ar = [], e;
+try {
+while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+}
+catch (error) { e = { error: error }; }
+finally {
+try {
+if (r && !r.done && (m = i["return"])) m.call(i);
+}
+finally { if (e) throw e.error; }
+}
+return ar;
+};
+var __spreadArray = (undefined && undefined.__spreadArray) || function (to, from, pack) {
+if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+if (ar || !(i in from)) {
+if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+ar[i] = from[i];
+}
+}
+return to.concat(ar || Array.prototype.slice.call(from));
+};
+var TYPE_MESSAGE = 'message';
+var TYPE_RESPONSE = 'response';
+var TYPE_SET_INTERFACE = 'set-interface';
+var TYPE_SERVICE_MESSAGE = 'service-message';
+// @ts-expect-error this is IE11 obsolete check. It is not typed
+var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
+var defaultOptions = {
+//Will not affect IE11 because there sandboxed iframe has not 'null' origin
+//but base URL of iframe's src
+allowedSenderOrigin: undefined
+};
+var Connection = /** @class */ (function () {
+function Connection(postMessage, registerOnMessageListener, options) {
+if (options === void 0) { options = {}; }
+var _this = this;
+this.remote = {};
+this.serviceMethods = {};
+this.localApi = {};
+this.callbacks = {};
+this._resolveRemoteMethodsPromise = null;
+this.options = __assign(__assign({}, defaultOptions), options);
+//Random number between 0 and 100000
+this.incrementalID = Math.floor(Math.random() * 100000);
+this.postMessage = postMessage;
+this.remoteMethodsWaitPromise = new Promise(function (resolve) {
+_this._resolveRemoteMethodsPromise = resolve;
+});
+registerOnMessageListener(function (e) { return _this.onMessageListener(e); });
+}
+/**
+* Listens to remote messages. Calls local method if it is called outside or call stored callback if it is response.
+* @param e - onMessage event
+*/
+Connection.prototype.onMessageListener = function (e) {
+var _this = this;
+var data = e.data;
+var allowedSenderOrigin = this.options.allowedSenderOrigin;
+if (allowedSenderOrigin && e.origin !== allowedSenderOrigin && !isIE11) {
+return;
+}
+if (data.type === TYPE_RESPONSE) {
+this.popCallback(data.callId, data.success, data.result);
+}
+else if (data.type === TYPE_MESSAGE) {
+this
+.callLocalApi(data.methodName, data.arguments)
+.then(function (res) { return _this.responseOtherSide(data.callId, res); })
+.catch(function (err) { return _this.responseOtherSide(data.callId, err, false); });
+}
+else if (data.type === TYPE_SET_INTERFACE) {
+this.setInterface(data.apiMethods);
+this.responseOtherSide(data.callId);
+}
+else if (data.type === TYPE_SERVICE_MESSAGE) {
+this
+.callLocalServiceMethod(data.methodName, data.arguments)
+.then(function (res) { return _this.responseOtherSide(data.callId, res); })
+.catch(function (err) { return _this.responseOtherSide(data.callId, err, false); });
+}
+};
+Connection.prototype.postMessageToOtherSide = function (dataToPost) {
+this.postMessage(dataToPost, '*');
+};
+/**
+* Sets remote interface methods
+* @param remote - hash with keys of remote API methods. Values is ignored
+*/
+Connection.prototype.setInterface = function (remoteMethods) {
+var _this = this;
+var _a;
+this.remote = {};
+remoteMethods.forEach(function (key) { return _this.remote[key] = _this.createMethodWrapper(key); });
+(_a = this._resolveRemoteMethodsPromise) === null || _a === void 0 ? void 0 : _a.call(this);
+};
+Connection.prototype.setLocalApi = function (api) {
+var _this = this;
+return new Promise(function (resolve, reject) {
+var id = _this.registerCallback(resolve, reject);
+_this.postMessageToOtherSide({
+callId: id,
+apiMethods: Object.keys(api),
+type: TYPE_SET_INTERFACE
+});
+}).then(function () { return _this.localApi = api; });
+};
+Connection.prototype.setServiceMethods = function (api) {
+this.serviceMethods = api;
+};
+/**
+* Calls local method
+* @param methodName
+* @param args
+* @returns {Promise.<*>|string}
+*/
+Connection.prototype.callLocalApi = function (methodName, args) {
+var _a;
+return Promise.resolve((_a = this.localApi)[methodName].apply(_a, __spreadArray([], __read(args), false)));
+};
+/**
+* Calls local method registered as "service method"
+* @param methodName
+* @param args
+* @returns {Promise.<*>}
+*/
+Connection.prototype.callLocalServiceMethod = function (methodName, args) {
+var _a;
+if (!this.serviceMethods[methodName]) {
+throw new Error("Serivce method ".concat(methodName, " is not registered"));
+}
+return Promise.resolve((_a = this.serviceMethods)[methodName].apply(_a, __spreadArray([], __read(args), false)));
+};
+/**
+* Wraps remote method with callback storing code
+* @param methodName - method to wrap
+* @returns {Function} - function to call as remote API interface
+*/
+Connection.prototype.createMethodWrapper = function (methodName) {
+var _this = this;
+return function () {
+var args = [];
+for (var _i = 0; _i < arguments.length; _i++) {
+args[_i] = arguments[_i];
+}
+return _this.callRemoteMethod.apply(_this, __spreadArray([methodName], __read(args), false));
+};
+};
+/**
+* Calls other side with arguments provided
+* @param id
+* @param methodName
+* @param args
+*/
+Connection.prototype.callRemoteMethod = function (methodName) {
+var _this = this;
+var args = [];
+for (var _i = 1; _i < arguments.length; _i++) {
+args[_i - 1] = arguments[_i];
+}
+return new Promise(function (resolve, reject) {
+var id = _this.registerCallback(resolve, reject);
+_this.postMessageToOtherSide({
+callId: id,
+methodName: methodName,
+type: TYPE_MESSAGE,
+arguments: args
+});
+});
+};
+/**
+* Calls remote service method
+* @param methodName
+* @param args
+* @returns {*}
+*/
+Connection.prototype.callRemoteServiceMethod = function (methodName) {
+var _this = this;
+var args = [];
+for (var _i = 1; _i < arguments.length; _i++) {
+args[_i - 1] = arguments[_i];
+}
+return new Promise(function (resolve, reject) {
+var id = _this.registerCallback(resolve, reject);
+_this.postMessageToOtherSide({
+callId: id,
+methodName: methodName,
+type: TYPE_SERVICE_MESSAGE,
+arguments: args
+});
+});
+};
+/**
+* Respond to remote call
+* @param id - remote call ID
+* @param result - result to pass to calling function
+*/
+Connection.prototype.responseOtherSide = function (id, result, success) {
+var _this = this;
+if (success === void 0) { success = true; }
+if (result instanceof Error) {
+// Error could be non-serializable, so we copy properties manually
+result = __spreadArray(__spreadArray([], __read(Object.keys(result)), false), ['message'], false).reduce(function (acc, it) {
+acc[it] = result[it];
+return acc;
+}, {});
+}
+var doPost = function () {
+return _this.postMessage({
+callId: id,
+type: TYPE_RESPONSE,
+success: success,
+result: result
+}, '*');
+};
+try {
+doPost();
+}
+catch (err) {
+console.error('Failed to post response, recovering...', err); // eslint-disable-line no-console
+if (err instanceof DOMException) {
+result = JSON.parse(JSON.stringify(result));
+doPost();
+}
+}
+};
+/*
+* Stores callbacks to call later when remote call will be answered
+*/
+Connection.prototype.registerCallback = function (successCallback, failureCallback) {
+var id = (++this.incrementalID).toString();
+this.callbacks[id] = { successCallback: successCallback, failureCallback: failureCallback };
+return id;
+};
+/**
+* Calls and delete stored callback
+* @param id - call id
+* @param success - was call successful
+* @param result - result of remote call
+*/
+Connection.prototype.popCallback = function (id, success, result) {
+if (success) {
+this.callbacks[id].successCallback(result);
+}
+else {
+this.callbacks[id].failureCallback(result);
+}
+delete this.callbacks[id];
+};
+return Connection;
+}());
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Connection);
+
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			if (cachedModule.error !== undefined) throw cachedModule.error;
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		try {
+/******/ 			__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 		} catch(e) {
+/******/ 			module.error = e;
+/******/ 			throw e;
+/******/ 		}
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+(() => {
+/*!*******************************************************************************************************************************!*\
+!*** ../../node_modules/.pnpm/ts-loader@9.4.2_hhrrucqyg4eysmfpujvov2ym5u/node_modules/ts-loader/index.js!./src/core/frame.ts ***!
+\*******************************************************************************************************************************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _connection__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./connection */ "./src/core/connection.ts");
+
+var Frame = /** @class */ (function () {
+function Frame() {
+var _this = this;
+this.connection = new _connection__WEBPACK_IMPORTED_MODULE_0__["default"](window.parent.postMessage.bind(window.parent), function (listener) {
+window.addEventListener('message', listener);
+});
+this.connection.setServiceMethods({
+runCode: function (code) { return _this.runCode(code); },
+importScript: function (path) { return _this.importScript(path); },
+injectStyle: function (style) { return _this.injectStyle(style); },
+importStyle: function (path) { return _this.importStyle(path); }
+});
+this.connection.callRemoteServiceMethod('iframeInitialized');
+}
+/**
+* Creates script tag with passed code and attaches it. Runs synchronous
+* @param code
+*/
+Frame.prototype.runCode = function (code) {
+var scriptTag = document.createElement('script');
+scriptTag.innerHTML = code;
+document.getElementsByTagName('head')[0].appendChild(scriptTag);
+};
+Frame.prototype.importScript = function (scriptUrl) {
+var scriptTag = document.createElement('script');
+scriptTag.src = scriptUrl;
+document.getElementsByTagName('head')[0].appendChild(scriptTag);
+return new Promise(function (resolve) { return scriptTag.onload = function () { return resolve(); }; });
+};
+Frame.prototype.injectStyle = function (style) {
+var styleTag = document.createElement('style');
+styleTag.innerHTML = style;
+document.getElementsByTagName('head')[0].appendChild(styleTag);
+};
+Frame.prototype.importStyle = function (styleUrl) {
+var linkTag = document.createElement('link');
+linkTag.rel = 'stylesheet';
+linkTag.href = styleUrl;
+document.getElementsByTagName('head')[0].appendChild(linkTag);
+};
+return Frame;
+}());
+var Websandbox = new Frame();
+// @ts-expect-error we explicitly export library to global namespace because
+// Webpack won't do it for us when this file is loaded via code-loader
+window.Websandbox = Websandbox;
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Websandbox);
+
+})();
+
+/******/ })()
+;

@@ -1,4 +1,4 @@
-﻿import {h, Component, Prop, Emit, WuComponent, Fragment, OnConnected} from '@wu-component/web-core-plus';
+﻿import { h, Component, Prop, Emit, WuComponent, Fragment, OnConnected } from '@wu-component/web-core-plus';
 import css from './index.scss';
 type TypeEnums = 'success' | 'warning' | 'info' | 'error';
 const TYPE_CLASSES_MAP = {

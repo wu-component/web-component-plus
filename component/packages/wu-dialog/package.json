@@ -1,6 +1,6 @@
 {
   "name": "@wu-component/wu-dialog",
-  "version": "1.11.8",
+  "version": "2.0.1",
   "description": "> TODO: description",
   "author": "Marvin <yongfeide123@gmail.com>",
   "homepage": "",
@@ -86,8 +86,8 @@
   },
   "dependencies": {
     "@wu-component/common": "latest",
-    "@wu-component/wu-transition": "latest",
-    "@wu-component/web-core-plus": "next"
+    "@wu-component/web-core-plus": "next",
+    "@wu-component/wu-transition": "latest"
   },
   "files": [
     "dist",
