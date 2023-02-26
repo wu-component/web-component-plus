@@ -8745,7 +8745,7 @@ vuepress-plugin-smooth-scroll@^0.0.3:
   dependencies:
     smoothscroll-polyfill "^0.4.3"
 
-vuepress-theme-antdocs@^1.4.3:
+vuepress-theme-antdocs@^1.4.6:
   version "1.4.6"
   resolved "https://registry.yarnpkg.com/vuepress-theme-antdocs/-/vuepress-theme-antdocs-1.4.6.tgz#75b849b0df07b6cd40312443145592775e0d8273"
   integrity sha512-qLe4Ni7ERvLFKexuOlWIpKR0hKei/MayqNCbryyIehQTyIVE4AH3y2FRDRgObO/1356uaXpouizEwRkJmdjzpw==
