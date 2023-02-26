@@ -21,54 +21,58 @@
 </html>
 
 <script type="module">
-    var sandbox = document.querySelector("#sandbox");
-    var button1 = document.querySelector("#button1");
-    var button2 = document.querySelector("#button2");
-    var button3 = document.querySelector("#button3");
-    var button4 = document.querySelector("#button4");
+    window.onload = () => {
+        var sandbox = document.querySelector("#sandbox");
+        var button1 = document.querySelector("#button1");
+        var button2 = document.querySelector("#button2");
+        var button3 = document.querySelector("#button3");
+        var button4 = document.querySelector("#button4");
 
-    sandbox.addEventListener('success', () => {
-        console.log("122222222")
-    })
-    button1.addEventListener('click', () => {
-        console.log(sandbox.sandbox);
-    })
-    button2.addEventListener('click', () => {
-        var code = `
+        sandbox.addEventListener('success', () => {
+            console.log("122222222")
+        })
+        button1.addEventListener('click', () => {
+            console.log(sandbox.sandbox);
+        })
+        button2.addEventListener('click', () => {
+            var code = `
+            console.info("Sandboxed code initialized successfully");
+            var title = document.createElement('h3');
+            title.innerHTML = "Content is generated from the sandbox";
+            document.body.appendChild(title);
+            alert(111)
+        `
+            sandbox.runCode(code, (res) => {
+                console.log(res);
+            })
+        })
+        // 调用沙箱
+        button3.addEventListener('click', () => {
+            var code = `
             console.info("Sandboxed code initialized successfully");
             var title = document.createElement('h3');
             title.innerHTML = "Content is generated from the sandbox";
             document.body.appendChild(title);
         `
-        sandbox.runCode(code, (res) => {
-            console.log(res);
+            sandbox.callSandboxFunction('getIframeInstance', {}, async (res) => {
+                console.log(res);
+            })
         })
-    })
-    // 调用沙箱
-    button3.addEventListener('click', () => {
-        var code = `
+        // 像沙箱注入环境
+        button4.addEventListener('click', () => {
+            var code = `
             console.info("Sandboxed code initialized successfully");
             var title = document.createElement('h3');
             title.innerHTML = "Content is generated from the sandbox";
             document.body.appendChild(title);
         `
-        sandbox.callSandboxFunction('getIframeInstance', {}, async (res) => {
-            console.log(res);
+            sandbox.injectSandboxLocalApi('getIframeInstance', () => {
+                const time = new Date();
+                return time.toString();
+            }, (res) => {
+                console.log(res);
+            })
         })
-    })
-    // 像沙箱注入环境
-    button4.addEventListener('click', () => {
-        var code = `
-            console.info("Sandboxed code initialized successfully");
-            var title = document.createElement('h3');
-            title.innerHTML = "Content is generated from the sandbox";
-            document.body.appendChild(title);
-        `
-        sandbox.injectSandboxLocalApi('getIframeInstance', () => {
-            const time = new Date();
-            return time.toString();
-        }, (res) => {
-            console.log(res);
-        })
-    })
+    }
+
 </script>
