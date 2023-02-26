@@ -1,4 +1,9 @@
 ## 概述
+
+### 体验
+
+[在线体验](https://stackblitz.com/edit/github-ku3ijk?file=src/index.tsx)
+
 ### 什么是 web component？
 
 web component是web原生提供的封装组件的方式，让开发者定义一些可重复使用的自定义元素。主要包含custom elements、shadow dom、html templates部分，分别用于注册自定义元素、提供shadow-dom接口，为自定义元素的样式和脚本提供一个隔离的环境、通过template和slot编写自定义元素的结构模板。

@@ -37,14 +37,20 @@ export class WuColorPicker extends WuComponent implements OnConnected {
 
     public $value: any;
 
+    public updateColorPane() {
+        this.colorPane.val = this.value;
+    }
+
 
     public override connected(shadowRoot: ShadowRoot) {
         this.popover = this.shadowRoot.getElementById('popover');
         this.popcon = this.shadowRoot.getElementById('popcon');
-        this.popcon.addEventListener('close',()=>{
-            this.colorPane.val = this.value;
-        });
+        this.popcon.addEventListener('close', this.updateColorPane);
         this.val = this.defaultvalue;
+    }
+
+    public override disConnected(shadowRoot: ShadowRoot) {
+        this.popcon.removeEventListener('close', this.updateColorPane);
     }
 
     /**
