@@ -37,7 +37,7 @@ footerWrap:
     link: https://juejin.cn/user/1363050147888509
   - title: 博客
     link: https://blog.canyuegongzi.xyz
-footer: MIT Licensed | Copyright © 2020-present Marvin.
+footer: MIT Licensed | Copyright © 2023-present Marvin.
   
 ---
 

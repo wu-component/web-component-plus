@@ -6,17 +6,30 @@ module.exports = {
 		/*['script', { charset: "utf-8", src: "/core.esm.js" }],
 		['script', { charset: "utf-8", src: "/web-plus.esm.js" }],*/
 
-		['script', { charset: "utf-8", src: "https://unpkg.com/vconsole@latest/dist/vconsole.min.js" }],
-		['script', { charset: "utf-8", src: "/js/core/index.iife.min.js" }],
+		['script', { charset: "utf-8", async: true, src: "https://unpkg.com/vconsole@latest/dist/vconsole.min.js" }],
+		// ['script', { charset: "utf-8", src: "/js/core/index.iife.min.js" }],
+		// ['script', { charset: "utf-8", src: "https://unpkg.com/@wu-component/web-core-plus@next/dist/index.iife.min.js" }],
+		['script', { charset: "utf-8", src: "https://static-cdn.canyuegongzi.xyz/js-cdn/@wu-component/web-core-plus/@next/dist/index.iife.min.js" }],
 		['script', { charset: "utf-8", src: "/js/example/index.umd.js" }],
 		// ['script', { charset: "utf-8", src: "/js/upload/index.umd.js" }],
 
-		['script', { charset: "utf-8", src: "/js/ui/index.umd.js" }],
-		['script', { charset: "utf-8", src: "/js/monaco-editor/index.umd.js" }],
-		['script', { charset: "utf-8", src: "/js/sandbox/index.umd.js" }],
-		['script', { charset: "utf-8", src: "/js/comment/index.umd.js" }],
-		['script', { charset: "utf-8", src: "/js/lottie/index.umd.js" }],
-		['script', { charset: "utf-8", src: "/js/code-playground/index.umd.js" }],
+		// ['script', { charset: "utf-8", src: "/js/ui/index.umd.js" }],
+		// ['script', { charset: "utf-8", src: "https://unpkg.com/@wu-component/ui-plus@next/dist/index.umd.js" }],
+		['script', { charset: "utf-8", src: "https://static-cdn.canyuegongzi.xyz/js-cdn/@wu-component/ui-plus/@next/dist/index.umd.js" }],
+		// ['script', { charset: "utf-8", src: "/js/monaco-editor/index.umd.js" }],
+		// ['script', { charset: "utf-8", src: "https://unpkg.com/@wu-component/wu-code-monaco-editor@next/dist/index.umd.js" }],
+		['script', { charset: "utf-8", src: "https://static-cdn.canyuegongzi.xyz/js-cdn/@wu-component/wu-code-monaco-editor/@next/dist/index.umd.js" }],
+		// ['script', { charset: "utf-8", src: "/js/sandbox/index.umd.js" }],
+		// ['script', { charset: "utf-8", src: "https://unpkg.com/@wu-component/wu-code-sandbox@next/dist/index.umd.js" }],
+		['script', { charset: "utf-8", src: "https://static-cdn.canyuegongzi.xyz/js-cdn/@wu-component/wu-code-sandbox/@next/dist/index.umd.js" }],
+		// ['script', { charset: "utf-8", src: "/js/comment/index.umd.js" }],
+		// ['script', { charset: "utf-8", src: "https://unpkg.com/@wu-component/wu-waline-comment@next/dist/index.umd.js" }],
+		['script', { charset: "utf-8", src: "https://static-cdn.canyuegongzi.xyz/js-cdn/@wu-component/wu-waline-comment/@next/dist/index.umd.js" }],
+		['script', { charset: "utf-8", src: "https://static-cdn.canyuegongzi.xyz/js-cdn/@wu-component/wu-waline-comment-sandbox/@next/dist/index.umd.js" }],
+		// ['script', { charset: "utf-8", src: "/js/lottie/index.umd.js" }],
+		// ['script', { charset: "utf-8", src: "https://unpkg.com/@wu-component/wu-lottie@next/dist/index.umd.js" }],
+		['script', { charset: "utf-8", src: "https://static-cdn.canyuegongzi.xyz/js-cdn/@wu-component/wu-lottie/@next/dist/index.umd.js" }],
+		// ['script', { charset: "utf-8", src: "/js/code-playground/index.umd.js" }],
 		// ['script', { charset: "utf-8", src: "/js/comment/index.umd.js" }],
 		// ['script', { charset: "utf-8", src: "/js/lottie/index.umd.js" }],
 
@@ -53,11 +66,12 @@ module.exports = {
 				items: [
 					{text: 'wu-cli', key: '167623', link: '/t-cli/安装/install'},
 					{ text: 'Admin-Template', key: '1014', link: 'https://static-cdn.canyuegongzi.xyz/admin-template/index.html#/button?'},
-					{ text: 'playground', key: '1017', link: 'https://static-cdn.canyuegongzi.xyz/wu-code-playground/index.html'},
+					// { text: 'playground', key: '1017', link: 'https://static-cdn.canyuegongzi.xyz/wu-code-playground/index.html'},
+					{ text: 'playground', key: '1017', link: 'https://stackblitz.com/edit/github-ku3ijk?file=src/index.tsx'},
 				]
 			},
 			{text: 'v1.x', key: '10112', link: 'https://wu-component.github.io/docs-v1'},
-			{text: 'Github', key: '10', link: '/component-plus/log/changelog'}
+			{text: 'Github', key: '10', link: 'https://github.com/wu-component'}
 
 		],
 		sidebarDepth: 0,
