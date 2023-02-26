@@ -1,7 +1,7 @@
 import { WuComponent } from '@wu-component/web-core-plus';
-declare type WuButtonType = 'primary' | 'success' | 'warning' | 'danger' | 'info';
-declare type NativeType = 'button' | 'submit' | 'reset';
-declare type UISize = 'medium' | 'small' | 'mini';
+type WuButtonType = 'primary' | 'success' | 'warning' | 'danger' | 'info';
+type NativeType = 'button' | 'submit' | 'reset';
+type UISize = 'medium' | 'small' | 'mini';
 export declare class WuButton extends WuComponent {
     constructor();
     type: WuButtonType;

@@ -3,10 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://unpkg.com/@wu-component/web-core-plus@next"></script>
+    <script src="./dist/index.umd.js"></script>
 </head>
 <body>
 <div id="app">
-    <wu-test-example></wu-test-example>
+    <div>
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%">
+            <wu-plus-row>
+                <wu-plus-col span="12">
+                    <div style="height: 40px;background:#d3dce6">12</div>
+                </wu-plus-col>
+                <wu-plus-col span="12">
+                    <div style="height: 40px;background:#e5e9f2">12</div>
+                </wu-plus-col>
+            </wu-plus-row>
+        </div>
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px">
+            <wu-plus-row>
+                <wu-plus-col span="4">
+                    <div style="height: 40px;background:#d3dce6">4</div>
+                </wu-plus-col>
+                <wu-plus-col span="20">
+                    <div style="height: 40px;background:#e5e9f2">20</div>
+                </wu-plus-col>
+            </wu-plus-row>
+        </div>
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px">
+            <wu-plus-row>
+                <wu-plus-col span="20">
+                    <div style="height: 40px;background:#d3dce6">4</div>
+                </wu-plus-col>
+                <wu-plus-col span="4">
+                    <div style="height: 40px;background:#e5e9f2">20</div>
+                </wu-plus-col>
+            </wu-plus-row>
+        </div>
+    </div>
+
+
+    <div>
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px">
+            <wu-plus-row type="flex" justify="space-around">
+                <wu-plus-col span="10">
+                    <div style="height: 40px;background:#d3dce6">10</div>
+                </wu-plus-col>
+                <wu-plus-col span="10">
+                    <div style="height: 40px;background:#e5e9f2">10</div>
+                </wu-plus-col>
+            </wu-plus-row>
+        </div>
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px">
+            <wu-plus-row type="flex" justify="start">
+                <wu-plus-col span="10">
+                    <div style="height: 40px;background:#d3dce6">10</div>
+                </wu-plus-col>
+                <wu-plus-col span="10">
+                    <div style="height: 40px;background:#e5e9f2">10</div>
+                </wu-plus-col>
+            </wu-plus-row>
+        </div>
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px">
+            <wu-plus-row type="flex" justify="end">
+                <wu-plus-col span="10">
+                    <div style="height: 40px;background:#d3dce6">10</div>
+                </wu-plus-col>
+                <wu-plus-col span="10">
+                    <div style="height: 40px;background:#e5e9f2">10</div>
+                </wu-plus-col>
+            </wu-plus-row>
+        </div>
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px">
+            <wu-plus-row type="flex" justify="center">
+                <wu-plus-col span="10">
+                    <div style="height: 40px;background:#d3dce6">10</div>
+                </wu-plus-col>
+                <wu-plus-col span="10">
+                    <div style="height: 40px;background:#e5e9f2">10</div>
+                </wu-plus-col>
+            </wu-plus-row>
+        </div>
+    </div>
 </div>
 <script src="./dist/index.umd.js"></script>
 </body>

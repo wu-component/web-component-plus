@@ -52,12 +52,15 @@ export class WuPagination extends WuComponent implements OnBeforeRender{
     @Emit('change')
     public change(index: number) {
         return {
-            currentPage: this.currentPage + 1
+            currentPage: this.currentPage + 1,
+            pageSize: this.pageSize,
+            total: this.total
         };
     }
 
     private goto(index: number) {
         this.currentPage = index;
+        this.update();
         this.change(index);
     }
 
@@ -98,6 +101,7 @@ export class WuPagination extends WuComponent implements OnBeforeRender{
             <button
                 type="button"
                 class="btn-prev"
+                // @ts-ignore
                 onclick={e => {
                     this.goto(this.currentPage - 1);
                 }}
@@ -140,6 +144,7 @@ export class WuPagination extends WuComponent implements OnBeforeRender{
             <button
                 type="button"
                 class="btn-next"
+                // @ts-ignore
                 onclick={e => {
                     this.goto(this.currentPage + 1);
                 }}
@@ -166,6 +171,7 @@ export class WuPagination extends WuComponent implements OnBeforeRender{
         return (
             <li
                 class="number"
+                // @ts-ignore
                 onclick={e => {
                     this.goto(pageIndex);
                 }}

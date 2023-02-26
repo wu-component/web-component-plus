@@ -1,12 +1,12 @@
-import { WuComponent } from '@wu-component/web-core-plus';
+import { OnConnected, WuComponent } from '@wu-component/web-core-plus';
 import "@wu-component/wu-progress";
 export declare const documentIcon: () => any;
 export declare const closeIcon: () => any;
 export declare const circleIcon: () => any;
 export declare const checkIcon: () => any;
 export declare const deleteIcon: () => any;
-declare type ListTypeEnum = 'text' | 'picture' | 'picture-card';
-export declare class WuUpload extends WuComponent {
+type ListTypeEnum = 'text' | 'picture' | 'picture-card';
+export declare class WuUpload extends WuComponent implements OnConnected {
     disabled: boolean;
     multiple: boolean;
     action: string;
@@ -29,6 +29,7 @@ export declare class WuUpload extends WuComponent {
     focusing: boolean;
     tempIndex: number;
     constructor();
+    connected(shadowRoot: ShadowRoot): void;
     emitFile(files: File[]): {
         files: File[];
     };
@@ -50,6 +51,12 @@ export declare class WuUpload extends WuComponent {
     onRemove(params: Record<any, any>): {
         [x: string]: any;
     };
+    /**
+     * 文件数据修改
+     * @param fileList
+     * @private
+     */
+    private fileListChangeCallback;
     fileListChange(fileList: File[]): void;
     submit(): void;
     /**

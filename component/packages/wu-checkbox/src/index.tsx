@@ -10,8 +10,6 @@ import { extractClass } from '@wu-component/common';
 export class WuCheckbox extends WuComponent implements OnConnected, OnBeforeUpdate {
     public isGroup = false;
 
-    public override props!: any;
-
     constructor() {
         super();
     }
@@ -43,7 +41,12 @@ export class WuCheckbox extends WuComponent implements OnConnected, OnBeforeUpda
         const value = this.newValue;
         this.disabled = disabled === 'true' || disabled === true;
         this.size = size || 'mini';
-        this.checked = Array.isArray(value) && value.includes(this.label);
+        const checked = Array.isArray(value) && value.includes(this.label);
+        // console.log(this.indeterminate, checked);
+        if (checked && this.indeterminate) {
+            this.indeterminate = false;
+        }
+        this.checked = checked;
     }
 
     public override connected(shadowRoot: ShadowRoot) {
@@ -69,36 +72,38 @@ export class WuCheckbox extends WuComponent implements OnConnected, OnBeforeUpda
     public disabled: boolean;
 
     @Prop({ default: '' })
-    public value: boolean;
+    public value = '';
 
     @Prop({ default: '' })
-    public label: string;
+    public label = '';
 
     @Prop({ default: false, type: Boolean })
-    public indeterminate: boolean;
+    public indeterminate = false;
 
     @Prop({ default: false, type: Boolean })
-    public checked: boolean;
+    public checked = false;
 
     @Prop({ default: false, type: Boolean })
-    public border: boolean;
+    public border = false;
 
     @Prop({ default: '', type: String })
-    public name: string;
+    public name = '';
 
     // 当indeterminate为真时，为controls提供相关连的checkbox的id，表明元素间的控制关系
-    // @ts-ignore
-    @Prop({ default: '', type: String }) public id: string;
 
     // 当indeterminate为真时，为controls提供相关连的checkbox的id，表明元素间的控制关系
-    @Prop({ default: '', type: String }) public controls: string;
+    @Prop({ default: '', type: String })
+    public controls = '';
 
     public handleChange(ev: any) {
+        const checked = !this.checked;
+        if (checked) {
+            this.indeterminate = false;
+        }
+        this.checked = checked;
         if (!this.isGroup) {
-            this.checked = !this.checked;
             this.change();
         } else {
-            this.checked = !this.checked;
             this.checkChange();
         }
     }
@@ -114,7 +119,7 @@ export class WuCheckbox extends WuComponent implements OnConnected, OnBeforeUpda
 
     @Emit('check')
     private checkChange() {
-        (this.parentNode as any).handleChange({
+        (this.parentNode as any).handleChange?.({
             detail: {
                 value: this.checked,
                 name: this.name,
@@ -152,11 +157,12 @@ export class WuCheckbox extends WuComponent implements OnConnected, OnBeforeUpda
                     {...extractClass({}, 'wu-checkbox_input', {
                         'is-disabled': this.newDisabled,
                         'is-border': this.border,
-                        'is-checked': this.checked,
                         'is-indeterminate': this.indeterminate,
                         'is-focus': this.focus,
+                        'is-checked': this.checked,
                     })}
                     tabindex={this.indeterminate ? 0 : false}
+                    // @ts-ignore
                     role={this.indeterminate ? 'checkbox' : false}
                     aria-checked={this.indeterminate ? 'mixed' : false}
                 >

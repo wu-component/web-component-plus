@@ -47,6 +47,8 @@ export class WuTag extends WuComponent {
         event.stopPropagation();
         return {
             event,
+            value: this.value,
+            text: this.text,
         };
     }
 

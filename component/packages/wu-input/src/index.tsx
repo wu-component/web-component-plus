@@ -1,7 +1,8 @@
- import { h, Component, Prop, OnInstall, Emit, Inject, WuComponent } from '@wu-component/web-core-plus';
+import { Component, Emit, h, Inject, OnInstall, Prop, WuComponent } from '@wu-component/web-core-plus';
 import css from './index.scss';
- type UISize = 'medium' | 'small' | 'mini';
 import { extractClass } from '@wu-component/common';
+
+type UISize = 'medium' | 'small' | 'mini';
 
 type TypeEnums = 'textarea' | 'input';
 
@@ -136,12 +137,13 @@ export class WuInput extends WuComponent implements OnInstall {
      */
     @Emit('change')
     public handleChange(e) {
+        e.stopPropagation();
         if (this.disabled) {
             return;
         }
         const evt = Array.isArray(e) && e.length ? e[0] : e;
         this.$value = evt.target.value;
-        this.value = evt.target.value;
+        this.value = this.correctValue(e);
 
         if (this.onChange) {
             return this.onChange(evt.this.value);
@@ -161,19 +163,26 @@ export class WuInput extends WuComponent implements OnInstall {
         const evt = Array.isArray(e) && e.length ? e[0] : e;
         evt.stopPropagation();
         this.$value = evt.target.value;
-        let value = evt.target.value;
-
-        if (this.maxLength && this.maxLength > 0) {
-            this.valueLength = evt.target.value.length;
-            if (this.valueLength > this.maxLength) {
-                value = value.splice(0, this.maxLength - 1);
-            }
-        }
-        this.value = value;
+        this.value = this.correctValue(e);
         if (this.onInput) {
             return this.onInput(evt, this.value);
         }
         return this.value;
+    }
+
+    /**
+     * 修正数据
+     * @private
+     */
+    private correctValue(evt) {
+        let value = evt.target.value;
+        if (this.maxLength && this.maxLength > 0) {
+            this.valueLength = evt.target.value.length;
+            if (this.valueLength > this.maxLength) {
+                value = value.slice(0, this.maxLength - 1);
+            }
+        }
+        return value;
     }
 
     /**
@@ -213,6 +222,7 @@ export class WuInput extends WuComponent implements OnInstall {
         if (this.minLength) {
             attrMap['min-length'] = this.minLength;
         }
+
         return (
             <div
                 {...extractClass({}, `wu-${this.tempInputTagName}`, {
@@ -227,6 +237,7 @@ export class WuInput extends WuComponent implements OnInstall {
             >
                 {(this.prefixIcon || this.suffixIcon) && (
                     <this.tempTagName
+                        // @ts-ignore
                         css={`
                             svg {
                                 width: 1em;
@@ -249,6 +260,7 @@ export class WuInput extends WuComponent implements OnInstall {
                     className={`wu-${this.tempInputTagName}_inner`}
                     autocomplete={this.autoComplete}
                     {...attrMap}
+                    // @ts-ignore
                     block={this.block}
                     onchange={this.handleChange.bind(this)}
                     onfocus={this.handleFocus.bind(this)}
@@ -262,12 +274,12 @@ export class WuInput extends WuComponent implements OnInstall {
                         </svg>
                     </div>
                 )}
-                {this.maxLength && this.tempInputTagName === 'textarea' ? (
+                {this.maxLength && this.tempInputTagName === 'textarea' && !this.disabled ? (
                     <div class="wu-input_count">
                         {this.valueLength}/{this.maxLength}
                     </div>
                 ) : null}
-                {this.maxLength && this.tempInputTagName === 'input' ? (
+                {this.maxLength && this.tempInputTagName === 'input' && !this.disabled ? (
                     <span class="wu-input_suffix">
                         <span class="el-input_suffix-inner">
                             <span class="wu-input_count">

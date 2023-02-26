@@ -1,5 +1,5 @@
 import { WuComponent } from '@wu-component/web-core-plus';
-import "./ImgEmpty";
+import "./ImgEmpty.tsx";
 export declare class WuEmpty extends WuComponent {
     constructor();
     image: string;

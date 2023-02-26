@@ -231,9 +231,11 @@ export class WuRate extends WuComponent implements OnConnected, OnBeforeRender, 
 
     public override render(_renderProps = {}, _store = {}) {
         return (
+            // @ts-ignore
             <div class="wu-rate" onKeydown={event => this.handleKey(event)} role="slider" aria-valuenow={this.currentValue} aria-valuetext={this.text} aria-valuemin="0" aria-valuemax={this.max} tabindex="0" id="rate">
                 {this?.valueList?.map((itemValue, item) => {
                     return (
+                        // @ts-ignore
                         <span data-rate={item} class="wu-rate_item" onMousemove={event => this.setCurrentValue(item, event)} onMouseleave={event => this.resetCurrentValue()} onClick={event => this.selectValue(item, event)} style={{ cursor: this.rateDisabled ? 'auto' : 'pointer' }} key={item}>
                             <i data-rate={item} class={`wu-rate_icon ${this.hoverIndex === item ? 'hover' : ''}`} style={this.getIconStyle(item)}>
                                 {/*直接传入html集合*/}
@@ -243,6 +245,7 @@ export class WuRate extends WuComponent implements OnConnected, OnBeforeRender, 
                     );
                 })}
                 {this.showText || this.showScore ? (
+                    // @ts-ignore
                     <span class="wu-rate_text" style={{ color: this.textColor }}>
                         {this.text}
                     </span>

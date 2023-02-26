@@ -1,6 +1,6 @@
 import { OnInstall, WuComponent } from '@wu-component/web-core-plus';
-declare type UISize = 'medium' | 'small' | 'mini';
-declare type TypeEnums = 'textarea' | 'input';
+type UISize = 'medium' | 'small' | 'mini';
+type TypeEnums = 'textarea' | 'input';
 export declare class WuInputNumber extends WuComponent implements OnInstall {
     wuForm: any;
     wuFormItem: any;

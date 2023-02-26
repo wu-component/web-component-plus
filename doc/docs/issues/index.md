@@ -9,13 +9,15 @@
 
 npm包
 
-* @wu-component/t-cli：脚手架，基于该插件可快速创建、构建 webComponent 组件；
+* @wu-component/wu-cli：脚手架，基于该插件可快速创建、构建 webComponent 组件；
 * @wu-component/web-core-plus：核心底层依赖库；
 * @wu-component/ui-plus：基于 web-core-plus 的 UI 组件库；
 * @wu-component/wu-core-router：基于 webComponent 的路由插件，目前支持 hash 路由。
 
 ### 讨论区
 
+<script>
+</script>
 <div style="width:100%; margin: 0 auto; ">
-    <wu-waline-comment path="/issues/" serverurl="https://comment.canyuegongzi.xyz" style="--waline-theme-color: #409eff" dark="body.theme-dark" language="zh-CN" comment="true" pageview="true" emoji="['//unpkg.com/@waline/emojis@1.0.1/weibo', '//unpkg.com/@waline/emojis@1.0.1/bilibili']"></wu-waline-comment>
+    <wu-waline-comment-shadow path="/issues/" serverurl="https://comment.wu-component.com" style="--waline-theme-color: #409eff" dark="body.theme-dark" language="zh-CN" comment="true" pageview="true" emoji="['//unpkg.com/@waline/emojis@1.0.1/weibo', '//unpkg.com/@waline/emojis@1.0.1/bilibili']"></wu-waline-comment-shadow>
 </div>

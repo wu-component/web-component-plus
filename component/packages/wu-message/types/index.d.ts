@@ -1,6 +1,6 @@
 import { WuComponent } from '@wu-component/web-core-plus';
-export declare type TypeEnums = 'success' | 'warning' | 'info' | 'error';
-export declare type PositionEnums = 'top';
+export type TypeEnums = 'success' | 'warning' | 'info' | 'error';
+export type PositionEnums = 'top';
 export declare class WuMessage extends WuComponent {
     constructor();
     timer: any;

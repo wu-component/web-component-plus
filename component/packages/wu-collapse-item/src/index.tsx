@@ -85,7 +85,7 @@ export class WuCollapseItem extends WuComponent {
                         onClick={this.handleHeaderClick.bind(this)}
                         role="button"
                         id={`wu-collapse-head-${this.uId}`}
-                        tabindex={this.disabled ? undefined : 0}
+                        /*tabindex={this.disabled ? undefined : 0}*/
                         {...extractClass({}, 'wu-collapse-item_header', {
                             'focusing': this.focusing,
                             'is-active': this.isActive,

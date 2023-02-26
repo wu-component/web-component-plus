@@ -249,19 +249,19 @@ export class WuColorPane extends WuComponent implements OnConnected, OnDisConnec
                 <div className="color-footer" data-type="HEXA">
                     <div className="color-input">
                         <div className="color-label" id="color-hexa">
-                            <input spellCheck="false"/>
+                            <input spellCheck={false}/>
                         </div>
                         <div className="color-label" id="color-rgba">
-                            <input type="number" min="0" max="255" spellCheck="false"/>
-                            <input type="number" min="0" max="255" spellCheck="false"/>
-                            <input type="number" min="0" max="255" spellCheck="false"/>
-                            <input type="number" min="0" max="1" step="0.01" spellCheck="false"/>
+                            <input type="number" min="0" max="255" spellCheck={false}/>
+                            <input type="number" min="0" max="255" spellCheck={false}/>
+                            <input type="number" min="0" max="255" spellCheck={false}/>
+                            <input type="number" min="0" max="1" step="0.01" spellCheck={false}/>
                         </div>
                         <div className="color-label" id="color-hlsa">
-                            <input type="number" min="0" max="360" spellCheck="false"/>
-                            <input type="number" min="0" max="100" spellCheck="false"/>
-                            <input type="number" min="0" max="100" spellCheck="false"/>
-                            <input type="number" min="0" max="1" step="0.01" spellCheck="false"/>
+                            <input type="number" min="0" max="360" spellCheck={false}/>
+                            <input type="number" min="0" max="100" spellCheck={false}/>
+                            <input type="number" min="0" max="100" spellCheck={false}/>
+                            <input type="number" min="0" max="1" step="0.01" spellCheck={false}/>
                         </div>
                     </div>
                     <button className="btn-switch" id="btn-switch" type="flat">HEXA</button>

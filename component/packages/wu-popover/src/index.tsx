@@ -1,4 +1,4 @@
-﻿import { h, Component, Prop, OnConnected, WuComponent, Emit } from '@wu-component/web-core-plus';
+﻿import { h, Component, Prop, OnConnected, WuComponent, Emit, OnDisConnected } from '@wu-component/web-core-plus';
 import { createPopper } from '@popperjs/core/dist/esm';
 import css from './index.scss';
 import { Placement } from '@popperjs/core/lib/enums';
@@ -9,22 +9,29 @@ export type TypeEnums = 'success' | 'warning' | 'info' | 'error';
     name: 'wu-plus-popover',
     css: css,
 })
-export class WuPopover extends WuComponent implements OnConnected {
+export class WuPopover extends WuComponent implements OnConnected , OnDisConnected {
     constructor() {
         super();
     }
 
+    private maskClick(e) {
+
+        if (e?.target?.tagName !== "WU-PLUS-POPOVER"){
+            return;
+        }
+        if (this.trigger === 'manual') return;
+        if (this.isShow) {
+            this.leave();
+        }
+    }
+
     public override connected(shadowRoot: ShadowRoot) {
-        window.addEventListener('click', (e: Event) => {
-            // @ts-ignore
-            if (e.target?.rootNode?.$options?.name === 'wu-plus-popover') {
-                return;
-            }
-            if (this.trigger === 'manual') return;
-            if (this.isShow) {
-                this.leave();
-            }
-        });
+        window.addEventListener('click', (e: Event) => this.maskClick(e));
+    }
+
+    public override disConnected(shadowRoot: ShadowRoot) {
+        window.removeEventListener('click', (e: Event) => this.maskClick(e));
+
     }
 
     @Prop({ type: String, default: 'bottom' })
@@ -150,6 +157,7 @@ export class WuPopover extends WuComponent implements OnConnected {
             targetEvents.onMouseLeave = this.onLeave;
         }
         return (
+            // @ts-ignore
             <div style="position:relative" appear={this.appear} disappear={this.disappear} name="fade">
                 <slot {...targetEvents} />
                 <div

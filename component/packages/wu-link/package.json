@@ -1,6 +1,6 @@
 {
   "name": "@wu-component/wu-link",
-  "version": "1.11.8",
+  "version": "2.0.1",
   "description": "> TODO: description",
   "author": "Marvin <yongfeide123@gmail.com>",
   "homepage": "",
@@ -86,7 +86,7 @@
   },
   "dependencies": {
     "@wu-component/common": "latest",
-    "@wu-component/web-core-plus": "latest"
+    "@wu-component/web-core-plus": "next"
   },
   "files": [
     "dist",

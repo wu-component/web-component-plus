@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {commonPlugins, commonRules} = require("./webpack_common.config");
 const {resolve} = require("path");
 module.exports = {
-    entry: ['./src/example.tsx'],
+    entry: ['./src/example/example.tsx'],
     output: {
         path: path.resolve(__dirname, '../', "dist"),
         filename: "bundle.[chunkhash:8].js",
@@ -35,8 +35,8 @@ module.exports = {
         port: 9005,
         host:'0.0.0.0'
     },
-    // devtool: 'eval-source-map',
-    devtool: false,
+    devtool: 'eval-source-map',
+    // devtool: false,
     module: {
         rules: [
             ...commonRules

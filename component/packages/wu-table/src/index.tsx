@@ -1,4 +1,4 @@
-import { Component, Emit, h, OnBeforeRender, OnConnected, Prop, WuComponent } from '@wu-component/web-core-plus';
+import { Component, Emit, h, State, OnBeforeRender, OnConnected, Prop, WuComponent, Fragment } from '@wu-component/web-core-plus';
 import '@wu-component/wu-checkbox';
 import '@wu-component/wu-input';
 import css from './index.scss';
@@ -9,8 +9,18 @@ import { classNames, extractClass } from '@wu-component/common';
     css: css,
 })
 export class WuTable extends WuComponent implements OnConnected, OnBeforeRender {
+
+    public setColumns: (...args) => void;
+    public setData: (...args) => void;
     constructor() {
         super();
+        this.setColumns = (columns: Record<any, any>[]) =>  {
+            this.columns = columns;
+        };
+
+        this.setData = (data: Record<any, any>[]) => {
+            this.data = data;
+        };
     }
 
     public editingInput!: any;
@@ -18,6 +28,7 @@ export class WuTable extends WuComponent implements OnConnected, OnBeforeRender 
     public override beforeRender() {}
 
     public override connected(shadowRoot: ShadowRoot) {
+        this.update();
         this.setFixedLeft();
         this.setFixedRight();
     }
@@ -27,9 +38,9 @@ export class WuTable extends WuComponent implements OnConnected, OnBeforeRender 
      * @private
      */
     private setFixedLeft() {
-        if (this.rootNode) {
-            const fixedLeftEls = this.rootNode.querySelectorAll('.fixed-left');
-            const boxRect = this.rootNode.getBoundingClientRect();
+        if (this.shadowRoot) {
+            const fixedLeftEls = this.shadowRoot.querySelectorAll('.fixed-left');
+            const boxRect = this.shadowRoot.querySelector('.wu-table')?.getBoundingClientRect();
             fixedLeftEls.forEach((fixedLeftEl: HTMLElement, index: number) => {
                 const rect = fixedLeftEl.getBoundingClientRect();
                 fixedLeftEl.style.left = rect.left - boxRect.left - 1 + 'px';
@@ -42,7 +53,7 @@ export class WuTable extends WuComponent implements OnConnected, OnBeforeRender 
      * @private
      */
     private setFixedRight() {
-        if (this.rootNode) {
+        if (this.shadowRoot) {
             const fixedRightEls = this.shadowRoot.querySelectorAll('.fixed-right');
             fixedRightEls.forEach((fixedRightEl: HTMLElement, index: number) => {
                 fixedRightEl.style.right = '0px';
@@ -50,35 +61,35 @@ export class WuTable extends WuComponent implements OnConnected, OnBeforeRender 
         }
     }
 
-    @Prop({ default: [], type: Array })
-    public data: any[];
+    @State({ default: [], type: Array })
+    public data: any[] = [];
 
-    @Prop({ default: [], type: Array })
-    public columns: any[];
-
-    @Prop({ default: false, type: Boolean })
-    public border: boolean;
+    @State({ default: [], type: Array })
+    public columns: any[] = [];
 
     @Prop({ default: false, type: Boolean })
-    public stripe: boolean;
+    public border = false;
 
     @Prop({ default: false, type: Boolean })
-    public compact: boolean;
+    public stripe = false;
+
+    @Prop({ default: false, type: Boolean })
+    public compact = false;
 
     @Prop({ default: 'auto', type: String })
-    public width: string;
+    public width = 'auto';
 
     @Prop({ default: 'auto', type: String })
-    public height: string;
+    public height = 'auto';
 
     @Prop({ default: false, type: Boolean })
-    public fixedTop: boolean;
+    public fixedTop = false;
 
     @Prop({ default: false, type: Boolean })
-    public fixedRight: boolean;
+    public fixedRight = false
 
     @Prop({ default: 0, type: Number })
-    public fixedLeftCount: number;
+    public fixedLeftCount = 0;
 
     get checkbox() {
         return Boolean(this.columns.find(item => item.type === 'selection'));
@@ -186,7 +197,9 @@ export class WuTable extends WuComponent implements OnConnected, OnBeforeRender 
     }
 
     public override render(_renderProps = {}, _store = {}) {
-        if (!this.columns.length) return;
+        if (!this.columns?.length) {
+            return <Fragment></Fragment>;
+        }
         if (this.fixedRight) {
             this.columns[this.columns.length - 1].fixed = true;
         }
@@ -223,6 +236,7 @@ export class WuTable extends WuComponent implements OnConnected, OnBeforeRender 
                                             'wu-table-column-selection': column.type && column.selection === 'selection',
                                         })}
                                     >
+                                        {/*@ts-ignore*/}
                                         <div class="cell">{column.type && column.type === 'selection' ? <wu-plus-checkbox checked={false} {...this.getCheckedState()} onChange={_ => this.changeHandlerTh(_, column, { isAllSelect: true })} /> : <div class="cell">{column.title}</div>}</div>
                                     </th>
                                 );
@@ -259,10 +273,12 @@ export class WuTable extends WuComponent implements OnConnected, OnBeforeRender 
                                         >
                                             {column.type && column.type === 'selection' ? (
                                                 <div class="cell">
+                                                    {/*@ts-ignore*/}
                                                     <wu-plus-checkbox checked={item.checked} onChange={_ => this.changeHandlerTd(_, item, { isAllSelect: false })} />
                                                 </div>
                                             ) : column.editable && item.editingKey === column.key ? (
                                                 <div class="cell">
+                                                    {/*@ts-ignore*/}
                                                     <wu-plus-input ref={_ => (this.editingInput = _)} size="mini" onChange={evt => this.onChange(evt, item, column)} value={item[column.key]} />
                                                 </div>
                                             ) : (

@@ -6,11 +6,69 @@
     <style>
         html {
             width: 100vw;height:100vh;
+            margin: 0;
         }
     </style>
    <!-- <script src="https://unpkg.com/@wu-component/web-core-plus@0.3.3/dist/index.umd.js"></script>-->
 </head>
 <body style="width: 100%;height: 100%;margin: 0;">
-    <wu-code-sandbox style="width: 100%;height: 100%"></wu-code-sandbox>
+    <wu-code-sandbox id="sandbox" style="width: 100%;height: 100%"></wu-code-sandbox>
+    <button id="button1">读取沙箱实例</button>
+    <button id="button2">执行code</button>
+    <button id="button3">调用沙箱实例</button>
+    <button id="button4">Sandbox 注入数据</button>
 </body>
 </html>
+
+<script type="module">
+    var sandbox = document.querySelector("#sandbox");
+    var button1 = document.querySelector("#button1");
+    var button2 = document.querySelector("#button2");
+    var button3 = document.querySelector("#button3");
+    var button4 = document.querySelector("#button4");
+
+    sandbox.addEventListener('success', () => {
+        console.log("122222222")
+    })
+    button1.addEventListener('click', () => {
+        console.log(sandbox.sandbox);
+    })
+    button2.addEventListener('click', () => {
+        var code = `
+            console.info("Sandboxed code initialized successfully");
+            var title = document.createElement('h3');
+            title.innerHTML = "Content is generated from the sandbox";
+            document.body.appendChild(title);
+        `
+        sandbox.runCode(code, (res) => {
+            console.log(res);
+        })
+    })
+    // 调用沙箱
+    button3.addEventListener('click', () => {
+        var code = `
+            console.info("Sandboxed code initialized successfully");
+            var title = document.createElement('h3');
+            title.innerHTML = "Content is generated from the sandbox";
+            document.body.appendChild(title);
+        `
+        sandbox.callSandboxFunction('getIframeInstance', {}, async (res) => {
+            console.log(res);
+        })
+    })
+    // 像沙箱注入环境
+    button4.addEventListener('click', () => {
+        var code = `
+            console.info("Sandboxed code initialized successfully");
+            var title = document.createElement('h3');
+            title.innerHTML = "Content is generated from the sandbox";
+            document.body.appendChild(title);
+        `
+        sandbox.injectSandboxLocalApi('getIframeInstance', () => {
+            const time = new Date();
+            return time.toString();
+        }, (res) => {
+            console.log(res);
+        })
+    })
+</script>

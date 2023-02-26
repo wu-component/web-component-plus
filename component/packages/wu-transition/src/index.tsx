@@ -1,11 +1,26 @@
-import { Component, Emit, OnConnected, Prop, State, WuComponent } from '@wu-component/web-core-plus';
+import { Component, Emit, h, OnConnected, Prop, State, WuComponent } from '@wu-component/web-core-plus';
 import css from './index.scss';
-import domReady from "@wu-component/common/dist/dready";
+const readyCallbackList = [];
+document.addEventListener('DOMContentLoaded', () => {
+    domTransitionReady.done = true;
+    readyCallbackList.forEach(callback => {
+        callback();
+    });
+});
+
+export default function domTransitionReady(callback) {
+    if (domTransitionReady.done) {
+        callback();
+        return;
+    }
+    readyCallbackList.push(callback);
+}
+
+domTransitionReady.done = false;
 
 @Component({
     name: 'wu-plus-transition',
-    css: css,
-    is: 'LightDom'
+    css: css
 })
 export class WuTransition extends WuComponent implements OnConnected {
     constructor() {
@@ -62,7 +77,7 @@ export class WuTransition extends WuComponent implements OnConnected {
     public afterLeave() {}
 
     public override connected(shadowRoot: ShadowRoot) {
-        domReady(() => {
+        domTransitionReady(() => {
             if (this.appear) {
                 this.enter();
             }
@@ -99,7 +114,7 @@ export class WuTransition extends WuComponent implements OnConnected {
                 el.classList.add(this.name + '-enter-active');
 
                 this.callback = function () {
-                    el.classList.remove(this.props.name + '-enter-active');
+                    el.classList.remove(this.name + '-enter-active');
                     this.afterEnter();
                     this._show = true;
                     resolve(0);
@@ -130,10 +145,10 @@ export class WuTransition extends WuComponent implements OnConnected {
                 el.classList.add(this.name + '-leave');
                 el.classList.add(this.name + '-leave-active');
                 this.callback = function (e) {
-                    el.classList.remove(this.props.name + '-leave-active');
+                    el.classList.remove(this.name + '-leave-active');
                     this.afterLeave();
                     this._show = false;
-                    if (this.props.autoRemove && this.parentNode) {
+                    if (this.autoRemove && this.parentNode) {
                         this.parentNode.removeChild(this);
                     }
                     resolve(0);
@@ -142,8 +157,8 @@ export class WuTransition extends WuComponent implements OnConnected {
                 this.once('animationend', this.callback);
 
                 window.setTimeout(function () {
-                    el.classList.remove(this.props.name + '-leave');
-                    el.classList.add(this.props.name + '-leave-to');
+                    el.classList.remove(this.name + '-leave');
+                    el.classList.add(this.name + '-leave-to');
                     this.leaveEvent();
                 }.bind(this), this.delay);
             }
@@ -165,6 +180,6 @@ export class WuTransition extends WuComponent implements OnConnected {
     }
 
     public override render(_renderProps = {}, _store = {}): any {
-        return;
+        return <slot></slot>;
     }
 }

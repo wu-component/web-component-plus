@@ -1,0 +1,62 @@
+@import './config';
+
+@mobileSidebarWidth: @sidebarWidth * 0.82;
+
+// narrow desktop / iPad
+@media (max-width: @MQNarrow) {
+  .sidebar {
+    font-size: 15px;
+    width: @mobileSidebarWidth;
+  }
+
+  .page {
+    padding-left: @mobileSidebarWidth;
+  }
+}
+
+// wide mobile
+@media (max-width: @MQMobile) {
+  .sidebar {
+    display: none;
+  }
+
+  .page {
+    padding-left: 0;
+    // padding-right: 0;
+    .page-anchor{
+      display: none;
+    }
+  }
+
+  
+  .theme-container {
+    &.no-navbar {
+      .sidebar {
+        padding-top: 0;
+      }
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    .@{contentClass}:not(.custom) > & {
+
+      &:first-child {
+        margin-top: -(@navbarHeight - 5);
+      }
+    }
+  }
+}
+
+// narrow mobile
+@media (max-width: @MQMobileNarrow) {
+  h1 {
+    font-size: 1.9rem;
+  }
+
+  .@{contentClass} {
+    div[class*='language-'] {
+      // margin: 0.85rem -1.5rem;
+      border-radius: 2px;
+    }
+  }
+}

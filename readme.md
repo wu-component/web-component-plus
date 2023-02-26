@@ -11,7 +11,7 @@ web-core-plus 是核心代码包，其中利用虚拟dom 实现了 WebComponent 
 #### 自定义标签
 
 ```tsx
-import { h, Component, Prop } from "@canyuegongzi/web-core-plus";
+import { h, Component, Prop } from "@wu-component/web-core-plus";
 import css from './index.scss';
 import { UISize } from "@/interface";
 import { extractClass } from "@/common";

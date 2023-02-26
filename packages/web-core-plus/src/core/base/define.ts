@@ -1,142 +1,233 @@
+import { WuComponent } from "@/core/base/WuComponent";
 import {
     CustomTagOptions,
-    EventOptions, InjectConfig, InjectOptions, MethodOptions,
-    PropOptions,
+    InjectOptions,
+    PropertyDeclaration,
     ProvideConfig,
-    ProvideOptions, ReactiveDataOption,
-    StateOptions, WatchMetaOptions, WatchOptions
+    ProvideOptions, StateOptions,
+    WatchOptions
 } from "@/type";
 import {
-    COMPONENT_CUSTOM_EVENT,
-    COMPONENT_CUSTOM_INJECT, COMPONENT_CUSTOM_METHOD,
-    COMPONENT_CUSTOM_PROVIDE, COMPONENT_WATCH,
-    PROP_META_KEY,
-    STATE_META_KEY
-} from "@/app-data";
-import { hyphenateReverse } from "@/share";
+    Descriptors,
+    ElementProperties,
+    InjectDescriptors,
+    ProvideDescriptors,
+    WatchDescriptors
+} from "@/core/base/constant";
+import { defaultConverter, toDotCase } from "@/share";
 
+const defaultPropertyDeclaration: PropertyDeclaration = {
+    observed: true,
+    type: String,
+    converter: defaultConverter,
+};
 /**
  * 定义组件
  * @param options
  * @param ctor
  */
-export function defineComponent(ctor: any, options: CustomTagOptions) {
+export function defineComponent(ctor: typeof WuComponent, options: CustomTagOptions) {
     // 默认挂载dom
     if (options.isMountDom === undefined) {
         options.isMountDom = true;
     }
-    if (customElements.get(options.name)) {
-        return;
-    }
-    /*class El extends ctor {
+    // @ts-ignore
+    ctor.$options = options;
+
+    class CustomElement extends ctor {
+        static get observedAttributes() {
+            const attributes: string[] = [ 'css' ];
+            ElementProperties.forEach((elOption, constructor, elName) => {
+                if (constructor === ctor && elOption.observed) {
+                    attributes.push(elName);
+                }
+            });
+            return attributes;
+        }
+
+        static isBooleanProperty(propertyName: string) {
+            let isBoolean = false;
+            // @ts-ignore
+            ElementProperties.forEach((elOption, constructor, elName) => {
+                if (constructor === ctor && elOption.type === Boolean && propertyName === elName) {
+                    isBoolean = true;
+                    return isBoolean;
+                }
+            });
+            return isBoolean;
+        }
+
         constructor() {
             super();
+
+            let style = '';
+            if (typeof options.css === 'string') {
+                style = options.css;
+            }
+            if (Object.prototype.toString.call(options.css) === '[object Array]') {
+                style = options.css[0][1];
+            }
+
+            if (style) {
+                this.getStyles = () => style;
+            }
+            const shadowRoot = options.is !== 'LightDom'? (this.shadowRoot || this.attachShadow({ mode: "open" })): this;
+
+            if (shadowRoot) {
+                if (typeof this.getStyles === "function") {
+                    const styleEl = document.createElement("style");
+                    styleEl.innerHTML = this.getStyles();
+                    shadowRoot.append(styleEl);
+                }
+            }
+
+            /**
+             * 重写类的属性描述符，并重写属性初始值。
+             * 注：由于子类的属性初始化晚于当前基类的构造函数，同名属性会导致属性描述符被覆盖，所以必须放在基类构造函数之后执行
+             */
+            Descriptors.forEach((descriptorCreator, constructor, propertyName) => {
+                if (constructor === ctor) {
+                    Object.defineProperty(
+                        this,
+                        propertyName,
+                        descriptorCreator((this as never)[propertyName])
+                    );
+                }
+            });
+            this.$watchMap = WatchDescriptors.getProperty(ctor);
+            /**
+             * inject 处理
+             */
+            const injectsList = [];
+            (InjectDescriptors.getProperty(ctor) || new Map())?.forEach((value, key, map) => {
+                injectsList.push(value);
+            });
+            this.$injectsList = injectsList;
+            /**
+             * provide 处理
+             */
+            const providesList = [];
+            (ProvideDescriptors.getProperty(ctor) || new Map())?.forEach((value, key, map) => {
+                providesList.push(value);
+            });
+            this.$providesMap = providesList.reduce((previousValue: Record<string, ProvideConfig>, currentValue: ProvideConfig) => {
+                previousValue[currentValue.key] = currentValue;
+                return previousValue;
+            }, {} as Record<string, ProvideConfig> );
         }
-    }*/
-    ctor.$options = options;
-    customElements.define(options.name, ctor, options.options || {});
+    }
+    if (!customElements.get(options.name)) {
+        customElements.define(options.name, CustomElement, options.options || {});
+    }
+
 }
 
 /**
- * 定义Prop
+ * 属性装饰器
  * @param options
- * @param target
- * @param attr
+ * @constructor
  */
-export function defineProps(target: any, attr: string, options: PropOptions = { default: undefined }) {
-    const value = options.default;
-    const keys: ReactiveDataOption[] = Reflect.getMetadata(PROP_META_KEY, target) ?? [];
-    keys.push({ default: value, type: options.type, attr, attrType: 'PROP' });
-    Reflect.defineMetadata(PROP_META_KEY, keys, target);
-}
-
+export const Prop = (options: PropertyDeclaration = {}) => {
+    return (target: unknown, name: string) => {
+        const newOpt = Object.assign({}, defaultPropertyDeclaration, options);
+        target[name] = newOpt.converter(newOpt.default, newOpt.type);
+        return (target.constructor as typeof WuComponent).createProperty(
+            name,
+            newOpt
+        );
+    };
+};
 
 /**
- * 定义Prop
+ * 属性装饰器
  * @param options
- * @param target
- * @param attr
+ * @constructor
  */
-export function defineStates( target: any, attr: string, options: StateOptions = { default: undefined },) {
-    const value = options.default;
-    const keys: ReactiveDataOption[] = Reflect.getMetadata(STATE_META_KEY, target) ?? [];
-    keys.push({ default: value, type: options.type, attr, attrType: 'STATE' });
-    Reflect.defineMetadata(STATE_META_KEY, keys, target);
-}
+export const State = (options?: StateOptions) => {
+    return (target: unknown, name: string) => {
+        return (target.constructor as typeof WuComponent).createState(name, options);
+    };
+};
 
 /**
- * 定义事件
+ * 像外抛出自定义事件
  * @param event
- * @param target
- * @param methodName
- * @param desc
+ * @constructor
  */
-export function defineEmit(target: any, event: string,  methodName: string, desc: any) {
-    const functions: EventOptions[] = Reflect.getMetadata(COMPONENT_CUSTOM_EVENT, target) ?? [];
-    const methodFun = desc.value;
-    const eventName = event ? event : hyphenateReverse(methodName);
-    functions.push({ methodName: methodName, methodFun, eventName });
-    Reflect.defineMetadata(COMPONENT_CUSTOM_EVENT, functions, target);
+export const Emit = (event?: string) => {
+    return function(target: any, methodName: string, descriptor: any) {
+        const origin = descriptor.value;
+        return {
+            ...descriptor,
+            value: function (...arg) {
+                const result = origin.call(this, ...arg);
+                const evtName = event ?event : toDotCase(methodName);
+                this.customDispatchEvent.call(this, evtName, result);
+            },
+        };
+    };
+};
+
+/**
+ * Watch 装饰器
+ * @param path
+ * @param options
+ * @constructor
+ */
+export function Watch(path: string, options?: WatchOptions): any {
+    return function (target: any, key: string, descriptor: PropertyDescriptor) {
+        (target.constructor as typeof WuComponent).createWatch(path, {
+            ...options,
+            path: options?.path || path,
+            callbackName: key,
+            callback: descriptor,
+            options
+        });
+    };
 }
 
 /**
- * 定义defineProvide
+ * 向子组件注入数据
  * @param key
- * @param target
- * @param methodName
  * @param config
+ * @constructor
  */
-export function defineProvide(target: any, key: string, methodName: string, config: ProvideOptions = {}) {
-    const functions: ProvideConfig[] = Reflect.getMetadata(COMPONENT_CUSTOM_PROVIDE, target) ?? [];
-    functions.push({ key: key, functionName: methodName, config });
-    Reflect.defineMetadata(COMPONENT_CUSTOM_PROVIDE, functions, target);
+export function Provide(key: string, config: ProvideOptions = {}): any {
+    return function(target: any, methodName: string) {
+        (target.constructor as typeof WuComponent).creatProvide(key, {
+            key: key,
+            functionName: methodName,
+            config
+        });
+    };
 }
+
 
 
 /**
  * 组件接受父组件注入的数据
- * @param target
  * @param key
  * @param options
- * @param attr
  * @constructor
  */
-export function defineInject(target: any, key: string, attr: string, options: InjectOptions = {}) {
-    const keys: InjectConfig[] = Reflect.getMetadata(COMPONENT_CUSTOM_INJECT, target) ?? [];
-    keys.push({ ...options, attr, key });
-    Reflect.defineMetadata(COMPONENT_CUSTOM_INJECT, keys, target);
+export function Inject(key: string, options: InjectOptions = {}): PropertyDecorator {
+    return function(target: any, attr: any) {
+        (target.constructor as typeof WuComponent).createInject(key, {
+            ...options,
+            attr,
+            key
+        });
+    };
 }
 
 /**
- * 定义watch
- * @param target
- * @param path
- * @param methodName
- * @param desc
+ * 组件定义
  * @param options
+ * @constructor
  */
-export function defineWatch(target: any, path: string, methodName: string, desc: any, options?: WatchOptions) {
-    const functions: WatchMetaOptions[] = Reflect.getMetadata(COMPONENT_WATCH, target) ?? [];
-    const methodFun = desc.value;
-    functions.push({
-        callback: methodFun,
-        options: options || {},
-        callbackName: methodName,
-        path,
-    });
-    Reflect.defineMetadata(COMPONENT_WATCH, functions, target);
+export function Component(options: CustomTagOptions) {
+    return function (target: typeof WuComponent) {
+        defineComponent(target, options);
+    };
 }
 
-
-/**
- * 定义watch
- * @param target
- * @param methodName
- * @param desc
- */
-export function defineMethod(target: any, methodName: string, desc: any) {
-    const functions: MethodOptions[] = Reflect.getMetadata(COMPONENT_CUSTOM_METHOD, target) ?? [];
-    const methodFun = desc.value;
-    functions.push({ methodName: methodName, methodFun });
-    Reflect.defineMetadata(COMPONENT_CUSTOM_METHOD, functions, target);
-}

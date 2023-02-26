@@ -1,28 +1,57 @@
 import { OnConnected, WuComponent } from "@wu-component/web-core-plus";
-import { LoadDependencies } from "./sandbox";
-import { Store } from "./Store";
-export declare class WuMonacoEditorPreview extends WuComponent implements OnConnected {
+import Sandbox from './core/websandbox';
+interface Options {
+    frameSrc?: string | null;
+    frameContent?: string;
+    codeToRunBeforeInit?: string | null;
+    initialStyles?: string | null;
+    baseUrl?: string | null;
+    allowPointerLock?: boolean;
+    allowFullScreen?: boolean;
+    sandboxAdditionalAttributes?: string;
+    allowAdditionalAttributes?: string;
+}
+export declare class WuCodeSandbox extends WuComponent implements OnConnected {
     constructor();
-    initialSrcDoc: string;
-    isBeforeRefresh: boolean;
-    private container;
-    private isLoad;
-    private proxy;
-    previewStore: Store;
-    private formatFile;
+    code: string;
+    options: Options;
+    isSandboxInit: boolean;
+    private localApi;
+    private _sandbox;
+    get sandbox(): Sandbox;
+    set sandbox(value: Sandbox);
+    formatFile(doc: string): Promise<string>;
     connected(shadowRoot: ShadowRoot): Promise<void>;
     /**
-     * 沙箱执行code
-     * @param type
-     * @param code
+     * 初始化沙箱
      */
-    runCode(type: string, code: string): void;
+    initSandbox(): Sandbox;
     /**
-     * 沙箱加载依赖
-     * @param options
+     * 执行code
+     * @param code
+     * @param callback
      */
-    loadDependencies(options: LoadDependencies): Promise<unknown>;
+    runCode(code: string, callback?: (...args: any[]) => void): Promise<unknown>;
+    /**
+     * 更新配置
+     */
+    updateConfig(options: Options): void;
+    /**
+     * 调用iframe沙箱内部方法
+     * @param name
+     * @param params
+     * @param callback
+     */
+    callSandboxFunction(name: string, params: Record<any, any>, callback: (...args: any[]) => void): Promise<unknown>;
+    /**
+     * Sandbox 注入数据
+     * @param name
+     * @param value
+     * @param callback
+     */
+    injectSandboxLocalApi(name: string, value: any, callback?: (...args: any[]) => void): Promise<unknown>;
     emitEvent(data: any): any;
     emitSuccessEvent(): boolean;
     render(_renderProps?: {}, _store?: {}): any;
 }
+export {};

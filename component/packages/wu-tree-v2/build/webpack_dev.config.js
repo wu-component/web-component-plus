@@ -3,8 +3,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {commonPlugins, commonRules} = require("./webpack_common.config");
 module.exports = {
-    // entry: ['./src/index.tsx'],
-    entry: ['./src/example.tsx'],
+    entry: ['./src/index.tsx'],
+    // entry: ['./src/example.tsx'],
     output: {
         path: path.resolve(__dirname, '../', "dist"),
         filename: "bundle.[chunkhash:8].js",

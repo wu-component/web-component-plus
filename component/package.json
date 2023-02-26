@@ -14,6 +14,7 @@
     "build:package:umd": "ts-node ./scripts/build-umd.ts",
     "scanner:package": "ts-node ./scripts/scanner-check-package.ts",
     "scanner:package:umd": "ts-node ./scripts/scanner-check-umd.ts",
+    "scanner:package:file": "ts-node ./scripts/scanner-file.ts",
     "integrate:d": "ts-node ./scripts/integrate.ts",
     "playground:file:deploy": "ts-node ./scripts/playground-deploy.ts",
     "playground:live-server": "cd ./playground && live-server"
@@ -79,6 +80,6 @@
     "chalk": "4.1.2"
   },
   "dependencies": {
-    "@wu-component/web-core-plus": "latest"
+    "@wu-component/web-core-plus": "next"
   }
 }

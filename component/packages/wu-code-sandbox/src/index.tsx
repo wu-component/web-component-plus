@@ -1,35 +1,67 @@
-import { Component, Emit, h, OnConnected, Prop, WuComponent } from "@wu-component/web-core-plus";
+import { Component, Emit, Fragment, h, OnConnected, Prop, WuComponent } from "@wu-component/web-core-plus";
 import css from './index.scss';
-import { PreviewProxy, LoadDependencies } from "./sandbox";
-import { Store } from "./Store";
-import srcdoc from './srcdoc.html';
+import Sandbox from './core/websandbox';
 
+
+interface Options {
+    frameSrc?: string | null;
+    // A content of sandbox iFrame
+    frameContent?: string;
+    // A js code to run before any other iFrame code (will be injected in <head/>)
+    codeToRunBeforeInit?: string | null,
+    // A CSS markup to inject into iFrame <head/>
+    initialStyles?: string | null,
+    // A URL that will be used as base url for all relative pathes in tags like <script/>, <link/>. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+    baseUrl?: string | null,
+    // Is sandboxed iFrame allowed to capture pointer. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
+    allowPointerLock?: boolean,
+    // Is iFrame allowed to go fullscreen. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
+    allowFullScreen?: boolean,
+    // Additional attributes to add into sandboxed iFrame
+    sandboxAdditionalAttributes?: string,
+    // Additional attributes to add into sandboxed iFrame
+    allowAdditionalAttributes?: string,
+}
 @Component({
     name: 'wu-code-sandbox',
     css: css,
 })
-export class WuMonacoEditorPreview extends WuComponent implements OnConnected {
+export class WuCodeSandbox extends WuComponent implements OnConnected {
     constructor() {
         super();
     }
 
-    @Prop({ type: String, default: srcdoc })
-    public initialSrcDoc: string;
+    @Prop({ type: String, default: '' })
+    public code = '';
 
-    @Prop({ type: Boolean, default: false })
-    public isBeforeRefresh: boolean;
+    @Prop({ type: Object, default: { } })
+    public options: Options = {};
 
-    private container: HTMLIFrameElement = null;
+    @Prop({ type: String, default: "100%" })
+    public width: string;
 
-    private isLoad = false;
+    @Prop({ type: String, default: "400px" })
+    public height: string;
 
-    // 沙箱
-    private proxy: PreviewProxy
+    public isSandboxInit = false;
 
-    // 数据管理
-    public previewStore: Store
+    private localApi: Record<string, any>;
 
-    private formatFile(doc: string): Promise<string> {
+    private _sandbox: Sandbox;
+
+    get sandbox() {
+        if (this._sandbox) {
+            return this._sandbox;
+        }
+        this._sandbox = this.initSandbox();
+        return this._sandbox;
+    }
+
+    set sandbox(value) {
+        this._sandbox = value;
+    }
+
+    public formatFile(doc: string): Promise<string> {
         return new Promise((resolve) => {
             if (doc.startsWith("data:")) {
                 const arr = doc.split(',');
@@ -62,103 +94,128 @@ export class WuMonacoEditorPreview extends WuComponent implements OnConnected {
     }
 
     public override async connected(shadowRoot: ShadowRoot) {
-        const initialSrcDoc = (this.props as any).initialSrcDoc;
-        // this.container = shadowRoot.querySelector("#codeIframe");
-        const fragment = document.createElement("div");
-        let current = {};
-        if (initialSrcDoc) {
-            this.initialSrcDoc = await this.formatFile(initialSrcDoc);
-            fragment.innerHTML = this.initialSrcDoc;
-            const dom = fragment.querySelector("#dependenciesMap");
-            // 解析出dom模板中定义的依赖
-            current = JSON.parse(dom.innerHTML)? JSON.parse(dom.innerHTML).imports: {};
-        }
+        this.sandbox = this.initSandbox();
+    }
 
-        // 依赖项同步到仓库中
-        this.previewStore = new Store({ dependencies: current });
-        // 示例话沙箱代理
-        this.proxy = new PreviewProxy(this.container, {
-            on_fetch_progress: (progress: any) => {
-                // this.emitEvent(progress);
-                // pending_imports = progress;
-            },
-            on_error: (event: any) => {
-                // this.emitEvent(event);
-                console.log("on_error", event);
-            },
-            on_unhandled_rejection: (event: any) => {
-                // this.emitEvent(event);
-                console.log("on_unhandled_rejection", event);
-            },
-            on_console: (log: any) => {
-                // this.emitEvent(log);
-                console.log("log", log);
-            },
-            on_console_group: (action: any) => {
-                // this.emitEvent(action);
-                // group_logs(action.label, false);
-            },
-            on_console_group_end: (event: any) => {
-                // this.emitEvent(event);
-                // ungroup_logs();
-            },
-            on_console_group_collapsed: (action: any) => {
-                // this.emitEvent(event);
-                // group_logs(action.label, true);
-            },
-            on_default_event: (event: any) => {
-                this.emitEvent(event);
-            }
+    /**
+     * 初始化沙箱
+     */
+    public initSandbox() {
+        this.localApi = {};
+        const sandbox =  Sandbox.create(this.localApi, {
+            frameContainer: '.iframe__container',
+            frameClassName: 'simple__iframe',
+            domContainer: this.shadowRoot as unknown as HTMLElement,
+            codeToRunBeforeInit: this.code || '',
+            allowFullScreen: false,
+            ...this.options
         });
-        // 沙箱实例完成
-        this.container.addEventListener('load', () => {
-            this.proxy.handle_links().then(r => {});
-            // 同步新的依赖到沙箱中
-            this.proxy.load_depend({
-                "dependencies": this.previewStore.dependencies
+        sandbox.promise
+            .then(() => {
+                return sandbox.run(`
+                    Websandbox.connection.setLocalApi({
+                        getWebsandboxConnectionInstance: function(message) {
+                            return Websandbox.connection;
+                        }
+                    });
+                    `
+                );
             }).then(() => {
-                for (let i = 0; i < this.previewStore.code.length; i ++) {
-                    this.proxy.eval(this.previewStore.code[i]);
-                }
-                this.previewStore.code = [];
-            });
-            if (this.isLoad === false) {
-                this.isLoad = true;
+                this.isSandboxInit = true;
+                // 沙箱初始化成功
+                this.emitEvent(sandbox);
+                console.log("2222222");
                 this.emitSuccessEvent();
-            }
+
         });
-        this.container.setAttribute("srcdoc", this.initialSrcDoc);
+        return sandbox;
     }
 
     /**
-     * 沙箱执行code
-     * @param type
+     * 执行code
      * @param code
+     * @param callback
      */
-    public runCode(type: string, code: string) {
-        if ((this.props as any).isBeforeRefresh) {
-            // 此处做了定制，webComponent 中无法重复定义元素，所以此处需要重新加载沙箱
-            this.container.contentWindow.location.reload();
-            // 将需要执行的代码暂存
-            this.previewStore.pushStackCode(code);
-        } else {
-            this.proxy.eval(code);
-        }
+    public runCode(code: string, callback?: (...args) => void) {
+        return new Promise((resolve, reject) => {
+            const sandbox = this.sandbox;
+            return sandbox.promise
+                .then((res) => sandbox.run(code))
+                .then((res) => {
+                    callback?.(true);
+                    resolve(res);
+                });
+        });
+    }
+
+    /**
+     * 更新配置
+     */
+    public updateConfig(options: Options) {
+        this.update();
+        this.initSandbox();
 
     }
 
     /**
-     * 沙箱加载依赖
-     * @param options
+     * 调用iframe沙箱内部方法
+     * @param name
+     * @param params
+     * @param callback
      */
-    public loadDependencies(options: LoadDependencies) {
-        return this.proxy.load_depend(options);
+    public callSandboxFunction(name: string, params: Record<any, any>, callback: (...args) => void) {
+        const sandbox = this.sandbox;
+        return new Promise(async (resolve, reject) => {
+            return sandbox.promise
+                .then(async (res) => {
+                    const api = sandbox.connection.remote[name];
+                    if(!api) {
+                        reject(`sandbox.connection.remote.${name} not found, before that call Websandbox.connection.setLocalApi inside the sandbox `);
+                    }
+                    if (typeof api === 'function') {
+                        const result = await api(params);
+                        callback?.(result, res);
+                        resolve(result);
+                    } else {
+                        callback?.(api, res);
+                        resolve(api);
+                    }
+                });
+        });
+
+    }
+
+    /**
+     * Sandbox 注入数据
+     * @param name
+     * @param value
+     * @param callback
+     */
+    public injectSandboxLocalApi(name: string, value: any, callback?: (...args) => void) {
+        return new Promise((resolve, reject) => {
+            const sandbox = this.sandbox;
+            let functionValue = '';
+            if (typeof value === 'function') {
+                functionValue = value.toString().replace(/\n/g, "");
+            }else {
+                functionValue = value;
+            }
+            const code = `Websandbox.connection.setLocalApi({
+                ${name}: ${functionValue}
+            }); `;
+            return sandbox.promise
+                .then((res) => sandbox.run(code))
+                .then((res) => {
+                    callback?.(res);
+                    resolve(res);
+                });
+        });
     }
 
     @Emit("message")
     public emitEvent(data: any) {
+        console.log("data", data);
         return data || {};
-
     }
 
     @Emit("success")
@@ -168,11 +225,12 @@ export class WuMonacoEditorPreview extends WuComponent implements OnConnected {
     }
 
     public override render(_renderProps = {}, _store = {}) {
-        const sandbox = () => [ 'allow-forms', 'allow-modals', 'allow-pointer-lock', 'allow-popups',  'allow-same-origin', 'allow-scripts', 'allow-top-navigation-by-user-activation' ].join(' ');
+        /*const sandbox = () => [ 'allow-forms', 'allow-modals', 'allow-pointer-lock', 'allow-popups',  'allow-same-origin', 'allow-scripts', 'allow-top-navigation-by-user-activation' ].join(' ');*/
         return (
-            <div class="containerViewer">
-                <iframe frameBorder="0" ref={ref => this.container = ref} id="codeIframe" sandbox={sandbox()}></iframe>
-            </div>
+            <Fragment>
+                <div class="iframe__container" style={{ height: this.height, width: this.width }}></div>
+                {/*<iframe frameBorder="0" ref={ref => this.container = ref} id="codeIframe" sandbox={sandbox()}></iframe>*/}
+            </Fragment>
         );
     }
 }

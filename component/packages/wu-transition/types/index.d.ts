@@ -1,4 +1,9 @@
 import { OnConnected, WuComponent } from '@wu-component/web-core-plus';
+declare function domTransitionReady(callback: any): void;
+declare namespace domTransitionReady {
+    var done: boolean;
+}
+export default domTransitionReady;
 export declare class WuTransition extends WuComponent implements OnConnected {
     constructor();
     name: string;

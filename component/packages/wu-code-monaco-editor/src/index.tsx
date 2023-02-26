@@ -4,6 +4,8 @@ import css1 from "monaco-editor/min/vs/editor/editor.main.css";
 import { createEditorByLoader, createEditorMode } from "./core";
 import { getEditor, setEditor, getMonaco, setMonaco } from "./core/content";
 import { addModuleDeclaration } from "./core/typescript";
+import { debounce } from "./utils";
+import type editor from "monaco-editor";
 
 @Component({
     name: 'wu-code-monaco-editor',
@@ -22,6 +24,35 @@ export class WuCodeMonacoEditor extends WuComponent implements OnConnected {
 
     @Prop({ type: String, default: "vs-dark" })
     public theme: string;
+
+
+    @Prop({ type: String, default: "100%" })
+    public width: string;
+
+    @Prop({ type: String, default: "100%" })
+    public height: string;
+
+    /**
+     * mode 缓存
+     * @private
+     */
+    private modes: Record<string, editor.editor.ITextModel> = {}
+
+    /**
+     * 更新语言
+     * @param language
+     * @param value
+     */
+    public updateLanguage(language: string, value: string) {
+        if (language) {
+            if (!this.modes[language]) {
+                const mode = createEditorMode.call(this, language, value);
+                this.modes[language] = mode;
+            }
+            this.modes[language] && this.editor.setModel(this.modes[language]);
+            this.editor.focus();
+        }
+    }
 
     // private __editor: monaco.editor;
     // private __editor: any;
@@ -49,12 +80,20 @@ export class WuCodeMonacoEditor extends WuComponent implements OnConnected {
         }
     }
 
+    /**
+     * 添加类型文件
+     * @param url
+     * @param name
+     */
     public addTsDeclaration(url: string, name?: string) {
-        console.log("fetch", url);
-        // return addTsDeclaration.call(this, url, name);
         return addModuleDeclaration(url, this, name);
     }
 
+    /**
+     * 格式化初始值
+     * @param doc
+     * @private
+     */
     private formatFile(doc: string): Promise<string> {
         return new Promise((resolve) => {
             if (doc.startsWith("data:text/plain;base64")) {
@@ -72,10 +111,6 @@ export class WuCodeMonacoEditor extends WuComponent implements OnConnected {
                 });
                 const reader = new FileReader();
                 reader.onload = ()=> {
-                    // 语句是为了显示内容换行
-                    // @ts-ignore
-                    /*const str = reader.result?.replace(/\n/g,"<br/>");
-                    console.log(str);*/
                     resolve(reader.result as string);
                 };
                 reader.readAsText(file,'utf-8');
@@ -87,31 +122,48 @@ export class WuCodeMonacoEditor extends WuComponent implements OnConnected {
 
     }
 
+    /**
+     * 初始化编辑器
+     * @private
+     */
     private async initEditor() {
-        const initialValue = (this.props as any).initialValue || '';
+        const initialValue = this.initialValue || '';
         this.initialValue = await this.formatFile(initialValue);
+        const dom: HTMLElement = this.shadowRoot.querySelector("#container");
+        dom.style.width = this.width;
+        dom.style.height = this.height;
         const { editor, monacoInstance } = await createEditorByLoader(this.shadowRoot.querySelector("#container"), {
             value: this.initialValue,
-            language: (this.props as any).language,
-            theme: (this.props as any).theme,
-            // mode: createEditorMode.call(this, (this.props as any).language, this.initialValue)
+            language: this.language,
+            theme: this.theme,
         });
         this.editor = editor;
         this.monacoInstance = monacoInstance;
-        const mode = createEditorMode.call(this, (this.props as any).language, this.initialValue);
-        mode && editor.setModel(mode);
-        // editor.restoreViewState(data[type].state);
-        editor.focus();
-        this.addTsDeclaration("https://static-cdn.canyuegongzi.xyz/ts/Wu.d.ts");
-        // this.addTsDeclaration("https://static-cdn.canyuegongzi.xyz/ts/index.d.ts");
+        this.updateLanguage(this.language, this.initialValue);
+        // this.addTsDeclaration("https://static-cdn.canyuegongzi.xyz/ts/Wu.d.ts");
         return this.editor;
     }
 
+    /**
+     * 窗口更新
+     * @param e
+     */
+    public resizeFun(e) {
+        debounce((e: any) => {
+            this.editor.layout();
+        }, 300);
+    }
+
     public override connected(shadowRoot: ShadowRoot): void {
-        this.initEditor().then(r => {});
-        this.addEventListener("resize", (e: MouseEvent) => {
-            console.log(e);
+        this.initEditor().then(r => {
+            this.editor.layout();
+            window.addEventListener("resize", (e) => this.resizeFun(e));
         });
+    }
+
+    public override disConnected(shadowRoot: ShadowRoot): void {
+        this.initEditor().then(r => {});
+        window.addEventListener("resize", (e) => this.resizeFun(e));
     }
 
     public override render(_renderProps = {}, _store = {}) {
@@ -120,4 +172,3 @@ export class WuCodeMonacoEditor extends WuComponent implements OnConnected {
         );
     }
 }
-// https://registry.npmjs.org/monaco-editor/-/monaco-editor-0.34.1.tgz

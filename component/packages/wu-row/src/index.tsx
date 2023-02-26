@@ -49,6 +49,7 @@ export class WuRow extends WuComponent {
             tag: this.tag,
         };
         return (
+            // @ts-ignore
             <this.tag
                 {...extractClass({}, `wu-row`, {
                     [`is-justify-${this.justify}`]: this.justify !== 'start',

@@ -1,4 +1,6 @@
-import { h, Component, Prop, Emit, OnConnected, OnBeforeRender, OnBeforeUpdate, Provide, WuComponent } from '@wu-component/web-core-plus';
+import { h, Component, Prop, Emit, OnConnected, OnBeforeRender, Watch, OnUpdated, OnBeforeUpdate, Provide, WuComponent }
+    from '@wu-component/web-core-plus';
+import "@wu-component/wu-checkbox";
 import css from './index.scss';
 type UISize = 'medium' | 'small' | 'mini';
 
@@ -6,7 +8,7 @@ type UISize = 'medium' | 'small' | 'mini';
     name: 'wu-plus-checkbox-group',
     css: css,
 })
-export class WuCheckboxGroup extends WuComponent implements OnConnected, OnBeforeRender, OnBeforeUpdate {
+export class WuCheckboxGroup extends WuComponent implements OnConnected, OnUpdated, OnBeforeRender, OnBeforeUpdate {
     constructor() {
         super();
     }
@@ -24,16 +26,23 @@ export class WuCheckboxGroup extends WuComponent implements OnConnected, OnBefor
     @Prop({ default: false, type: Boolean })
     public disabled: boolean;
 
-    @Prop({ default: '[]', type: Array })
-    public value: string[];
+    @Prop({ default: [], type: Array })
+    public value: string[] = [];
+
+    public valueList: string[] = [];
 
     public override beforeRender() {}
 
     @Emit('change')
-    private change() {
+    public change() {
         return {
             value: this.value,
         };
+    }
+
+    @Watch('value')
+    public valuesChange(val, old) {
+        // this.update();
     }
 
     /**
@@ -41,21 +50,27 @@ export class WuCheckboxGroup extends WuComponent implements OnConnected, OnBefor
      * @param vale
      */
     public handleChange(vale: CustomEvent) {
-        let valueList = [ ...this.value ];
+        let valueList = [ ...(this.value || []) ];
         const index = valueList.findIndex(item => item === vale.detail.label);
         if (index >= 0) {
             valueList.splice(index, 1);
         } else {
             valueList.push(vale.detail.label);
-            valueList = Array.from(new Set(valueList));
+            valueList = Array.from(new Set(valueList || []));
         }
         this.value = valueList;
         this.change();
     }
 
-    public override connected(shadowRoot: ShadowRoot) {}
+    public override connected(shadowRoot: ShadowRoot) {
+        this.valueList = this.value;
+    }
 
-    public override beforeUpdate(): any {
+    public override updated() {
+        this.updateChild();
+    }
+
+    public updateChild(): any {
         this.slotRef = this.shadowRoot.getElementById('slot') as HTMLSlotElement;
         const nodeList = this.slotRef.assignedElements();
         nodeList.forEach(item => {
@@ -71,6 +86,7 @@ export class WuCheckboxGroup extends WuComponent implements OnConnected, OnBefor
         };
         return (
             <div class="wu-checkbox-group" role="group" aria-label="checkbox-group">
+                {/*@ts-ignore*/}
                 <slot id="slot" {...props} />
             </div>
         );

@@ -3,11 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://unpkg.com/@wu-component/web-core-plus@next"></script>
+    <script src="https://unpkg.com/@wu-component/wu-button@1.11.8/dist/index.umd.js"> </script>
 </head>
 <body>
 <div id="app">
-    <wu-test-example></wu-test-example>
+    <div style="display: flex; align-items: center;justify-content: center;width: 100%; margin-top: 8px; margin-bottom: 16px">
+        <wu-plus-button size="mini" id="messageButton1">info消息</wu-plus-button>
+        <wu-plus-button style="margin-left: 8px" size="mini" id="messageButton2">success消息</wu-plus-button>
+        <wu-plus-button style="margin-left: 8px" size="mini" id="messageButton3">warning消息</wu-plus-button>
+        <wu-plus-button style="margin-left: 8px" size="mini" id="messageButton4">error消息</wu-plus-button>
+    </div>
+
+    <div style="display: flex; align-items: center;justify-content: center;width: 100%; margin-top: 8px; margin-bottom: 16px">
+        <wu-plus-button size="mini" id="messageButton5" type="success">success消息</wu-plus-button>
+    </div>
+
+    <div style="display: flex; align-items: center;justify-content: center;width: 100%; margin-top: 8px; margin-bottom: 16px">
+        <wu-plus-button size="mini" id="messageButton6" type="success">success消息</wu-plus-button>
+    </div>
+
 </div>
 <script src="./dist/index.umd.js"></script>
 </body>
 </html>
+<script>
+
+    document.querySelector("#messageButton1").addEventListener("click", () => {
+        window.WuMessage.Message.setOption({
+            message: "测试消息1",
+            type: "info",
+            duration: 3000
+        })
+    })
+    document.querySelector("#messageButton2").addEventListener("click", () => {
+        window.WuMessage.Message.setOption({
+            message: "测试消息2",
+            type: "success",
+            duration: 4000
+        })
+    })
+    document.querySelector("#messageButton3").addEventListener("click", () => {
+        window.WuMessage.Message.setOption({
+            message: "测试消息3",
+            type: "warning",
+            duration: 5000
+        })
+    })
+    document.querySelector("#messageButton4").addEventListener("click", () => {
+        window.WuMessage.Message.setOption({
+            message: "测试消息4",
+            type: "error",
+            duration: 6000
+        })
+    })
+
+
+    document.querySelector("#messageButton5").addEventListener("click", () => {
+        window.WuMessage.Message.setOption({
+            message: "测试消息1",
+            type: "success",
+            showClose: true,
+            duration: 6000
+        })
+    })
+
+    document.querySelector("#messageButton6").addEventListener("click", () => {
+        window.WuMessage.Message.setOption({
+            message: "测试消息1",
+            type: "success",
+            showClose: false,
+            duration: 3000,
+            center: true
+        })
+    })
+
+</script>

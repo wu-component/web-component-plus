@@ -6,5 +6,5 @@ web-plus-ui 组件库底层采用的 web-core-plus；样式采用 Element 组件
 
 ### 资料
 
-- [web-core-plus](https://www.npmjs.com/package/@canyuegongzi/web-core-plus)
-- [web-ui-plus](https://www.npmjs.com/package/@canyuegongzi/web-ui-plus)
+- [web-core-plus](https://www.npmjs.com/package/@wu-component/web-core-plus)
+- [web-ui-plus](https://www.npmjs.com/package/@wu-component/ui-plus)

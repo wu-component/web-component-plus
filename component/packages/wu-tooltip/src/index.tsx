@@ -1,4 +1,4 @@
-import { h, Component, Prop, OnConnected, WuComponent } from '@wu-component/web-core-plus';
+import { h, Component, State, Prop, OnConnected, WuComponent } from '@wu-component/web-core-plus';
 import css from './index.scss';
 import { createPopper } from '@popperjs/core/dist/esm';
 import { Placement } from "@popperjs/core/lib/enums";
@@ -24,7 +24,7 @@ export class WuTooltip extends WuComponent implements OnConnected {
     @Prop({ type: String, default: 'bottom' })
     public position: Placement;
 
-    @Prop({ default: false, type: Boolean })
+    @State({ default: false, type: Boolean })
     public isShow: boolean;
 
 
@@ -34,6 +34,7 @@ export class WuTooltip extends WuComponent implements OnConnected {
             .querySelector('slot')
             .assignedNodes()
             .find(node => node.nodeType !== 3) as Element;
+
         createPopper(tip, this.shadowRoot.querySelector('.tip'), {
             placement: this.position,
             modifiers: [
@@ -61,7 +62,7 @@ export class WuTooltip extends WuComponent implements OnConnected {
 
     public override render(_renderProps = {}, _store = {}) {
         return (
-            <div>
+            <div class="wu-tip">
                 <slot onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave} />
                 <div class={
                     classNames({

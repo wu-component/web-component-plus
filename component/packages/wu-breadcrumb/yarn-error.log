@@ -1,19 +1,19 @@
-Arguments: 
+Arguments:
   C:\Program Files\nodejs\node.exe C:\Users\yongf\AppData\Roaming\nvm\v14.16.1\node_modules\yarn\lib\cli.js add @wu-component/wu-breadcrumb-item
 
-PATH: 
+PATH:
   C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\yongf\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\Java\jdk-9.0.4\bin;C:\Program Files\Redis;C:\Users\yongf\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\Git\cmd;C:\Program Files (x86)\NetSarang\Xftp 7;C:\Program Files (x86)\NetSarang\Xshell 7;E:\mysql\bin;E:\MinGW\bin;C:\Program Files\kubectl;F:\android\tools;F:\android\platform-tools;C:\Program Files\Java\jdk-9.0.4\jre\bin;C:\Program Files\heml;F:\flutter\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Users\yongf\AppData\Local\Programs\Python\Python39\Scripts;C:\Users\yongf\AppData\Local\Programs\Python\Python39;C:\Users\yongf\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains\WebStorm 2021.1\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2021.1\bin;C:\Program Files\JetBrains\CLion 2021.1\bin;C:\Program Files\JetBrains\PyCharm 2021.1\bin;C:\Users\yongf\AppData\Roaming\nvm;C:\Program Files\nodejs;E:\Microsoft VS Code\bin;C:\Program Files\kubectl;D:\npm\org-web-component-plus\node_modules\.bin
 
-Yarn version: 
+Yarn version:
   1.22.10
 
-Node version: 
+Node version:
   14.16.1
 
-Platform: 
+Platform:
   win32 x64
 
-Trace: 
+Trace:
   Error: https://registry.npmmirror.com/@wu-component%2fwu-breadcrumb-item: [NOT_FOUND] @wu-component/wu-breadcrumb-item not found
       at Request.params.callback [as _callback] (C:\Users\yongf\AppData\Roaming\nvm\v14.16.1\node_modules\yarn\lib\cli.js:66988:18)
       at Request.self.callback (C:\Users\yongf\AppData\Roaming\nvm\v14.16.1\node_modules\yarn\lib\cli.js:140662:22)
@@ -26,7 +26,7 @@ Trace:
       at endReadableNT (internal/streams/readable.js:1327:12)
       at processTicksAndRejections (internal/process/task_queues.js:80:21)
 
-npm manifest: 
+npm manifest:
   {
     "name": "@wu-component/wu-breadcrumb",
     "version": "0.0.1",
@@ -107,13 +107,13 @@ npm manifest:
       "webpack-dev-server": "^4.9.0"
     },
     "dependencies": {
-      "@wu-component/web-core-plus": "latest",
+      "@wu-component/web-core-plus": "next",
       "@wu-component/wu-breadcrumb-item": "latest"
     }
   }
 
-yarn manifest: 
+yarn manifest:
   No manifest
 
-Lockfile: 
+Lockfile:
   No lockfile

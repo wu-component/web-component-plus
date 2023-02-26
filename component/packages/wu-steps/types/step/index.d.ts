@@ -2,7 +2,7 @@ import { OnConnected, WuComponent } from '@wu-component/web-core-plus';
 interface WuSteps {
     [key: string]: any;
 }
-declare type ProcessStatus = 'wait' | 'process' | 'finish' | 'error' | 'success';
+type ProcessStatus = 'wait' | 'process' | 'finish' | 'error' | 'success';
 export declare class WuStep extends WuComponent implements OnConnected {
     constructor();
     connected(shadowRoot: ShadowRoot): void;

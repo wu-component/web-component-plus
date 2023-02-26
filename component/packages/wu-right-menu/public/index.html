@@ -3,6 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        #menu_content .menu {
+            display: none;
+            position: fixed;
+            padding: 0;
+            margin: 0;
+            color: #444;
+            background-color: #fff;
+            border: 1px solid #eee;
+            border-radius: 2px;
+            list-style: none;
+            font-size: 12px;
+            cursor: default;
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            -o-user-select: none;
+        }
+
+        #menu_content .menu li {
+            position: relative;
+            padding: 10px;
+            min-width: 80px;
+            list-style-type: none;
+        }
+
+        #menu_content .menu li:hover {
+            background-color: #efefef;
+        }
+
+        #menu_content .menu li>ul {
+            display: none;
+            position: absolute;
+            width: max-content;
+            top: 0;
+            left: 100%;
+            list-style-type: none;
+        }
+
+        #menu_content .menu li:hover>ul {
+            display: inline-block;
+            list-style-type: none;
+        }
+
+        #menu_content .menu img {
+            position: absolute;
+            right: 10px;
+            top: 9px;
+            width: 20px;
+            height: 20px;
+        }
+
+    </style>
 </head>
 <body>
 <div id="app">
@@ -14,6 +68,12 @@
         <p>wweee</p>
         <p>wweee</p>
     </wu-right-menu>
+
+    <div class="button-container" style="display: flex; flex-wrap: wrap; align-items: center;justify-content: space-around;padding: 16px">
+        <div style="width: 300px; height: 100px" id="menu_content">
+            <span style="width: 120px;height: 48px;" id="PluginTestRightMenu">右键该区域</span>
+        </div>
+    </div>
 </div>
 </body>
 </html>
@@ -21,4 +81,19 @@
     document.getElementById('rateTest7').addEventListener("menuclick", (res) => {
         console.log(res);
     })
+    setTimeout(() => {
+        console.log(window.RightMenuCore)
+        const menu = new window.RightMenuCore.RightMenuCore({
+            el: document.querySelector("#PluginTestRightMenu"),
+            menu: [{"name":"保存"},{"name":"设置","menu":[{"name":"首选项"},{"name":"快捷键"}]}],
+            clickCallback: (event) => {
+                console.log(event);
+                webUIPlus.Message.setOption({
+                    message: `点击了${event.name}`,
+                    type: "success",
+                    duration: 2000
+                })
+            }
+        })
+    }, 1000)
 </script>

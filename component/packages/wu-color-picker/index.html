@@ -3,10 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://unpkg.com/@wu-component/web-core-plus@next"></script>
 </head>
 <body>
 <div id="app">
-    <wu-test-example></wu-test-example>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+            <wu-plus-color-picker id="colorPicker" />
+        </div>
+        <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+            <wu-plus-color-picker defaultvalue="rgba(19, 206, 102, 0.9)" id="colorPicker2" />
+            <wu-plus-color-picker defaultvalue="#409EFF" id="colorPicker20" />
+        </div>
+        <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+            <wu-plus-color-picker size="medium" />
+            <wu-plus-color-picker size="small" />
+            <wu-plus-color-picker size="mini" />
+        </div>
+        <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+            <wu-plus-color-picker id="colorPicker14" disabled="true" />
+        </div>
+    </div>
 </div>
 <script src="./dist/index.umd.js"></script>
 </body>

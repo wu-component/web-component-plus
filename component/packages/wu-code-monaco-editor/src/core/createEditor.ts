@@ -6,7 +6,7 @@ import { commonOptions } from "./options";
 
 loader.config({
     paths: {
-        vs: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.0/min/vs/',
+        // vs: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.0/min/vs/',
     }
 });
 
@@ -34,14 +34,7 @@ export function createEditorByLoader(editorContainer: HTMLElement, options: any)
 export function createEditorMode(type: string, value: string) {
     try {
         const monaco = getMonaco(this);
-        /* const modes = monaco.editor.getModels();
-         let currentMode = null;
-         if (modes.length) {
-             currentMode = modes.find(item => item._languageId === type);
-         }
-         if (currentMode) {
-             return currentMode;
-         }*/
+        console.log(monaco)
         const model =
             type === "typescript"
                 ? createTSXModel(value, this)

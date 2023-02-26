@@ -5,14 +5,24 @@ module.exports = {
 	head: [
 		/*['script', { charset: "utf-8", src: "/core.esm.js" }],
 		['script', { charset: "utf-8", src: "/web-plus.esm.js" }],*/
-		['script', { charset: "utf-8", src: "/js/core/index.umd.js" }],
+
+		['script', { charset: "utf-8", src: "https://unpkg.com/vconsole@latest/dist/vconsole.min.js" }],
+		['script', { charset: "utf-8", src: "/js/core/index.iife.min.js" }],
 		['script', { charset: "utf-8", src: "/js/example/index.umd.js" }],
+		// ['script', { charset: "utf-8", src: "/js/upload/index.umd.js" }],
+
+		['script', { charset: "utf-8", src: "/js/ui/index.umd.js" }],
+		['script', { charset: "utf-8", src: "/js/monaco-editor/index.umd.js" }],
+		['script', { charset: "utf-8", src: "/js/sandbox/index.umd.js" }],
 		['script', { charset: "utf-8", src: "/js/comment/index.umd.js" }],
+		['script', { charset: "utf-8", src: "/js/lottie/index.umd.js" }],
+		['script', { charset: "utf-8", src: "/js/code-playground/index.umd.js" }],
+		// ['script', { charset: "utf-8", src: "/js/comment/index.umd.js" }],
+		// ['script', { charset: "utf-8", src: "/js/lottie/index.umd.js" }],
 
 		// ['script', { charset: "utf-8", src: "/js/comment-shadow/index.umd.js" }],
 		// ['script', { charset: "utf-8", src: "https://unpkg.com/@waline/client@v2/dist/waline.js" }],
 		// ['link', { rel: 'stylesheet', src: "https://unpkg.com/@waline/client@v2/dist/waline.css" }],
-		['script', { charset: "utf-8", src: "/js/ui/index.umd.js" }],
 
 		['link', { rel: 'icon', href: '/images/photo.png' }],
 		['meta', { name: 'theme-color', content: '#0084ff' }],
@@ -20,7 +30,7 @@ module.exports = {
 		['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
 		['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
 		['meta', { name: 'msapplication-TileImage', content: '/images/photo' }],
-		['meta', { name: 'msapplication-TileColor', content: '#000000' }]
+		['meta', { name: 'msapplication-TileColor', content: '#000000' }],
 	],
 	theme: 'antdocs',
 	base: '/',
@@ -38,8 +48,16 @@ module.exports = {
 			{text: '组件', key: '16', link: '/component-plus/log/changelog'},
 			{text: '路由', key: '167', link: '/router/log/changelog'},
 			{text: '讨论', key: '16765', link: '/issues/index'},
-			{text: 'Admin模板', key: '101', link: 'https://cdn.canyuegongzi.xyz/wu-component-admin'},
-			{text: 'Github', key: '10', link: 'https://github.com/wu-component'}
+			{
+				text: '生态',
+				items: [
+					{text: 'wu-cli', key: '167623', link: '/t-cli/安装/install'},
+					{ text: 'Admin-Template', key: '1014', link: 'https://static-cdn.canyuegongzi.xyz/admin-template/index.html#/button?'},
+					{ text: 'playground', key: '1017', link: 'https://static-cdn.canyuegongzi.xyz/wu-code-playground/index.html'},
+				]
+			},
+			{text: 'v1.x', key: '10112', link: 'https://wu-component.github.io/docs-v1'},
+			{text: 'Github', key: '10', link: '/component-plus/log/changelog'}
 
 		],
 		sidebarDepth: 0,
@@ -132,7 +150,7 @@ module.exports = {
 						'/component-plus/Data/Image',
 						'/component-plus/Data/Pagination',
 						'/component-plus/Data/Timeline',
-						'/component-plus/Data/Tree',
+						// '/component-plus/Data/Tree',
 						'/component-plus/Data/Tree-v2',
 					]
 				},
@@ -166,7 +184,18 @@ module.exports = {
 					title: 'Complex',
 					sidebarDepth: 0,
 					children: [
-						'/component-plus/Complex/Comment'
+						'/component-plus/Complex/Comment',
+						'/component-plus/Complex/Lottie',
+						'/component-plus/Complex/CodeEditor',
+						'/component-plus/Complex/Sandbox',
+
+					]
+				},
+				{
+					title: 'Plugin',
+					sidebarDepth: 0,
+					children: [
+						'/component-plus/Plugin/RightMenu'
 
 					]
 				},

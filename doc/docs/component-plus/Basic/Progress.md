@@ -11,11 +11,11 @@ Progress 组件设置percentage属性即可，表示进度条对应的百分比�
 ```html
 <template>
     <div style="display: flex; align-items: center; flex-direction: column; padding: 16px">
-        <wu-plus-progress style="width: 350px" percentage="70"></wu-plus-progress>
+        <wu-plus-progress style="max-width: 350px;width: 85%;" percentage="70"></wu-plus-progress>
         <span style="height: 16px"></span>
-        <wu-plus-progress style="width: 350px" percentage="60" color="red"></wu-plus-progress>
+        <wu-plus-progress style="max-width: 350px;width: 85%;" percentage="60" color="red"></wu-plus-progress>
         <span style="height: 16px"></span>
-        <wu-plus-progress style="width: 350px" percentage="50" color="yellow"></wu-plus-progress>
+        <wu-plus-progress style="max-width: 350px;width: 85%;" percentage="50" color="yellow"></wu-plus-progress>
     </div>
 </template>
 <script>
@@ -31,13 +31,13 @@ Progress 组件设置percentage属性即可，表示进度条对应的百分比�
 ```html
 <template>
     <div style="display: flex; align-items: center;flex-direction: column;padding: 16px">
-        <wu-plus-progress style="width: 350px" text-inside="true" stroke-width="26" percentage="70" color="#409eff"></wu-plus-progress>
+        <wu-plus-progress style="max-width: 350px;width: 85%;" text-inside="true" stroke-width="26" percentage="70" color="#409eff"></wu-plus-progress>
         <span style="height: 16px"></span>
-        <wu-plus-progress style="width: 350px" text-inside="true" stroke-width="26" percentage="60" color="green"></wu-plus-progress>
+        <wu-plus-progress style="max-width: 350px;width: 85%;" text-inside="true" stroke-width="26" percentage="60" color="green"></wu-plus-progress>
         <span style="height: 16px"></span>
-        <wu-plus-progress style="width: 350px" text-inside="true" stroke-width="26" percentage="50" color="red"></wu-plus-progress>
+        <wu-plus-progress style="max-width: 350px;width: 85%;" text-inside="true" stroke-width="26" percentage="50" color="red"></wu-plus-progress>
         <span style="height: 16px"></span>
-        <wu-plus-progress style="width: 350px" text-inside="true" stroke-width="26" percentage="50" color="#e6a23c"></wu-plus-progress>
+        <wu-plus-progress style="max-width: 350px;width: 85%;" text-inside="true" stroke-width="26" percentage="50" color="#e6a23c"></wu-plus-progress>
     </div>
 </template>
 <script>
@@ -53,13 +53,13 @@ Progress 组件设置percentage属性即可，表示进度条对应的百分比�
 ```html
 <template>
     <div style="display: flex; align-items: center;flex-direction: column;padding: 16px">
-        <wu-plus-progress style="width: 350px" show-text="false" text-inside="false" stroke-width="26" percentage="70" color="#409eff"></wu-plus-progress>
+        <wu-plus-progress style="max-width: 350px;width: 85%;" show-text="false" text-inside="false" stroke-width="26" percentage="70" color="#409eff"></wu-plus-progress>
         <span style="height: 8px"></span>
-        <wu-plus-progress style="width: 350px" show-text="false" text-inside="false" stroke-width="20" percentage="60" color="green"></wu-plus-progress>
+        <wu-plus-progress style="max-width: 350px;width: 85%;" show-text="false" text-inside="false" stroke-width="20" percentage="60" color="green"></wu-plus-progress>
         <span style="height: 8px"></span>
-        <wu-plus-progress style="width: 350px" show-text="false" text-inside="false" stroke-width="16" percentage="50" color="red"></wu-plus-progress>
+        <wu-plus-progress style="max-width: 350px;width: 85%;" show-text="false" text-inside="false" stroke-width="16" percentage="50" color="red"></wu-plus-progress>
         <span style="height: 8px"></span>
-        <wu-plus-progress style="width: 350px" show-text="false" text-inside="false" stroke-width="10" percentage="50" color="#e6a23c"></wu-plus-progress>
+        <wu-plus-progress style="max-width: 350px;width: 85%;" show-text="false" text-inside="false" stroke-width="10" percentage="50" color="#e6a23c"></wu-plus-progress>
     </div>
 </template>
 <script>
@@ -74,12 +74,12 @@ Progress 组件可通过 type 属性来指定使用环形进度条，在环形�
 ::: demo
 ```html
 <template>
-    <div style="display: flex; width: 80%; margin: 0 auto; align-items: center;justify-content: space-around;padding: 16px">
+    <div style="display: flex; width: 80%; margin: 0 auto; flex-wrap: wrap; align-items: center;justify-content: space-around;padding: 16px">
         <wu-plus-progress type="circle" id="progressCircleId1" percentage="0"></wu-plus-progress>
         <span style="height: 8px"></span>
         <wu-plus-progress type="circle"  text-inside="true" stroke-width="6" percentage="60" color="green"></wu-plus-progress>
         <span style="height: 8px"></span>
-        <wu-plus-progress style="width: 350px" type="dashboard" id="progressCircleId19" percentage="25"></wu-plus-progress>
+        <wu-plus-progress style="max-width: 350px;width: 85%;" type="dashboard" id="progressCircleId19" percentage="25"></wu-plus-progress>
     </div>
 </template>
 <script>
@@ -92,8 +92,8 @@ Progress 组件可通过 type 属性来指定使用环形进度条，在环形�
 ::: demo
 ```html
 <template>
-    <div style="display: flex; width: 400px; margin:0 auto; align-items: center;justify-content: space-around;padding: 16px">
-        <wu-plus-progress style="width: 350px" type="circle" id="progressCircleId10" percentage="25"></wu-plus-progress>
+    <div style="display: flex; width: 400px; max-width: 80%;margin:0 auto; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-progress style="max-width: 350px;width: 85%;" type="circle" id="progressCircleId10" percentage="25"></wu-plus-progress>
         <span style="height:8px"></span>
         <div style="display: flex;flex-direction: row;">
             <wu-plus-button size="mini" type="primary" id="progressButton1">+</wu-plus-button>

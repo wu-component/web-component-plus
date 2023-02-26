@@ -1,3 +1,4 @@
+import "@wu-component/web-core-plus/dist/polyfill";
 import { Menu, RightMenuCore } from "./core/RightMenu";
 declare class WuRightMenu extends HTMLElement {
     icon: any;

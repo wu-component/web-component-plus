@@ -1,6 +1,6 @@
 {
   "name": "@wu-component/wu-code-monaco-editor",
-  "version": "1.11.8",
+  "version": "2.0.1",
   "description": "> TODO: description",
   "author": "Marvin <yongfeide123@gmail.com>",
   "homepage": "",
@@ -89,7 +89,7 @@
   "dependencies": {
     "@monaco-editor/loader": "^1.3.2",
     "@wu-component/common": "latest",
-    "@wu-component/web-core-plus": "latest",
+    "@wu-component/web-core-plus": "next",
     "monaco-editor": "^0.34.1"
   },
   "files": [

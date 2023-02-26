@@ -1,10 +1,9 @@
 import { WuComponent } from '@wu-component/web-core-plus';
-declare type TypeEnums = 'line' | 'circle' | 'dashboard';
-declare type StatusEnums = 'success' | 'exception' | 'warning';
-declare type StrokeLinecapEnums = 'butt' | 'round' | 'square';
+type TypeEnums = 'line' | 'circle' | 'dashboard';
+type StatusEnums = 'success' | 'exception' | 'warning';
+type StrokeLinecapEnums = 'butt' | 'round' | 'square';
 export declare class WuProgress extends WuComponent {
     constructor();
-    props: any;
     type: TypeEnums;
     percentage: number;
     status: StatusEnums;

@@ -3,10 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://unpkg.com/@wu-component/web-core-plus@next"></script>
 </head>
 <body>
 <div id="app">
-    <wu-test-example></wu-test-example>
+    <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px; margin-bottom: 16px">
+        <wu-plus-page-header id="backHeader" header="标题" content="主体" />
+    </div>
+    <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px; margin-bottom: 16px">
+        <wu-plus-page-header id="backHeader">
+            <span slot="header">插槽标题</span>
+            <span slot="content">插槽主体</span>
+        </wu-plus-page-header>
+    </div>
 </div>
 <script src="./dist/index.umd.js"></script>
 </body>

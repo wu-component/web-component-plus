@@ -1,2 +1,2 @@
-export declare type IMonaco = typeof import("monaco-editor");
+export type IMonaco = typeof import("monaco-editor");
 export declare const monaco: (content: any) => any;

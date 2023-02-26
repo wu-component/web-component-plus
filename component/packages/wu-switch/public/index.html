@@ -6,7 +6,22 @@
 </head>
 <body>
 <div id="app">
-    <wu-test-example></wu-test-example>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-switch value="true" id="switchId"></wu-plus-switch>
+    </div>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-switch value="true" id="switchId1" active-color="yellow" inactive-color="red"></wu-plus-switch>
+    </div>
+    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+        <wu-plus-switch value="false" disabled="true" id="switchId1"></wu-plus-switch>
+    </div>
 </div>
 </body>
 </html>
+
+<script>
+    const dom = document.querySelector("#switchId");
+    dom.addEventListener('change', (e) => {
+        console.log(e);
+    })
+</script>

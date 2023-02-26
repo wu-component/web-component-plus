@@ -3,8 +3,8 @@ import '@wu-component/wu-menu-sub';
 import '@wu-component/wu-menu-item-group';
 import '@wu-component/wu-menu-item';
 import type { WuMenuItem, WuSubMenu } from "../types/type";
-declare type ModeEnums = 'horizontal' | 'vertical';
-declare type MenuTriggerEnums = 'hover' | 'click';
+type ModeEnums = 'horizontal' | 'vertical';
+type MenuTriggerEnums = 'hover' | 'click';
 export declare class WuMenu extends WuComponent implements OnConnected {
     constructor();
     activeIndex: string;

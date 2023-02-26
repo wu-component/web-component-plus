@@ -1,6 +1,8 @@
 import { h, Prop, Component, WuComponent, OnConnected, OnDisConnected } from '@wu-component/web-core-plus';
 import css from "./index.scss";
-import { init } from "@waline/client/dist/waline.mjs";
+// @ts-ignore
+// import { init } from "@waline/client/dist/waline.mjs";
+import { init } from "./core/waline.mjs";
 import type { WalineInstance } from "@waline/client/dist/waline";
 import  {
     WalineEmojiInfo,
@@ -277,18 +279,16 @@ export class WuWalineComment extends WuComponent implements OnConnected, OnDisCo
     @Prop({ default: [], type: Array })
     public reaction?: string[] | boolean;
 
-
     public override connected(shadowRoot: ShadowRoot) {
-        // @ts-ignore
-        console.log(this.$reactive);
-        // @ts-ignore
-        console.log(this.$optiopns);
-        // @ts-ignore
         const el: HTMLElement = this.$options.is === 'CustomWebComponent'? this.shadowRoot.querySelector('#waline-container'): this.querySelector('#waline-container');
+        const options = {};
+        const attrs: string[] = (this.constructor as any).observedAttributes;
+        for (let i = 0; i < attrs.length; i ++) {
+            options[attrs[i]] = this[attrs[i]];
+        }
         this.waline = init({
             el: el,
-            // @ts-ignore
-            ...this.$reactive || {},
+            ...options,
             serverURL: this.serverurl,
             lang: this.language,
             emoji: [ 'https://unpkg.com/@waline/emojis@1.1.0/bilibili' ]
@@ -576,12 +576,15 @@ export class WuWalineCommentShadow extends WuComponent implements OnConnected, O
 
 
     public override connected(shadowRoot: ShadowRoot) {
-        // @ts-ignore
         const el: HTMLElement = this.$options.is === 'CustomWebComponent'? this.shadowRoot.querySelector('#waline-container'): this.querySelector('#waline-container');
+        const options = {};
+        const attrs: string[] = (this.constructor as any).observedAttributes;
+        for (let i = 0; i < attrs.length; i ++) {
+            options[attrs[i]] = this[attrs[i]];
+        }
         this.waline = init({
             el: el,
-            // @ts-ignore
-            ...this.$reactive || {},
+            ...options,
             serverURL: this.serverurl,
             lang: this.language,
             emoji: [ 'https://unpkg.com/@waline/emojis@1.1.0/bilibili' ]

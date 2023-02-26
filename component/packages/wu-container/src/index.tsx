@@ -1,5 +1,9 @@
 ﻿import { h, Component, Prop, OnConnected, OnBeforeUpdate, WuComponent } from '@wu-component/web-core-plus';
 import css from './index.scss';
+// import "@wu-component/wu-footer";
+// import "@wu-component/wu-aside";
+// import "@wu-component/wu-main";
+// import "@wu-component/wu-footer";
 
 type DirectionEnums = 'vertical' | 'horizontal' | any;
 @Component({

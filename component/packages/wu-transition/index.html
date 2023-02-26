@@ -3,11 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://unpkg.com/@wu-component/web-core-plus@next"></script>
+    <script src="./index.umd.js"></script>
 </head>
 <body>
 <div id="app">
-    <wu-test-example></wu-test-example>
+    <div style="display: flex; justify-content: center; flex-wrap: wrap; flex-direction: column; margin: 0 auto">
+        <button id="transitionButton">Toggle</button>
+        <div style="display: flex;flex-direction: row;flex-wrap: wrap;">
+            <wu-plus-transition name="wu-fade-in-linear" id="transition1">
+                <div class="transition-box">wu-fade-in-linear</div>
+            </wu-plus-transition>
+            <wu-plus-transition name="wu-fade-in" id="transition2">
+                <div class="transition-box">wu-fade-in</div>
+            </wu-plus-transition>
+        </div>
+
+    </div>
 </div>
+<script>
+    document.getElementById("transitionButton").addEventListener('click', () => {
+        const oTransition1 = document.getElementById('transition1');
+        const oTransition2 = document.getElementById('transition2');
+        oTransition1.toggle();
+        oTransition2.toggle();
+        // this.show = !this.show
+    })
+    document.getElementById('transition1').addEventListener('enter', () => {
+        console.log("center")
+    })
+    document.getElementById('transition1').addEventListener('after-enter', () => {
+        console.log("after-enter")
+    })
+    document.getElementById('transition1').addEventListener('leave', () => {
+        console.log("leave")
+    })
+</script>
 <script src="./dist/index.umd.js"></script>
 </body>
 </html>

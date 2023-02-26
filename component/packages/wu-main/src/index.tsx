@@ -12,9 +12,9 @@ export class WuMain extends WuComponent {
 
     public override render(_renderProps = {}, _store = {}) {
         return (
-            <footer class="wu-main">
+            <div class="wu-main">
                 <slot />
-            </footer>
+            </div>
         );
     }
 }

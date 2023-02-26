@@ -3,10 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://unpkg.com/@wu-component/web-core-plus@next"></script>
+    <script src="https://unpkg.com/@wu-component/wu-button@1.11.8/dist/index.umd.js"> </script>
 </head>
 <body>
 <div id="app">
-    <wu-test-example></wu-test-example>
+    <div style="display: flex; align-items: center;justify-content: center;width: 100%; margin-top: 8px; margin-bottom: 16px">
+        <wu-plus-popconfirm
+            confirm-button-text='好的'
+            cancel-button-text='不用了'
+            content="这是一段内容确定删除吗？"
+        >
+            <wu-plus-button slot="reference">删除</wu-plus-button>
+        </wu-plus-popconfirm>
+    </div>
+
+    <div style="display: flex; align-items: center;justify-content: center;width: 100%; margin-top: 8px; margin-bottom: 16px">
+        <wu-plus-popconfirm
+            confirm-button-text='好的'
+            cancel-button-text='不用了'
+            content="这是一段内容确定删除吗？"
+        >
+            <wu-plus-icon style="font-size: 12px;margin-right:8px" name="setting" slot="icon"></wu-plus-icon>
+            <wu-plus-button slot="reference" type="danger">删除</wu-plus-button>
+        </wu-plus-popconfirm>
+    </div>
 </div>
 </body>
 </html>

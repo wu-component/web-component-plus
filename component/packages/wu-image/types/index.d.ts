@@ -1,6 +1,6 @@
 import { OnConnected, OnDisConnected, WuComponent } from '@wu-component/web-core-plus';
 import Viewer from './viewer/viewer.esm.js';
-declare type TypeEnums = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down' | '';
+type TypeEnums = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down' | '';
 export declare class WuImage extends WuComponent implements OnConnected, OnDisConnected {
     constructor();
     viewer: Viewer;
@@ -34,6 +34,7 @@ export declare class WuImage extends WuComponent implements OnConnected, OnDisCo
     };
     get alignCenter(): boolean;
     get preview(): boolean;
+    get imgList(): string[];
     get imageIndex(): number;
     /**
      * 图片加载完成

@@ -1,5 +1,5 @@
 import { OnConnected, OnBeforeUpdate, WuComponent } from '@wu-component/web-core-plus';
-declare type TypeEnums = 'primary' | 'success' | 'warning' | 'info' | 'danger';
+type TypeEnums = 'primary' | 'success' | 'warning' | 'info' | 'danger';
 export declare class WuBadge extends WuComponent implements OnConnected, OnBeforeUpdate {
     constructor();
     beforeUpdate(): void;

@@ -9,6 +9,7 @@ export const addExtraLib = (content: string, filePath?: string) => {
 
 
 export const compileTS = async (uri: InstanceType<typeof monaco.Uri>) => {
+    console.log(uri);
     // const tsWorker = await monaco.languages.typescript.getTypeScriptWorker();
     const monaco = window.monaco;
     const tsWorker = await monaco.languages.typescript.getTypeScriptWorker();

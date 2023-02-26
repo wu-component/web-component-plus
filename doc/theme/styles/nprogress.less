@@ -1,0 +1,18 @@
+@nprogressColor: @accentColor;
+
+#nprogress {
+  pointer-events: none;
+
+  .bar {
+    background: @nprogressColor !important;
+  }
+
+  .peg {
+    box-shadow: 0 0 10px @nprogressColor, 0 0 5px @nprogressColor !important;
+  }
+
+  .spinner-icon {
+    border-top-color: @nprogressColor !important;
+    border-left-color: @nprogressColor !important;
+  }
+}

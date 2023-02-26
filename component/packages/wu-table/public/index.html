@@ -3,10 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://unpkg.com/@wu-component/web-core-plus@next"></script>
 </head>
 <body>
 <div id="app">
-    <wu-test-example></wu-test-example>
+    <div style="display: flex; align-items: center;justify-content: center;width: 100%; margin-top: 8px; margin-bottom: 16px">
+        <wu-plus-table
+            id="tableRef1"
+            checkbox="true"
+            stripe="false"
+            border="true"
+            compact="false"
+        ></wu-plus-table>
+
+        <div style="display: flex; align-items: center;justify-content: space-around;width: 100%; margin-top: 8px; margin-bottom: 16px">
+            <wu-plus-table
+                id="tableRef3"
+                checkbox="true"
+                stripe="false"
+                border="true"
+                compact="false"
+            ></wu-plus-table>
+        </div>
+
+        <div style="display: flex; align-items: center;justify-content: center;width: 100%; margin-top: 8px; margin-bottom: 16px">
+            <wu-plus-table
+                id="tableRef4"
+                checkbox="true"
+                stripe="false"
+                border="true"
+                compact="false"
+            ></wu-plus-table>
+
+        </div>
+
+    </div>
 </div>
 </body>
 </html>
+<script>
+    window.onload = () => {
+        const tableRef1 = document.getElementById("tableRef1");
+        const tableRef4 = document.getElementById("tableRef4");
+        const list1 = [{"id":1,"name":"xwang","age":18,"address":"是是是"}];
+        const columns1 = [{"title":"ID","key":"id","align":"center"},{"title":"Name","align":"center","key":"name"},{"title":"age","key":"age"},{"title":"address","key":"address"}];
+
+        tableRef1.setData(list1);
+        tableRef1.setColumns(columns1);
+
+        const tableRef2 = document.getElementById("tableRef3");
+        const columns = [
+            { "title":"ID","key":"id","width":"80px", "align": "center" },
+            { "title":"Name", "align": "center", "key":"name","width":"120px" },
+            { "title":"age","key":"age","width":"120px" },
+            { "title":"address","key":"address","width":"120px" },
+            { "title": "操作", "width":"120px", "align": "center",
+                render: (item) => {
+                    return webCorePlus.h('div', null, [
+                        webCorePlus.h(
+                            'wu-plus-button', { size: "mini", type: "primary", style: { color: "blue", cursor: "pointer"}, onclick: (item1) => editFun(item, item1)}, '编辑'
+                        ),
+                        webCorePlus.h(
+                            'wu-plus-button', { size: "mini", type: "danger", style: { color: "blue", marginLeft: "8px", cursor: "pointer"}, onclick: (item1) => deleteFun(item, item1)}, '删除'
+                        )
+                    ])
+                }
+            }
+        ]
+        const list = [
+            {
+                "id":1,
+                "name":"xwang",
+                "age":18,
+                "address":"此处"
+            },
+            {
+                "id":2,
+                "name":"xwawwng",
+                "age":182,
+                "address":"急急急"
+            },
+            {
+                "id":3,
+                "name":"xwawwng",
+                "age":182,
+                "address":"以i"
+            }
+        ]
+
+
+        const data2 = [{"id":1,"name":"xwang","age":18,"address":"是是是", checked: true}, {"id":2,"name":"xwang","age":18,"address":"是是是"}, {"id":3,"name":"xwang","age":18,"address":"是是是"}, {"id":4,"name":"xwang","age":18,"address":"是是是"}]
+        const columns2 = [{"width":"20px", "align": "center", "type": "selection"},{"title":"ID","key":"id", "align": "center"},{"title":"Name", "align": "center", "key":"name"},{"title":"age","key":"age"},{"title":"address","key":"address"}]
+        tableRef2.data = list;
+        tableRef2.columns = columns
+
+        tableRef4.data = data2;
+        tableRef4.columns = columns2
+    }
+
+</script>
