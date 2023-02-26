@@ -16,6 +16,8 @@ npm包
 
 ### 讨论区
 
+<script>
+</script>
 <div style="width:100%; margin: 0 auto; ">
-    <wu-waline-comment path="/issues/" serverurl="https://comment.wu-component.com" style="--waline-theme-color: #409eff" dark="body.theme-dark" language="zh-CN" comment="true" pageview="true" emoji="['//unpkg.com/@waline/emojis@1.0.1/weibo', '//unpkg.com/@waline/emojis@1.0.1/bilibili']"></wu-waline-comment>
+    <wu-waline-comment-shadow path="/issues/" serverurl="https://comment.wu-component.com" style="--waline-theme-color: #409eff" dark="body.theme-dark" language="zh-CN" comment="true" pageview="true" emoji="['//unpkg.com/@waline/emojis@1.0.1/weibo', '//unpkg.com/@waline/emojis@1.0.1/bilibili']"></wu-waline-comment-shadow>
 </div>

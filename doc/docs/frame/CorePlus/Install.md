@@ -37,7 +37,7 @@ npm run example:package
 开发者可以根据需要手动安装依赖，相关 Api 请参考下一章节 Decorators。
 
 ```bin
-npm install @wu-component/web-core-plus --save
+npm install @wu-component/web-core-plus@next --save
 ```
 
 ### 说明

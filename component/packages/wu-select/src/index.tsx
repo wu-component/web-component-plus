@@ -41,8 +41,10 @@ export class WuSelect extends WuComponent implements OnConnected, OnBeforeUpdate
         // admin 系统里 e.target.localName 直接输出 my-app 了
         // if (e.target.localName === 'wu-cascader') return
         if (this.popover.isShow) {
-            this.popover.isShow = false;
-            this.popover.update();
+            if (this.popover) {
+                this.popover.isShow = false;
+                this.popover.update();
+            }
         }
     }
 
@@ -188,9 +190,10 @@ export class WuSelect extends WuComponent implements OnConnected, OnBeforeUpdate
         }
         if (!this.multiple) {
             Promise.resolve().then(() => {
-                // this.popover?.leave?.();
-                this.popover.isShow = false;
-                this.popover.update();
+                if (this.popover) {
+                    this.popover.isShow = false;
+                    this.popover.update();
+                }
             });
         }
     }

@@ -4,6 +4,15 @@
 
 ### 基础用法
 
+沙箱执行以下代码
+
+```js
+console.info("Sandboxed code initialized successfully");
+var title = document.createElement('h3');
+title.innerHTML = "Content is generated from the sandbox";
+document.body.appendChild(title);
+```
+
 ::: demo
 ```html
 <template>
@@ -13,7 +22,7 @@
         </div>
        
         <div class="code_content" >
-            <wu-code-sandbox @message="messageFun" id="codeSandbox" is-before-refresh="false" style="width: 70%;height: 100%"></wu-code-sandbox>
+            <wu-code-sandbox @message="messageFun" id="codeSandbox" is-before-refresh="false" style="width: 70%;height: 150px;overflow: scroll;"></wu-code-sandbox>
             <div class="code_log">
                 <span class="log_item" v-for="(item, index) in logList">
                     <span>{{item.type}}:</span>
@@ -36,11 +45,22 @@
                 const editorContainer = document.querySelector("#codeSandbox");
                 console.log("执行代码", [editorContainer]);
                 if (action === 1) {
-                    editorContainer?.runCode("js", `alert("宿主环境操作需要执行函数");`);
+                    var code = `
+            console.info("Sandboxed code initialized successfully");
+            var title = document.createElement('h3');
+            title.innerHTML = "Content is generated from the sandbox";
+            document.body.appendChild(title);`
+                    editorContainer?.runCode(code, (e) => {
+                        console.log(e)
+                        this.logList.push({
+                            type: "sandbox",
+                            message: e
+                        })
+                    });
                     this.logList.push({
                         type: "host",
                         action: "eval code",
-                        message: `eval code`
+                        message: `eval code \n ${code}`
                     })
                     return
                 }
@@ -50,9 +70,10 @@
              * @param e
              */
             messageFun(e) {
+                console.log(e)
                 this.logList.push({
                     type: "sandbox",
-                    message: e?.detail.data?.action
+                    message: 'Sandboxed code initialized successfully'
                 })
             }
         }

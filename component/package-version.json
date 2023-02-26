@@ -2,21 +2,21 @@
 	"packages": [
 		{
 			"name": "@wu-component/wu-alert",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-alert",
 			"file": {
 				"cjs": {
-					"size": "6.30 KB",
+					"size": "6.49 KB",
 					"format": "cjs",
 					"file": "packages/wu-alert/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "6.20 KB",
+					"size": "6.38 KB",
 					"format": "esm",
 					"file": "packages/wu-alert/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "6.57 KB",
+					"size": "6.75 KB",
 					"format": "umd",
 					"file": "packages/wu-alert/dist/index.umd.js"
 				}
@@ -29,7 +29,7 @@
 		},
 		{
 			"name": "@wu-component/wu-aside",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-aside",
 			"file": {
 				"cjs": {
@@ -56,7 +56,7 @@
 		},
 		{
 			"name": "@wu-component/wu-avatar",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-avatar",
 			"file": {
 				"cjs": {
@@ -83,7 +83,7 @@
 		},
 		{
 			"name": "@wu-component/wu-badge",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-badge",
 			"file": {
 				"cjs": {
@@ -110,7 +110,7 @@
 		},
 		{
 			"name": "@wu-component/wu-breadcrumb",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-breadcrumb",
 			"file": {
 				"cjs": {
@@ -124,7 +124,7 @@
 					"file": "packages/wu-breadcrumb/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "6.30 KB",
+					"size": "6.31 KB",
 					"format": "umd",
 					"file": "packages/wu-breadcrumb/dist/index.umd.js"
 				}
@@ -140,7 +140,7 @@
 		},
 		{
 			"name": "@wu-component/wu-breadcrumb-item",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-breadcrumb-item",
 			"file": {
 				"cjs": {
@@ -167,7 +167,7 @@
 		},
 		{
 			"name": "@wu-component/wu-button",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-button",
 			"file": {
 				"cjs": {
@@ -194,7 +194,7 @@
 		},
 		{
 			"name": "@wu-component/wu-card",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-card",
 			"file": {
 				"cjs": {
@@ -221,21 +221,21 @@
 		},
 		{
 			"name": "@wu-component/wu-cascader",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-cascader",
 			"file": {
 				"cjs": {
-					"size": "25.2 KB",
+					"size": "25.6 KB",
 					"format": "cjs",
 					"file": "packages/wu-cascader/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "25.0 KB",
+					"size": "25.3 KB",
 					"format": "esm",
 					"file": "packages/wu-cascader/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "57.4 KB",
+					"size": "57.8 KB",
 					"format": "umd",
 					"file": "packages/wu-cascader/dist/index.umd.js"
 				}
@@ -250,7 +250,7 @@
 		},
 		{
 			"name": "@wu-component/wu-cesium-map",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-cesium-map",
 			"file": {
 				"cjs": {
@@ -277,21 +277,21 @@
 		},
 		{
 			"name": "@wu-component/wu-checkbox",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-checkbox",
 			"file": {
 				"cjs": {
-					"size": "17.6 KB",
+					"size": "17.7 KB",
 					"format": "cjs",
 					"file": "packages/wu-checkbox/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "17.5 KB",
+					"size": "17.6 KB",
 					"format": "esm",
 					"file": "packages/wu-checkbox/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "17.9 KB",
+					"size": "18.0 KB",
 					"format": "umd",
 					"file": "packages/wu-checkbox/dist/index.umd.js"
 				}
@@ -304,7 +304,7 @@
 		},
 		{
 			"name": "@wu-component/wu-checkbox-button",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-checkbox-button",
 			"file": {
 				"cjs": {
@@ -331,48 +331,49 @@
 		},
 		{
 			"name": "@wu-component/wu-checkbox-group",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-checkbox-group",
 			"file": {
 				"cjs": {
-					"size": "9.95 KB",
+					"size": "10.3 KB",
 					"format": "cjs",
 					"file": "packages/wu-checkbox-group/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "9.90 KB",
+					"size": "10.2 KB",
 					"format": "esm",
 					"file": "packages/wu-checkbox-group/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "10.2 KB",
+					"size": "28.1 KB",
 					"format": "umd",
 					"file": "packages/wu-checkbox-group/dist/index.umd.js"
 				}
 			},
 			"dependencies": {
 				"@wu-component/common": "latest",
-				"@wu-component/web-core-plus": "next"
+				"@wu-component/web-core-plus": "next",
+				"@wu-component/wu-checkbox": "latest"
 			},
 			"peerDependencies": {}
 		},
 		{
 			"name": "@wu-component/wu-code-monaco-editor",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-code-monaco-editor",
 			"file": {
 				"cjs": {
-					"size": "97.2 KB",
+					"size": "97.9 KB",
 					"format": "cjs",
 					"file": "packages/wu-code-monaco-editor/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "97.2 KB",
+					"size": "97.8 KB",
 					"format": "esm",
 					"file": "packages/wu-code-monaco-editor/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "97.5 KB",
+					"size": "98.2 KB",
 					"format": "umd",
 					"file": "packages/wu-code-monaco-editor/dist/index.umd.js"
 				}
@@ -387,21 +388,21 @@
 		},
 		{
 			"name": "@wu-component/wu-code-playground",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-code-playground",
 			"file": {
 				"cjs": {
-					"size": "65.6 KB",
+					"size": "74.2 KB",
 					"format": "cjs",
 					"file": "packages/wu-code-playground/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "65.5 KB",
+					"size": "74.1 KB",
 					"format": "esm",
 					"file": "packages/wu-code-playground/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "169 KB",
+					"size": "178 KB",
 					"format": "umd",
 					"file": "packages/wu-code-playground/dist/index.umd.js"
 				}
@@ -414,6 +415,7 @@
 				"@wu-component/wu-code-monaco-editor": "latest",
 				"@wu-component/wu-code-sandbox": "latest",
 				"@wu-component/wu-lottie": "latest",
+				"esbuild-wasm": "^0.17.10",
 				"monaco-editor": "^0.34.1"
 			},
 			"peerDependencies": {
@@ -427,26 +429,27 @@
 		},
 		{
 			"name": "@wu-component/wu-code-sandbox",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-code-sandbox",
 			"file": {
 				"cjs": {
-					"size": "26.0 KB",
+					"size": "75.0 KB",
 					"format": "cjs",
 					"file": "packages/wu-code-sandbox/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "25.9 KB",
+					"size": "74.2 KB",
 					"format": "esm",
 					"file": "packages/wu-code-sandbox/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "26.2 KB",
+					"size": "74.7 KB",
 					"format": "umd",
 					"file": "packages/wu-code-sandbox/dist/index.umd.js"
 				}
 			},
 			"dependencies": {
+				"@jetbrains/websandbox": "^1.0.7",
 				"@monaco-editor/loader": "^1.3.2",
 				"@wu-component/common": "latest",
 				"@wu-component/web-core-plus": "next",
@@ -456,11 +459,11 @@
 		},
 		{
 			"name": "@wu-component/wu-col",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-col",
 			"file": {
 				"cjs": {
-					"size": "35.2 KB",
+					"size": "35.3 KB",
 					"format": "cjs",
 					"file": "packages/wu-col/dist/index.cjs.js"
 				},
@@ -470,34 +473,35 @@
 					"file": "packages/wu-col/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "35.5 KB",
+					"size": "44.3 KB",
 					"format": "umd",
 					"file": "packages/wu-col/dist/index.umd.js"
 				}
 			},
 			"dependencies": {
 				"@wu-component/common": "latest",
-				"@wu-component/web-core-plus": "next"
+				"@wu-component/web-core-plus": "next",
+				"@wu-component/wu-row": "latest"
 			},
 			"peerDependencies": {}
 		},
 		{
 			"name": "@wu-component/wu-collapse",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-collapse",
 			"file": {
 				"cjs": {
-					"size": "3.69 KB",
+					"size": "13.3 KB",
 					"format": "cjs",
 					"file": "packages/wu-collapse/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "3.64 KB",
+					"size": "13.2 KB",
 					"format": "esm",
 					"file": "packages/wu-collapse/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "14.9 KB",
+					"size": "24.6 KB",
 					"format": "umd",
 					"file": "packages/wu-collapse/dist/index.umd.js"
 				}
@@ -513,7 +517,7 @@
 		},
 		{
 			"name": "@wu-component/wu-collapse-item",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-collapse-item",
 			"file": {
 				"cjs": {
@@ -527,7 +531,7 @@
 					"file": "packages/wu-collapse-item/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "11.5 KB",
+					"size": "11.4 KB",
 					"format": "umd",
 					"file": "packages/wu-collapse-item/dist/index.umd.js"
 				}
@@ -540,7 +544,7 @@
 		},
 		{
 			"name": "@wu-component/wu-color-picker",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-color-picker",
 			"file": {
 				"cjs": {
@@ -554,7 +558,7 @@
 					"file": "packages/wu-color-picker/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "77.6 KB",
+					"size": "77.7 KB",
 					"format": "umd",
 					"file": "packages/wu-color-picker/dist/index.umd.js"
 				}
@@ -573,7 +577,7 @@
 		},
 		{
 			"name": "@wu-component/wu-container",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-container",
 			"file": {
 				"cjs": {
@@ -594,27 +598,38 @@
 			},
 			"dependencies": {
 				"@wu-component/common": "latest",
+				"@wu-component/wu-footer": "latest",
+				"@wu-component/wu-aside": "latest",
+				"@wu-component/wu-main": "latest",
+				"@wu-component/wu-header": "latest",
 				"@wu-component/web-core-plus": "next"
 			},
-			"peerDependencies": {}
+			"peerDependencies": {
+				"@wu-component/common": "latest",
+				"@wu-component/wu-footer": "latest",
+				"@wu-component/wu-aside": "latest",
+				"@wu-component/wu-main": "latest",
+				"@wu-component/wu-header": "latest",
+				"@wu-component/web-core-plus": "next"
+			}
 		},
 		{
 			"name": "@wu-component/wu-date-picker",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-date-picker",
 			"file": {
 				"cjs": {
-					"size": "78.0 KB",
+					"size": "78.3 KB",
 					"format": "cjs",
 					"file": "packages/wu-date-picker/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "78.0 KB",
+					"size": "78.2 KB",
 					"format": "esm",
 					"file": "packages/wu-date-picker/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "78.5 KB",
+					"size": "78.7 KB",
 					"format": "umd",
 					"file": "packages/wu-date-picker/dist/index.umd.js"
 				}
@@ -627,48 +642,49 @@
 		},
 		{
 			"name": "@wu-component/wu-dialog",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-dialog",
 			"file": {
 				"cjs": {
-					"size": "7.08 KB",
+					"size": "7.42 KB",
 					"format": "cjs",
 					"file": "packages/wu-dialog/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "6.98 KB",
+					"size": "7.31 KB",
 					"format": "esm",
 					"file": "packages/wu-dialog/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "7.34 KB",
+					"size": "16.6 KB",
 					"format": "umd",
 					"file": "packages/wu-dialog/dist/index.umd.js"
 				}
 			},
 			"dependencies": {
 				"@wu-component/common": "latest",
+				"@wu-component/wu-transition": "latest",
 				"@wu-component/web-core-plus": "next"
 			},
 			"peerDependencies": {}
 		},
 		{
 			"name": "@wu-component/wu-empty",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-empty",
 			"file": {
 				"cjs": {
-					"size": "6.35 KB",
+					"size": "6.34 KB",
 					"format": "cjs",
 					"file": "packages/wu-empty/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "6.21 KB",
+					"size": "6.20 KB",
 					"format": "esm",
 					"file": "packages/wu-empty/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "6.61 KB",
+					"size": "6.60 KB",
 					"format": "umd",
 					"file": "packages/wu-empty/dist/index.umd.js"
 				}
@@ -681,7 +697,7 @@
 		},
 		{
 			"name": "@wu-component/wu-footer",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-footer",
 			"file": {
 				"cjs": {
@@ -708,21 +724,21 @@
 		},
 		{
 			"name": "@wu-component/wu-form",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-form",
 			"file": {
 				"cjs": {
-					"size": "6.44 KB",
+					"size": "6.46 KB",
 					"format": "cjs",
 					"file": "packages/wu-form/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "6.36 KB",
+					"size": "6.38 KB",
 					"format": "esm",
 					"file": "packages/wu-form/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "6.70 KB",
+					"size": "6.72 KB",
 					"format": "umd",
 					"file": "packages/wu-form/dist/index.umd.js"
 				}
@@ -735,7 +751,7 @@
 		},
 		{
 			"name": "@wu-component/wu-form-item",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-form-item",
 			"file": {
 				"cjs": {
@@ -762,7 +778,7 @@
 		},
 		{
 			"name": "@wu-component/wu-form-label-wrap",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-form-label-wrap",
 			"file": {
 				"cjs": {
@@ -789,21 +805,21 @@
 		},
 		{
 			"name": "@wu-component/wu-form1",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-form1",
 			"file": {
 				"cjs": {
-					"size": "6.44 KB",
+					"size": "6.46 KB",
 					"format": "cjs",
 					"file": "packages/wu-form1/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "6.37 KB",
+					"size": "6.39 KB",
 					"format": "esm",
 					"file": "packages/wu-form1/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "6.70 KB",
+					"size": "6.72 KB",
 					"format": "umd",
 					"file": "packages/wu-form1/dist/index.umd.js"
 				}
@@ -816,7 +832,7 @@
 		},
 		{
 			"name": "@wu-component/wu-header",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-header",
 			"file": {
 				"cjs": {
@@ -843,7 +859,7 @@
 		},
 		{
 			"name": "@wu-component/wu-icon",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-icon",
 			"file": {
 				"cjs": {
@@ -870,21 +886,21 @@
 		},
 		{
 			"name": "@wu-component/wu-image",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-image",
 			"file": {
 				"cjs": {
-					"size": "59.1 KB",
+					"size": "58.8 KB",
 					"format": "cjs",
 					"file": "packages/wu-image/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "59.1 KB",
+					"size": "58.7 KB",
 					"format": "esm",
 					"file": "packages/wu-image/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "59.0 KB",
+					"size": "59.1 KB",
 					"format": "umd",
 					"file": "packages/wu-image/dist/index.umd.js"
 				}
@@ -897,7 +913,7 @@
 		},
 		{
 			"name": "@wu-component/wu-inject",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-inject",
 			"file": {
 				"cjs": {
@@ -924,21 +940,21 @@
 		},
 		{
 			"name": "@wu-component/wu-input",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-input",
 			"file": {
 				"cjs": {
-					"size": "20.0 KB",
+					"size": "20.1 KB",
 					"format": "cjs",
 					"file": "packages/wu-input/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "19.8 KB",
+					"size": "20.0 KB",
 					"format": "esm",
 					"file": "packages/wu-input/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "20.3 KB",
+					"size": "20.4 KB",
 					"format": "umd",
 					"file": "packages/wu-input/dist/index.umd.js"
 				}
@@ -951,7 +967,7 @@
 		},
 		{
 			"name": "@wu-component/wu-input-number",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-input-number",
 			"file": {
 				"cjs": {
@@ -978,7 +994,7 @@
 		},
 		{
 			"name": "@wu-component/wu-leaflet-map",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-leaflet-map",
 			"file": {
 				"cjs": {
@@ -1005,7 +1021,7 @@
 		},
 		{
 			"name": "@wu-component/wu-link",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-link",
 			"file": {
 				"cjs": {
@@ -1032,21 +1048,21 @@
 		},
 		{
 			"name": "@wu-component/wu-lottie",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-lottie",
 			"file": {
 				"cjs": {
-					"size": "289 KB",
+					"size": "305 KB",
 					"format": "cjs",
 					"file": "packages/wu-lottie/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "289 KB",
+					"size": "305 KB",
 					"format": "esm",
 					"file": "packages/wu-lottie/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "289 KB",
+					"size": "306 KB",
 					"format": "umd",
 					"file": "packages/wu-lottie/dist/index.umd.js"
 				}
@@ -1060,7 +1076,7 @@
 		},
 		{
 			"name": "@wu-component/wu-main",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-main",
 			"file": {
 				"cjs": {
@@ -1087,7 +1103,7 @@
 		},
 		{
 			"name": "@wu-component/wu-mapbox-map",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-mapbox-map",
 			"file": {
 				"cjs": {
@@ -1114,11 +1130,11 @@
 		},
 		{
 			"name": "@wu-component/wu-menu",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-menu",
 			"file": {
 				"cjs": {
-					"size": "25.2 KB",
+					"size": "25.3 KB",
 					"format": "cjs",
 					"file": "packages/wu-menu/dist/index.cjs.js"
 				},
@@ -1128,7 +1144,7 @@
 					"file": "packages/wu-menu/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "62.7 KB",
+					"size": "62.8 KB",
 					"format": "umd",
 					"file": "packages/wu-menu/dist/index.umd.js"
 				}
@@ -1148,11 +1164,11 @@
 		},
 		{
 			"name": "@wu-component/wu-menu-item",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-menu-item",
 			"file": {
 				"cjs": {
-					"size": "14.3 KB",
+					"size": "14.4 KB",
 					"format": "cjs",
 					"file": "packages/wu-menu-item/dist/index.cjs.js"
 				},
@@ -1162,7 +1178,7 @@
 					"file": "packages/wu-menu-item/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "14.6 KB",
+					"size": "14.7 KB",
 					"format": "umd",
 					"file": "packages/wu-menu-item/dist/index.umd.js"
 				}
@@ -1177,7 +1193,7 @@
 		},
 		{
 			"name": "@wu-component/wu-menu-item-group",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-menu-item-group",
 			"file": {
 				"cjs": {
@@ -1204,7 +1220,7 @@
 		},
 		{
 			"name": "@wu-component/wu-menu-sub",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-menu-sub",
 			"file": {
 				"cjs": {
@@ -1231,7 +1247,7 @@
 		},
 		{
 			"name": "@wu-component/wu-message",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-message",
 			"file": {
 				"cjs": {
@@ -1258,7 +1274,7 @@
 		},
 		{
 			"name": "@wu-component/wu-page-header",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-page-header",
 			"file": {
 				"cjs": {
@@ -1285,21 +1301,21 @@
 		},
 		{
 			"name": "@wu-component/wu-pagination",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-pagination",
 			"file": {
 				"cjs": {
-					"size": "12.8 KB",
+					"size": "12.9 KB",
 					"format": "cjs",
 					"file": "packages/wu-pagination/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "12.7 KB",
+					"size": "12.8 KB",
 					"format": "esm",
 					"file": "packages/wu-pagination/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "13.1 KB",
+					"size": "13.2 KB",
 					"format": "umd",
 					"file": "packages/wu-pagination/dist/index.umd.js"
 				}
@@ -1312,7 +1328,7 @@
 		},
 		{
 			"name": "@wu-component/wu-popconfirm",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-popconfirm",
 			"file": {
 				"cjs": {
@@ -1321,12 +1337,12 @@
 					"file": "packages/wu-popconfirm/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "21.1 KB",
+					"size": "21.0 KB",
 					"format": "esm",
 					"file": "packages/wu-popconfirm/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "53.3 KB",
+					"size": "53.4 KB",
 					"format": "umd",
 					"file": "packages/wu-popconfirm/dist/index.umd.js"
 				}
@@ -1344,21 +1360,21 @@
 		},
 		{
 			"name": "@wu-component/wu-popover",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-popover",
 			"file": {
 				"cjs": {
-					"size": "31.9 KB",
+					"size": "32.1 KB",
 					"format": "cjs",
 					"file": "packages/wu-popover/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "31.9 KB",
+					"size": "32.0 KB",
 					"format": "esm",
 					"file": "packages/wu-popover/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "32.2 KB",
+					"size": "32.3 KB",
 					"format": "umd",
 					"file": "packages/wu-popover/dist/index.umd.js"
 				}
@@ -1372,7 +1388,7 @@
 		},
 		{
 			"name": "@wu-component/wu-progress",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-progress",
 			"file": {
 				"cjs": {
@@ -1399,7 +1415,7 @@
 		},
 		{
 			"name": "@wu-component/wu-provide",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-provide",
 			"file": {
 				"cjs": {
@@ -1426,7 +1442,7 @@
 		},
 		{
 			"name": "@wu-component/wu-radio",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-radio",
 			"file": {
 				"cjs": {
@@ -1453,7 +1469,7 @@
 		},
 		{
 			"name": "@wu-component/wu-rate",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-rate",
 			"file": {
 				"cjs": {
@@ -1480,21 +1496,21 @@
 		},
 		{
 			"name": "@wu-component/wu-right-menu",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-right-menu",
 			"file": {
 				"cjs": {
-					"size": "6.05 KB",
+					"size": "6.20 KB",
 					"format": "cjs",
 					"file": "packages/wu-right-menu/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "5.98 KB",
+					"size": "6.13 KB",
 					"format": "esm",
 					"file": "packages/wu-right-menu/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "6.27 KB",
+					"size": "6.42 KB",
 					"format": "umd",
 					"file": "packages/wu-right-menu/dist/index.umd.js"
 				}
@@ -1507,7 +1523,7 @@
 		},
 		{
 			"name": "@wu-component/wu-row",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-row",
 			"file": {
 				"cjs": {
@@ -1534,21 +1550,21 @@
 		},
 		{
 			"name": "@wu-component/wu-select",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-select",
 			"file": {
 				"cjs": {
-					"size": "43.5 KB",
+					"size": "43.9 KB",
 					"format": "cjs",
 					"file": "packages/wu-select/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "43.3 KB",
+					"size": "43.6 KB",
 					"format": "esm",
 					"file": "packages/wu-select/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "86.1 KB",
+					"size": "86.7 KB",
 					"format": "umd",
 					"file": "packages/wu-select/dist/index.umd.js"
 				}
@@ -1568,21 +1584,21 @@
 		},
 		{
 			"name": "@wu-component/wu-select-option",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-select-option",
 			"file": {
 				"cjs": {
-					"size": "10.6 KB",
+					"size": "10.8 KB",
 					"format": "cjs",
 					"file": "packages/wu-select-option/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "10.5 KB",
+					"size": "10.7 KB",
 					"format": "esm",
 					"file": "packages/wu-select-option/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "10.9 KB",
+					"size": "11.1 KB",
 					"format": "umd",
 					"file": "packages/wu-select-option/dist/index.umd.js"
 				}
@@ -1595,21 +1611,21 @@
 		},
 		{
 			"name": "@wu-component/wu-steps",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-steps",
 			"file": {
 				"cjs": {
-					"size": "23.8 KB",
+					"size": "23.7 KB",
 					"format": "cjs",
 					"file": "packages/wu-steps/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "23.7 KB",
+					"size": "23.6 KB",
 					"format": "esm",
 					"file": "packages/wu-steps/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "24.1 KB",
+					"size": "24.0 KB",
 					"format": "umd",
 					"file": "packages/wu-steps/dist/index.umd.js"
 				}
@@ -1622,21 +1638,21 @@
 		},
 		{
 			"name": "@wu-component/wu-switch",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-switch",
 			"file": {
 				"cjs": {
-					"size": "11.6 KB",
+					"size": "11.7 KB",
 					"format": "cjs",
 					"file": "packages/wu-switch/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "11.5 KB",
+					"size": "11.6 KB",
 					"format": "esm",
 					"file": "packages/wu-switch/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "11.9 KB",
+					"size": "12.0 KB",
 					"format": "umd",
 					"file": "packages/wu-switch/dist/index.umd.js"
 				}
@@ -1649,21 +1665,21 @@
 		},
 		{
 			"name": "@wu-component/wu-table",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-table",
 			"file": {
 				"cjs": {
-					"size": "35.4 KB",
+					"size": "35.8 KB",
 					"format": "cjs",
 					"file": "packages/wu-table/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "35.0 KB",
+					"size": "35.5 KB",
 					"format": "esm",
 					"file": "packages/wu-table/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "53.0 KB",
+					"size": "53.6 KB",
 					"format": "umd",
 					"file": "packages/wu-table/dist/index.umd.js"
 				}
@@ -1681,16 +1697,16 @@
 		},
 		{
 			"name": "@wu-component/wu-tag",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-tag",
 			"file": {
 				"cjs": {
-					"size": "13.7 KB",
+					"size": "13.8 KB",
 					"format": "cjs",
 					"file": "packages/wu-tag/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "13.6 KB",
+					"size": "13.7 KB",
 					"format": "esm",
 					"file": "packages/wu-tag/dist/index.esm.js"
 				},
@@ -1702,13 +1718,14 @@
 			},
 			"dependencies": {
 				"@wu-component/common": "latest",
-				"@wu-component/web-core-plus": "next"
+				"@wu-component/web-core-plus": "next",
+				"sass-migrator": "^1.7.2"
 			},
 			"peerDependencies": {}
 		},
 		{
 			"name": "@wu-component/wu-time-line",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-time-line",
 			"file": {
 				"cjs": {
@@ -1722,7 +1739,7 @@
 					"file": "packages/wu-time-line/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "7.21 KB",
+					"size": "7.24 KB",
 					"format": "umd",
 					"file": "packages/wu-time-line/dist/index.umd.js"
 				}
@@ -1738,21 +1755,21 @@
 		},
 		{
 			"name": "@wu-component/wu-time-line-item",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-time-line-item",
 			"file": {
 				"cjs": {
-					"size": "5.00 KB",
+					"size": "5.03 KB",
 					"format": "cjs",
 					"file": "packages/wu-time-line-item/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "4.90 KB",
+					"size": "4.93 KB",
 					"format": "esm",
 					"file": "packages/wu-time-line-item/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "5.27 KB",
+					"size": "5.30 KB",
 					"format": "umd",
 					"file": "packages/wu-time-line-item/dist/index.umd.js"
 				}
@@ -1765,7 +1782,7 @@
 		},
 		{
 			"name": "@wu-component/wu-tooltip",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-tooltip",
 			"file": {
 				"cjs": {
@@ -1779,7 +1796,7 @@
 					"file": "packages/wu-tooltip/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "29.9 KB",
+					"size": "30.0 KB",
 					"format": "umd",
 					"file": "packages/wu-tooltip/dist/index.umd.js"
 				}
@@ -1793,21 +1810,21 @@
 		},
 		{
 			"name": "@wu-component/wu-transition",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-transition",
 			"file": {
 				"cjs": {
-					"size": "9.14 KB",
+					"size": "9.13 KB",
 					"format": "cjs",
 					"file": "packages/wu-transition/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "9.05 KB",
+					"size": "9.04 KB",
 					"format": "esm",
 					"file": "packages/wu-transition/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "9.40 KB",
+					"size": "9.38 KB",
 					"format": "umd",
 					"file": "packages/wu-transition/dist/index.umd.js"
 				}
@@ -1820,7 +1837,7 @@
 		},
 		{
 			"name": "@wu-component/wu-tree",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-tree",
 			"file": {
 				"cjs": {
@@ -1834,7 +1851,7 @@
 					"file": "packages/wu-tree/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "35.0 KB",
+					"size": "35.1 KB",
 					"format": "umd",
 					"file": "packages/wu-tree/dist/index.umd.js"
 				}
@@ -1847,21 +1864,21 @@
 		},
 		{
 			"name": "@wu-component/wu-tree-v2",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-tree-v2",
 			"file": {
 				"cjs": {
-					"size": "35.1 KB",
+					"size": "35.0 KB",
 					"format": "cjs",
 					"file": "packages/wu-tree-v2/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "34.9 KB",
+					"size": "34.8 KB",
 					"format": "esm",
 					"file": "packages/wu-tree-v2/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "52.7 KB",
+					"size": "52.8 KB",
 					"format": "umd",
 					"file": "packages/wu-tree-v2/dist/index.umd.js"
 				}
@@ -1877,21 +1894,21 @@
 		},
 		{
 			"name": "@wu-component/wu-upload",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-upload",
 			"file": {
 				"cjs": {
-					"size": "34.4 KB",
+					"size": "34.6 KB",
 					"format": "cjs",
 					"file": "packages/wu-upload/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "34.2 KB",
+					"size": "34.3 KB",
 					"format": "esm",
 					"file": "packages/wu-upload/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "49.2 KB",
+					"size": "49.4 KB",
 					"format": "umd",
 					"file": "packages/wu-upload/dist/index.umd.js"
 				}
@@ -1907,27 +1924,27 @@
 		},
 		{
 			"name": "@wu-component/wu-waline-comment",
-			"version": "1.11.6",
+			"version": "1.11.8",
 			"directory": "wu-waline-comment",
 			"file": {
 				"cjs": {
-					"size": "180 KB",
+					"size": "182 KB",
 					"format": "cjs",
 					"file": "packages/wu-waline-comment/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "180 KB",
+					"size": "181 KB",
 					"format": "esm",
 					"file": "packages/wu-waline-comment/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "181 KB",
+					"size": "182 KB",
 					"format": "umd",
 					"file": "packages/wu-waline-comment/dist/index.umd.js"
 				}
 			},
 			"dependencies": {
-				"@waline/client": "^2.13.0",
+				"@waline/client": "^2.14.7",
 				"@wu-component/common": "latest",
 				"@wu-component/web-core-plus": "next"
 			},

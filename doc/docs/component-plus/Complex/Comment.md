@@ -6,14 +6,44 @@
 
 ### 基础用法(未使用沙箱)
 
+vue 中使用非 shadow 时出现了无法渲染的问题，所以使用时可以考虑使用 sandbox 渲染。
+
 ::: demo
 ```html
 <template>
     <div style="width:90%; margin: 0 auto; ">
-        <wu-waline-comment path="/component-plus/Complex/Comment.html" serverurl="https://whl47bsd.api.lncldglobal.com" style="--waline-theme-color:red" dark="body.theme-dark" language="zh-CN" comment="true" pageview="true" emoji="['//unpkg.com/@waline/emojis@1.0.1/weibo', '//unpkg.com/@waline/emojis@1.0.1/bilibili']"></wu-waline-comment>
+        <wu-code-sandbox @success="messageFun" id="codeSandbox" height="450px" is-before-refresh="false" style="width: 70%;height: 450px;overflow: scroll;"></wu-code-sandbox>
     </div>
 </template>
 <script>
+    export default {
+        mounted() {
+            
+        },
+        methods: {
+            messageFun() {
+                // <!--<wu-waline-comment path="/component-plus/Complex/Comment.html" serverurl="https://whl47bsd.api.lncldglobal.com" style="&#45;&#45;waline-theme-color:red" dark="body.theme-dark" language="zh-CN" comment="true" pageview="true" emoji="['//unpkg.com/@waline/emojis@1.0.1/weibo', '//unpkg.com/@waline/emojis@1.0.1/bilibili']"></wu-waline-comment>-->
+                this.$nextTick(() => {
+                    const sandboxDom = document.querySelector("#codeSandbox");
+                    const code = `
+                    console.log(webCorePlus);
+                    var div = document.createElement('div');
+                    div.innerHTML = "<wu-waline-comment path='/component-plus/Complex/Comment.html' serverurl='https://whl47bsd.api.lncldglobal.com' style='waline-theme-color:red' dark='body.theme-dark' language='zh-CN' comment='true' pageview='true'></wu-waline-comment>"
+                    document.body.appendChild(div);
+                    `;
+                    sandboxDom.sandbox.importScript("/js/core/index.iife.min.js").then((res) => {
+                        console.log(res);
+                        sandboxDom.sandbox.importScript("/js/comment/index.umd.js").then((res1) => {
+                            console.log(res1);
+                            sandboxDom.runCode(code, () => {
+                                console.log("init success")
+                            })
+                        })
+                    })
+                })
+            }
+        }
+    }
 </script>
 ```
 :::

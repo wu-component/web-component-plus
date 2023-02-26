@@ -14,12 +14,11 @@
 <template>
     <div style="display: flex; align-items: center;justify-content: center;width: 100%; margin-top: 8px; margin-bottom: 16px">
         <wu-plus-table
+                id="tableRef1"
                 checkbox="true"
                 stripe="false"
                 border="true"
                 compact="false"
-                data='[{"id":1,"name":"xwang","age":18,"address":"是是是"}]'
-                columns='[{"title":"ID","key":"id","align":"center"},{"title":"Name","align":"center","key":"name"},{"title":"age","key":"age"},{"title":"address","key":"address"}]'
         ></wu-plus-table>
 
     </div>
@@ -34,6 +33,14 @@
         },
         methods: {
             
+        },
+        mounted() {
+            const tableRef1 = document.getElementById("tableRef1");
+            const list1 = [{"id":1,"name":"xwang","age":18,"address":"是是是"}];
+            const columns1 = [{"title":"ID","key":"id","align":"center"},{"title":"Name","align":"center","key":"name"},{"title":"age","key":"age"},{"title":"address","key":"address"}];
+
+            tableRef1.setData(list1);
+            tableRef1.setColumns(columns1);
         }
     }
 </script>
@@ -54,8 +61,6 @@
                 stripe="false"
                 border="true"
                 compact="false"
-                data="[]"
-                columns="[]"
         ></wu-plus-table>
 
     </div>
@@ -115,8 +120,8 @@
                 }
             ]
             this.$nextTick(() => {
-                tableRef2.setAttribute('data', list)
-                tableRef2.setAttribute('columns', columns)
+                tableRef2.data = list;
+                tableRef2.columns = columns
             })
 
 
@@ -135,12 +140,11 @@
 <template>
     <div style="display: flex; align-items: center;justify-content: center;width: 100%; margin-top: 8px; margin-bottom: 16px">
         <wu-plus-table
+                id="tableRef4"
                 checkbox="true"
                 stripe="false"
                 border="true"
                 compact="false"
-                :data=data
-                :columns="columns"
         ></wu-plus-table>
 
     </div>
@@ -155,6 +159,13 @@
         },
         methods: {
 
+        },
+        mounted() {
+            const tableRef4 = document.getElementById("tableRef4");
+            const data2 = [{"id":1,"name":"xwang","age":18,"address":"是是是", checked: true}, {"id":2,"name":"xwang","age":18,"address":"是是是"}, {"id":3,"name":"xwang","age":18,"address":"是是是"}, {"id":4,"name":"xwang","age":18,"address":"是是是"}]
+            const columns2 = [{"width":"20px", "align": "center", "type": "selection"},{"title":"ID","key":"id", "align": "center"},{"title":"Name", "align": "center", "key":"name"},{"title":"age","key":"age"},{"title":"address","key":"address"}]
+            tableRef4.data = data2;
+            tableRef4.columns = columns2;
         }
     }
 </script>
@@ -163,15 +174,19 @@
 
 ### Attributes
 
-<style>
-</style>
+| 参数      | 说明    | 类型      | 可选值       | 默认值   |
+|---------- |-------- |---------- |-------------  |-------- |
+| border | 是否有边框 | Boolean | false、true | false |
+| width | 宽度 | String | -- | 'auto' |
+| height | 高度 | String | -- | 'auto' |
+
+### State
+v2 版本中将 data、columns 变更为状态，不再使用 Attributes。
+
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |-------------  |-------- |
 | data | 组件数据 | any[] | 表格数据| [] |
 | columns | 列配置 | Column[] | 符合 Column 的集合 | [] |
-| border | 是否有边框 | Boolean | false、true | false |
-| width | 宽度 | String | -- | 'auto' |
-| height | 高度 | String | -- | 'auto' |
 
 
 ### Event

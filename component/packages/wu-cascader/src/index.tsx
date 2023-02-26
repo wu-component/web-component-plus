@@ -63,8 +63,11 @@ export class WuCascader extends WuComponent implements OnConnected, OnDisConnect
         // admin 系统里 e.target.localName 直接输出 my-app 了
         // if (e.target.localName === 'wu-cascader') return
         if (this.popoverRef.isShow) {
-            this.popoverRef.isShow = false;
-            this.popoverRef.update();
+            if (this.popoverRef) {
+                this.popoverRef.isShow = false;
+                this.popoverRef.update();
+            }
+
         }
     }
 

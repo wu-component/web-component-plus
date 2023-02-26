@@ -1,14 +1,16 @@
 ﻿import { Component, h, OnConnected, WuComponent, Prop } from '@wu-component/web-core-plus';
 import css from './index.scss';
+// @ts-ignore
 import { compileTS } from "./core/typescript";
 import "@wu-component/wu-code-monaco-editor";
 import "@wu-component/wu-code-sandbox";
 import "@wu-component/wu-alert";
 import type { WuCodeMonacoEditor } from "@wu-component/wu-code-monaco-editor/types";
-import type { WuMonacoEditorPreview } from "@wu-component/wu-code-sandbox/types";
-import srcdoc from './srcdoc.html';
+import type { WuCodeSandbox } from "@wu-component/wu-code-sandbox/types";
+/*import srcdoc from './srcdoc.html';*/
 import initialSrcTs from './initialSrcTs.txt';
-import { debounce } from "./utils";
+
+/*import * as esbuild from 'esbuild-wasm';*/
 
 interface NoticeItem {
     close: boolean;
@@ -48,11 +50,13 @@ export class WuCodePlayground extends WuComponent implements OnConnected {
 
     public editorContainer: WuCodeMonacoEditor = null;
 
-    public previewContainer: WuMonacoEditorPreview = null;
+    public previewContainer: WuCodeSandbox = null;
 
     public initialEvalSuccess = false;
 
     public override connected(shadowRoot: ShadowRoot): void {
+        const code: WuCodeSandbox = this.shadowRoot.querySelector('wu-code-sandbox');
+        const editor: WuCodeMonacoEditor = this.shadowRoot.querySelector('wu-code-monaco-editor');
         const config: StorageConfig = localStorage.getItem(WU_COMPONENT_DOC)? JSON.parse(localStorage.getItem(WU_COMPONENT_DOC)): {
             readMap: {},
             version: undefined
@@ -64,14 +68,6 @@ export class WuCodePlayground extends WuComponent implements OnConnected {
                 version: window.__DOC_VERSION__
             }));
         }
-        // this.editorContainer = shadowRoot.querySelector("#editor");
-        // this.previewContainer = shadowRoot.querySelector("#preview");
-        const that = this;
-        window.addEventListener("resize", (res) => {
-            debounce(() => {
-                that.editorContainer?.editor?.layout?.();
-            }, 100, "editReSize");
-        });
         this.fetchNoticeList().then((res) => {
             const noticeList = res?.notice || [];
             const container: HTMLElement = this.shadowRoot.querySelector("#noticeContainer");
@@ -86,6 +82,15 @@ export class WuCodePlayground extends WuComponent implements OnConnected {
                 }
             }
         });
+        editor.addTsDeclaration("https://static-cdn.canyuegongzi.xyz/ts/Wu.d.ts");
+        code.sandbox.importScript("https://unpkg.com/@wu-component/web-core-plus@next").then(r => {
+            console.log('success script');
+        });
+       /* esbuild.initialize({
+            wasmURL: 'https://cdn.jsdelivr.net/npm/esbuild-wasm@0.17.10/esbuild.wasm',
+        }).then(() => {
+
+        });*/
     }
 
 
@@ -94,15 +99,20 @@ export class WuCodePlayground extends WuComponent implements OnConnected {
      */
     public async runCode() {
         const editor = this.editorContainer.editor;
-        const tsJs: string = await compileTS(editor.getModel("typescript").uri);
-        this.previewContainer.runCode('ts', tsJs);
+        if (!editor?.getModel) {
+            return;
+        }
+        // editor.getModel().getValue()
+        const tsJs: string = await compileTS(editor?.getModel?.().uri);
+
+        await this.previewContainer.runCode(tsJs || '', () => {});
     }
 
     /**
      * 加载依赖
      */
     public loadDependencies() {
-        this.previewContainer.loadDependencies({
+        /*this.previewContainer.loadDependencies({
                 "name": "o(*≧▽≦)ツ┏━┓",
                 "dependencies": {
                     "react": "https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js"
@@ -112,7 +122,7 @@ export class WuCodePlayground extends WuComponent implements OnConnected {
                     "react": "https://cdn.jsdelivr.net/npm/@types/react/index.d.ts"
                 }
             }
-        ).then(r => {});
+        ).then(r => {});*/
     }
 
     /**
@@ -143,9 +153,12 @@ export class WuCodePlayground extends WuComponent implements OnConnected {
                     this.runCode().then(r => {
                         this.initialEvalSuccess = true;
                         this.isLoading = false;
+                    }).catch(e => {
+                        this.initialEvalSuccess = true;
+                        this.isLoading = false;
                     });
 
-                }, 500);
+                }, 1000);
             });
         }
     }
@@ -194,12 +207,14 @@ export class WuCodePlayground extends WuComponent implements OnConnected {
                     {
                         this.noticeList.map((item => {
                             return (
+                                // @ts-ignore
                                 <wu-plus-alert
                                     center
                                     type="success"
                                     closable={String(item.close)}
                                     tip={item.text}
                                     onClose={() => this.noticeClose(item)}
+                                    // @ts-ignore
                                 ></wu-plus-alert>
                             );
                         }))
@@ -222,6 +237,7 @@ export class WuCodePlayground extends WuComponent implements OnConnected {
                         {this.renderLoading()}
                     </div>
                     <div className="editorContainer">
+                        {/*@ts-ignore*/}
                         <wu-code-monaco-editor
                             className="editorContainer"
                             id="editor"
@@ -229,10 +245,12 @@ export class WuCodePlayground extends WuComponent implements OnConnected {
                             theme="vs-dark"
                             language="typescript"
                             ref={ref => this.editorContainer = ref}
+                        //@ts-ignore
                         ></wu-code-monaco-editor>
                     </div>
                     <div className="codeViewerContainer">
-                        <wu-code-sandbox ref={ref => this.previewContainer = ref} id="preview" onsuccess={() => this.sandboxSuccess()} isBeforeRefresh={true} initial-src-doc={srcdoc}></wu-code-sandbox>
+                        {/*@ts-ignore*/}
+                        <wu-code-sandbox ref={ref => this.previewContainer = ref} id="preview" onsuccess={() => this.sandboxSuccess()} isBeforeRefresh={true}></wu-code-sandbox>
                     </div>
                 </div>
             </div>

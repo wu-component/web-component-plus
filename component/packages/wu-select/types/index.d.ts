@@ -1,14 +1,17 @@
-import { OnBeforeUpdate, OnConnected, WuComponent } from '@wu-component/web-core-plus';
-declare type UISize = 'medium' | 'small' | 'mini';
+import { OnBeforeUpdate, OnConnected, OnDisConnected, WuComponent } from '@wu-component/web-core-plus';
+type UISize = 'medium' | 'small' | 'mini';
 import '@wu-component/wu-popover';
 import '@wu-component/wu-tag';
 import '@wu-component/wu-select-option';
 import type { WuSelectOptions } from "../types/type";
-export declare class WuSelect extends WuComponent implements OnConnected, OnBeforeUpdate {
+import type { WuPopover } from "@wu-component/wu-popover";
+export declare class WuSelect extends WuComponent implements OnConnected, OnBeforeUpdate, OnDisConnected {
     constructor();
     beforeUpdate(): void;
     private initOptions;
+    private maskClick;
     connected(shadowRoot: ShadowRoot): void;
+    disConnected(shadowRoot: ShadowRoot): void;
     /**
      * 多选tag大小
      */
@@ -20,7 +23,7 @@ export declare class WuSelect extends WuComponent implements OnConnected, OnBefo
     hoverIndex: number;
     label: string;
     options: WuSelectOptions[];
-    popover: any;
+    popover: WuPopover;
     tagsRef: any;
     _refInput: any;
     inputWidth: 0;

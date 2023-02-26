@@ -5,6 +5,7 @@ import "./example1.tsx";
 @Component({
     name: 'test-example',
     css: css,
+    is: "LightDom"
 })
 export class TestComponent extends WuComponent  implements OnConnected {
 

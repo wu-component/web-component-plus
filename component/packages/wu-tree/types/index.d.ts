@@ -4,7 +4,7 @@ interface DataOptions {
     label: string;
     disabled: string;
 }
-declare type TypeEnums = 'checkbox' | 'radio' | false;
+type TypeEnums = 'checkbox' | 'radio' | false;
 export declare class WuTree extends WuComponent implements OnConnected {
     constructor();
     private tree;

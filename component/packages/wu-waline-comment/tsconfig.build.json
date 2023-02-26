@@ -30,5 +30,5 @@
 
         }
     },
-    "include": ["src/index.tsx",  "src/icon.tsx", "./css.d.ts", "types/*.d.ts", "src/index.scss", "./node_modules/@waline/client/*"]
+    "include": ["src/index.tsx",  "src/icon.tsx", "./css.d.ts", "types/*.d.ts", "src/index.scss", "./node_modules/@waline/**/*"]
 }
