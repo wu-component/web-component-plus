@@ -102,12 +102,15 @@ export class WuCodeSandbox extends WuComponent implements OnConnected {
      */
     public initSandbox() {
         this.localApi = {};
+        const sandboxAttr = () => [ 'allow-forms', 'allow-modals', 'allow-pointer-lock',  'allow-popups',  'allow-top-navigation-by-user-activation' ].join(' ');
         const sandbox =  Sandbox.create(this.localApi, {
             frameContainer: '.iframe__container',
             frameClassName: 'simple__iframe',
             domContainer: this.shadowRoot as unknown as HTMLElement,
             codeToRunBeforeInit: this.code || '',
             allowFullScreen: false,
+            sandboxAdditionalAttributes: sandboxAttr(),
+            allowAdditionalAttributes: "*",
             ...this.options
         });
         sandbox.promise
