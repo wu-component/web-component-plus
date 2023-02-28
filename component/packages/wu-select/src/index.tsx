@@ -37,7 +37,7 @@ export class WuSelect extends WuComponent implements OnConnected, OnBeforeUpdate
         this.options = slotDom.assignedNodes().filter(item => (item as any).tagName === 'WU-PLUS-SELECT-OPTION') as unknown as WuSelectOptions[];
     }
 
-    private maskClick(e) {
+    public maskClick(e) {
         // admin 系统里 e.target.localName 直接输出 my-app 了
         // if (e.target.localName === 'wu-cascader') return
         if (this.popover.isShow) {
@@ -67,11 +67,11 @@ export class WuSelect extends WuComponent implements OnConnected, OnBeforeUpdate
             (this as any).update();
             this.updateSelectList();
         });
-        window.addEventListener('click', (e) => this.maskClick(e));
+        // document.addEventListener('click', this.maskClick);
     }
 
     public override disConnected(shadowRoot: ShadowRoot) {
-        window.removeEventListener('click', (e) => this.maskClick(e));
+        // document.removeEventListener('click', this.maskClick);
     }
 
     /**

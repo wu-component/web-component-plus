@@ -16,6 +16,7 @@ export declare class WuPopover extends WuComponent implements OnConnected, OnDis
     private appear;
     disappear: boolean;
     disabled: boolean;
+    closeOnClickHtml: boolean;
     private popper;
     closeEmit(): {
         value: boolean;
