@@ -2,7 +2,7 @@
 	"packages": [
 		{
 			"name": "@wu-component/wu-alert",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-alert",
 			"file": {
 				"cjs": {
@@ -29,7 +29,7 @@
 		},
 		{
 			"name": "@wu-component/wu-aside",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-aside",
 			"file": {
 				"cjs": {
@@ -56,7 +56,7 @@
 		},
 		{
 			"name": "@wu-component/wu-avatar",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-avatar",
 			"file": {
 				"cjs": {
@@ -83,7 +83,7 @@
 		},
 		{
 			"name": "@wu-component/wu-badge",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-badge",
 			"file": {
 				"cjs": {
@@ -110,7 +110,7 @@
 		},
 		{
 			"name": "@wu-component/wu-breadcrumb",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-breadcrumb",
 			"file": {
 				"cjs": {
@@ -140,7 +140,7 @@
 		},
 		{
 			"name": "@wu-component/wu-breadcrumb-item",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-breadcrumb-item",
 			"file": {
 				"cjs": {
@@ -167,7 +167,7 @@
 		},
 		{
 			"name": "@wu-component/wu-button",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-button",
 			"file": {
 				"cjs": {
@@ -194,7 +194,7 @@
 		},
 		{
 			"name": "@wu-component/wu-card",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-card",
 			"file": {
 				"cjs": {
@@ -221,7 +221,7 @@
 		},
 		{
 			"name": "@wu-component/wu-cascader",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-cascader",
 			"file": {
 				"cjs": {
@@ -235,7 +235,7 @@
 					"file": "packages/wu-cascader/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "57.8 KB",
+					"size": "58.0 KB",
 					"format": "umd",
 					"file": "packages/wu-cascader/dist/index.umd.js"
 				}
@@ -250,7 +250,7 @@
 		},
 		{
 			"name": "@wu-component/wu-cesium-map",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-cesium-map",
 			"file": {
 				"cjs": {
@@ -277,7 +277,7 @@
 		},
 		{
 			"name": "@wu-component/wu-checkbox",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-checkbox",
 			"file": {
 				"cjs": {
@@ -304,7 +304,7 @@
 		},
 		{
 			"name": "@wu-component/wu-checkbox-button",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-checkbox-button",
 			"file": {
 				"cjs": {
@@ -331,7 +331,7 @@
 		},
 		{
 			"name": "@wu-component/wu-checkbox-group",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-checkbox-group",
 			"file": {
 				"cjs": {
@@ -359,7 +359,7 @@
 		},
 		{
 			"name": "@wu-component/wu-code-monaco-editor",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-code-monaco-editor",
 			"file": {
 				"cjs": {
@@ -388,21 +388,21 @@
 		},
 		{
 			"name": "@wu-component/wu-code-playground",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-code-playground",
 			"file": {
 				"cjs": {
-					"size": "74.2 KB",
+					"size": "74.3 KB",
 					"format": "cjs",
 					"file": "packages/wu-code-playground/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "74.1 KB",
+					"size": "74.2 KB",
 					"format": "esm",
 					"file": "packages/wu-code-playground/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "178 KB",
+					"size": "179 KB",
 					"format": "umd",
 					"file": "packages/wu-code-playground/dist/index.umd.js"
 				}
@@ -429,21 +429,21 @@
 		},
 		{
 			"name": "@wu-component/wu-code-sandbox",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-code-sandbox",
 			"file": {
 				"cjs": {
-					"size": "75.0 KB",
+					"size": "75.3 KB",
 					"format": "cjs",
 					"file": "packages/wu-code-sandbox/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "74.2 KB",
+					"size": "74.4 KB",
 					"format": "esm",
 					"file": "packages/wu-code-sandbox/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "74.7 KB",
+					"size": "42.7 KB",
 					"format": "umd",
 					"file": "packages/wu-code-sandbox/dist/index.umd.js"
 				}
@@ -459,7 +459,7 @@
 		},
 		{
 			"name": "@wu-component/wu-col",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-col",
 			"file": {
 				"cjs": {
@@ -487,7 +487,7 @@
 		},
 		{
 			"name": "@wu-component/wu-collapse",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-collapse",
 			"file": {
 				"cjs": {
@@ -517,7 +517,7 @@
 		},
 		{
 			"name": "@wu-component/wu-collapse-item",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-collapse-item",
 			"file": {
 				"cjs": {
@@ -544,21 +544,21 @@
 		},
 		{
 			"name": "@wu-component/wu-color-picker",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-color-picker",
 			"file": {
 				"cjs": {
-					"size": "45.4 KB",
+					"size": "45.5 KB",
 					"format": "cjs",
 					"file": "packages/wu-color-picker/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "45.2 KB",
+					"size": "45.3 KB",
 					"format": "esm",
 					"file": "packages/wu-color-picker/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "77.7 KB",
+					"size": "78.0 KB",
 					"format": "umd",
 					"file": "packages/wu-color-picker/dist/index.umd.js"
 				}
@@ -577,7 +577,7 @@
 		},
 		{
 			"name": "@wu-component/wu-container",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-container",
 			"file": {
 				"cjs": {
@@ -598,24 +598,24 @@
 			},
 			"dependencies": {
 				"@wu-component/common": "latest",
-				"@wu-component/wu-footer": "latest",
+				"@wu-component/web-core-plus": "next",
 				"@wu-component/wu-aside": "latest",
-				"@wu-component/wu-main": "latest",
+				"@wu-component/wu-footer": "latest",
 				"@wu-component/wu-header": "latest",
-				"@wu-component/web-core-plus": "next"
+				"@wu-component/wu-main": "latest"
 			},
 			"peerDependencies": {
 				"@wu-component/common": "latest",
-				"@wu-component/wu-footer": "latest",
+				"@wu-component/web-core-plus": "next",
 				"@wu-component/wu-aside": "latest",
-				"@wu-component/wu-main": "latest",
+				"@wu-component/wu-footer": "latest",
 				"@wu-component/wu-header": "latest",
-				"@wu-component/web-core-plus": "next"
+				"@wu-component/wu-main": "latest"
 			}
 		},
 		{
 			"name": "@wu-component/wu-date-picker",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-date-picker",
 			"file": {
 				"cjs": {
@@ -642,7 +642,7 @@
 		},
 		{
 			"name": "@wu-component/wu-dialog",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-dialog",
 			"file": {
 				"cjs": {
@@ -663,14 +663,14 @@
 			},
 			"dependencies": {
 				"@wu-component/common": "latest",
-				"@wu-component/wu-transition": "latest",
-				"@wu-component/web-core-plus": "next"
+				"@wu-component/web-core-plus": "next",
+				"@wu-component/wu-transition": "latest"
 			},
 			"peerDependencies": {}
 		},
 		{
 			"name": "@wu-component/wu-empty",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-empty",
 			"file": {
 				"cjs": {
@@ -697,7 +697,7 @@
 		},
 		{
 			"name": "@wu-component/wu-footer",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-footer",
 			"file": {
 				"cjs": {
@@ -724,7 +724,7 @@
 		},
 		{
 			"name": "@wu-component/wu-form",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-form",
 			"file": {
 				"cjs": {
@@ -751,7 +751,7 @@
 		},
 		{
 			"name": "@wu-component/wu-form-item",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-form-item",
 			"file": {
 				"cjs": {
@@ -778,7 +778,7 @@
 		},
 		{
 			"name": "@wu-component/wu-form-label-wrap",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-form-label-wrap",
 			"file": {
 				"cjs": {
@@ -805,7 +805,7 @@
 		},
 		{
 			"name": "@wu-component/wu-form1",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-form1",
 			"file": {
 				"cjs": {
@@ -832,7 +832,7 @@
 		},
 		{
 			"name": "@wu-component/wu-header",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-header",
 			"file": {
 				"cjs": {
@@ -859,7 +859,7 @@
 		},
 		{
 			"name": "@wu-component/wu-icon",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-icon",
 			"file": {
 				"cjs": {
@@ -886,7 +886,7 @@
 		},
 		{
 			"name": "@wu-component/wu-image",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-image",
 			"file": {
 				"cjs": {
@@ -913,7 +913,7 @@
 		},
 		{
 			"name": "@wu-component/wu-inject",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-inject",
 			"file": {
 				"cjs": {
@@ -940,7 +940,7 @@
 		},
 		{
 			"name": "@wu-component/wu-input",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-input",
 			"file": {
 				"cjs": {
@@ -967,7 +967,7 @@
 		},
 		{
 			"name": "@wu-component/wu-input-number",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-input-number",
 			"file": {
 				"cjs": {
@@ -994,7 +994,7 @@
 		},
 		{
 			"name": "@wu-component/wu-leaflet-map",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-leaflet-map",
 			"file": {
 				"cjs": {
@@ -1021,7 +1021,7 @@
 		},
 		{
 			"name": "@wu-component/wu-link",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-link",
 			"file": {
 				"cjs": {
@@ -1048,7 +1048,7 @@
 		},
 		{
 			"name": "@wu-component/wu-lottie",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-lottie",
 			"file": {
 				"cjs": {
@@ -1076,7 +1076,7 @@
 		},
 		{
 			"name": "@wu-component/wu-main",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-main",
 			"file": {
 				"cjs": {
@@ -1103,7 +1103,7 @@
 		},
 		{
 			"name": "@wu-component/wu-mapbox-map",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-mapbox-map",
 			"file": {
 				"cjs": {
@@ -1130,7 +1130,7 @@
 		},
 		{
 			"name": "@wu-component/wu-menu",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-menu",
 			"file": {
 				"cjs": {
@@ -1164,7 +1164,7 @@
 		},
 		{
 			"name": "@wu-component/wu-menu-item",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-menu-item",
 			"file": {
 				"cjs": {
@@ -1193,7 +1193,7 @@
 		},
 		{
 			"name": "@wu-component/wu-menu-item-group",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-menu-item-group",
 			"file": {
 				"cjs": {
@@ -1220,7 +1220,7 @@
 		},
 		{
 			"name": "@wu-component/wu-menu-sub",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-menu-sub",
 			"file": {
 				"cjs": {
@@ -1247,7 +1247,7 @@
 		},
 		{
 			"name": "@wu-component/wu-message",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-message",
 			"file": {
 				"cjs": {
@@ -1274,7 +1274,7 @@
 		},
 		{
 			"name": "@wu-component/wu-page-header",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-page-header",
 			"file": {
 				"cjs": {
@@ -1301,7 +1301,7 @@
 		},
 		{
 			"name": "@wu-component/wu-pagination",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-pagination",
 			"file": {
 				"cjs": {
@@ -1328,7 +1328,7 @@
 		},
 		{
 			"name": "@wu-component/wu-popconfirm",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-popconfirm",
 			"file": {
 				"cjs": {
@@ -1342,7 +1342,7 @@
 					"file": "packages/wu-popconfirm/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "53.4 KB",
+					"size": "53.6 KB",
 					"format": "umd",
 					"file": "packages/wu-popconfirm/dist/index.umd.js"
 				}
@@ -1360,21 +1360,21 @@
 		},
 		{
 			"name": "@wu-component/wu-popover",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-popover",
 			"file": {
 				"cjs": {
-					"size": "32.1 KB",
+					"size": "32.2 KB",
 					"format": "cjs",
 					"file": "packages/wu-popover/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "32.0 KB",
+					"size": "32.2 KB",
 					"format": "esm",
 					"file": "packages/wu-popover/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "32.3 KB",
+					"size": "32.5 KB",
 					"format": "umd",
 					"file": "packages/wu-popover/dist/index.umd.js"
 				}
@@ -1388,7 +1388,7 @@
 		},
 		{
 			"name": "@wu-component/wu-progress",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-progress",
 			"file": {
 				"cjs": {
@@ -1415,7 +1415,7 @@
 		},
 		{
 			"name": "@wu-component/wu-provide",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-provide",
 			"file": {
 				"cjs": {
@@ -1442,7 +1442,7 @@
 		},
 		{
 			"name": "@wu-component/wu-radio",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-radio",
 			"file": {
 				"cjs": {
@@ -1469,7 +1469,7 @@
 		},
 		{
 			"name": "@wu-component/wu-rate",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-rate",
 			"file": {
 				"cjs": {
@@ -1496,7 +1496,7 @@
 		},
 		{
 			"name": "@wu-component/wu-right-menu",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-right-menu",
 			"file": {
 				"cjs": {
@@ -1523,7 +1523,7 @@
 		},
 		{
 			"name": "@wu-component/wu-row",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-row",
 			"file": {
 				"cjs": {
@@ -1550,21 +1550,21 @@
 		},
 		{
 			"name": "@wu-component/wu-select",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-select",
 			"file": {
 				"cjs": {
-					"size": "43.9 KB",
+					"size": "43.7 KB",
 					"format": "cjs",
 					"file": "packages/wu-select/dist/index.cjs.js"
 				},
 				"esm": {
-					"size": "43.6 KB",
+					"size": "43.5 KB",
 					"format": "esm",
 					"file": "packages/wu-select/dist/index.esm.js"
 				},
 				"umd": {
-					"size": "86.7 KB",
+					"size": "86.8 KB",
 					"format": "umd",
 					"file": "packages/wu-select/dist/index.umd.js"
 				}
@@ -1584,7 +1584,7 @@
 		},
 		{
 			"name": "@wu-component/wu-select-option",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-select-option",
 			"file": {
 				"cjs": {
@@ -1611,7 +1611,7 @@
 		},
 		{
 			"name": "@wu-component/wu-steps",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-steps",
 			"file": {
 				"cjs": {
@@ -1638,7 +1638,7 @@
 		},
 		{
 			"name": "@wu-component/wu-switch",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-switch",
 			"file": {
 				"cjs": {
@@ -1665,7 +1665,7 @@
 		},
 		{
 			"name": "@wu-component/wu-table",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-table",
 			"file": {
 				"cjs": {
@@ -1697,7 +1697,7 @@
 		},
 		{
 			"name": "@wu-component/wu-tag",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-tag",
 			"file": {
 				"cjs": {
@@ -1724,8 +1724,38 @@
 			"peerDependencies": {}
 		},
 		{
+			"name": "@wu-component/wu-terminal",
+			"version": "2.0.1",
+			"directory": "wu-terminal",
+			"file": {
+				"cjs": {
+					"size": "280 KB",
+					"format": "cjs",
+					"file": "packages/wu-terminal/dist/index.cjs.js"
+				},
+				"esm": {
+					"size": "280 KB",
+					"format": "esm",
+					"file": "packages/wu-terminal/dist/index.esm.js"
+				},
+				"umd": {
+					"size": "280 KB",
+					"format": "umd",
+					"file": "packages/wu-terminal/dist/index.umd.js"
+				}
+			},
+			"dependencies": {
+				"@wu-component/common": "latest",
+				"@wu-component/web-core-plus": "next",
+				"postcss-loader": "^7.0.1",
+				"sass-migrator": "^1.7.2",
+				"xterm": "^5.1.0"
+			},
+			"peerDependencies": {}
+		},
+		{
 			"name": "@wu-component/wu-time-line",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-time-line",
 			"file": {
 				"cjs": {
@@ -1755,7 +1785,7 @@
 		},
 		{
 			"name": "@wu-component/wu-time-line-item",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-time-line-item",
 			"file": {
 				"cjs": {
@@ -1782,7 +1812,7 @@
 		},
 		{
 			"name": "@wu-component/wu-tooltip",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-tooltip",
 			"file": {
 				"cjs": {
@@ -1810,7 +1840,7 @@
 		},
 		{
 			"name": "@wu-component/wu-transition",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-transition",
 			"file": {
 				"cjs": {
@@ -1837,7 +1867,7 @@
 		},
 		{
 			"name": "@wu-component/wu-tree",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-tree",
 			"file": {
 				"cjs": {
@@ -1864,7 +1894,7 @@
 		},
 		{
 			"name": "@wu-component/wu-tree-v2",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-tree-v2",
 			"file": {
 				"cjs": {
@@ -1894,7 +1924,7 @@
 		},
 		{
 			"name": "@wu-component/wu-upload",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-upload",
 			"file": {
 				"cjs": {
@@ -1924,7 +1954,7 @@
 		},
 		{
 			"name": "@wu-component/wu-waline-comment",
-			"version": "1.11.8",
+			"version": "2.0.1",
 			"directory": "wu-waline-comment",
 			"file": {
 				"cjs": {
@@ -1949,7 +1979,37 @@
 				"@wu-component/web-core-plus": "next"
 			},
 			"peerDependencies": {}
+		},
+		{
+			"name": "@wu-component/wu-waline-comment-sandbox",
+			"version": "2.0.1",
+			"directory": "wu-waline-comment-sandbox",
+			"file": {
+				"cjs": {
+					"size": "25.3 KB",
+					"format": "cjs",
+					"file": "packages/wu-waline-comment-sandbox/dist/index.cjs.js"
+				},
+				"esm": {
+					"size": "25.2 KB",
+					"format": "esm",
+					"file": "packages/wu-waline-comment-sandbox/dist/index.esm.js"
+				},
+				"umd": {
+					"size": "76.6 KB",
+					"format": "umd",
+					"file": "packages/wu-waline-comment-sandbox/dist/index.umd.js"
+				}
+			},
+			"dependencies": {
+				"@waline/client": "^2.14.7",
+				"@wu-component/common": "latest",
+				"@wu-component/web-core-plus": "next",
+				"@wu-component/wu-waline-comment": "next",
+				"@wu-component/wu-code-sandbox": "next"
+			},
+			"peerDependencies": {}
 		}
 	],
-	"count": 69
+	"count": 71
 }

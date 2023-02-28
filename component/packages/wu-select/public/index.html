@@ -13,7 +13,8 @@
             <wu-plus-select-option label="item-item3" value="3"></wu-plus-select-option>
         </wu-plus-select>
     </div>
-    <div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
+    <button id="button">删除组件</button>
+    <!--<div style="display: flex; align-items: center;justify-content: space-around;padding: 16px">
         <wu-plus-select id="select3" disabled="true">
             <wu-plus-select-option label="item-item1" value="1"></wu-plus-select-option>
             <wu-plus-select-option label="item-item2" value="2"></wu-plus-select-option>
@@ -50,7 +51,16 @@
             <wu-plus-select-option label="item-item2" value="2"></wu-plus-select-option>
             <wu-plus-select-option label="item-item3" value="3"></wu-plus-select-option>
         </wu-plus-select>
-    </div>
+    </div>-->
 </div>
 </body>
 </html>
+<script>
+    window.onload = () => {
+        const ss = document.querySelector("#select1");
+        const button = document.querySelector("#button");
+        button.addEventListener('click', () => {
+            ss.remove();
+        })
+    }
+</script>

@@ -15,22 +15,26 @@ export class WuPopover extends WuComponent implements OnConnected , OnDisConnect
     }
 
     private maskClick(e) {
-
+        if (this.trigger === 'manual') return;
         if (e?.target?.tagName !== "WU-PLUS-POPOVER"){
+            if (this.closeOnClickHtml) {
+                if (this.isShow) {
+                    this.leave();
+                }
+            }
             return;
         }
-        if (this.trigger === 'manual') return;
         if (this.isShow) {
             this.leave();
         }
     }
 
     public override connected(shadowRoot: ShadowRoot) {
-        window.addEventListener('click', (e: Event) => this.maskClick(e));
+        document.addEventListener('click', (e: Event) => this.maskClick(e));
     }
 
     public override disConnected(shadowRoot: ShadowRoot) {
-        window.removeEventListener('click', (e: Event) => this.maskClick(e));
+        document.removeEventListener('click', (e: Event) => this.maskClick(e));
 
     }
 
@@ -62,6 +66,9 @@ export class WuPopover extends WuComponent implements OnConnected , OnDisConnect
 
     @Prop({ default: false, type: Boolean })
     public disabled: boolean;
+
+    @Prop({ default: true, type: Boolean })
+    public closeOnClickHtml: boolean = true;
 
     private popper = null;
 
