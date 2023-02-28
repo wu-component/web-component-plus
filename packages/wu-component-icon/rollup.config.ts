@@ -5,6 +5,9 @@ import { babel } from '@rollup/plugin-babel';
 import typescript from 'rollup-plugin-typescript2';
 import { terser } from 'rollup-plugin-terser';
 import css from 'rollup-plugin-import-css';
+import postcss from "rollup-plugin-postcss";
+// @ts-ignore
+import autoprefixer from 'autoprefixer';
 // @ts-ignore
 import fs from 'fs';
 // @ts-ignore
@@ -34,9 +37,10 @@ const options = [
         output: [
             { file: `dist/index.cjs.js`, format: 'cjs' },
             { file: `dist/index.esm.js`, format: 'es' },
-            { file: `dist/index.mini.js`, name: 'WuIcon', format: 'umd' },
+            { file: `dist/index.iife.js`, format: 'iife', extend: true,name: 'WuIcon' },
         ],
         plugins: [
+            postcss({ extensions: [ '.css', 'scss' ],plugins: [ autoprefixer() ], extract: false, minimize: true }),
             css(),
             typescript({
                 // @ts-ignore
@@ -69,6 +73,7 @@ const options = [
         },
         treeshake: false,
         plugins: [
+            postcss({ extensions: [ '.css', 'scss' ],plugins: [ autoprefixer() ], extract: false, minimize: true }),
             css(),
             typescript({
                 // @ts-ignore

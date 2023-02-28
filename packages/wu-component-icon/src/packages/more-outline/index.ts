@@ -2,9 +2,9 @@ import { Icon } from './Icon';
 import style from '../style.css';
 import { getFontSize } from '@/share';
 export default class WuIconMoreOutline extends HTMLElement {
-    icon: any
+    icon: any;
     static get observedAttributes() {
-        return [ 'size', 'color' ];
+        return ['size', 'color'];
     }
 
     constructor() {
@@ -18,7 +18,7 @@ export default class WuIconMoreOutline extends HTMLElement {
                 ${Icon}
             </svg>
         `;
-        this.icon = this.shadowRoot?.getElementById('icon')  as HTMLElement;
+        this.icon = this.shadowRoot?.getElementById('icon') as HTMLElement;
     }
 
     connectedCallback() {
@@ -28,9 +28,11 @@ export default class WuIconMoreOutline extends HTMLElement {
     attributeChangedCallback(name: string, oldValue: string, newValue: string) {
         if (name === 'color') {
             this.icon.style.color = newValue;
+            this.icon.style.fill = newValue;
         } else if (name === 'size') {
             const fontSize = this.getFontSize();
             this.icon.style.fontSize = `${fontSize}`;
+            this.icon.style.width = `${fontSize}`;
         }
     }
 
@@ -61,6 +63,5 @@ export default class WuIconMoreOutline extends HTMLElement {
 }
 
 if (!customElements.get('wu-icon-more-outline')) {
-    customElements.define('wu-icon-more-outline',  WuIconMoreOutline);
+    customElements.define('wu-icon-more-outline', WuIconMoreOutline);
 }
-        
