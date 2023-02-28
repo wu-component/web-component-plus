@@ -9,7 +9,7 @@ export declare class WuSelect extends WuComponent implements OnConnected, OnBefo
     constructor();
     beforeUpdate(): void;
     private initOptions;
-    private maskClick;
+    maskClick(e: any): void;
     connected(shadowRoot: ShadowRoot): void;
     disConnected(shadowRoot: ShadowRoot): void;
     /**

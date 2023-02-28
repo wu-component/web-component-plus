@@ -16,7 +16,9 @@ export declare class WuColorPicker extends WuComponent implements OnConnected {
     disabled: boolean;
     val: string;
     $value: any;
+    updateColorPane(): void;
     connected(shadowRoot: ShadowRoot): void;
+    disConnected(shadowRoot: ShadowRoot): void;
     /**
      * 确认颜色
      */

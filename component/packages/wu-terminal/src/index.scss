@@ -1,0 +1,17 @@
+@use "sass:map";
+@use "sass:math";
+@import '../../theme/common/var.scss';
+@import '../../theme/common/mixin.scss';
+:host{
+    display: block;
+    // width: 100%;
+    // height: 100%;
+}
+#terminal {
+    // width: 100%;
+    // height: 100%;
+}
+.terminal {
+    // width: 100%;
+    // height: 100%;
+}
