@@ -61,10 +61,15 @@ export class WuCodePlayground extends WuComponent implements OnConnected {
 }
 
 /**********************非组件定义代码，手动插入代码  开始**********************************/
+const com = document.querySelector("wu-code-test");
+if (com) {
+    window.customElements.upgrade(com);
+}
 const dom = document.querySelector("#testComponent");
 if (dom) {
     dom.remove();
 }
+
 const div = document.createElement("div");
 div.setAttribute("id", "testComponent");
 const test = document.createElement("wu-code-test");

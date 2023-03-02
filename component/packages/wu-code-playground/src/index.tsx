@@ -83,7 +83,7 @@ export class WuCodePlayground extends WuComponent implements OnConnected {
             }
         });
         editor.addTsDeclaration("https://static-cdn.canyuegongzi.xyz/ts/Wu.d.ts");
-        code.sandbox.importScript("https://unpkg.com/@wu-component/web-core-plus@next").then(r => {
+        code.sandbox.importScript("https://static-cdn.canyuegongzi.xyz/js-cdn/@wu-component/web-core-plus/@next/dist/index.iife.min.js").then(r => {
             console.log('success script');
         });
        /* esbuild.initialize({
@@ -106,6 +106,14 @@ export class WuCodePlayground extends WuComponent implements OnConnected {
         const tsJs: string = await compileTS(editor?.getModel?.().uri);
 
         await this.previewContainer.runCode(tsJs || '', () => {});
+    }
+
+    public runCodeButtonTap() {
+        this.previewContainer.runCode(`window.location.reload()`, () => {
+            console.log("重载成功");
+            console.log(this.previewContainer.sandbox.importScript)
+            this.runCode();
+        });
     }
 
     /**
@@ -221,7 +229,7 @@ export class WuCodePlayground extends WuComponent implements OnConnected {
                     }
                 </div>
                 <div class="toolsNav">
-                    <div class="runCode" onClick={() => this.runCode()}>
+                    <div class="runCode" onClick={() => this.runCodeButtonTap()}>
                         run
                     </div>
                     {/*<div class="loadDepend" onClick={() => this.loadDependencies()}>
