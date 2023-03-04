@@ -1,4 +1,4 @@
-import { Component, h, Method, OnConnected, Provide, WuComponent } from '@wu-component/web-core-plus';
+import { Component, h, OnConnected, Provide, WuComponent } from '@wu-component/web-core-plus';
 
 @Component({
     name: 'wu-plus-provide',
@@ -17,7 +17,6 @@ export class WuProvide extends WuComponent implements OnConnected {
      * 获取
      * @private
      */
-    @Method()
     public getProvide() {
         return this.provide;
     }

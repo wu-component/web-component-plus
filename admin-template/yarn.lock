@@ -390,10 +390,10 @@
     "@wu-component/wu-button" latest
     "@wu-component/wu-popover" latest
 
-"@wu-component/wu-component-icon@latest":
-  version "0.3.6"
-  resolved "https://registry.yarnpkg.com/@wu-component/wu-component-icon/-/wu-component-icon-0.3.6.tgz#bb038d5848939393bea611508bcb7213903366f4"
-  integrity sha512-2OCWxoxm5WrmAMwAFP6VjMMo1PoRLG98kdUwCNQb260IHSxCSQ+EjkDAqvcZDLpOpMioMimv8k3hVE1z04+SNQ==
+"@wu-component/wu-component-icon@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@wu-component/wu-component-icon/-/wu-component-icon-2.0.1.tgz#a29df13c12ff8c2ae85c53194a7a6e23a591b59a"
+  integrity sha512-0nBzertS3KTfk4teAzhGjDuFKZ0SsW2flAcJYtKi4iMx+CdAxrBANqDPfCBBynLth3KI9n82ltbRGyzqn87dtQ==
   dependencies:
     weakmap-polyfill "^2.0.4"
 

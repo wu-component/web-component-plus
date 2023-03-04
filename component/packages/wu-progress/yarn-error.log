@@ -48,7 +48,7 @@ npm manifest:
       "test": "jest -c packages/web-ui/jest.config.js",
       "example:package": "live-server",
       "build:package": "cross-env NODE_ENV=production rollup -c ./build/build.js",
-      "dev:package": "webpack serve --config ./build/webpack_dev.config --env development --mode development --hot"
+      "dev:webpack:package": "node ./node_modules/@wu-component/wu-build-tools/dist/index.js --input ./src/index.tsx --operate DEV"
     },
     "publishConfig": {
       "access": "public"

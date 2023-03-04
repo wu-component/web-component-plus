@@ -19,7 +19,7 @@
     "test": "web-test-runner \"./test/*.js\" --node-resolve",
     "example:package": "live-server",
     "build:package": "node ./node_modules/@wu-component/wu-build-tools/dist/index.js --input ./src/index.tsx --operate BUILD",
-    "dev:package": "webpack serve --config ./build/webpack_dev.config --env development --mode development --hot"
+    "dev:webpack:package": "webpack serve --config ./build/webpack_dev.config --env development --mode development --hot"
   },
   "publishConfig": {
     "access": "public"

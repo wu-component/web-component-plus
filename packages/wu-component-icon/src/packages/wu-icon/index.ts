@@ -1,8 +1,8 @@
 import { getFontSize } from '@/share';
 export default class WuIcon extends HTMLElement {
-    icon: any
+    icon: any;
     static get observedAttributes() {
-        return [ 'size', 'color', 'path', 'img' ];
+        return ['size', 'color', 'path', 'img'];
     }
 
     constructor() {
@@ -38,7 +38,7 @@ export default class WuIcon extends HTMLElement {
             </div>
 
         `;
-        this.icon = this.shadowRoot?.getElementById('icon')  as HTMLElement;
+        this.icon = this.shadowRoot?.getElementById('icon') as HTMLElement;
     }
 
     connectedCallback() {
@@ -48,12 +48,14 @@ export default class WuIcon extends HTMLElement {
     attributeChangedCallback(name: string, oldValue: string, newValue: string) {
         if (name === 'color') {
             this.icon.style.color = newValue;
+            this.icon.style.fill = newValue;
         }
         if (name === 'size') {
             const fontSize = this.getFontSize();
             this.icon.style.fontSize = `${fontSize}`;
+            this.icon.style.width = `${fontSize}`;
         }
-        if (name === "path" || name === "img") {
+        if (name === 'path' || name === 'img') {
             this.icon.innerHTML = this.getContent();
         }
     }
@@ -70,14 +72,14 @@ export default class WuIcon extends HTMLElement {
     }
 
     public getContent() {
-        if (this.path && this.path !== "null") {
+        if (this.path && this.path !== 'null') {
             return `
                 <svg class="icon" id="icon" aria-hidden="true" viewBox="0 0 1024 1024">
                     ${this.path}
                 </svg>
             `;
         }
-        if (this.img && this.img !== "null") {
+        if (this.img && this.img !== 'null') {
             return `
                 <img class="img" src="${this.img}" style="width: ${this.size};" />
             `;
@@ -106,7 +108,7 @@ export default class WuIcon extends HTMLElement {
     }
 
     get path() {
-        return this.getAttribute("path") as string;
+        return this.getAttribute('path') as string;
     }
 
     set img(value: string) {
@@ -114,10 +116,10 @@ export default class WuIcon extends HTMLElement {
     }
 
     get img() {
-        return this.getAttribute("img") as string;
+        return this.getAttribute('img') as string;
     }
 }
 
 if (!customElements.get('wu-icon')) {
-    customElements.define('wu-icon',  WuIcon);
+    customElements.define('wu-icon', WuIcon);
 }
