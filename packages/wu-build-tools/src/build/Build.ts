@@ -17,7 +17,7 @@ class Build {
     public start(): Promise<StartBuildResult> {
         return new Promise(async (resolve) => {
             try {
-                await this.preBuild();
+                await this.pre();
                 const buildResult: BuildResult = await this.buildEs();
                 const buildResult1: BuildResult = await this.buildUmd();
                 if (buildResult.state && buildResult1.state) {
@@ -48,7 +48,7 @@ class Build {
      * 预构建检查
      * @returns
      */
-    private preBuild() {
+    private pre() {
         return new Promise(async (resolve) => {
             const inputeEists = await pathExists(this.config.pathConfig.inputPath);
             const tsConfigEists = await pathExists(this.config.pathConfig.tsconfig);
