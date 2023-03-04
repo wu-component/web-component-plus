@@ -24,6 +24,7 @@ export declare class WuCodePlayground extends WuComponent implements OnConnected
      * 开始执行代码
      */
     runCode(): Promise<void>;
+    runCodeButtonTap(): void;
     /**
      * 加载依赖
      */

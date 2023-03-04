@@ -20,7 +20,7 @@
     "example:package": "live-server",
     "build:package:rollup": "node ./node_modules/@wu-component/wu-build-tools/dist/index.js --input ./src/index.tsx --operate BUILD",
     "build:package": "webpack --config ./build/build.umd.ts && webpack --config ./build/build.esm.ts && webpack --config ./build/build.commonjs.ts",
-    "dev:package": "webpack serve --config ./build/webpack_dev.config --env development --mode development --hot"
+    "dev:webpack:package": "node ./node_modules/@wu-component/wu-build-tools/dist/index.js --input ./src/index.tsx --operate DEV"
   },
   "publishConfig": {
     "access": "public"
