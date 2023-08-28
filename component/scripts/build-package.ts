@@ -7,11 +7,16 @@ const shellScannerPck = 'ts-node ./scripts/scanner-check-package.ts';
 const result = shell.exec(shellBuildCommon);
 if (result.code === 0) {
     console.log("common build success");
-    const result1 = shell.exec(shellBuildPackage);
-    if (result1.code === 0) {
-        const result2 = shell.exec(shellScannerPck);
-        if (result2.code === 0) {
-            console.log("开始扫描构建产物");
+    try {
+        const result1 = shell.exec(shellBuildPackage);
+        if (result1.code === 0) {
+            const result2 = shell.exec(shellScannerPck);
+            if (result2.code === 0) {
+                console.log("开始扫描构建产物");
+            }
         }
+    }catch (e) {
+        console.warn(e);
     }
+
 }
