@@ -24,7 +24,9 @@ export class WuFromItem extends WuComponent {
     }
 
     public override render(_renderProps = {}, _store = {}) {
+
         return (
+            /*// @ts-ignore*/
             <form id="form" method={() => this.method()} action={() => this.action()} novalidate={this.novalidate}>
                 <slot></slot>
             </form>

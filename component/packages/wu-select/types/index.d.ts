@@ -1,4 +1,4 @@
-import { OnBeforeUpdate, OnConnected, OnDisConnected, WuComponent } from '@wu-component/web-core-plus';
+import { h, OnBeforeUpdate, OnConnected, OnDisConnected, WuComponent } from '@wu-component/web-core-plus';
 type UISize = 'medium' | 'small' | 'mini';
 import '@wu-component/wu-popover';
 import '@wu-component/wu-tag';
@@ -23,7 +23,7 @@ export declare class WuSelect extends WuComponent implements OnConnected, OnBefo
     hoverIndex: number;
     label: string;
     options: WuSelectOptions[];
-    popover: WuPopover;
+    popoverRef: WuPopover;
     tagsRef: any;
     _refInput: any;
     inputWidth: 0;
@@ -98,6 +98,6 @@ export declare class WuSelect extends WuComponent implements OnConnected, OnBefo
      * @param event
      */
     clear(event: Event): Event;
-    render(_renderProps?: {}, _store?: {}): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }
 export {};

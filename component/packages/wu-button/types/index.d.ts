@@ -1,4 +1,4 @@
-import { WuComponent } from '@wu-component/web-core-plus';
+import { h, WuComponent } from '@wu-component/web-core-plus';
 type WuButtonType = 'primary' | 'success' | 'warning' | 'danger' | 'info';
 type NativeType = 'button' | 'submit' | 'reset';
 type UISize = 'medium' | 'small' | 'mini';
@@ -14,6 +14,6 @@ export declare class WuButton extends WuComponent {
     icon: string;
     nativeType: NativeType;
     text: string;
-    render(_renderProps?: {}, _store?: {}): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }
 export {};

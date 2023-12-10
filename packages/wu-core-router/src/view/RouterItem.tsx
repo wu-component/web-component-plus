@@ -23,13 +23,14 @@ export class RouterItem extends WuComponent implements OnConnected {
     public path: string;
 
 
-    @Prop({ default: '' })
+    @Prop({ default: '', type: String })
     public component: string | Function
 
     public override connected(shadowRoot: ShadowRoot) {
+        console.log(this.slot);
         RouterConfig.register({
             path: this.path,
-            element: this.component
+            element: this.component || this.slot
         });
     }
 

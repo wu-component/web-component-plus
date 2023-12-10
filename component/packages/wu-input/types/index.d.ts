@@ -1,4 +1,4 @@
-import { OnInstall, WuComponent } from '@wu-component/web-core-plus';
+import { h, OnInstall, WuComponent } from '@wu-component/web-core-plus';
 type UISize = 'medium' | 'small' | 'mini';
 type TypeEnums = 'textarea' | 'input';
 export declare class WuInput extends WuComponent implements OnInstall {
@@ -75,6 +75,6 @@ export declare class WuInput extends WuComponent implements OnInstall {
      * 清除
      */
     clearInput(): string;
-    render(): any;
+    render(): h.JSX.Element;
 }
 export {};

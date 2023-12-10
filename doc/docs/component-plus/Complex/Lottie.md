@@ -11,7 +11,7 @@ wu-plus-lottie 是基于 lottie-web 重新进行了封装，开发者无需手�
 <template>
     <div class="button-container" style="display: flex; flex-wrap: wrap; align-items: center;justify-content: space-around;padding: 16px">
         <div style="width: 300px; height: 300px">
-            <wu-plus-lottie data="https://cdn.canyuegongzi.xyz/wu-component-static/lf20_r6blppzq.json"></wu-plus-lottie>
+            <wu-plus-lottie data="https://qiniu.canyuegongzi.xyz/lf20_qynqmsel.json"></wu-plus-lottie>
         </div>
     </div>
 </template>
@@ -31,7 +31,7 @@ wu-plus-lottie 是基于 lottie-web 重新进行了封装，开发者无需手�
 <template>
     <div class="button-container" style="display: flex; flex-wrap: wrap; align-items: center;justify-content: space-around;padding: 16px">
         <div style="width: 300px; height: 300px">
-            <wu-plus-lottie data="https://cdn.canyuegongzi.xyz/wu-component-static/empty-list.json"></wu-plus-lottie>
+            <wu-plus-lottie data="https://qiniu.canyuegongzi.xyz/com/empty-list.json"></wu-plus-lottie>
         </div>  
     </div>
 </template>

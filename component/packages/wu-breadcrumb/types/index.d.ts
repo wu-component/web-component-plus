@@ -1,4 +1,4 @@
-import { OnConnected, WuComponent } from '@wu-component/web-core-plus';
+import { h, OnConnected, WuComponent } from '@wu-component/web-core-plus';
 import '@wu-component/wu-breadcrumb-item';
 export declare class WuBreadcrumb extends WuComponent implements OnConnected {
     constructor();
@@ -64,5 +64,5 @@ export declare class WuBreadcrumb extends WuComponent implements OnConnected {
         };
     };
     connected(shadowRoot: ShadowRoot): any;
-    render(_renderProps?: {}, _store?: {}): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }

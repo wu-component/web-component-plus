@@ -1,11 +1,35 @@
 import { WuComponent, OnConnected, OnBeforeUpdate, OnBeforeRender, OnInstall, OnDisConnected } from "@wu-component/web-core-plus";
 declare type TypeEnums = 'success' | 'warning' | 'info' | 'error';
-// 大小
 declare type UISize = 'medium' | 'small' | 'mini';
 declare type ShadowEnums = 'always' | 'hover' | 'never';
-export declare class WuAlert extends WuComponent {
+type TypeEnums = 'success' | 'warning' | 'info' | 'error';
+declare const TAG = "wu-plus-alert";
+interface WuAlertProps {
+    visible?: boolean;
+    tip?: string;
+    description?: string;
+    type?: TypeEnums;
+    closable?: boolean;
+    closeText?: string;
+    showIcon?: boolean;
+    center?: boolean;
+    effect?: string;
+    onConfirm: (e: any) => void;
+    onCancel: (e: any) => void;
+    onClose: (e: any) => void;
+    [key: string]: any;
+}
+declare global {
+    namespace JSX {
+        interface IntrinsicElements {
+            [TAG]: WuAlertProps;
+        }
+    }
+}
+export declare class WuAlert extends WuComponent implements OnConnected {
     constructor();
     visible: boolean;
+    show: boolean;
     tip: string;
     description: string;
     type: TypeEnums;
@@ -14,24 +38,25 @@ export declare class WuAlert extends WuComponent {
     showIcon: boolean;
     center: boolean;
     effect: string;
+    connected(shadowRoot: ShadowRoot): void;
     confirm(): this;
     cancel(): this;
     close(): this;
     get typeClass(): string;
     get iconClass(): any;
     get isBoldTitle(): "" | "is-bold";
-    render(_renderProps?: {}, _store?: {}): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }
 
 
 export declare class WuAside extends WuComponent {
     constructor();
     width: string;
-    render(_renderProps?: {}, _store?: {}): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }
 
-declare type ShapeEnums = 'circle' | 'square';
-declare type FitEnums = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down';
+type ShapeEnums = 'circle' | 'square';
+type FitEnums = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down';
 export declare class WuAvatar extends WuComponent {
     constructor();
     size: number;
@@ -44,11 +69,12 @@ export declare class WuAvatar extends WuComponent {
     isImageExist: boolean;
     get avatarClass(): string;
     handleError(event: Event): Event;
-    renderAvatar(): any;
-    render(_renderProps?: {}, _store?: {}): any;
+    renderAvatar(): h.JSX.Element;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }
 
 
+type TypeEnums = 'primary' | 'success' | 'warning' | 'info' | 'danger';
 export declare class WuBadge extends WuComponent implements OnConnected, OnBeforeUpdate {
     constructor();
     beforeUpdate(): void;
@@ -62,7 +88,7 @@ export declare class WuBadge extends WuComponent implements OnConnected, OnBefor
     isFixed: boolean;
     get content(): any;
     handleError(event: Event): Event;
-    render(_renderProps?: {}, _store?: {}): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }
 
 
@@ -130,7 +156,7 @@ export declare class WuBreadcrumb extends WuComponent implements OnConnected {
         };
     };
     connected(shadowRoot: ShadowRoot): any;
-    render(_renderProps?: {}, _store?: {}): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }
 
 export declare class WuBreadcrumbItem extends WuComponent implements OnConnected {
@@ -139,12 +165,13 @@ export declare class WuBreadcrumbItem extends WuComponent implements OnConnected
     constructor();
     wuBreadcrumb: any;
     to: string;
-    render(_renderProps?: {}, _store?: {}): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
     connected(shadowRoot: ShadowRoot): any;
 }
 
-declare type WuButtonType = 'primary' | 'success' | 'warning' | 'danger' | 'info';
-declare type NativeType = 'button' | 'submit' | 'reset';
+type WuButtonType = 'primary' | 'success' | 'warning' | 'danger' | 'info';
+type NativeType = 'button' | 'submit' | 'reset';
+type UISize = 'medium' | 'small' | 'mini';
 export declare class WuButton extends WuComponent {
     constructor();
     type: WuButtonType;
@@ -157,10 +184,11 @@ export declare class WuButton extends WuComponent {
     icon: string;
     nativeType: NativeType;
     text: string;
-    render(_renderProps?: {}, _store?: {}): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }
 
 
+type ShadowEnums = 'always' | 'hover' | 'never';
 export declare class WuCard extends WuComponent implements OnConnected {
     constructor();
     connected(shadowRoot: ShadowRoot): void;
@@ -168,10 +196,11 @@ export declare class WuCard extends WuComponent implements OnConnected {
     bodyStyle: Record<any, any>;
     shadow: ShadowEnums;
     headerShow: boolean;
-    render(_renderProps?: {}, _store?: {}): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }
 
 
+type UISize = 'medium' | 'small' | 'mini';
 interface CascaderOption {
     value: string;
     label: string;
@@ -200,7 +229,7 @@ export interface CascaderProps {
      */
     onOptionClick?: (item: any, index: any, evt: any) => void;
 }
-export declare class WuCascader extends WuComponent implements OnConnected {
+export declare class WuCascader extends WuComponent implements OnConnected, OnDisConnected {
     constructor();
     private popoverRef;
     private inputRef;
@@ -208,7 +237,9 @@ export declare class WuCascader extends WuComponent implements OnConnected {
     options: CascaderOption[];
     size: UISize;
     disabled: boolean;
+    private maskClick;
     connected(shadowRoot: ShadowRoot): void;
+    disConnected(shadowRoot: ShadowRoot): void;
     /**
      * 根据当前 value 获取 label 值
      * @param value
@@ -228,12 +259,12 @@ export declare class WuCascader extends WuComponent implements OnConnected {
 export declare class WuCesiumMap extends WuComponent {
     constructor();
     name: string;
-    render(_renderProps?: {}, _store?: {}): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }
 
+type UISize = 'medium' | 'small' | 'mini';
 export declare class WuCheckbox extends WuComponent implements OnConnected, OnBeforeUpdate {
     isGroup: boolean;
-    props: any;
     constructor();
     groupRef: any;
     beforeUpdate(): void;
@@ -245,20 +276,19 @@ export declare class WuCheckbox extends WuComponent implements OnConnected, OnBe
     focus: boolean;
     size: UISize;
     disabled: boolean;
-    value: boolean;
+    value: string;
     label: string;
     indeterminate: boolean;
     checked: boolean;
     border: boolean;
     name: string;
-    id: string;
     controls: string;
     handleChange(ev: any): void;
     private change;
     private checkChange;
     onFocus(): void;
     onBlur(): void;
-    render(_renderProps?: {}, _store?: {}): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }
 
 
@@ -267,26 +297,33 @@ export declare class WuCheckboxButton extends WuComponent implements OnConnected
     beforeRender(): void;
     connected(shadowRoot: ShadowRoot): void;
     disabled: boolean;
-    render(_renderProps?: {}, _store?: {}): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }
 
-export declare class WuCheckboxGroup extends WuComponent implements OnConnected, OnBeforeRender, OnBeforeUpdate {
+import "@wu-component/wu-checkbox";
+type UISize = 'medium' | 'small' | 'mini';
+export declare class WuCheckboxGroup extends WuComponent implements OnConnected, OnUpdated, OnBeforeRender, OnBeforeUpdate {
     constructor();
     slotRef: HTMLSlotElement;
     groupRef(): this;
     size: UISize;
     disabled: boolean;
     value: string[];
+    valueList: string[];
     beforeRender(): void;
-    private change;
+    change(): {
+        value: string[];
+    };
+    valuesChange(val: any, old: any): void;
     /**
      * 值修改
      * @param vale
      */
     handleChange(vale: CustomEvent): void;
     connected(shadowRoot: ShadowRoot): void;
-    beforeUpdate(): any;
-    render(_renderProps?: {}, _store?: {}): any;
+    updated(): void;
+    updateChild(): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }
 
 
@@ -295,22 +332,55 @@ export declare class WuCodeMonacoEditor extends WuComponent implements OnConnect
     initialValue: string;
     language: string;
     theme: string;
+    width: string;
+    height: string;
+    /**
+     * mode 缓存
+     * @private
+     */
+    private modes;
+    /**
+     * 更新语言
+     * @param language
+     * @param value
+     */
+    updateLanguage(language: string, value: string): void;
     get editor(): any;
     set editor(value: any);
     get monacoInstance(): any;
     set monacoInstance(value: any);
+    /**
+     * 添加类型文件
+     * @param url
+     * @param name
+     */
     addTsDeclaration(url: string, name?: string): Promise<void>;
+    /**
+     * 格式化初始值
+     * @param doc
+     * @private
+     */
     private formatFile;
+    /**
+     * 初始化编辑器
+     * @private
+     */
     private initEditor;
+    /**
+     * 窗口更新
+     * @param e
+     */
+    resizeFun(e: any): void;
     connected(shadowRoot: ShadowRoot): void;
-    render(_renderProps?: {}, _store?: {}): any;
+    disConnected(shadowRoot: ShadowRoot): void;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }
 
 import "@wu-component/wu-code-monaco-editor";
 import "@wu-component/wu-code-sandbox";
 import "@wu-component/wu-alert";
 import type { WuCodeMonacoEditor } from "@wu-component/wu-code-monaco-editor/types";
-import type { WuMonacoEditorPreview } from "@wu-component/wu-code-sandbox/types";
+import type { WuCodeSandbox } from "@wu-component/wu-code-sandbox/types";
 interface NoticeItem {
     close: boolean;
     text: string;
@@ -324,13 +394,14 @@ export declare class WuCodePlayground extends WuComponent implements OnConnected
     isLoading: boolean;
     noticeList: NoticeContentItem[];
     editorContainer: WuCodeMonacoEditor;
-    previewContainer: WuMonacoEditorPreview;
+    previewContainer: WuCodeSandbox;
     initialEvalSuccess: boolean;
     connected(shadowRoot: ShadowRoot): void;
     /**
      * 开始执行代码
      */
     runCode(): Promise<void>;
+    runCodeButtonTap(): void;
     /**
      * 加载依赖
      */
@@ -348,37 +419,69 @@ export declare class WuCodePlayground extends WuComponent implements OnConnected
      * @private
      */
     private noticeClose;
-    renderLoading(): any;
-    render(_renderProps?: {}, _store?: {}): any;
+    renderLoading(): h.JSX.Element;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }
 
 
-export declare class WuMonacoEditorPreview extends WuComponent implements OnConnected {
+import Sandbox from './core/websandbox';
+interface Options {
+    frameSrc?: string | null;
+    frameContent?: string;
+    codeToRunBeforeInit?: string | null;
+    initialStyles?: string | null;
+    baseUrl?: string | null;
+    allowPointerLock?: boolean;
+    allowFullScreen?: boolean;
+    sandboxAdditionalAttributes?: string;
+    allowAdditionalAttributes?: string;
+}
+export declare class WuCodeSandbox extends WuComponent implements OnConnected {
     constructor();
-    initialSrcDoc: string;
-    isBeforeRefresh: boolean;
-    private container;
-    private isLoad;
-    private proxy;
-    previewStore: Store;
-    private formatFile;
+    code: string;
+    options: Options;
+    isSandboxInit: boolean;
+    private localApi;
+    private _sandbox;
+    get sandbox(): Sandbox;
+    set sandbox(value: Sandbox);
+    formatFile(doc: string): Promise<string>;
     connected(shadowRoot: ShadowRoot): Promise<void>;
     /**
-     * 沙箱执行code
-     * @param type
-     * @param code
+     * 初始化沙箱
      */
-    runCode(type: string, code: string): void;
+    initSandbox(): Sandbox;
     /**
-     * 沙箱加载依赖
-     * @param options
+     * 执行code
+     * @param code
+     * @param callback
      */
-    loadDependencies(options: LoadDependencies): Promise<unknown>;
+    runCode(code: string, callback?: (...args: any[]) => void): Promise<unknown>;
+    /**
+     * 更新配置
+     */
+    updateConfig(options: Options): void;
+    /**
+     * 调用iframe沙箱内部方法
+     * @param name
+     * @param params
+     * @param callback
+     */
+    callSandboxFunction(name: string, params: Record<any, any>, callback: (...args: any[]) => void): Promise<unknown>;
+    /**
+     * Sandbox 注入数据
+     * @param name
+     * @param value
+     * @param callback
+     */
+    injectSandboxLocalApi(name: string, value: any, callback?: (...args: any[]) => void): Promise<unknown>;
     emitEvent(data: any): any;
     emitSuccessEvent(): boolean;
     render(_renderProps?: {}, _store?: {}): any;
 }
 
+
+import "@wu-component/wu-row";
 export declare class WuCol extends WuComponent {
     constructor();
     tag: string;
@@ -390,7 +493,8 @@ export declare class WuCol extends WuComponent {
 }
 
 import "@wu-component/wu-collapse-item";
-export declare class WuCollapse extends WuComponent {
+import "./ss/index.tsx";
+export declare class WuCollapse extends WuComponent implements OnConnected {
     constructor();
     accordion: boolean;
     value: string[];
@@ -408,6 +512,7 @@ export declare class WuCollapse extends WuComponent {
      * @param activeNames
      */
     setActiveNames(activeNames: string[]): void;
+    connected(shadowRoot: ShadowRoot): void;
     handleItemClick(item: any): void;
     render(_renderProps?: {}, _store?: {}): any;
 }
@@ -427,12 +532,13 @@ export declare class WuCollapseItem extends WuComponent {
     handleFocus(): void;
     handleHeaderClick(): void;
     handleEnterClick(): void;
-    render(_renderProps?: {}, _store?: {}): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }
 
+type UISize = 'medium' | 'small' | 'mini';
 import './color-pane/index.tsx';
 export declare class WuColorPicker extends WuComponent implements OnConnected {
-    popover: any;
+    popoverDomRef: any;
     popoverRef: any;
     popcon: any;
     colorPane: WuColorPane;
@@ -443,7 +549,9 @@ export declare class WuColorPicker extends WuComponent implements OnConnected {
     disabled: boolean;
     val: string;
     $value: any;
+    updateColorPane(): void;
     connected(shadowRoot: ShadowRoot): void;
+    disConnected(shadowRoot: ShadowRoot): void;
     /**
      * 确认颜色
      */
@@ -485,11 +593,11 @@ export declare class WuColorPicker extends WuComponent implements OnConnected {
         clone: () => any;
     } | "";
     get value(): any;
-    render(_renderProps?: {}, _store?: {}): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }
 
 
-declare type DirectionEnums = 'vertical' | 'horizontal' | any;
+type DirectionEnums = 'vertical' | 'horizontal' | any;
 export declare class WuContainer extends WuComponent implements OnConnected, OnBeforeUpdate {
     constructor();
     isVertical: boolean;
@@ -497,11 +605,12 @@ export declare class WuContainer extends WuComponent implements OnConnected, OnB
     connected(shadowRoot: ShadowRoot): void;
     private initIsVertical;
     direction: DirectionEnums;
-    render(_renderProps?: {}, _store?: {}): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }
 
 
-declare type PickerType = 'year' | 'month' | 'date' | 'multiple' | 'week' | 'datetime' | 'datetimerange' | 'daterange' | 'monthrange' | 'yearrange';
+type UISize = 'medium' | 'small' | 'mini';
+type PickerType = 'year' | 'month' | 'date' | 'multiple' | 'week' | 'datetime' | 'datetimerange' | 'daterange' | 'monthrange' | 'yearrange';
 export interface LocaleOptions {
     /****************************PC端***********************************/
     month?: string[];
@@ -561,6 +670,7 @@ export declare class WuDatePicker extends WuComponent implements OnConnected, On
     connected(shadowRoot: ShadowRoot): void;
     disConnected(): void;
     change(data: any): any;
+    get newDefault(): any;
     mountPicker(): void;
     height: string;
     disabledChange(val: boolean, old: boolean): void;
@@ -569,16 +679,19 @@ export declare class WuDatePicker extends WuComponent implements OnConnected, On
 }
 
 
+import "@wu-component/wu-transition";
 export declare class WuDialog extends WuComponent {
     constructor();
     visible: boolean;
+    show: boolean;
     closeOnClickModal: boolean;
     showClose: boolean;
     lockScroll: boolean;
     zIndex: number;
-    title: string;
+    caption: string;
     width: string;
-    visibleChange(val: boolean): void;
+    transitionRef: any;
+    visibleChange(val: boolean, old: boolean): void;
     /**
      * 弹框打开
      */
@@ -614,7 +727,7 @@ export declare class WuDialog extends WuComponent {
     render(_renderProps?: {}, _store?: {}): any;
 }
 
-import "./ImgEmpty";
+import "./ImgEmpty.tsx";
 export declare class WuEmpty extends WuComponent {
     constructor();
     image: string;
@@ -630,7 +743,7 @@ export declare class WuEmpty extends WuComponent {
 export declare class WuFooter extends WuComponent {
     constructor();
     height: string;
-    render(_renderProps?: {}, _store?: {}): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }
 
 export declare class WuFrom extends WuComponent implements OnConnected {
@@ -661,7 +774,7 @@ export declare class WuFromItem extends WuComponent {
     novalidate: boolean;
     method(): void;
     action(): void;
-    render(_renderProps?: {}, _store?: {}): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }
 
 export declare class WuFormLabelWrap extends WuComponent implements OnConnected, OnUpdated, OnDisConnected {
@@ -679,7 +792,7 @@ export declare class WuFormLabelWrap extends WuComponent implements OnConnected,
     getLabelWidth(): number;
     updateLabelWidth(action?: string): void;
     computedWidthChange(val: string, oldVal: string): void;
-    render(_renderProps?: {}, _store?: {}): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }
 
 export declare class WuFrom1 extends WuComponent implements OnConnected {
@@ -698,7 +811,7 @@ export declare class WuFrom1 extends WuComponent implements OnConnected {
     get validity(): boolean;
     get formdata(): FormData;
     connected(shadowRoot: ShadowRoot): void;
-    render(_renderProps?: {}, _store?: {}): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
     submit(): Promise<void>;
     checkValidity(): boolean;
     reset(): void;
@@ -713,10 +826,11 @@ export declare class WuHeader extends WuComponent {
 export declare class WuIcon extends WuComponent {
     constructor();
     name: string;
-    render(_renderProps?: {}, _store?: {}): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }
 
 import Viewer from './viewer/viewer.esm.js';
+type TypeEnums = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down' | '';
 export declare class WuImage extends WuComponent implements OnConnected, OnDisConnected {
     constructor();
     viewer: Viewer;
@@ -750,6 +864,7 @@ export declare class WuImage extends WuComponent implements OnConnected, OnDisCo
     };
     get alignCenter(): boolean;
     get preview(): boolean;
+    get imgList(): string[];
     get imageIndex(): number;
     /**
      * 图片加载完成
@@ -794,7 +909,7 @@ export declare class WuImage extends WuComponent implements OnConnected, OnDisCo
     closeViewer(): void;
     connected(shadowRoot: ShadowRoot): void;
     disConnected(): void;
-    render(_renderProps?: {}, _store?: {}): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }
 
 
@@ -804,6 +919,8 @@ export declare class WuInject extends WuComponent implements OnConnected {
     render(_renderProps?: {}, _store?: {}): any;
 }
 
+type UISize = 'medium' | 'small' | 'mini';
+type TypeEnums = 'textarea' | 'input';
 export declare class WuInput extends WuComponent implements OnInstall {
     wuForm: any;
     wuFormItem: any;
@@ -862,6 +979,11 @@ export declare class WuInput extends WuComponent implements OnInstall {
      */
     handleInput(e: any): any;
     /**
+     * 修正数据
+     * @private
+     */
+    private correctValue;
+    /**
      * 聚焦
      */
     focus(): void;
@@ -873,10 +995,12 @@ export declare class WuInput extends WuComponent implements OnInstall {
      * 清除
      */
     clearInput(): string;
-    render(): any;
+    render(): h.JSX.Element;
 }
 
 
+type UISize = 'medium' | 'small' | 'mini';
+type TypeEnums = 'textarea' | 'input';
 export declare class WuInputNumber extends WuComponent implements OnInstall {
     wuForm: any;
     wuFormItem: any;
@@ -956,7 +1080,7 @@ export declare class WuLeafletMap extends WuComponent {
     render(_renderProps?: {}, _store?: {}): any;
 }
 
-declare type WuLinkType = 'primary' | 'success' | 'warning' | 'danger' | 'info';
+type WuLinkType = 'primary' | 'success' | 'warning' | 'danger' | 'info';
 export declare class WuLink extends WuComponent implements OnConnected, OnBeforeRender {
     constructor();
     beforeRender(): void;
@@ -1003,8 +1127,8 @@ export declare class WuMapboxMap extends WuComponent {
     render(_renderProps?: {}, _store?: {}): any;
 }
 
-declare type ModeEnums = 'horizontal' | 'vertical';
-declare type MenuTriggerEnums = 'hover' | 'click';
+type ModeEnums = 'horizontal' | 'vertical';
+type MenuTriggerEnums = 'hover' | 'click';
 export declare class WuMenu extends WuComponent implements OnConnected {
     constructor();
     activeIndex: string;
@@ -1101,6 +1225,7 @@ export declare class WuMenuItem extends WuComponent implements OnConnected, OnDi
     render(_renderProps?: {}, _store?: {}): any;
 }
 
+type ShadowEnums = 'always' | 'hover' | 'never';
 export declare class WuMenuItemGroup extends WuComponent implements OnConnected {
     constructor();
     connected(shadowRoot: ShadowRoot): void;
@@ -1174,7 +1299,8 @@ export declare class WuSubMenu extends WuComponent implements OnConnected, OnDis
     render(_renderProps?: {}, _store?: {}): any;
 }
 
-export declare type PositionEnums = 'top';
+export type TypeEnums = 'success' | 'warning' | 'info' | 'error';
+export type PositionEnums = 'top';
 export declare class WuMessage extends WuComponent {
     constructor();
     timer: any;
@@ -1230,6 +1356,8 @@ export declare class WuPagination extends WuComponent implements OnBeforeRender 
     beforeRender(): void;
     change(index: number): {
         currentPage: number;
+        pageSize: number;
+        total: number;
     };
     private goto;
     private getInterval;
@@ -1260,9 +1388,12 @@ export declare class WuPopconfirm extends WuComponent {
     render(_renderProps?: {}, _store?: {}): any;
 }
 
-export declare class WuPopover extends WuComponent implements OnConnected {
+export type TypeEnums = 'success' | 'warning' | 'info' | 'error';
+export declare class WuPopover extends WuComponent implements OnConnected, OnDisConnected {
     constructor();
+    private maskClick;
     connected(shadowRoot: ShadowRoot): void;
+    disConnected(shadowRoot: ShadowRoot): void;
     position: Placement;
     effect: string;
     trigger: string;
@@ -1270,10 +1401,20 @@ export declare class WuPopover extends WuComponent implements OnConnected {
     content: string;
     private timeout;
     isShow: boolean;
+    /**
+     * 打开关闭是否完全受控
+     */
+    controlled: boolean;
     private appear;
     disappear: boolean;
     disabled: boolean;
+    closeOnClickHtml: boolean;
     private popper;
+    /**
+     * 鼠标点击关闭是有有效
+     * @private
+     */
+    private mouseCloseEffective;
     closeEmit(): {
         value: boolean;
     };
@@ -1283,14 +1424,14 @@ export declare class WuPopover extends WuComponent implements OnConnected {
     leave(): void;
     onLeavePopover: () => void;
     onLeave: () => void;
-    render(_renderProps?: {}, _store?: {}): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }
 
-declare type StatusEnums = 'success' | 'exception' | 'warning';
-declare type StrokeLinecapEnums = 'butt' | 'round' | 'square';
+type TypeEnums = 'line' | 'circle' | 'dashboard';
+type StatusEnums = 'success' | 'exception' | 'warning';
+type StrokeLinecapEnums = 'butt' | 'round' | 'square';
 export declare class WuProgress extends WuComponent {
     constructor();
-    props: any;
     type: TypeEnums;
     percentage: number;
     status: StatusEnums;
@@ -1361,6 +1502,7 @@ export declare class WuProvide extends WuComponent implements OnConnected {
     connected(shadowRoot: ShadowRoot): any;
 }
 
+type UISize = 'medium' | 'small' | 'mini';
 export declare class WuRadio extends WuComponent implements OnConnected {
     constructor();
     wuForm: any;
@@ -1467,8 +1609,9 @@ declare class WuRightMenu extends HTMLElement {
 }
 export { Menu, RightMenuCore, WuRightMenu };
 
-declare type JustifyEnums = 'start' | 'end' | 'center' | 'space-around' | 'space-between';
-declare type AlignEnums = 'top' | 'middle' | 'bottom';
+type JustifyEnums = 'start' | 'end' | 'center' | 'space-around' | 'space-between';
+type TypeEnums = 'flex' | '' | undefined;
+type AlignEnums = 'top' | 'middle' | 'bottom';
 export declare class WuRow extends WuComponent {
     constructor();
     name: string;
@@ -1483,11 +1626,15 @@ export declare class WuRow extends WuComponent {
 }
 
 
-export declare class WuSelect extends WuComponent implements OnConnected, OnBeforeUpdate {
+type UISize = 'medium' | 'small' | 'mini';
+import type { WuPopover } from "@wu-component/wu-popover";
+export declare class WuSelect extends WuComponent implements OnConnected, OnBeforeUpdate, OnDisConnected {
     constructor();
     beforeUpdate(): void;
     private initOptions;
+    maskClick(e: any): void;
     connected(shadowRoot: ShadowRoot): void;
+    disConnected(shadowRoot: ShadowRoot): void;
     /**
      * 多选tag大小
      */
@@ -1499,7 +1646,7 @@ export declare class WuSelect extends WuComponent implements OnConnected, OnBefo
     hoverIndex: number;
     label: string;
     options: WuSelectOptions[];
-    popover: any;
+    popoverRef: WuPopover;
     tagsRef: any;
     _refInput: any;
     inputWidth: 0;
@@ -1574,11 +1721,12 @@ export declare class WuSelect extends WuComponent implements OnConnected, OnBefo
      * @param event
      */
     clear(event: Event): Event;
-    render(_renderProps?: {}, _store?: {}): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }
 
 
-export declare class WuSelectOptions extends WuComponent {
+type UISize = 'medium' | 'small' | 'mini';
+export declare class WuSelectOptions extends WuComponent implements OnConnected {
     constructor();
     selectRef: any;
     label: string;
@@ -1587,11 +1735,16 @@ export declare class WuSelectOptions extends WuComponent {
     value: string;
     size: UISize;
     selected: boolean;
+    show: boolean;
     handleClose(event: Event): {
         event: Event;
+        label: string;
+        value: string;
     };
     handleClick(event: any): {
         event: any;
+        label: string;
+        value: string;
     };
     /**
      * 设置勾选
@@ -1605,6 +1758,7 @@ export declare class WuSelectOptions extends WuComponent {
     setVisible(val: boolean): void;
     get hover(): boolean;
     selectOptionClick(): this;
+    connected(shadowRoot: ShadowRoot): void;
     clickItem(event: MouseEvent): void;
     hoverItem(): void;
     /**
@@ -1616,9 +1770,9 @@ export declare class WuSelectOptions extends WuComponent {
 
 
 import "./step/index.tsx";
-declare type Direction = 'vertical' | 'horizontal';
-declare type ProcessStatus = 'wait' | 'process' | 'finish' | 'error' | 'success';
-declare type FinishStatus = 'wait' | 'process' | 'finish' | 'error' | 'success';
+type Direction = 'vertical' | 'horizontal';
+type ProcessStatus = 'wait' | 'process' | 'finish' | 'error' | 'success';
+type FinishStatus = 'wait' | 'process' | 'finish' | 'error' | 'success';
 interface StepItem {
     title: string;
     description: string;
@@ -1662,12 +1816,18 @@ export declare class WuSwitch extends WuComponent implements OnConnected {
     checkedChange(val: any, oldVal: any): void;
     handleChange(): void;
     switchValue(): void;
-    inputEmit(): boolean;
-    changeEmit(): boolean;
+    inputEmit(): {
+        value: boolean;
+    };
+    changeEmit(): {
+        value: boolean;
+    };
     render(_renderProps?: {}, _store?: {}): any;
 }
 
 export declare class WuTable extends WuComponent implements OnConnected, OnBeforeRender {
+    setColumns: (...args: any[]) => void;
+    setData: (...args: any[]) => void;
     constructor();
     editingInput: any;
     beforeRender(): void;
@@ -1751,7 +1911,9 @@ export declare class WuTable extends WuComponent implements OnConnected, OnBefor
     render(_renderProps?: {}, _store?: {}): any;
 }
 
-declare type EffectEnums = 'dark' | 'light' | 'plain';
+type UISize = 'medium' | 'small' | 'mini';
+type EffectEnums = 'dark' | 'light' | 'plain';
+type TypeEnums = 'success' | 'info' | 'warning' | 'danger';
 export declare class WuTag extends WuComponent {
     constructor();
     text: string;
@@ -1765,6 +1927,8 @@ export declare class WuTag extends WuComponent {
     effect: EffectEnums;
     handleClose(event: Event): {
         event: Event;
+        value: string;
+        text: string;
     };
     handleClick(event: any): {
         event: any;
@@ -1774,6 +1938,41 @@ export declare class WuTag extends WuComponent {
     render(_renderProps?: {}, _store?: {}): any;
 }
 
+
+export declare class WuTerminal extends WuComponent implements OnConnected, OnDisConnected {
+    constructor();
+    terminal: Terminal;
+    ws: WebSocket;
+    options: ITerminalOptions & ITerminalInitOnlyOptions;
+    connected(shadowRoot: ShadowRoot): void;
+    disConnected(shadowRoot: ShadowRoot): void;
+    private initNodEnv;
+    attachAddon: AttachAddon;
+    fitAddon: FitAddon;
+    searchAddon: SearchAddon;
+    webLinksAddon: WebLinksAddon;
+    unicode11Addon: Unicode11Addon;
+    serializeAddon: SerializeAddon;
+    open(): void;
+    /**
+     * socket 初始化
+     * @private
+     */
+    private initSocket;
+    /**
+     * 窗口缩放自适应
+     * @private
+     */
+    private initUI;
+    /**
+     * 控制台大小变化
+     * @private
+     */
+    private termOnSize;
+    pid: string;
+    socket: string;
+    render(_renderProps?: {}, _store?: {}): any;
+}
 
 import "@wu-component/wu-time-line-item";
 export declare class WuTimeLine extends WuComponent {
@@ -1813,6 +2012,11 @@ export declare class WuTooltip extends WuComponent implements OnConnected {
     render(_renderProps?: {}, _store?: {}): any;
 }
 
+declare function domTransitionReady(callback: any): void;
+declare namespace domTransitionReady {
+    var done: boolean;
+}
+export default domTransitionReady;
 export declare class WuTransition extends WuComponent implements OnConnected {
     constructor();
     name: string;
@@ -1857,6 +2061,7 @@ interface DataOptions {
     label: string;
     disabled: string;
 }
+type TypeEnums = 'checkbox' | 'radio' | false;
 export declare class WuTree extends WuComponent implements OnConnected {
     constructor();
     private tree;
@@ -1934,7 +2139,6 @@ export declare class WuTreeV2 extends WuComponent implements OnConnected {
     renderCaret: () => any;
     isTree: any;
     childNodeRendered: any;
-    draggable: any;
     iconclass: any;
     showCheckbox: boolean;
     renderAfterExpand: boolean;
@@ -2040,6 +2244,7 @@ export declare class WuTreeV2 extends WuComponent implements OnConnected {
         halfCheckedNodes: any;
         halfCheckedKeys: any;
     };
+    dropIndicator: any;
     /****************************************树节点***********************************************/
     handleClick(e: MouseEvent, node: Node): void;
     handleDragStart(e: MouseEvent): void;
@@ -2059,8 +2264,8 @@ export declare const closeIcon: () => any;
 export declare const circleIcon: () => any;
 export declare const checkIcon: () => any;
 export declare const deleteIcon: () => any;
-declare type ListTypeEnum = 'text' | 'picture' | 'picture-card';
-export declare class WuUpload extends WuComponent {
+type ListTypeEnum = 'text' | 'picture' | 'picture-card';
+export declare class WuUpload extends WuComponent implements OnConnected {
     disabled: boolean;
     multiple: boolean;
     action: string;
@@ -2083,6 +2288,7 @@ export declare class WuUpload extends WuComponent {
     focusing: boolean;
     tempIndex: number;
     constructor();
+    connected(shadowRoot: ShadowRoot): void;
     emitFile(files: File[]): {
         files: File[];
     };
@@ -2104,6 +2310,12 @@ export declare class WuUpload extends WuComponent {
     onRemove(params: Record<any, any>): {
         [x: string]: any;
     };
+    /**
+     * 文件数据修改
+     * @param fileList
+     * @private
+     */
+    private fileListChangeCallback;
     fileListChange(fileList: File[]): void;
     submit(): void;
     /**
@@ -2389,7 +2601,7 @@ export declare class WuWalineComment extends WuComponent implements OnConnected,
     connected(shadowRoot: ShadowRoot): void;
     updateConfig(options: WalineInitOptions): void;
     disConnected(): void;
-    render(_renderProps?: {}, _store?: {}): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }
 export declare class WuWalineCommentShadow extends WuComponent implements OnConnected, OnDisConnected {
     private waline;
@@ -2610,6 +2822,18 @@ export declare class WuWalineCommentShadow extends WuComponent implements OnConn
     connected(shadowRoot: ShadowRoot): void;
     updateConfig(options: WalineInitOptions): void;
     disConnected(): void;
-    render(_renderProps?: {}, _store?: {}): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
+}
+
+import "@wu-component/wu-code-sandbox";
+export declare class WuWalineCommentSandbox extends WuComponent implements OnConnected, OnDisConnected {
+    constructor();
+    corepath: string;
+    compath: string;
+    path: string;
+    serverurl: string;
+    private sandboxDom;
+    messageFun(e: any): void;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }
 

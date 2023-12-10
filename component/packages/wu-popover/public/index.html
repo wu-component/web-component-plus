@@ -6,7 +6,18 @@
 </head>
 <body>
 <div id="app">
-    <wu-test-example></wu-test-example>
+    <wu-plus-popover style="width: 160px">
+        <wu-plus-button size="mini"  type="primary">点击触发弹出底部信息</wu-plus-button>
+        <div slot="popover" tip="popover">
+            <div style="height: 28px;line-height: 28px;padding-left: 6px;">提示信息</div>
+        </div>
+    </wu-plus-popover>
+    <wu-plus-popover style="width: 160px" position="top">
+        <wu-plus-button size="mini"  type="primary" >点击触发弹出顶部信息</wu-plus-button>
+        <div slot="popover" tip="popover">
+            <div style="height: 28px;line-height: 28px;padding-left: 6px;">提示信息</div>
+        </div>
+    </wu-plus-popover>
 </div>
 </body>
 </html>

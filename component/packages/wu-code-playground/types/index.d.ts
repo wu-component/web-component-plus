@@ -1,4 +1,4 @@
-import { OnConnected, WuComponent } from '@wu-component/web-core-plus';
+import { h, OnConnected, WuComponent } from '@wu-component/web-core-plus';
 import "@wu-component/wu-code-monaco-editor";
 import "@wu-component/wu-code-sandbox";
 import "@wu-component/wu-alert";
@@ -42,7 +42,7 @@ export declare class WuCodePlayground extends WuComponent implements OnConnected
      * @private
      */
     private noticeClose;
-    renderLoading(): any;
-    render(_renderProps?: {}, _store?: {}): any;
+    renderLoading(): h.JSX.Element;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }
 export {};

@@ -1,4 +1,4 @@
-import { OnConnected, OnBeforeRender, OnUpdated, OnBeforeUpdate, WuComponent } from '@wu-component/web-core-plus';
+import { h, OnConnected, OnBeforeRender, OnUpdated, OnBeforeUpdate, WuComponent } from '@wu-component/web-core-plus';
 import "@wu-component/wu-checkbox";
 type UISize = 'medium' | 'small' | 'mini';
 export declare class WuCheckboxGroup extends WuComponent implements OnConnected, OnUpdated, OnBeforeRender, OnBeforeUpdate {
@@ -22,6 +22,6 @@ export declare class WuCheckboxGroup extends WuComponent implements OnConnected,
     connected(shadowRoot: ShadowRoot): void;
     updated(): void;
     updateChild(): any;
-    render(_renderProps?: {}, _store?: {}): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }
 export {};

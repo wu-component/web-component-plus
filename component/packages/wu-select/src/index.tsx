@@ -40,10 +40,10 @@ export class WuSelect extends WuComponent implements OnConnected, OnBeforeUpdate
     public maskClick(e) {
         // admin 系统里 e.target.localName 直接输出 my-app 了
         // if (e.target.localName === 'wu-cascader') return
-        if (this.popover.isShow) {
-            if (this.popover) {
-                this.popover.isShow = false;
-                this.popover.update();
+        if (this.popoverRef.isShow) {
+            if (this.popoverRef) {
+                this.popoverRef.isShow = false;
+                this.popoverRef.update();
             }
         }
     }
@@ -102,7 +102,7 @@ export class WuSelect extends WuComponent implements OnConnected, OnBeforeUpdate
 
     public options: WuSelectOptions[] = [];
 
-    public popover: WuPopover = null;
+    public popoverRef: WuPopover = null;
 
     public tagsRef = null;
 
@@ -190,9 +190,9 @@ export class WuSelect extends WuComponent implements OnConnected, OnBeforeUpdate
         }
         if (!this.multiple) {
             Promise.resolve().then(() => {
-                if (this.popover) {
-                    this.popover.isShow = false;
-                    this.popover.update();
+                if (this.popoverRef) {
+                    this.popoverRef.isShow = false;
+                    this.popoverRef.update();
                 }
             });
         }
@@ -335,7 +335,10 @@ export class WuSelect extends WuComponent implements OnConnected, OnBeforeUpdate
                 onMouseleave={this.onMouseleave.bind(this)}
             >
                 {/* @ts-ignore*/}
-                <wu-plus-popover ref={e => (this.popover = e)} position="bottom" disabled={this.disabled}>
+                <wu-plus-popover ref={(e) =>{
+                    console.log(e)
+                    this.popoverRef = e
+                }} position="bottom" disabled={this.disabled}>
                     <div>
                         {this.multiple ? (
                             <div class="wu-select_tags" ref={e => (this.tagsRef = e)} style={{ 'max-width': this.inputWidth - 32 + 'px', width: '100%' }}>
