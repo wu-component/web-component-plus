@@ -1,4 +1,4 @@
-import { OnConnected, OnBeforeUpdate, WuComponent } from '@wu-component/web-core-plus';
+import { h, OnConnected, OnBeforeUpdate, WuComponent } from '@wu-component/web-core-plus';
 type DirectionEnums = 'vertical' | 'horizontal' | any;
 export declare class WuContainer extends WuComponent implements OnConnected, OnBeforeUpdate {
     constructor();
@@ -7,6 +7,6 @@ export declare class WuContainer extends WuComponent implements OnConnected, OnB
     connected(shadowRoot: ShadowRoot): void;
     private initIsVertical;
     direction: DirectionEnums;
-    render(_renderProps?: {}, _store?: {}): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }
 export {};

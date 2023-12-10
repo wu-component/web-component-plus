@@ -1,4 +1,4 @@
-import { OnConnected, OnDisConnected, WuComponent } from '@wu-component/web-core-plus';
+import { h, OnConnected, OnDisConnected, WuComponent } from '@wu-component/web-core-plus';
 import Viewer from './viewer/viewer.esm.js';
 type TypeEnums = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down' | '';
 export declare class WuImage extends WuComponent implements OnConnected, OnDisConnected {
@@ -79,6 +79,6 @@ export declare class WuImage extends WuComponent implements OnConnected, OnDisCo
     closeViewer(): void;
     connected(shadowRoot: ShadowRoot): void;
     disConnected(): void;
-    render(_renderProps?: {}, _store?: {}): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }
 export {};

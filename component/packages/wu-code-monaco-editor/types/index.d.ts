@@ -1,4 +1,4 @@
-import { OnConnected, WuComponent } from "@wu-component/web-core-plus";
+import { h, OnConnected, WuComponent } from "@wu-component/web-core-plus";
 export declare class WuCodeMonacoEditor extends WuComponent implements OnConnected {
     constructor();
     initialValue: string;
@@ -45,5 +45,5 @@ export declare class WuCodeMonacoEditor extends WuComponent implements OnConnect
     resizeFun(e: any): void;
     connected(shadowRoot: ShadowRoot): void;
     disConnected(shadowRoot: ShadowRoot): void;
-    render(_renderProps?: {}, _store?: {}): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }

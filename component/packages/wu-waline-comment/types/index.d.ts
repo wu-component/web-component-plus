@@ -1,4 +1,4 @@
-import { WuComponent, OnConnected, OnDisConnected } from '@wu-component/web-core-plus';
+import { h, WuComponent, OnConnected, OnDisConnected } from '@wu-component/web-core-plus';
 import { WalineEmojiInfo, WalineHighlighter, WalineImageUploader, WalineMeta, WalineSearchOptions, WalineTexRenderer, WalineInitOptions, WalineLocale } from "@waline/client/src/typings";
 export declare class WuWalineComment extends WuComponent implements OnConnected, OnDisConnected {
     private waline;
@@ -219,7 +219,7 @@ export declare class WuWalineComment extends WuComponent implements OnConnected,
     connected(shadowRoot: ShadowRoot): void;
     updateConfig(options: WalineInitOptions): void;
     disConnected(): void;
-    render(_renderProps?: {}, _store?: {}): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }
 export declare class WuWalineCommentShadow extends WuComponent implements OnConnected, OnDisConnected {
     private waline;
@@ -440,5 +440,5 @@ export declare class WuWalineCommentShadow extends WuComponent implements OnConn
     connected(shadowRoot: ShadowRoot): void;
     updateConfig(options: WalineInitOptions): void;
     disConnected(): void;
-    render(_renderProps?: {}, _store?: {}): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }

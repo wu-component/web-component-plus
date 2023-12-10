@@ -1,4 +1,4 @@
-import { WuComponent, OnConnected, OnUpdated, OnDisConnected } from '@wu-component/web-core-plus';
+import { h, WuComponent, OnConnected, OnUpdated, OnDisConnected } from '@wu-component/web-core-plus';
 export declare class WuFormLabelWrap extends WuComponent implements OnConnected, OnUpdated, OnDisConnected {
     computedWidth: number;
     childDomList: Node[];
@@ -14,5 +14,5 @@ export declare class WuFormLabelWrap extends WuComponent implements OnConnected,
     getLabelWidth(): number;
     updateLabelWidth(action?: string): void;
     computedWidthChange(val: string, oldVal: string): void;
-    render(_renderProps?: {}, _store?: {}): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }

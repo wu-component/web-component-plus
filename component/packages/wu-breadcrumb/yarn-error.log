@@ -107,7 +107,7 @@ npm manifest:
       "webpack-dev-server": "^4.9.0"
     },
     "dependencies": {
-      "@wu-component/web-core-plus": "next",
+      "@wu-component/web-core-plus": "latest",
       "@wu-component/wu-breadcrumb-item": "latest"
     }
   }

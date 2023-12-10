@@ -15,6 +15,9 @@ export class WuPopover extends WuComponent implements OnConnected , OnDisConnect
     }
 
     private maskClick(e) {
+        if(!this.mouseCloseEffective) {
+            return;
+        }
         if (this.trigger === 'manual') return;
         if (e?.target?.tagName !== "WU-PLUS-POPOVER"){
             if (this.closeOnClickHtml) {
@@ -58,6 +61,13 @@ export class WuPopover extends WuComponent implements OnConnected , OnDisConnect
     @Prop({ type: Boolean, default: false })
     public isShow = false;
 
+    /**
+     * 打开关闭是否完全受控
+     */
+    @Prop({ type: Boolean, default: false })
+    public controlled = false;
+
+
     @Prop({ type: Boolean, default: false })
     private appear = false;
 
@@ -68,9 +78,15 @@ export class WuPopover extends WuComponent implements OnConnected , OnDisConnect
     public disabled: boolean;
 
     @Prop({ default: true, type: Boolean })
-    public closeOnClickHtml: boolean = true;
+    public closeOnClickHtml = true;
 
     private popper = null;
+
+    /**
+     * 鼠标点击关闭是有有效
+     * @private
+     */
+    private mouseCloseEffective = true
 
     @Emit('close')
     public closeEmit() {
@@ -81,6 +97,7 @@ export class WuPopover extends WuComponent implements OnConnected , OnDisConnect
 
     public onEnter = evt => {
         if (this.disabled) return;
+        this.mouseCloseEffective = false;
         clearTimeout(this.timeout);
         this.isShow = !this.isShow;
         if (this.isShow) {
@@ -134,6 +151,7 @@ export class WuPopover extends WuComponent implements OnConnected , OnDisConnect
     }
 
     public onLeavePopover = () => {
+        this.mouseCloseEffective = true;
         if (this.trigger === 'hover') {
             this.timeout = setTimeout(() => {
                 this.leave();

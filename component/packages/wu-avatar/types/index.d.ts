@@ -1,4 +1,4 @@
-import { WuComponent } from '@wu-component/web-core-plus';
+import { h, WuComponent } from '@wu-component/web-core-plus';
 type ShapeEnums = 'circle' | 'square';
 type FitEnums = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down';
 export declare class WuAvatar extends WuComponent {
@@ -13,7 +13,7 @@ export declare class WuAvatar extends WuComponent {
     isImageExist: boolean;
     get avatarClass(): string;
     handleError(event: Event): Event;
-    renderAvatar(): any;
-    render(_renderProps?: {}, _store?: {}): any;
+    renderAvatar(): h.JSX.Element;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }
 export {};

@@ -161,6 +161,8 @@ export class WuCheckbox extends WuComponent implements OnConnected, OnBeforeUpda
                         'is-focus': this.focus,
                         'is-checked': this.checked,
                     })}
+
+                    // @ts-ignore
                     tabindex={this.indeterminate ? 0 : false}
                     // @ts-ignore
                     role={this.indeterminate ? 'checkbox' : false}

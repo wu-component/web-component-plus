@@ -1,4 +1,4 @@
-import { WuComponent, OnConnected } from '@wu-component/web-core-plus';
+import { h, WuComponent, OnConnected } from '@wu-component/web-core-plus';
 export declare class WuFrom1 extends WuComponent implements OnConnected {
     private form;
     private elements;
@@ -15,7 +15,7 @@ export declare class WuFrom1 extends WuComponent implements OnConnected {
     get validity(): boolean;
     get formdata(): FormData;
     connected(shadowRoot: ShadowRoot): void;
-    render(_renderProps?: {}, _store?: {}): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
     submit(): Promise<void>;
     checkValidity(): boolean;
     reset(): void;

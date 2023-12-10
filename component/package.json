@@ -80,6 +80,6 @@
     "chalk": "4.1.2"
   },
   "dependencies": {
-    "@wu-component/web-core-plus": "next"
+    "@wu-component/web-core-plus": "latest"
   }
 }

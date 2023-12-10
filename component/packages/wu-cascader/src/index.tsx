@@ -188,27 +188,37 @@ export class WuCascader extends WuComponent implements OnConnected, OnDisConnect
                     ref={(e) => (this.popoverRef = e)}
                     trigger="manual"
                     position="bottom"
-                >{/*@ts-ignore*/}
+                >
 
-                    <wu-plus-input
-                        class="wu-cascader-input"
-                        ref={(e) => (this.inputRef = e)}
-                        value={this.getLabelsByValue(this.value)}
-                        suffix-icon="keyboard-arrow-down"
-                        disabled
-                        size={this.size}
-                        onClick={(e) => {
+                    <div class="wu-cascader-input-container">
+                        <div
+                            class="wu-cascader-input-overlay"
+                            onClick={(e) => {
                             if (this.disabled) return;
                             this.popoverRef.onEnter(e);
-                        }}
-                        style={{
-                            cursor: this.disabled ? 'not-allowed' : 'pointer',
-                            color: this.disabled ? '' : '#606266',
-                            // border: 'transparent',
-                            backgroundColor: this.disabled ? '' : 'white',
-                            borderRadius: 5
-                        }}
+                        }}></div>
+                        {/*@ts-ignore*/}
+                        <wu-plus-input
+                            className="wu-cascader-input"
+                            ref={(e) => (this.inputRef = e)}
+                            value={this.getLabelsByValue(this.value)}
+                            suffix-icon="keyboard-arrow-down"
+                            disabled={true}
+                            size={this.size}
+                            onClick={(e) => {
+                                if (this.disabled) return;
+                                this.popoverRef.onEnter(e);
+                            }}
+                            style={{
+                                cursor: this.disabled ? 'not-allowed' : 'pointer',
+                                color: this.disabled ? '' : '#606266',
+                                // border: 'transparent',
+                                backgroundColor: this.disabled ? '' : 'white',
+                                borderRadius: 5
+                            }}
                         />
+                    </div>
+
 
                     <div slot="popover" class="wu-cascader-dropdown_wrap">
                         <ul class="wu-cascader-dropdown_menu">

@@ -1,6 +1,6 @@
 {
   "name": "@wu-component/wu-terminal",
-  "version": "2.0.1",
+  "version": "2.0.3",
   "description": "> TODO: description",
   "author": "Marvin <yongfeide123@gmail.com>",
   "homepage": "",
@@ -87,7 +87,7 @@
   },
   "dependencies": {
     "@wu-component/common": "latest",
-    "@wu-component/web-core-plus": "next",
+    "@wu-component/web-core-plus": "latest",
     "axios": "^1.3.4",
     "sass-migrator": "^1.7.2",
     "xterm": "^5.1.0",

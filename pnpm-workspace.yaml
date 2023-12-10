@@ -5,3 +5,6 @@ packages:
   - 'packages/wu-core-router'
   - 'packages/wu-build-tools'
   - 'packages/wu-component-icon'
+  - 'component/packages/*'
+  - 'component'
+  # exclude packages that are inside test directories

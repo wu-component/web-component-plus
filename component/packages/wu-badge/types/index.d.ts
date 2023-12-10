@@ -1,4 +1,4 @@
-import { OnConnected, OnBeforeUpdate, WuComponent } from '@wu-component/web-core-plus';
+import { h, OnConnected, OnBeforeUpdate, WuComponent } from '@wu-component/web-core-plus';
 type TypeEnums = 'primary' | 'success' | 'warning' | 'info' | 'danger';
 export declare class WuBadge extends WuComponent implements OnConnected, OnBeforeUpdate {
     constructor();
@@ -13,6 +13,6 @@ export declare class WuBadge extends WuComponent implements OnConnected, OnBefor
     isFixed: boolean;
     get content(): any;
     handleError(event: Event): Event;
-    render(_renderProps?: {}, _store?: {}): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }
 export {};

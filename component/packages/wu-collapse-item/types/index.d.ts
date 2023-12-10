@@ -1,4 +1,4 @@
-import { WuComponent } from '@wu-component/web-core-plus';
+import { h, WuComponent } from '@wu-component/web-core-plus';
 import type { WuCollapse } from "../types/type";
 export declare class WuCollapseItem extends WuComponent {
     constructor();
@@ -15,5 +15,5 @@ export declare class WuCollapseItem extends WuComponent {
     handleFocus(): void;
     handleHeaderClick(): void;
     handleEnterClick(): void;
-    render(_renderProps?: {}, _store?: {}): any;
+    render(_renderProps?: {}, _store?: {}): h.JSX.Element;
 }

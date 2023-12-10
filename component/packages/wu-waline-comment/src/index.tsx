@@ -4,11 +4,13 @@ import css from "./index.scss";
 // import { init } from "@waline/client/dist/waline.mjs";
 import { init } from "./core/waline.mjs";
 import type { WalineInstance } from "@waline/client/dist/waline";
+// @ts-ignore
 import  {
     WalineEmojiInfo,
     WalineHighlighter,
     WalineImageUploader,
     WalineMeta,
+    // @ts-ignore
     WalineSearchOptions, WalineTexRenderer,
     WalineInitOptions,
     WalineLocale

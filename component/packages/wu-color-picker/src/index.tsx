@@ -2,6 +2,7 @@ type UISize = 'medium' | 'small' | 'mini';
 import { h, Component, Prop, OnConnected, WuComponent, State, Watch, Emit } from '@wu-component/web-core-plus';
 import css from './index.scss';
 import '@wu-component/wu-popover';
+// import '../../wu-popover/src/index.tsx';
 import '@wu-component/wu-button';
 import { WuColorPane } from "./color-pane";
 import './color-pane/index.tsx';
@@ -14,7 +15,7 @@ import { extractClass } from "@wu-component/common";
     css: css,
 })
 export class WuColorPicker extends WuComponent implements OnConnected {
-    public popover: any;
+    public popoverDomRef: any;
     public popoverRef: any;
     public popcon: any;
     public colorPane: WuColorPane;
@@ -43,7 +44,7 @@ export class WuColorPicker extends WuComponent implements OnConnected {
 
 
     public override connected(shadowRoot: ShadowRoot) {
-        this.popover = this.shadowRoot.getElementById('popover');
+        this.popoverDomRef = this.shadowRoot.getElementById('popover');
         this.popcon = this.shadowRoot.getElementById('popcon');
         this.popcon.addEventListener('close', this.updateColorPane);
         this.val = this.defaultvalue;
@@ -67,6 +68,7 @@ export class WuColorPicker extends WuComponent implements OnConnected {
      * 确认颜色
      */
     public cancleCallback() {
+        console.log("点击取消")
         // this.colorPane.defaultvalue = this.val;
         this.colorPane.init(this.val);
         this.popoverRef?.leave();

@@ -73,17 +73,21 @@ export class TestComponent extends WuComponent  implements OnConnected {
     private chRef = null;
 
     public override render() {
-        console.log(this.clearable, typeof this.clearable)
+        console.log(this.clearable, typeof this.clearable);
+        //
+        // @ts-ignore
         return (
             <div class="container">
                 <button onClick={() => {
                     // console.log("this.clearable", this.clearable);
                     this.clearable = !this.clearable;
-                    console.log(this.clearable)
+                    console.log(this.clearable);
                 }}>
                     this修改
                 </button>
                 <span>{this.clearable? '能清除': '不能清楚'}</span>
+                {/*@ts-ignore*/}
+                <test-example1 ref={(e) =>{console.log(e)}} />
             </div>
         );
     }
