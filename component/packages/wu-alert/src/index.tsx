@@ -6,8 +6,32 @@ const TYPE_CLASSES_MAP = {
     'warning': 'el-icon-warning',
     'error': 'el-icon-error'
 };
+
+const TAG = 'wu-plus-alert';
+interface WuAlertProps {
+    visible?: boolean;
+    tip?: string;
+    description?: string;
+    type?: TypeEnums;
+    closable?: boolean;
+    closeText?: string;
+    showIcon?: boolean;
+    center?: boolean;
+    effect?: string;
+    onConfirm: (e: any) => void;
+    onCancel: (e: any) => void;
+    onClose: (e: any) => void;
+    [key: string]: any;
+}
+declare global {
+    namespace JSX {
+        interface IntrinsicElements {
+           [TAG]: WuAlertProps
+        }
+    }
+}
 @Component({
-    name: 'wu-plus-alert',
+    name: TAG,
     css: css,
 })
 export class WuAlert extends WuComponent implements OnConnected {

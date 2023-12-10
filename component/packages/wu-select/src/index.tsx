@@ -320,6 +320,7 @@ export class WuSelect extends WuComponent implements OnConnected, OnBeforeUpdate
     }
 
     public override render(_renderProps = {}, _store = {}) {
+        console.log(this.popover)
         const commonAttr: any = {};
         if (!this.filterable) {
             commonAttr.readonly = 'readonly';
@@ -335,7 +336,7 @@ export class WuSelect extends WuComponent implements OnConnected, OnBeforeUpdate
                 onMouseleave={this.onMouseleave.bind(this)}
             >
                 {/* @ts-ignore*/}
-                <wu-plus-popover ref={e => (this.popover = e)} position="bottom" disabled={this.disabled}>
+                <wu-plus-popover position="bottom" disabled={this.disabled}>
                     <div>
                         {this.multiple ? (
                             <div class="wu-select_tags" ref={e => (this.tagsRef = e)} style={{ 'max-width': this.inputWidth - 32 + 'px', width: '100%' }}>

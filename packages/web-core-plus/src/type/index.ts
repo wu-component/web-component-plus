@@ -299,3 +299,10 @@ export interface PropertyDeclaration {
 }
 
 export type converterFunction = (val: any, type?: PropTyp) => any;
+
+/**
+ * 基本的参数
+ */
+export interface BaseProps {
+    css: string;
+}

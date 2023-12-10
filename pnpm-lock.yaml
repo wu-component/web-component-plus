@@ -82,6 +82,7 @@ importers:
       '@types/yaml': ^1.9.7
       '@typescript-eslint/eslint-plugin': ^5.25.0
       '@typescript-eslint/parser': ^5.25.0
+      '@wu-component/wu-build-tools': latest
       body-parser: ^1.19.0
       construct-style-sheets-polyfill: ^3.1.0
       cross-env: ^7.0.3
@@ -148,6 +149,7 @@ importers:
       '@types/yaml': 1.9.7
       '@typescript-eslint/eslint-plugin': 5.41.0_gz2fdvfwaabblk5chrkxpn5hpq
       '@typescript-eslint/parser': 5.41.0_vizf53e6cv7pftwdoqhafjj6fm
+      '@wu-component/wu-build-tools': link:../wu-build-tools
       body-parser: 1.20.1
       cross-env: 7.0.3
       css-loader: 6.7.1_webpack@5.74.0
@@ -8776,7 +8778,7 @@ packages:
     resolution: {integrity: sha512-oWb1Z6mkHIskLzEJ/XWX0srkpkTQ7vaopMQkyaEIoq0fmtFVxOthb8cCxeT+p3ynTdkk/RZwbgG4brR5BeWECw==}
     engines: {node: '>= 4.0'}
     os: [darwin]
-    deprecated: fsevents 1 will break on node v14+ and could be using insecure binaries. Upgrade to fsevents 2.
+    deprecated: The v1 package contains DANGEROUS / INSECURE binaries. Upgrade to safe fsevents v2
     requiresBuild: true
     dependencies:
       bindings: 1.5.0
